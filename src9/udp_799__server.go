@@ -7,88 +7,80 @@ import (
 	"net"
 )
 
-var userIP map[string]string
+var _VuserIP map[string]string
 
 func main() {
-	userIP = map[string]string{}
-	service := ":9999"
-	udpAddr, err := net.ResolveUDPAddr("udp4", service)
-        if err != nil {
-                log.Fatal(err)
+	_VuserIP = map[string]string{}
+	__Vservice := ":9999"
+	__VudpAddr, __Verr := net.ResolveUDPAddr("udp4", __Vservice)
+        if __Verr != nil {
+                log.Fatal(__Verr)
         }
 
-	conn, err := net.ListenUDP("udp", udpAddr)
-        if err != nil {
-                log.Fatal(err)
+	__Vconn, __Verr := net.ListenUDP("udp", __VudpAddr)
+        if __Verr != nil {
+                log.Fatal(__Verr)
         }
 
 	for {
-		handleClient(conn)
+		_FhandleClient(__Vconn)
 	}
-}
+} // main
 
-/*
-   Action:
-           New -- Add a new user
-           Get -- Get a user IP address
-   Username:
-           New -- New user's name
-           Get -- The requested user name
-*/
-func handleClient(conn *net.UDPConn) {
-	var buf [2048]byte
+func _FhandleClient(___Vconn *net.UDPConn) {
+	var __Vbuf [2048]byte
 
-	n, addr, err := conn.ReadFromUDP(buf[0:])
-	if err != nil {
+	__Vn, addr, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
+	if __Verr != nil {
 		return
 	}
 
-	var chatRequest _TchatRequest
-	err = json.Unmarshal(buf[:n], &chatRequest)
-	if err != nil {
-		log.Print(err)
+	var __VchatRequest _TchatRequest
+	__Verr = json.Unmarshal(__Vbuf[:__Vn], &__VchatRequest)
+	if __Verr != nil {
+		log.Print(__Verr)
 		return
 	}
 
-	switch chatRequest.Action {
+	switch __VchatRequest.Action {
 	case "New":
-		remoteAddr := fmt.Sprintf("%s:%d", addr.IP, addr.Port)
-		fmt.Println(remoteAddr, "connecting")
-		userIP[chatRequest.Username] = remoteAddr
+		__VremoteAddr := fmt.Sprintf("%s:%d", addr.IP, addr.Port)
+		fmt.Println(__VremoteAddr, "connecting")
+		_VuserIP[__VchatRequest.Username] = __VremoteAddr
 
 		// Send message back
-		messageRequest := _TchatRequest{
+		__VmessageRequest := _TchatRequest{
 			"Chat",
-			chatRequest.Username,
-			remoteAddr,
+			__VchatRequest.Username,
+			__VremoteAddr,
 		}
-		jsonRequest, err := json.Marshal(&messageRequest)
-		if err != nil {
-			log.Print(err)
+		__VjsonRequest, __Verr := json.Marshal(&__VmessageRequest)
+		if __Verr != nil {
+			log.Print(__Verr)
 			break
 		}
-		conn.WriteToUDP(jsonRequest, addr)
+		___Vconn.WriteToUDP(__VjsonRequest, addr)
 	case "Get":
 		// Send message back
                 peerAddr := ""
-                if _, ok := userIP[chatRequest.Message]; ok {
-                        peerAddr = userIP[chatRequest.Message]
+                if _, ok := _VuserIP[__VchatRequest.Message]; ok {
+                        peerAddr = _VuserIP[__VchatRequest.Message]
                 }
 
-		messageRequest := _TchatRequest{
+		__VmessageRequest := _TchatRequest{
 			"Chat",
-			chatRequest.Username,
+			__VchatRequest.Username,
                         peerAddr,
 		}
-		jsonRequest, err := json.Marshal(&messageRequest)
-		if err != nil {
-			log.Print(err)
+		__VjsonRequest, __Verr := json.Marshal(&__VmessageRequest)
+		if __Verr != nil {
+			log.Print(__Verr)
 			break
 		}
-		_, err = conn.WriteToUDP(jsonRequest, addr)
-		if err != nil {
-			log.Print(err)
+		_, __Verr = ___Vconn.WriteToUDP(__VjsonRequest, addr)
+		if __Verr != nil {
+			log.Print(__Verr)
 		}
 	}
-	fmt.Println("User table:", userIP)
-}
+	fmt.Println("User table:", _VuserIP)
+} // _FhandleClient
