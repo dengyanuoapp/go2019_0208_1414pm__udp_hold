@@ -14,130 +14,130 @@ func main() {
 	if len(os.Args) < 5 {
 		log.Fatal("Usage: ", os.Args[0], " port serverAddr username peername")
 	}
-	port := fmt.Sprintf(":%s", os.Args[1])
-	serverAddr := os.Args[2]
-	username := os.Args[3]
-	peer := os.Args[4]
-	buf := make([]byte, 2048)
+	__Vport := fmt.Sprintf(":%s", os.Args[1])
+	__VserverAddr := os.Args[2]
+	__Vusername := os.Args[3]
+	__Vpeer := os.Args[4]
+	__Vbuf := make([]byte, 2048)
 
 	// Prepare to register user to server.
-	saddr, err := net.ResolveUDPAddr("udp4", serverAddr)
-	if err != nil {
+	__Vsaddr, __Verr := net.ResolveUDPAddr("udp4", __VserverAddr)
+	if __Verr != nil {
 		log.Print("Resolve server address failed.")
-		log.Fatal(err)
+		log.Fatal(__Verr)
 	}
 
 	// Prepare for local listening.
-	addr, err := net.ResolveUDPAddr("udp4", port)
-	if err != nil {
+	__Vaddr, __Verr := net.ResolveUDPAddr("udp4", __Vport)
+	if __Verr != nil {
 		log.Print("Resolve local address failed.")
-		log.Fatal(err)
+		log.Fatal(__Verr)
 	}
-	conn, err := net.ListenUDP("udp", addr)
-	if err != nil {
+	__Vconn, __Verr := net.ListenUDP("udp", __Vaddr)
+	if __Verr != nil {
 		log.Print("Listen UDP failed.")
-		log.Fatal(err)
+		log.Fatal(__Verr)
 	}
 
 	// Send registration information to server.
 	initChatRequest := _TchatRequest{
 		"New",
-		username,
+		__Vusername,
 		"",
 	}
-	jsonRequest, err := json.Marshal(initChatRequest)
-	if err != nil {
+	__VjsonRequest, __Verr := json.Marshal(initChatRequest)
+	if __Verr != nil {
 		log.Print("Marshal Register information failed.")
-		log.Fatal(err)
+		log.Fatal(__Verr)
 	}
-	_, err = conn.WriteToUDP(jsonRequest, saddr)
-	if err != nil {
-		log.Fatal(err)
+	_, __Verr = __Vconn.WriteToUDP(__VjsonRequest, __Vsaddr)
+	if __Verr != nil {
+		log.Fatal(__Verr)
 	}
 
 	log.Print("Waiting for server response...")
-	_, _, err = conn.ReadFromUDP(buf)
-	if err != nil {
+	_, _, __Verr = __Vconn.ReadFromUDP(__Vbuf)
+	if __Verr != nil {
 		log.Print("Register to server failed.")
-		log.Fatal(err)
+		log.Fatal(__Verr)
 	}
 
 	// Send connect request to server
-	connectChatRequest := _TchatRequest{
+	__VconnectChatRequest := _TchatRequest{
 		"Get",
-		username,
-		peer,
+		__Vusername,
+		__Vpeer,
 	}
-	jsonRequest, err = json.Marshal(connectChatRequest)
-	if err != nil {
+	__VjsonRequest, __Verr = json.Marshal(__VconnectChatRequest)
+	if __Verr != nil {
 		log.Print("Marshal connection information failed.")
-		log.Fatal(err)
+		log.Fatal(__Verr)
 	}
 
-	var serverResponse _TchatRequest
+	var __VserverResponse _TchatRequest
 	for i := 0; i < 3; i++ {
-		conn.WriteToUDP(jsonRequest, saddr)
-		n, _, err := conn.ReadFromUDP(buf)
-		if err != nil {
+		__Vconn.WriteToUDP(__VjsonRequest, __Vsaddr)
+		__Vn, _, __Verr := __Vconn.ReadFromUDP(__Vbuf)
+		if __Verr != nil {
 			log.Print("Get peer address from server failed.")
-			log.Fatal(err)
+			log.Fatal(__Verr)
 		}
-		err = json.Unmarshal(buf[:n], &serverResponse)
-		if err != nil {
+		__Verr = json.Unmarshal(__Vbuf[:__Vn], &__VserverResponse)
+		if __Verr != nil {
 			log.Print("Unmarshal server response failed.")
-			log.Fatal(err)
+			log.Fatal(__Verr)
 		}
-		if serverResponse.Message != "" {
+		if __VserverResponse.Message != "" {
 			break
 		}
 		time.Sleep(10 * time.Second)
 	}
-	if serverResponse.Message == "" {
+	if __VserverResponse.Message == "" {
 		log.Fatal("Cannot get peer's address")
 	}
-	log.Print("Peer address: ", serverResponse.Message)
-	peerAddr, err := net.ResolveUDPAddr("udp4", serverResponse.Message)
-	if err != nil {
+	log.Print("Peer address: ", __VserverResponse.Message)
+	__VpeerAddr, __Verr := net.ResolveUDPAddr("udp4", __VserverResponse.Message)
+	if __Verr != nil {
 		log.Print("Resolve peer address failed.")
-		log.Fatal(err)
+		log.Fatal(__Verr)
 	}
 
 	// Start chatting.
-	go listen(conn)
+	go _Flisten(__Vconn)
 	for {
 		fmt.Print("Input message: ")
-		message := make([]byte, 2048)
-		fmt.Scanln(&message)
+		__Vmessage := make([]byte, 2048)
+		fmt.Scanln(&__Vmessage)
 		messageRequest := _TchatRequest{
 			"Chat",
-			username,
-			string(message),
+			__Vusername,
+			string(__Vmessage),
 		}
-		jsonRequest, err = json.Marshal(messageRequest)
-		if err != nil {
-			log.Print("Error: ", err)
+		__VjsonRequest, __Verr = json.Marshal(messageRequest)
+		if __Verr != nil {
+			log.Print("Error: ", __Verr)
 			continue
 		}
-		conn.WriteToUDP(jsonRequest, peerAddr)
+		__Vconn.WriteToUDP(__VjsonRequest, __VpeerAddr)
 	}
-}
+} // main
 
-func listen(conn *net.UDPConn) {
+func _Flisten(___Vconn *net.UDPConn) {
 	for {
-		buf := make([]byte, 2048)
-		n, _, err := conn.ReadFromUDP(buf)
-		if err != nil {
-			log.Print(err)
+		__Vbuf := make([]byte, 2048)
+		__Vn, _, __Verr := ___Vconn.ReadFromUDP(__Vbuf)
+		if __Verr != nil {
+			log.Print(__Verr)
 			continue
 		}
-		// log.Print("Message from ", addr.IP)
+		// log.Print("Message from ", __Vaddr.IP)
 
-		var message _TchatRequest
-		err = json.Unmarshal(buf[:n], &message)
-		if err != nil {
-			log.Print(err)
+		var __Vmessage _TchatRequest
+		__Verr = json.Unmarshal(__Vbuf[:__Vn], &__Vmessage)
+		if __Verr != nil {
+			log.Print(__Verr)
 			continue
 		}
-		fmt.Println(message.Username, ":", message.Message)
+		fmt.Println(__Vmessage.Username, ":", __Vmessage.Message)
 	}
-}
+} // _Flisten
