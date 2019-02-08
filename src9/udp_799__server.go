@@ -9,12 +9,6 @@ import (
 
 var userIP map[string]string
 
-type ChatRequest struct {
-	Action   string
-	Username string
-	Message  string
-}
-
 func main() {
 	userIP = map[string]string{}
 	service := ":9999"
@@ -49,7 +43,7 @@ func handleClient(conn *net.UDPConn) {
 		return
 	}
 
-	var chatRequest ChatRequest
+	var chatRequest _TchatRequest
 	err = json.Unmarshal(buf[:n], &chatRequest)
 	if err != nil {
 		log.Print(err)
@@ -63,7 +57,7 @@ func handleClient(conn *net.UDPConn) {
 		userIP[chatRequest.Username] = remoteAddr
 
 		// Send message back
-		messageRequest := ChatRequest{
+		messageRequest := _TchatRequest{
 			"Chat",
 			chatRequest.Username,
 			remoteAddr,
@@ -81,7 +75,7 @@ func handleClient(conn *net.UDPConn) {
                         peerAddr = userIP[chatRequest.Message]
                 }
 
-		messageRequest := ChatRequest{
+		messageRequest := _TchatRequest{
 			"Chat",
 			chatRequest.Username,
                         peerAddr,

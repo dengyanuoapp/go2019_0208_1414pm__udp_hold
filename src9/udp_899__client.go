@@ -9,11 +9,6 @@ import (
 	"time"
 )
 
-type ChatRequest struct {
-	Action   string
-	Username string
-	Message  string
-}
 
 func main() {
 	if len(os.Args) < 5 {
@@ -45,7 +40,7 @@ func main() {
 	}
 
 	// Send registration information to server.
-	initChatRequest := ChatRequest{
+	initChatRequest := _TchatRequest{
 		"New",
 		username,
 		"",
@@ -68,7 +63,7 @@ func main() {
 	}
 
 	// Send connect request to server
-	connectChatRequest := ChatRequest{
+	connectChatRequest := _TchatRequest{
 		"Get",
 		username,
 		peer,
@@ -79,7 +74,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var serverResponse ChatRequest
+	var serverResponse _TchatRequest
 	for i := 0; i < 3; i++ {
 		conn.WriteToUDP(jsonRequest, saddr)
 		n, _, err := conn.ReadFromUDP(buf)
@@ -113,7 +108,7 @@ func main() {
 		fmt.Print("Input message: ")
 		message := make([]byte, 2048)
 		fmt.Scanln(&message)
-		messageRequest := ChatRequest{
+		messageRequest := _TchatRequest{
 			"Chat",
 			username,
 			string(message),
@@ -137,7 +132,7 @@ func listen(conn *net.UDPConn) {
 		}
 		// log.Print("Message from ", addr.IP)
 
-		var message ChatRequest
+		var message _TchatRequest
 		err = json.Unmarshal(buf[:n], &message)
 		if err != nil {
 			log.Print(err)
