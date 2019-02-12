@@ -5,14 +5,21 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"flag"
 )
 
-var _VuserIP map[string]string
+var (
+	_VuserIP map[string]string
+	_Vservice string
+)
+func init() {
+	flag.StringVar( &_Vservice , "p" , ":9999" , "set the server listen port" )
+	flag.Parse()
+}
 
 func main() {
 	_VuserIP = map[string]string{}
-	__Vservice := ":9999"
-	__VudpAddr, __Verr := net.ResolveUDPAddr("udp4", __Vservice)
+	__VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _Vservice)
         if __Verr != nil {
                 log.Fatal(__Verr)
         }
