@@ -13,11 +13,13 @@ var (
 	_Vservice string
 )
 func init() {
-	flag.StringVar( &_Vservice , "p" , ":9999" , "set the server listen port" )
+	flag.StringVar( &_Vservice , "p" , ":59999" , "set the server listen port" )
 	flag.Parse()
 }
 
 func main() {
+	flag.PrintDefaults()
+
 	_VuserIP = map[string]string{}
 	__VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _Vservice)
         if __Verr != nil {
