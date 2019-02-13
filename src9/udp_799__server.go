@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	_VuserIP map[string]string
+	_VuserIpList map[string]string
 	_Vservice string
 )
 func init() {
@@ -20,7 +20,7 @@ func init() {
 func main() {
 	flag.PrintDefaults()
 
-	_VuserIP = map[string]string{}
+	_VuserIpList = map[string]string{}
 	__VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _Vservice)
         if __Verr != nil {
                 log.Fatal(__Verr)
@@ -55,7 +55,7 @@ func _FhandleClient(___Vconn *net.UDPConn) {
 	case "New":
 		__VremoteAddr := fmt.Sprintf("%s:%d", addr.IP, addr.Port)
 		fmt.Println(__VremoteAddr, "connecting")
-		_VuserIP[__VchatRequest.Username] = __VremoteAddr
+		_VuserIpList[__VchatRequest.Username] = __VremoteAddr
 
 		// Send message back
 		__VmessageRequest := _TchatRequest{
@@ -72,8 +72,8 @@ func _FhandleClient(___Vconn *net.UDPConn) {
 	case "Get":
 		// Send message back
                 peerAddr := ""
-                if _, ok := _VuserIP[__VchatRequest.Message]; ok {
-                        peerAddr = _VuserIP[__VchatRequest.Message]
+                if _, ok := _VuserIpList[__VchatRequest.Message]; ok {
+                        peerAddr = _VuserIpList[__VchatRequest.Message]
                 }
 
 		__VmessageRequest := _TchatRequest{
@@ -91,5 +91,5 @@ func _FhandleClient(___Vconn *net.UDPConn) {
 			log.Print(__Verr)
 		}
 	}
-	fmt.Println("User table:", _VuserIP)
+	fmt.Println("User table:", _VuserIpList)
 } // _FhandleClient
