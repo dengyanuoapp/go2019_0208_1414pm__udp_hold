@@ -15,8 +15,11 @@ var (
     _Pdefault func () ()                                            = flag.PrintDefaults
 )
 
-func _Pex( ___Vstr ... interface{} ) {
+func _Pex( ___Vstr string , ___V ... interface{} ) {
     _Ppn( ___Vstr )
+    if ___V != nil {
+        _Ppn( ___V )
+    }
     os.Exit(1)
 } // _P.EX
 

@@ -34,12 +34,12 @@ func main() {
     _VuserIpList = map[string]string{}
     __VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _VserviceCn)
     if __Verr != nil {
-        _Pex(__Verr)
+        _Pex( "err13811" , __Verr)
     }
 
     __Vconn, __Verr := net.ListenUDP("udp", __VudpAddr)
     if __Verr != nil {
-        _Pex(__Verr)
+        _Pex( "err13811" , __Verr)
     }
 
     for {
@@ -57,7 +57,7 @@ func _FhandleFnClient(___Vconn *net.UDPConn) {
         return
     }
     if __Vaddr == nil {
-        _Pex( " 183811 : why ___Vconn.ReadFromUDP addr error ?" )
+        _Pex( " 183811 : why ___Vconn.ReadFromUDP addr error ?" , nil )
     }
 
     //_P.dintN( __Vlen , 2048, __Vbuf[0:] )
