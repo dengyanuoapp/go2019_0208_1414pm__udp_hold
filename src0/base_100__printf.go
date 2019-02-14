@@ -13,16 +13,20 @@ var (
     _VprojectName string
 )
 
-var _PPpf func (format string, a ...interface{}) (n int, err error) = fmt.Printf
+var (
+    _Ppf func (format string, a ...interface{}) (n int, err error)  = fmt.Printf
+    _Ppt func (a ...interface{}) (n int, err error)                 = fmt.Print
+    _Ppn func (a ...interface{}) (n int, err error)                 = fmt.Println
+)
 
 func ( ___b _TdebugPrint ) PH( ) {
     if "" != _VprojectName && ___b  {
-        fmt.Printf( "%s:" , _VprojectName )
+        _Ppf( "%s:" , _VprojectName )
     }
 } // PH
 func ( ___b _TdebugPrint ) PN( ___V ... interface{} ) {
     if ( ___b ) {
-        fmt.Printf("\n")
+        _Ppf("\n")
     }
 } // _P.PN
 
@@ -41,7 +45,7 @@ func ( ___b _TdebugPrint ) prI( ___V ... interface{} ) {
             fmt.Printf( "%s" , __Varg )
         }
         */
-        fmt.Print( ___V )
+        _Ppt( ___V )
     }
 } // _P.prI
 func ( ___b _TdebugPrint ) pr( ___V ... interface{} ) {
@@ -60,7 +64,7 @@ func ( ___b _TdebugPrint ) EX( ___V ... interface{} ) {
 
 func ( ___b _TdebugPrint ) pfI( ___Vfmt string , ___V ...interface{} ) {
     if ( ___b ) {
-        fmt.Printf( ___Vfmt , ___V )
+        _Ppf( ___Vfmt , ___V )
     }
 } // _P.pfI
 
@@ -79,9 +83,9 @@ func ( ___b _TdebugPrint ) ddI( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
         if ( ___Vlen > ___Vmax ) { ___Vlen = ___Vmax  }
         for __Vi := 0 ; __Vi < ___Vlen ; __Vi ++ {
             if __Vi == ___Vlen -1  {
-                fmt.Printf( "%02x" , ___Vbuf[__Vi] )
+                _Ppf( "%02x" , ___Vbuf[__Vi] )
             } else {
-                fmt.Printf( "%02x " , ___Vbuf[__Vi] )
+                _Ppf( "%02x " , ___Vbuf[__Vi] )
             }
         }
     }

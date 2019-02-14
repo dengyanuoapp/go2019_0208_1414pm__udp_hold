@@ -15,7 +15,7 @@ var (
 func _Fbase_101__get_self_md5_sha() {
     _P.prN("1:from:", os.Args[0])
     _P.pfN("2:from:%s", os.Args[0])
-    fmt.Printf("2:from:%s\n", os.Args[0])
+    _Ppf("2:from:%s\n", os.Args[0])
 
     __Vcontent, __Verr := ioutil.ReadFile( os.Args[0] )
     if __Verr != nil {
@@ -26,7 +26,7 @@ func _Fbase_101__get_self_md5_sha() {
     _self_sha := sha256.Sum256(__Vcontent)
     _P.pfN("31:File md5: [ %x ]", _self_md5)
     _P.pfI("32:File md5: [ %x ]", _self_md5[0:]) ; _PT.PN()
-    _PPpf("33:File md5: [ %x ]", _self_md5[0:]) ; _PT.PN()
+    _Ppf("33:File md5: [ %x ]", _self_md5[0:]) ; _PT.PN()
     fmt.Printf("34:File md5: [ %x ]", _self_md5) ; _PT.PN()
     _P.pfN("4:File sha: [ %x ]", _self_sha)
 
