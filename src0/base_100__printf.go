@@ -24,18 +24,25 @@ func ( ___b _TdebugPrint ) PN( ___V ... interface{} ) {
     }
 } // _P.PN
 
-func ( ___b _TdebugPrint ) pnI( ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) prI( ___V ... interface{} ) {
     if ( ___b ) {
-        fmt.Println( ___V )
+        //fmt.Println( ___V )
+        fmt.Print( "<" )
+        fmt.Print( ___V )
+        fmt.Print( ">" )
     }
-} // _P.pnI
-func ( ___b _TdebugPrint ) pn( ___V ... interface{} ) {
+} // _P.prI
+func ( ___b _TdebugPrint ) pr( ___V ... interface{} ) {
     ___b.PH()
-    ___b.pnI( ___V )
-} // _P.pn
+    ___b.prI( ___V )
+} // _P.pr
+func ( ___b _TdebugPrint ) prN( ___V ... interface{} ) {
+    ___b.pr( ___V )
+    ___b.PN()
+} // _P.prN
 
 func ( ___b _TdebugPrint ) EX( ___V ... interface{} ) {
-    ___b . pn( ___V )
+    ___b . pr( ___V )
     os.Exit(1)
 } // _P.EX
 
@@ -84,8 +91,9 @@ func ( ___b _TdebugPrint ) ddN( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
 
 //flag.PrintDefaults()
 func ( ___b _TdebugPrint ) PrintArgs(){
-    ___b.pn( " cmd paras : [ " , flag.Args() , " ]")
     if (___b) {
+        _PT.PH()
+        _PT.prI( " cmd paras : [ " , flag.Args() , " ]")
         flag.PrintDefaults()
     }
 } // PrintArgs
@@ -94,13 +102,13 @@ func _FdebugPrintTest() {
     __Vp := _P
 
     _P = false
-    _P.pn( " debug is off 1" )
+    _P.pr( " debug is off 1" )
     _P = true
-    _P.pn( " debug is on 2" )
+    _P.pr( " debug is on 2" )
     _P = false
-    _P.pn( " debug is off 3" )
+    _P.pr( " debug is off 3" )
     _P = true
-    _P.pn( " debug is on 4" )
+    _P.pr( " debug is on 4" )
 
     _P = __Vp
 } // _FdebugPrintTest
