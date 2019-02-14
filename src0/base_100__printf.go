@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "os"
 
 type _TdebugPrint bool
 
@@ -11,6 +12,13 @@ func ( ___b _TdebugPrint ) n( ___V ... interface{} ) {
         fmt.Println( ___V ) 
     }
 } // _P.n
+
+func ( ___b _TdebugPrint ) X( ___V ... interface{} ) {
+    if ( ___b ) {
+        fmt.Println( ___V ) 
+    }
+    os.Exit(1)
+} // _P.X
 
 func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
     if ( ___b ) {
