@@ -23,8 +23,7 @@ func _Fbase_101__get_self_md5_sha() {
 
     _self_md5 := md5.Sum(__Vcontent)
     _self_sha := sha256.Sum256(__Vcontent)
-    _Ppf(" 31:File md5: [ %x ]", _self_md5) ; _Ppn()
-    _PpfN(" 32:File md5: [ %x ]", _self_md5)
-    _Ppf(" 4:File sha: [ %x ]", _self_sha) ; _Ppn()
+    _PpfN("File md5: [ %x ]", _self_md5)
+    _PpfN("File sha: [ %x ]", _self_sha) ; _Ppn()
 
 } // _Fbase_101__get_self_md5_sha
