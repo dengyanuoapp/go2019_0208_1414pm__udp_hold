@@ -27,9 +27,14 @@ func ( ___b _TdebugPrint ) PN( ___V ... interface{} ) {
 func ( ___b _TdebugPrint ) prI( ___V ... interface{} ) {
     if ( ___b ) {
         //fmt.Println( ___V )
+        /*
         fmt.Print( "<" )
         fmt.Print( ___V )
         fmt.Print( ">" )
+        */
+        for __Vidx , __Varg := range ___V {
+            fmt.Printf( " {%d:%x} " , __Vidx , __Varg )
+        }
     }
 } // _P.prI
 func ( ___b _TdebugPrint ) pr( ___V ... interface{} ) {
