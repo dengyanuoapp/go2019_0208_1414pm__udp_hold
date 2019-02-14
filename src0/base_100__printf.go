@@ -13,17 +13,25 @@ var (
     _VprojectName string
 )
 
+func ( ___b _TdebugPrint ) H( ) {
+    if ( "" != _VprojectName ) {
+        ___b.nint( _VprojectName , ":") 
+    }
+} // H
+func ( ___b _TdebugPrint ) N( ___V ... interface{} ) {
+    if ( ___b ) {
+        fmt.Println() 
+    }
+} // _P.N
+
 func ( ___b _TdebugPrint ) nint( ___V ... interface{} ) {
     if ( ___b ) {
         fmt.Println( ___V ) 
     }
-} // _P.n
+} // _P.nint
 func ( ___b _TdebugPrint ) n( ___V ... interface{} ) {
-    if ( "" == _VprojectName ) {
-        ___b.nint( ___V ) 
-    } else {
-        ___b.nint( _VprojectName , ___V ) 
-    }
+    ___b.H()
+    ___b.nint( ___V ) 
 } // _P.n
 
 func ( ___b _TdebugPrint ) X( ___V ... interface{} ) {
@@ -38,11 +46,8 @@ func ( ___b _TdebugPrint ) fint( ___Vfmt string , ___V ... interface{} ) {
 } // _P.fint
 
 func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
-    if ( "" == _VprojectName ) {
-        ___b.fint( ___Vfmt , ___V ) 
-    } else {
-        ___b.fint( _VprojectName + ":" + ___Vfmt , ___V ) 
-    }
+    ___b.H()
+    ___b.fint( ___Vfmt , ___V ) 
 } // _P.f
 
 
@@ -50,17 +55,28 @@ func ( ___b _TdebugPrint ) dint( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
     if ( ___b ) {
         if ( ___Vlen > ___Vmax ) { ___Vlen = ___Vmax  }
         for __Vi := 0 ; __Vi < ___Vlen ; __Vi ++ { 
-            fmt.Printf( "%02x " , ___Vbuf[__Vi] ) 
+            if __Vi == ___Vlen -1  {
+                fmt.Printf( "%02x" , ___Vbuf[__Vi] ) 
+            } else {
+                fmt.Printf( "%02x " , ___Vbuf[__Vi] ) 
+            }
         }
     }
 } // _P.dint
-
-func ( ___b _TdebugPrint ) d( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
-    if ( "" == _VprojectName ) {
-        ___b.fint( "%s" , _VprojectName )
+func ( ___b _TdebugPrint ) dintN( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
+    if ( ___b ) {
+        _PT.dint( ___Vlen , ___Vmax , ___Vbuf )
+        _PT.N()
     }
+} // _P.dintN
+func ( ___b _TdebugPrint ) d( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
+    ___b.H()
     ___b.dint( ___Vlen , ___Vmax , ___Vbuf )
-} // _P.f
+} // _P.d
+func ( ___b _TdebugPrint ) dN( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
+    ___b.d(  ___Vlen , ___Vmax , ___Vbuf )
+    ___b.N()
+} // _P.dN
 
 //flag.PrintDefaults()
 func ( ___b _TdebugPrint ) PrintArgs(){
