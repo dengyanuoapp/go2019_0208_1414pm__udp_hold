@@ -5,24 +5,33 @@ import "os"
 
 type _TdebugPrint bool
 
-var _P _TdebugPrint
+var (
+    _P _TdebugPrint
+    _VprojectName string
+)
 
 func ( ___b _TdebugPrint ) n( ___V ... interface{} ) {
     if ( ___b ) {
-        fmt.Println( ___V ) 
+        if ( "" == _VprojectName ) {
+            fmt.Println( ___V ) 
+        } else {
+            fmt.Println( _VprojectName , ___V ) 
+        }
     }
 } // _P.n
 
 func ( ___b _TdebugPrint ) X( ___V ... interface{} ) {
-    if ( ___b ) {
-        fmt.Println( ___V ) 
-    }
+    ___b . n( ___V ) 
     os.Exit(1)
 } // _P.X
 
 func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
     if ( ___b ) {
-        fmt.Printf( ___Vfmt , ___V ) 
+        if ( "" == _VprojectName ) {
+            fmt.Printf( ___Vfmt , ___V ) 
+        } else {
+            fmt.Printf( _VprojectName + ":" + ___Vfmt , ___V ) 
+        }
     }
 } // _P.f
 
