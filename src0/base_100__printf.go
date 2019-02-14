@@ -2,11 +2,14 @@ package main
 
 import "fmt"
 import "os"
+import "flag"
 
 type _TdebugPrint bool
 
 var (
     _P _TdebugPrint
+    _PT _TdebugPrint = true
+    _PF _TdebugPrint = false
     _VprojectName string
 )
 
@@ -34,6 +37,11 @@ func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
         }
     }
 } // _P.f
+
+//flag.PrintDefaults()
+func ( ___b _TdebugPrint ) PrintArgs(){
+    ___b.n( " cmd paras : [ " , flag.Args() , " ]")
+} // PrintArgs
 
 func _FdebugPrintTest() {
     __Vp := _P 

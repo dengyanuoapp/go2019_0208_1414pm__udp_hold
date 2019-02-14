@@ -26,7 +26,8 @@ func main() {
     _P = true
     _Fbase_101__get_self_md5_sha()
 
-    flag.PrintDefaults()
+    //flag.PrintDefaults()
+    _P.PrintArgs()
 
     _VuserIpList = map[string]string{}
     __VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _Vservice)
