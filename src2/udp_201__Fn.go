@@ -4,7 +4,7 @@ import (
     //"encoding/json"
     "flag"
     //"fmt"
-    "log"
+    //"log"
     "net"
 )
 
@@ -14,7 +14,7 @@ var (
 )
 
 func init() {
-    flag.StringVar(&_Vservice, "p", ":59999", "set the server listen port")
+    flag.StringVar(&_Vservice, "p", ":50099", "set the server listen port")
     flag.Parse()
 }
 
@@ -26,18 +26,17 @@ func main() {
     _P = true
     _Fbase_101__get_self_md5_sha()
 
-    //flag.PrintDefaults()
     _P.PrintArgs()
 
     _VuserIpList = map[string]string{}
     __VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _Vservice)
     if __Verr != nil {
-        log.Fatal(__Verr)
+        _P.X(__Verr)
     }
 
     __Vconn, __Verr := net.ListenUDP("udp", __VudpAddr)
     if __Verr != nil {
-        log.Fatal(__Verr)
+        _P.X(__Verr)
     }
 
     for {
@@ -48,11 +47,14 @@ func main() {
 func _FhandleFnClient(___Vconn *net.UDPConn) {
     var __Vbuf [2048]byte
 
-    //__Vn, addr, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
-    _, _, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
+    __Vlen, __Vaddr, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
 
     if __Verr != nil {
         return
     }
+    if __Vaddr == nil {
+        _P.X( " 183811 : why ___Vconn.ReadFromUDP addr error ?" )
+    }
+    _P.f( "(%d)[ %s ]\n", __Vlen , __Vbuf )
 
 } // _FhandleFnClient

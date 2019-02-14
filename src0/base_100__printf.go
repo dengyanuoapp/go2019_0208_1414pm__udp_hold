@@ -41,6 +41,9 @@ func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
 //flag.PrintDefaults()
 func ( ___b _TdebugPrint ) PrintArgs(){
     ___b.n( " cmd paras : [ " , flag.Args() , " ]")
+    if (___b) {
+        flag.PrintDefaults()
+    }
 } // PrintArgs
 
 func _FdebugPrintTest() {
