@@ -25,10 +25,10 @@ func _Fex( ___Vstr string , ___V ... interface{} ) {
 } // _P.EX
 
 func _FpfN(___Vfmt string, ___Vpara ...interface{}) (int, error)  {
-    _n, _err := _Ppf( ___Vfmt , ___Vpara... )
+    _Fph()
+    __Vn , __Verr := _Ppf( ___Vfmt , ___Vpara... )
     _Ppn()
-    //return 0 , nil
-    return _n , _err
+    return __Vn , __Verr ;
 } // _PpfN
 
 func _Fph( ) {
