@@ -4,28 +4,31 @@ import "fmt"
 
 type _TdebugPrint bool
 
-var _DebugPrint _TdebugPrint
+var _P _TdebugPrint
 
-func ( ___b _TdebugPrint ) Println( ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) n( ___V ... interface{} ) {
     if ( ___b ) {
         fmt.Println( ___V ) 
     }
-} // Println
+} // _P.n
 
-func ( ___b _TdebugPrint ) Printf( ___Vfmt string , ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
     if ( ___b ) {
         fmt.Printf( ___Vfmt , ___V ) 
     }
-} // Printf
+} // _P.f
 
+func _FdebugPrintTest() {
+    __Vp := _P 
 
-func _DebugPrintTest() {
-    __Vp := _DebugPrint 
+    _P = false
+    _P.n( " debug is off 1" )
+    _P = true
+    _P.n( " debug is on 2" )
+    _P = false
+    _P.n( " debug is off 3" )
+    _P = true
+    _P.n( " debug is on 4" )
 
-    _DebugPrint = false
-    _DebugPrint.Println( " debug is off " )
-    _DebugPrint = true
-    _DebugPrint.Println( " debug is on " )
-
-    _DebugPrint = __Vp 
-} // _DebugPrintTest
+    _P = __Vp 
+} // _FdebugPrintTest

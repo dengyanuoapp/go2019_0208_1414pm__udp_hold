@@ -19,7 +19,10 @@ func init() {
 }
 
 func main() {
-    base_101__get_self_md5_sha()
+
+    _FdebugPrintTest() 
+
+    _Fbase_101__get_self_md5_sha()
 
     flag.PrintDefaults()
 
