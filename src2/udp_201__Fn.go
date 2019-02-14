@@ -19,6 +19,8 @@ func init() {
 }
 
 func main() {
+	base_101__get_self_md5_sha()
+
 	flag.PrintDefaults()
 
 	_VuserIpList = map[string]string{}
