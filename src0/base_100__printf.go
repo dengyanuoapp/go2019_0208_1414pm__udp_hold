@@ -60,7 +60,7 @@ func ( ___b _TdebugPrint ) EX( ___V ... interface{} ) {
 
 func ( ___b _TdebugPrint ) pfI( ___Vfmt string , ___V ...interface{} ) {
     if ( ___b ) {
-        fmt.Printf( ___Vfmt , ___V[0:] )
+        fmt.Printf( ___Vfmt , ___V )
     }
 } // _P.pfI
 
