@@ -16,31 +16,30 @@ var (
 )
 
 func init() {
+
     flag.StringVar(&_VserviceCn, "p", ":5353", "set the server listen port")
     flag.StringVar(&_VserviceDn, "d", ":32001", "set the server listen port")
     flag.StringVar(&_VserviceSn, "s", ":32003", "set the server listen port")
     flag.Parse()
+
+    // _FdebugPrintTest() 
+    _VprojectName = "Fn"
+    _Fbase_101__get_self_md5_sha()
+    _FPargs()
+
 }
 
 func main() {
 
-    // _FdebugPrintTest() 
-
-    _VprojectName = "Fn"
-    // _PpfN___
-    _Fbase_101__get_self_md5_sha()
-
-    _Pargs()
-
     _VuserIpList = map[string]string{}
     __VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _VserviceCn)
     if __Verr != nil {
-        _Pex( "err13811" , __Verr)
+        _Fex( "err13811" , __Verr)
     }
 
     __Vconn, __Verr := net.ListenUDP("udp", __VudpAddr)
     if __Verr != nil {
-        _Pex( "err13811" , __Verr)
+        _Fex( "err13811" , __Verr)
     }
 
     for {
@@ -58,7 +57,7 @@ func _FhandleFnClient(___Vconn *net.UDPConn) {
         return
     }
     if __Vaddr == nil {
-        _Pex( " 183811 : why ___Vconn.ReadFromUDP addr error ?" , nil )
+        _Fex( " 183811 : why ___Vconn.ReadFromUDP addr error ?" , nil )
     }
 
     //_P.dintN( __Vlen , 2048, __Vbuf[0:] )

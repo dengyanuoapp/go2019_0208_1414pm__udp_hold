@@ -18,12 +18,12 @@ func _Fbase_101__get_self_md5_sha() {
 
     __Vcontent, __Verr := ioutil.ReadFile( os.Args[0] )
     if __Verr != nil {
-        _Pex("err138191" , __Verr)
+        _Fex("err138191" , __Verr)
     }
 
     _self_md5 := md5.Sum(__Vcontent)
     _self_sha := sha256.Sum256(__Vcontent)
-    _PpfN("File md5: [ %x ]", _self_md5)
-    _PpfN("File sha: [ %x ]", _self_sha) ; _Ppn()
+    _FpfN("File md5: [ %x ]", _self_md5)
+    _FpfN("File sha: [ %x ]", _self_sha)
 
 } // _Fbase_101__get_self_md5_sha
