@@ -13,6 +13,8 @@ var (
     _VprojectName string
 )
 
+var _PPpf func (format string, a ...interface{}) (n int, err error) = fmt.Printf
+
 func ( ___b _TdebugPrint ) PH( ) {
     if "" != _VprojectName && ___b  {
         fmt.Printf( "%s:" , _VprojectName )
@@ -32,9 +34,14 @@ func ( ___b _TdebugPrint ) prI( ___V ... interface{} ) {
         fmt.Print( ___V )
         fmt.Print( ">" )
         */
-        for __Vidx , __Varg := range ___V {
-            fmt.Printf( " {%d:%x} " , __Vidx , __Varg )
+        //for __Vidx , __Varg := range ___V {
+        /*
+        for _ , __Varg := range ___V {
+            //fmt.Printf( " {%d:%T,%x} " , __Vidx , __Varg , __Varg )
+            fmt.Printf( "%s" , __Varg )
         }
+        */
+        fmt.Print( ___V )
     }
 } // _P.prI
 func ( ___b _TdebugPrint ) pr( ___V ... interface{} ) {
@@ -51,9 +58,9 @@ func ( ___b _TdebugPrint ) EX( ___V ... interface{} ) {
     os.Exit(1)
 } // _P.EX
 
-func ( ___b _TdebugPrint ) pfI( ___Vfmt string , ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) pfI( ___Vfmt string , ___V ...interface{} ) {
     if ( ___b ) {
-        fmt.Printf( ___Vfmt , ___V )
+        fmt.Printf( ___Vfmt , ___V[0:] )
     }
 } // _P.pfI
 
