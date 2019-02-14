@@ -27,20 +27,19 @@ func main() {
     // _FdebugPrintTest() 
 
     _VprojectName = "Fn"
-    _P = true
     _Fbase_101__get_self_md5_sha()
 
-    _P.PrintArgs()
+    _Pargs()
 
     _VuserIpList = map[string]string{}
     __VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _VserviceCn)
     if __Verr != nil {
-        _P.EX(__Verr)
+        _Pex(__Verr)
     }
 
     __Vconn, __Verr := net.ListenUDP("udp", __VudpAddr)
     if __Verr != nil {
-        _P.EX(__Verr)
+        _Pex(__Verr)
     }
 
     for {
@@ -51,16 +50,17 @@ func main() {
 func _FhandleFnClient(___Vconn *net.UDPConn) {
     var __Vbuf [2048]byte
 
-    __Vlen, __Vaddr, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
+    //__Vlen, __Vaddr, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
+    _, __Vaddr, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
 
     if __Verr != nil {
         return
     }
     if __Vaddr == nil {
-        _P.EX( " 183811 : why ___Vconn.ReadFromUDP addr error ?" )
+        _Pex( " 183811 : why ___Vconn.ReadFromUDP addr error ?" )
     }
 
     //_P.dintN( __Vlen , 2048, __Vbuf[0:] )
-    _P.ddN( __Vlen , 2048, __Vbuf[0:] )
+    //_P.ddN( __Vlen , 2048, __Vbuf[0:] )
 
 } // _FhandleFnClient
