@@ -13,13 +13,16 @@ var (
     _VprojectName string
 )
 
-func ( ___b _TdebugPrint ) n( ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) nint( ___V ... interface{} ) {
     if ( ___b ) {
-        if ( "" == _VprojectName ) {
-            fmt.Println( ___V ) 
-        } else {
-            fmt.Println( _VprojectName , ___V ) 
-        }
+        fmt.Println( ___V ) 
+    }
+} // _P.n
+func ( ___b _TdebugPrint ) n( ___V ... interface{} ) {
+    if ( "" == _VprojectName ) {
+        ___b.nint( ___V ) 
+    } else {
+        ___b.nint( _VprojectName , ___V ) 
     }
 } // _P.n
 
@@ -28,13 +31,17 @@ func ( ___b _TdebugPrint ) X( ___V ... interface{} ) {
     os.Exit(1)
 } // _P.X
 
-func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) fint( ___Vfmt string , ___V ... interface{} ) {
     if ( ___b ) {
-        if ( "" == _VprojectName ) {
-            fmt.Printf( ___Vfmt , ___V ) 
-        } else {
-            fmt.Printf( _VprojectName + ":" + ___Vfmt , ___V ) 
-        }
+        fmt.Printf( ___Vfmt , ___V ) 
+    }
+} // _P.fint
+
+func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
+    if ( "" == _VprojectName ) {
+        ___b.fint( ___Vfmt , ___V ) 
+    } else {
+        ___b.fint( _VprojectName + ":" + ___Vfmt , ___V ) 
     }
 } // _P.f
 
