@@ -20,58 +20,62 @@ func ( ___b _TdebugPrint ) PH( ) {
 } // PH
 func ( ___b _TdebugPrint ) PN( ___V ... interface{} ) {
     if ( ___b ) {
-        fmt.Println() 
+        fmt.Printf("\n")
     }
 } // _P.PN
 
-func ( ___b _TdebugPrint ) nint( ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) pnI( ___V ... interface{} ) {
     if ( ___b ) {
-        fmt.Println( ___V ) 
+        fmt.Println( ___V )
     }
-} // _P.nint
-func ( ___b _TdebugPrint ) n( ___V ... interface{} ) {
+} // _P.pnI
+func ( ___b _TdebugPrint ) pn( ___V ... interface{} ) {
     ___b.PH()
-    ___b.nint( ___V ) 
-} // _P.n
+    ___b.pnI( ___V )
+} // _P.pn
 
-func ( ___b _TdebugPrint ) X( ___V ... interface{} ) {
-    ___b . n( ___V ) 
+func ( ___b _TdebugPrint ) EX( ___V ... interface{} ) {
+    ___b . pn( ___V )
     os.Exit(1)
-} // _P.X
+} // _P.EX
 
-func ( ___b _TdebugPrint ) fint( ___Vfmt string , ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) pfI( ___Vfmt string , ___V ... interface{} ) {
     if ( ___b ) {
-        fmt.Printf( ___Vfmt , ___V ) 
+        fmt.Printf( ___Vfmt , ___V )
     }
-} // _P.fint
+} // _P.pfI
 
-func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
+func ( ___b _TdebugPrint ) pf( ___Vfmt string , ___V ... interface{} ) {
     ___b.PH()
-    ___b.fint( ___Vfmt , ___V ) 
-} // _P.f
+    ___b.pfI( ___Vfmt , ___V )
+} // _P.pf
+func ( ___b _TdebugPrint ) pfN( ___Vfmt string , ___V ... interface{} ) {
+    ___b.pf( ___Vfmt , ___V )
+    ___b.PN()
+} // _P.pfN
 
 
-func ( ___b _TdebugPrint ) ddint( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
+func ( ___b _TdebugPrint ) ddI( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
     if ( ___b ) {
         if ( ___Vlen > ___Vmax ) { ___Vlen = ___Vmax  }
-        for __Vi := 0 ; __Vi < ___Vlen ; __Vi ++ { 
+        for __Vi := 0 ; __Vi < ___Vlen ; __Vi ++ {
             if __Vi == ___Vlen -1  {
-                fmt.Printf( "%02x" , ___Vbuf[__Vi] ) 
+                fmt.Printf( "%02x" , ___Vbuf[__Vi] )
             } else {
-                fmt.Printf( "%02x " , ___Vbuf[__Vi] ) 
+                fmt.Printf( "%02x " , ___Vbuf[__Vi] )
             }
         }
     }
-} // _P.ddint
-func ( ___b _TdebugPrint ) dintN( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
+} // _P.ddI
+func ( ___b _TdebugPrint ) ddIN( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
     if ( ___b ) {
-        _PT.ddint( ___Vlen , ___Vmax , ___Vbuf )
+        _PT.ddI( ___Vlen , ___Vmax , ___Vbuf )
         _PT.PN()
     }
-} // _P.dintN
+} // _P.ddIN
 func ( ___b _TdebugPrint ) dd( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
     ___b.PH()
-    ___b.ddint( ___Vlen , ___Vmax , ___Vbuf )
+    ___b.ddI( ___Vlen , ___Vmax , ___Vbuf )
 } // _P.dd
 func ( ___b _TdebugPrint ) ddN( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
     ___b.dd(  ___Vlen , ___Vmax , ___Vbuf )
@@ -80,23 +84,23 @@ func ( ___b _TdebugPrint ) ddN( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
 
 //flag.PrintDefaults()
 func ( ___b _TdebugPrint ) PrintArgs(){
-    ___b.n( " cmd paras : [ " , flag.Args() , " ]")
+    ___b.pn( " cmd paras : [ " , flag.Args() , " ]")
     if (___b) {
         flag.PrintDefaults()
     }
 } // PrintArgs
 
 func _FdebugPrintTest() {
-    __Vp := _P 
+    __Vp := _P
 
     _P = false
-    _P.n( " debug is off 1" )
+    _P.pn( " debug is off 1" )
     _P = true
-    _P.n( " debug is on 2" )
+    _P.pn( " debug is on 2" )
     _P = false
-    _P.n( " debug is off 3" )
+    _P.pn( " debug is off 3" )
     _P = true
-    _P.n( " debug is on 4" )
+    _P.pn( " debug is on 4" )
 
-    _P = __Vp 
+    _P = __Vp
 } // _FdebugPrintTest
