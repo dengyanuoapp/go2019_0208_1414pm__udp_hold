@@ -61,6 +61,6 @@ func _FhandleFnClient(___Vconn *net.UDPConn) {
     }
 
     //_P.dintN( __Vlen , 2048, __Vbuf[0:] )
-    _P.dN( __Vlen , 2048, __Vbuf[0:] )
+    _P.ddN( __Vlen , 2048, __Vbuf[0:] )
 
 } // _FhandleFnClient
