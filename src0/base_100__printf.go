@@ -45,6 +45,23 @@ func ( ___b _TdebugPrint ) f( ___Vfmt string , ___V ... interface{} ) {
     }
 } // _P.f
 
+
+func ( ___b _TdebugPrint ) dint( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
+    if ( ___b ) {
+        if ( ___Vlen > ___Vmax ) { ___Vlen = ___Vmax  }
+        for __Vi := 0 ; __Vi < ___Vlen ; __Vi ++ { 
+            fmt.Printf( "%02x " , ___Vbuf[__Vi] ) 
+        }
+    }
+} // _P.dint
+
+func ( ___b _TdebugPrint ) d( ___Vlen , ___Vmax int , ___Vbuf []byte ) {
+    if ( "" == _VprojectName ) {
+        ___b.fint( "%s" , _VprojectName )
+    }
+    ___b.dint( ___Vlen , ___Vmax , ___Vbuf )
+} // _P.f
+
 //flag.PrintDefaults()
 func ( ___b _TdebugPrint ) PrintArgs(){
     ___b.n( " cmd paras : [ " , flag.Args() , " ]")
