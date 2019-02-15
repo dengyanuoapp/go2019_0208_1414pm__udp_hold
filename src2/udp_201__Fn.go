@@ -47,8 +47,9 @@ func init() {
 
 func main() {
 
-    _VserviceTcpMo.Cexit = &_Cexit
-    _VserviceTcpMo.Clog  = &_Clog
+    _VserviceTcpMo.Cexit        = &_Cexit
+    _VserviceTcpMo.Clog         = &_Clog
+    _VserviceTcpMo.cAmount      = 10
     _FtryListenToTCP01( &_VserviceTcpMo )
     // _TserviceTCP 
 
