@@ -14,6 +14,8 @@ var (
     _VserviceCn  _TserviceUDP   
     _VserviceDn  _TserviceUDP   
     _VserviceSn  _TserviceUDP   
+    _Cexit       chan string
+    _Clog        chan string
 )
 
 func init() {
@@ -31,6 +33,8 @@ func init() {
     _Fbase_101__get_self_md5_sha()
     _FPargs()
 
+    _Cexit          = make (chan string, 3   )
+    _Clog           = make (chan string, 100 )
 }
 
 func main() {
@@ -38,13 +42,13 @@ func main() {
     _FtryListenToUDP01( &_VserviceCn ) 
 
     for {
-        _FhandleFnClientCn( &_VserviceCn )
+        _FhandleFnClientCn( &_VserviceCn , _Cexit , _Clog )
     }
 } // main
 
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
-func _FhandleFnClientCn(___VserviceUDP *_TserviceUDP) {
+func _FhandleFnClientCn(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
 // (*___VserviceUDP).udpConn 
     //var __Vbuf [2048]byte             // array : with specified len
     __Vbuf := make( []byte , 2048 )   // silice : with var len
