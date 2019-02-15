@@ -64,9 +64,9 @@ func main() {
     _VserviceUdpCn.callbackR  = _FcallbackInFnForCn
 
     // _TserviceUDP
-    go _FhandleFnWaitForUdpTop( &_VserviceUdpCn )
-    go _FhandleFnWaitForUdpTop( &_VserviceUdpDn )
-    go _FhandleFnWaitForUdpTop( &_VserviceUdpSn )
+    go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpCn )
+    go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpDn )
+    go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpSn )
     // _FnotNullRunUdp01
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
