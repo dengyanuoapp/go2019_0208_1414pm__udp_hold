@@ -67,6 +67,7 @@ func main() {
     go _FhandleFnWaitForUdpTop( &_VserviceUdpCn )
     go _FhandleFnWaitForUdpTop( &_VserviceUdpDn )
     go _FhandleFnWaitForUdpTop( &_VserviceUdpSn )
+    // _FnotNullRunUdp01
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
 } // main

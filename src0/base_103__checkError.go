@@ -20,6 +20,9 @@ func _FnotNullExit(___VerrMsg string , ___Vck interface{}) {
     }
 } // _FnotNullExit
 
-func _FnotNullRun( ___Vrun interface{}, ___Vpara ... interface{}) {
-    _FpfN( "---" )
-} // _FnotNullRun
+func _FnotNullRunUdp01( ___Vrun func( *_TserviceUDP) , ___Vpara *_TserviceUDP ) {
+    //_FpfN( "---" )
+    if ( ___Vrun != nil ) {
+        ___Vrun( ___Vpara )
+    }
+} // _FnotNullRunUdp01
