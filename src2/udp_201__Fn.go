@@ -47,13 +47,17 @@ func init() {
 
 func main() {
 
+    // ------------------- tcp for debug monitor log --- begin
     _VserviceTcpMo.Cexit        = &_Cexit
     _VserviceTcpMo.Clog         = &_Clog
     _VserviceTcpMo.cAmount      = 10
     _FtryListenToTCP01( &_VserviceTcpMo )
     // _TserviceTCP 
 
+    go _FhandleWaitForClientMsgTcpTop( &_VserviceTcpMo )
+    // ------------------- tcp for debug monitor log --- end
 
+    // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
     _VserviceUdpCn.callbackR  = _FcallbackInFnForCn
 
     _VserviceUdpCn.Cexit = &_Cexit
@@ -67,12 +71,12 @@ func main() {
     _FtryListenToUDP01( &_VserviceUdpDn )
     _FtryListenToUDP01( &_VserviceUdpSn )
 
-
     // _TserviceUDP
     go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpCn )
     go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpDn )
     go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpSn )
     // _FnotNullRunUdp01
+    // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
 } // main

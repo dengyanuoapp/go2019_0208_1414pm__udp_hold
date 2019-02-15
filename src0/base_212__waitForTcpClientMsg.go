@@ -7,6 +7,7 @@ import (
     //"fmt"
     //"log"
     //"net"
+    "time"
 )
 
 
@@ -17,6 +18,7 @@ func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP ) {
 
     //(*___VserviceTCP).Vbuf = make( []byte , 2048 )   // silice : with var len
     for ; ; {
+        time.Sleep(100 * time.Millisecond)
         //_FhandleWaitForClientMsgTcpLoop01( ___VserviceTCP )
     }
     (*(*___VserviceTCP).Cexit) <- "Error : (" + (*___VserviceTCP).hostPortStr + ")"
