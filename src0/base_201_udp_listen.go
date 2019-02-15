@@ -11,15 +11,18 @@ import (
 type _TserviceUDP struct {
     name        string
     hostPortStr string
+
     udpAddr     *net.UDPAddr
     udpConn     *net.UDPConn
     err         error
+
     Vbuf        []byte
     Vlen        int
     VremoteAddr *net.UDPAddr
     VlocalAddr  net.Addr
 
     callbackR   func( *_TserviceUDP)
+    callbackW   func( *_TserviceUDP)
     Cexit       *chan string
     Clog        *chan string
 }

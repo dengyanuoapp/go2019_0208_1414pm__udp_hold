@@ -8,13 +8,25 @@ import (
     "net"
 )
 
+type _TconnTCP struct {
+} // connTCP 
+
 type _TserviceTCP struct {
     name                string
     hostPortStr         string
+    cAmount             int
+
     tcpAddr             *net.TCPAddr
     tcpLisn             *net.TCPListener
     err                 error
-}
+
+    clientConn          [] _TconnTCP
+
+    callbackR   func( *_TserviceUDP)
+    callbackW   func( *_TserviceUDP)
+    Cexit       *chan string
+    Clog        *chan string
+} // _TserviceTCP 
 
 
 func _FtryListenToTCP01( ___Vsvr *_TserviceTCP ) {

@@ -47,12 +47,13 @@ func init() {
 
 func main() {
 
+    _VserviceTcpMo.Cexit = &_Cexit
+    _VserviceTcpMo.Clog  = &_Clog
     _FtryListenToTCP01( &_VserviceTcpMo )
+    // _TserviceTCP 
 
-    // _TserviceUDP
-    _FtryListenToUDP01( &_VserviceUdpCn )
-    _FtryListenToUDP01( &_VserviceUdpDn )
-    _FtryListenToUDP01( &_VserviceUdpSn )
+
+    _VserviceUdpCn.callbackR  = _FcallbackInFnForCn
 
     _VserviceUdpCn.Cexit = &_Cexit
     _VserviceUdpDn.Cexit = &_Cexit
@@ -60,8 +61,11 @@ func main() {
     _VserviceUdpCn.Clog  = &_Clog
     _VserviceUdpDn.Clog  = &_Clog
     _VserviceUdpSn.Clog  = &_Clog
+    // _TserviceUDP
+    _FtryListenToUDP01( &_VserviceUdpCn )
+    _FtryListenToUDP01( &_VserviceUdpDn )
+    _FtryListenToUDP01( &_VserviceUdpSn )
 
-    _VserviceUdpCn.callbackR  = _FcallbackInFnForCn
 
     // _TserviceUDP
     go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpCn )
