@@ -9,7 +9,8 @@ import (
 )
 
 var (
-    _VuserIpList map[string]string
+    //_VuserIpList map[string]string
+    //_VuserIpList = map[string]string{}
     _VserviceCn  string
     _VserviceDn  string
     _VserviceSn  string
@@ -31,7 +32,6 @@ func init() {
 
 func main() {
 
-    _VuserIpList = map[string]string{}
     __VudpAddr, __Verr := net.ResolveUDPAddr("udp4", _VserviceCn)
     if __Verr != nil {
         _Fex( "err13811" , __Verr)
