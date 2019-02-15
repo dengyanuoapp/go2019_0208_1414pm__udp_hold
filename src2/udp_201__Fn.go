@@ -47,15 +47,23 @@ func init() {
 
 func main() {
 
+    _FtryListenToTCP01( &_VserviceTcpMo )
+
+    // _TserviceUDP
     _FtryListenToUDP01( &_VserviceUdpCn )
     _FtryListenToUDP01( &_VserviceUdpDn )
     _FtryListenToUDP01( &_VserviceUdpSn )
 
-    _FtryListenToTCP01( &_VserviceTcpMo )
+    _VserviceUdpCn.Cexit = &_Cexit
+    _VserviceUdpDn.Cexit = &_Cexit
+    _VserviceUdpSn.Cexit = &_Cexit
+    _VserviceUdpCn.Clog  = &_Clog
+    _VserviceUdpDn.Clog  = &_Clog
+    _VserviceUdpSn.Clog  = &_Clog
 
-    go _FhandleFnWaitForClientCn( &_VserviceUdpCn , _Cexit , _Clog )
-    go _FhandleFnWaitForClientCn( &_VserviceUdpDn , _Cexit , _Clog )
-    go _FhandleFnWaitForClientCn( &_VserviceUdpSn , _Cexit , _Clog )
+    go _FhandleFnWaitForUdpTop( &_VserviceUdpCn )
+    go _FhandleFnWaitForUdpTop( &_VserviceUdpDn )
+    go _FhandleFnWaitForUdpTop( &_VserviceUdpSn )
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
 } // main

@@ -12,16 +12,17 @@ import (
 
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
-func _FhandleFnWaitForClientCn(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
+//func _FhandleFnWaitForUdpTop(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
+func _FhandleFnWaitForUdpTop(___VserviceUDP *_TserviceUDP ) {
 
     (*___VserviceUDP).Vbuf = make( []byte , 2048 )   // silice : with var len
     for ; ; {
-        _FhandleFnWaitForClientCnLoop( ___VserviceUDP , ___Cexit , ___Clog )
+        _FhandleFnWaitForClientCnLoop( ___VserviceUDP )
     }
-    ___Cexit <- "Error : (" + (*___VserviceUDP).hostPortStr + ")"
-} // _FhandleFnWaitForClientCn
+    (*(*___VserviceUDP).Cexit) <- "Error : (" + (*___VserviceUDP).hostPortStr + ")"
+} // _FhandleFnWaitForUdpTop
 
-func _FhandleFnWaitForClientCnLoop(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
+func _FhandleFnWaitForClientCnLoop(___VserviceUDP *_TserviceUDP ) {
     (*___VserviceUDP).Vlen,
     (*___VserviceUDP).VremoteAddr,
     (*___VserviceUDP).err =

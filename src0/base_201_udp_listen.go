@@ -18,6 +18,10 @@ type _TserviceUDP struct {
     Vlen        int
     VremoteAddr *net.UDPAddr
     VlocalAddr  net.Addr
+
+    callbackR   *func( *_TserviceUDP)
+    Cexit       *chan string
+    Clog        *chan string
 }
 
 
