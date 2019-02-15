@@ -61,6 +61,9 @@ func main() {
     _VserviceUdpDn.Clog  = &_Clog
     _VserviceUdpSn.Clog  = &_Clog
 
+    _VserviceUdpCn.callbackR  = _FcallbackInFnForCn
+
+    // _TserviceUDP
     go _FhandleFnWaitForUdpTop( &_VserviceUdpCn )
     go _FhandleFnWaitForUdpTop( &_VserviceUdpDn )
     go _FhandleFnWaitForUdpTop( &_VserviceUdpSn )

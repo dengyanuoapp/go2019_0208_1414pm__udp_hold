@@ -20,5 +20,6 @@ func _FnotNullExit(___VerrMsg string , ___Vck interface{}) {
     }
 } // _FnotNullExit
 
-func _FnotNullRun( ___Vrun interface{}) {
+func _FnotNullRun( ___Vrun interface{}, ___Vpara ... interface{}) {
+    _FpfN( "---" )
 } // _FnotNullRun
