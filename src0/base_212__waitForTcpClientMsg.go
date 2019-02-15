@@ -15,6 +15,10 @@ import (
 // func (c *TCPConn) ReadFromTCP(b []byte) (int, *TCPAddr, error)
 //func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP, ___Cexit chan string , ___Clog chan string ) {
 func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP ) {
+    if (*___VserviceTCP).cAmount < 1        { (*___VserviceTCP).cAmount = 1     }
+    if (*___VserviceTCP).cAmount > 100      { (*___VserviceTCP).cAmount = 100   }
+
+    (*___VserviceTCP).clientConn = make([]_TconnTCP , (*___VserviceTCP).cAmount )
 
     //(*___VserviceTCP).Vbuf = make( []byte , 2048 )   // silice : with var len
     for ; ; {

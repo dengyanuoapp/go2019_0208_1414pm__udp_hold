@@ -6,9 +6,11 @@ import (
     //"fmt"
     //"log"
     "net"
+    "sync"
 )
 
 type _TconnTCP struct {
+    enabled             bool
 } // connTCP 
 
 type _TserviceTCP struct {
@@ -20,7 +22,9 @@ type _TserviceTCP struct {
     tcpLisn             *net.TCPListener
     err                 error
 
-    clientConn          [] _TconnTCP
+    clientConn          []_TconnTCP
+    clientMux           sync.Mutex
+    clientCnt           int
 
     callbackR   func( *_TserviceUDP)
     callbackW   func( *_TserviceUDP)
