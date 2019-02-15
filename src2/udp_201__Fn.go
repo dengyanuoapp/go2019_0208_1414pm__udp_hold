@@ -40,6 +40,8 @@ func init() {
 func main() {
 
     _FtryListenToUDP01( &_VserviceCn ) 
+    _FtryListenToUDP01( &_VserviceDn ) 
+    _FtryListenToUDP01( &_VserviceSn ) 
 
     for {
         _FhandleFnClientCn( &_VserviceCn , _Cexit , _Clog )
