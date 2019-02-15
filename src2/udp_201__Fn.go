@@ -28,7 +28,8 @@ func init() {
     _VserviceUdpSn.name    = "servicePortForSn"
 
     flag.StringVar(&_VserviceUdpCn.port, "c", ":5353",  _VserviceUdpCn.name )
-    flag.StringVar(&_VserviceUdpDn.port, "d", ":32001", _VserviceUdpDn.name )
+    //flag.StringVar(&_VserviceUdpDn.port, "d", ":32001", _VserviceUdpDn.name )
+    flag.StringVar(&_VserviceUdpDn.port, "d", "127.0.0.1:32001", _VserviceUdpDn.name )
     flag.StringVar(&_VserviceUdpSn.port, "s", ":32003", _VserviceUdpSn.name )
     flag.Parse()
 

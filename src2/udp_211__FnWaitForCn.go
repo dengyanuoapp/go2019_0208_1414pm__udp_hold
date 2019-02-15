@@ -28,7 +28,7 @@ func _FhandleFnWaitForClientCn(___VserviceUDP *_TserviceUDP, ___Cexit chan strin
 
     //_FpdN( __Vlen , &__Vbuf )
 
-    _Fpf( "|%s|" , __Vaddr )
+    _Fpf( "|%s|%s|" , (*___VserviceUDP).port , __Vaddr )
     _PpdN( __Vlen , &__Vbuf )
 
 } // _FhandleFnWaitForClientCn
