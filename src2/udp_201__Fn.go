@@ -27,10 +27,13 @@ func init() {
     _VserviceUdpDn.name    = "servicePortForDn"
     _VserviceUdpSn.name    = "servicePortForSn"
 
+    _VserviceTcpMo.name    = "servicePortDebugLog"
+    _VserviceTcpMo.port    = "127.0.0.1:56789"
+
     flag.StringVar(&_VserviceUdpCn.port, "c", ":5353",  _VserviceUdpCn.name )
-    //flag.StringVar(&_VserviceUdpDn.port, "d", ":32001", _VserviceUdpDn.name )
-    flag.StringVar(&_VserviceUdpDn.port, "d", "127.0.0.1:32001", _VserviceUdpDn.name )
+    flag.StringVar(&_VserviceUdpDn.port, "d", ":32001", _VserviceUdpDn.name )
     flag.StringVar(&_VserviceUdpSn.port, "s", ":32003", _VserviceUdpSn.name )
+
     flag.Parse()
 
     // _FdebugPrintTest()

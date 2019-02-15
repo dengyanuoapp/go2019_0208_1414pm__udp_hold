@@ -26,7 +26,7 @@ func _FtryListenToUDP01( ___Vsvr *_TserviceUDP ) {
     }
 
     // func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)
-    (*___Vsvr).udpConn , (*___Vsvr).err  = net.ListenUDP("udp", (*___Vsvr).udpAddr )
+    (*___Vsvr).udpConn , (*___Vsvr).err  = net.ListenUDP("udp4", (*___Vsvr).udpAddr )
     if (*___Vsvr).err != nil {
         _Fex( "err13812" , (*___Vsvr).err)
     }
