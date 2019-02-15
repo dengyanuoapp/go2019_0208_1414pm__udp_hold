@@ -5,7 +5,7 @@ import (
     "flag"
     //"fmt"
     //"log"
-    "net"
+    //"net"
 )
 
 var (
@@ -38,18 +38,19 @@ func main() {
     _FtryListenToUDP01( &_VserviceCn ) 
 
     for {
-        _FhandleFnClientCn( _VserviceCn.udpConn )
+        _FhandleFnClientCn( &_VserviceCn )
     }
 } // main
 
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
-func _FhandleFnClientCn(___Vconn *net.UDPConn) {
+func _FhandleFnClientCn(___VserviceUDP *_TserviceUDP) {
+// (*___VserviceUDP).udpConn 
     //var __Vbuf [2048]byte             // array : with specified len
     __Vbuf := make( []byte , 2048 )   // silice : with var len
 
-    __Vlen, __Vaddr, __Verr := ___Vconn.ReadFromUDP(__Vbuf)
-    //_, __Vaddr, __Verr := ___Vconn.ReadFromUDP(__Vbuf[0:])
+    __Vlen, __Vaddr, __Verr := (*___VserviceUDP).udpConn.ReadFromUDP(__Vbuf)
+    //_, __Vaddr, __Verr := (*___VserviceUDP).udpConn.ReadFromUDP(__Vbuf[0:])
 
     if __Verr != nil {
         return
