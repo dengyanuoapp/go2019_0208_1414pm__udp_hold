@@ -43,9 +43,11 @@ func main() {
     _FtryListenToUDP01( &_VserviceDn ) 
     _FtryListenToUDP01( &_VserviceSn ) 
 
-    for {
-        _FhandleFnClientCn( &_VserviceCn , _Cexit , _Clog )
-    }
+    go _FhandleFnClientCn( &_VserviceCn , _Cexit , _Clog )
+    go _FhandleFnClientCn( &_VserviceDn , _Cexit , _Clog )
+    go _FhandleFnClientCn( &_VserviceSn , _Cexit , _Clog )
+
+    _Fex( " the reason exit : " + <-_Cexit , nil )
 } // main
 
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
