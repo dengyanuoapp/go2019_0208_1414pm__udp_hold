@@ -13,8 +13,11 @@ var (
     _Ppf        func (___Vfmt string,   ___Vpara ...interface{}) (int, error)   = fmt.Printf
     _Ppt        func (                  ___Vpara ...interface{}) (int, error)   = fmt.Print
     _Ppn        func (                  ___Vpara ...interface{}) (int, error)   = fmt.Println
-    _Pdefault   func () ()                                                      = flag.PrintDefaults
+    _Pdefault   func ()                                                         = flag.PrintDefaults
 )
+
+func _Fpd( ___Vlen int , ___V *[]byte) {
+} // _Fpd
 
 func _Fex( ___Vstr string , ___V ... interface{} ) {
     _Ppn( ___Vstr )
@@ -22,30 +25,31 @@ func _Fex( ___Vstr string , ___V ... interface{} ) {
         _Ppn( ___V )
     }
     os.Exit(1)
-} // _P.EX
+} // _Fex
 
 func _FpfN(___Vfmt string, ___Vpara ...interface{}) (int, error)  {
     _Fph()
     __Vn , __Verr := _Ppf( ___Vfmt , ___Vpara... )
     _Ppn()
     return __Vn , __Verr ;
-} // _PpfN
+} // _FpfN
 
 func _Fph( ) {
     if "" != _VprojectName {
         _Ppf( "%s:" , _VprojectName )
     }
-} // PH
+} // _Fph
 
 //flag.PrintDefaults()
 func _FPargs(){
     _Fph()
     _Ppn( " cmd paras : [ " , flag.Args() , " ]")
     _Pdefault()
-} // PrintArgs
+} // _FPargs
 
 func _FdebugPrintTest() {
 
     _Ppn( " debug is off 1" )
 
 } // _FdebugPrintTest
+
