@@ -16,8 +16,17 @@ var (
     _Pdefault   func ()                                                         = flag.PrintDefaults
 )
 
-func _Fpd( ___Vlen int , ___Vbuf *[]byte) {
+func _Fpf        (___Vfmt string,   ___Vpara ...interface{}) (int, error)   {
     _Fph()
+    return _Ppf( ___Vfmt , ___Vpara ... )
+} // _Fpf
+
+func _Fpt        (                  ___Vpara ...interface{}) (int, error)   {
+    _Fph()
+    return _Ppt(           ___Vpara ... )
+} // _Fpt
+
+func _Ppd( ___Vlen int , ___Vbuf *[]byte) {
     __Xlen := len( *___Vbuf )
     if __Xlen > ___Vlen { __Xlen = ___Vlen }
     _Ppf( "(%d)", __Xlen )
@@ -29,6 +38,14 @@ func _Fpd( ___Vlen int , ___Vbuf *[]byte) {
             _Ppf( "%02x ", (*___Vbuf)[__Vi] )
         }
     }
+} // _Ppd
+func _PpdN( ___Vlen int , ___Vbuf *[]byte) {
+    _Ppd( ___Vlen , ___Vbuf )
+    _Ppn()
+} // _PpdN
+func _Fpd( ___Vlen int , ___Vbuf *[]byte) {
+    _Fph()
+    _Ppd( ___Vlen , ___Vbuf )
 } // _Fpd
 func _FpdN( ___Vlen int , ___Vbuf *[]byte) {
     _Fpd( ___Vlen , ___Vbuf )

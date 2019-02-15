@@ -63,8 +63,9 @@ func _FhandleFnClient(___Vconn *net.UDPConn) {
         _Fex( " 183811 : why ___Vconn.ReadFromUDP addr error ?" , nil )
     }
 
-    _FpdN( __Vlen , &__Vbuf )
-    //_Fpd( __Vlen , &__Vbuf )
-    //_Ppn( __Vlen , __Vbuf )
+    //_FpdN( __Vlen , &__Vbuf )
+
+    _Fpf( "|%s|" , __Vaddr )
+    _PpdN( __Vlen , &__Vbuf )
 
 } // _FhandleFnClient
