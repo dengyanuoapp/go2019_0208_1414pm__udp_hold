@@ -27,14 +27,14 @@ func init() {
     _VserviceUdpDn.name             = "servicePortForDn"
     _VserviceUdpSn.name             = "servicePortForSn"
 
-    _VserviceTcpMo.name             = "servicePortDebugLog"
-    _VserviceTcpMo.hostPortStr      = "127.0.0.1:56789"
-
     flag.StringVar(&_VserviceUdpCn.hostPortStr, "c", ":5353",  _VserviceUdpCn.name )
     flag.StringVar(&_VserviceUdpDn.hostPortStr, "d", ":32001", _VserviceUdpDn.name )
     flag.StringVar(&_VserviceUdpSn.hostPortStr, "s", ":32003", _VserviceUdpSn.name )
 
     flag.Parse()
+
+    _VserviceTcpMo.name             = "servicePortDebugLog"
+    _VserviceTcpMo.hostPortStr      = "127.0.0.1:56781"
 
     // _FdebugPrintTest()
     _VprojectName = "Fn"
@@ -50,6 +50,8 @@ func main() {
     _FtryListenToUDP01( &_VserviceUdpCn )
     _FtryListenToUDP01( &_VserviceUdpDn )
     _FtryListenToUDP01( &_VserviceUdpSn )
+
+    _FtryListenToTCP01( &_VserviceTcpMo )
 
     go _FhandleFnWaitForClientCn( &_VserviceUdpCn , _Cexit , _Clog )
     go _FhandleFnWaitForClientCn( &_VserviceUdpDn , _Cexit , _Clog )
