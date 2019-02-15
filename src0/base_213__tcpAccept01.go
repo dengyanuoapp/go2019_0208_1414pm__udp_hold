@@ -6,7 +6,9 @@ import (
 )
 
 func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
-    //(*___VserviceTCP).Vbuf = make( []byte , 2048 )   // silice : with var len
+    for _ , __VclientConn := range (*___VserviceTCP).clientConn {
+        __VclientConn.Vbuf = make( []byte , 2048 )   // silice : with var len
+    }
 
     for ; ; {
         time.Sleep(100 * time.Millisecond)
