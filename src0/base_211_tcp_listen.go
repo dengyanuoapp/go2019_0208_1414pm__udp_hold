@@ -9,18 +9,17 @@ import (
 )
 
 type _TserviceTCP struct {
-    name        string
-    port        string
-    laddr       string
-    tcpAddr     *net.TCPAddr
-    tcpLisn     *net.TCPListener
-    err         error
+    name                string
+    hostPortStr         string
+    tcpAddr             *net.TCPAddr
+    tcpLisn             *net.TCPListener
+    err                 error
 }
 
 
 func _FtryListenToTCP01( ___Vsvr *_TserviceTCP ) {
     // func ResolveTCPAddr(network, address string) (*TCPAddr, error)
-    (*___Vsvr).tcpAddr , (*___Vsvr).err  = net.ResolveTCPAddr("tcp4", (*___Vsvr).port)
+    (*___Vsvr).tcpAddr , (*___Vsvr).err  = net.ResolveTCPAddr("tcp4", (*___Vsvr).hostPortStr)
     if (*___Vsvr).err != nil {
         _Fex( "err13811" , (*___Vsvr).err)
     }
