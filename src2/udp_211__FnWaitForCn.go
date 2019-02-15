@@ -32,10 +32,11 @@ func _FhandleFnWaitForClientCnLoop(___VserviceUDP *_TserviceUDP ) {
 
     _FnullExit( " 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
 
-    //func (c *UDPConn) LocalAddr() Addr
-    (*___VserviceUDP).VlocalAddr = (*___VserviceUDP).udpConn.LocalAddr()
+    //    //func (c *UDPConn) LocalAddr() Addr
+    //    //(*___VserviceUDP).VlocalAddr = (*___VserviceUDP).udpConn.LocalAddr()
+    //    //_Fpf( "|%s|r:%s|me:%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr.String() , (*___VserviceUDP).VlocalAddr.String() )
+    //    _Fpf( "|l:%s|r:%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr.String() )
+    //    _PpdN( (*___VserviceUDP).Vlen , &(*___VserviceUDP).Vbuf )
 
-    _Fpf( "|%s|r:%s|me:%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr.String() , (*___VserviceUDP).VlocalAddr.String() )
-    _PpdN( (*___VserviceUDP).Vlen , &(*___VserviceUDP).Vbuf )
-
+    _FnotNullRun( (*___VserviceUDP).callbackR )
 } // _FhandleFnWaitForClientCnLoop

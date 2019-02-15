@@ -14,9 +14,11 @@ func _FnullExit(___VerrMsg string , ___Vck interface{}) {
     }
 } // _FnullExit
 
-func _FnotnullExit(___VerrMsg string , ___Vck interface{}) {
+func _FnotNullExit(___VerrMsg string , ___Vck interface{}) {
     if ___Vck  != nil {
         _Fex("Error: " + ___VerrMsg , ___Vck )
     }
-} // _FnotnullExit
+} // _FnotNullExit
 
+func _FnotNullRun( ___Vrun interface{}) {
+} // _FnotNullRun
