@@ -12,23 +12,22 @@ import (
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 func _FhandleFnWaitForClientCn(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-// (*___VserviceUDP).udpConn 
-    //var __Vbuf [2048]byte             // array : with specified len
-    __Vbuf := make( []byte , 2048 )   // silice : with var len
 
-    __Vlen, __Vaddr, __Verr := (*___VserviceUDP).udpConn.ReadFromUDP(__Vbuf)
-    //_, __Vaddr, __Verr := (*___VserviceUDP).udpConn.ReadFromUDP(__Vbuf[0:])
-
-    if __Verr != nil {
-        return
+    (*___VserviceUDP).Vbuf = make( []byte , 2048 )   // silice : with var len
+    for ; ; {
+        _FhandleFnWaitForClientCnLoop( ___VserviceUDP , ___Cexit , ___Clog )
     }
-    if __Vaddr == nil {
-        _Fex( " 183811 : why ___Vconn.ReadFromUDP addr error ?" , nil )
-    }
-
-    //_FpdN( __Vlen , &__Vbuf )
-
-    _Fpf( "|%s|%s|" , (*___VserviceUDP).hostPortStr , __Vaddr )
-    _PpdN( __Vlen , &__Vbuf )
-
+    ___Cexit <- "Error : (" + (*___VserviceUDP).hostPortStr + ")"
 } // _FhandleFnWaitForClientCn
+
+func _FhandleFnWaitForClientCnLoop(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
+    (*___VserviceUDP).Vlen, (*___VserviceUDP).VremoteAddr, (*___VserviceUDP).err = (*___VserviceUDP).udpConn.ReadFromUDP((*___VserviceUDP).Vbuf)
+
+    _FerrExit( (*___VserviceUDP).err )
+
+    _FnullExit( " 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
+
+    _Fpf( "|%s|%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr )
+    _PpdN( (*___VserviceUDP).Vlen , &(*___VserviceUDP).Vbuf )
+
+} // _FhandleFnWaitForClientCnLoop

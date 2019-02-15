@@ -14,6 +14,9 @@ type _TserviceUDP struct {
     udpAddr     *net.UDPAddr
     udpConn     *net.UDPConn
     err         error
+    Vbuf        []byte
+    Vlen        int
+    VremoteAddr *net.UDPAddr
 }
 
 
