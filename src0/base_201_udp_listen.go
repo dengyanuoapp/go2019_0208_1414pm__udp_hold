@@ -17,6 +17,7 @@ type _TserviceUDP struct {
     Vbuf        []byte
     Vlen        int
     VremoteAddr *net.UDPAddr
+    VlocalAddr  net.Addr
 }
 
 

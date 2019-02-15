@@ -1,3 +1,4 @@
+// _TserviceUDP
 package main
 
 import (
@@ -21,13 +22,19 @@ func _FhandleFnWaitForClientCn(___VserviceUDP *_TserviceUDP, ___Cexit chan strin
 } // _FhandleFnWaitForClientCn
 
 func _FhandleFnWaitForClientCnLoop(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-    (*___VserviceUDP).Vlen, (*___VserviceUDP).VremoteAddr, (*___VserviceUDP).err = (*___VserviceUDP).udpConn.ReadFromUDP((*___VserviceUDP).Vbuf)
+    (*___VserviceUDP).Vlen,
+    (*___VserviceUDP).VremoteAddr,
+    (*___VserviceUDP).err =
+    (*___VserviceUDP).udpConn.ReadFromUDP((*___VserviceUDP).Vbuf)
 
     _FerrExit( (*___VserviceUDP).err )
 
     _FnullExit( " 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
 
-    _Fpf( "|%s|%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr )
+    //func (c *UDPConn) LocalAddr() Addr
+    (*___VserviceUDP).VlocalAddr = (*___VserviceUDP).udpConn.LocalAddr()
+
+    _Fpf( "|%s|r:%s|me:%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr.String() , (*___VserviceUDP).VlocalAddr.String() )
     _PpdN( (*___VserviceUDP).Vlen , &(*___VserviceUDP).Vbuf )
 
 } // _FhandleFnWaitForClientCnLoop
