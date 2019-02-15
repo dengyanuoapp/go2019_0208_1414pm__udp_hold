@@ -58,6 +58,7 @@ func _FtryListenToUDP01( ___Vsvr *_TserviceUDP ) {
 
 func main() {
 
+    _FtryListenToUDP01( &_VserviceCn ) 
 
     for {
         _FhandleFnClientCn( _VserviceCn.udpConn )
