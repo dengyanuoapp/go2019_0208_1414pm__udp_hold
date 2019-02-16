@@ -22,10 +22,15 @@ func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
 func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
 
-    //__Vconn, __Verr := (*___VserviceTCP).tcpLisn.Accept()
-    _, __Verr := (*___VserviceTCP).tcpLisn.Accept()
+    //_, __Verr := (*___VserviceTCP).tcpLisn.Accept()
+    __Vconn, __Verr := (*___VserviceTCP).tcpLisn.Accept()
     _FerrExit( " 188111 : tcp accept error " , __Verr )
 
-    _Ppn( "accept ..." )
-
+    _FpfN( "accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
+    if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
+        _FpfN( "ok accept : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
+    } else {
+        __Vconn.Close()
+        _FpfN( "refuse accept : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
+    }
 } // _FtcpAccept01_loop
