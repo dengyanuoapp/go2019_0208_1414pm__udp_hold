@@ -29,7 +29,6 @@ func _FtcpAccept01_debug(___VserviceTCP *_TserviceTCP ) {
 
 func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
-    //for __Vidx , __VclientConn := range (*___VserviceTCP).acceptTCPs {
     for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
         (*___VserviceTCP).acceptTCPs[__Vi].Vbuf      = make( []byte , 2048 )   // silice : with var len
         (*___VserviceTCP).acceptTCPs[__Vi].idx       = __Vi
@@ -57,18 +56,19 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
     _FpfN( "accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
         __Vcnt := (*___VserviceTCP).clientCnt
-        for _ , __VclientConn := range (*___VserviceTCP).acceptTCPs {
-            if ( __VclientConn.enabled == false ) {
+        for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
+            __VclientConn := &((*___VserviceTCP).acceptTCPs[__Vi])
+            if ( (*__VclientConn).enabled == false ) {
                 (*___VserviceTCP).clientMux.Lock()
 
                 (*___VserviceTCP).clientCnt ++
-                __VclientConn.enabled       = true
-                __VclientConn.conn          = __Vconn
+                (*__VclientConn).enabled       = true
+                (*__VclientConn).conn          = __Vconn
 
                 (*___VserviceTCP).clientMux.Unlock()
                 _FpfN( "accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
 
-                go _FhandleTcpReceiveMsg01( &__VclientConn )
+                go _FhandleTcpReceiveMsg01( __VclientConn )
                 // _TserviceTCP 
                 break ;
             }
