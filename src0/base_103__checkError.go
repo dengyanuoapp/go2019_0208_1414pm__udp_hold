@@ -28,13 +28,13 @@ func _FnotNullRunUdp01( ___Vrun func( *_TserviceUDP) , ___Vpara *_TserviceUDP ) 
 } // _FnotNullRunUdp01
 
 func _FnotEqExit(___VerrMsg string , ___Va interface{} , ___Vb interface{} ) {
-    if ___Va  != ___Va {
+    if ___Va  != ___Vb {
         _Fex("Error: " + ___VerrMsg , nil )
     }
 } // _FnotEqExit
 
 func _FeqExit(___VerrMsg string , ___Va interface{} , ___Vb interface{} ) {
-    if ___Va  == ___Va {
+    if ___Va  == ___Vb {
         _Fex("Error: " + ___VerrMsg , nil )
     }
 } // _FeqExit

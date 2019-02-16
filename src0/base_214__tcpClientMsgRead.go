@@ -8,6 +8,10 @@ import (
 
 
 func _FhandleTcpReceiveMsg01(___VconnTCP *_TconnTCP ) {
+    for {
+        _Fsleep_1s()
+        _Ppn( " 183891 : under constructing " )
+    }
     /*
     (*___VconnTCP).Vlen,
     (*___VconnTCP).VremoteAddr,

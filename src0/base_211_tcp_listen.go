@@ -12,12 +12,14 @@ import (
 type _TconnTCP struct {
     enabled             bool
     idx                 int
+    serverTCP           *_TserviceTCP
+    conn                *net.TCPConn
 
     Vbuf                []byte
     Vlen                int
     VremoteAddr         *net.TCPAddr
     VlocalAddr          net.Addr
-    serverTCP           *_TserviceTCP
+
 } // connTCP 
 
 type _TserviceTCP struct {
