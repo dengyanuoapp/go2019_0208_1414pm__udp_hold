@@ -26,8 +26,8 @@ type _TacceptTCP struct {
 
     Cin01               chan string
     Cout01              chan string
-    callbackR           func( *_TserviceTCP)
-    callbackW           func( *_TserviceTCP)
+    Cexit               *chan string
+    Clog                *chan string
 } // _TacceptTCP 
 
 type _TserviceTCP struct {
@@ -43,8 +43,9 @@ type _TserviceTCP struct {
     clientMux           sync.Mutex
     clientCnt           int
 
-    callbackR           func( *_TserviceTCP)
-    callbackW           func( *_TserviceTCP)
+    callbackS           func( *_TserviceTCP)
+    callbackR           func( *_TacceptTCP)
+    callbackW           func( *_TacceptTCP)
     Cexit               *chan string
     Clog                *chan string
 } // _TserviceTCP 
