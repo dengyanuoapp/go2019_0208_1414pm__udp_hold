@@ -28,9 +28,9 @@ func _FhandleWaitForClientMsgUdpLoop01(___VserviceUDP *_TserviceUDP ) {
     (*___VserviceUDP).err =
     (*___VserviceUDP).udpConn.ReadFromUDP((*___VserviceUDP).Vbuf)
 
-    _FerrExit( (*___VserviceUDP).err )
+    _FerrExit( "err 183911 : udp reading : " , (*___VserviceUDP).err )
 
-    _FnullExit( " 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
+    _FnullExit( " err 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
 
     //    //func (c *UDPConn) LocalAddr() Addr
     //    //(*___VserviceUDP).VlocalAddr = (*___VserviceUDP).udpConn.LocalAddr()

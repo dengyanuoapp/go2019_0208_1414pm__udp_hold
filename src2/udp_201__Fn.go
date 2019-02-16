@@ -3,6 +3,7 @@ package main
 import (
     //"encoding/json"
     "flag"
+    //"rand"
     //"fmt"
     //"log"
     //"net"
@@ -23,6 +24,9 @@ var (
 )
 
 func init() {
+
+    _Frand_init()
+
     _VserviceUdpCn.name             = "servicePortForCn"
     _VserviceUdpDn.name             = "servicePortForDn"
     _VserviceUdpSn.name             = "servicePortForSn"

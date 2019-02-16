@@ -2,9 +2,9 @@ package main
 
 //import "fmt"
 
-func _FerrExit(___Verr error) {
+func _FerrExit(___VerrMsg string , ___Verr error) {
     if ___Verr  != nil {
-        _Fex("Error: " , ___Verr )
+        _Fex("Error: " + ___VerrMsg , ___Verr )
     }
 } // _FerrExit
 
