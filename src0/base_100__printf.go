@@ -52,7 +52,7 @@ func _FpdN( ___Vlen int , ___Vbuf *[]byte) {
     _Ppn()
 } // _FpdN
 
-func _Fex( ___Vstr string , ___V ... interface{} ) {
+func _Fex( ___Vstr string , ___V interface{} ) {
     _Ppn( ___Vstr )
     if ___V != nil {
         _Ppn( ___V )

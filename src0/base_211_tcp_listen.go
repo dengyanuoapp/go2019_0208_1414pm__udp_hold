@@ -11,6 +11,7 @@ import (
 
 type _TconnTCP struct {
     enabled             bool
+    idx                 int
 
     Vbuf                []byte
     Vlen                int

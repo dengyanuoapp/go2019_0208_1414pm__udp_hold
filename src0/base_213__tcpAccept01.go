@@ -7,8 +7,10 @@ import (
 
 func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
-    for _ , __VclientConn := range (*___VserviceTCP).clientConn {
-        __VclientConn.Vbuf = make( []byte , 2048 )   // silice : with var len
+    for __Vidx , __VclientConn := range (*___VserviceTCP).clientConn {
+        __VclientConn.Vbuf      = make( []byte , 2048 )   // silice : with var len
+        __VclientConn.idx       = __Vidx
+        __VclientConn.enabled   = false
     }
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
@@ -28,6 +30,14 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
 
     _FpfN( "accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
+        __Vcnt := (*___VserviceTCP).clientCnt
+        for _ , __VclientConn := range (*___VserviceTCP).clientConn {
+            if ( __VclientConn.enabled == false ) {
+            }
+        }
+
+        _FeqExit( "err 138191 : why not inc ? " , __Vcnt , (*___VserviceTCP).clientCnt )
+
         _FpfN( "ok accept : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     } else {
         __Vconn.Close()

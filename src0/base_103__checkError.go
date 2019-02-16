@@ -10,7 +10,7 @@ func _FerrExit(___VerrMsg string , ___Verr error) {
 
 func _FnullExit(___VerrMsg string , ___Vck interface{}) {
     if ___Vck  == nil {
-        _Fex("Error: " + ___VerrMsg )
+        _Fex("Error: " + ___VerrMsg , nil )
     }
 } // _FnullExit
 
@@ -26,3 +26,15 @@ func _FnotNullRunUdp01( ___Vrun func( *_TserviceUDP) , ___Vpara *_TserviceUDP ) 
         ___Vrun( ___Vpara )
     }
 } // _FnotNullRunUdp01
+
+func _FnotEqExit(___VerrMsg string , ___Va interface{} , ___Vb interface{} ) {
+    if ___Va  != ___Va {
+        _Fex("Error: " + ___VerrMsg , nil )
+    }
+} // _FnotEqExit
+
+func _FeqExit(___VerrMsg string , ___Va interface{} , ___Vb interface{} ) {
+    if ___Va  == ___Va {
+        _Fex("Error: " + ___VerrMsg , nil )
+    }
+} // _FeqExit
