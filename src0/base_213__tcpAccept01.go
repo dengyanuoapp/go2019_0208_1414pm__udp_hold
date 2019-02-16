@@ -7,12 +7,23 @@ import (
 
 func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
-    for __Vidx , __VclientConn := range (*___VserviceTCP).acceptTCPs {
-        __VclientConn.Vbuf      = make( []byte , 2048 )   // silice : with var len
-        __VclientConn.idx       = __Vidx
-        __VclientConn.enabled   = false
-        __VclientConn.serverTCP = ___VserviceTCP
+    //for __Vidx , __VclientConn := range (*___VserviceTCP).acceptTCPs {
+    for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
+        (*___VserviceTCP).acceptTCPs[__Vi].Vbuf      = make( []byte , 2048 )   // silice : with var len
+        (*___VserviceTCP).acceptTCPs[__Vi].idx       = __Vi
+        (*___VserviceTCP).acceptTCPs[__Vi].enabled   = false
+        (*___VserviceTCP).acceptTCPs[__Vi].serverTCP = ___VserviceTCP
     }
+
+    for __Vidx , __VclientConn := range (*___VserviceTCP).acceptTCPs {
+        _Ppf( " %d,%d," , __Vidx , __VclientConn.idx )
+        if __VclientConn.serverTCP==nil {
+            _Ppf( "nil " )
+        } else {
+            _Ppf( "%s " , __VclientConn.serverTCP.name )
+        }
+    }
+    _Ppn()
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
     for ; ; {
