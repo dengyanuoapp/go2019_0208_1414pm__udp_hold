@@ -13,7 +13,7 @@ type _TacceptTCP struct {
     enabled             bool
     idx                 int
     serverTCP           *_TserviceTCP
-    conn                *net.TCPConn
+    connTCP             *net.TCPConn
     r64                 int64
 
     Vbuf                []byte

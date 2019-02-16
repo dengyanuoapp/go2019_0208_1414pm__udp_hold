@@ -39,7 +39,7 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
 
                 (*___VserviceTCP).clientCnt ++
                 (*__VclientConn).enabled       = true
-                (*__VclientConn).conn          = __Vconn
+                (*__VclientConn).connTCP       = __Vconn
 
                 (*___VserviceTCP).clientMux.Unlock()
                 _FpfN( "accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )

@@ -16,11 +16,20 @@ func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
 
     }
 
+} // _FhandleTcpReceiveMsg01
+
+// _TacceptTCP 
+func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) {
+    _Ppn( " 183891 : under constructing " , (*___VacceptTCP).r64 )
+    (*___VacceptTCP).r64 ++ 
+
+    _FhandleTcpReceiveMsg01_Debug(___VacceptTCP )
+
     /*
     (*___VacceptTCP).Vlen,
     (*___VacceptTCP).VremoteAddr,
     (*___VacceptTCP).err =
-    (*___VacceptTCP).tcpConn.ReadFromTCP((*___VacceptTCP).Vbuf)
+    (*___VacceptTCP).connTCP.ReadFromTCP((*___VacceptTCP).Vbuf)
 
     _FerrExit( (*___VacceptTCP).err )
 
@@ -28,14 +37,6 @@ func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
 
     _FnotNullRunTcp01( (*___VacceptTCP).callbackR , ___VacceptTCP )
     */
-} // _FhandleTcpReceiveMsg01
-
-// _TacceptTCP 
-func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) {
-        _Ppn( " 183891 : under constructing " , (*___VacceptTCP).r64 )
-        (*___VacceptTCP).r64 ++ 
-
-        _FhandleTcpReceiveMsg01_Debug(___VacceptTCP )
 
 } // _FhandleTcpReceiveMsg01_loop
 
