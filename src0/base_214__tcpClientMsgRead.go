@@ -35,13 +35,21 @@ func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) {
         _Ppn( " 183891 : under constructing " , (*___VacceptTCP).r64 )
         (*___VacceptTCP).r64 ++ 
 
-        _Ppn( " 183892 : " , (*___VacceptTCP).serverTCP )
-        /*
+        _FhandleTcpReceiveMsg01_Debug(___VacceptTCP )
+
+} // _FhandleTcpReceiveMsg01_loop
+
+func _FhandleTcpReceiveMsg01_Debug(___VacceptTCP *_TacceptTCP ) {
+
+
+    if ( nil == (*___VacceptTCP).serverTCP ) {
+        _Ppn( " 183892 : (*___VacceptTCP).serverTCP == nil " )
+    } else {
+
         _Ppf( " 183893 : " )
         for __Vi , __VacceptTcp := range (*(*___VacceptTCP).serverTCP).acceptTCPs {
-            //_Ppf( " %d,%d,%d" , __Vi , __VacceptTcp.idx , __VacceptTcp.r64  )
-            _Ppf( " %d" , __Vi )
+            _Ppf( " %d,%d,%d" , __Vi , __VacceptTcp.idx , __VacceptTcp.r64  )
         }
-        */
         _Ppn()
-} // _FhandleTcpReceiveMsg01_loop
+    }
+} // _FhandleTcpReceiveMsg01_Debug
