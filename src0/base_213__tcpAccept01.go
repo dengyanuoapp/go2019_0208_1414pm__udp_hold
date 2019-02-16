@@ -30,14 +30,19 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
 
     // func (l *TCPListener) AcceptTCP() (*TCPConn, error)
     __Vconn, __Verr := (*___VserviceTCP).tcpLisn.AcceptTCP()
-    _FerrExit( " 188111 : tcp accept error " , __Verr )
+    _FerrExit( " 381810 : tcp accept error " , __Verr )
 
-    _FpfN( "accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
+    _FpfN( "381811 accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
         __Vcnt := (*___VserviceTCP).clientCnt
         for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
             __VclientConn := &((*___VserviceTCP).acceptTCPs[__Vi])
             if ( (*__VclientConn).enabled == false ) {
+                // func (c *TCPConn) LocalAddr() Addr
+                // func (c *TCPConn) RemoteAddr() Addr
+                _FpfN( "381812 local address is %s"     , (*__Vconn).LocalAddr() )
+                _FpfN( "381812 remote address is %s"    , (*__Vconn).RemoteAddr() )
+
                 // acceptTcpINC / acceptTcpDEC : begin
                 (*___VserviceTCP).clientMux.Lock()
 
@@ -48,7 +53,7 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
                 (*___VserviceTCP).clientMux.Unlock()
                 // acceptTcpINC / acceptTcpDEC : end
 
-                _FpfN( "accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
+                _FpfN( "381812 accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
 
                 go _FhandleTcpReceiveMsg01( __VclientConn )
                 // _TserviceTCP 
@@ -56,11 +61,11 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
             }
         }
 
-        _FpfN( "after accept : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
-        _FeqExit( "err 138191 : why not inc ? " , __Vcnt , (*___VserviceTCP).clientCnt )
+        _FpfN( "381813 after accept : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
+        _FeqExit( "381814 err : why not inc ? " , __Vcnt , (*___VserviceTCP).clientCnt )
 
     } else {
         __Vconn.Close()
-        _FpfN( "refuse accept : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
+        _FpfN( "381815 refuse accept : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     }
 } // _FtcpAccept01_loop
