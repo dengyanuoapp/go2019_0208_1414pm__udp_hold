@@ -47,8 +47,9 @@ func _FhandleTcpReceiveMsg01_Debug(___VacceptTCP *_TacceptTCP ) {
     } else {
 
         _Ppf( " 183893 : " )
-        for __Vi , __VacceptTcp := range (*(*___VacceptTCP).serverTCP).acceptTCPs {
-            _Ppf( " %d,%d,%d" , __Vi , __VacceptTcp.idx , __VacceptTcp.r64  )
+        for __Vi:=0; __Vi < (*(*___VacceptTCP).serverTCP) .cAmount ; __Vi ++ {
+            __VacceptTcp := &((*(*___VacceptTCP).serverTCP).acceptTCPs[__Vi])
+            _Ppf( " %d,%d,%d" , __Vi , (*__VacceptTcp).idx , (*__VacceptTcp).r64  )
         }
         _Ppn()
     }
