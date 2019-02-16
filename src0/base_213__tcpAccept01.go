@@ -5,28 +5,6 @@ import (
     //"time"
 )
 
-func _FtcpAccept01_debug(___VserviceTCP *_TserviceTCP ) {
-    for __Vidx , __VclientConn := range (*___VserviceTCP).acceptTCPs {
-        _Ppf( " %d,%d," , __Vidx , __VclientConn.idx )
-        if __VclientConn.serverTCP==nil {
-            _Ppf( "nil " )
-        } else {
-            _Ppf( "%s " , __VclientConn.serverTCP.name )
-        }
-    }
-    _Pn()
-
-    for __Vidx , __VclientConn := range _VserviceTcpMo . acceptTCPs {
-        _Ppf( " %d,%d," , __Vidx , __VclientConn.idx )
-        if __VclientConn.serverTCP==nil {
-            _Ppf( "nil " )
-        } else {
-            _Ppf( "%s " , __VclientConn.serverTCP.name )
-        }
-    }
-    _Pn()
-} // _FtcpAccept01_debug
-
 func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
     for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
@@ -35,8 +13,6 @@ func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
         (*___VserviceTCP).acceptTCPs[__Vi].enabled   = false
         (*___VserviceTCP).acceptTCPs[__Vi].serverTCP = ___VserviceTCP
     }
-
-    _FtcpAccept01_debug( ___VserviceTCP )
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
     for ; ; {
