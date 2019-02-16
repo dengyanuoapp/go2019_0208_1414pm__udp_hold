@@ -21,7 +21,7 @@ type _TacceptTCP struct {
     Vbuf                []byte
     Vlen                int
     Verr                error
-    VremoteAddr         *net.TCPAddr
+    VremoteAddr         net.Addr
     VlocalAddr          net.Addr
 
     Cin01               chan string
