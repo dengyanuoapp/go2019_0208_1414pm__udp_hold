@@ -49,7 +49,7 @@ func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
 
     (*___VacceptTCP).r64ok ++
 
-    _Fpf( " 183814 : " )
+    _Fpf( " 183814 | l:%s | r:%s | " , (*___VacceptTCP).VlocalAddr , (*___VacceptTCP).VremoteAddr )
     _PpdN( (*___VacceptTCP).Vlen , &((*___VacceptTCP).Vbuf) )
     /*
 
