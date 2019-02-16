@@ -52,7 +52,8 @@ func init() {
 func main() {
 
     // ------------------- tcp for debug monitor log --- begin
-    _VserviceTcpMo.callbackR  = _FcallbackForDebugMo
+    _VserviceTcpMo.callbackR  = _FcallbackForDebugLog_accept
+    _VserviceTcpMo.callbackS  = _FcallbackForDebugLog_service
 
     _VserviceTcpMo.Cexit        = &_Cexit
     _VserviceTcpMo.Clog         = &_Clog

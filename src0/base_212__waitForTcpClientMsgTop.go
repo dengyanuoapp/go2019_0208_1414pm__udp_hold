@@ -2,7 +2,7 @@
 package main
 
 import (
-    "time"
+    //"time"
 )
 
 
@@ -13,8 +13,10 @@ func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP ) {
     go _FtcpAccept01( ___VserviceTCP )
 
     for ; ; {
-        time.Sleep(100 * time.Millisecond)
-        //_FhandleWaitForClientMsgTcpLoop01( ___VserviceTCP )
+        _Fsleep_1s()
+
+        _FnotNullRunTcp01_service( (*___VserviceTCP) .callbackS , ___VserviceTCP )
+
     }
     (*(*___VserviceTCP).Cexit) <- "Error 183818: (" + (*___VserviceTCP).hostPortStr + ")"
 } // _FhandleWaitForClientMsgTcpTop
