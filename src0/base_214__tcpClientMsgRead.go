@@ -12,7 +12,7 @@ import (
 func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
     var __Vcontinue bool = true
     for __Vcontinue {
-        _Fsleep_1s()
+        _Fsleep_10ms()
         __Vcontinue = _FhandleTcpReceiveMsg01_loop( ___VacceptTCP )
     }
 
