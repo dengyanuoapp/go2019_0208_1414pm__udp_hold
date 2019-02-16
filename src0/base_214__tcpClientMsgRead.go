@@ -4,36 +4,50 @@
 package main
 
 import (
-    //"time"
+    "io"
 )
 
 
 
 func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
-    for {
+    var __Vcontinue bool = true
+    for __Vcontinue {
         _Fsleep_1s()
-        _FhandleTcpReceiveMsg01_loop( ___VacceptTCP ) 
-
+        __Vcontinue = _FhandleTcpReceiveMsg01_loop( ___VacceptTCP )
     }
 
 } // _FhandleTcpReceiveMsg01
 
 // func (c *TCPConn) Read(b []byte) (int, error)
-// _TacceptTCP 
-func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) {
-    //_FhandleTcpReceiveMsg01_Debug(___VacceptTCP )
+// _TacceptTCP
+func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
+    if ( 1 == 2 ) { _FhandleTcpReceiveMsg01_Debug(___VacceptTCP ) }
 
-    (*___VacceptTCP).r64try ++ 
+    (*___VacceptTCP).r64try ++
 
     (*___VacceptTCP).Vlen,
     (*___VacceptTCP).Verr =
     (*___VacceptTCP).connTCP.Read((*___VacceptTCP).Vbuf)
 
-    _FerrExit( " reading from tcp 31911 " , (*___VacceptTCP).Verr )
+    // _FtcpAccept01
+    if ( (*___VacceptTCP).Verr == io.EOF ) { // lost the connect.
+        // acceptTcpINC / acceptTcpDEC : begin
+        (*(*___VacceptTCP).serverTCP)   .clientMux.Lock()
+
+        (*(*___VacceptTCP).serverTCP)   .clientCnt --
+        (*___VacceptTCP)                .enabled       = false
+        (*___VacceptTCP)                .connTCP.Close()
+
+        (*(*___VacceptTCP).serverTCP)   .clientMux.Unlock()
+        // acceptTcpINC / acceptTcpDEC : end
+        return false
+    }
+
+    _FerrExit( " reading from tcp 831911 " , (*___VacceptTCP).Verr )
 
     _FnullExit( " 183813 : why ___Vconn.ReadFromTCP addr error ?" , (*___VacceptTCP).VremoteAddr )
 
-    (*___VacceptTCP).r64ok ++ 
+    (*___VacceptTCP).r64ok ++
 
     _Fpf( " 183814 : " )
     _PpdN( (*___VacceptTCP).Vlen , &((*___VacceptTCP).Vbuf) )
@@ -42,6 +56,7 @@ func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) {
     _FnotNullRunTcp01( (*___VacceptTCP).callbackR , ___VacceptTCP )
     */
 
+    return true
 } // _FhandleTcpReceiveMsg01_loop
 
 func _FhandleTcpReceiveMsg01_Debug(___VacceptTCP *_TacceptTCP ) {

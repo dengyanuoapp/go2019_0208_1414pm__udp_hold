@@ -35,6 +35,7 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
         for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
             __VclientConn := &((*___VserviceTCP).acceptTCPs[__Vi])
             if ( (*__VclientConn).enabled == false ) {
+                // acceptTcpINC / acceptTcpDEC : begin
                 (*___VserviceTCP).clientMux.Lock()
 
                 (*___VserviceTCP).clientCnt ++
@@ -42,6 +43,8 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
                 (*__VclientConn).connTCP       = __Vconn
 
                 (*___VserviceTCP).clientMux.Unlock()
+                // acceptTcpINC / acceptTcpDEC : end
+
                 _FpfN( "accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
 
                 go _FhandleTcpReceiveMsg01( __VclientConn )
