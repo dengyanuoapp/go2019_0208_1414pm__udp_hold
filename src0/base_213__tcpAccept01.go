@@ -7,7 +7,7 @@ import (
 
 func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
-    for __Vidx , __VclientConn := range (*___VserviceTCP).clientConn {
+    for __Vidx , __VclientConn := range (*___VserviceTCP).clientTCPs {
         __VclientConn.Vbuf      = make( []byte , 2048 )   // silice : with var len
         __VclientConn.idx       = __Vidx
         __VclientConn.enabled   = false
@@ -32,7 +32,7 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
     _FpfN( "accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
         __Vcnt := (*___VserviceTCP).clientCnt
-        for _ , __VclientConn := range (*___VserviceTCP).clientConn {
+        for _ , __VclientConn := range (*___VserviceTCP).clientTCPs {
             if ( __VclientConn.enabled == false ) {
                 (*___VserviceTCP).clientMux.Lock()
 

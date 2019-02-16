@@ -14,6 +14,7 @@ type _TconnTCP struct {
     idx                 int
     serverTCP           *_TserviceTCP
     conn                *net.TCPConn
+    r64                 int64
 
     Vbuf                []byte
     Vlen                int
@@ -31,7 +32,7 @@ type _TserviceTCP struct {
     tcpLisn             *net.TCPListener
     err                 error
 
-    clientConn          []_TconnTCP
+    clientTCPs          []_TconnTCP
     clientMux           sync.Mutex
     clientCnt           int
 
