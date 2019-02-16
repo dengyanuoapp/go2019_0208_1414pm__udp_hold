@@ -24,6 +24,10 @@ type _TacceptTCP struct {
     VremoteAddr         *net.TCPAddr
     VlocalAddr          net.Addr
 
+    Cin01               chan string
+    Cout01              chan string
+    callbackR           *func( *_TserviceTCP)
+    callbackW           *func( *_TserviceTCP)
 } // _TacceptTCP 
 
 type _TserviceTCP struct {
@@ -39,10 +43,10 @@ type _TserviceTCP struct {
     clientMux           sync.Mutex
     clientCnt           int
 
-    callbackR   func( *_TserviceUDP)
-    callbackW   func( *_TserviceUDP)
-    Cexit       *chan string
-    Clog        *chan string
+    callbackR           *func( *_TserviceTCP)
+    callbackW           *func( *_TserviceTCP)
+    Cexit               *chan string
+    Clog                *chan string
 } // _TserviceTCP 
 
 

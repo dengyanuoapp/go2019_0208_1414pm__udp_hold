@@ -8,10 +8,13 @@ import (
 func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
     for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
-        (*___VserviceTCP).acceptTCPs[__Vi].Vbuf      = make( []byte , 2048 )   // silice : with var len
-        (*___VserviceTCP).acceptTCPs[__Vi].idx       = __Vi
-        (*___VserviceTCP).acceptTCPs[__Vi].enabled   = false
-        (*___VserviceTCP).acceptTCPs[__Vi].serverTCP = ___VserviceTCP
+        (*___VserviceTCP).acceptTCPs[__Vi].Vbuf         = make( []byte , 2048 )   // silice : with var len
+        (*___VserviceTCP).acceptTCPs[__Vi].idx          = __Vi
+        (*___VserviceTCP).acceptTCPs[__Vi].enabled      = false
+        (*___VserviceTCP).acceptTCPs[__Vi].serverTCP    = ___VserviceTCP
+
+        (*___VserviceTCP).acceptTCPs[__Vi].Cin01        = make (chan string, 10 )
+        (*___VserviceTCP).acceptTCPs[__Vi].Cout01       = make (chan string, 10 )
     }
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
