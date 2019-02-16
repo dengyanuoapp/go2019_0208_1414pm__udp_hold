@@ -14,10 +14,13 @@ type _TacceptTCP struct {
     idx                 int
     serverTCP           *_TserviceTCP
     connTCP             *net.TCPConn
-    r64                 int64
+    r64try              int64
+    r64ok               int64
+    err                 error
 
     Vbuf                []byte
     Vlen                int
+    Verr                error
     VremoteAddr         *net.TCPAddr
     VlocalAddr          net.Addr
 
