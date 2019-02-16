@@ -20,13 +20,6 @@ func _FnotNullExit(___VerrMsg string , ___Vck interface{}) {
     }
 } // _FnotNullExit
 
-func _FnotNullRunUdp01( ___Vrun func( *_TserviceUDP) , ___Vpara *_TserviceUDP ) {
-    //_FpfN( "---" )
-    if ( ___Vrun != nil ) {
-        ___Vrun( ___Vpara )
-    }
-} // _FnotNullRunUdp01
-
 func _FnotEqExit(___VerrMsg string , ___Va interface{} , ___Vb interface{} ) {
     if ___Va  != ___Vb {
         _Fex("Error: " + ___VerrMsg , nil )
