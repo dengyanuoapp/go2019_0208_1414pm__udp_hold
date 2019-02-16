@@ -16,6 +16,9 @@ import (
 func _FhandleWaitForClientMsgUdpTop(___VserviceUDP *_TserviceUDP ) {
 
     (*___VserviceUDP).Vbuf = make( []byte , 2048 )   // silice : with var len
+    //    //func (c *UDPConn) LocalAddr() Addr
+    (*___VserviceUDP).VlocalAddr = (*___VserviceUDP).udpConn.LocalAddr()
+
     for ; ; {
         _FhandleWaitForClientMsgUdpLoop01( ___VserviceUDP )
     }
@@ -31,12 +34,6 @@ func _FhandleWaitForClientMsgUdpLoop01(___VserviceUDP *_TserviceUDP ) {
     _FerrExit( "err 183911 : udp reading : " , (*___VserviceUDP).err )
 
     _FnullExit( " err 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
-
-    //    //func (c *UDPConn) LocalAddr() Addr
-    //    //(*___VserviceUDP).VlocalAddr = (*___VserviceUDP).udpConn.LocalAddr()
-    //    //_Fpf( "|%s|r:%s|me:%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr.String() , (*___VserviceUDP).VlocalAddr.String() )
-    //    _Fpf( "|l:%s|r:%s|" , (*___VserviceUDP).hostPortStr , (*___VserviceUDP).VremoteAddr.String() )
-    //    _PpdN( (*___VserviceUDP).Vlen , &(*___VserviceUDP).Vbuf )
 
     _FnotNullRunUdp01( (*___VserviceUDP).callbackR , ___VserviceUDP )
 } // _FhandleWaitForClientMsgUdpLoop01
