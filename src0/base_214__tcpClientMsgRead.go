@@ -29,13 +29,19 @@ func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
     _FnotNullRunTcp01( (*___VacceptTCP).callbackR , ___VacceptTCP )
     */
 } // _FhandleTcpReceiveMsg01
+
+// _TacceptTCP 
 func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) {
         _Ppn( " 183891 : under constructing " , (*___VacceptTCP).r64 )
         (*___VacceptTCP).r64 ++ 
 
-        _Ppf( " 183892 : " )
+        _Ppn( " 183892 : " , (*___VacceptTCP).serverTCP )
+        /*
+        _Ppf( " 183893 : " )
         for __Vi , __VacceptTcp := range (*(*___VacceptTCP).serverTCP).acceptTCPs {
-            _Ppf( " %d,%d,%d" , __Vi , __VacceptTcp.idx , __VacceptTcp.r64  )
+            //_Ppf( " %d,%d,%d" , __Vi , __VacceptTcp.idx , __VacceptTcp.r64  )
+            _Ppf( " %d" , __Vi )
         }
+        */
         _Ppn()
 } // _FhandleTcpReceiveMsg01_loop
