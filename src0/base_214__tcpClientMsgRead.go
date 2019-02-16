@@ -2,20 +2,22 @@
 package main
 
 import (
-    "time"
+    //"time"
 )
 
 
 
-func _FhandleTcpReceiveMsg01(___VserviceTCP *_TserviceTCP ) {
-    (*___VserviceTCP).Vlen,
-    (*___VserviceTCP).VremoteAddr,
-    (*___VserviceTCP).err =
-    (*___VserviceTCP).tcpConn.ReadFromTCP((*___VserviceTCP).Vbuf)
+func _FhandleTcpReceiveMsg01(___VconnTCP *_TconnTCP ) {
+    /*
+    (*___VconnTCP).Vlen,
+    (*___VconnTCP).VremoteAddr,
+    (*___VconnTCP).err =
+    (*___VconnTCP).tcpConn.ReadFromTCP((*___VconnTCP).Vbuf)
 
-    _FerrExit( (*___VserviceTCP).err )
+    _FerrExit( (*___VconnTCP).err )
 
-    _FnullExit( " 183813 : why ___Vconn.ReadFromTCP addr error ?" , (*___VserviceTCP).VremoteAddr )
+    _FnullExit( " 183813 : why ___Vconn.ReadFromTCP addr error ?" , (*___VconnTCP).VremoteAddr )
 
-    _FnotNullRunTcp01( (*___VserviceTCP).callbackR , ___VserviceTCP )
+    _FnotNullRunTcp01( (*___VconnTCP).callbackR , ___VconnTCP )
+    */
 } // _FhandleTcpReceiveMsg01

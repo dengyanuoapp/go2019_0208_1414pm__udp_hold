@@ -17,6 +17,7 @@ type _TconnTCP struct {
     Vlen                int
     VremoteAddr         *net.TCPAddr
     VlocalAddr          net.Addr
+    serverTCP           *_TserviceTCP
 } // connTCP 
 
 type _TserviceTCP struct {
