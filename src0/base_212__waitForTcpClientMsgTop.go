@@ -9,7 +9,7 @@ import (
 func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP ) {
     if (*___VserviceTCP).cAmount < 1        { (*___VserviceTCP).cAmount = 1     }
     if (*___VserviceTCP).cAmount > 100      { (*___VserviceTCP).cAmount = 100   }
-    (*___VserviceTCP).clientTCPs = make([]_TconnTCP , (*___VserviceTCP).cAmount )
+    (*___VserviceTCP).acceptTCPs = make([]_TacceptTCP , (*___VserviceTCP).cAmount )
     go _FtcpAccept01( ___VserviceTCP )
 
     for ; ; {

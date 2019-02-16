@@ -1,4 +1,4 @@
-// _TconnTCP
+// _TacceptTCP
 // _TserviceTCP
 // _FtcpAccept01
 package main
@@ -9,29 +9,33 @@ import (
 
 
 
-func _FhandleTcpReceiveMsg01(___VconnTCP *_TconnTCP ) {
+func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
     for {
         _Fsleep_1s()
-        _Ppn( " 183891 : under constructing " , (*___VconnTCP).r64 )
-        (*___VconnTCP).r64 ++ 
-    }
+        _FhandleTcpReceiveMsg01_loop( ___VacceptTCP ) 
 
-    _Ppf( " 183892 : " )
-    for __Vi , __VconnTcp := range (*(*___VconnTCP).serverTCP).clientTCPs {
-        _Ppf( " %d,%d,%d" , __Vi , __VconnTcp.idx , __VconnTcp.r64  )
     }
-    _Ppn()
 
     /*
-    (*___VconnTCP).Vlen,
-    (*___VconnTCP).VremoteAddr,
-    (*___VconnTCP).err =
-    (*___VconnTCP).tcpConn.ReadFromTCP((*___VconnTCP).Vbuf)
+    (*___VacceptTCP).Vlen,
+    (*___VacceptTCP).VremoteAddr,
+    (*___VacceptTCP).err =
+    (*___VacceptTCP).tcpConn.ReadFromTCP((*___VacceptTCP).Vbuf)
 
-    _FerrExit( (*___VconnTCP).err )
+    _FerrExit( (*___VacceptTCP).err )
 
-    _FnullExit( " 183813 : why ___Vconn.ReadFromTCP addr error ?" , (*___VconnTCP).VremoteAddr )
+    _FnullExit( " 183813 : why ___Vconn.ReadFromTCP addr error ?" , (*___VacceptTCP).VremoteAddr )
 
-    _FnotNullRunTcp01( (*___VconnTCP).callbackR , ___VconnTCP )
+    _FnotNullRunTcp01( (*___VacceptTCP).callbackR , ___VacceptTCP )
     */
 } // _FhandleTcpReceiveMsg01
+func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) {
+        _Ppn( " 183891 : under constructing " , (*___VacceptTCP).r64 )
+        (*___VacceptTCP).r64 ++ 
+
+        _Ppf( " 183892 : " )
+        for __Vi , __VacceptTcp := range (*(*___VacceptTCP).serverTCP).acceptTCPs {
+            _Ppf( " %d,%d,%d" , __Vi , __VacceptTcp.idx , __VacceptTcp.r64  )
+        }
+        _Ppn()
+} // _FhandleTcpReceiveMsg01_loop

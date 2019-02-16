@@ -9,7 +9,7 @@ import (
     "sync"
 )
 
-type _TconnTCP struct {
+type _TacceptTCP struct {
     enabled             bool
     idx                 int
     serverTCP           *_TserviceTCP
@@ -21,7 +21,7 @@ type _TconnTCP struct {
     VremoteAddr         *net.TCPAddr
     VlocalAddr          net.Addr
 
-} // connTCP 
+} // _TacceptTCP 
 
 type _TserviceTCP struct {
     name                string
@@ -32,7 +32,7 @@ type _TserviceTCP struct {
     tcpLisn             *net.TCPListener
     err                 error
 
-    clientTCPs          []_TconnTCP
+    acceptTCPs          []_TacceptTCP
     clientMux           sync.Mutex
     clientCnt           int
 
