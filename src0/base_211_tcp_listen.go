@@ -45,7 +45,6 @@ type _TserviceTCP struct {
 
     callbackS           func( *_TserviceTCP)
     callbackR           func( *_TacceptTCP)
-    callbackW           func( *_TacceptTCP)
     Cexit               *chan string
     Clog                *chan string
 } // _TserviceTCP 

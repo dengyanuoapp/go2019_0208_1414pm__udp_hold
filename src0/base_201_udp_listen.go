@@ -22,7 +22,6 @@ type _TserviceUDP struct {
     VlocalAddr  net.Addr
 
     callbackR   func( *_TserviceUDP)
-    callbackW   func( *_TserviceUDP)
     Cexit       *chan string
     Clog        *chan string
 }

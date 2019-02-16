@@ -49,12 +49,13 @@ func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
 
     (*___VacceptTCP).r64ok ++
 
+    /*
     _Fpf( " 183814 | l:%s | r:%s | " , (*___VacceptTCP).VlocalAddr , (*___VacceptTCP).VremoteAddr )
     _PpdN( (*___VacceptTCP).Vlen , &((*___VacceptTCP).Vbuf) )
-    /*
-
-    _FnotNullRunTcp01( (*___VacceptTCP).callbackR , ___VacceptTCP )
     */
+
+    // _FcallbackForDebugMo
+    _FnotNullRunTcp02_accept( (*(*___VacceptTCP).serverTCP) .callbackR , ___VacceptTCP )
 
     return true
 } // _FhandleTcpReceiveMsg01_loop
