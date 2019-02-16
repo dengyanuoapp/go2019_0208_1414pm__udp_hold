@@ -43,7 +43,7 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
                 (*___VserviceTCP).clientMux.Unlock()
                 _FpfN( "accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
 
-                go _FhandleTcpReceiveMsg01( __VclientConn )
+                go _FhandleTcpReceiveMsg01( &__VclientConn )
                 // _TserviceTCP 
                 break ;
             }
