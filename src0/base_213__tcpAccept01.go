@@ -23,7 +23,7 @@ func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
             _Ppf( "%s " , __VclientConn.serverTCP.name )
         }
     }
-    _Ppn()
+    _Pn()
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
     for ; ; {
