@@ -26,6 +26,7 @@ type _TacceptTCP struct {
 
     Cstart              chan string
     CreceiveMsg         chan []byte
+    CchanMsg            chan []byte
     CreceiveErr         chan string
 
     Cexit               *chan string

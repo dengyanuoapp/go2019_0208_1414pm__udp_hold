@@ -40,6 +40,7 @@ func _Fpt        (                  ___Vpara ...interface{}) (int, error)   {
     return _Ppt(           ___Vpara ... )
 } // _Fpt
 
+// dump hex
 func _Ppd( ___Vlen int , ___Vbuf *[]byte) {
     __Xlen := len( *___Vbuf )
     if __Xlen > ___Vlen { __Xlen = ___Vlen }

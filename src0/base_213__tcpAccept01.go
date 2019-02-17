@@ -18,9 +18,11 @@ func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
         (*___VserviceTCP).acceptTCPs[__Vi].Cstart       = make (chan string, 1  )
         (*___VserviceTCP).acceptTCPs[__Vi].CreceiveMsg  = make (chan []byte, 10 )
+        (*___VserviceTCP).acceptTCPs[__Vi].CchanMsg     = make (chan []byte, 10 )
         (*___VserviceTCP).acceptTCPs[__Vi].CreceiveErr  = make (chan string, 1  )
 
         go _FhandleTcp_accept_dataReceiveMsg01( &((*___VserviceTCP).acceptTCPs[__Vi]) )
+        go _FcallbackForDebugLog_accept_dataChan( &((*___VserviceTCP).acceptTCPs[__Vi]) )
     }
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
