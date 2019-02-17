@@ -17,7 +17,7 @@ func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
         (*___VserviceTCP).acceptTCPs[__Vi].Cexit        = ___VserviceTCP.Cexit
 
         (*___VserviceTCP).acceptTCPs[__Vi].Cstart       = make (chan string, 1  )
-        (*___VserviceTCP).acceptTCPs[__Vi].CreceiveMsg  = make (chan string, 10 )
+        (*___VserviceTCP).acceptTCPs[__Vi].CreceiveMsg  = make (chan []byte, 10 )
         (*___VserviceTCP).acceptTCPs[__Vi].CreceiveErr  = make (chan string, 1  )
 
         go _FhandleTcpReceiveMsg01( &((*___VserviceTCP).acceptTCPs[__Vi]) )

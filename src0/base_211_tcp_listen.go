@@ -25,7 +25,7 @@ type _TacceptTCP struct {
     VlocalAddr          net.Addr
 
     Cstart              chan string
-    CreceiveMsg         chan string
+    CreceiveMsg         chan []byte
     CreceiveErr         chan string
 
     Cexit               *chan string
