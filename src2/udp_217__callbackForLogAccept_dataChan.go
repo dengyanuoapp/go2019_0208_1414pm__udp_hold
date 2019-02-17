@@ -1,11 +1,13 @@
-package main
-
 // _TacceptTCP 
 // _TserviceTCP 
+package main
+
+import "io"
+
 // _FhandleTcp_accept_dataReceiveMsg01
 func _FcallbackForDebugLog_accept_dataChan(___VacceptTcp *_TacceptTCP ) {
 
-    var __Vmsg      []byte
+    var __Vbyte     []byte
     var __Vstr      string
 
     for {
@@ -13,10 +15,22 @@ func _FcallbackForDebugLog_accept_dataChan(___VacceptTcp *_TacceptTCP ) {
         select {
         case __Vstr = <- (*___VacceptTcp).CreceiveErr :
             _FpfN( " %d : 181181 accept_dataChan receERR : %d , %s"     , (*___VacceptTcp).idx , len(__Vstr) , __Vstr )
-        case __Vmsg = <- (*___VacceptTcp).CreceiveMsg :
-            _FpfN( " %d : 181183 accept_dataChan receMsg : %d %d , %s"  , (*___VacceptTcp).idx , len(__Vmsg) , cap(__Vmsg) , __Vmsg )
-        case __Vmsg = <- (*___VacceptTcp).CchanMsg :
-            _FpfN( " %d : 181185 accept_dataChan chanMsg : %d %d , %s"  , (*___VacceptTcp).idx , len(__Vmsg) , cap(__Vmsg) , __Vmsg )
+        case __Vbyte = <- (*___VacceptTcp).CreceiveMsg :
+            _FpfN( " %d : 181183 accept_dataChan receMsg : %d %d , %s"  , (*___VacceptTcp).idx , len(__Vbyte) , cap(__Vbyte) , __Vbyte )
+        case __Vbyte = <- (*___VacceptTcp).CchanMsg :
+            //_FpfN( " %d : 181185 accept_dataChan chanMsg : %d %d , %s"  , (*___VacceptTcp).idx , len(__Vbyte) , cap(__Vbyte) , __Vbyte )
+            if true == (*___VacceptTcp).enabled {
+                (*___VacceptTcp).           w64try ++
+                //  func (c *TCPConn) Write(b []byte) (int, error)
+                _ , __Verr := (*___VacceptTcp).connTCP. Write( __Vbyte )
+                if ( __Verr == nil ) {
+                    (*___VacceptTcp).       w64ok  ++
+                } else {
+                    if ( __Verr == io.EOF ) {
+                        (*___VacceptTcp).   w64eof  ++
+                    }
+                }
+            }
         }
 
         //_FhandleTcp_accept_dataReceiveMsg01__loop( ___VacceptTCP )

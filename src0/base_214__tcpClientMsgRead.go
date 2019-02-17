@@ -37,7 +37,7 @@ func _FhandleTcp_accept_dataReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
 func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTCP *_TacceptTCP ) bool {
     if ( 4 == 2 ) { _FhandleTcp_accept_dataReceiveMsg01__debug(___VacceptTCP ) }
 
-    (*___VacceptTCP).r64try ++
+    (*___VacceptTCP).           r64try ++
 
     (*___VacceptTCP).Vlen,
     (*___VacceptTCP).Verr =
@@ -45,6 +45,7 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTCP *_TacceptTCP ) bool
 
     // _FtcpAccept01
     if ( (*___VacceptTCP).Verr == io.EOF ) { // lost the connect.
+        (*___VacceptTCP).       r64eof ++
         // acceptTcpINC / acceptTcpDEC : begin
         (*(*___VacceptTCP).serverTCP)   .clientMux.Lock()
 

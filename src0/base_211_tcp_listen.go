@@ -14,9 +14,14 @@ type _TacceptTCP struct {
     idx                 int
     serverTCP           *_TserviceTCP
     connTCP             *net.TCPConn
+    err                 error
+
     r64try              int64
     r64ok               int64
-    err                 error
+    r64eof              int64
+    w64try              int64
+    w64ok               int64
+    w64eof              int64
 
     Vbuf                []byte
     Vbuf2               []byte
