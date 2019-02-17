@@ -10,3 +10,4 @@ func _Fsleep_100ms()    { time.Sleep(   100 *   time.Millisecond)   } //
 func _Fsleep_1s()       { time.Sleep(           time.Second)        } //
 func _Fsleep_10s()      { time.Sleep(   10 *    time.Second)        } //
 func _Fsleep_100s()     { time.Sleep(   100 *   time.Second)        } //
+func _FtimeNow() string { return time.Now().String()                } //

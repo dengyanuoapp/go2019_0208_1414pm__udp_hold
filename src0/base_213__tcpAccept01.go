@@ -19,6 +19,8 @@ func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
         (*___VserviceTCP).acceptTCPs[__Vi].Cstart       = make (chan string, 1  )
         (*___VserviceTCP).acceptTCPs[__Vi].CreceiveMsg  = make (chan string, 10 )
         (*___VserviceTCP).acceptTCPs[__Vi].CreceiveErr  = make (chan string, 1  )
+
+        go _FhandleTcpReceiveMsg01( &((*___VserviceTCP).acceptTCPs[__Vi]) )
     }
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
@@ -40,27 +42,28 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
         __Vcnt := (*___VserviceTCP).clientCnt
         for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
-            __VclientConn := &((*___VserviceTCP).acceptTCPs[__Vi])
-            if ( (*__VclientConn).enabled == false ) {
+            __VacceptTcp := &((*___VserviceTCP).acceptTCPs[__Vi])
+            if ( (*__VacceptTcp).enabled == false ) {
                 // func (c *TCPConn) LocalAddr() Addr
                 // func (c *TCPConn) RemoteAddr() Addr
-                (*__VclientConn).VlocalAddr         = (*__Vconn).LocalAddr()
-                (*__VclientConn).VremoteAddr        = (*__Vconn).RemoteAddr()
-                //_FpfN( "381813 l:%s r:%s"     , (*__VclientConn).VlocalAddr , (*__VclientConn).VremoteAddr )
+                (*__VacceptTcp).VlocalAddr         = (*__Vconn).LocalAddr()
+                (*__VacceptTcp).VremoteAddr        = (*__Vconn).RemoteAddr()
+                //_FpfN( "381813 l:%s r:%s"     , (*__VacceptTcp).VlocalAddr , (*__VacceptTcp).VremoteAddr )
 
                 // acceptTcpINC / acceptTcpDEC : begin
                 (*___VserviceTCP).clientMux.Lock()
 
                 (*___VserviceTCP).clientCnt ++
-                (*__VclientConn).enabled       = true
-                (*__VclientConn).connTCP       = __Vconn
+                (*__VacceptTcp).enabled             = true
+                (*__VacceptTcp).connTCP             = __Vconn
 
                 (*___VserviceTCP).clientMux.Unlock()
                 // acceptTcpINC / acceptTcpDEC : end
 
                 //_FpfN( "381815 accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
 
-                go _FhandleTcpReceiveMsg01( __VclientConn )
+                (*__VacceptTcp).Cstart              <- " 183191 start: " + _FtimeNow()
+                //(*__VacceptTcp).Cstart              = _FtimeNow()
                 // _TserviceTCP 
                 break ;
             }

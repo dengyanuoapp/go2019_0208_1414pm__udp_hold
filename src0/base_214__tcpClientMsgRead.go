@@ -10,10 +10,24 @@ import (
 
 
 func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
-    var __Vcontinue bool = true
-    for __Vcontinue {
-        _Fsleep_10ms()
-        __Vcontinue = _FhandleTcpReceiveMsg01_loop( ___VacceptTCP )
+    //var __VcanReceiveMsg bool = true
+    for {
+        if ( 3 == 2 ) {
+            <-(*___VacceptTCP).Cstart
+        } else {
+            _FpfN( " 188118 rece run start at " + <-(*___VacceptTCP).Cstart )
+        }
+
+        //if ( false == (*___VacceptTCP).enabled ) { continue }
+
+        for {
+            _Fsleep_1ms()
+
+            //__VcanReceiveMsg = (*___VacceptTCP).enabled
+            if false == (*___VacceptTCP).enabled        { break }
+
+            _FhandleTcpReceiveMsg01_loop( ___VacceptTCP )
+        }
     }
 
 } // _FhandleTcpReceiveMsg01
