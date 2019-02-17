@@ -41,7 +41,7 @@ func _Fpt        (                  ___Vpara ...interface{}) (int, error)   {
 } // _Fpt
 
 // dump hex
-func _Ppd( ___Vlen int , ___Vbuf *[]byte) {
+func _PpdL( ___Vlen int , ___Vbuf *[]byte) {
     __Xlen := len( *___Vbuf )
     if __Xlen > ___Vlen { __Xlen = ___Vlen }
     _Ppf( "(%d)", __Xlen )
@@ -53,7 +53,7 @@ func _Ppd( ___Vlen int , ___Vbuf *[]byte) {
             _Ppf( "%02x ", (*___Vbuf)[__Vi] )
         }
     }
-} // _Ppd
+} // _PpdL
 
 //func _FcopyByte( &((*___VacceptTCP).Vbuf2) , &((*___VacceptTCP).Vbuf), (*___VacceptTCP).Vlen )
 //(*___VacceptTCP).Vbuf2 = make([]byte , (*___VacceptTCP).Vlen ); copy( (*___VacceptTCP).Vbuf2 , (*___VacceptTCP).Vbuf )
@@ -64,13 +64,13 @@ func _FcopyByte( ___dst *[]byte , ___src *[]byte , ___len int ) {
     copy( (*___dst) , (*___src) )
 }// _FcopyByte
 
-func _PpdN( ___Vlen int , ___Vbuf *[]byte) {
-    _Ppd( ___Vlen , ___Vbuf )
+func _PpdLN( ___Vlen int , ___Vbuf *[]byte) {
+    _PpdL( ___Vlen , ___Vbuf )
     _Pn()
-} // _PpdN
+} // _PpdLN
 func _Fpd( ___Vlen int , ___Vbuf *[]byte) {
     _Fph()
-    _Ppd( ___Vlen , ___Vbuf )
+    _PpdL( ___Vlen , ___Vbuf )
 } // _Fpd
 func _FpdN( ___Vlen int , ___Vbuf *[]byte) {
     _Fpd( ___Vlen , ___Vbuf )

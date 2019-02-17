@@ -26,6 +26,6 @@ func _FhandleDebugServer(___VserviceUDP *_TserviceUDP, ___Cexit chan string , __
     //_FpdN( __Vlen , &__Vbuf )
 
     _Fpf( "|%s|" , __Vaddr )
-    _PpdN( __Vlen , &__Vbuf )
+    _PpdLN( __Vlen , &__Vbuf )
 
 } // _FhandleFnClientCn
