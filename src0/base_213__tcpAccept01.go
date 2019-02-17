@@ -41,7 +41,9 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
     _FerrExit( " 381810 : tcp accept error " , __Verr )
 
     //func (c *TCPConn) Write(b []byte) (int, error)
-    //__Vconn.Write( _self_sha ) ; __Vconn.Write( []byte("\n") )
+    _FpfN( "accepting 1 :%s\n" , _self_sha )
+    __Vconn.Write( _self_sha ) ; __Vconn.Write( []byte("\n") )
+    _FpfN( "accepting 2 :%s\n" , _self_sha )
 
     //_FpfN( "381811 accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
