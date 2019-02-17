@@ -6,7 +6,7 @@ package main
 func _FcallbackForDebugLog_service_dataChan(___VserviceTcp *_TserviceTCP ) {
     //_Fpf( "283822 service" ); _Pn( )
     __VprStr := <- (*(*___VserviceTcp).Clog)
-    _FpfN( "283823 service:%s" , __VprStr )
+    //_FpfN( "283823 service:%s" , __VprStr )
 
     for __Vi:=0 ; __Vi < (*___VserviceTcp).cAmount ; __Vi ++ {
         if (*___VserviceTcp).acceptTCPs[__Vi].enabled {
