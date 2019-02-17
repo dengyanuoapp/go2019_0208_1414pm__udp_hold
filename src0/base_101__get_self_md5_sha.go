@@ -1,6 +1,7 @@
 package main
 
-import "fmt"
+//import "fmt"
+import "bytes"
 import "os"
 import "io/ioutil"
 import "crypto/md5"
@@ -21,8 +22,11 @@ func _Fbase_101__get_self_md5_sha() {
         log.Fatalf( "err138191" , __Verr )
     }
 
-    _self_md5 = _FmakeByte( 16 , md5.Sum(__Vcontent) )
-    _self_sha = _FmakeByte( 32 , sha256.Sum256(__Vcontent) )
+    __Vself_md5 := md5.Sum(__Vcontent)
+    __Vself_sha := sha256.Sum256(__Vcontent)
+
+    _self_md5 = _FmakeByte( __Vself_md5[:] )
+    _self_sha = _FmakeByte( __Vself_sha[:] )
 
     // prog : 1
     // prog x1 x2 x3 : 4
@@ -31,7 +35,8 @@ func _Fbase_101__get_self_md5_sha() {
         // func hex.DecodeString(s string) ([]byte, error)
         __Vhex , __Verr := hex.DecodeString( os.Args[ __VparaLen - 1 ] )
         if nil == __Verr {
-            if fmt.Sprintf("%x" , __Vhex) == fmt.Sprintf("%x" , _self_sha ) {
+            //if fmt.Sprintf("%x" , __Vhex) == fmt.Sprintf("%x" , _self_sha ) {
+            if bytes.Equal( __Vhex , _self_sha ) {
                 _debugEnabled = true
             }
         }

@@ -42,8 +42,9 @@ func _FpdN( ___Vlen int , ___Vbuf *[]byte) {
     _Pn()
 } // _FpdN
 
-func _FmakeByte( ___Vlen int , ___VbyteSlice interface{} ) []byte {
-    __Vbyte := make( []byte , ___Vlen )
+func _FmakeByte( ___VbyteSlice []byte ) []byte {
+    __Vlen  := len( ___VbyteSlice )
+    __Vbyte := make( []byte , __Vlen )
     copy( __Vbyte , ___VbyteSlice )
     return __Vbyte
 } // _FmakeByte
