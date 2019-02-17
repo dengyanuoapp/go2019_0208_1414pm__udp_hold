@@ -19,6 +19,7 @@ type _TacceptTCP struct {
     err                 error
 
     Vbuf                []byte
+    Vbuf2               []byte
     Vlen                int
     Verr                error
     VremoteAddr         net.Addr

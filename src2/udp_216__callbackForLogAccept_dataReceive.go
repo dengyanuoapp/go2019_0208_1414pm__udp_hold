@@ -16,8 +16,6 @@ func _FcallbackForDebugLog_accept_dataReceive(___VacceptTcp *_TacceptTCP ) {
     //(*___VacceptTcp).CreceiveMsg <- (*___VacceptTcp).Vbuf
     //(*___VacceptTcp).CreceiveMsg <- (*___VacceptTcp).Vbuf[0:((*___VacceptTcp).Vlen-1)] 
     //(*___VacceptTcp).CreceiveMsg <- make([]byte , (*___VacceptTcp).Vbuf[0:((*___VacceptTcp).Vlen-1)] , (*___VacceptTcp).Vlen )
-    __Vbyte := make([]byte , (*___VacceptTcp).Vlen )
-    copy(__Vbyte , (*___VacceptTcp).Vbuf[0:((*___VacceptTcp).Vlen-1)] )
-    (*___VacceptTcp).CreceiveMsg <- __Vbyte
+    (*___VacceptTcp).CreceiveMsg <- (*___VacceptTcp).Vbuf2
 
 } // _FcallbackForDebugLog_accept_dataReceive
