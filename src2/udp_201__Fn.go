@@ -52,8 +52,9 @@ func init() {
 func main() {
 
     // ------------------- tcp for debug monitor log --- begin
-    _VserviceTcpMo.callbackR  = _FcallbackForDebugLog_accept
-    _VserviceTcpMo.callbackS  = _FcallbackForDebugLog_service
+    _VserviceTcpMo.TcallbackS  = _FcallbackForDebugLog_service
+    _VserviceTcpMo.TcallbackR  = _FcallbackForDebugLog_accept_dataReceive
+    _VserviceTcpMo.TcallbackC  = _FcallbackForDebugLog_accept_dataChan
 
     _VserviceTcpMo.Cexit        = &_Cexit
     _VserviceTcpMo.Clog         = &_Clog
@@ -67,7 +68,7 @@ func main() {
     // ------------------- tcp for debug monitor log --- end
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
-    _VserviceUdpCn.callbackR  = _FcallbackInFnForCn
+    _VserviceUdpCn.UcallbackR  = _FcallbackInFnForCn
 
     _VserviceUdpCn.Cexit = &_Cexit
     _VserviceUdpDn.Cexit = &_Cexit

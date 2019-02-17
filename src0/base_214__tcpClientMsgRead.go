@@ -69,7 +69,7 @@ func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
     */
 
     // _FcallbackForDebugLog_accept
-    _FnotNullRunTcp02_accept( (*(*___VacceptTCP).serverTCP) .callbackR , ___VacceptTCP )
+    _FnotNullRunTcp02_accept( (*(*___VacceptTCP).serverTCP) .TcallbackR , ___VacceptTCP )
 
     return true
 } // _FhandleTcpReceiveMsg01_loop

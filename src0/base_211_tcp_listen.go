@@ -27,6 +27,7 @@ type _TacceptTCP struct {
     Cstart              chan string
     CreceiveMsg         chan string
     CreceiveErr         chan string
+
     Cexit               *chan string
     Clog                *chan string
 } // _TacceptTCP 
@@ -44,12 +45,13 @@ type _TserviceTCP struct {
     clientMux           sync.Mutex
     clientCnt           int
 
-    callbackS           func( *_TserviceTCP)
-    callbackR           func( *_TacceptTCP)
+    TcallbackS          func( *_TserviceTCP)    // _FcallbackForDebugLog_service
+    TcallbackR          func( *_TacceptTCP)     // _FcallbackForDebugLog_accept_dataReceive
+    TcallbackC          func( *_TacceptTCP)     // _FcallbackForDebugLog_accept_dataChan
+
     Cexit               *chan string
     Clog                *chan string
 } // _TserviceTCP 
-
 
 func _FtryListenToTCP01( ___Vsvr *_TserviceTCP ) {
     // func ResolveTCPAddr(network, address string) (*TCPAddr, error)

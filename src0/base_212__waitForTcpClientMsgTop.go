@@ -15,7 +15,7 @@ func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP ) {
     for ; ; {
         _Fsleep_1s()
 
-        _FnotNullRunTcp01_service( (*___VserviceTCP) .callbackS , ___VserviceTCP )
+        _FnotNullRunTcp01_service( (*___VserviceTCP) .TcallbackS , ___VserviceTCP )
 
     }
     (*(*___VserviceTCP).Cexit) <- "Error 183818: (" + (*___VserviceTCP).hostPortStr + ")"

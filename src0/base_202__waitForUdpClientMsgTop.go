@@ -35,5 +35,5 @@ func _FhandleWaitForClientMsgUdpLoop01(___VserviceUDP *_TserviceUDP ) {
 
     _FnullExit( " err 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
 
-    _FnotNullRunUdp01( (*___VserviceUDP).callbackR , ___VserviceUDP )
+    _FnotNullRunUdp01( (*___VserviceUDP).UcallbackR , ___VserviceUDP )
 } // _FhandleWaitForClientMsgUdpLoop01
