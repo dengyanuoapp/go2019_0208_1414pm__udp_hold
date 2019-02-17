@@ -55,7 +55,7 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTCP *_TacceptTCP ) bool
         (*(*___VacceptTCP).serverTCP)   .clientMux.Unlock()
         // acceptTcpINC / acceptTcpDEC : end
 
-        (*___VacceptTCP).CreceiveErr  <- _Pspf("EOF:%d\n" , (*___VacceptTCP).idx)
+        (*___VacceptTCP).CreceiveErr  <- _Pspf("EOF:%d" , (*___VacceptTCP).idx)
         return false
     }
 
