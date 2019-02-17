@@ -70,8 +70,8 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTCP *_TacceptTCP ) bool
     _PpdN( (*___VacceptTCP).Vlen , &((*___VacceptTCP).Vbuf) )
     */
 
-    (*___VacceptTCP).Vbuf2 = make([]byte , (*___VacceptTCP).Vlen )
-    copy( (*___VacceptTCP).Vbuf2 , (*___VacceptTCP).Vbuf )
+    _FcopyByte( &((*___VacceptTCP).Vbuf2) , &((*___VacceptTCP).Vbuf), (*___VacceptTCP).Vlen )
+    //(*___VacceptTCP).Vbuf2 = make([]byte , (*___VacceptTCP).Vlen ); copy( (*___VacceptTCP).Vbuf2 , (*___VacceptTCP).Vbuf )
 
     // _FcallbackForDebugLog_accept
     _FnotNullRunTcp02_accept( (*(*___VacceptTCP).serverTCP) .TcallbackR , ___VacceptTCP )
