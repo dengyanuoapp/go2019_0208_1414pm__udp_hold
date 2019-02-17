@@ -35,7 +35,7 @@ func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP
 func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
-    if ( 1 == 2 ) { _FhandleTcpReceiveMsg01_Debug(___VacceptTCP ) }
+    if ( 4 == 2 ) { _FhandleTcpReceiveMsg01_Debug(___VacceptTCP ) }
 
     (*___VacceptTCP).r64try ++
 
@@ -68,7 +68,7 @@ func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
     _PpdN( (*___VacceptTCP).Vlen , &((*___VacceptTCP).Vbuf) )
     */
 
-    // _FcallbackForDebugMo
+    // _FcallbackForDebugLog_accept
     _FnotNullRunTcp02_accept( (*(*___VacceptTCP).serverTCP) .callbackR , ___VacceptTCP )
 
     return true
