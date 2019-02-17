@@ -9,7 +9,7 @@ import (
 
 
 
-func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
+func _FhandleTcp_accept_dataReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
     //var __VcanReceiveMsg bool = true
     for {
         if ( 3 == 2 ) {
@@ -26,16 +26,16 @@ func _FhandleTcpReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
             //__VcanReceiveMsg = (*___VacceptTCP).enabled
             if false == (*___VacceptTCP).enabled        { break }
 
-            _FhandleTcpReceiveMsg01_loop( ___VacceptTCP )
+            _FhandleTcp_accept_dataReceiveMsg01__loop( ___VacceptTCP )
         }
     }
 
-} // _FhandleTcpReceiveMsg01
+} // _FhandleTcp_accept_dataReceiveMsg01
 
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP
-func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
-    if ( 4 == 2 ) { _FhandleTcpReceiveMsg01_Debug(___VacceptTCP ) }
+func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTCP *_TacceptTCP ) bool {
+    if ( 4 == 2 ) { _FhandleTcp_accept_dataReceiveMsg01__debug(___VacceptTCP ) }
 
     (*___VacceptTCP).r64try ++
 
@@ -72,9 +72,9 @@ func _FhandleTcpReceiveMsg01_loop(___VacceptTCP *_TacceptTCP ) bool {
     _FnotNullRunTcp02_accept( (*(*___VacceptTCP).serverTCP) .TcallbackR , ___VacceptTCP )
 
     return true
-} // _FhandleTcpReceiveMsg01_loop
+} // _FhandleTcp_accept_dataReceiveMsg01__loop
 
-func _FhandleTcpReceiveMsg01_Debug(___VacceptTCP *_TacceptTCP ) {
+func _FhandleTcp_accept_dataReceiveMsg01__debug(___VacceptTCP *_TacceptTCP ) {
 
     _Ppn( " 183891 : under constructing " , (*___VacceptTCP).r64try , (*___VacceptTCP).r64ok )
 
@@ -89,4 +89,4 @@ func _FhandleTcpReceiveMsg01_Debug(___VacceptTCP *_TacceptTCP ) {
         }
         _Ppn()
     }
-} // _FhandleTcpReceiveMsg01_Debug
+} // _FhandleTcp_accept_dataReceiveMsg01__debug
