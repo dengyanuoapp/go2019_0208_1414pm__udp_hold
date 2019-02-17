@@ -13,7 +13,7 @@ func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP ) {
     go _FtcpAccept01( ___VserviceTCP )
 
     for ; ; {
-        _Fsleep_1s()
+        _Fsleep_1ms()
 
         _FnotNullRun011_tcp_service_chan( (*___VserviceTCP) .TcallbackS , ___VserviceTCP )
 
