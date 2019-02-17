@@ -14,9 +14,9 @@ func _FcallbackForDebugLog_accept_dataChan(___VacceptTcp *_TacceptTCP ) {
         _Fsleep_1ms()
         select {
         case __Vstr = <- (*___VacceptTcp).CreceiveErr :
-            _FpfN( " %d : 181181 accept_dataChan receERR : %d , %s"     , (*___VacceptTcp).idx , len(__Vstr) , __Vstr )
+            _FpfN( " idx:%d : 181181 accept_dataChan receERR : len:%d , %s"     , (*___VacceptTcp).idx , len(__Vstr) , __Vstr )
         case __Vbyte = <- (*___VacceptTcp).CreceiveMsg :
-            _FpfN( " %d : 181183 accept_dataChan receMsg : %d %d , %s"  , (*___VacceptTcp).idx , len(__Vbyte) , cap(__Vbyte) , __Vbyte )
+            _FpfN( " idx:%d : 181183 accept_dataChan receMsg : len:%d cap:%d , %s"  , (*___VacceptTcp).idx , len(__Vbyte) , cap(__Vbyte) , __Vbyte )
         case __Vbyte = <- (*___VacceptTcp).CchanMsg :
             //_FpfN( " %d : 181185 accept_dataChan chanMsg : %d %d , %s"  , (*___VacceptTcp).idx , len(__Vbyte) , cap(__Vbyte) , __Vbyte )
             if true == (*___VacceptTcp).enabled {
