@@ -41,11 +41,11 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
     _FerrExit( " 381810 : tcp accept error " , __Verr )
 
     //func (c *TCPConn) Write(b []byte) (int, error)
-    _FpfN( "accepting 1 :%s\n" , _self_sha )
+    _FpfN( "381812 accepting 1 :%x\n" , _self_sha )
     __Vconn.Write( _self_sha ) ; __Vconn.Write( []byte("\n") )
-    _FpfN( "accepting 2 :%s\n" , _self_sha )
+    _FpfN( "381814 accepting 2 :%s\n" , _self_sha )
 
-    //_FpfN( "381811 accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
+    //_FpfN( "381816 accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
         __Vcnt := (*___VserviceTCP).clientCnt
         for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
@@ -55,7 +55,7 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
                 // func (c *TCPConn) RemoteAddr() Addr
                 (*__VacceptTcp).VlocalAddr         = (*__Vconn).LocalAddr()
                 (*__VacceptTcp).VremoteAddr        = (*__Vconn).RemoteAddr()
-                //_FpfN( "381813 l:%s r:%s"     , (*__VacceptTcp).VlocalAddr , (*__VacceptTcp).VremoteAddr )
+                //_FpfN( "381818 l:%s r:%s"     , (*__VacceptTcp).VlocalAddr , (*__VacceptTcp).VremoteAddr )
 
                 // acceptTcpINC / acceptTcpDEC : begin
                 (*___VserviceTCP).clientMux.Lock()
