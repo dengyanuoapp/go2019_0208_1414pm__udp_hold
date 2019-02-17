@@ -77,6 +77,8 @@ func _FpdN( ___Vlen int , ___Vbuf *[]byte) {
     _Pn()
 } // _FpdN
 
+//func log.Fatal(v ...interface{})
+//func log.Fatalf(format string, v ...interface{})
 func _Fex( ___Vstr string , ___V interface{} ) {
     _Ppn( ___Vstr )
     if ___V != nil {

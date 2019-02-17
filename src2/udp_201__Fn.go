@@ -26,6 +26,9 @@ var (
 func init() {
 
     _Frand_init()
+    _VprojectName = "Fn"
+    _Fbase_101__get_self_md5_sha()
+    _FPargs()
 
     _VserviceUdpCn.name             = "servicePortForCn"
     _VserviceUdpDn.name             = "servicePortForDn"
@@ -41,9 +44,6 @@ func init() {
     _VserviceTcpMo.hostPortStr      = "127.0.0.1:56781"
 
     // _FdebugPrintTest()
-    _VprojectName = "Fn"
-    _Fbase_101__get_self_md5_sha()
-    _FPargs()
 
     _Cexit          = make (chan string, 3   )
     _Clog           = make (chan string, 100 )

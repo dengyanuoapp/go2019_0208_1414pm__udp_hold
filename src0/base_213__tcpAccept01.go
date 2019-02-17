@@ -27,7 +27,7 @@ func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
 
     defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
     for ; ; {
-        _Fsleep_10ms()
+        _Fsleep_1ms()
         _FtcpAccept01_loop( ___VserviceTCP )
     }
     (*(*___VserviceTCP).Cexit) <- "Error 381911: (" + (*___VserviceTCP).hostPortStr + ")"
@@ -39,6 +39,9 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
     // func (l *TCPListener) AcceptTCP() (*TCPConn, error)
     __Vconn, __Verr := (*___VserviceTCP).tcpLisn.AcceptTCP()
     _FerrExit( " 381810 : tcp accept error " , __Verr )
+
+    //func (c *TCPConn) Write(b []byte) (int, error)
+    //__Vconn.Write( _self_sha ) ; __Vconn.Write( []byte("\n") )
 
     //_FpfN( "381811 accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
     if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {

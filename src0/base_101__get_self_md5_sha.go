@@ -5,7 +5,7 @@ import "os"
 import "io/ioutil"
 import "crypto/md5"
 import "crypto/sha256"
-//import "log"
+import "log"
 //import "std"
 
 var (
@@ -14,15 +14,16 @@ var (
 )
 
 func _Fbase_101__get_self_md5_sha() {
-    _Ppn("from:", os.Args[0])
 
     __Vcontent, __Verr := ioutil.ReadFile( os.Args[0] )
     if __Verr != nil {
-        _Fex("err138191" , __Verr)
+        log.Fatalf( "err138191" , __Verr )
     }
 
     _self_md5 := md5.Sum(__Vcontent)
     _self_sha := sha256.Sum256(__Vcontent)
+
+    _Ppn("from:", os.Args[0])
     _FpfN("File md5: [ %x ]", _self_md5)
     _FpfN("File sha: [ %x ]", _self_sha)
 
