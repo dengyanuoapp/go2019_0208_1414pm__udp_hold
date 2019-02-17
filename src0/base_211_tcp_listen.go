@@ -24,8 +24,9 @@ type _TacceptTCP struct {
     VremoteAddr         net.Addr
     VlocalAddr          net.Addr
 
-    Cin01               chan string
-    Cout01              chan string
+    Cstart              chan string
+    CreceiveMsg         chan string
+    CreceiveErr         chan string
     Cexit               *chan string
     Clog                *chan string
 } // _TacceptTCP 
