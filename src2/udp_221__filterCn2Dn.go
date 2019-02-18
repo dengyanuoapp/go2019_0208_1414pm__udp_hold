@@ -12,10 +12,13 @@ import (
 
 type _TfilterCn2dn struct {
 
-    Cstart              chan string
-    CreceiveMsg         chan []byte
-    CchanMsg            chan []byte
-    CreceiveErr         chan string
+    sleepGap            int
+    udpIn               *_TserviceUDP
+    udpOut              *_TserviceUDP
+
+    Cswap01             chan string
+    Cin01               *chan []byte
+    Cout01              *chan []byte
 
     Cexit               *chan string
     Clog                *chan string
@@ -23,10 +26,14 @@ type _TfilterCn2dn struct {
 
 //    _FhandleWaitForClientMsgUdpTop
 func _FfilterCn2dn01( ___VfC2D *_TfilterCn2dn , ___VsC , ___VsD *_TserviceUDP ) {
+
+    if ( 1 > ___VfC2D.sleepGap ) { _Fex( " 811818 : error sleep gap " ) }
+
     for {
-        _Fsleep_1s()
+        _Fsleep_10sX( ___VfC2D.sleepGap )
         _FfilterCn2dn01_loop( ___VfC2D , ___VsC , ___VsD )
     }
 } // _FfilterCn2dn01
+
 func _FfilterCn2dn01_loop( ___VfC2D *_TfilterCn2dn , ___VsC , ___VsD *_TserviceUDP ) {
 } // _FfilterCn2dn01_loop

@@ -91,6 +91,10 @@ func main() {
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
     // ------------------- filter between workers --------- begin
+    _VfilterCn2dn.sleepGap      = 1
+    _VfilterCn2dn.udpIn         = &_VserviceUdpCn
+    _VfilterCn2dn.udpOut        = &_VserviceUdpDn
+
     go _FfilterCn2dn01( &_VfilterCn2dn , &_VserviceUdpCn , &_VserviceUdpDn )
     // ------------------- filter between workers --------- end
 
