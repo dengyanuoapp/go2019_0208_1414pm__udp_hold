@@ -52,12 +52,14 @@ func init() {
 
     _VserviceUdpDn = _TserviceUDP  {
         name        : "servicePortForDn",
+        UcallbackR  : _FcallbackInFnForDn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpSn = _TserviceUDP  {
         name        : "servicePortForSn",
+        UcallbackR  : _FcallbackInFnForSn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
@@ -94,8 +96,8 @@ func main() {
 
     // _TserviceUDP
     go _VserviceUdpCn . _FhandleWaitForClientMsgUdp__read_main_top( )
-    go _VserviceUdpCn . _FhandleWaitForClientMsgUdp__read_main_top( )
-    go _VserviceUdpCn . _FhandleWaitForClientMsgUdp__read_main_top( )
+    go _VserviceUdpDn . _FhandleWaitForClientMsgUdp__read_main_top( )
+    go _VserviceUdpSn . _FhandleWaitForClientMsgUdp__read_main_top( )
     // _FnotNullRunUdp01
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
