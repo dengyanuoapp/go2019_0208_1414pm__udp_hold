@@ -9,8 +9,8 @@ import (
     //"net"
 )
 
-    //_VuserIpList map[string]string
-    //_VuserIpList = map[string]string{}
+//_VuserIpList map[string]string
+//_VuserIpList = map[string]string{}
 
 var (
     _VserviceUdpCn  _TserviceUDP
@@ -42,8 +42,6 @@ func init() {
 
     flag.Parse()
 
-    _VserviceTcpMo.name             = "servicePortDebugLog"
-    _VserviceTcpMo.hostPortStr      = "127.0.0.1:56781"
 
     // _FdebugPrintTest()
 
@@ -54,13 +52,17 @@ func init() {
 func main() {
 
     // ------------------- tcp for debug monitor log --- begin
-    _VserviceTcpMo.TcallbackS  = _FcallbackForDebugLog_service_dataChan
-    _VserviceTcpMo.TcallbackR  = _FcallbackForDebugLog_accept_dataReceive
-    _VserviceTcpMo.TcallbackC  = _FcallbackForDebugLog_accept_dataChan
+    _VserviceTcpMo  = _TserviceTCP {
+        name            : "servicePortDebugLog",
+        hostPortStr     : "127.0.0.1:56781",
+        TcallbackS      : _FcallbackForDebugLog_service_dataChan,
+        TcallbackR      : _FcallbackForDebugLog_accept_dataReceive,
+        TcallbackC      : _FcallbackForDebugLog_accept_dataChan,
 
-    _VserviceTcpMo.Cexit        = &_Cexit
-    _VserviceTcpMo.Clog         = &_Clog
-    _VserviceTcpMo.cAmount      = 10
+        Cexit           : &_Cexit,
+        Clog            : &_Clog,
+        cAmount         : 10,
+    }
     _FtryListenToTCP01( &_VserviceTcpMo )
     // _TserviceTCP 
 
@@ -70,14 +72,22 @@ func main() {
     // ------------------- tcp for debug monitor log --- end
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
-    _VserviceUdpCn.UcallbackR  = _FcallbackInFnForCn
+    _VserviceUdpCn = _TserviceUDP  {
+        UcallbackR  : _FcallbackInFnForCn,
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+    }
 
-    _VserviceUdpCn.Cexit = &_Cexit
-    _VserviceUdpDn.Cexit = &_Cexit
-    _VserviceUdpSn.Cexit = &_Cexit
-    _VserviceUdpCn.Clog  = &_Clog
-    _VserviceUdpDn.Clog  = &_Clog
-    _VserviceUdpSn.Clog  = &_Clog
+    _VserviceUdpDn = _TserviceUDP  {
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+    }
+
+    _VserviceUdpSn = _TserviceUDP  {
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+    }
+
     // _TserviceUDP
     _FtryListenToUDP01( &_VserviceUdpCn )
     _FtryListenToUDP01( &_VserviceUdpDn )
@@ -91,9 +101,14 @@ func main() {
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
     // ------------------- filter between workers --------- begin
-    _VfilterCn2dn.sleepGap      = 1
-    _VfilterCn2dn.udpIn         = &_VserviceUdpCn
-    _VfilterCn2dn.udpOut        = &_VserviceUdpDn
+    //    _VfilterCn2dn.sleepGap      = 1
+    //    _VfilterCn2dn.udpIn         = &_VserviceUdpCn
+    //    _VfilterCn2dn.udpOut        = &_VserviceUdpDn
+    _VfilterCn2dn = _TfilterCn2dn {
+        sleepGap      : 1,
+        udpIn         : &_VserviceUdpCn,
+        udpOut        : &_VserviceUdpDn,
+    }
 
     go _FfilterCn2dn01( &_VfilterCn2dn )
     // ------------------- filter between workers --------- end
