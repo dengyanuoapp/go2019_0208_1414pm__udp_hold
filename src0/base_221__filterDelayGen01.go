@@ -18,7 +18,7 @@ type _TfilterDelay struct {
 
     Cswap01             chan string
     Cin01               *chan []byte
-    Cout01              *chan []byte
+    Cout01              chan []byte
 
     FcallbackM          func( *_TfilterDelay)    // _FcallbackFilterDelay_main_swap
     FcallbackF          func( *_TfilterDelay)    // _FcallbackFilterDelay_filter
@@ -32,8 +32,14 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_top() {
 
     if ( 1 > ___Vf.sleepGap ) { _Fex( " 811818 : error sleep gap " , nil ) }
 
-    //CuByteIn01  chan []byte
-    //CuByteOut01 *chan []byte
+    ___Vf.  Cswap01             = make( chan string , 2    )
+    ___Vf.  Cout01              = make( chan []byte , 3  )
+    ___Vf.  Cin01               = &(___Vf.udpIn.CuByteIn01)
+
+    go ___Vf. _FfilterDelayGen01_filter()
+
+    _Fsleep_1s()
+    ___Vf.udpOut.CuByteOut01    = &(___Vf.  Cout01)
 
     for {
         _Fsleep_10sX( ___Vf.sleepGap )
@@ -47,3 +53,10 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_loop (){
         ___Vf.FcallbackM ( ___Vf ) // _FcallbackFilterDelay_main_swap
     }
 } // _FfilterDelayGen01_loop
+
+func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter (){
+    _FpfN( " 311195 : filter main " )
+    if ( nil != ___Vf.FcallbackF ) {
+        ___Vf.FcallbackF ( ___Vf ) // _FcallbackFilterDelay_filter
+    }
+} // _FfilterDelayGen01_filter
