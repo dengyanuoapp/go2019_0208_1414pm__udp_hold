@@ -12,7 +12,7 @@ func _FcallbackForDebugLog_accept_dataChan(___VacceptTcp *_TacceptTCP ) {
 
     for {
         _Fsleep_1ms()
-        _FpfN( "181180 : log accept dataChan select start " )
+        _FpfN( "181180 (%d): log accept dataChan select start " , ___VacceptTcp . idx )
         select {
         case __Vstr = <- ___VacceptTcp.CreceiveErr :
             _FpfN( " idx:%d : 181181 accept_dataChan receERR : len:%d , %s"     , ___VacceptTcp.idx , len(__Vstr) , __Vstr )
