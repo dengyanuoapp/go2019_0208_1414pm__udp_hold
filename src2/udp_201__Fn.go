@@ -79,7 +79,7 @@ func init() {
 func main() {
 
     // ------------------- tcp for debug monitor log --- begin
-    _VserviceTcpMo . _FtryListenToTCP01( )
+    //_VserviceTcpMo . _FtryListenToTCP01( )
     // _TserviceTCP 
 
     // _FtcpAccept01
@@ -90,9 +90,9 @@ func main() {
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 
     // _TserviceUDP
-    _VserviceUdpCn . _FtryListenToUDP01( )
-    _VserviceUdpDn . _FtryListenToUDP01( )
-    _VserviceUdpSn . _FtryListenToUDP01( )
+    //_VserviceUdpCn . _FtryListenToUDP01( )
+    //_VserviceUdpDn . _FtryListenToUDP01( )
+    //_VserviceUdpSn . _FtryListenToUDP01( )
 
     // _TserviceUDP
     go _VserviceUdpCn . _Fhandle_udpListen_Udp__read_main_top( )

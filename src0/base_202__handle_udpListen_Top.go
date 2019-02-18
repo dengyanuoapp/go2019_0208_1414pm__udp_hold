@@ -15,6 +15,8 @@ import (
 //func _Fhandle_udpListen_Udp_main_top(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
 func (___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen_Udp__read_main_top (){
 
+    ___VserviceUdp . _FtryListenToUDP01( )
+
     ___VserviceUdp.Vbuf         = make(      []byte , 2048 )   // silice : with var len
     ___VserviceUdp.CuIn01       = make( chan []byte , 5    )   // silice : with var len
 
