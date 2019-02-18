@@ -12,6 +12,7 @@ func _FcallbackForDebugLog_accept_dataChan(___VacceptTcp *_TacceptTCP ) {
 
     for {
         _Fsleep_1ms()
+        _FpfN( "181180 : log accept dataChan select start " )
         select {
         case __Vstr = <- ___VacceptTcp.CreceiveErr :
             _FpfN( " idx:%d : 181181 accept_dataChan receERR : len:%d , %s"     , ___VacceptTcp.idx , len(__Vstr) , __Vstr )
@@ -31,9 +32,10 @@ func _FcallbackForDebugLog_accept_dataChan(___VacceptTcp *_TacceptTCP ) {
                     }
                 }
             }
-        default:
-            _Fex( "1838381 : what happens ?" , nil)
+            //default:
+            //_Fex( "181185 : what happens ?" , nil)
         }
+        _FpfN( "181185 : log accept dataChan select end " )
 
         //_FhandleTcp_accept_dataReceiveMsg01__loop( ___VacceptTCP )
     }
