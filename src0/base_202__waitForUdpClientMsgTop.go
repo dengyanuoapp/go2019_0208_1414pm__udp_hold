@@ -13,7 +13,7 @@ import (
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 //func _FhandleWaitForClientMsgUdp_main_top(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-func _FhandleWaitForClientMsgUdp__read_main_top(___VserviceUdp *_TserviceUDP ) {
+func (___VserviceUdp *_TserviceUDP ) _FhandleWaitForClientMsgUdp__read_main_top (){
 
     ___VserviceUdp.Vbuf         = make(      []byte , 2048 )   // silice : with var len
     ___VserviceUdp.CuByteIn01   = make( chan []byte , 5    )   // silice : with var len
@@ -22,12 +22,12 @@ func _FhandleWaitForClientMsgUdp__read_main_top(___VserviceUdp *_TserviceUDP ) {
     ___VserviceUdp.VlocalAddr = ___VserviceUdp.udpConn.LocalAddr()
 
     for ; ; {
-        _FhandleWaitForClientMsgUdpLoop01( ___VserviceUdp )
+        _FhandleWaitForClientMsgUdp__read_main_loop( ___VserviceUdp )
     }
     (*___VserviceUdp.Cexit) <- "Error : (" + ___VserviceUdp.hostPortStr + ")"
-} // _FhandleWaitForClientMsgUdpTop
+} // _FhandleWaitForClientMsgUdp__read_main_top
 
-func _FhandleWaitForClientMsgUdpLoop01(___VserviceUdp *_TserviceUDP ) {
+func _FhandleWaitForClientMsgUdp__read_main_loop(___VserviceUdp *_TserviceUDP ) {
     ___VserviceUdp.Vlen,
     ___VserviceUdp.VremoteAddr,
     ___VserviceUdp.err =
@@ -38,4 +38,4 @@ func _FhandleWaitForClientMsgUdpLoop01(___VserviceUdp *_TserviceUDP ) {
     _FnullExit( " err 183813 : why ___Vconn.ReadFromUDP addr error ?" , ___VserviceUdp.VremoteAddr )
 
     _FnotNullRunUdp01( ___VserviceUdp.UcallbackR , ___VserviceUdp )
-} // _FhandleWaitForClientMsgUdpLoop01
+} // _FhandleWaitForClientMsgUdp__read_main_loop

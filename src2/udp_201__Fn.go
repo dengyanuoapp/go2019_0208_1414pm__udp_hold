@@ -93,9 +93,9 @@ func main() {
     _FtryListenToUDP01( &_VserviceUdpSn )
 
     // _TserviceUDP
-    go _FhandleWaitForClientMsgUdp__read_main_top( &_VserviceUdpCn )
-    go _FhandleWaitForClientMsgUdp__read_main_top( &_VserviceUdpDn )
-    go _FhandleWaitForClientMsgUdp__read_main_top( &_VserviceUdpSn )
+    go _VserviceUdpCn . _FhandleWaitForClientMsgUdp__read_main_top( )
+    go _VserviceUdpCn . _FhandleWaitForClientMsgUdp__read_main_top( )
+    go _VserviceUdpCn . _FhandleWaitForClientMsgUdp__read_main_top( )
     // _FnotNullRunUdp01
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
