@@ -95,7 +95,7 @@ func main() {
     _VfilterCn2dn.udpIn         = &_VserviceUdpCn
     _VfilterCn2dn.udpOut        = &_VserviceUdpDn
 
-    go _FfilterCn2dn01( &_VfilterCn2dn , &_VserviceUdpCn , &_VserviceUdpDn )
+    go _FfilterCn2dn01( &_VfilterCn2dn )
     // ------------------- filter between workers --------- end
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
