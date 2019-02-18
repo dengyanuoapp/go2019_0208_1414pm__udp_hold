@@ -36,7 +36,7 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_top() {
     ___Vf.  Cout01              = make( chan []byte , 5  )
     ___Vf.  Cin01               = &(___Vf.udpIn.CuByteIn01)
 
-    go ___Vf. _FfilterDelayGen01_filter()
+    go ___Vf. _FfilterDelayGen01_filter_top()
 
     _Fsleep_1s()
     ___Vf.udpOut.CuByteOut01    = &(___Vf.  Cout01)
@@ -55,9 +55,16 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_loop (){
     }
 } // _FfilterDelayGen01_loop
 
-func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter (){
+func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_top (){
     _FpfN( " 311195 : filter main " )
+    for {
+        go ___Vf. _FfilterDelayGen01_filter_loop()
+    }
+} // _FfilterDelayGen01_filter_top
+
+func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_loop (){
+    _FpfN( " 311197 : filter main " )
     if ( nil != ___Vf.FcallbackF ) {
         ___Vf.FcallbackF ( ___Vf ) // _FcallbackFilterDelay_filter
     }
-} // _FfilterDelayGen01_filter
+} // _FfilterDelayGen01_filter_loop
