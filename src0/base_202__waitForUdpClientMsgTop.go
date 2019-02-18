@@ -12,8 +12,8 @@ import (
 
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
-//func _FhandleWaitForClientMsgUdpTop(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-func _FhandleWaitForClientMsgUdpTop(___VserviceUdp *_TserviceUDP ) {
+//func _FhandleWaitForClientMsgUdp_main_top(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
+func _FhandleWaitForClientMsgUdp__read_main_top(___VserviceUdp *_TserviceUDP ) {
 
     ___VserviceUdp.Vbuf         = make(      []byte , 2048 )   // silice : with var len
     ___VserviceUdp.CuByteIn01   = make( chan []byte , 5    )   // silice : with var len
