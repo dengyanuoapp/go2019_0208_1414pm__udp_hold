@@ -15,7 +15,9 @@ import (
 //func _FhandleWaitForClientMsgUdpTop(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
 func _FhandleWaitForClientMsgUdpTop(___VserviceUdp *_TserviceUDP ) {
 
-    ___VserviceUdp.Vbuf = make( []byte , 2048 )   // silice : with var len
+    ___VserviceUdp.Vbuf         = make(      []byte , 2048 )   // silice : with var len
+    ___VserviceUdp.CuByteIn01   = make( chan []byte , 5    )   // silice : with var len
+
     //    //func (c *UDPConn) LocalAddr() Addr
     ___VserviceUdp.VlocalAddr = ___VserviceUdp.udpConn.LocalAddr()
 
