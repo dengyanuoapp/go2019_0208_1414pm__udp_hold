@@ -58,6 +58,8 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_loop (){
 func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_top (){
     _FpfN( " 311195 : filter main " )
     for {
+        _Fsleep_1s() ;
+        _Fsleep_1ms() ;
         go ___Vf. _FfilterDelayGen01_filter_loop()
     }
 } // _FfilterDelayGen01_filter_top
