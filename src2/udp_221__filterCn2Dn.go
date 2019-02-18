@@ -27,7 +27,7 @@ type _TfilterCn2dn struct {
 //    _FhandleWaitForClientMsgUdpTop
 func _FfilterCn2dn01( ___VfC2D *_TfilterCn2dn , ___VsC , ___VsD *_TserviceUDP ) {
 
-    if ( 1 > ___VfC2D.sleepGap ) { _Fex( " 811818 : error sleep gap " ) }
+    if ( 1 > ___VfC2D.sleepGap ) { _Fex( " 811818 : error sleep gap " , nil ) }
 
     for {
         _Fsleep_10sX( ___VfC2D.sleepGap )
