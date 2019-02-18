@@ -17,6 +17,8 @@ var (
     _VserviceUdpDn  _TserviceUDP
     _VserviceUdpSn  _TserviceUDP
 
+    _VfilterCn2dn   _TfilterCn2dn
+
     _VserviceTcpMo  _TserviceTCP
 
     _Cexit       chan string
@@ -86,7 +88,11 @@ func main() {
     go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpDn )
     go _FhandleWaitForClientMsgUdpTop( &_VserviceUdpSn )
     // _FnotNullRunUdp01
+
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
+    // ------------------- filter between workers --------- begin
+    go _FfilterCn2dn01( &_VfilterCn2dn , &_VserviceUdpCn , &_VserviceUdpDn )
+    // ------------------- filter between workers --------- end
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
 } // main
