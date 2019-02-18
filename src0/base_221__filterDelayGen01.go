@@ -34,12 +34,12 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_main_top() {
 
     ___Vf.  CfSwap01            = make( chan string , 4  )
     ___Vf.  CfIn01              = make( chan []byte , 5  )
-    ___Vf.udpIn.CuByteOut01     = &( ___Vf.  CfIn01 )
+    ___Vf.udpIn.CuOut01         = &( ___Vf.  CfIn01 )
 
     go ___Vf. _FfilterDelayGen01_filter_top()
 
     //_Fsleep_1s()
-    ___Vf.  CfOut01             = &(___Vf.udpOut.CuByteIn01)
+    ___Vf.  CfOut01             = &(___Vf.udpOut.CuIn01 )
 
     for {
         _Fsleep_10sX( ___Vf.sleepGap )

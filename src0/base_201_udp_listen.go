@@ -25,8 +25,8 @@ type _TserviceUDP struct {
     Cexit       *chan string
     Clog        *chan string
 
-    CuByteIn01  chan []byte
-    CuByteOut01 *chan []byte
+    CuIn01      chan []byte
+    CuOut01     *chan []byte
 
 }
 

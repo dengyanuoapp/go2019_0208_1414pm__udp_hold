@@ -24,11 +24,11 @@ func _FcallbackInFnForCn(___VserviceUDP *_TserviceUDP ) {
     ___VserviceUDP.VremoteAddr ,
     ___VserviceUDP.Vlen )
 
-    if nil != ___VserviceUDP.CuByteOut01  {
+    if nil != ___VserviceUDP.CuOut01  {
         __Vcn2dn := _Tcn2dn { 1, ___VserviceUDP.VremoteAddr.IP , ___VserviceUDP.VremoteAddr.Port }
         __Vbyte , __Verr := json.Marshal( __Vcn2dn )
         if nil == __Verr {
-            *___VserviceUDP.CuByteOut01  <- __Vbyte
+            *___VserviceUDP.CuOut01  <- __Vbyte
         }
     }
 
