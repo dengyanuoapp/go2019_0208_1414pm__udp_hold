@@ -29,3 +29,10 @@ func _FuserCallback_dataRece_Dn(___VserviceUDP *_TserviceUDP ) {
 
 } // _FuserCallback_dataRece_Dn
 
+func _FuserCallback_chanIn_Dn(___VserviceUDP *_TserviceUDP ) {
+    select {
+    case __VdnIn:= <-___VserviceUDP.CuIn01 :
+        _FpfN( " 2738181 : rece from Chan : Dn : " + string( __VdnIn ) )
+    }
+} // _FuserCallback_chanIn_Dn
+

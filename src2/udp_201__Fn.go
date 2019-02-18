@@ -53,6 +53,7 @@ func init() {
     _VserviceUdpDn = _TserviceUDP  {
         name        : "servicePortForDn",
         UcallbackR  : _FuserCallback_dataRece_Dn,
+        UcallbackC  : _FuserCallback_chanIn_Dn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
