@@ -24,8 +24,14 @@ func _FcallbackFilterDelay_filter( ___Vf *_TfilterDelay)    {
 } // _FcallbackFilterDelay_filter
 
 func ( ___Vf *_TfilterDelay ) _Ftry_tran_the_ok_task_to_Dn(___Vstr string ) {
-    _FpfN( " 828391: _Ftry_tran_the_ok_task_to_Dn : " )
-    *___Vf.  CfOut01 <- []byte( " 828392 : filte out \n" )
+    _Fpf( " 828391: _Ftry_tran_the_ok_task_to_Dn : " )
+    if nil == ___Vf.  CfOut01 {
+        _FpfN( " out Chan is nil. " )
+    } else {
+        _Fpf( " 111 " )
+        *___Vf.  CfOut01 <- []byte( " 828392 : filte out \n" )
+        _FpfN( " ok. " )
+    }
 } // _Ftry_tran_the_ok_task_to_Dn
 
 func ( ___Vf *_TfilterDelay ) _Ftry_update_filter_array( ___Vbyte []byte ) {
