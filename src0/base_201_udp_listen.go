@@ -31,7 +31,7 @@ type _TserviceUDP struct {
 }
 
 
-func _FtryListenToUDP01( ___Vsvr *_TserviceUDP ) {
+func ( ___Vsvr *_TserviceUDP )_FtryListenToUDP01()  {
     // func ResolveUDPAddr(network, address string) (*UDPAddr, error)
     ___Vsvr.udpAddr , ___Vsvr.err  = net.ResolveUDPAddr("udp4", ___Vsvr.hostPortStr)
     if ___Vsvr.err != nil {

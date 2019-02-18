@@ -60,7 +60,7 @@ type _TserviceTCP struct {
     Clog                *chan string
 } // _TserviceTCP 
 
-func _FtryListenToTCP01( ___Vsvr *_TserviceTCP ) {
+func ( ___Vsvr *_TserviceTCP ) _FtryListenToTCP01()  {
     // func ResolveTCPAddr(network, address string) (*TCPAddr, error)
     ___Vsvr.tcpAddr , ___Vsvr.err  = net.ResolveTCPAddr("tcp4", ___Vsvr.hostPortStr)
     if ___Vsvr.err != nil {
