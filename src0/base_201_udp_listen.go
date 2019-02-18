@@ -21,7 +21,8 @@ type _TserviceUDP struct {
     VremoteAddr *net.UDPAddr
     VlocalAddr  net.Addr
 
-    UcallbackR  func( *_TserviceUDP)
+    UcallbackR  func( *_TserviceUDP) // deal with data rece from udp
+    UcallbackC  func( *_TserviceUDP) // deal with data rece from chan
     Cexit       *chan string
     Clog        *chan string
 
