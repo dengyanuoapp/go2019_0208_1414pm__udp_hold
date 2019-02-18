@@ -24,6 +24,10 @@ type _TserviceUDP struct {
     UcallbackR  func( *_TserviceUDP)
     Cexit       *chan string
     Clog        *chan string
+
+    CbyteIn01   chan []byte
+    CbyteOut01  *chan []byte
+
 }
 
 
