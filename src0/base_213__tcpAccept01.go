@@ -5,39 +5,39 @@ import (
     //"time"
 )
 
-func _FtcpAccept01(___VserviceTCP *_TserviceTCP ) {
+func _FtcpAccept01(___VserviceTcp *_TserviceTCP ) {
 
-    for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
-        (*___VserviceTCP).acceptTCPs[__Vi].Vbuf         = make( []byte , 2048 )   // silice : with var len
-        (*___VserviceTCP).acceptTCPs[__Vi].idx          = __Vi
-        (*___VserviceTCP).acceptTCPs[__Vi].enabled      = false
-        (*___VserviceTCP).acceptTCPs[__Vi].serverTCP    = ___VserviceTCP
+    for __Vi:=0; __Vi < ___VserviceTcp.cAmount ; __Vi ++ {
+        ___VserviceTcp.acceptTCPs[__Vi].Vbuf         = make( []byte , 2048 )   // silice : with var len
+        ___VserviceTcp.acceptTCPs[__Vi].idx          = __Vi
+        ___VserviceTcp.acceptTCPs[__Vi].enabled      = false
+        ___VserviceTcp.acceptTCPs[__Vi].serverTCP    = ___VserviceTcp
 
-        (*___VserviceTCP).acceptTCPs[__Vi].Clog         = ___VserviceTCP.Clog
-        (*___VserviceTCP).acceptTCPs[__Vi].Cexit        = ___VserviceTCP.Cexit
+        ___VserviceTcp.acceptTCPs[__Vi].Clog         = ___VserviceTcp.Clog
+        ___VserviceTcp.acceptTCPs[__Vi].Cexit        = ___VserviceTcp.Cexit
 
-        (*___VserviceTCP).acceptTCPs[__Vi].Cstart       = make (chan string, 1  )
-        (*___VserviceTCP).acceptTCPs[__Vi].CreceiveMsg  = make (chan []byte, 10 )
-        (*___VserviceTCP).acceptTCPs[__Vi].CchanMsg     = make (chan []byte, 10 )
-        (*___VserviceTCP).acceptTCPs[__Vi].CreceiveErr  = make (chan string, 1  )
+        ___VserviceTcp.acceptTCPs[__Vi].Cstart       = make (chan string, 1  )
+        ___VserviceTcp.acceptTCPs[__Vi].CreceiveMsg  = make (chan []byte, 10 )
+        ___VserviceTcp.acceptTCPs[__Vi].CchanMsg     = make (chan []byte, 10 )
+        ___VserviceTcp.acceptTCPs[__Vi].CreceiveErr  = make (chan string, 1  )
 
-        go _FhandleTcp_accept_dataReceiveMsg01( &((*___VserviceTCP).acceptTCPs[__Vi]) )
-        go _FcallbackForDebugLog_accept_dataChan( &((*___VserviceTCP).acceptTCPs[__Vi]) )
+        go _FhandleTcp_accept_dataReceiveMsg01( &(___VserviceTcp.acceptTCPs[__Vi]) )
+        go _FcallbackForDebugLog_accept_dataChan( &(___VserviceTcp.acceptTCPs[__Vi]) )
     }
 
-    defer (*___VserviceTCP).tcpLisn.Close() //_FtryListenToTCP01
+    defer ___VserviceTcp.tcpLisn.Close() //_FtryListenToTCP01
     for ; ; {
         _Fsleep_1ms()
-        _FtcpAccept01_loop( ___VserviceTCP )
+        _FtcpAccept01_loop( ___VserviceTcp )
     }
-    (*(*___VserviceTCP).Cexit) <- "Error 381911: (" + (*___VserviceTCP).hostPortStr + ")"
+    (*___VserviceTcp.Cexit) <- "Error 381911: (" + ___VserviceTcp.hostPortStr + ")"
 
 } // _FtcpAccept01
 
-func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
+func _FtcpAccept01_loop(___VserviceTcp *_TserviceTCP ) {
 
     // func (l *TCPListener) AcceptTCP() (*TCPConn, error)
-    __Vconn, __Verr := (*___VserviceTCP).tcpLisn.AcceptTCP()
+    __Vconn, __Verr := ___VserviceTcp.tcpLisn.AcceptTCP()
     _FerrExit( " 381810 : tcp accept error " , __Verr )
 
     //func (c *TCPConn) Write(b []byte) (int, error)
@@ -45,42 +45,42 @@ func _FtcpAccept01_loop(___VserviceTCP *_TserviceTCP ) {
     __Vconn.Write( []byte(_Pspf("%x\n",_self_sha)) ) 
     //_FpfN( "381814 accepting 2 :%s\n" , _self_sha )
 
-    //_FpfN( "381816 accepting : max %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
-    if ( (*___VserviceTCP).cAmount > (*___VserviceTCP).clientCnt ) {
-        __Vcnt := (*___VserviceTCP).clientCnt
-        for __Vi:=0; __Vi < (*___VserviceTCP).cAmount ; __Vi ++ {
-            __VacceptTcp := &((*___VserviceTCP).acceptTCPs[__Vi])
-            if ( (*__VacceptTcp).enabled == false ) {
+    //_FpfN( "381816 accepting : max %d , now %d" , ___VserviceTcp.cAmount , ___VserviceTcp.clientCnt )
+    if ( ___VserviceTcp.cAmount > ___VserviceTcp.clientCnt ) {
+        __Vcnt := ___VserviceTcp.clientCnt
+        for __Vi:=0; __Vi < ___VserviceTcp.cAmount ; __Vi ++ {
+            __VacceptTcp := &(___VserviceTcp.acceptTCPs[__Vi])
+            if ( __VacceptTcp.enabled == false ) {
                 // func (c *TCPConn) LocalAddr() Addr
                 // func (c *TCPConn) RemoteAddr() Addr
-                (*__VacceptTcp).VlocalAddr         = (*__Vconn).LocalAddr()
-                (*__VacceptTcp).VremoteAddr        = (*__Vconn).RemoteAddr()
-                //_FpfN( "381818 l:%s r:%s"     , (*__VacceptTcp).VlocalAddr , (*__VacceptTcp).VremoteAddr )
+                __VacceptTcp.VlocalAddr         = __Vconn.LocalAddr()
+                __VacceptTcp.VremoteAddr        = __Vconn.RemoteAddr()
+                //_FpfN( "381818 l:%s r:%s"     , __VacceptTcp.VlocalAddr , __VacceptTcp.VremoteAddr )
 
                 // acceptTcpINC / acceptTcpDEC : begin
-                (*___VserviceTCP).clientMux.Lock()
+                ___VserviceTcp.clientMux.Lock()
 
-                (*___VserviceTCP).clientCnt ++
-                (*__VacceptTcp).enabled             = true
-                (*__VacceptTcp).connTCP             = __Vconn
+                ___VserviceTcp.clientCnt ++
+                __VacceptTcp.enabled             = true
+                __VacceptTcp.connTCP             = __Vconn
 
-                (*___VserviceTCP).clientMux.Unlock()
+                ___VserviceTcp.clientMux.Unlock()
                 // acceptTcpINC / acceptTcpDEC : end
 
-                //_FpfN( "381815 accept succeed : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
+                //_FpfN( "381815 accept succeed : old %d , now %d" , __Vcnt , ___VserviceTcp.clientCnt )
 
-                (*__VacceptTcp).Cstart              <- " 183191 start: " + _FtimeNow()
-                //(*__VacceptTcp).Cstart              = _FtimeNow()
+                __VacceptTcp.Cstart              <- " 183191 start: " + _FtimeNow()
+                //__VacceptTcp.Cstart              = _FtimeNow()
                 // _TserviceTCP 
                 break ;
             }
         }
 
-        //_FpfN( "381817 after accept : old %d , now %d" , __Vcnt , (*___VserviceTCP).clientCnt )
-        _FeqExit( "381819 err : why not inc ? " , __Vcnt , (*___VserviceTCP).clientCnt )
+        //_FpfN( "381817 after accept : old %d , now %d" , __Vcnt , ___VserviceTcp.clientCnt )
+        _FeqExit( "381819 err : why not inc ? " , __Vcnt , ___VserviceTcp.clientCnt )
 
     } else {
         __Vconn.Close()
-        _FpfN( "38181b refuse accept : max reach %d , now %d" , (*___VserviceTCP).cAmount , (*___VserviceTCP).clientCnt )
+        _FpfN( "38181b refuse accept : max reach %d , now %d" , ___VserviceTcp.cAmount , ___VserviceTcp.clientCnt )
     }
 } // _FtcpAccept01_loop

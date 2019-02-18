@@ -9,24 +9,24 @@ import (
 
 
 
-func _FhandleTcp_accept_dataReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
+func _FhandleTcp_accept_dataReceiveMsg01(___VacceptTcp *_TacceptTCP ) {
     //var __VcanReceiveMsg bool = true
     for {
         if ( 3 == 2 ) {
-            <-(*___VacceptTCP).Cstart
+            <-___VacceptTcp.Cstart
         } else {
-            _FpfN( " 188118 rece run start at " + <-(*___VacceptTCP).Cstart )
+            _FpfN( " 188118 rece run start at " + <-___VacceptTcp.Cstart )
         }
 
-        //if ( false == (*___VacceptTCP).enabled ) { continue }
+        //if ( false == ___VacceptTcp.enabled ) { continue }
 
         for {
             _Fsleep_1ms()
 
-            //__VcanReceiveMsg = (*___VacceptTCP).enabled
-            if false == (*___VacceptTCP).enabled        { break }
+            //__VcanReceiveMsg = ___VacceptTcp.enabled
+            if false == ___VacceptTcp.enabled        { break }
 
-            _FhandleTcp_accept_dataReceiveMsg01__loop( ___VacceptTCP )
+            _FhandleTcp_accept_dataReceiveMsg01__loop( ___VacceptTcp )
         }
     }
 
@@ -34,64 +34,64 @@ func _FhandleTcp_accept_dataReceiveMsg01(___VacceptTCP *_TacceptTCP ) {
 
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP
-func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTCP *_TacceptTCP ) bool {
-    if ( 4 == 2 ) { _FhandleTcp_accept_dataReceiveMsg01__debug(___VacceptTCP ) }
+func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTcp *_TacceptTCP ) bool {
+    if ( 4 == 2 ) { _FhandleTcp_accept_dataReceiveMsg01__debug(___VacceptTcp ) }
 
-    (*___VacceptTCP).           r64try ++
+    ___VacceptTcp.           r64try ++
 
-    (*___VacceptTCP).Vlen,
-    (*___VacceptTCP).Verr =
-    (*___VacceptTCP).connTCP.Read((*___VacceptTCP).Vbuf)
+    ___VacceptTcp.Vlen,
+    ___VacceptTcp.Verr =
+    ___VacceptTcp.connTCP.Read(___VacceptTcp.Vbuf)
 
     // _FtcpAccept01
-    if ( (*___VacceptTCP).Verr == io.EOF ) { // lost the connect.
-        (*___VacceptTCP).       r64eof ++
+    if ( ___VacceptTcp.Verr == io.EOF ) { // lost the connect.
+        ___VacceptTcp.       r64eof ++
         // acceptTcpINC / acceptTcpDEC : begin
-        (*(*___VacceptTCP).serverTCP)   .clientMux.Lock()
+        ___VacceptTcp.serverTCP   .clientMux.Lock()
 
-        (*(*___VacceptTCP).serverTCP)   .clientCnt --
-        (*___VacceptTCP)                .enabled       = false
-        (*___VacceptTCP)                .connTCP.Close()
+        ___VacceptTcp.serverTCP   .clientCnt --
+        ___VacceptTcp                .enabled       = false
+        ___VacceptTcp                .connTCP.Close()
 
-        (*(*___VacceptTCP).serverTCP)   .clientMux.Unlock()
+        ___VacceptTcp.serverTCP   .clientMux.Unlock()
         // acceptTcpINC / acceptTcpDEC : end
 
-        (*___VacceptTCP).CreceiveErr  <- _Pspf("EOF:%d" , (*___VacceptTCP).idx)
+        ___VacceptTcp.CreceiveErr  <- _Pspf("EOF:%d" , ___VacceptTcp.idx)
         return false
     }
 
-    _FerrExit( " reading from tcp 831911 " , (*___VacceptTCP).Verr )
+    _FerrExit( " reading from tcp 831911 " , ___VacceptTcp.Verr )
 
-    _FnullExit( " 183813 : why ___Vconn.ReadFromTCP addr error ?" , (*___VacceptTCP).VremoteAddr )
+    _FnullExit( " 183813 : why ___Vconn.ReadFromTCP addr error ?" , ___VacceptTcp.VremoteAddr )
 
-    (*___VacceptTCP).r64ok ++
+    ___VacceptTcp.r64ok ++
 
     /*
-    _Fpf( " 183814 | l:%s | r:%s | " , (*___VacceptTCP).VlocalAddr , (*___VacceptTCP).VremoteAddr )
-    _PpdN( (*___VacceptTCP).Vlen , &((*___VacceptTCP).Vbuf) )
+    _Fpf( " 183814 | l:%s | r:%s | " , ___VacceptTcp.VlocalAddr , ___VacceptTcp.VremoteAddr )
+    _PpdN( ___VacceptTcp.Vlen , &(___VacceptTcp.Vbuf) )
     */
 
-    _FcopyByte( &((*___VacceptTCP).Vbuf2) , &((*___VacceptTCP).Vbuf), (*___VacceptTCP).Vlen )
-    //(*___VacceptTCP).Vbuf2 = make([]byte , (*___VacceptTCP).Vlen ); copy( (*___VacceptTCP).Vbuf2 , (*___VacceptTCP).Vbuf )
+    _FcopyByte( &(___VacceptTcp.Vbuf2) , &(___VacceptTcp.Vbuf), ___VacceptTcp.Vlen )
+    //___VacceptTcp.Vbuf2 = make([]byte , ___VacceptTcp.Vlen ); copy( ___VacceptTcp.Vbuf2 , ___VacceptTcp.Vbuf )
 
     // _FcallbackForDebugLog_accept
-    _FnotNullRunTcp02_accept( (*(*___VacceptTCP).serverTCP) .TcallbackR , ___VacceptTCP )
+    _FnotNullRunTcp02_accept( ___VacceptTcp.serverTCP .TcallbackR , ___VacceptTcp )
 
     return true
 } // _FhandleTcp_accept_dataReceiveMsg01__loop
 
-func _FhandleTcp_accept_dataReceiveMsg01__debug(___VacceptTCP *_TacceptTCP ) {
+func _FhandleTcp_accept_dataReceiveMsg01__debug(___VacceptTcp *_TacceptTCP ) {
 
-    _Ppn( " 183891 : under constructing " , (*___VacceptTCP).r64try , (*___VacceptTCP).r64ok )
+    _Ppn( " 183891 : under constructing " , ___VacceptTcp.r64try , ___VacceptTcp.r64ok )
 
-    if ( nil == (*___VacceptTCP).serverTCP ) {
-        _Ppn( " 183892 : (*___VacceptTCP).serverTCP == nil " )
+    if ( nil == ___VacceptTcp.serverTCP ) {
+        _Ppn( " 183892 : ___VacceptTcp.serverTCP == nil " )
     } else {
 
         _Ppf( " 183893 : " )
-        for __Vi:=0; __Vi < (*(*___VacceptTCP).serverTCP) .cAmount ; __Vi ++ {
-            __VacceptTcp := &((*(*___VacceptTCP).serverTCP).acceptTCPs[__Vi])
-            _Ppf( " %d,%d,%d,%d" , __Vi , (*__VacceptTcp).idx , (*__VacceptTcp).r64try  , (*__VacceptTcp).r64ok  )
+        for __Vi:=0; __Vi < ___VacceptTcp.serverTCP .cAmount ; __Vi ++ {
+            __VacceptTcp := &(___VacceptTcp.serverTCP.acceptTCPs[__Vi])
+            _Ppf( " %d,%d,%d,%d" , __Vi , __VacceptTcp.idx , __VacceptTcp.r64try  , __VacceptTcp.r64ok  )
         }
         _Ppn()
     }

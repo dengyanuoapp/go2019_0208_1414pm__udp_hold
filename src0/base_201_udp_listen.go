@@ -33,15 +33,15 @@ type _TserviceUDP struct {
 
 func _FtryListenToUDP01( ___Vsvr *_TserviceUDP ) {
     // func ResolveUDPAddr(network, address string) (*UDPAddr, error)
-    (*___Vsvr).udpAddr , (*___Vsvr).err  = net.ResolveUDPAddr("udp4", (*___Vsvr).hostPortStr)
-    if (*___Vsvr).err != nil {
-        _Fex( "err13811" , (*___Vsvr).err)
+    ___Vsvr.udpAddr , ___Vsvr.err  = net.ResolveUDPAddr("udp4", ___Vsvr.hostPortStr)
+    if ___Vsvr.err != nil {
+        _Fex( "err13811" , ___Vsvr.err)
     }
 
     // func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)
-    (*___Vsvr).udpConn , (*___Vsvr).err  = net.ListenUDP("udp4", (*___Vsvr).udpAddr )
-    if (*___Vsvr).err != nil {
-        _Fex( "err13812" , (*___Vsvr).err)
+    ___Vsvr.udpConn , ___Vsvr.err  = net.ListenUDP("udp4", ___Vsvr.udpAddr )
+    if ___Vsvr.err != nil {
+        _Fex( "err13812" , ___Vsvr.err)
     }
 } // _FtryListenToUDP01
 
