@@ -26,12 +26,12 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen_Udp__read_main_top (){
     //go ___VserviceUdp . Fhandle_udpListen__chanIn_main_top()
 
     for ; ; {
-        _Fhandle_udpListen_Udp__read_main_loop( ___VserviceUdp )
+        ___VserviceUdp . _Fhandle_udpListen_Udp__read_main_loop( )
     }
     (*___VserviceUdp.Cexit) <- "Error : (" + ___VserviceUdp.hostPortStr + ")"
 } // _Fhandle_udpListen_Udp__read_main_top
 
-func _Fhandle_udpListen_Udp__read_main_loop(___VserviceUdp *_TserviceUDP ) {
+func ( ___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen_Udp__read_main_loop() {
     ___VserviceUdp.Vlen,
     ___VserviceUdp.VremoteAddr,
     ___VserviceUdp.err =
