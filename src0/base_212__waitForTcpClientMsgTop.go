@@ -6,18 +6,18 @@ import (
 )
 
 
-func _FhandleWaitForClientMsgTcpTop(___VserviceTCP *_TserviceTCP ) {
-    if (*___VserviceTCP).cAmount < 1        { (*___VserviceTCP).cAmount = 1     }
-    if (*___VserviceTCP).cAmount > 100      { (*___VserviceTCP).cAmount = 100   }
-    (*___VserviceTCP).acceptTCPs = make([]_TacceptTCP , (*___VserviceTCP).cAmount )
-    go _FtcpAccept01( ___VserviceTCP )
+func _FhandleWaitForClientMsgTcpTop(___VserviceTcp *_TserviceTCP ) {
+    if ___VserviceTcp.cAmount < 1        { ___VserviceTcp.cAmount = 1     }
+    if ___VserviceTcp.cAmount > 100      { ___VserviceTcp.cAmount = 100   }
+    ___VserviceTcp.acceptTCPs = make([]_TacceptTCP , ___VserviceTcp.cAmount )
+    go _FtcpAccept01( ___VserviceTcp )
 
     for ; ; {
         _Fsleep_1ms()
 
-        _FnotNullRun011_tcp_service_chan( (*___VserviceTCP) .TcallbackS , ___VserviceTCP )
+        _FnotNullRun011_tcp_service_chan( ___VserviceTcp .TcallbackS , ___VserviceTcp )
 
     }
-    (*(*___VserviceTCP).Cexit) <- "Error 183818: (" + (*___VserviceTCP).hostPortStr + ")"
+    *___VserviceTcp.Cexit <- "Error 183818: (" + ___VserviceTcp.hostPortStr + ")"
 } // _FhandleWaitForClientMsgTcpTop
 
