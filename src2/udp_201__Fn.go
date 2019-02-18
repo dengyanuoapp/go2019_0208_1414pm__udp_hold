@@ -32,16 +32,41 @@ func init() {
     _Fbase_101__get_self_md5_sha()
     _FPargs()
 
-    _VserviceUdpCn.name             = "servicePortForCn"
-    _VserviceUdpDn.name             = "servicePortForDn"
-    _VserviceUdpSn.name             = "servicePortForSn"
+    _VserviceTcpMo  = _TserviceTCP {
+        name        : "servicePortDebugLog",
+        hostPortStr : "127.0.0.1:56781",
+        TcallbackS  : _FcallbackForDebugLog_service_dataChan,
+        TcallbackR  : _FcallbackForDebugLog_accept_dataReceive,
+        TcallbackC  : _FcallbackForDebugLog_accept_dataChan,
+
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+        cAmount     : 10,
+    }
+    _VserviceUdpCn = _TserviceUDP  {
+        name        : "servicePortForCn",
+        UcallbackR  : _FcallbackInFnForCn,
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+    }
+
+    _VserviceUdpDn = _TserviceUDP  {
+        name        : "servicePortForDn",
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+    }
+
+    _VserviceUdpSn = _TserviceUDP  {
+        name        : "servicePortForSn",
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+    }
 
     flag.StringVar(&_VserviceUdpCn.hostPortStr, "c", ":5353",  _VserviceUdpCn.name )
     flag.StringVar(&_VserviceUdpDn.hostPortStr, "d", ":32001", _VserviceUdpDn.name )
     flag.StringVar(&_VserviceUdpSn.hostPortStr, "s", ":32003", _VserviceUdpSn.name )
 
     flag.Parse()
-
 
     // _FdebugPrintTest()
 
@@ -52,17 +77,6 @@ func init() {
 func main() {
 
     // ------------------- tcp for debug monitor log --- begin
-    _VserviceTcpMo  = _TserviceTCP {
-        name            : "servicePortDebugLog",
-        hostPortStr     : "127.0.0.1:56781",
-        TcallbackS      : _FcallbackForDebugLog_service_dataChan,
-        TcallbackR      : _FcallbackForDebugLog_accept_dataReceive,
-        TcallbackC      : _FcallbackForDebugLog_accept_dataChan,
-
-        Cexit           : &_Cexit,
-        Clog            : &_Clog,
-        cAmount         : 10,
-    }
     _FtryListenToTCP01( &_VserviceTcpMo )
     // _TserviceTCP 
 
@@ -72,21 +86,6 @@ func main() {
     // ------------------- tcp for debug monitor log --- end
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
-    _VserviceUdpCn = _TserviceUDP  {
-        UcallbackR  : _FcallbackInFnForCn,
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
-    }
-
-    _VserviceUdpDn = _TserviceUDP  {
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
-    }
-
-    _VserviceUdpSn = _TserviceUDP  {
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
-    }
 
     // _TserviceUDP
     _FtryListenToUDP01( &_VserviceUdpCn )
