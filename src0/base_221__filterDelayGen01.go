@@ -32,8 +32,8 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_top() {
 
     if ( 1 > ___Vf.sleepGap ) { _Fex( " 811818 : error sleep gap " , nil ) }
 
-    ___Vf.  Cswap01             = make( chan string , 2    )
-    ___Vf.  Cout01              = make( chan []byte , 3  )
+    ___Vf.  Cswap01             = make( chan string , 4  )
+    ___Vf.  Cout01              = make( chan []byte , 5  )
     ___Vf.  Cin01               = &(___Vf.udpIn.CuByteIn01)
 
     go ___Vf. _FfilterDelayGen01_filter()
