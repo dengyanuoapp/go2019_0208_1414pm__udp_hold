@@ -31,6 +31,8 @@ func _FcallbackForDebugLog_accept_dataChan(___VacceptTcp *_TacceptTCP ) {
                     }
                 }
             }
+        default:
+            _Fex( "1838381 : what happens ?" , nil)
         }
 
         //_FhandleTcp_accept_dataReceiveMsg01__loop( ___VacceptTCP )

@@ -17,6 +17,9 @@ func _FcallbackFilterDelay_filter( ___Vf *_TfilterDelay)    {
     //case <- (*___Vf.  Cin01)  :
         _FpfN( " 818397: filter Cin received " + string(__Vbyte) )
         ___Vf.  Cout01 <- []byte( " 818395 : filte out \n" )
+    default:
+        _Fex( "818399 : what happens ?" , nil)
+
     }
 
 } // _FcallbackFilterDelay_filter
