@@ -12,28 +12,28 @@ import (
 
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
-//func _FhandleWaitForClientMsgUdpTop(___VserviceUDP *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-func _FhandleWaitForClientMsgUdpTop(___VserviceUDP *_TserviceUDP ) {
+//func _FhandleWaitForClientMsgUdpTop(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
+func _FhandleWaitForClientMsgUdpTop(___VserviceUdp *_TserviceUDP ) {
 
-    (*___VserviceUDP).Vbuf = make( []byte , 2048 )   // silice : with var len
+    ___VserviceUdp.Vbuf = make( []byte , 2048 )   // silice : with var len
     //    //func (c *UDPConn) LocalAddr() Addr
-    (*___VserviceUDP).VlocalAddr = (*___VserviceUDP).udpConn.LocalAddr()
+    ___VserviceUdp.VlocalAddr = ___VserviceUdp.udpConn.LocalAddr()
 
     for ; ; {
-        _FhandleWaitForClientMsgUdpLoop01( ___VserviceUDP )
+        _FhandleWaitForClientMsgUdpLoop01( ___VserviceUdp )
     }
-    (*(*___VserviceUDP).Cexit) <- "Error : (" + (*___VserviceUDP).hostPortStr + ")"
+    (*___VserviceUdp.Cexit) <- "Error : (" + ___VserviceUdp.hostPortStr + ")"
 } // _FhandleWaitForClientMsgUdpTop
 
-func _FhandleWaitForClientMsgUdpLoop01(___VserviceUDP *_TserviceUDP ) {
-    (*___VserviceUDP).Vlen,
-    (*___VserviceUDP).VremoteAddr,
-    (*___VserviceUDP).err =
-    (*___VserviceUDP).udpConn.ReadFromUDP((*___VserviceUDP).Vbuf)
+func _FhandleWaitForClientMsgUdpLoop01(___VserviceUdp *_TserviceUDP ) {
+    ___VserviceUdp.Vlen,
+    ___VserviceUdp.VremoteAddr,
+    ___VserviceUdp.err =
+    ___VserviceUdp.udpConn.ReadFromUDP(___VserviceUdp.Vbuf)
 
-    _FerrExit( "err 183911 : udp reading : " , (*___VserviceUDP).err )
+    _FerrExit( "err 183911 : udp reading : " , ___VserviceUdp.err )
 
-    _FnullExit( " err 183813 : why ___Vconn.ReadFromUDP addr error ?" , (*___VserviceUDP).VremoteAddr )
+    _FnullExit( " err 183813 : why ___Vconn.ReadFromUDP addr error ?" , ___VserviceUdp.VremoteAddr )
 
-    _FnotNullRunUdp01( (*___VserviceUDP).UcallbackR , ___VserviceUDP )
+    _FnotNullRunUdp01( ___VserviceUdp.UcallbackR , ___VserviceUdp )
 } // _FhandleWaitForClientMsgUdpLoop01
