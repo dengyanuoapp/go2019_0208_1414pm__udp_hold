@@ -28,9 +28,9 @@ type _TfilterDelay struct {
 } // _TfilterDelay 
 
 //    _FhandleWaitForClientMsgUdpTop
-func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_top() {
+func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_main_top() {
 
-    if ( 1 > ___Vf.sleepGap ) { _Fex( " 811818 : error sleep gap " , nil ) }
+    if ( 1 > ___Vf.sleepGap ) { _Fex( " 418111 : error sleep gap " , nil ) }
 
     ___Vf.  Cswap01             = make( chan string , 4  )
     ___Vf.  Cout01              = make( chan []byte , 5  )
@@ -43,29 +43,39 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_top() {
 
     for {
         _Fsleep_10sX( ___Vf.sleepGap )
-        ___Vf . _FfilterDelayGen01_loop()
+        ___Vf . _FfilterDelayGen01_main_loop()
     }
-} // _FfilterDelayGen01_top
+} // _FfilterDelayGen01_main_top
 
-func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_loop (){
-    _FpfN( " 311191 : filter main " )
+func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_main_loop (){
+    //_FpfN( " 418113 : filter main " )
     if ( nil != ___Vf.FcallbackM ) {
-        _FpfN( " 311192 : filter main " )
+        //_FpfN( " 418115 : filter main " )
         ___Vf.FcallbackM ( ___Vf ) // _FcallbackFilterDelay_main_swap
     }
-} // _FfilterDelayGen01_loop
+} // _FfilterDelayGen01_main_loop
+
+
+
+
+
+
+
+
+
+
 
 func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_top (){
-    _FpfN( " 311195 : filter main " )
+    //_FpfN( " 421191 : filter main " )
     for {
-        _Fsleep_1s() ;
+        //_Fsleep_1s() ;
         _Fsleep_1ms() ;
         ___Vf. _FfilterDelayGen01_filter_loop()
     }
 } // _FfilterDelayGen01_filter_top
 
 func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_loop (){
-    _FpfN( " 311197 : filter main " )
+    _FpfN( " 421193 : filter main " )
     if ( nil != ___Vf.FcallbackF ) {
         ___Vf.FcallbackF ( ___Vf ) // _FcallbackFilterDelay_filter
     }

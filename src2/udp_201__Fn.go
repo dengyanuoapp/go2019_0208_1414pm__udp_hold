@@ -111,7 +111,7 @@ func main() {
         FcallbackF    : _FcallbackFilterDelay_filter,
     }
 
-    go _VfilterCn2dn . _FfilterDelayGen01_top()
+    go _VfilterCn2dn . _FfilterDelayGen01_main_top()
     // ------------------- filter between workers --------- end
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
