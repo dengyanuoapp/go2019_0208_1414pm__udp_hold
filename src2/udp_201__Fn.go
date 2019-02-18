@@ -17,7 +17,7 @@ var (
     _VserviceUdpDn  _TserviceUDP
     _VserviceUdpSn  _TserviceUDP
 
-    _VfilterCn2dn   _TfilterCn2dn
+    _VfilterCn2dn   _TfilterDelay
 
     _VserviceTcpMo  _TserviceTCP
 
@@ -103,7 +103,7 @@ func main() {
     //    _VfilterCn2dn.sleepGap      = 1
     //    _VfilterCn2dn.udpIn         = &_VserviceUdpCn
     //    _VfilterCn2dn.udpOut        = &_VserviceUdpDn
-    _VfilterCn2dn = _TfilterCn2dn {
+    _VfilterCn2dn = _TfilterDelay {
         sleepGap      : 1,
         udpIn         : &_VserviceUdpCn,
         udpOut        : &_VserviceUdpDn,

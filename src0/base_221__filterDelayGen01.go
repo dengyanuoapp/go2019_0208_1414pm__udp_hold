@@ -10,7 +10,7 @@ import (
     //"sync"
 )
 
-type _TfilterCn2dn struct {
+type _TfilterDelay struct {
 
     sleepGap            int
     udpIn               *_TserviceUDP
@@ -20,17 +20,20 @@ type _TfilterCn2dn struct {
     Cin01               *chan []byte
     Cout01              *chan []byte
 
-    FcallbackM          func( *_TfilterCn2dn)    // _FcallbackFilterDelay_main_swap
-    FcallbackF          func( *_TfilterCn2dn)    // _FcallbackFilterDelay_filter
+    FcallbackM          func( *_TfilterDelay)    // _FcallbackFilterDelay_main_swap
+    FcallbackF          func( *_TfilterDelay)    // _FcallbackFilterDelay_filter
 
     Cexit               *chan string
     Clog                *chan string
-} // _TfilterCn2dn 
+} // _TfilterDelay 
 
 //    _FhandleWaitForClientMsgUdpTop
-func ( ___Vf *_TfilterCn2dn ) _FfilterDelayGen01_top() {
+func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_top() {
 
     if ( 1 > ___Vf.sleepGap ) { _Fex( " 811818 : error sleep gap " , nil ) }
+
+    //CuByteIn01  chan []byte
+    //CuByteOut01 *chan []byte
 
     for {
         _Fsleep_10sX( ___Vf.sleepGap )
@@ -38,5 +41,9 @@ func ( ___Vf *_TfilterCn2dn ) _FfilterDelayGen01_top() {
     }
 } // _FfilterDelayGen01_top
 
-func ( ___Vf *_TfilterCn2dn ) _FfilterDelayGen01_loop (){
+func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_loop (){
+    _FpfN( " 311191 : filter main " )
+    if ( nil != ___Vf.FcallbackM ) {
+        ___Vf.FcallbackM ( ___Vf ) // _FcallbackFilterDelay_main_swap
+    }
 } // _FfilterDelayGen01_loop
