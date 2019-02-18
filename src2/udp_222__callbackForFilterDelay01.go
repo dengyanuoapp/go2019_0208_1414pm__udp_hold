@@ -19,7 +19,7 @@ func _FcallbackFilterDelay_filter( ___Vf *_TfilterDelay)    {
         _FpfN( " 818397: filter Cin received " + string(__Vbyte) )
         ___Vf . _Ftry_update_filter_array( __Vbyte )
     }
-    _FpfN( " 818399: filter select end" );
+    //_FpfN( " 818399: filter select end" );
 
 } // _FcallbackFilterDelay_filter
 
