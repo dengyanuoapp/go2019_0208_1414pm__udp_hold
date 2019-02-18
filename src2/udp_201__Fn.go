@@ -45,21 +45,21 @@ func init() {
     }
     _VserviceUdpCn = _TserviceUDP  {
         name        : "servicePortForCn",
-        UcallbackR  : _FcallbackInFnForCn,
+        UcallbackR  : _FuserCallback_dataRece_Cn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpDn = _TserviceUDP  {
         name        : "servicePortForDn",
-        UcallbackR  : _FcallbackInFnForDn,
+        UcallbackR  : _FuserCallback_dataRece_Dn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpSn = _TserviceUDP  {
         name        : "servicePortForSn",
-        UcallbackR  : _FcallbackInFnForSn,
+        UcallbackR  : _FuserCallback_dataRece_Sn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
