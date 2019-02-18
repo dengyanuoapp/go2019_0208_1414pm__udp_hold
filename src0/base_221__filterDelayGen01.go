@@ -60,7 +60,7 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_top (){
     for {
         _Fsleep_1s() ;
         _Fsleep_1ms() ;
-        go ___Vf. _FfilterDelayGen01_filter_loop()
+        ___Vf. _FfilterDelayGen01_filter_loop()
     }
 } // _FfilterDelayGen01_filter_top
 
