@@ -6,7 +6,7 @@ import (
 )
 
 
-func ( ___VserviceTcp *_TserviceTCP ) _FhandleWaitForClientMsgTcp__main_top() {
+func ( ___VserviceTcp *_TserviceTCP ) _Fhandle_udpListen_Tcp__main_top() {
     if ___VserviceTcp.cAmount < 1        { ___VserviceTcp.cAmount = 1     }
     if ___VserviceTcp.cAmount > 100      { ___VserviceTcp.cAmount = 100   }
     ___VserviceTcp.acceptTCPs = make([]_TacceptTCP , ___VserviceTcp.cAmount )
@@ -19,5 +19,5 @@ func ( ___VserviceTcp *_TserviceTCP ) _FhandleWaitForClientMsgTcp__main_top() {
 
     }
     *___VserviceTcp.Cexit <- "Error 183818: (" + ___VserviceTcp.hostPortStr + ")"
-} // _FhandleWaitForClientMsgTcp__main_top
+} // _Fhandle_udpListen_Tcp__main_top
 

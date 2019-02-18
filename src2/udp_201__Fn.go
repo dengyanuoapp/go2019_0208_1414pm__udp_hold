@@ -84,7 +84,7 @@ func main() {
 
     // _FtcpAccept01
     // _FhandleTcp_accept_dataReceiveMsg01
-    go _VserviceTcpMo . _FhandleWaitForClientMsgTcp__main_top( )
+    go _VserviceTcpMo . _Fhandle_udpListen_Tcp__main_top( )
     // ------------------- tcp for debug monitor log --- end
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
@@ -95,9 +95,9 @@ func main() {
     _VserviceUdpSn . _FtryListenToUDP01( )
 
     // _TserviceUDP
-    go _VserviceUdpCn . _FhandleWaitForClientMsgUdp__read_main_top( )
-    go _VserviceUdpDn . _FhandleWaitForClientMsgUdp__read_main_top( )
-    go _VserviceUdpSn . _FhandleWaitForClientMsgUdp__read_main_top( )
+    go _VserviceUdpCn . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpDn . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpSn . _Fhandle_udpListen_Udp__read_main_top( )
     // _FnotNullRunUdp01
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
