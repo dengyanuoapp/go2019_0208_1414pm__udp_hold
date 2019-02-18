@@ -60,7 +60,7 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen__chanIn_main_top (){
 
 func (___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen__chanIn_main_loop (){
 
-    _FpfN( "338195 : udp rece Chan msg ." )
+    //_FpfN( "338199 : udp rece Chan msg ." )
     _FnotNullRunUdp01( ___VserviceUdp.UcallbackC , ___VserviceUdp )
 
 } // _Fhandle_udpListen__chanIn_main_loop
