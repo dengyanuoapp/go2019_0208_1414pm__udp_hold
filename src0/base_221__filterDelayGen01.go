@@ -20,22 +20,23 @@ type _TfilterCn2dn struct {
     Cin01               *chan []byte
     Cout01              *chan []byte
 
-    FcallbackM          func( *_TfilterCn2dn)    // _FcallbackFilterCn2dn_main_swap
+    FcallbackM          func( *_TfilterCn2dn)    // _FcallbackFilterDelay_main_swap
+    FcallbackF          func( *_TfilterCn2dn)    // _FcallbackFilterDelay_filter
 
     Cexit               *chan string
     Clog                *chan string
 } // _TfilterCn2dn 
 
 //    _FhandleWaitForClientMsgUdpTop
-func _FfilterCn2dn01( ___VfC2D *_TfilterCn2dn ) {
+func ( ___Vf *_TfilterCn2dn ) _FfilterDelayGen01_top() {
 
-    if ( 1 > ___VfC2D.sleepGap ) { _Fex( " 811818 : error sleep gap " , nil ) }
+    if ( 1 > ___Vf.sleepGap ) { _Fex( " 811818 : error sleep gap " , nil ) }
 
     for {
-        _Fsleep_10sX( ___VfC2D.sleepGap )
-        _FfilterCn2dn01_loop( ___VfC2D )
+        _Fsleep_10sX( ___Vf.sleepGap )
+        ___Vf . _FfilterDelayGen01_loop()
     }
-} // _FfilterCn2dn01
+} // _FfilterDelayGen01_top
 
-func _FfilterCn2dn01_loop( ___VfC2D *_TfilterCn2dn ) {
-} // _FfilterCn2dn01_loop
+func ( ___Vf *_TfilterCn2dn ) _FfilterDelayGen01_loop (){
+} // _FfilterDelayGen01_loop

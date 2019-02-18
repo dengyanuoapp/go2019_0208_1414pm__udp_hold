@@ -107,9 +107,11 @@ func main() {
         sleepGap      : 1,
         udpIn         : &_VserviceUdpCn,
         udpOut        : &_VserviceUdpDn,
+        FcallbackM    : _FcallbackFilterDelay_main_swap,
+        FcallbackF    : _FcallbackFilterDelay_filter,
     }
 
-    go _FfilterCn2dn01( &_VfilterCn2dn )
+    go _VfilterCn2dn . _FfilterDelayGen01_top()
     // ------------------- filter between workers --------- end
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
