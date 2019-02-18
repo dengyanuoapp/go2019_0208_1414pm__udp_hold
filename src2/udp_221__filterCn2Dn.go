@@ -24,8 +24,8 @@ type _TfilterCn2dn struct {
 //    _FhandleWaitForClientMsgUdpTop
 func _FfilterCn2dn01( ___VfC2D *_TfilterCn2dn , ___VsC , ___VsD *_TserviceUDP ) {
     for {
-        _Fsleep_1ms()
-        _FfilterCn2dn01_loop( ___VfC2D , ___VsC , ___VsD ) {
+        _Fsleep_1s()
+        _FfilterCn2dn01_loop( ___VfC2D , ___VsC , ___VsD )
     }
 } // _FfilterCn2dn01
 func _FfilterCn2dn01_loop( ___VfC2D *_TfilterCn2dn , ___VsC , ___VsD *_TserviceUDP ) {
