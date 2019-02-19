@@ -45,7 +45,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr s
     _VmapCn2dn_mux.Unlock()                 // ------ unlock
 
     _VmapCn2dn_tmp      = make(_TmapCn2dn)
-    for __Vkey, __Vvalue := range _VmapCn2dn_now {
+    for __Vkey, __Vvalue := range _VmapCn2dn_last {
         if 1 == __Vvalue.Cnt {
             _VmapCn2dn_tmp[__Vkey] = __Vvalue
         }
