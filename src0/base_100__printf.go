@@ -16,14 +16,14 @@ var (
     _Pdefault   func ()                                                         = flag.PrintDefaults
 )
 
-func _Pn(){ 
-    _Ppf("\n") 
+func _Pn(){
+    _Ppf("\n")
 } // _Pn
 
 func _Ppn(___Vpara ...interface{}) (int, error)   {
     __Vi, __Verr := _Ppt( ___Vpara ... )
     _Pn()
-    return __Vi, __Verr 
+    return __Vi, __Verr
 } // _Ppn
 
 func _Fpf        (___Vfmt string,   ___Vpara ...interface{}) (int, error)   {
