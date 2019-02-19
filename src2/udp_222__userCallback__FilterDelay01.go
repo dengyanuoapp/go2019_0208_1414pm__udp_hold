@@ -46,7 +46,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []
     // func Unmarshal(data []byte, v interface{}) error
     __Verr := json.Unmarshal( ___Vbyte , &__Vcn2dn )
     if __Verr != nil {
-        _FpfN( " 838393: update table with Cin received , met err :" + string(__Verr) )
+        _Ppf( " 838393: update table with Cin received , met err :" ) ; _Ppt( __Verr ) ; _Pn()
         return
     }
 
