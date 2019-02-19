@@ -29,8 +29,8 @@ func init() {
         name                    : "TservicePortDebugLog__Md",
         hostPortStr             : "127.0.0.1:56781",
         TcallbackSvrDataChan    : _FcallbackForDebugLog_service_dataChan_Dn,
-        TcallbackAccDataRece    : _FcallbackForDebugLog_accept_dataReceive_Dn,
-        TcallbackC              : _FcallbackForDebugLog_accept_dataChan_Dn,
+        TcallbackAccDataRece    : _FuserCallback__LogAccept_dataReceive__Dn,
+        TcallbackAccDataChan              : _FcallbackForDebugLog_accept_dataChan_Dn,
 
         Cexit       : &_Cexit,
         Clog        : &_Clog,

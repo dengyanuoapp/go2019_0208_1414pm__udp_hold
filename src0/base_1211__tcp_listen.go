@@ -49,8 +49,8 @@ type _TserviceTCP struct {
     clientCnt           int
 
     TcallbackSvrDataChan          func( *_TserviceTCP)    // _FcallbackForDebugLog_service_dataChan
-    TcallbackAccDataRece          func( *_TacceptTCP)     // _FcallbackForDebugLog_accept_dataReceive
-    TcallbackC          func( *_TacceptTCP)     // _FcallbackForDebugLog_accept_dataChan
+    TcallbackAccDataRece          func( *_TacceptTCP)     // _FuserCallback__LogAccept_dataReceive__Fn
+    TcallbackAccDataChan          func( *_TacceptTCP)     // _FcallbackForDebugLog_accept_dataChan
 
     Cexit               *chan string
     Clog                *chan string
