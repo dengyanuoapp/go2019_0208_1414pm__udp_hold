@@ -1,12 +1,11 @@
 package main
 
-// _FcallbackFilterDelay_main_swap
-func _FcallbackFilterDelay_main_swap( ___Vf *_TfilterDelay)    {
+func _Fcallback_user_FilterDelay__main_swap_signal_gen( ___Vf *_TfilterDelay)    {
     //_FpfN( " 818391: filter swap user start" );
     ___Vf . CfSwap01 <- "818392 : " + _FtimeNow() // It's time to swap 
-} // _FcallbackFilterDelay_main_swap
+} // _Fcallback_user_FilterDelay__main_swap_signal_gen
 
-func _FcallbackFilterDelay_filter( ___Vf *_TfilterDelay)    {
+func _Fcallback_user_FilterDelay__chan_filter( ___Vf *_TfilterDelay)    {
 
     //_FpfN( " 818395: filter select start" );
     select {
@@ -20,7 +19,7 @@ func _FcallbackFilterDelay_filter( ___Vf *_TfilterDelay)    {
     }
     //_FpfN( " 818399: filter select end" );
 
-} // _FcallbackFilterDelay_filter
+} // _Fcallback_user_FilterDelay__chan_filter
 
 var _Vcnt_Cn2Dn int
 func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__main_top(___Vstr string ) {
