@@ -12,7 +12,7 @@ type _Tdn struct {
     Port                    int
 }
 
-func _FuserCallback_dataRece_Dn(___VserviceUDP *_TserviceUDP ) {
+func _FuserCallback_dataRece_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
 
     *___VserviceUDP.Clog <- _Pspf( "1738181 Dn receMsg |l:%s|r:%s|(%d)\n" ,
     ___VserviceUDP.VlocalAddr ,
@@ -27,12 +27,26 @@ func _FuserCallback_dataRece_Dn(___VserviceUDP *_TserviceUDP ) {
         }
     }
 
-} // _FuserCallback_dataRece_Dn
+} // _FuserCallback_dataRece_Dn__main_top
 
-func _FuserCallback_chanIn_Dn(___VserviceUDP *_TserviceUDP ) {
+var (
+    _VdnReceCnt     int
+)
+func _FuserCallback_chanIn_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
     select {
     case __VdnIn:= <-___VserviceUDP.CuIn01 :
-        _FpfN( " 2738181 : rece from Chan : Dn : " + string( __VdnIn ) )
+        _VdnReceCnt ++
+        if 2 == len( __VdnIn )  {
+            ___VserviceUDP . _FuserCallback_chanIn_Dn__ok( &__VdnIn )
+            return
+        }
+        if 1 == ( _VdnReceCnt % 10 )  {
+            _FpfN( " 2738181 (idx:%d) : rece from Chan : Dn : failed: (len:%d)" , _VdnReceCnt , len( __VdnIn ) )
+        }
     }
-} // _FuserCallback_chanIn_Dn
+} // _FuserCallback_chanIn_Dn__main_top
+
+func ( ___VserviceUDP *_TserviceUDP ) _FuserCallback_chanIn_Dn__ok( ___VdnIn *[]byte ) {
+    _FpfN( " 3738181 (idx:%d) : rece from Chan : Dn : ok: (len:%d)" + string( *___VdnIn ), _VdnReceCnt , len( *___VdnIn ) )
+} // _FuserCallback_chanIn_Dn__ok
 
