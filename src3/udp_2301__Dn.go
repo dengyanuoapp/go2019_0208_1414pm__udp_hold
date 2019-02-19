@@ -21,45 +21,45 @@ var (
 func init() {
 
     _Frand_init()
-    _VprojectName = "Fn"
+    _VprojectName = "Dn"
     _Fbase_101__get_self_md5_sha()
     _FPargs()
 
     _VserviceTcpMd  = _TserviceTCP {
-        name        : "servicePortDebugLog",
+        name        : "TservicePortDebugLog__Md",
         hostPortStr : "127.0.0.1:56781",
-        TcallbackS  : _FcallbackForDebugLog_service_dataChan,
-        TcallbackR  : _FcallbackForDebugLog_accept_dataReceive,
-        TcallbackC  : _FcallbackForDebugLog_accept_dataChan,
+        TcallbackS  : _FcallbackForDebugLog_service_dataChan_Dn,
+        TcallbackR  : _FcallbackForDebugLog_accept_dataReceive_Dn,
+        TcallbackC  : _FcallbackForDebugLog_accept_dataChan_Dn,
 
         Cexit       : &_Cexit,
         Clog        : &_Clog,
         cAmount     : 10,
     }
     _VserviceUdpDn = _TserviceUDP  {
-        name        : "servicePortForCn",
-        UcallbackR  : _FuserCallback_dataRece_Cn,
+        name        : "UservicePortFor_Dn",
+        //UcallbackR  : _FuserCallback_dataRece_Dn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
     _VserviceUdpDp = _TserviceUDP  {
-        name        : "servicePortForCp",
-        //UcallbackR  : _FuserCallback_dataRece_Cp,
+        name        : "UservicePortFor_Dp",
+        //UcallbackR  : _FuserCallback_dataRece_Dp,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpDC = _TserviceUDP  {
-        name        : "servicePortForCD",
-        UcallbackR  : _FuserCallback_dataRece_Dn__main_top,
-        UcallbackC  : _FuserCallback_chanIn_Dn__main_top,
+        name        : "servicePortFor_DC",
+        UcallbackR  : _FuserCallback_dataRece__main_top_DC,
+        UcallbackC  : _FuserCallback_chanIn__main_top_DC,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpDS = _TserviceUDP  {
-        name        : "servicePortForCS",
-        UcallbackR  : _FuserCallback_dataRece_Sn,
+        name        : "servicePortForDS",
+        //UcallbackR  : _FuserCallback_dataRece_DS,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
