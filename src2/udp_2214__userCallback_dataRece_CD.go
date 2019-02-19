@@ -38,11 +38,10 @@ func _FuserCallback_chanIn_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
         _VdnReceCnt ++
         if 2 == len( __VdnIn )  {
             __Vdb := false
-            __Vdb = true
             if _VdnReceCnt >= 128  {
-                __Vdb = (1 == ( _VdnReceCnt % 10 ))
-            } else {
                 __Vdb = (1 == ( _VdnReceCnt % 100 ))
+            } else {
+                __Vdb = (1 == ( _VdnReceCnt % 10 ))
             }
             if __Vdb {
                 _FpfN( " 2738181 (idx:%d) : rece from Chan : Dn : failed: (len:%d)" , _VdnReceCnt , len( __VdnIn ) )
