@@ -6,7 +6,7 @@ import (
 
 func _Fcallback_user_FilterDelay__main_swap_signal_gen( ___Vf *_TfilterDelay)    {
     //_FpfN( " 818391: filter swap user start" );
-    ___Vf . CfSwap01 <- "818392 : " + _FtimeNow() // It's time to swap 
+    ___Vf . CfSwap01 <- "818392 : " + _FtimeNow() // It's time to swap
 } // _Fcallback_user_FilterDelay__main_swap_signal_gen
 
 func _Fcallback_user_FilterDelay__chan_filter( ___Vf *_TfilterDelay)    {
@@ -15,7 +15,7 @@ func _Fcallback_user_FilterDelay__chan_filter( ___Vf *_TfilterDelay)    {
     select {
     case __Vstr := <- ___Vf.  CfSwap01 :
         //_FpfN( " 818396: filter swap received " + __Vstr )
-        ___Vf . _Ftry_update_task_list__main_top( __Vstr )
+        ___Vf . _Ftry_update_task_list__gen_and_swap_out( __Vstr )
 
     case __Vbyte := <- ___Vf.  CfIn01  :
         //_FpfN( " 818397: filter Cin received " + string(__Vbyte) )
@@ -26,20 +26,29 @@ func _Fcallback_user_FilterDelay__chan_filter( ___Vf *_TfilterDelay)    {
 } // _Fcallback_user_FilterDelay__chan_filter
 
 var _Vcnt_Cn2Dn int
-func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__main_top(___Vstr string ) {
-    _Fpf( " 828391: (%d) _Ftry_update_task_list__main_top : " , _Vcnt_Cn2Dn ) ; _Vcnt_Cn2Dn ++
+func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr string ) {
+    _Vcnt_Cn2Dn ++
+
+    _FpfN( " 828391: (%d) _Ftry_update_task_list__gen_and_swap_out : " , _Vcnt_Cn2Dn )
+
     if nil == ___Vf.  CfOut01 {
         _FpfN( " out Chan is nil. " )
-    } else {
-        _Fpf( " 111 " )
-        *___Vf.  CfOut01 <- []byte( " 828392 : filte out \n" )
-        _FpfN( " ok. " )
+        return
     }
-} // _Ftry_update_task_list__main_top
 
-// _Tcn2dn 
+    __Vbyte , __Verr := json.Marshal( _VmapCn2dn_now )
+    if nil != __Verr {
+        _Fpf( " 828392: (%d) why error ? " , _Vcnt_Cn2Dn); _Ppt( __Verr ) ; _Pn()
+        return
+    }
+
+    *___Vf.  CfOut01 <- __Vbyte
+
+} // _Ftry_update_task_list__gen_and_swap_out
+
+// _Tcn2dn
 //var _VmapCn2dn_now  _TmapCn2dn
-//var _VmapCn2dn_now  map[string]_TnodeCn2dn = make( 
+//var _VmapCn2dn_now  map[string]_TnodeCn2dn = make(
 var _VmapCn2dn_now  _TmapCn2dn = make(_TmapCn2dn)
 func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []byte ) {
     _FpfN( " 838391: update table with Cin received :" + string(___Vbyte) )
