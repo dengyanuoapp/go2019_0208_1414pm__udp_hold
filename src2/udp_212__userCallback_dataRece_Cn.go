@@ -15,8 +15,8 @@ type _TcnTdn struct {
 }
 
 type _TnodeCn2dn struct {
-    cnt             int
-    cn2dn          _TcnTdn
+    Cnt             int
+    Cn2dn          _TcnTdn
 }
 
 type _TmapCn2dn     map[string]_TnodeCn2dn
