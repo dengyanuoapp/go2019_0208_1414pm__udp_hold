@@ -5,14 +5,14 @@ import (
 )
 
 var (
-    _VserviceUdpFn  _TserviceUDP
-    _VserviceUdpFp  _TserviceUDP
-    _VserviceUdpFD  _TserviceUDP
-    _VserviceUdpFS  _TserviceUDP
+    _VserviceUdpDn  _TserviceUDP
+    _VserviceUdpDp  _TserviceUDP
+    _VserviceUdpDC  _TserviceUDP
+    _VserviceUdpDS  _TserviceUDP
 
     _VfilterCn2dn   _TfilterDelay
 
-    _VserviceTcpMf  _TserviceTCP
+    _VserviceTcpMd  _TserviceTCP
 
     _Cexit       chan string
     _Clog        chan string
@@ -25,7 +25,7 @@ func init() {
     _Fbase_101__get_self_md5_sha()
     _FPargs()
 
-    _VserviceTcpMf  = _TserviceTCP {
+    _VserviceTcpMd  = _TserviceTCP {
         name        : "servicePortDebugLog",
         hostPortStr : "127.0.0.1:56781",
         TcallbackS  : _FcallbackForDebugLog_service_dataChan,
@@ -36,20 +36,20 @@ func init() {
         Clog        : &_Clog,
         cAmount     : 10,
     }
-    _VserviceUdpFn = _TserviceUDP  {
+    _VserviceUdpDn = _TserviceUDP  {
         name        : "servicePortForCn",
         UcallbackR  : _FuserCallback_dataRece_Cn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
-    _VserviceUdpFp = _TserviceUDP  {
+    _VserviceUdpDp = _TserviceUDP  {
         name        : "servicePortForCp",
         //UcallbackR  : _FuserCallback_dataRece_Cp,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
-    _VserviceUdpFD = _TserviceUDP  {
+    _VserviceUdpDC = _TserviceUDP  {
         name        : "servicePortForCD",
         UcallbackR  : _FuserCallback_dataRece_Dn__main_top,
         UcallbackC  : _FuserCallback_chanIn_Dn__main_top,
@@ -57,17 +57,17 @@ func init() {
         Clog        : &_Clog,
     }
 
-    _VserviceUdpFS = _TserviceUDP  {
+    _VserviceUdpDS = _TserviceUDP  {
         name        : "servicePortForCS",
         UcallbackR  : _FuserCallback_dataRece_Sn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
-    flag.StringVar(&_VserviceUdpFn.hostPortStr, "cn", ":5353",  _VserviceUdpFn.name )
-    flag.StringVar(&_VserviceUdpFp.hostPortStr, "cp", ":32001", _VserviceUdpFp.name )
-    flag.StringVar(&_VserviceUdpFD.hostPortStr, "cd", ":32002", _VserviceUdpFD.name )
-    flag.StringVar(&_VserviceUdpFS.hostPortStr, "cs", ":32003", _VserviceUdpFS.name )
+    flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":5353",  _VserviceUdpDn.name )
+    flag.StringVar(&_VserviceUdpDp.hostPortStr, "cp", ":32001", _VserviceUdpDp.name )
+    flag.StringVar(&_VserviceUdpDC.hostPortStr, "cd", ":32002", _VserviceUdpDC.name )
+    flag.StringVar(&_VserviceUdpDS.hostPortStr, "cs", ":32003", _VserviceUdpDS.name )
 
     flag.Parse()
 
@@ -82,22 +82,22 @@ func main() {
     // ------------------- tcp for debug monitor log --- begin
     // _FtcpAccept01
     // _FhandleTcp_accept_dataReceiveMsg01
-    go _VserviceTcpMf . _Fhandle_udpListen_Tcp__main_top( )
+    go _VserviceTcpMd . _Fhandle_udpListen_Tcp__main_top( )
     // ------------------- tcp for debug monitor log --- end
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
     // _TserviceUDP
-    go _VserviceUdpFn . _Fhandle_udpListen_Udp__read_main_top( )
-    go _VserviceUdpFp . _Fhandle_udpListen_Udp__read_main_top( )
-    go _VserviceUdpFD . _Fhandle_udpListen_Udp__read_main_top( )
-    go _VserviceUdpFS . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpDn . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpDp . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpDC . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpDS . _Fhandle_udpListen_Udp__read_main_top( )
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
     // ------------------- filter between workers --------- begin
     _VfilterCn2dn = _TfilterDelay {
         sleepGap      : 1,
-        udpIn         : &_VserviceUdpFn,
-        udpOut        : &_VserviceUdpFD,
+        udpIn         : &_VserviceUdpDn,
+        udpOut        : &_VserviceUdpDC,
         FcallbackM    : _Fcallback_user_FilterDelay__main_swap_signal_gen,
         FcallbackF    : _Fcallback_user_FilterDelay__chan_filter,
     }

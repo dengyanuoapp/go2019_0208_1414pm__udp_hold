@@ -8,7 +8,7 @@ import (
 
 func ( ___VserviceTcp *_TserviceTCP ) _Fhandle_udpListen_Tcp__main_top() {
 
-    _VserviceTcpMo . _FtryListenToTCP01( )
+    ___VserviceTcp . _FtryListenToTCP01( )
 
     if ___VserviceTcp.cAmount < 1        { ___VserviceTcp.cAmount = 1     }
     if ___VserviceTcp.cAmount > 100      { ___VserviceTcp.cAmount = 100   }
