@@ -21,6 +21,7 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
 
     if nil != ___VserviceUDP.CuOut01  {
         __Vcn2dn := _Tcn2dn { 1, ___VserviceUDP.VremoteAddr.IP , ___VserviceUDP.VremoteAddr.Port }
+        // func Marshal(v interface{}) ([]byte, error)
         __Vbyte , __Verr := json.Marshal( __Vcn2dn )
         if nil == __Verr {
             *___VserviceUDP.CuOut01  <- __Vbyte

@@ -1,5 +1,9 @@
 package main
 
+import (
+    "encoding/json"
+)
+
 func _Fcallback_user_FilterDelay__main_swap_signal_gen( ___Vf *_TfilterDelay)    {
     //_FpfN( " 818391: filter swap user start" );
     ___Vf . CfSwap01 <- "818392 : " + _FtimeNow() // It's time to swap 
@@ -34,6 +38,16 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__main_top(___Vstr string ) 
 } // _Ftry_update_task_list__main_top
 
 // _Tcn2dn 
+//var _VmapCn2dn_now  map
 func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []byte ) {
     _FpfN( " 838391: update table with Cin received :" + string(___Vbyte) )
+
+    var __Vcn2dn   _Tcn2dn
+    // func Unmarshal(data []byte, v interface{}) error
+    __Verr := json.Unmarshal( ___Vbyte , &__Vcn2dn )
+    if __Verr != nil {
+        _FpfN( " 838393: update table with Cin received , met err :" + string(__Verr) )
+        return
+    }
+
 } // _Ftry_insert_new_client_req__main_top
