@@ -32,7 +32,7 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
     ___VserviceUDP.VremoteAddr ,
     ___VserviceUDP.Vlen )
 
-    _Ppf( "0738183 (%d) %s \n" , _VcnIdx , ___VserviceUDP.VremoteAddr.IP.String() )
+    //_Ppf( "0738183 (%d) %s \n" , _VcnIdx , ___VserviceUDP.VremoteAddr.IP.String() )
     if nil != ___VserviceUDP.CuOut01  {
         __Vcn2dn := _TcnTdn {
             Version : 1,
@@ -45,7 +45,7 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
         // func Marshal(v interface{}) ([]byte, error)
         //__Vbyte , __Verr := json.Marshal( __Vcn2dn )
         __Vbyte , _ := _FencJson( __Vcn2dn )
-        _Ppt( " 0738189 : Cn pack msg as " ,  string(__Vbyte)+"\n" )
+        //_Ppt( " 0738189 : Cn pack msg as " ,  string(__Vbyte)+"\n" )
         *___VserviceUDP.CuOut01  <- __Vbyte
     }
 
