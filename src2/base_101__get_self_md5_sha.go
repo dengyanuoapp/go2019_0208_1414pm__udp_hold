@@ -1,1 +1,0 @@
-../src0/base_101__get_self_md5_sha.go
