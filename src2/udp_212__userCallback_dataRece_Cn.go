@@ -40,11 +40,16 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
         __Vcn2dn.   idx     = _VcnIdx
         __Vcn2dn.   Port    = ___VserviceUDP.VremoteAddr.Port 
         __Vcn2dn.   ipStr   =  ___VserviceUDP.VremoteAddr.IP.String() 
-        _Ppt( " 0738183 : origin msg is: " ,  __Vcn2dn , "\n" )
+        _Ppf( "\n 0738185 : origin msg is: %v\n" ,  __Vcn2dn )
+        //_Ppf( "\n 0738186 : _FencBin msg is: %v\n" ,  _FencBin( __Vcn2dn ) )
+        _Ppf( "\n 0738187 : _FencBin msg is: %v\n" ,  _FencGob( __Vcn2dn ) )
+        _Ppf( "\n 0738187 : _FencBin msg is: %x\n" ,  _FencGob( __Vcn2dn ) )
+        //_Ppf( "\n 0738187 : _FencBin msg is: %s\n" ,  string(_FencGob( __Vcn2dn )) )
+
         // func Marshal(v interface{}) ([]byte, error)
         __Vbyte , __Verr := json.Marshal( __Vcn2dn )
         if nil != __Verr {
-            _Ppt( " 0738185 : Cn pack msg error: " ,  __Verr , "\n" )
+            _Ppt( " 0738188 : Cn pack msg error: " ,  __Verr , "\n" )
             return
         }
         _Ppt( " 0738189 : Cn pack msg as " ,  string(__Vbyte)+"\n" )
