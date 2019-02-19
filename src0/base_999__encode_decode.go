@@ -31,11 +31,7 @@ func _FencGob(___V interface{}) []byte {
 } // _FencGob
 
 func _FdecGob(___Vbyte []byte, ___Vout interface{}) {
-	//__VbBuf := new(bytes.Buffer(___Vbyte))
-	var __VbBuf bytes.Buffer
-	//__VbBuf = bytes.Buffer( ___Vbyte )
-	__VbBuf . Read( ___Vbyte )
-	__Vdec := gob.NewDecoder(&__VbBuf) // Will write to __VbBuf.
+	__Vdec := gob.NewDecoder(bytes.NewReader(___Vbyte)) // Will write to __VbBuf.
 	__Verr := __Vdec.Decode( ___Vout )
 	if __Verr != nil {
         _Perr( __Verr , "1831917 : gob.NewDecoder failed:" )
