@@ -40,10 +40,17 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr s
     _Ppf( " 828398: (%d) %v \n"         , _Vcnt_Cn2Dn , _VmapCn2dn_now )
 
     _VmapCn2dn_mux.Lock()                   // ------ lock
-    __Vbyte , _ := _FencJson( _VmapCn2dn_now )
     _VmapCn2dn_last     = _VmapCn2dn_now 
     _VmapCn2dn_now      = make(_TmapCn2dn)
     _VmapCn2dn_mux.Unlock()                 // ------ unlock
+
+    _VmapCn2dn_tmp      = make(_TmapCn2dn)
+    for __Vkey, __Vvalue := range _VmapCn2dn_now {
+        if 1 == __Vvalue.Cnt {
+            _VmapCn2dn_tmp[__Vkey] = __Vvalue
+        }
+    }
+    __Vbyte , _ := _FencJson( _VmapCn2dn_tmp )
 
     _Ppf( " 828399: (%d) %d , %s \n"    , _Vcnt_Cn2Dn , len(__Vbyte) , __Vbyte )
 
