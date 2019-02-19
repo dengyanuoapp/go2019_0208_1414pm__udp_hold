@@ -82,7 +82,7 @@ func init() {
 func main() {
 
     // ------------------- tcp for debug monitor log --- begin
-    // _FtcpAccept01
+    // _Fhandle_tcpAccept01
     // _FhandleTcp_accept_dataReceiveMsg01
     go _VserviceTcpMf . _Fhandle_udpListen_Tcp__main_top( )
     // ------------------- tcp for debug monitor log --- end

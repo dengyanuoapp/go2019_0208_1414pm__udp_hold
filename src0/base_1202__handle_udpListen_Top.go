@@ -59,3 +59,4 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen__chanIn_main_loop (){
     _FnotNullRunUdp01( ___VserviceUdp.UcallbackC , ___VserviceUdp )
 
 } // _Fhandle_udpListen__chanIn_main_loop
+

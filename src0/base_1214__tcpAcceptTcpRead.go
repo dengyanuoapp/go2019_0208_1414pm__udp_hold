@@ -1,6 +1,6 @@
 // _TacceptTCP
 // _TserviceTCP
-// _FtcpAccept01
+// _Fhandle_tcpAccept01
 package main
 
 import (
@@ -43,7 +43,7 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTcp *_TacceptTCP ) bool
     ___VacceptTcp.Verr =
     ___VacceptTcp.connTCP.Read(___VacceptTcp.Vbuf)
 
-    // _FtcpAccept01
+    // _Fhandle_tcpAccept01
     if ( ___VacceptTcp.Verr == io.EOF ) { // lost the connect.
         ___VacceptTcp.       r64eof ++
         // acceptTcpINC / acceptTcpDEC : begin

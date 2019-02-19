@@ -13,7 +13,7 @@ func ( ___VserviceTcp *_TserviceTCP ) _Fhandle_udpListen_Tcp__main_top() {
     if ___VserviceTcp.cAmount < 1        { ___VserviceTcp.cAmount = 1     }
     if ___VserviceTcp.cAmount > 100      { ___VserviceTcp.cAmount = 100   }
     ___VserviceTcp.acceptTCPs = make([]_TacceptTCP , ___VserviceTcp.cAmount )
-    go _FtcpAccept01( ___VserviceTcp )
+    go _Fhandle_tcpAccept01( ___VserviceTcp )
 
     for ; ; {
         _Fsleep_1ms()

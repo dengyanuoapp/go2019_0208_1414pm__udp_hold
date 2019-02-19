@@ -5,7 +5,7 @@ import (
     //"time"
 )
 
-func _FtcpAccept01(___VserviceTcp *_TserviceTCP ) {
+func _Fhandle_tcpAccept01(___VserviceTcp *_TserviceTCP ) {
 
     for __Vi:=0; __Vi < ___VserviceTcp.cAmount ; __Vi ++ {
         ___VserviceTcp.acceptTCPs[__Vi].Vbuf         = make( []byte , 2048 )   // silice : with var len
@@ -32,7 +32,7 @@ func _FtcpAccept01(___VserviceTcp *_TserviceTCP ) {
     }
     (*___VserviceTcp.Cexit) <- "Error 381911: (" + ___VserviceTcp.hostPortStr + ")"
 
-} // _FtcpAccept01
+} // _Fhandle_tcpAccept01
 
 func _FtcpAccept01_loop(___VserviceTcp *_TserviceTCP ) {
 
