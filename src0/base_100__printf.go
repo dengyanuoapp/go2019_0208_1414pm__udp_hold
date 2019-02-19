@@ -20,6 +20,12 @@ func _Pn(){
     _Ppf("\n")
 } // _Pn
 
+func _Perr( ___Verr error , ___Vfmt string , ___Vpara ... interface{} ) {
+    _Ppf( ___Vfmt , ___Vpara ... )
+    _Ppt( ___Verr )
+    _Pn()
+} // _Perr
+
 func _Ppn(___Vpara ...interface{}) (int, error)   {
     __Vi, __Verr := _Ppt( ___Vpara ... )
     _Pn()

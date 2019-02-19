@@ -6,17 +6,19 @@ import (
     "encoding/json"
 )
 
-type _Tcn2dn struct {
+type _TcnTdn struct {
     version     int
     idx         int
     Port        int
     IP          net.IP
     ipStr       string
 }
+
 type _TnodeCn2dn struct {
     cnt             int
-    cn2dn           _Tcn2dn
+    cn2dn          _TcnTdn
 }
+
 type _TmapCn2dn     map[string]_TnodeCn2dn
 
 var _VcnIdx int
@@ -32,17 +34,21 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
 
     _Ppf( "0738183 (%d) %s \n" , _VcnIdx , ___VserviceUDP.VremoteAddr.IP.String() )
     if nil != ___VserviceUDP.CuOut01  {
-        __Vcn2dn := _Tcn2dn { version : 1, 
-        IP      : ___VserviceUDP.VremoteAddr.IP , 
-        idx     : _VcnIdx,
-        Port    : ___VserviceUDP.VremoteAddr.Port ,
-        ipStr   :  ___VserviceUDP.VremoteAddr.IP.String() }
+        __Vcn2dn := _TcnTdn {}
+        __Vcn2dn.   version = 1
+        __Vcn2dn.   IP      = ___VserviceUDP.VremoteAddr.IP
+        __Vcn2dn.   idx     = _VcnIdx
+        __Vcn2dn.   Port    = ___VserviceUDP.VremoteAddr.Port 
+        __Vcn2dn.   ipStr   =  ___VserviceUDP.VremoteAddr.IP.String() 
+        _Ppt( " 0738183 : origin msg is: " ,  __Vcn2dn , "\n" )
         // func Marshal(v interface{}) ([]byte, error)
         __Vbyte , __Verr := json.Marshal( __Vcn2dn )
-        if nil == __Verr {
-            _Ppt( " 0738185 : Cn pack msg as " ,  string(__Vbyte)+"\n" )
-            *___VserviceUDP.CuOut01  <- __Vbyte
+        if nil != __Verr {
+            _Ppt( " 0738185 : Cn pack msg error: " ,  __Verr , "\n" )
+            return
         }
+        _Ppt( " 0738189 : Cn pack msg as " ,  string(__Vbyte)+"\n" )
+        *___VserviceUDP.CuOut01  <- __Vbyte
     }
 
 } // _FuserCallback_dataRece_Cn
