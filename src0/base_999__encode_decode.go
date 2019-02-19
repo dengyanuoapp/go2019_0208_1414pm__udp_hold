@@ -3,19 +3,21 @@ package main
 import (
 	"bytes"
 	"encoding/binary"
-	//"fmt"
 	"encoding/gob"
 	//"log"
+
+	"fmt"
+    "math"
 )
 
 func _FencBin(___V interface{}) []byte {
-	__Vbuf := new(bytes.Buffer)
-	__Verr := binary.Write(__Vbuf, binary.LittleEndian, ___V)
-	if __Verr != nil {
-        _Perr( __Verr , "1831911 : binary.Write failed:" )
-        return nil
+    buf := new(bytes.Buffer)
+	var pi float64 = math.Pi
+	err := binary.Write(buf, binary.LittleEndian, pi)
+	if err != nil {
+		fmt.Println("binary.Write failed:", err)
 	}
-	return __Vbuf.Bytes()
+	return buf.Bytes()
 } // _FencBin
 
 func _FencGob(___V interface{}) []byte {

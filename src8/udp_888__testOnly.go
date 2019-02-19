@@ -29,4 +29,7 @@ func main() {
         _FdecGob( __Vb2 , &__Vt3)
         _Ppf( "\n 1918397 : _FdecGob recovery msg is: %v\n" ,  __Vt3 )
 
+        __Vb4 := _FencBin( __Vcn2dn ) 
+        _Ppf( "\n 2918392 : _FencBin gen msg is: %d , %x\n" , len(__Vb4) ,  __Vb4 )
+
 } // main
