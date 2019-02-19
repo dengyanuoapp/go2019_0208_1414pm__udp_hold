@@ -1,20 +1,12 @@
 package main
 
 import (
-    //"encoding/json"
-    //"flag"
-    //"fmt"
-    //"log"
-    //"net"
 )
 
 func _FhandleDebugServer(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-// ___VserviceUdp.udpConn 
-    //var __Vbuf [2048]byte             // array : with specified len
     __Vbuf := make( []byte , 2048 )   // silice : with var len
 
     __Vlen, __Vaddr, __Verr := ___VserviceUdp.udpConn.ReadFromUDP(__Vbuf)
-    //_, __Vaddr, __Verr := ___VserviceUdp.udpConn.ReadFromUDP(__Vbuf[0:])
 
     if __Verr != nil {
         return

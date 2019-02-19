@@ -2,12 +2,6 @@
 package main
 
 import (
-    //"encoding/json"
-    //"flag"
-    //"fmt"
-    //"log"
-    //"net"
-    //"sync"
 )
 
 type _TfilterDelay struct {

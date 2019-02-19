@@ -1,16 +1,8 @@
 package main
 
 import (
-    //"encoding/json"
     "flag"
-    //"rand"
-    //"fmt"
-    //"log"
-    //"net"
 )
-
-//_VuserIpList map[string]string
-//_VuserIpList = map[string]string{}
 
 var (
     _VserviceUdpCn  _TserviceUDP
