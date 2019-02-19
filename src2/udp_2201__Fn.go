@@ -26,43 +26,43 @@ func init() {
     _FPargs()
 
     _VserviceTcpMf  = _TserviceTCP {
-        name        : "servicePortDebugLog",
-        hostPortStr : "127.0.0.1:56781",
-        TcallbackS  : _FcallbackForDebugLog_service_dataChan,
-        TcallbackR  : _FcallbackForDebugLog_accept_dataReceive,
-        TcallbackC  : _FcallbackForDebugLog_accept_dataChan,
+        name                    : "servicePortDebugLog",
+        hostPortStr             : "127.0.0.1:56781",
+        TcallbackSvrDataChan    : _FcallbackForDebugLog_service_dataChan,
+        TcallbackAccDataRece    : _FcallbackForDebugLog_accept_dataReceive,
+        TcallbackC              : _FcallbackForDebugLog_accept_dataChan,
 
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
-        cAmount     : 10,
+        Cexit                   : &_Cexit,
+        Clog                    : &_Clog,
+        cAmount                 : 10,
     }
 
     _VserviceUdpFn = _TserviceUDP  {
-        name        : "servicePortForCn",
-        UcallbackR  : _FuserCallback_dataRece_Cn,
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
+        name                    : "servicePortForCn",
+        UcallbackR              : _FuserCallback_dataRece_Cn,
+        Cexit                   : &_Cexit,
+        Clog                    : &_Clog,
     }
     _VserviceUdpFp = _TserviceUDP  {
-        name        : "servicePortForCp",
-        //UcallbackR  : _FuserCallback_dataRece_Cp,
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
+        name                    : "servicePortForCp",
+        //UcallbackR             : _FuserCallback_dataRece_Cp,
+        Cexit                   : &_Cexit,
+        Clog                    : &_Clog,
     }
 
     _VserviceUdpFD = _TserviceUDP  {
-        name        : "servicePortForCD",
-        UcallbackR  : _FuserCallback_dataRece_Dn__main_top,
-        UcallbackC  : _FuserCallback_chanIn_Dn__main_top,
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
+        name                    : "servicePortForCD",
+        UcallbackR              : _FuserCallback_dataRece_Dn__main_top,
+        UcallbackC              : _FuserCallback_chanIn_Dn__main_top,
+        Cexit                   : &_Cexit,
+        Clog                    : &_Clog,
     }
 
     _VserviceUdpFS = _TserviceUDP  {
-        name        : "servicePortForCS",
-        UcallbackR  : _FuserCallback_dataRece_Sn,
-        Cexit       : &_Cexit,
-        Clog        : &_Clog,
+        name                    : "servicePortForCS",
+        UcallbackR              : _FuserCallback_dataRece_Sn,
+        Cexit                   : &_Cexit,
+        Clog                    : &_Clog,
     }
 
     flag.StringVar(&_VserviceUdpFn.hostPortStr, "cn", ":5353",  _VserviceUdpFn.name )
@@ -96,11 +96,11 @@ func main() {
 
     // ------------------- filter between workers --------- begin
     _VfilterFn2dn = _TfilterDelay {
-        sleepGap      : 1,
-        udpIn         : &_VserviceUdpFn,
-        udpOut        : &_VserviceUdpFD,
-        FcallbackM    : _Fcallback_user_FilterDelay__main_swap_signal_gen,
-        FcallbackF    : _Fcallback_user_FilterDelay__chan_filter,
+        sleepGap                : 1,
+        udpIn                   : &_VserviceUdpFn,
+        udpOut                  : &_VserviceUdpFD,
+        FcallbackM              : _Fcallback_user_FilterDelay__main_swap_signal_gen,
+        FcallbackF              : _Fcallback_user_FilterDelay__chan_filter,
     }
 
     go _VfilterFn2dn . _FfilterDelayGen01_main_top()

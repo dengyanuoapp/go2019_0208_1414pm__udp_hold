@@ -26,11 +26,11 @@ func init() {
     _FPargs()
 
     _VserviceTcpMd  = _TserviceTCP {
-        name        : "TservicePortDebugLog__Md",
-        hostPortStr : "127.0.0.1:56781",
-        TcallbackS  : _FcallbackForDebugLog_service_dataChan_Dn,
-        TcallbackR  : _FcallbackForDebugLog_accept_dataReceive_Dn,
-        TcallbackC  : _FcallbackForDebugLog_accept_dataChan_Dn,
+        name                    : "TservicePortDebugLog__Md",
+        hostPortStr             : "127.0.0.1:56781",
+        TcallbackSvrDataChan    : _FcallbackForDebugLog_service_dataChan_Dn,
+        TcallbackAccDataRece    : _FcallbackForDebugLog_accept_dataReceive_Dn,
+        TcallbackC              : _FcallbackForDebugLog_accept_dataChan_Dn,
 
         Cexit       : &_Cexit,
         Clog        : &_Clog,

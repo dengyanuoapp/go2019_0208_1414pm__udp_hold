@@ -20,4 +20,4 @@ func _FcallbackForDebugLog_service_dataChan(___VserviceTcp *_TserviceTCP ) {
             ___VserviceTcp.clientMux.Unlock()
         }
     }
-} // _FcallbackForDebugLog_service_dataChan
+} // _FuCallback_Tcp__ForDebugLog_service_dataChan

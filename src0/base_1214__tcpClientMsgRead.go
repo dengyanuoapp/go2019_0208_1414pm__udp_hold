@@ -75,7 +75,7 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VacceptTcp *_TacceptTCP ) bool
     //___VacceptTcp.Vbuf2 = make([]byte , ___VacceptTcp.Vlen ); copy( ___VacceptTcp.Vbuf2 , ___VacceptTcp.Vbuf )
 
     // _FcallbackForDebugLog_accept
-    _FnotNullRunTcp02_accept( ___VacceptTcp.serverTCP .TcallbackR , ___VacceptTcp )
+    _FnotNullRunTcp02_accept( ___VacceptTcp.serverTCP .TcallbackAccDataRece , ___VacceptTcp )
 
     return true
 } // _FhandleTcp_accept_dataReceiveMsg01__loop

@@ -18,7 +18,7 @@ func ( ___VserviceTcp *_TserviceTCP ) _Fhandle_udpListen_Tcp__main_top() {
     for ; ; {
         _Fsleep_1ms()
 
-        _FnotNullRun011_tcp_service_chan( ___VserviceTcp .TcallbackS , ___VserviceTcp )
+        _FnotNullRun011_tcp_service_chan( ___VserviceTcp .TcallbackSvrDataChan , ___VserviceTcp )
 
     }
     *___VserviceTcp.Cexit <- "Error 183818: (" + ___VserviceTcp.hostPortStr + ")"
