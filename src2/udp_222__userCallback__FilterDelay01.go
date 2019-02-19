@@ -63,7 +63,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []
         return
     }
     _Ppt( " 838395: unpack the json :" ) ; _Ppt( __Vcn2dn ) ; _Pn()
-    __VipStr := __Vcn2dn.ipStr
+    __VipStr := __Vcn2dn.IpStr
     _VmapCn2dn_now[__VipStr] = _TnodeCn2dn{ cnt : _VmapCn2dn_now[__VipStr].cnt + 1 , cn2dn : __Vcn2dn }
 
 } // _Ftry_insert_new_client_req__main_top
