@@ -98,8 +98,8 @@ func main() {
         sleepGap                : 1,
         udpIn                   : &_VserviceUdpDn,
         udpOut                  : &_VserviceUdpDC,
-        FcallbackMainDelayGen   : _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
-        FcallbackF              : _Fcallback_user_FilterDelay__chan_filter,
+        //FcallbackMainDelayGen   : _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
+        //FcallbackFilterChan     : _FuserCallback__FilterDelay__chan_filter__Fn,
     }
 
     go _VfilterCn2dn . _FfilterDelayGen01_main_top()

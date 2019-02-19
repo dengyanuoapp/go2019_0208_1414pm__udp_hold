@@ -10,7 +10,7 @@ func _FuserCallback__FilterDelay__main_swap_signal_gen__Fn( ___Vf *_TfilterDelay
     ___Vf . CfSwap01 <- "818392 : " + _FtimeNow() // It's time to swap
 } // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
 
-func _Fcallback_user_FilterDelay__chan_filter( ___Vf *_TfilterDelay)    {
+func _FuserCallback__FilterDelay__chan_filter__Fn( ___Vf *_TfilterDelay)    {
 
     //_FpfN( " 818395: filter select start" );
     select {
@@ -24,7 +24,7 @@ func _Fcallback_user_FilterDelay__chan_filter( ___Vf *_TfilterDelay)    {
     }
     //_FpfN( " 818399: filter select end" );
 
-} // _Fcallback_user_FilterDelay__chan_filter
+} // _FuserCallback__FilterDelay__chan_filter__Fn
 
 var _Vcnt_Cn2Dn int
 func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr string ) {

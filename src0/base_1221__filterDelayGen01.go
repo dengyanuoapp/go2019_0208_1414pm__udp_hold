@@ -15,7 +15,7 @@ type _TfilterDelay struct {
     CfOut01                     *chan []byte
 
     FcallbackMainDelayGen       func( *_TfilterDelay)    // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
-    FcallbackF                  func( *_TfilterDelay)    // _Fcallback_user_FilterDelay__chan_filter
+    FcallbackFilterChan         func( *_TfilterDelay)    // _FuserCallback__FilterDelay__chan_filter__Fn
 
     Cexit                       *chan string
     Clog                        *chan string
@@ -70,7 +70,7 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_top (){
 
 func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_filter_loop (){
     //_FpfN( " 421193 : filter main " )
-    if ( nil != ___Vf.FcallbackF ) {
-        ___Vf.FcallbackF ( ___Vf ) // _Fcallback_user_FilterDelay__chan_filter
+    if ( nil != ___Vf.FcallbackFilterChan ) {
+        ___Vf.FcallbackFilterChan ( ___Vf ) // _FuserCallback__FilterDelay__chan_filter__Fn
     }
 } // _FfilterDelayGen01_filter_loop
