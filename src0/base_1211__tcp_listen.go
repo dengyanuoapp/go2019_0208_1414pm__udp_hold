@@ -48,8 +48,8 @@ type _TserviceTCP struct {
     clientMux           sync.Mutex
     clientCnt           int
 
-    TcallbackSvrDataChan          func( *_TserviceTCP)    // _FuserCallback__Log_service_dataChan__Fn
-    TcallbackAccDataRece          func( *_TacceptTCP)     // _FuserCallback__LogAccept_dataReceive__Fn
+    TcallbackSvrDataChan          func( *_TserviceTCP)    // _FuserCallback__service_dataChan__Log_Fn
+    TcallbackAccDataRece          func( *_TacceptTCP)     // _FuserCallback__Accept_dataReceive__Log_Fn
     TcallbackAccDataChan          func( *_TacceptTCP)     // _FcallbackForDebugLog_accept_dataChan
 
     Cexit               *chan string

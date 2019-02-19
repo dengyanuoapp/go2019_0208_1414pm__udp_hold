@@ -3,7 +3,7 @@
 package main
 
 // note : all debug log begin pushed into Clog will try to redirect to TCP debug monitorS.
-func _FuserCallback__Log_service_dataChan__Fn(___VserviceTcp *_TserviceTCP ) {
+func _FuserCallback__service_dataChan__Log_Fn(___VserviceTcp *_TserviceTCP ) {
     //_Fpf( "283822 service" ); _Pn( )
     __VprStr := <- *___VserviceTcp.Clog
     //_FpfN( "283823 service:%s" , __VprStr )
@@ -20,4 +20,4 @@ func _FuserCallback__Log_service_dataChan__Fn(___VserviceTcp *_TserviceTCP ) {
             ___VserviceTcp.clientMux.Unlock()
         }
     }
-} // _FuserCallback__Log_service_dataChan__Fn
+} // _FuserCallback__service_dataChan__Log_Fn
