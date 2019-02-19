@@ -38,6 +38,7 @@ func _FuserCallback_chanIn_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
         _VdnReceCnt ++
         if 2 == len( __VdnIn )  {
             __Vdb := false
+            __Vdb = true
             if _VdnReceCnt >= 128  {
                 __Vdb = (1 == ( _VdnReceCnt % 10 ))
             } else {

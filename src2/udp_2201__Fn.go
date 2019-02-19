@@ -36,6 +36,7 @@ func init() {
         Clog        : &_Clog,
         cAmount     : 10,
     }
+
     _VserviceUdpFn = _TserviceUDP  {
         name        : "servicePortForCn",
         UcallbackR  : _FuserCallback_dataRece_Cn,
