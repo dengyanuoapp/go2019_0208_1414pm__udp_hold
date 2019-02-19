@@ -6,8 +6,9 @@ import (
 
 var (
     _VserviceUdpCn  _TserviceUDP
-    _VserviceUdpDn  _TserviceUDP
-    _VserviceUdpSn  _TserviceUDP
+    _VserviceUdpCp  _TserviceUDP
+    _VserviceUdpCD  _TserviceUDP
+    _VserviceUdpCS  _TserviceUDP
 
     _VfilterCn2dn   _TfilterDelay
 
@@ -41,25 +42,32 @@ func init() {
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
+    _VserviceUdpCp = _TserviceUDP  {
+        name        : "servicePortForCp",
+        //UcallbackR  : _FuserCallback_dataRece_Cp,
+        Cexit       : &_Cexit,
+        Clog        : &_Clog,
+    }
 
-    _VserviceUdpDn = _TserviceUDP  {
-        name        : "servicePortForDn",
+    _VserviceUdpCD = _TserviceUDP  {
+        name        : "servicePortForCD",
         UcallbackR  : _FuserCallback_dataRece_Dn__main_top,
         UcallbackC  : _FuserCallback_chanIn_Dn__main_top,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
-    _VserviceUdpSn = _TserviceUDP  {
-        name        : "servicePortForSn",
+    _VserviceUdpCS = _TserviceUDP  {
+        name        : "servicePortForCS",
         UcallbackR  : _FuserCallback_dataRece_Sn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
-    flag.StringVar(&_VserviceUdpCn.hostPortStr, "c", ":5353",  _VserviceUdpCn.name )
-    flag.StringVar(&_VserviceUdpDn.hostPortStr, "d", ":32001", _VserviceUdpDn.name )
-    flag.StringVar(&_VserviceUdpSn.hostPortStr, "s", ":32003", _VserviceUdpSn.name )
+    flag.StringVar(&_VserviceUdpCn.hostPortStr, "cn", ":5353",  _VserviceUdpCn.name )
+    flag.StringVar(&_VserviceUdpCp.hostPortStr, "cp", ":32001", _VserviceUdpCp.name )
+    flag.StringVar(&_VserviceUdpCD.hostPortStr, "cd", ":32002", _VserviceUdpCD.name )
+    flag.StringVar(&_VserviceUdpCS.hostPortStr, "cs", ":32003", _VserviceUdpCS.name )
 
     flag.Parse()
 
@@ -72,36 +80,24 @@ func init() {
 func main() {
 
     // ------------------- tcp for debug monitor log --- begin
-    //_VserviceTcpMo . _FtryListenToTCP01( )
-    // _TserviceTCP 
-
     // _FtcpAccept01
     // _FhandleTcp_accept_dataReceiveMsg01
     go _VserviceTcpMo . _Fhandle_udpListen_Tcp__main_top( )
     // ------------------- tcp for debug monitor log --- end
 
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
-
-    // _TserviceUDP
-    //_VserviceUdpCn . _FtryListenToUDP01( )
-    //_VserviceUdpDn . _FtryListenToUDP01( )
-    //_VserviceUdpSn . _FtryListenToUDP01( )
-
     // _TserviceUDP
     go _VserviceUdpCn . _Fhandle_udpListen_Udp__read_main_top( )
-    go _VserviceUdpDn . _Fhandle_udpListen_Udp__read_main_top( )
-    go _VserviceUdpSn . _Fhandle_udpListen_Udp__read_main_top( )
-    // _FnotNullRunUdp01
-
+    go _VserviceUdpCp . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpCD . _Fhandle_udpListen_Udp__read_main_top( )
+    go _VserviceUdpCS . _Fhandle_udpListen_Udp__read_main_top( )
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
+
     // ------------------- filter between workers --------- begin
-    //    _VfilterCn2dn.sleepGap      = 1
-    //    _VfilterCn2dn.udpIn         = &_VserviceUdpCn
-    //    _VfilterCn2dn.udpOut        = &_VserviceUdpDn
     _VfilterCn2dn = _TfilterDelay {
         sleepGap      : 1,
         udpIn         : &_VserviceUdpCn,
-        udpOut        : &_VserviceUdpDn,
+        udpOut        : &_VserviceUdpCD,
         FcallbackM    : _Fcallback_user_FilterDelay__main_swap_signal_gen,
         FcallbackF    : _Fcallback_user_FilterDelay__chan_filter,
     }
