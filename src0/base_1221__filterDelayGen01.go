@@ -6,19 +6,19 @@ import (
 
 type _TfilterDelay struct {
 
-    sleepGap            int
-    udpIn               *_TserviceUDP
-    udpOut              *_TserviceUDP
+    sleepGap                    int
+    udpIn                       *_TserviceUDP
+    udpOut                      *_TserviceUDP
 
-    CfSwap01            chan string
-    CfIn01              chan []byte
-    CfOut01             *chan []byte
+    CfSwap01                    chan string
+    CfIn01                      chan []byte
+    CfOut01                     *chan []byte
 
-    FcallbackM          func( *_TfilterDelay)    // _Fcallback_user_FilterDelay__main_swap_signal_gen
-    FcallbackF          func( *_TfilterDelay)    // _Fcallback_user_FilterDelay__chan_filter
+    FcallbackMainDelayGen       func( *_TfilterDelay)    // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
+    FcallbackF                  func( *_TfilterDelay)    // _Fcallback_user_FilterDelay__chan_filter
 
-    Cexit               *chan string
-    Clog                *chan string
+    Cexit                       *chan string
+    Clog                        *chan string
 } // _TfilterDelay 
 
 //    _Fhandle_udpListen_Udp__read_main_top
@@ -43,9 +43,9 @@ func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_main_top() {
 
 func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_main_loop (){
     //_FpfN( " 418113 : filter main " )
-    if ( nil != ___Vf.FcallbackM ) {
+    if ( nil != ___Vf.FcallbackMainDelayGen ) {
         //_FpfN( " 418115 : filter main " )
-        ___Vf.FcallbackM ( ___Vf ) // _Fcallback_user_FilterDelay__main_swap_signal_gen
+        ___Vf.FcallbackMainDelayGen ( ___Vf ) // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
     }
 } // _FfilterDelayGen01_main_loop
 
