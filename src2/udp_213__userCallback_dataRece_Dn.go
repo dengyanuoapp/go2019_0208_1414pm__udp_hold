@@ -37,12 +37,20 @@ func _FuserCallback_chanIn_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
     case __VdnIn:= <-___VserviceUDP.CuIn01 :
         _VdnReceCnt ++
         if 2 == len( __VdnIn )  {
-            if 1 == ( _VdnReceCnt % 10 )  {
+            var __Vdb bool
+            __Vdb = false
+            if _VdnReceCnt >= 128  {
+                __Vdb = (1 == ( _VdnReceCnt % 10 ))
+            } else {
+                __Vdb = (1 == ( _VdnReceCnt % 100 ))
+            }
+            if __Vdb {
                 _FpfN( " 2738181 (idx:%d) : rece from Chan : Dn : failed: (len:%d)" , _VdnReceCnt , len( __VdnIn ) )
             }
-            return
+        } else {
+            ___VserviceUDP . _FuserCallback_chanIn_Dn__ok( &__VdnIn )
         }
-        ___VserviceUDP . _FuserCallback_chanIn_Dn__ok( &__VdnIn )
+        return
     }
 } // _FuserCallback_chanIn_Dn__main_top
 
