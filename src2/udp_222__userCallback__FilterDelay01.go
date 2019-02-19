@@ -1,7 +1,7 @@
 package main
 
 import (
-    "encoding/json"
+    //"encoding/json"
 )
 
 func _Fcallback_user_FilterDelay__main_swap_signal_gen( ___Vf *_TfilterDelay)    {
@@ -29,20 +29,17 @@ var _Vcnt_Cn2Dn int
 func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr string ) {
     _Vcnt_Cn2Dn ++
 
-    _FpfN( " 828391: (%d) _Ftry_update_task_list__gen_and_swap_out : " , _Vcnt_Cn2Dn )
+    //_FpfN( " 828391: (%d) _Ftry_update_task_list__gen_and_swap_out : " , _Vcnt_Cn2Dn )
 
     if nil == ___Vf.  CfOut01 {
         _FpfN( " out Chan is nil. " )
         return
     }
 
-    __Vbyte , __Verr := json.Marshal( _VmapCn2dn_now )
-    if nil != __Verr {
-        _Fpf( " 828392: (%d) why error ? " , _Vcnt_Cn2Dn); _Ppt( __Verr ) ; _Pn()
-        return
-    }
+    __Vbyte , _ := _FencJson( _VmapCn2dn_now )
 
-    _Ppf( " 828398: (%d) %v \n" , _Vcnt_Cn2Dn , _VmapCn2dn_now )
+    _Ppf( " 828398: (%d) %v \n"         , _Vcnt_Cn2Dn , _VmapCn2dn_now )
+    _Ppf( " 828399: (%d) %d , %s \n"    , _Vcnt_Cn2Dn , len(__Vbyte) , __Vbyte )
 
     *___Vf.  CfOut01 <- __Vbyte
 
