@@ -7,13 +7,14 @@ import (
 	//"log"
 
 	"fmt"
-    "math"
+    //"math"
 )
 
 func _FencBin(___V interface{}) []byte {
     buf := new(bytes.Buffer)
-	var pi float64 = math.Pi
-	err := binary.Write(buf, binary.LittleEndian, pi)
+	//var pi float64 = math.Pi
+	//err := binary.Write(buf, binary.LittleEndian, pi)
+	err := binary.Write(buf, binary.LittleEndian, ___V)
 	if err != nil {
 		fmt.Println("binary.Write failed:", err)
 	}
