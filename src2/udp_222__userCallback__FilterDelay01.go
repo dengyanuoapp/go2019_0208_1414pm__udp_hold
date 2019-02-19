@@ -60,7 +60,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []
     //__Verr := json.Unmarshal( ___Vbyte , &__Vcn2dn )
     _FdecJson( ___Vbyte , &__Vcn2dn )
 
-    _Ppf( " 838395: unpack the json :%x \n" , __Vcn2dn )
+    _Ppf( " 838395: unpack the json :%x , %s \n" , __Vcn2dn , __Vcn2dn )
     __VipStr := __Vcn2dn.IpStr
     _VmapCn2dn_now[__VipStr] = _TnodeCn2dn{ cnt : _VmapCn2dn_now[__VipStr].cnt + 1 , cn2dn : __Vcn2dn }
 
