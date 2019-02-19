@@ -37,7 +37,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr s
         return
     }
 
-    _Ppf( " 828398: (%d) %v \n"         , _Vcnt_Cn2Dn , _VmapCn2dn_now )
+    //_Ppf( " 828398: (%d) %v \n"         , _Vcnt_Cn2Dn , _VmapCn2dn_now )
 
     _VmapCn2dn_mux.Lock()                   // ------ lock
     _VmapCn2dn_last     = _VmapCn2dn_now 
@@ -52,7 +52,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr s
     }
     __Vbyte , _ := _FencJson( _VmapCn2dn_tmp )
 
-    _Ppf( " 828399: (%d) %d , %s \n"    , _Vcnt_Cn2Dn , len(__Vbyte) , __Vbyte )
+    //_Ppf( " 828399: (%d) %d , %s \n"    , _Vcnt_Cn2Dn , len(__Vbyte) , __Vbyte )
 
     *___Vf.  CfOut01 <- __Vbyte
 
