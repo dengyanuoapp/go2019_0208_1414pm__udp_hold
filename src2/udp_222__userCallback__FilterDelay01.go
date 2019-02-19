@@ -2,6 +2,7 @@ package main
 
 import (
     //"encoding/json"
+    "sync"
 )
 
 func _Fcallback_user_FilterDelay__main_swap_signal_gen( ___Vf *_TfilterDelay)    {
@@ -36,9 +37,14 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr s
         return
     }
 
-    __Vbyte , _ := _FencJson( _VmapCn2dn_now )
-
     _Ppf( " 828398: (%d) %v \n"         , _Vcnt_Cn2Dn , _VmapCn2dn_now )
+
+    _VmapCn2dn_mux.Lock()                   // ------ lock
+    __Vbyte , _ := _FencJson( _VmapCn2dn_now )
+    _VmapCn2dn_last     = _VmapCn2dn_now 
+    _VmapCn2dn_now      = make(_TmapCn2dn)
+    _VmapCn2dn_mux.Unlock()                 // ------ unlock
+
     _Ppf( " 828399: (%d) %d , %s \n"    , _Vcnt_Cn2Dn , len(__Vbyte) , __Vbyte )
 
     *___Vf.  CfOut01 <- __Vbyte
@@ -46,9 +52,11 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr s
 } // _Ftry_update_task_list__gen_and_swap_out
 
 // _TcnTdn
-//var _VmapCn2dn_now  _TmapCn2dn
-//var _VmapCn2dn_now  map[string]_TnodeCn2dn = make(
-var _VmapCn2dn_now  _TmapCn2dn = make(_TmapCn2dn)
+//var _VmapCn2dn_now  _TmapCn2dn = make(_TmapCn2dn)
+var _VmapCn2dn_now      _TmapCn2dn  = make(_TmapCn2dn)
+var _VmapCn2dn_last     _TmapCn2dn  = make(_TmapCn2dn)
+var _VmapCn2dn_tmp      _TmapCn2dn
+var _VmapCn2dn_mux      sync.Mutex
 func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []byte ) {
     //_FpfN( " 838391: update table with Cin received :" + string(___Vbyte) )
 
@@ -59,6 +67,9 @@ func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []
 
     //_Ppf( " 838395: unpack the json :%x , %s \n" , __Vcn2dn , __Vcn2dn )
     __VipStr := __Vcn2dn.IpStr
+
+    _VmapCn2dn_mux.Lock()                                   // ------ lock
     _VmapCn2dn_now[__VipStr] = _TnodeCn2dn{ Cnt : _VmapCn2dn_now[__VipStr].Cnt + 1 , Cn2dn : __Vcn2dn }
+    _VmapCn2dn_mux.Unlock()                                 // ------ unlock
 
 } // _Ftry_insert_new_client_req__main_top
