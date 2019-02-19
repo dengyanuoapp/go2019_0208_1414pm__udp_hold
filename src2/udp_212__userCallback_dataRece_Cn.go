@@ -26,10 +26,10 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
     ___VserviceUDP.Vlen )
 
     if nil != ___VserviceUDP.CuOut01  {
-        __Vcn2dn := _Tcn2dn { 1, 
-        ___VserviceUDP.VremoteAddr.IP , 
-        ___VserviceUDP.VremoteAddr.Port ,
-        ___VserviceUDP.VremoteAddr.IP.String() }
+        __Vcn2dn := _Tcn2dn { version : 1, 
+        IP      : ___VserviceUDP.VremoteAddr.IP , 
+        Port    : ___VserviceUDP.VremoteAddr.Port ,
+        ipStr   :  ___VserviceUDP.VremoteAddr.IP.String() }
         // func Marshal(v interface{}) ([]byte, error)
         __Vbyte , __Verr := json.Marshal( __Vcn2dn )
         if nil == __Verr {
