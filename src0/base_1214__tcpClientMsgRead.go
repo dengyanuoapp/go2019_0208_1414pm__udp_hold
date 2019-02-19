@@ -9,7 +9,7 @@ import (
 
 
 
-func _FhandleTcp_accept_dataReceiveMsg01(___VacceptTcp *_TacceptTCP ) {
+func (___VacceptTcp *_TacceptTCP ) _FhandleTcp_accept_dataReceiveMsg01 () {
     //var __VcanReceiveMsg bool = true
     for {
         if ( 3 == 2 ) {

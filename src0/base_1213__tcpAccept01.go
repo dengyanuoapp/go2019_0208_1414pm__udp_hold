@@ -21,7 +21,7 @@ func _FtcpAccept01(___VserviceTcp *_TserviceTCP ) {
         ___VserviceTcp.acceptTCPs[__Vi].CchanMsg     = make (chan []byte, 10 )
         ___VserviceTcp.acceptTCPs[__Vi].CreceiveErr  = make (chan string, 1  )
 
-        go _FhandleTcp_accept_dataReceiveMsg01( &(___VserviceTcp.acceptTCPs[__Vi]) )
+        go ___VserviceTcp.acceptTCPs[__Vi] . _FhandleTcp_accept_dataReceiveMsg01( )
         go _FcallbackForDebugLog_accept_dataChan( &(___VserviceTcp.acceptTCPs[__Vi]) )
     }
 
