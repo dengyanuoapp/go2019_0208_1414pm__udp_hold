@@ -10,7 +10,7 @@ var (
     _VserviceUdpFD  _TserviceUDP
     _VserviceUdpFS  _TserviceUDP
 
-    _VfilterCn2dn   _TfilterDelay
+    _VfilterFn2dn   _TfilterDelay
 
     _VserviceTcpMf  _TserviceTCP
 
@@ -94,7 +94,7 @@ func main() {
     // ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
     // ------------------- filter between workers --------- begin
-    _VfilterCn2dn = _TfilterDelay {
+    _VfilterFn2dn = _TfilterDelay {
         sleepGap      : 1,
         udpIn         : &_VserviceUdpFn,
         udpOut        : &_VserviceUdpFD,
@@ -102,7 +102,7 @@ func main() {
         FcallbackF    : _Fcallback_user_FilterDelay__chan_filter,
     }
 
-    go _VfilterCn2dn . _FfilterDelayGen01_main_top()
+    go _VfilterFn2dn . _FfilterDelayGen01_main_top()
     // ------------------- filter between workers --------- end
 
     _Fex( " the reason exit : " + <-_Cexit , nil )
