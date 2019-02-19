@@ -38,7 +38,9 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__main_top(___Vstr string ) 
 } // _Ftry_update_task_list__main_top
 
 // _Tcn2dn 
-//var _VmapCn2dn_now  map
+//var _VmapCn2dn_now  _TmapCn2dn
+//var _VmapCn2dn_now  map[string]_TnodeCn2dn = make( 
+var _VmapCn2dn_now  _TmapCn2dn = make(_TmapCn2dn)
 func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []byte ) {
     _FpfN( " 838391: update table with Cin received :" + string(___Vbyte) )
 
@@ -49,5 +51,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []
         _Ppf( " 838393: update table with Cin received , met err :" ) ; _Ppt( __Verr ) ; _Pn()
         return
     }
+    __VipStr := __Vcn2dn.ipStr
+    _VmapCn2dn_now[__VipStr] = _TnodeCn2dn{ cnt : _VmapCn2dn_now[__VipStr].cnt + 1 , cn2dn : __Vcn2dn }
 
 } // _Ftry_insert_new_client_req__main_top

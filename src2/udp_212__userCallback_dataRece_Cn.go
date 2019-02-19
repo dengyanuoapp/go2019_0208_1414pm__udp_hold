@@ -10,7 +10,13 @@ type _Tcn2dn struct {
     version                 int
     IP                      net.IP
     Port                    int
+    ipStr                   string
 }
+type _TnodeCn2dn struct {
+    cnt             int
+    cn2dn           _Tcn2dn
+}
+type _TmapCn2dn     map[string]_TnodeCn2dn
 
 func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
 
@@ -20,7 +26,10 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
     ___VserviceUDP.Vlen )
 
     if nil != ___VserviceUDP.CuOut01  {
-        __Vcn2dn := _Tcn2dn { 1, ___VserviceUDP.VremoteAddr.IP , ___VserviceUDP.VremoteAddr.Port }
+        __Vcn2dn := _Tcn2dn { 1, 
+        ___VserviceUDP.VremoteAddr.IP , 
+        ___VserviceUDP.VremoteAddr.Port ,
+        ___VserviceUDP.VremoteAddr.IP.String() }
         // func Marshal(v interface{}) ([]byte, error)
         __Vbyte , __Verr := json.Marshal( __Vcn2dn )
         if nil == __Verr {
