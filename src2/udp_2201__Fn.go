@@ -30,7 +30,8 @@ func init() {
         hostPortStr             : "127.0.0.1:56781",
         TcallbackSvrDataChan    : _FuserCallback__service_dataChan__Log_Fn,
         TcallbackAccDataRece    : _FuserCallback__Accept_dataReceive__Log_Fn,
-        TcallbackAccDataChan    : _FcallbackForDebugLog_accept_dataChan,
+        TcallbackAccDataChan    : _FuserCallback__accept_dataChan__Log_Fn,
+        // _FhandleTcp__accept_dataChan__main_top
 
         Cexit                   : &_Cexit,
         Clog                    : &_Clog,

@@ -22,7 +22,7 @@ func _FtcpAccept01(___VserviceTcp *_TserviceTCP ) {
         ___VserviceTcp.acceptTCPs[__Vi].CreceiveErr  = make (chan string, 1  )
 
         go ___VserviceTcp.acceptTCPs[__Vi] . _FhandleTcp_accept_dataReceiveMsg01( )
-        go _FcallbackForDebugLog_accept_dataChan( &(___VserviceTcp.acceptTCPs[__Vi]) )
+        go ___VserviceTcp.acceptTCPs[__Vi] . _FhandleTcp__accept_dataChan__main_top( )
     }
 
     defer ___VserviceTcp.tcpLisn.Close() //_FtryListenToTCP01
