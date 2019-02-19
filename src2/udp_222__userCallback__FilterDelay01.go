@@ -42,7 +42,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_update_task_list__gen_and_swap_out(___Vstr s
         return
     }
 
-    _Ppn( " 828398: (%d) " , _VmapCn2dn_now )
+    _Ppf( " 828398: (%d) %v \n" , _Vcnt_Cn2Dn , _VmapCn2dn_now )
 
     *___Vf.  CfOut01 <- __Vbyte
 
@@ -60,7 +60,7 @@ func ( ___Vf *_TfilterDelay ) _Ftry_insert_new_client_req__main_top( ___Vbyte []
     //__Verr := json.Unmarshal( ___Vbyte , &__Vcn2dn )
     _FdecJson( ___Vbyte , &__Vcn2dn )
 
-    _Ppf( " 838395: unpack the json :%x , %s \n" , __Vcn2dn , __Vcn2dn )
+    //_Ppf( " 838395: unpack the json :%x , %s \n" , __Vcn2dn , __Vcn2dn )
     __VipStr := __Vcn2dn.IpStr
     _VmapCn2dn_now[__VipStr] = _TnodeCn2dn{ cnt : _VmapCn2dn_now[__VipStr].cnt + 1 , cn2dn : __Vcn2dn }
 
