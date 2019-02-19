@@ -35,23 +35,23 @@ func main() {
 } // main
 
 func test01 () {
-    _Ppf( "\n 1918391 : origin msg is: %s , %d \n" , sha256.Sum256([]byte(fmt.Sprintf("%v",__Vcn2dn))) , len(fmt.Sprintf("%v",__Vcn2dn)) )
+    _Ppf( "\n 1918391 : origin msg is: %x , %d \n" , sha256.Sum256([]byte(fmt.Sprintf("%v",__Vcn2dn))) , len(fmt.Sprintf("%v",__Vcn2dn)) )
 
     __Vb2 := _FencGob( __Vcn2dn )
-    _Ppf( "\n 1918392 : _FencGob gen msg is: %s ,%d \n" , sha256.Sum256(__Vb2) , len(__Vb2) )
+    _Ppf( "\n 1918392 : _FencGob gen msg is: %x ,%d \n" , sha256.Sum256(__Vb2) , len(__Vb2) )
     var __Vt3 _TcnTdn
     _FdecGob( __Vb2 , &__Vt3)
-    _Ppf( "\n 1918397 : _FdecGob recovery msg is: %v\n" ,  __Vt3 )
+    _Ppf( "\n 1918397 : _FdecGob recovery msg is: %x , %d \n" , sha256.Sum256([]byte(fmt.Sprintf("%v",__Vt3))) , len(fmt.Sprintf("%v",__Vt3)) )
 
     //__Vb4 := _FencBin( __Vcn2dn )
     //_Ppf( "\n 2918392 : _FencBin gen msg is: %d , %x\n" , len(__Vb4) ,  __Vb4 )
 
     __Vb5 := _FencRF( __Vcn2dn )
-    _Ppf( "\n 3918392 : _FencBin gen msg is: %d , %x\n" , len(__Vb5) ,  __Vb5 )
+    _Ppf( "\n 3918392 : _FencBin gen msg is: %x ,%d \n" , sha256.Sum256(__Vb5) , len(__Vb5) )
 
     __Vb6 ,_:= _FencJson( __Vcn2dn )
-    _Ppf( "\n 4918392 : _FencJson gen msg is: %d , %x\n" , len(__Vb6) ,  __Vb6 )
+    _Ppf( "\n 4918392 : _FencJson gen msg is: %x ,%d \n" , sha256.Sum256(__Vb6) , len(__Vb6) )
     var __Vt7 _TcnTdn
     _FdecJson( __Vb6 , &__Vt7)
-    _Ppf( "\n 4918397 : _FdecJson recovery msg is: %v\n" ,  __Vt7 )
+    _Ppf( "\n 4918397 : _FdecJson recovery msg is: %x , %d \n" , sha256.Sum256([]byte(fmt.Sprintf("%v",__Vt7))) , len(fmt.Sprintf("%v",__Vt7)) )
 } // main
