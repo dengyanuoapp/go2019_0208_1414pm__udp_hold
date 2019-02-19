@@ -20,7 +20,7 @@ var (
 func init() {
 
     _Frand_init()
-    _VprojectName = "Fn"
+    _VprojectName = "Dn"
     _Fbase_101__get_self_md5_sha()
     _FPargs()
 
