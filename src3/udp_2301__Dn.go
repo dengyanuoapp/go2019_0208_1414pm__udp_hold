@@ -26,7 +26,7 @@ func init() {
     _FPargs()
 
     _VserviceTcpMd  = _TserviceTCP {
-        name                    : "TservicePortDebugLog__Md",
+        name                    : "TcpService__DebugLog__Md",
         hostPortStr             : "127.0.0.1:56782",
         //TcallbackSvrDataChan    : _FuserCallback__Log_service_dataChan__Dn,
         //TcallbackAccDataRece    : _FuserCallback__LogAccept_dataReceive__Dn,
@@ -37,20 +37,20 @@ func init() {
         cAmount     : 10,
     }
     _VserviceUdpDn = _TserviceUDP  {
-        name        : "UservicePortFor_Dn",
+        name        : "UdpService__Dn",
         //UcallbackR  : _FuserCallback_dataRece_Dn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
     _VserviceUdpDp = _TserviceUDP  {
-        name        : "UservicePortFor_Dp",
+        name        : "UdpService__Dp",
         //UcallbackR  : _FuserCallback_dataRece_Dp,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpDC = _TserviceUDP  {
-        name        : "servicePortFor_DC",
+        name        : "UdpService__DC",
         //UcallbackR  : _FuserCallback_dataRece__main_top_DC,
         //UcallbackC  : _FuserCallback_chanIn__main_top_DC,
         Cexit       : &_Cexit,
@@ -58,7 +58,7 @@ func init() {
     }
 
     _VserviceUdpDS = _TserviceUDP  {
-        name        : "servicePortForDS",
+        name        : "UdpService__DS",
         //UcallbackR  : _FuserCallback_dataRece_DS,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
