@@ -28,18 +28,18 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
 
     *___VserviceUDP.Clog <- _Pspf( "0738181 (%d) Cn receMsg |l:%s|r:%s|(%d)\n" ,
     _VcnIdx,
-    ___VserviceUDP.VlocalAddr ,
-    ___VserviceUDP.VremoteAddr ,
-    ___VserviceUDP.Vlen )
+    ___VserviceUDP.VulocalAddr ,
+    ___VserviceUDP.VuremoteAddr ,
+    ___VserviceUDP.Vulen )
 
-    //_Ppf( "0738183 (%d) %s \n" , _VcnIdx , ___VserviceUDP.VremoteAddr.IP.String() )
+    //_Ppf( "0738183 (%d) %s \n" , _VcnIdx , ___VserviceUDP.VuremoteAddr.IP.String() )
     if nil != ___VserviceUDP.CuOut01  {
         __Vcn2dn := _TcnTdn {
             Version : 1,
-            IP      : ___VserviceUDP.VremoteAddr.IP,
+            IP      : ___VserviceUDP.VuremoteAddr.IP,
             Idx     : _VcnIdx,
-            Port    : ___VserviceUDP.VremoteAddr.Port ,
-            IpStr   :  ___VserviceUDP.VremoteAddr.IP.String() ,
+            Port    : ___VserviceUDP.VuremoteAddr.Port ,
+            IpStr   :  ___VserviceUDP.VuremoteAddr.IP.String() ,
         }
 
         // func Marshal(v interface{}) ([]byte, error)
