@@ -61,13 +61,13 @@ func ( ___Vsvr *_TserviceTCP ) _FtryListenToTCP01()  {
     // func ResolveTCPAddr(network, address string) (*TCPAddr, error)
     ___Vsvr.tcpAddr , ___Vsvr.err  = net.ResolveTCPAddr("tcp4", ___Vsvr.hostPortStr)
     if ___Vsvr.err != nil {
-        _Fex( "err13813" , ___Vsvr.err)
+        _Fex( "err13815" , ___Vsvr.err)
     }
 
     // func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
     ___Vsvr.tcpListener , ___Vsvr.err  = net.ListenTCP("tcp4", ___Vsvr.tcpAddr )
     if ___Vsvr.err != nil {
-        _Fex( "err13814" , ___Vsvr.err)
+        _Fex( "err13816" , ___Vsvr.err)
     }
 
     // func (l *TCPListener) Addr() Addr ; 
@@ -75,7 +75,7 @@ func ( ___Vsvr *_TserviceTCP ) _FtryListenToTCP01()  {
     ___Vsvr.  tcpLisnAddr   = ___Vsvr.tcpListener.Addr()
     //_FpfN( "983811: tcp listen on: %v , %s" , ___Vsvr.tcpLisnAddr , _FgetFuncName1((*_TserviceTCP)._FtryListenToTCP01) )
     //_FpfN( "983812: tcp listen on: %v , %s" , ___Vsvr.tcpLisnAddr , _FgetFuncName2() )
-    _FpfN( "983813: tcp listen on: %v , %s" , ___Vsvr.tcpLisnAddr , _FgetFuncName3() )
+    _FpfN( "ok13817: tcp listen on: %v , %s" , ___Vsvr.tcpLisnAddr , _FgetFuncName3() )
 
 } // _FtryListenToTCP01
 

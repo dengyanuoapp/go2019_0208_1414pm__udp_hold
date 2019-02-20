@@ -25,7 +25,7 @@ type _TserviceUDP struct {
     CuIn01      chan []byte
     CuOut01     *chan []byte
 
-}
+} // _TserviceUDP 
 
 
 func ( ___Vsvr *_TserviceUDP )_FtryListenToUDP01()  {
@@ -40,5 +40,10 @@ func ( ___Vsvr *_TserviceUDP )_FtryListenToUDP01()  {
     if ___Vsvr.err != nil {
         _Fex( "err13812" , ___Vsvr.err)
     }
+
+    //    //func (c *UDPConn) LocalAddr() Addr
+    ___Vsvr.    VlocalAddr  = ___Vsvr.udpConn.LocalAddr()
+
+    _FpfN( "ok13813: udp listen on: %v , %s" , ___Vsvr. VlocalAddr , _FgetFuncName3() )
 } // _FtryListenToUDP01
 
