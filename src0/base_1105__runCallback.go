@@ -8,7 +8,7 @@ func _FnotNullRunUdp01( ___Vrun func( *_TserviceUDP) , ___Vpara *_TserviceUDP ) 
     if ( ___Vrun != nil ) {
         ___Vrun( ___Vpara )
     } else {
-        _Fsleep_10ms()
+        _Fsleep_100ms()
     }
 } // _FnotNullRunUdp01
 
@@ -17,7 +17,7 @@ func _FnotNullRun011_tcp_service_chan( ___Vrun func( *_TserviceTCP) , ___Vpara *
     if ( ___Vrun != nil ) {
         ___Vrun( ___Vpara )
     } else {
-        _Fsleep_10ms()
+        _Fsleep_100ms()
     }
 } // _FnotNullRun011_tcp_service_chan
 
@@ -26,7 +26,7 @@ func _FnotNullRunTcp02_accept( ___Vrun func( *_TacceptTCP) , ___Vpara *_TacceptT
     if ( ___Vrun != nil ) {
         ___Vrun( ___Vpara )
     } else {
-        _Fsleep_10ms()
+        _Fsleep_100ms()
     }
 } // _FnotNullRunTcp02_accept
 

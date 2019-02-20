@@ -44,6 +44,6 @@ func ( ___Vsvr *_TserviceUDP )_FtryListenToUDP01()  {
     //    //func (c *UDPConn) LocalAddr() Addr
     ___Vsvr.    VulocalAddr  = ___Vsvr.udpConn.LocalAddr()
 
-    _Fpf( "ok13813: udp listen on: %28v , %28s , %28s \n" , ___Vsvr. VulocalAddr , _FgetFuncName3() ,    ___Vsvr.   name )
+    _Fpf( "ok13813 : udp listen on: %28v , %28s , %28s \n" , ___Vsvr. VulocalAddr , _FgetFuncName3() ,    ___Vsvr.   name )
 } // _FtryListenToUDP01
 

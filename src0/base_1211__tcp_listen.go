@@ -73,7 +73,7 @@ func ( ___Vsvr *_TserviceTCP ) _FtryListenToTCP01()  {
     // func (l *TCPListener) Addr() Addr ; 
     //type Addr interface { Network() string (for example, "tcp", "udp") ; String() string  (for example, "192.0.2.1:25", "[2001:db8::1]:80") }
     ___Vsvr.  tcpLisnAddr   = ___Vsvr.tcpListener.Addr()
-    _FpfN( "ok13817: tcp listen on: %28v , %28s" , ___Vsvr.tcpLisnAddr , _FgetFuncName3() )
+    _Fpf( "ok13817 : tcp listen on: %28v , %28s , %28s \n" , ___Vsvr.tcpLisnAddr , _FgetFuncName3()  ,    ___Vsvr.   name )
 
 } // _FtryListenToTCP01
 
