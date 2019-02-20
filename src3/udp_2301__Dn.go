@@ -27,7 +27,7 @@ func init() {
 
     _VserviceTcpMd  = _TserviceTCP {
         name                    : "TservicePortDebugLog__Md",
-        hostPortStr             : "127.0.0.1:56781",
+        hostPortStr             : "127.0.0.1:56782",
         //TcallbackSvrDataChan    : _FuserCallback__Log_service_dataChan__Dn,
         //TcallbackAccDataRece    : _FuserCallback__LogAccept_dataReceive__Dn,
         //TcallbackAccDataChan    : _FuserCallback__accept_dataChan__Log_Dn,
@@ -64,10 +64,10 @@ func init() {
         Clog        : &_Clog,
     }
 
-    flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":5353",  _VserviceUdpDn.name )
-    flag.StringVar(&_VserviceUdpDp.hostPortStr, "cp", ":32001", _VserviceUdpDp.name )
-    flag.StringVar(&_VserviceUdpDC.hostPortStr, "cd", ":32002", _VserviceUdpDC.name )
-    flag.StringVar(&_VserviceUdpDS.hostPortStr, "cs", ":32003", _VserviceUdpDS.name )
+    flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":0", _VserviceUdpDn.name )
+    flag.StringVar(&_VserviceUdpDp.hostPortStr, "cp", ":0", _VserviceUdpDp.name )
+    flag.StringVar(&_VserviceUdpDC.hostPortStr, "cd", ":0", _VserviceUdpDC.name )
+    flag.StringVar(&_VserviceUdpDS.hostPortStr, "cs", ":0", _VserviceUdpDS.name )
 
     flag.Parse()
 

@@ -25,7 +25,7 @@ func _Fhandle_tcpAccept01(___VserviceTcp *_TserviceTCP ) {
         go ___VserviceTcp.acceptTCPs[__Vi] . _FhandleTcp__accept_dataChan__main_top( )
     }
 
-    defer ___VserviceTcp.tcpLisn.Close() //_FtryListenToTCP01
+    defer ___VserviceTcp.tcpListener.Close() //_FtryListenToTCP01
     for ; ; {
         _Fsleep_1ms()
         _FtcpAccept01_loop( ___VserviceTcp )
@@ -37,7 +37,7 @@ func _Fhandle_tcpAccept01(___VserviceTcp *_TserviceTCP ) {
 func _FtcpAccept01_loop(___VserviceTcp *_TserviceTCP ) {
 
     // func (l *TCPListener) AcceptTCP() (*TCPConn, error)
-    __Vconn, __Verr := ___VserviceTcp.tcpLisn.AcceptTCP()
+    __Vconn, __Verr := ___VserviceTcp.tcpListener.AcceptTCP()
     _FerrExit( " 381810 : tcp accept error " , __Verr )
 
     //func (c *TCPConn) Write(b []byte) (int, error)

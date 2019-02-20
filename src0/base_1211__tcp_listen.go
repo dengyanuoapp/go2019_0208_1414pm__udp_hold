@@ -41,7 +41,8 @@ type _TserviceTCP struct {
     cAmount             int
 
     tcpAddr             *net.TCPAddr
-    tcpLisn             *net.TCPListener
+    tcpListener         *net.TCPListener
+    tcpLisnAddr         net.Addr
     err                 error
 
     acceptTCPs          []_TacceptTCP
@@ -64,9 +65,17 @@ func ( ___Vsvr *_TserviceTCP ) _FtryListenToTCP01()  {
     }
 
     // func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
-    ___Vsvr.tcpLisn , ___Vsvr.err  = net.ListenTCP("tcp4", ___Vsvr.tcpAddr )
+    ___Vsvr.tcpListener , ___Vsvr.err  = net.ListenTCP("tcp4", ___Vsvr.tcpAddr )
     if ___Vsvr.err != nil {
         _Fex( "err13814" , ___Vsvr.err)
     }
+
+    // func (l *TCPListener) Addr() Addr ; 
+    //type Addr interface { Network() string (for example, "tcp", "udp") ; String() string  (for example, "192.0.2.1:25", "[2001:db8::1]:80") }
+    ___Vsvr.  tcpLisnAddr   = ___Vsvr.tcpListener.Addr()
+    _FpfN( "983811: tcp listen on: %v , %s" , ___Vsvr.tcpLisnAddr , _FgetFuncName1((*_TserviceTCP)._FtryListenToTCP01) )
+    _FpfN( "983812: tcp listen on: %v , %s" , ___Vsvr.tcpLisnAddr , _FgetFuncName2() )
+    _FpfN( "983813: tcp listen on: %v , %s" , ___Vsvr.tcpLisnAddr , _FgetFuncName3() )
+
 } // _FtryListenToTCP01
 
