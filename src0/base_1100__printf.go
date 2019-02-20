@@ -6,6 +6,7 @@ import (
     "flag"
     "reflect"
     "runtime"
+    "strings"
 )
 
 var (
@@ -89,7 +90,9 @@ func _FdebugPrintTest() {
 func _FgetFuncName1(___Va interface{}) string {
     //  func FuncForPC(pc uintptr) *Func
     //func (f *Func) Name() string
-    return runtime.FuncForPC(reflect.ValueOf( ___Va ).Pointer()).Name()
+    __Vstr1:= runtime.FuncForPC(reflect.ValueOf( ___Va ).Pointer()).Name()
+    __Vstr2 := string([]byte(__Vstr1)[strings.LastIndexByte(__Vstr1 , '.')+1:])
+    return __Vstr2
 } // _FgetFuncName1
 
 func _FgetFuncName2() string {
@@ -99,7 +102,9 @@ func _FgetFuncName2() string {
 } // _FgetFuncName2
 
 func _FgetFuncName3() string {
-    return _FgetFrame(1).Function
+    __Vstr1:= _FgetFrame(1).Function
+    __Vstr2 := string([]byte(__Vstr1)[strings.LastIndexByte(__Vstr1 , '.')+1:])
+    return __Vstr2
 } // _FgetFuncName3
 
 
