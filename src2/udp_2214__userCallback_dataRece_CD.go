@@ -44,7 +44,7 @@ func _FuserCallback_chanIn_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
                 __Vdb = (1 == ( _VdnReceCnt % 10 ))
             }
             if __Vdb {
-                _FpfN( " 2738181 (idx:%d) : rece from Chan : Dn : failed: (len:%d)" , _VdnReceCnt , len( __VdnIn ) )
+                _FpfN( " 2738181 (idx:%d) : rece from Chan : Dn : empty{}: (len:%d)" , _VdnReceCnt , len( __VdnIn ) )
             }
         } else {
             ___VserviceUDP . _FuserCallback_chanIn_Dn__ok( &__VdnIn )
