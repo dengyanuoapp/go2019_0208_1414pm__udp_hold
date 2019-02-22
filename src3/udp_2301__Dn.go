@@ -36,8 +36,11 @@ func init() {
         Clog        : &_Clog,
         cAmount     : 10,
     }
+    // _FuserCallback_UdataRece_Dn 
+    // _FuserCallback_UdataMain_Dn 
     _VserviceUdpDn = _TserviceUDP  {
         name        : "UdpService__Dn",
+        uExt        : &_VuDataExt_Dn,
         //UcallbackR  : _FuserCallback_dataRece_Dn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,

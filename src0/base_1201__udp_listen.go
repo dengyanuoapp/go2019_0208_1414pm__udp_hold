@@ -7,6 +7,7 @@ import (
 type _TserviceUDP struct {
     name            string
     hostPortStr     string
+    uExt            *_TuExtStruct
 
     udpAddr         *net.UDPAddr
     udpConn         *net.UDPConn
