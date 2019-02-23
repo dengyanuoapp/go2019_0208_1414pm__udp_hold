@@ -12,9 +12,9 @@ type _Tdn struct {
     Port                    int
 }
 
-func _FuserCallback_u01M__dataRece_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
+func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP ) {
 
-    *___VserviceUDP.Clog <- _Pspf( "1738181 Dn receMsg |l:%s|r:%s|(%d)\n" ,
+    *___VserviceUDP.Clog <- _Pspf( "1738181 Fn receMsg |l:%s|r:%s|(%d)\n" ,
     ___VserviceUDP.VulocalAddr ,
     ___VserviceUDP.VuremoteAddr ,
     ___VserviceUDP.Vulen )
@@ -27,12 +27,12 @@ func _FuserCallback_u01M__dataRece_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
         }
     }
 
-} // _FuserCallback_u01M__dataRece_Dn__main_top
+} // _FuserCallback_u01M__dataRece_Fn__main_top
 
 var (
     _VdnReceCnt     int
 )
-func _FuserCallback_chanIn_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
+func _FuserCallback_chanIn_Fn__main_top(___VserviceUDP *_TserviceUDP ) {
     select {
     case __VdnIn:= <-___VserviceUDP.CuIn01 :
         _VdnReceCnt ++
@@ -44,16 +44,16 @@ func _FuserCallback_chanIn_Dn__main_top(___VserviceUDP *_TserviceUDP ) {
                 __Vdb = (1 == ( _VdnReceCnt % 10 ))
             }
             if __Vdb {
-                _FpfN( " 2738181 (idx:%d) : rece from Chan : Dn : empty{}: (len:%d)" , _VdnReceCnt , len( __VdnIn ) )
+                _FpfN( " 2738181 (idx:%d) : rece from Chan : Fn : empty{}: (len:%d)" , _VdnReceCnt , len( __VdnIn ) )
             }
         } else {
-            ___VserviceUDP . _FuserCallback_chanIn_Dn__ok( &__VdnIn )
+            ___VserviceUDP . _FuserCallback_chanIn_Fn__ok( &__VdnIn )
         }
         return
     }
-} // _FuserCallback_chanIn_Dn__main_top
+} // _FuserCallback_chanIn_Fn__main_top
 
-func ( ___VserviceUDP *_TserviceUDP ) _FuserCallback_chanIn_Dn__ok( ___VdnIn *[]byte ) {
-    _FpfN( " 3738181 (idx:%d) : rece from Chan : Dn : ok: (len:%d)" + string( *___VdnIn ), _VdnReceCnt , len( *___VdnIn ) )
-} // _FuserCallback_chanIn_Dn__ok
+func ( ___VserviceUDP *_TserviceUDP ) _FuserCallback_chanIn_Fn__ok( ___VdnIn *[]byte ) {
+    _FpfN( " 3738181 (idx:%d) : rece from Chan : Fn : ok: (len:%d)" + string( *___VdnIn ), _VdnReceCnt , len( *___VdnIn ) )
+} // _FuserCallback_chanIn_Fn__ok
 

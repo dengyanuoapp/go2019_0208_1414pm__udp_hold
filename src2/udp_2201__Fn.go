@@ -53,8 +53,8 @@ func init() {
 
     _VserviceUdpFD = _TserviceUDP  {
         name                    : "servicePortForCD",
-        UcallbackM              : _FuserCallback_u01M__dataRece_Dn__main_top,
-        UcallbackC              : _FuserCallback_chanIn_Dn__main_top,
+        UcallbackM              : _FuserCallback_u01M__dataRece_Fn__main_top,
+        UcallbackC              : _FuserCallback_chanIn_Fn__main_top,
         Cexit                   : &_Cexit,
         Clog                    : &_Clog,
     }

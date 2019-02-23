@@ -1,0 +1,18 @@
+#!/system/bin/sh
+
+su -
+
+mount -o remount,rw /system 
+
+for aa1 in Android_pad_IfengNewsV442_Pad_3411_17B8.apk CleanMaster-2010003429_X86_B0B8.apk QYVideoClient_6.7_for_ZK_Player_1016_05_EEC5.apk TencentVideo_V4.3.0.9452_580_33F9.apk UCBrowser_X86_054D_V10.6.0.620_android_pf151_bi800.apk aimeituan-shenzhenleyu1-signed-aligned-041715_650E.apk appsearch_AndroidPhone_1011875l_6.3.0_E8AB.apk baidusearch_Android_1-0-25-50_1001080u_0A10.apk ninegameclienthd.apk 
+do
+rm -f /system/preinstall/${aa1}
+done
+
+for aa1 in Android_pad_IfengNewsV442_Pad_3411_17B8.apk CleanMaster-2010003429_X86_B0B8.apk QYVideoClient_6.7_for_ZK_Player_1016_05_EEC5.apk TencentVideo_V4.3.0.9452_580_33F9.apk UCBrowser_X86_054D_V10.6.0.620_android_pf151_bi800.apk aimeituan-shenzhenleyu1-signed-aligned-041715_650E.apk appsearch_AndroidPhone_1011875l_6.3.0_E8AB.apk baidusearch_Android_1-0-25-50_1001080u_0A10.apk ninegameclienthd.apk
+do
+    rm -f /data/app/${aa1}
+done
+
+# TeclastBootManager_v1.0.0_intel_4B3F.apk teclast-release_0463.apk
+#teclast-release_0463.apk TeclastBootManager_v1.0.0_intel_4B3F.apk
