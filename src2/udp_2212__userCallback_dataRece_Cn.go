@@ -6,6 +6,11 @@ import (
     //"encoding/json"
 )
 
+type _TuExtStruct struct {
+    name            string
+
+} // _TuExtStruct 
+
 type _TcnTdn struct {
     Version     int
     Idx         int
