@@ -33,7 +33,7 @@ func ( ___VserviceUdp *_TserviceUDP ) _Fhandle_u01y__udpListen_Udp__read_main_lo
 
     _FnullExit( " err 338197 : why ___Vconn.ReadFromUDP addr error ?" , ___VserviceUdp.VuremoteAddr )
 
-    _FnotNullRunUdp01( ___VserviceUdp.UcallbackR , ___VserviceUdp )
+    _FnotNullRunUdp01( ___VserviceUdp.UcallbackM , ___VserviceUdp )
 } // _Fhandle_u01y__udpListen_Udp__read_main_loop
 
 
