@@ -41,28 +41,28 @@ func init() {
     _VserviceUdpDn = _TserviceUDP  {
         name        : "UdpService__Dn",
         uExt        : &_VuDataExt_Dn,
-        //UcallbackM  : _FuserCallback_u01M__dataRece_Dn,
+        //UcallbackMR : _FuserCallback_u01M__dataRece_Dn,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
     _VserviceUdpDp = _TserviceUDP  {
         name        : "UdpService__Dp",
-        //UcallbackM  : _FuserCallback_u01M__dataRece_Dp,
+        //UcallbackMR : _FuserCallback_u01M__dataRece_Dp,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpDC = _TserviceUDP  {
         name        : "UdpService__DC",
-        //UcallbackM  : _FuserCallback_u01M__dataRece__main_top_DC,
-        //UcallbackC  : _FuserCallback_chanIn__main_top_DC,
+        //UcallbackMR : _FuserCallback_u01M__dataRece__main_top_DC,
+        //UcallbackCI  : _FuserCallback_chanIn__main_top_DC,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }
 
     _VserviceUdpDS = _TserviceUDP  {
         name        : "UdpService__DS",
-        //UcallbackM  : _FuserCallback_u01M__dataRece_DS,
+        //UcallbackMR : _FuserCallback_u01M__dataRece_DS,
         Cexit       : &_Cexit,
         Clog        : &_Clog,
     }

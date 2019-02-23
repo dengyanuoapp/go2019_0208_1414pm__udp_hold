@@ -40,28 +40,28 @@ func init() {
 
     _VserviceUdpFn = _TserviceUDP  {
         name                    : "servicePortForCn",
-        UcallbackM              : _FuserCallback_u01M__dataRece_Cn,
+        UcallbackMR             : _FuserCallback_u01M__dataRece_Cn,
         Cexit                   : &_Cexit,
         Clog                    : &_Clog,
     }
     _VserviceUdpFp = _TserviceUDP  {
         name                    : "servicePortForCp",
-        //UcallbackM             : _FuserCallback_u01M__dataRece_Cp,
+        //UcallbackMR            : _FuserCallback_u01M__dataRece_Cp,
         Cexit                   : &_Cexit,
         Clog                    : &_Clog,
     }
 
     _VserviceUdpFD = _TserviceUDP  {
         name                    : "servicePortForCD",
-        UcallbackM              : _FuserCallback_u01M__dataRece_Fn__main_top,
-        UcallbackC              : _FuserCallback_chanIn_Fn__main_top,
+        UcallbackMR             : _FuserCallback_u01M__dataRece_Fn__main_top,
+        UcallbackCI             : _FuserCallback_chanIn_Fn__main_top,
         Cexit                   : &_Cexit,
         Clog                    : &_Clog,
     }
 
     _VserviceUdpFS = _TserviceUDP  {
         name                    : "servicePortForCS",
-        UcallbackM              : _FuserCallback_u01M__dataRece_Sn,
+        UcallbackMR             : _FuserCallback_u01M__dataRece_Sn,
         Cexit                   : &_Cexit,
         Clog                    : &_Clog,
     }

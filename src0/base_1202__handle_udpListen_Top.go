@@ -33,7 +33,7 @@ func ( ___VserviceUdp *_TserviceUDP ) _Fhandle_u01y__udpListen_Udp__read_main_lo
 
     _FnullExit( " err 338197 : why ___Vconn.ReadFromUDP addr error ?" , ___VserviceUdp.VuremoteAddr )
 
-    _FnotNullRunUdp01( ___VserviceUdp.UcallbackM , ___VserviceUdp )
+    _FnotNullRunUdp01( ___VserviceUdp.UcallbackMR , ___VserviceUdp )
 } // _Fhandle_u01y__udpListen_Udp__read_main_loop
 
 
@@ -53,7 +53,7 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_u02x__udpListen__chanIn_main_top (
 func (___VserviceUdp *_TserviceUDP ) _Fhandle_u02y__udpListen__chanIn_main_loop (){
 
     //_FpfN( "338199 : udp rece Chan msg ." )
-    _FnotNullRunUdp01( ___VserviceUdp.UcallbackC , ___VserviceUdp )
+    _FnotNullRunUdp01( ___VserviceUdp.UcallbackCI , ___VserviceUdp )
 
 } // _Fhandle_u02y__udpListen__chanIn_main_loop
 
