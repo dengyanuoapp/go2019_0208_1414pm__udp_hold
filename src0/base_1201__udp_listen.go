@@ -19,8 +19,9 @@ type _TserviceUDP struct {
     VulocalAddr     net.Addr
 
     UcallbackM      func( *_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top : deal with udp main loop data rece : 
+    UcallbackC      func( *_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top : deal with outside chan data in for udp using another handle
     //UcallbackM      func( *_TserviceUDP) // deal with udp child data rece 
-    UcallbackC      func( *_TserviceUDP) // deal with outside chan data in for udp using another handle
+
     Cexit           *chan string
     Clog            *chan string
 
