@@ -27,7 +27,7 @@ type _TnodeCn2dn struct {
 type _TmapCn2dn     map[string]_TnodeCn2dn
 
 var _VcnIdx int
-func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
+func _FuserCallback_u01M__dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
 
     _VcnIdx ++
 
@@ -54,5 +54,5 @@ func _FuserCallback_dataRece_Cn(___VserviceUDP *_TserviceUDP ) {
         *___VserviceUDP.CuOut01  <- __Vbyte
     }
 
-} // _FuserCallback_dataRece_Cn
+} // _FuserCallback_u01M__dataRece_Cn
 

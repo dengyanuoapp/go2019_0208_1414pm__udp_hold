@@ -12,7 +12,7 @@ type _Tsn struct {
     Port                    int
 }
 
-func _FuserCallback_dataRece_Sn(___VserviceUDP *_TserviceUDP ) {
+func _FuserCallback_u01M__dataRece_Sn(___VserviceUDP *_TserviceUDP ) {
 
     *___VserviceUDP.Clog <- _Pspf( "3738181 Sn receMsg |l:%s|r:%s|(%d)\n" ,
     ___VserviceUDP.VulocalAddr ,
@@ -27,5 +27,5 @@ func _FuserCallback_dataRece_Sn(___VserviceUDP *_TserviceUDP ) {
         }
     }
 
-} // _FuserCallback_dataRece_Sn
+} // _FuserCallback_u01M__dataRece_Sn
 
