@@ -8,7 +8,7 @@ import (
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 //func _Fhandle_udpListen_Udp_main_top(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-func (___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen_Udp__read_main_top (){
+func (___VserviceUdp *_TserviceUDP ) _Fhandle_u01x__udpListen_Udp__read_main_top (){
 
     ___VserviceUdp . _FtryListenToUDP01( )
 
@@ -18,12 +18,12 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen_Udp__read_main_top (){
     go ___VserviceUdp . _Fhandle_udpListen__chanIn_main_top()
 
     for ; ; {
-        ___VserviceUdp . _Fhandle_udpListen_Udp__read_main_loop( )
+        ___VserviceUdp . _Fhandle_u01y__udpListen_Udp__read_main_loop( )
     }
     (*___VserviceUdp.Cexit) <- "338191 Error : (" + ___VserviceUdp.hostPortStr + ")"
-} // _Fhandle_udpListen_Udp__read_main_top
+} // _Fhandle_u01x__udpListen_Udp__read_main_top
 
-func ( ___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen_Udp__read_main_loop() {
+func ( ___VserviceUdp *_TserviceUDP ) _Fhandle_u01y__udpListen_Udp__read_main_loop() {
     ___VserviceUdp.Vulen,
     ___VserviceUdp.VuremoteAddr,
     ___VserviceUdp.Vuerr =
@@ -34,7 +34,7 @@ func ( ___VserviceUdp *_TserviceUDP ) _Fhandle_udpListen_Udp__read_main_loop() {
     _FnullExit( " err 338197 : why ___Vconn.ReadFromUDP addr error ?" , ___VserviceUdp.VuremoteAddr )
 
     _FnotNullRunUdp01( ___VserviceUdp.UcallbackR , ___VserviceUdp )
-} // _Fhandle_udpListen_Udp__read_main_loop
+} // _Fhandle_u01y__udpListen_Udp__read_main_loop
 
 
 

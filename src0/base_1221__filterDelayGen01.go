@@ -21,7 +21,7 @@ type _TfilterDelay struct {
     Clog                        *chan string
 } // _TfilterDelay 
 
-//    _Fhandle_udpListen_Udp__read_main_top
+//    _Fhandle_u01x__udpListen_Udp__read_main_top
 func ( ___Vf *_TfilterDelay ) _FfilterDelayGen01_main_top() {
 
     if ( 1 > ___Vf.sleepGap ) { _Fex( " 418111 : error sleep gap " , nil ) }
