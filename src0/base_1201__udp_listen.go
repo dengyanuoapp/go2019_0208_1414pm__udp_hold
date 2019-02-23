@@ -20,7 +20,7 @@ type _TserviceUDP struct {
 
     UcallbackM      func( *_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top : deal with udp main loop data rece : 
     UcallbackC      func( *_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top : deal with outside chan data in for udp using another handle
-    //UcallbackM      func( *_TserviceUDP) // deal with udp child data rece 
+    UcallbackT      func( *_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
 
     Cexit           *chan string
     Clog            *chan string
