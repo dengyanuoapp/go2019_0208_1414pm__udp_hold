@@ -16,6 +16,7 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_u01x__udpListen_Udp__read_main_top
     ___VserviceUdp.CuIn01       = make( chan []byte , 5    )   // silice : with var len
 
     go ___VserviceUdp . _Fhandle_u02x__udpListen__chanIn_main_top()
+    go ___VserviceUdp . _Fhandle_u03x__udpListen__timer__main_top()
 
     for ; ; {
         ___VserviceUdp . _Fhandle_u01y__udpListen_Udp__read_main_loop( )
@@ -52,8 +53,25 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_u02x__udpListen__chanIn_main_top (
 
 func (___VserviceUdp *_TserviceUDP ) _Fhandle_u02y__udpListen__chanIn_main_loop (){
 
-    //_FpfN( "338199 : udp rece Chan msg ." )
+    //_FpfN( "438195 : udp rece Chan msg ." )
     _FnotNullRunUdp01( ___VserviceUdp.UcallbackCI , ___VserviceUdp )
 
 } // _Fhandle_u02y__udpListen__chanIn_main_loop
+
+func (___VserviceUdp *_TserviceUDP ) _Fhandle_u03x__udpListen__timer__main_top (){
+
+    for ; ; {
+        _Fsleep_1s()
+        ___VserviceUdp . _Fhandle_u03y__udpListen__timer__main_loop( )
+    }
+
+    (*___VserviceUdp.Cexit) <- "538191 Error : (" + ___VserviceUdp.hostPortStr + ")"
+} // _Fhandle_u03x__udpListen__timer__main_top
+
+func (___VserviceUdp *_TserviceUDP ) _Fhandle_u03y__udpListen__timer__main_loop (){
+
+    //_FpfN( "538195 : udp timer check ..." )
+    _FnotNullRunUdp01( ___VserviceUdp.UcallbackCI , ___VserviceUdp )
+
+} // _Fhandle_u03y__udpListen__timer__main_loop
 
