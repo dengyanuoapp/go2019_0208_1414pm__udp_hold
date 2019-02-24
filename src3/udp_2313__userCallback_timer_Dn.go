@@ -5,6 +5,7 @@ package main
 import (
     //"net"
     "time"
+    "os"
 )
 
 
@@ -20,6 +21,7 @@ func _FuserCallback_u03TM__timer_Dn ( ___Vsvr *_TserviceUDP )  {
     _VuExtTimer_Dn . idx ++
 
     _FpfN( " 839111 : %d : trying to Connect to Fn using key 0x%x " , _VuExtTimer_Dn . idx , _VuExtTimer_Dn . c641 )
+    _FpfN( " 839112 : var pwhex : %x , %s" , os.Getenv("pwhex") , os.Getenv("pwhex") );
 
     if ( _VuExtTimer_Dn . enabled ) {
         _Fsleep_1s() ;
