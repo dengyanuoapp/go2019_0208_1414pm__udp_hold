@@ -5,6 +5,7 @@ package main
 import (
     //"net"
     "time"
+    "sync"
 )
 
 type _TuExtMRead struct {
@@ -19,10 +20,12 @@ type _TuExtChanI struct {
 type _TuExtTimer struct {
     name            string
     idx             uint64
+    enabled         bool
     timgGap1        time.Duration
     timgGap2        time.Duration
     c641            uint64
     c642            uint64
+    mux             sync.Mutex
 } // _TuExtTimer
 
 
