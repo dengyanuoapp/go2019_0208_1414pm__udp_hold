@@ -9,7 +9,7 @@ import (
 
 
 
-func ( ___Vsvr *_TserviceUDP ) _FuserCallback_UdataRece_Dn ()  {
+func _FuserCallback_UdataRece_Dn ( ___Vsvr *_TserviceUDP ) {
 } // _FuserCallback_UdataRece_Dn 
 
 

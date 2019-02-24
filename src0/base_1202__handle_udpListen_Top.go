@@ -71,7 +71,7 @@ func (___VserviceUdp *_TserviceUDP ) _Fhandle_u03x__udpListen__timer__main_top (
 func (___VserviceUdp *_TserviceUDP ) _Fhandle_u03y__udpListen__timer__main_loop (){
 
     //_FpfN( "538195 : udp timer check ..." )
-    _FnotNullRunUdp01( ___VserviceUdp.UcallbackCI , ___VserviceUdp )
+    _FnotNullRunUdp01( ___VserviceUdp.UcallbackTM , ___VserviceUdp )
 
 } // _Fhandle_u03y__udpListen__timer__main_loop
 

@@ -3,6 +3,7 @@ package main
 import (
     "time"
 )
+// func time.Sleep(d Duration)
 
 func _Fsleep_1ms()              { time.Sleep(                                           time.Millisecond)   } //
 func _Fsleep_10ms()             { time.Sleep(   10 *                                    time.Millisecond)   } //
