@@ -6,10 +6,17 @@ import (
     //"encoding/json"
 )
 
-type _TuExtStruct struct {
+type _TuExtMRead struct {
     name            string
 
-} // _TuExtStruct 
+} // _TuExtMRead 
+
+type _TuExtChanI struct {
+} // _TuExtChanI
+
+type _TuExtTimer struct {
+} // _TuExtTimer
+
 
 type _TcnTdn struct {
     Version     int

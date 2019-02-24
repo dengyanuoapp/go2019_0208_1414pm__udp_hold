@@ -40,7 +40,7 @@ func init() {
     // _FuserCallback_UdataMain_Dn 
     _VserviceUdpDn = _TserviceUDP  {
         name        : "UdpService__Dn",
-        uExt        : &_VuDataExt_Dn,
+        uExtMR      : &_VuExtMR_Dn,
         //UcallbackMR : _FuserCallback_u01M__dataRece_Dn,
         //UcallbackTM : _FuserCallback_u01M__dataRece_Dn,
         Cexit       : &_Cexit,
