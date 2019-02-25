@@ -13,6 +13,8 @@ import (
 )
 
 var (
+    _self_prog          string
+
     _self_startTime     time.Time
     _self_startTimeSha  _Tb256
 
@@ -29,7 +31,8 @@ var (
 
 func _Fbase_1203__gen_self_md5_sha() {
 
-    __Vcontent, __Verr := ioutil.ReadFile( os.Args[0] )
+    _self_prog = os.Args[0]
+    __Vcontent, __Verr := ioutil.ReadFile( _self_prog )
     if __Verr != nil {
         log.Fatalf( "err138191" , __Verr )
     }
@@ -53,9 +56,9 @@ func _Fbase_1203__gen_self_md5_sha() {
     log.Printf( " _debugEnabled : %t\n" , _debugEnabled )
 
 
-    _Ppn("from:", os.Args[0])
-    _FpfN("File md5: [ %x ]", _self_md5.b128)
-    _FpfN("File sha: [ %x ] %x %x %x %x ", _self_sha.b256 , _self_sha.A1 , _self_sha.A2 , _self_sha.A3 , _self_sha.A4 )
+    _Ppn("from:", _self_prog )
+    _FpfN("8381191 File md5: [ %x ]", _self_md5.b128)
+    _FpfN("8381192 File sha: [ %x ] %x %x %x %x ", _self_sha.b256 , _self_sha.A1 , _self_sha.A2 , _self_sha.A3 , _self_sha.A4 )
 
 } // _Fbase_1203__gen_self_md5_sha
 
