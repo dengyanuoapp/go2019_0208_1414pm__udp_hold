@@ -67,8 +67,10 @@ func _FencJson(___V interface{}) ([]byte , error) {
 } // _FencJson
 
 func _FencJsonExit( ___VeMsg string , ___V interface{} ) ([]byte) {
-    __Vbyte , __Verr := _FencJson( ___V )
-    _FerrExit ( " 1831918 : json error : " + ___VeMsg , __Verr )
+    //__Vbyte , __Verr := _FencJson( ___V )
+    //_FerrExit( " 1831918 : json error : " + ___VeMsg , __Verr )
+    //_FerrExit( " 1831918 : json error : " , __Verr )
+    __Vbyte , _:= _FencJson( ___V )
 
     return __Vbyte
 } // _FencJsonExit
