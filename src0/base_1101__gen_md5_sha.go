@@ -4,7 +4,7 @@ import (
     //"bytes"
     //"os"
     //"io/ioutil"
-    //"crypto/md5"
+    "crypto/md5"
     "crypto/sha256"
     //"log"
     //"encoding/hex"
@@ -30,6 +30,11 @@ func _Fbase_1101a__gen_shaOnly( ___VbyteIn []byte ) ([]byte) {
     return __Vb
 } // _Fbase_1101a__gen_shaOnly
 
+func _Fbase_1101b__gen_md5Only( ___VbyteIn []byte ) ([]byte) {
+    __Vb    :=  _FmakeByte16( md5.Sum( ___VbyteIn ) )
+    return __Vb
+} // _Fbase_1101b__gen_md5Only
+
 func ( ___Vsha _Tb256 ) _Fbase_1101__gen_shaT( ___VshaInput []byte ) {
     ___Vsha . b256      =   _Fbase_1101a__gen_shaOnly( ___VshaInput )
     ___Vsha . A1 , _    =   strconv.ParseUint( string(___Vsha . b256[0:7])      , 16, 64 )
@@ -39,7 +44,7 @@ func ( ___Vsha _Tb256 ) _Fbase_1101__gen_shaT( ___VshaInput []byte ) {
 } // _Fbase_1101__gen_shaT
 
 func ( ___Vmd5 _Tb128 ) _Fbase_1101__gen_md5T( ___Vmd5Input []byte ) {
-    ___Vmd5 . b128      =   _Fbase_1101a__gen_shaOnly( ___Vmd5Input )
+    ___Vmd5 . b128      =   _Fbase_1101b__gen_md5Only( ___Vmd5Input )
     ___Vmd5 . A1 , _    =   strconv.ParseUint( string(___Vmd5 . b128[0:7])      , 16, 64 )
     ___Vmd5 . A2 , _    =   strconv.ParseUint( string(___Vmd5 . b128[8:15])     , 16, 64 )
 } // _Fbase_1101__gen_md5T
