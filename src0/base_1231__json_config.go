@@ -3,6 +3,8 @@ package main
 import (
     "os"
     "io/ioutil"
+    "encoding/hex"
+    "bytes"
 )
 
 type    _TjsonConfig    struct {
@@ -16,7 +18,7 @@ var (
     _VjsonConfig_bytes          []byte
 )
 
-func _Fbase_104c__try_to_get_env_id128() (___VrtB []byte) {
+func _Fbase_104c__try_to_get_env_id128() {
 
     __Vstr := os.Getenv("id128")
     _FpfN( " 893871 read env id128 is (%d)[%s]" , len(__Vstr) , __Vstr )
@@ -45,7 +47,7 @@ func _Fbase_104c__try_to_get_env_id128() (___VrtB []byte) {
         _Fex1( " Exit now ")
     }
 
-    if ( __Vbyte == _VjsonConfig_Now . Id128 ) {
+    if ( bytes.Equal( __Vbyte , _VjsonConfig_Now . Id128 ) ) {
         _FpfN( " 893878 read env id128 equals to json's id128\n (%d)[%0x] \n" , 
         len( __Vbyte ) , string(__Vbyte)  )
         return
@@ -93,8 +95,8 @@ func _Fbase_104z__try_to_read_json_config_top() {
     _Fbase_104b__try_to_check_json_config()
     _Fbase_104c__try_to_get_env_id128()
     if ( true == _VjsonConfig_need_save ) {
-        _Fbase_104d__try_to_save_json_config_to_file() 
+        _Fbase_104d__try_to_save_json_config_to_file()
     }
-    _Fex( " 381919 :Debug Stop here." )
+    _Fex1( " 381919 :Debug Stop here." )
 } // _Fbase_104z__try_to_read_json_config_top
 
