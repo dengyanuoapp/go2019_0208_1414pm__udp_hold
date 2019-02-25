@@ -37,8 +37,8 @@ func _Fbase_104c__try_to_get_env_id128() {
     // func hex.DecodeString(s string) ([]byte, error)
     __Vbyte , __Verr := hex.DecodeString( __Vstr )
     if ( nil != __Verr ) {
-        _FpfN( " 893876 read env id128 is error , check what happens : \n (%d)[%s] \n" , 
-        len( __Vbyte ) , string(__Vbyte)  )
+        _FpfN( " 893876 read env id128 is error , check what happens : \n (%d)[%s] \n %v\n" , 
+        len( __Vbyte ) , string(__Vbyte)  , __Verr )
         _Fex1( " Exit now ")
     }
     if ( 16 != len( __Vbyte ) ) {
