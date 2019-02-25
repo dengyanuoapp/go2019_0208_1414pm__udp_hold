@@ -21,7 +21,11 @@ var (
 func _FuserCallback_u03TM__timer_Dn ( ___Vsvr *_TserviceUDP )  {
     _VuExtTimer_Dn . idx ++
 
-    _FpfN( " 839111 : %d : trying to Connect to Fn using key 0x%0x " , _VuExtTimer_Dn . idx , _VuExtTimer_Dn . pw2 )
+    _FpfN( " 839111 : %d : trying to Connect to Fn using key (%s) %d : <%0x> <%v> " , 
+    _VuExtTimer_Dn . idx , 
+    _VuExtTimer_Dn.pw2.name , 
+    _VuExtTimer_Dn.pw2.key  ,
+    _VuExtTimer_Dn.pw2.key  )
 
     // func strconv.ParseUint(s string, base int, bitSize int) (uint64, error)
     //__Vu64 , __Verr := strconv.ParseUint( os.Getenv("idhex") , 16, 64 ) // : invalid syntax : when 0x prefix
