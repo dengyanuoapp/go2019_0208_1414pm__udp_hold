@@ -59,11 +59,18 @@ func _FencRF(___V interface{}) []byte {
 func _FencJson(___V interface{}) ([]byte , error) {
 	__VbByte , __Verr := json.Marshal( ___V )
 	if __Verr != nil {
-        _Perr( __Verr , "1831918 : gob.NewDecoder failed:" )
+        _Perr( __Verr , "1831917 : gob.NewDecoder failed:" )
         return nil , __Verr
 	}
 	return __VbByte , __Verr
 } // _FencJson
+
+func _FencJsonExit( ___VeMsg string , ___V interface{} ) ([]byte) {
+    __Vbyte , __Verr := _FencJson( ___V )
+    _FerrExit ( " 1831918 : json error : " + ___VeMsg , __Verr )
+
+    return __Vbyte
+} // _FencJsonExit
 
 //    func Unmarshal(data []byte, v interface{}) error
 func _FdecJson(___Vbyte []byte, ___Vout interface{}) {
@@ -72,3 +79,32 @@ func _FdecJson(___Vbyte []byte, ___Vout interface{}) {
         _Perr( __Verr , "1831919 : gob.NewDecoder failed:" )
 	}
 } // _FdecJson
+
+func _FwriteFile( ___Vfname string , ___Vcontent *[]byte ) error {
+    __Verr := ioutil.WriteFile(___Vfname, ___Vcontent, 0666);
+    return __Verr
+} // _FwriteFile
+
+func _FwriteFileExit( ___VerrMsg , ___Vfname string , ___Vcontent *[]byte ) {
+    __Verr := ioutil.WriteFile(___Vfname, ___Vcontent, 0666);
+    if ( nil == __Verr ) {
+        return
+    }
+    _FpfN( " 388191 file write error : " + ___VerrMsg + "\n %v" , ___Verr )
+    _Fex1( "" );
+} // _FwriteFileExit
+
+//    _VjsonConfig_bytes, __Verr := ioutil.ReadFile( __Vfname )
+func _FreadFile( ___Vfname string ) (*[]byte , error) {
+    __Vcontent , __Verr := ioutil.ReadFile(___Vfname)
+    return __Vcontent , __Verr
+} // _FreadFile
+
+func _FreadFileExit( ___VerrMsg , ___Vfname string ) ( []byte ) {
+    __Vcontent , __Verr := ioutil.ReadFile(___Vfname)
+    if ( nil == __Verr ) {
+        return __Vcontent 
+    }
+    _FpfN( " 823181 file read error : " + ___VerrMsg + "\n %v" , ___Verr )
+    _Fex1( "" );
+} // _FreadFileExit

@@ -87,7 +87,16 @@ func _Fbase_104a__try_to_read_json_config_file() {
 } // _Fbase_104a__try_to_read_json_config_file
 
 func _Fbase_104d__try_to_save_json_config_to_file() {
-    _Fbase_104e__try_to_reread_json_config_and_recheck_the_result()
+    __Vbyte := _FencJsonExit( "823811 : jsonConf encoding " , _VjsonConfig_Now )
+
+    __Vfname := _self_prog + ".json"
+    _FwriteFileExit( "823813 jsonconf writing " , __Vfname , &__Vbyte )
+
+    __Vbyte2 := _FreadFileExit( " 823815 config file re-reading " , __Vfname )
+    if ( bytes.Equal( __Vbyte , __Vbyte2 ) ) {
+        return
+    }
+
 } // _Fbase_104d__try_to_save_json_config_to_file
 
 func _Fbase_104e__try_to_reread_json_config_and_recheck_the_result() {
