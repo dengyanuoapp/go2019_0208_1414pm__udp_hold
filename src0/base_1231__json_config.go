@@ -40,7 +40,7 @@ func _Fbase_104a__try_to_read_json_config_file() {
     __Vfname := _self_prog + ".json"
     _VjsonConfig_bytes, __Verr := ioutil.ReadFile( __Vfname )
     if ( nil != __Verr ) {
-        _FpfN( " 389191 read config file <" + __Vfname + "> error, try to gen it..." )
+        _FpfN( " 389191 read config file <" + __Vfname + "> error, try to gen it... %v" , __Verr)
         _VjsonConfig_need_save = true
         return
     }
