@@ -15,6 +15,7 @@ var (
         name            : "timer_Dn",
         timgGap1        : 25 * time.Second,          // every try must more than 2 gap(10*2==20S) 
         pw2             : _Taes { "password__used_to_connect_to_Fn" , []byte(_FnPasswd) },
+        // hex.DecodeString
     }
 )
 
