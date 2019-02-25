@@ -51,11 +51,11 @@ func _FmakeByte( ___VbyteSlice []byte ) []byte {
 
 func _FmakeByte16( ___VbyteArr [16]byte ) []byte {
     __Vbyte := make( []byte , 16 )
-    copy( __Vbyte , ___VbyteArr )
+    copy( __Vbyte , ___VbyteArr[:] )
     return __Vbyte
 } // _FmakeByte16
 func _FmakeByte32( ___VbyteArr [32]byte ) []byte {
     __Vbyte := make( []byte , 32 )
-    copy( __Vbyte , ___VbyteArr )
+    copy( __Vbyte , ___VbyteArr[:] )
     return __Vbyte
 } // _FmakeByte32

@@ -27,7 +27,7 @@ var (
     _debugEnabled       bool
 )
 
-func _Fbase_101__gen_self_md5_sha() {
+func _Fbase_1203__gen_self_md5_sha() {
 
     __Vcontent, __Verr := ioutil.ReadFile( os.Args[0] )
     if __Verr != nil {
@@ -64,7 +64,7 @@ func _Fbase_101__gen_self_md5_sha() {
     _FpfN("File md5: [ %x ]", _self_md5)
     _FpfN("File sha: [ %x ] %x %x %x %x ", _self_sha , _self_shA1 , _self_shA2 , _self_shA3 , _self_shA4 )
 
-} // _Fbase_101__gen_self_md5_sha
+} // _Fbase_1203__gen_self_md5_sha
 
 func _Fbase_103__gen_rand_seed() {
     _self_startTime             = time.Now()

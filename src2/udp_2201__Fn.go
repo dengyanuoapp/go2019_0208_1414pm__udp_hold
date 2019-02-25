@@ -22,7 +22,7 @@ func init() {
 
     _VprojectName = "Fn"
 
-    _Fbase_101__gen_self_md5_sha()
+    _Fbase_1203__gen_self_md5_sha()
     _Fbase_103__gen_rand_seed()
     _Fbase_105__get_or_gen_id64()
     _Fbase_107__rand_init()
