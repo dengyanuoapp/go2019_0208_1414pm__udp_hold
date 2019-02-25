@@ -7,6 +7,8 @@ import (
 )
 
 func _Fbase_107__rand_init() {
+    _FpfN( " 189301 : _self_id128 %d : %0x " , len(_self_id128) ,  _self_id128 )
+
     // func rand.Seed(seed int64)
     //rand.Seed(time.Now().Unix())
     rand.Seed( (int64)( _self_startTimeSha.A1 ^
