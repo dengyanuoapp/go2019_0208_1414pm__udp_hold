@@ -38,7 +38,7 @@ func _Fbase_1101b__gen_md5Only( ___VbyteIn []byte ) ([]byte) {
     return __Vb
 } // _Fbase_1101b__gen_md5Only
 
-func ( ___Vsha _Tb256 ) _Fbase_1101__gen_shaT( ___VshaInput []byte ) {
+func ( ___Vsha *_Tb256 ) _Fbase_1101__gen_shaT( ___VshaInput []byte ) {
     ___Vsha . b256  =   _Fbase_1101a__gen_shaOnly( ___VshaInput )
     ___Vsha . A1    =   binary.BigEndian.Uint64( ___Vsha . b256[0:8])
     ___Vsha . A2    =   binary.BigEndian.Uint64( ___Vsha . b256[8:16])
@@ -46,7 +46,7 @@ func ( ___Vsha _Tb256 ) _Fbase_1101__gen_shaT( ___VshaInput []byte ) {
     ___Vsha . A4    =   binary.BigEndian.Uint64( ___Vsha . b256[24:32])
 } // _Fbase_1101__gen_shaT
 
-func ( ___Vmd5 _Tb128 ) _Fbase_1101__gen_md5T( ___Vmd5Input []byte ) {
+func ( ___Vmd5 *_Tb128 ) _Fbase_1101__gen_md5T( ___Vmd5Input []byte ) {
     ___Vmd5 . b128      =   _Fbase_1101b__gen_md5Only( ___Vmd5Input )
     //___Vmd5 . A1 , _    =   strconv.ParseUint( string(___Vmd5 . b128[0:7])      , 16, 64 )
     //___Vmd5 . A2 , _    =   strconv.ParseUint( string(___Vmd5 . b128[8:15])     , 16, 64 )
