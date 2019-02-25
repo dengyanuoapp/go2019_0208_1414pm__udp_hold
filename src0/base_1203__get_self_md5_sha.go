@@ -39,6 +39,7 @@ func _Fbase_1203__gen_self_md5_sha() {
 
     _self_sha . _Fbase_1101__gen_shaT( __Vcontent )
     _self_md5 . _Fbase_1101__gen_md5T( __Vcontent )
+    _FpfN( " 838191 _Fbase_1101b__gen_md5Only return : [%x] (%x %x)" , _self_md5 . b128 , _self_md5 . A1 , _self_md5 . A2 )
 
     // prog : 1
     // prog x1 x2 x3 : 4
