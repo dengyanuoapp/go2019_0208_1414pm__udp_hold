@@ -22,7 +22,7 @@ var (
     _self_md5           _Tb128 // md5sum    : 16 byte : 727bf338cf523b90baccd24cca30b919
     _self_sha           _Tb256 // sha256sum : 32 byte : 2c6e3b458d5c482bc52a1d7d4f5a7d7766381c9f07d9b32ca605ae45b4e473f5
 
-    _self_id128          uint64
+    _self_id128          []byte
 
     _self_rand          _Tb256
 
@@ -70,8 +70,10 @@ func _Fbase_103__gen_rand_seed() {
 
 func _Fbase_105__get_or_gen_id128() {
 
-    _self_id128                  =   _Fhexstr2uint64( os.Getenv("id128") )
-    if ( 0 == _self_id128 ) {
+    __Vstr := os.Getenv("id128")
+    _Fex( " id128 now is [%s] " , __Vstr )
+    //_self_id128                  =   _Fhexstr2uint64( os.Getenv("id128") )
+    if ( "" == __Vstr ) {
         _Fex1( " err23818911 " )
     }
 } // _Fbase_105__get_or_gen_id128

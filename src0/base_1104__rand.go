@@ -1,20 +1,9 @@
 package main
 
 import (
-    //"rand"
-    //"time"
     "math/rand"
-    //"crypto/sha256"
-    //"strconv"
     "fmt"
-
-    //"bytes"
-    //"os"
-    //"io/ioutil"
-    //"crypto/md5"
-    //"log"
-    //"encoding/hex"
-    //"time"
+    "encoding/binary"
 )
 
 func _Fbase_107__rand_init() {
@@ -28,7 +17,7 @@ func _Fbase_107__rand_init() {
     _self_sha.A2          ^
     _self_sha.A3          ^
     _self_sha.A4          ^
-    _self_id128          ))
+    binary.BigEndian.Uint64((_self_id128[0:8]))          ))
 
     // wall : wall[63] wall[62:30] wall[29:0] : 1bit,33bit, 30bit
     // if hasMonotonic == (1 << 63) bit 
