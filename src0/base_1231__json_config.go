@@ -36,7 +36,7 @@ func _Fbase_104c__try_to_get_env_id128() {
 
     // func hex.DecodeString(s string) ([]byte, error)
     //if ( __Vstr[0:2] == "0x" ) || ( __Vstr[0:2] == "0X" ) {
-        //__Vstr = _FmakeByte( []byte(__Vstr[2:]) )
+    //__Vstr = _FmakeByte( []byte(__Vstr[2:]) )
     //}
     __Vstr = __Vstr[2:]
     __Vbyte , __Verr := hex.DecodeString( __Vstr )
@@ -94,6 +94,7 @@ func _Fbase_104d__try_to_save_json_config_to_file() {
 
     __Vbyte2 := _FreadFileExit( " 823815 config file re-reading " , __Vfname )
     if ( bytes.Equal( __Vbyte , __Vbyte2 ) ) {
+        _FpfN( "823818 jsonconf writing succeed" )
         return
     }
 
@@ -107,9 +108,12 @@ func _Fbase_104z__try_to_read_json_config_top() {
     _Fbase_104a__try_to_read_json_config_file()
     _Fbase_104b__try_to_check_json_config()
     _Fbase_104c__try_to_get_env_id128()
+
+    _FpfN( " 381918 :%t " , _VjsonConfig_need_save )
     if ( true == _VjsonConfig_need_save ) {
         _Fbase_104d__try_to_save_json_config_to_file()
     }
-    _Fex1( " 381919 :Debug Stop here." )
+
+    _Fex1( " 381919 :Debug Stop here. " )
 } // _Fbase_104z__try_to_read_json_config_top
 
