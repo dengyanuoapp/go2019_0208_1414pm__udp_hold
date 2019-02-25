@@ -14,24 +14,15 @@ import (
 
 var (
     _self_startTime     time.Time
-    _self_startTimeSha  []byte // sha256sum : 32 byte : 2c6e3b458d5c482bc52a1d7d4f5a7d7766381c9f07d9b32ca605ae45b4e473f5
-    _self_startTimeShA1 uint64
-    _self_startTimeShA2 uint64
-    _self_startTimeShA3 uint64
-    _self_startTimeShA4 uint64
+    _self_startTimeSha  _Tb256
 
-    _self_shaX          _Tsha
 
-    _self_md5           []byte // md5sum    : 16 byte : 727bf338cf523b90baccd24cca30b919
-    _self_sha           []byte // sha256sum : 32 byte : 2c6e3b458d5c482bc52a1d7d4f5a7d7766381c9f07d9b32ca605ae45b4e473f5
-    _self_shA1          uint64
-    _self_shA2          uint64
-    _self_shA3          uint64
-    _self_shA4          uint64
+    _self_md5           _Tb128 // md5sum    : 16 byte : 727bf338cf523b90baccd24cca30b919
+    _self_sha           _Tb256 // sha256sum : 32 byte : 2c6e3b458d5c482bc52a1d7d4f5a7d7766381c9f07d9b32ca605ae45b4e473f5
 
     _self_id64          uint64
 
-    _self_rand          _Tsha
+    _self_rand          _Tb256
 
     _debugEnabled       bool
 )

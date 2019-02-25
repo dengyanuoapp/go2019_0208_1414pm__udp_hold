@@ -20,14 +20,14 @@ import (
 func _Fbase_107__rand_init() {
     // func rand.Seed(seed int64)
     //rand.Seed(time.Now().Unix())
-    rand.Seed( (int64)(_self_startTimeShA1 ^
-    _self_startTimeShA2 ^
-    _self_startTimeShA3 ^
-    _self_startTimeShA4 ^
-    _self_shA1          ^
-    _self_shA2          ^
-    _self_shA3          ^
-    _self_shA4          ^
+    rand.Seed( (int64)( _self_startTimeSha.A1 ^
+     _self_startTimeSha.A2 ^
+     _self_startTimeSha.A3 ^
+     _self_startTimeSha.A4 ^
+    _self_sha.A1          ^
+    _self_sha.A2          ^
+    _self_sha.A3          ^
+    _self_sha.A4          ^
     _self_id64          ))
 
     // wall : wall[63] wall[62:30] wall[29:0] : 1bit,33bit, 30bit
