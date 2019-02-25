@@ -22,39 +22,43 @@ func _Fbase_104c__try_to_get_env_id128() {
 
     __Vstr := os.Getenv("id128")
     _FpfN( " 893871 read env id128 is (%d)[%s]" , len(__Vstr) , __Vstr )
-    if ( "" == __Vstr ) {
+    if ( "" == __Vstr || len(__Vstr) < 32 ) {
         if ( 16 != len( _VjsonConfig_Now . Id128 ) ) {
-            _FpfN( " 893873 read env id128 is NULL , and the json.config file id128 error: \n (%d)[%0x] \n" , 
+            _FpfN( " 893873 read env id128 is NULL or too short, and the json.config file id128 error: \n (%d)[%0x] \n" ,
             len(_VjsonConfig_Now . Id128 ) , _VjsonConfig_Now . Id128  )
             _Fex1( " 893874 : Exit now ")
         }
-        _FpfN( " 893875 env id128 is NULL , and the json.config file id128 ok: \n (%d)[%0x] \n" , 
+        _FpfN( " 893875 env id128 is NULL , and the json.config file id128 ok: \n (%d)[%0x] \n" ,
         len(_VjsonConfig_Now . Id128 ) , _VjsonConfig_Now . Id128  )
 
         return
     }
 
     // func hex.DecodeString(s string) ([]byte, error)
+    //if ( __Vstr[0:2] == "0x" ) || ( __Vstr[0:2] == "0X" ) {
+        //__Vstr = _FmakeByte( []byte(__Vstr[2:]) )
+    //}
+    __Vstr = __Vstr[2:]
     __Vbyte , __Verr := hex.DecodeString( __Vstr )
     if ( nil != __Verr ) {
-        _FpfN( " 893876 read env id128 is error , check what happens : \n (%d)[%s] \n %v\n" , 
+        _FpfN( " 893876 read env id128 is error , check what happens : \n (%d)[%s] \n %v\n" ,
         len( __Vbyte ) , string(__Vbyte)  , __Verr )
         _Fex1( " Exit now ")
     }
     if ( 16 != len( __Vbyte ) ) {
-        _FpfN( " 893877 read env id128 is len error , check what happens \n (%d)[%0x] \n" , 
+        _FpfN( " 893877 read env id128 is len error , check what happens \n (%d)[%0x] \n" ,
         len( __Vbyte ) , string(__Vbyte)  )
         _Fex1( " Exit now ")
     }
 
     if ( bytes.Equal( __Vbyte , _VjsonConfig_Now . Id128 ) ) {
-        _FpfN( " 893878 read env id128 equals to json's id128\n (%d)[%0x] \n" , 
+        _FpfN( " 893878 read env id128 equals to json's id128\n (%d)[%0x] \n" ,
         len( __Vbyte ) , string(__Vbyte)  )
         return
     }
 
-    _VjsonConfig_Now . Id128 = __Vbyte 
-    _FpfN( " 893879 read env id128 NOT equals to json's id128\n env : (%d)[%0x] \n json: (%d)[%0x] \n" , 
+    _VjsonConfig_Now . Id128 = __Vbyte
+    _FpfN( " 893879 read env id128 NOT equals to json's id128\n env : (%d)[%0x] \n json: (%d)[%0x] \n" ,
     len( __Vbyte ) , string(__Vbyte)  ,
     len( _VjsonConfig_Now . Id128 ) , string(_VjsonConfig_Now . Id128)  )
 
