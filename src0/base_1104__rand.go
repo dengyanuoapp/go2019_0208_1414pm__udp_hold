@@ -28,7 +28,7 @@ func _Fbase_107__rand_init() {
     _self_sha.A2          ^
     _self_sha.A3          ^
     _self_sha.A4          ^
-    _self_id64          ))
+    _self_id128          ))
 
     // wall : wall[63] wall[62:30] wall[29:0] : 1bit,33bit, 30bit
     // if hasMonotonic == (1 << 63) bit 
