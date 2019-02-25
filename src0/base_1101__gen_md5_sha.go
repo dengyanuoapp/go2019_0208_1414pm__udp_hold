@@ -32,6 +32,7 @@ func _Fbase_1101a__gen_shaOnly( ___VbyteIn []byte ) ([]byte) {
 
 func _Fbase_1101b__gen_md5Only( ___VbyteIn []byte ) ([]byte) {
     __Vb    :=  _FmakeByte16( md5.Sum( ___VbyteIn ) )
+    _FpfN( "289891 _Fbase_1101b__gen_md5Only %d [%x]" , len( ___VbyteIn ) , md5.Sum( ___VbyteIn ) )
     return __Vb
 } // _Fbase_1101b__gen_md5Only
 

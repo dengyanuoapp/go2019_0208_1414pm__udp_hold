@@ -57,8 +57,8 @@ func _Fbase_1203__gen_self_md5_sha() {
 
 
     _Ppn("from:", _self_prog )
-    _FpfN("8381191 File md5: [ %x ]", _self_md5.b128)
-    _FpfN("8381192 File sha: [ %x ] %x %x %x %x ", _self_sha.b256 , _self_sha.A1 , _self_sha.A2 , _self_sha.A3 , _self_sha.A4 )
+    _FpfN(" 8381191 File md5: [ %x ]", _self_md5.b128)
+    _FpfN(" 8381192 File sha: [ %x ] %x %x %x %x ", _self_sha.b256 , _self_sha.A1 , _self_sha.A2 , _self_sha.A3 , _self_sha.A4 )
 
 } // _Fbase_1203__gen_self_md5_sha
 
