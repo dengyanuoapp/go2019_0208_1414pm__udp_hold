@@ -68,13 +68,3 @@ func _Fbase_103__gen_rand_seed() {
     _self_startTimeSha          . _Fbase_1101__gen_shaT( []byte(_Pspf( "%x" , _self_startTime )) )
 } // _Fbase_103__gen_rand_seed() 
 
-func _Fbase_105__get_or_gen_id128() {
-
-    __Vstr := os.Getenv("id128")
-    _Fex( " id128 now is [%s] " , __Vstr )
-    //_self_id128                  =   _Fhexstr2uint64( os.Getenv("id128") )
-    if ( "" == __Vstr ) {
-        _Fex1( " err23818911 " )
-    }
-} // _Fbase_105__get_or_gen_id128
-

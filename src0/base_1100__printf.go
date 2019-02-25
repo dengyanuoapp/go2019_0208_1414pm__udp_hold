@@ -59,6 +59,7 @@ func _Fex( ___Vstr string , ___V interface{} ) {
     }
     os.Exit(1)
 } // _Fex
+
 func _Fex1( ___Vstr string ) {
     _Ppn( ___Vstr )
     os.Exit(1)
