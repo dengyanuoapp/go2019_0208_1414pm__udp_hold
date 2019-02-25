@@ -24,6 +24,7 @@ func _FuserCallback_u03TM__timer_Dn ( ___Vsvr *_TserviceUDP )  {
     _FpfN( " 839111 : %d : trying to Connect to Fn using key (%s) %d : <%0x> <%v> " , 
     _VuExtTimer_Dn . idx , 
     _VuExtTimer_Dn.pw2.name , 
+    len(_VuExtTimer_Dn.pw2.key)  ,
     _VuExtTimer_Dn.pw2.key  ,
     _VuExtTimer_Dn.pw2.key  )
 

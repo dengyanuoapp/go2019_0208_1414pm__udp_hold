@@ -16,9 +16,9 @@ const (
     // uint64  64 bits     0 to 2^^64 -1
     // uint    Platform dependent     Platform dependent
 
-    //                  --====---====----
-    _FnPasswd        =  "718291a81b893a8"
-    _DnPasswd        =  "a87288938a81838"
-    _SnPasswd        =  "aa7931938182937"
-    _CnPasswd        =  "3019303f301ab92"
+    //                --====----====----
+    _FnPasswd       =  "718291a81b893a8a"
+    _DnPasswd       =  "a87288938a81838e"
+    _SnPasswd       =  "aa79319381829379"
+    _CnPasswd       =  "3019303f301ab921"
 )
