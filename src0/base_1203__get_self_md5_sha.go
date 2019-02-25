@@ -35,7 +35,7 @@ func _Fbase_1203__gen_self_md5_sha() {
     }
 
     _self_sha . _Fbase_1101__gen_shaT( __Vcontent )
-    _self_md5 . _Fbase_1101__gen_shaT( __Vcontent )
+    _self_md5 . _Fbase_1101__gen_md5T( __Vcontent )
 
     // prog : 1
     // prog x1 x2 x3 : 4
@@ -54,8 +54,8 @@ func _Fbase_1203__gen_self_md5_sha() {
 
 
     _Ppn("from:", os.Args[0])
-    _FpfN("File md5: [ %x ]", _self_md5)
-    _FpfN("File sha: [ %x ] %x %x %x %x ", _self_sha , _self_sha.A1 , _self_sha.A2 , _self_sha.A3 , _self_sha.A4 )
+    _FpfN("File md5: [ %x ]", _self_md5.b128)
+    _FpfN("File sha: [ %x ] %x %x %x %x ", _self_sha.b256 , _self_sha.A1 , _self_sha.A2 , _self_sha.A3 , _self_sha.A4 )
 
 } // _Fbase_1203__gen_self_md5_sha
 

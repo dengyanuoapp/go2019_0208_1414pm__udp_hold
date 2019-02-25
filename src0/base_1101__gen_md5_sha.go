@@ -38,9 +38,9 @@ func ( ___Vsha _Tb256 ) _Fbase_1101__gen_shaT( ___VshaInput []byte ) {
     ___Vsha . A4 , _    =   strconv.ParseUint( string(___Vsha . b256[24:31])    , 16, 64 )
 } // _Fbase_1101__gen_shaT
 
-func ( ___Vmd5 _Tb128 ) _Fbase_1101__gen_shaT( ___Vmd5Input []byte ) {
+func ( ___Vmd5 _Tb128 ) _Fbase_1101__gen_md5T( ___Vmd5Input []byte ) {
     ___Vmd5 . b128      =   _Fbase_1101a__gen_shaOnly( ___Vmd5Input )
     ___Vmd5 . A1 , _    =   strconv.ParseUint( string(___Vmd5 . b128[0:7])      , 16, 64 )
     ___Vmd5 . A2 , _    =   strconv.ParseUint( string(___Vmd5 . b128[8:15])     , 16, 64 )
-} // _Fbase_1101__gen_shaT
+} // _Fbase_1101__gen_md5T
 
