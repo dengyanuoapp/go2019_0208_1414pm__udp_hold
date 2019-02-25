@@ -17,8 +17,8 @@ const (
     // uint    Platform dependent     Platform dependent
 
     //                  --====---====----
-    _FnPasswd        =  0x718291a81b893a8
-    _DnPasswd        =  0xa87288938a81838
-    _SnPasswd        =  0xaa7931938182937
-    _CnPasswd        =  0x3019303f301ab92
+    _FnPasswd        =  "718291a81b893a8"
+    _DnPasswd        =  "a87288938a81838"
+    _SnPasswd        =  "aa7931938182937"
+    _CnPasswd        =  "3019303f301ab92"
 )

@@ -23,8 +23,8 @@ type _TuExtTimer struct {
     enabled         bool
     timgGap1        time.Duration
     timgGap2        time.Duration
-    c641            uint64
-    c642            uint64
+    pw2             _Taes
+    pw3             _Taes
     mux             sync.Mutex
 } // _TuExtTimer
 

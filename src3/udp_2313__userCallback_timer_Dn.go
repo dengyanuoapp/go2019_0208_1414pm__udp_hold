@@ -14,14 +14,14 @@ var (
     _VuExtTimer_Dn      _TuExtTimer = _TuExtTimer {
         name            : "timer_Dn",
         timgGap1        : 25 * time.Second,          // every try must more than 2 gap(10*2==20S) 
-        c641            : _FnPasswd,
+        pw2             : _Taes { "password__used_to_connect_to_Fn" , []byte(_FnPasswd) },
     }
 )
 
 func _FuserCallback_u03TM__timer_Dn ( ___Vsvr *_TserviceUDP )  {
     _VuExtTimer_Dn . idx ++
 
-    _FpfN( " 839111 : %d : trying to Connect to Fn using key 0x%x " , _VuExtTimer_Dn . idx , _VuExtTimer_Dn . c641 )
+    _FpfN( " 839111 : %d : trying to Connect to Fn using key 0x%0x " , _VuExtTimer_Dn . idx , _VuExtTimer_Dn . pw2 )
 
     // func strconv.ParseUint(s string, base int, bitSize int) (uint64, error)
     //__Vu64 , __Verr := strconv.ParseUint( os.Getenv("idhex") , 16, 64 ) // : invalid syntax : when 0x prefix
@@ -33,9 +33,9 @@ func _FuserCallback_u03TM__timer_Dn ( ___Vsvr *_TserviceUDP )  {
     }
 
     if ( _VuExtTimer_Dn . enabled ) {
-        _Fsleep_1s() ;
+        _Fsleep_100s() ;
     } else {
-        _Fsleep_1s() ;
+        _Fsleep_100s() ;
     }
 } // _FuserCallback_u03TM__timer_Dn 
 
