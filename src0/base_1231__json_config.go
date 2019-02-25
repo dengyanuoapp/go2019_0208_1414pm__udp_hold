@@ -57,11 +57,11 @@ func _Fbase_104c__try_to_get_env_id128() {
         return
     }
 
-    _VjsonConfig_Now . Id128 = __Vbyte
     _FpfN( " 893879 read env id128 NOT equals to json's id128\n env : (%d)[%0x] \n json: (%d)[%0x] \n" ,
     len( __Vbyte ) , string(__Vbyte)  ,
     len( _VjsonConfig_Now . Id128 ) , string(_VjsonConfig_Now . Id128)  )
 
+    _VjsonConfig_Now . Id128 = __Vbyte
     _VjsonConfig_need_save = true
 } // _Fbase_104c__try_to_get_env_id128
 
