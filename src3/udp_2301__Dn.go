@@ -24,7 +24,7 @@ func init() {
 
     _Fbase_1203__gen_self_md5_sha()
     _Fbase_103__gen_rand_seed()
-    _Fbase_104__try_to_read_json_config_top()
+    _Fbase_104z__try_to_read_json_config_top()
     _Fbase_107__rand_init()
 
     _FPargs()
