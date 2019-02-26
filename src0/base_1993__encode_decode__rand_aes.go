@@ -1,7 +1,7 @@
 package main
 
 func _FencAesRand_only(___Vkey *[]byte , ___Vbyte *[]byte) ([]byte, error){
-	_FpfN( " 192391 key %x , byte %x , %s ", ___Vkey , ___Vbyte , string(*___Vbyte) )
+	_FpfN( " 192391 key (%d) %x , byte (%d) %x , %s ", len(*___Vkey) , *___Vkey , len(*___Vbyte) , *___Vbyte , string(*___Vbyte) )
     // 	var __Vb []byte
     // 	__Vb = _FencJsonExit(" 381915 ", ___Vbyte)
     // 	//__Vb = _FencAesRandExit(" 381916 ", ___Vb)
