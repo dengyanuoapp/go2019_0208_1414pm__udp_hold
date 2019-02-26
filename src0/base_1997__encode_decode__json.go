@@ -58,3 +58,21 @@ func _FdecJson(___Vbyte []byte, ___Vout interface{}) {
     }
 } // _FdecJson
 
+func _Ftry_gen_json_only_Exit(___Vfname string, ___Vdst interface{}) {
+	var __Vb []byte
+	__Vb = _FencJsonExit(" 381911 ", ___Vdst)
+	_FwriteFileExit(" 381912 ", ___Vfname, &__Vb)
+} // _Ftry_gen_json_only_Exit
+
+func _Ftry_gen_json_rand_only_Exit(___Vfname string, ___Vdst interface{}) {
+	var __Vb []byte
+	__Vb = _FencJsonExit(" 381915 ", ___Vdst)
+	//__Vb = _FencRandExit(" 381916 ", ___Vb)
+	_FwriteFileExit(" 381917 ", ___Vfname, &__Vb)
+} // _Ftry_gen_json_rand_only_Exit
+
+func _Ftry_gen_json_and_rand_Exit(___Vfname string, ___Vdst interface{}) {
+    _Ftry_gen_json_only_Exit( ___Vfname , ___Vdst )
+    _Ftry_gen_json_rand_only_Exit( ___Vfname + ".rand" , ___Vdst )
+} // _Ftry_gen_json_and_rand_Exit
+
