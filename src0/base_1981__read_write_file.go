@@ -21,9 +21,12 @@ func _FwriteFile( ___Vfname string , ___Vcontent *[]byte ) error {
 func _FwriteFileExit( ___VerrMsg , ___Vfname string , ___Vcontent *[]byte ) {
     __Verr := _FwriteFile( ___Vfname , ___Vcontent )
     if ( nil == __Verr ) {
+        _FpfN( " 388191 file write ok : (%d,%d,%d:0x%x)[ %s ] %v" , 
+        len(*___Vcontent) , len(*___Vcontent) / 128 , len(*___Vcontent) % 128 , 
+        len(*___Vcontent) , ___Vfname ,  ___VerrMsg )
         return
     }
-    _FpfN( " 388191 file write error : " + ___VerrMsg + "\n %v" , __Verr )
+    _FpfN( " 388199 file write error : " + ___VerrMsg + "\n %v" , __Verr )
     _Fex1( "" )
 } // _FwriteFileExit
 

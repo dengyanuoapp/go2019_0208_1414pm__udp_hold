@@ -45,7 +45,7 @@ func _FencJsonExit( ___VeMsg string , ___V interface{} ) ([]byte) {
 
     //__Vbyte , _:= _FencJson( ___V )
     __Vbyte , __Verr := _FencJson( ___V )
-    _FerrExit( " 1831918 : json error : " , __Verr )
+    _FerrExit( ___VeMsg + " 1831918 : json error : " , __Verr )
 
     return __Vbyte
 } // _FencJsonExit
@@ -58,21 +58,24 @@ func _FdecJson(___Vbyte []byte, ___Vout interface{}) {
     }
 } // _FdecJson
 
-func _Ftry_gen_json_only_Exit(___Vfname string, ___Vdst interface{}) {
-	var __Vb []byte
-	__Vb = _FencJsonExit(" 381911 ", ___Vdst)
-	_FwriteFileExit(" 381912 ", ___Vfname, &__Vb)
-} // _Ftry_gen_json_only_Exit
 
-func _Ftry_gen_json_rand_only_Exit(___Vfname string, ___Vdst interface{}) {
-	var __Vb []byte
-	__Vb = _FencJsonExit(" 381915 ", ___Vdst)
-	//__Vb = _FencRandExit(" 381916 ", ___Vb)
-	_FwriteFileExit(" 381917 ", ___Vfname, &__Vb)
-} // _Ftry_gen_json_rand_only_Exit
 
-func _Ftry_gen_json_and_rand_Exit(___Vfname string, ___Vdst interface{}) {
-    _Ftry_gen_json_only_Exit( ___Vfname , ___Vdst )
-    _Ftry_gen_json_rand_only_Exit( ___Vfname + ".rand" , ___Vdst )
-} // _Ftry_gen_json_and_rand_Exit
+
+func _Fwrite_json_only_Exit(___VeMsg string , ___Vfname string, ___Vdst interface{}) {
+	var __Vb []byte
+	__Vb = _FencJsonExit(___VeMsg + " 381911 ", ___Vdst)
+	_FwriteFileExit(___VeMsg + " 381912 ", ___Vfname, &__Vb)
+} // _Fwrite_json_only_Exit
+
+func _Fwrite_json_rand_only_Exit(___VeMsg string , ___Vkey *[]byte , ___Vfname string, ___Vdst interface{}) {
+	var __Vb []byte
+	__Vb = _FencJsonExit(___VeMsg + " 381915 ", ___Vdst)
+	__Vb = _FencAesRandExit(___VeMsg + " 381916 ", ___Vkey , __Vb)
+	_FwriteFileExit(___VeMsg + " 381917 ", ___Vfname, &__Vb)
+} // _Fwrite_json_rand_only_Exit
+
+func _Fwrite_json_and_rand_Exit(___VeMsg string , ___Vkey *[]byte , ___Vfname string, ___Vdst interface{}) {
+    _Fwrite_json_only_Exit( ___VeMsg + " 381918 " , ___Vfname , ___Vdst )
+    _Fwrite_json_rand_only_Exit( ___VeMsg + " 381919 " , ___Vkey , ___Vfname + ".rand" , ___Vdst )
+} // _Fwrite_json_and_rand_Exit
 
