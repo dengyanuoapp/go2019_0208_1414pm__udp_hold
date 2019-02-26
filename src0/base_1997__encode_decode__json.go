@@ -70,7 +70,7 @@ func _Fwrite_json_only_Exit(___VeMsg string , ___Vfname string, ___Vdst interfac
 func _Fwrite_json_rand_only_Exit(___VeMsg string , ___Vkey *[]byte , ___Vfname string, ___Vdst interface{}) {
 	var __Vb []byte
 	__Vb = _FencJsonExit(___VeMsg + " 381915 ", ___Vdst)
-	__Vb = _FencAesRandExit(___VeMsg + " 381916 ", ___Vkey , __Vb)
+	__Vb = _FencAesRandExit(___VeMsg + " 381916 ", ___Vkey , &__Vb)
 	_FwriteFileExit(___VeMsg + " 381917 ", ___Vfname, &__Vb)
 } // _Fwrite_json_rand_only_Exit
 
