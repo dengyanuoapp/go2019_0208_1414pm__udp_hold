@@ -63,6 +63,6 @@ func _Fbase_1203__gen_self_md5_sha() {
 
 func _Fbase_103__gen_rand_seed() {
 	_self_startTime = time.Now()
-    __Vb := []byte(_Pspf("%x", _self_startTime))
-	_self_startTimeSha._Fbase_1101__gen_shaT( &__Vb )
+	__Vb := []byte(_Pspf("%x", _self_startTime))
+	_self_startTimeSha._Fbase_1101__gen_shaT(&__Vb)
 } // _Fbase_103__gen_rand_seed()

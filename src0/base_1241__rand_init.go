@@ -36,8 +36,8 @@ func _Fbase_107__rand_init() {
 
 	// func rand.Uint64() uint64
 	__Vu64 := rand.Uint64
-    __Vb    := []byte(fmt.Sprintf("%x", __Vu64))
-	_self_rand._Fbase_1101__gen_shaT( &__Vb )
+	__Vb := []byte(fmt.Sprintf("%x", __Vu64))
+	_self_rand._Fbase_1101__gen_shaT(&__Vb)
 	//     _self_rand , _      = sha256.Sum256( Sprintf( "%x" , __Vu64 ) )
 	//     _self_rand1 , _     = strconv.ParseUint( _self_rand[0:7]     , 16, 64 )
 	//     _self_rand2 , _     = strconv.ParseUint( _self_rand[8:15]    , 16, 64 )
