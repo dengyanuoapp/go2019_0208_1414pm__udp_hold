@@ -36,8 +36,8 @@ func _Fbase_1203__gen_self_md5_sha() {
 		log.Fatalf("err138191", __Verr)
 	}
 
-	_self_sha._Fbase_1101__gen_shaT(__Vcontent)
-	_self_md5._Fbase_1101__gen_md5T(__Vcontent)
+	_self_sha._Fbase_1101__gen_shaT(&__Vcontent)
+	_self_md5._Fbase_1101__gen_md5T(&__Vcontent)
 	_FpfN(" 838191 _Fbase_1101b__gen_md5Only return : [%x] (%x %x)", _self_md5.b128, _self_md5.A1, _self_md5.A2)
 
 	// prog : 1
@@ -63,5 +63,6 @@ func _Fbase_1203__gen_self_md5_sha() {
 
 func _Fbase_103__gen_rand_seed() {
 	_self_startTime = time.Now()
-	_self_startTimeSha._Fbase_1101__gen_shaT([]byte(_Pspf("%x", _self_startTime)))
+    __Vb := []byte(_Pspf("%x", _self_startTime))
+	_self_startTimeSha._Fbase_1101__gen_shaT( &__Vb )
 } // _Fbase_103__gen_rand_seed()
