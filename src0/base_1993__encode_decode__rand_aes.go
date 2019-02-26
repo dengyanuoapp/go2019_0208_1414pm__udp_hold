@@ -2,6 +2,7 @@ package main
 
 import (
 	"time"
+	"crypto/md5"
 )
 
 var (
@@ -23,12 +24,26 @@ func _FencAesRand__gen_iv() {
 
 	_VencAesRand_iv128 = __Vb
 } // _FencAesRand__gen_iv
+
 func _FencAesRand_only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+    var __Vb    []byte
 	_FpfN(" 192393 key (%d) %x , byte (%d) %x , %s ", len(*___Vkey), *___Vkey, len(*___VbyteIn), *___VbyteIn, string(*___VbyteIn))
 
 	_FencAesRand__gen_iv()
 
-	__Vbyte, __Verr := _FencAesCbc__only(___Vkey, &_VencAesRand_iv128, ___VbyteIn)
+    __Vlen := len(*___VbyteIn)
+
+    __Vb = make( []byte, 2 )
+    __Vb[1] = byte( __Vlen & 0xFF )
+    __Vlen >>= 8
+    __Vb[0] = byte( __Vlen & 0xFF )
+
+    __Vb    = append( __Vb , (*___VbyteIn)              ...)
+    __Vb    = append( __Vb , _FmakeByte16(md5.Sum(*___VbyteIn))  ...)
+	//__Vb := _FmakeByte32(
+	_FpfN(" 192394 key (%d) %x , byte (%d) %x , %s ", len(*___Vkey), *___Vkey, len(__Vb), __Vb, string(__Vb))
+
+	__Vbyte, __Verr := _FencAesCbc__only(___Vkey, &_VencAesRand_iv128, &__Vb)
 
 	if len(__Vbyte) > 16 {
 		copy(_VencAesRand_last128, __Vbyte[:16])
