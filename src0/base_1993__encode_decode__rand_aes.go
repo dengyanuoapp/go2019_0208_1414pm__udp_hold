@@ -41,19 +41,25 @@ func _FencAesRand_only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
     __Vb    = append( __Vb , (*___VbyteIn)              ...)
     __Vb    = append( __Vb , _FmakeByte16(md5.Sum(*___VbyteIn))  ...)
 	//__Vb := _FmakeByte32(
-	_FpfN(" 192394 key (%d) %x , byte (%d) %x , %s ", len(*___Vkey), *___Vkey, len(__Vb), __Vb, string(__Vb))
+	_FpfN(" 192394 byte (%d) %x , %s ", len(__Vb), __Vb, string(__Vb))
 
-	__Vbyte, __Verr := _FencAesCbc__only(___Vkey, &_VencAesRand_iv128, &__Vb)
+	__Vout, __Verr := _FencAesCbc__only(___Vkey, &_VencAesRand_iv128, &__Vb)
 
-	if len(__Vbyte) > 16 {
-		copy(_VencAesRand_last128, __Vbyte[:16])
+	if len(__Vout) > 16 {
+		copy(_VencAesRand_last128, __Vout[:16])
 	}
 
-	return __Vbyte, __Verr
+	_FpfN(" 192395 byte (%d) %x , %s ", len(__Vout), __Vout, string(__Vout))
+
+	__Vout = _FappendRand2( &__Vout , 0 , 16 )
+
+	_FpfN(" 192396 byte (%d) %x , %s ", len(__Vout), __Vout, string(__Vout))
+
+	return __Vout, __Verr
 } // _FencAesRand_only
 
 func _FencAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
 	__Vb, __Verr := _FencAesRand_only(___Vkey, ___VbyteIn)
-	_FerrExit(___VeMsg+" 192395 ", __Verr)
+	_FerrExit(___VeMsg+" 192399 ", __Verr)
 	return __Vb
 } // _FencAesRandExit
