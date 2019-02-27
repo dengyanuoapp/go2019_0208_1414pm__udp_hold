@@ -15,6 +15,8 @@ var (
 // _FencAesRandExit
 func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
 
+	// _FreGenRandBuf___
+	// _FgenRand_nByte__
 	_FgenRand_nByte__testExit(8)
 	_FaesRand_test__en_de_Exit("asa90as90sa90as90as9as82391")
 

@@ -11,7 +11,7 @@ var (
 )
 
 func _FencAesRand__gen_iv__by_timeMd5() {
-	_VencAesRand_iv128__now := _FgenMd5_now1__(&_VencAesRand_iv128__last)
+	_VencAesRand_iv128__now := _FgenMd5_now1___(&_VencAesRand_iv128__last)
 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
 } // _FencAesRand__gen_iv__by_timeMd5
 
@@ -36,7 +36,7 @@ func _FencAesRand_only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//__Vb := _FmakeByte32(
 	_FpfN(" 192395 byte (%d) %x , %s ", len(__Vb), __Vb, string(__Vb))
 
-	__Vout, __Verr := _FencAesCbc__only(___Vkey, &_VencAesRand_iv128__now, &__Vb)
+	__Vout, __Verr := _FencAesCbc__only___(___Vkey, &_VencAesRand_iv128__now, &__Vb)
 	_FerrExit(" 192396 ", __Verr)
 
 	if len(__Vout) > 16 {

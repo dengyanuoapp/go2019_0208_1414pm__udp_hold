@@ -66,18 +66,18 @@ func _FgenMd5_byString__(___Vstr string) []byte {
 	return __VtimeMd5
 } // _FgenMd5_byString__
 
-func _FgenMd5_now0__() []byte {
+func _FgenMd5_now0___() []byte {
 	__VtimeStr := []byte(time.Now().String())
 	__VtimeMd5_16 := md5.Sum(__VtimeStr)
 	__VtimeMd5 := make([]byte, 16)
 	copy(__VtimeMd5, __VtimeMd5_16[:16])
 	return __VtimeMd5
-} // _FgenMd5_now0__
+} // _FgenMd5_now0___
 
-func _FgenMd5_now1__(___Viv *[]byte) []byte {
+func _FgenMd5_now1___(___Viv *[]byte) []byte {
 	__VtimeStr := time.Now().String()
 	__VtimeMd5_16 := md5.Sum([]byte(__VtimeStr + string(*___Viv)))
 	__VtimeMd5 := make([]byte, 16)
 	copy(__VtimeMd5, __VtimeMd5_16[:16])
 	return __VtimeMd5
-} // _FgenMd5_now1__
+} // _FgenMd5_now1___

@@ -23,23 +23,29 @@ var (
 	_VgenRand _TgenRand
 )
 
-func _FreGenRandBuf() {
+func _FreGenRandBuf___() {
 	if 0 == len(_VgenRand.buf) {
 		_VgenRand.buf = make([]byte, _VsizeOfRandBuf_byte)
 	}
-	__Vk := _FgenTimeRand16byte()
-	__Viv := _VgenRand.buf[16:32]
+	__Vk := _FgenMd5_now0___()
+	_Fsleep_1ms()
+	__Viv := _FgenMd5_now1___(&__Vk)
 
-	__Vtmp, __Verr := _FencAesCbc__only(&__Vk, &__Viv, &(_VgenRand.buf))
+	__Vtmp, __Verr := _FencAesCbc__only___(&__Vk, &__Viv, &(_VgenRand.buf))
 	_FerrExit(" 371911 ", __Verr)
-	_VgenRand.buf = __Vtmp[16:]
-	_FnotEqExit(" 371911 ", _VsizeOfRandBuf_byte, len(_VgenRand.buf))
+	_FpfN(" 371912: len ( %d ) : %x ", len(__Vtmp), __Vtmp[:32])
+	_FpfN(" 371913: len ( %d ) : %x ", len(_VgenRand.buf), _VgenRand.buf[:32])
+
+	copy(_VgenRand.buf, __Vtmp[16:])
+	_FnotEqExit(" 371914 ", _VsizeOfRandBuf_byte, len(_VgenRand.buf))
+	_FpfN(" 371915: len ( %d ) : %x ", len(_VgenRand.buf), _VgenRand.buf[:32])
 
 	_VgenRand.remain = _VsizeOfRandBuf_byte
-} // _FreGenRandBuf
+	_FpfN(" 371919: _VsizeOfRandBuf_byte : %d , 0x%x ", _VsizeOfRandBuf_byte, _VsizeOfRandBuf_byte)
+} // _FreGenRandBuf___
 
 // gen rand byte slice , size is N
-func _FgenRand_nByte__(___Vlen uint32) []byte {
+func _FgenRand_nByte__(___Vlen uint16) []byte {
 	var __Vout []byte
 
 	if ___Vlen == 0 {
@@ -49,7 +55,7 @@ func _FgenRand_nByte__(___Vlen uint32) []byte {
 	_VgenRand.lock.Lock()
 	for {
 		if _VgenRand.remain == 0 {
-			_FreGenRandBuf()
+			_FreGenRandBuf___()
 		}
 
 	}
@@ -59,6 +65,17 @@ func _FgenRand_nByte__(___Vlen uint32) []byte {
 } // _FgenRand_nByte__
 
 func _FgenRand_nByte__testExit(___VloopAmount uint32) {
+	var __Vu1, __Vu2 uint16
+	for ___VloopAmount > 0 {
+		___VloopAmount--
+
+		__Vb2 := _FgenRand_nByte__(2)
+		__Vu1 = uint16(__Vb2[0])
+		__Vu2 = uint16(__Vb2[1])
+
+		__Vb3 := _FgenRand_nByte__(__Vu1 + __Vu2)
+		_FpfN(" 8139111 : %x , %d : %x ", __Vb2, len(__Vb3), __Vb3)
+	}
 } // _FgenRand_nByte__testExit
 
 //	__Vbyte = _FappendRandLen2byteArr( &__Vbyte , 0 , 16 )

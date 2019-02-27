@@ -13,7 +13,7 @@ type _Taes struct {
 } // _Taes
 
 // https://golang.org/pkg/crypto/cipher/#example_NewCBCEncrypter
-func _FencAesCbc__only(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	var __Vlen, __Vlen2, __Vi, __Volen int
 	var __Vtmp, __Vout []byte
 	__Vlen = len(*___VbyteIn)
@@ -46,10 +46,10 @@ func _FencAesCbc__only(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) ([]b
 	}
 
 	return __Vout, nil
-} // _FencAesCbc__only
+} // _FencAesCbc__only___
 
 func _FencAesCbcExit(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) []byte {
-	__Vbyte, __Verr := _FencAesCbc__only(___Vkey, ___Viv, ___VbyteIn)
+	__Vbyte, __Verr := _FencAesCbc__only___(___Vkey, ___Viv, ___VbyteIn)
 	_FerrExit(" 182811 ", __Verr)
 	return __Vbyte
 } // _FencAesCbcExit
