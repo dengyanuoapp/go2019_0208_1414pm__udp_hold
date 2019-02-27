@@ -73,7 +73,7 @@ func _FaesRand_test__decode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte
 } // _FaesRand_test__decode
 
 func _FaesRand_test__en_de_Exit(___VstrIn string) {
-	__Vkey := _FgenRand_nByte__( 16 )
+	__Vkey := _FgenRand_nByte__(16)
 
 	__VbI := []byte(___VstrIn)
 	__Vt1 := _FaesRand_test__encode(" 182812 ", &__Vkey, &__VbI)
