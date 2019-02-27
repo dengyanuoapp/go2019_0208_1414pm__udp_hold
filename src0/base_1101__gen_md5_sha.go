@@ -8,7 +8,7 @@ import (
 	"crypto/sha256"
 	//"log"
 	//"encoding/hex"
-	//"time"
+	"time"
 	//"strconv"
 	"encoding/binary"
 )
@@ -58,3 +58,26 @@ func (___Vmd5 *_Tb128) _Fbase_1101__gen_md5T(___Vmd5Input *[]byte) {
 
 	_FpfN(" 289893 _Fbase_1101b__gen_md5Only [%x] (%x %x)", ___Vmd5.b128, ___Vmd5.A1, ___Vmd5.A2)
 } // _Fbase_1101__gen_md5T
+
+func _FgenMd5_byString__(___Vstr string) []byte {
+	__VtimeMd5_16 := md5.Sum([]byte(___Vstr))
+	__VtimeMd5 := make([]byte, 16)
+	copy(__VtimeMd5, __VtimeMd5_16[:16])
+	return __VtimeMd5
+} // _FgenMd5_byString__
+
+func _FgenMd5_now0__() []byte {
+	__VtimeStr := []byte(time.Now().String())
+	__VtimeMd5_16 := md5.Sum(__VtimeStr)
+	__VtimeMd5 := make([]byte, 16)
+	copy(__VtimeMd5, __VtimeMd5_16[:16])
+	return __VtimeMd5
+} // _FgenMd5_now0__
+
+func _FgenMd5_now1__(___Viv *[]byte) []byte {
+	__VtimeStr := time.Now().String()
+	__VtimeMd5_16 := md5.Sum(__VtimeStr + string(*___Viv))
+	__VtimeMd5 := make([]byte, 16)
+	copy(__VtimeMd5, __VtimeMd5_16[:16])
+	return __VtimeMd5
+} // _FgenMd5_now1__

@@ -6,29 +6,23 @@ import (
 )
 
 var (
-	_VencAesRand_iv128   []byte = make([]byte, 16)
-	_VencAesRand_last128 []byte = make([]byte, 16)
+	_VencAesRand_iv128__now  []byte = make([]byte, 16)
+	_VencAesRand_iv128__last []byte = make([]byte, 16)
 )
 
-func _FencAesRand__gen_iv() {
-	var __Vb, __Vc []byte
-	__Vb = append(_VencAesRand_iv128, _FgenTimeRand16byte()...)
-	__Vc = _Fbase_1101b__gen_md5Only(&__Vb)
-	//_FpfN( " 192392 Vb len (%d) , %0x", len( __Vb ), __Vb )
-
-	for __Vi := 0; __Vi < 16; __Vi++ {
-		__Vc[__Vi] = (__Vc[__Vi] ^ _VencAesRand_last128[__Vi])
-	}
-
-	_VencAesRand_iv128 = __Vc
-} // _FencAesRand__gen_iv
+func _FencAesRand__gen_iv__by_timeMd5() {
+	_VencAesRand_iv128__now := _FgenMd5_now1__(_VencAesRand_iv128__last)
+	_VencAesRand_iv128__last = _VencAesRand_iv128__now
+} // _FencAesRand__gen_iv__by_timeMd5
 
 func _FencAesRand_only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	var __Vb []byte
-	_FpfN(" 192393 key (%d) %x , byte (%d) %x , %s ", len(*___Vkey), *___Vkey, len(*___VbyteIn), *___VbyteIn, string(*___VbyteIn))
+	_FpfN(" 192393 key (%d) %x , byteIn (%d) %x , %s ", len(*___Vkey), *___Vkey, len(*___VbyteIn),
+		*___VbyteIn, string(*___VbyteIn))
 
-	_FencAesRand__gen_iv()
-	_FpfN(" 192394 iv (%d) %x ", len(_VencAesRand_iv128), _VencAesRand_iv128)
+	__Viv := _FencAesRand__gen_iv__by_timeMd5()
+	_FpfN(" 192394 gen new iv (%d) %x , old iv (%d) %x", len(_VencAesRand_iv128__now), _VencAesRand_iv128__now,
+		len(_VencAesRand_iv128__last), _VencAesRand_iv128__last)
 
 	__Vlen := len(*___VbyteIn)
 
