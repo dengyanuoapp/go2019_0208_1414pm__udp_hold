@@ -16,6 +16,9 @@ type _Taes struct {
 func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	var __Vlen, __Vlen2, __Vi, __Volen int
 	var __Vtmp, __Vout []byte
+
+	_FpfN(" 132811 : len In (%d) , key %x , iv %x", len(*___VbyteIn), *___Vkey, *___Viv)
+
 	__Vlen = len(*___VbyteIn)
 	__Vi = __Vlen & 0xF
 
@@ -25,15 +28,13 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 		copy(__Vtmp, (*___VbyteIn))
 		__Volen = __Vlen2 + 16
 
-		_FpfN(" 132811 : use tmp")
+		_FpfN(" 132812 : use tmp")
 	} else {
 		__Volen = __Vlen + 16
 	}
 
 	__Vout = make([]byte, __Volen)
 	copy(__Vout, (*___Viv)[0:16])
-
-	_FpfN(" 132812 : ")
 
 	__Vblock, __Verr := aes.NewCipher(*___Vkey)
 	_FerrExit(" 132813 ", __Verr)
@@ -45,6 +46,7 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 		__Vmode.CryptBlocks(__Vout[16:], __Vtmp)
 	}
 
+	_FpfN(" 132819 : len Out (%d) ", len(__Vout))
 	return __Vout, nil
 } // _FencAesCbc__only___
 
