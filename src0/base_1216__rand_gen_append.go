@@ -39,7 +39,7 @@ func _FreGenRandBuf() {
 } // _FreGenRandBuf
 
 // gen rand byte slice , size is N
-func _FgenRand_nByte(___Vlen uint32) []byte {
+func _FgenRand_nByte__(___Vlen uint32) []byte {
 	var __Vout []byte
 
 	if ___Vlen == 0 {
@@ -56,7 +56,10 @@ func _FgenRand_nByte(___Vlen uint32) []byte {
 	_VgenRand.lock.Unlock()
 
 	return __Vout
-} // _FgenRand_nByte
+} // _FgenRand_nByte__
+
+func _FgenRand_nByte__testExit(___VloopAmount uint32) {
+} // _FgenRand_nByte__testExit
 
 //	__Vbyte = _FappendRandLen2byteArr( &__Vbyte , 0 , 16 )
 // func math/rand.Uint32() uint32
