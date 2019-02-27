@@ -46,7 +46,9 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 		__Vmode.CryptBlocks(__Vout[16:], __Vtmp)
 	}
 
-	_FpfN(" 132819 : len Out (%d) ", len(__Vout))
+	_FpfN(" 132818 : len Out (%d) ", len(__Vout))
+    if len(__Vout) > 32 { _FpfN( " 132819 : %0x" , __Vout[:32] ) }
+
 	return __Vout, nil
 } // _FencAesCbc__only___
 
