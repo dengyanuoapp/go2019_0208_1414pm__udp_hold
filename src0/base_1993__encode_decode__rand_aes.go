@@ -54,22 +54,30 @@ func _FencAesRand_only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 func _FencAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
 	__Vb, __Verr := _FencAesRand_only(___Vkey, ___VbyteIn)
-	_FerrExit(___VeMsg+" 192399 ", __Verr)
+	_FerrExit(___VeMsg+" 292391 ", __Verr)
 	return __Vb
 } // _FencAesRandExit
 
-func _FaesRand_test__encode(__VbyteIn *[]byte) []byte {
-	return nil
+func _FdecAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
+	__Vb, __Verr := _FencAesRand_only(___Vkey, ___VbyteIn)
+	_FerrExit(___VeMsg+" 292395 ", __Verr)
+	return __Vb
+} // _FdecAesRandExit
+
+func _FaesRand_test__encode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
+	return _FencAesRandExit(___VeMsg+" 481911 ", ___Vkey, ___VbyteIn)
 } // _FaesRand_test__encode
 
-func _FaesRand_test__decode(___VbyteIn *[]byte) []byte {
-	return nil
+func _FaesRand_test__decode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
+	return _FdecAesRandExit(___VeMsg+" 481913 ", ___Vkey, ___VbyteIn)
 } // _FaesRand_test__decode
 
 func _FaesRand_test__en_de_Exit(___VstrIn string) {
-	__Vb := []byte(___VstrIn)
-	__Vt := _FaesRand_test__encode(&__Vb)
-	__VstrO := string(_FaesRand_test__decode(&__Vt))
+	__Vkey := []byte(___VstrIn)
+
+	__VbI := []byte(___VstrIn)
+	__Vt1 := _FaesRand_test__encode(" 182812 ", &__Vkey, &__VbI)
+	__VstrO := string(_FaesRand_test__decode(" 182814 ", &__Vkey, &__Vt1))
 
 	_FnotEqExit(" 182818 : comp error.", ___VstrIn, __VstrO)
 	_FpfN(" 182819 : comp ok.")
