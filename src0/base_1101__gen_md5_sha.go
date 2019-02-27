@@ -76,7 +76,7 @@ func _FgenMd5_now0__() []byte {
 
 func _FgenMd5_now1__(___Viv *[]byte) []byte {
 	__VtimeStr := time.Now().String()
-	__VtimeMd5_16 := md5.Sum(__VtimeStr + string(*___Viv))
+	__VtimeMd5_16 := md5.Sum([]byte(__VtimeStr + string(*___Viv)))
 	__VtimeMd5 := make([]byte, 16)
 	copy(__VtimeMd5, __VtimeMd5_16[:16])
 	return __VtimeMd5

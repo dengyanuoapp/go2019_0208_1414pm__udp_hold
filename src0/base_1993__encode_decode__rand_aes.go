@@ -11,7 +11,7 @@ var (
 )
 
 func _FencAesRand__gen_iv__by_timeMd5() {
-	_VencAesRand_iv128__now := _FgenMd5_now1__(_VencAesRand_iv128__last)
+	_VencAesRand_iv128__now := _FgenMd5_now1__(&_VencAesRand_iv128__last)
 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
 } // _FencAesRand__gen_iv__by_timeMd5
 
@@ -20,7 +20,7 @@ func _FencAesRand_only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	_FpfN(" 192393 key (%d) %x , byteIn (%d) %x , %s ", len(*___Vkey), *___Vkey, len(*___VbyteIn),
 		*___VbyteIn, string(*___VbyteIn))
 
-	__Viv := _FencAesRand__gen_iv__by_timeMd5()
+	_FencAesRand__gen_iv__by_timeMd5()
 	_FpfN(" 192394 gen new iv (%d) %x , old iv (%d) %x", len(_VencAesRand_iv128__now), _VencAesRand_iv128__now,
 		len(_VencAesRand_iv128__last), _VencAesRand_iv128__last)
 
@@ -36,11 +36,11 @@ func _FencAesRand_only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//__Vb := _FmakeByte32(
 	_FpfN(" 192395 byte (%d) %x , %s ", len(__Vb), __Vb, string(__Vb))
 
-	__Vout, __Verr := _FencAesCbc__only(___Vkey, &_VencAesRand_iv128, &__Vb)
+	__Vout, __Verr := _FencAesCbc__only(___Vkey, &_VencAesRand_iv128__now, &__Vb)
 	_FerrExit(" 192396 ", __Verr)
 
 	if len(__Vout) > 16 {
-		copy(_VencAesRand_last128, __Vout[:16])
+		copy(_VencAesRand_iv128__last, __Vout[:16])
 	}
 
 	_FpfN(" 192397 byte (%d) %x , %s ", len(__Vout), __Vout, string(__Vout))
@@ -57,3 +57,20 @@ func _FencAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []by
 	_FerrExit(___VeMsg+" 192399 ", __Verr)
 	return __Vb
 } // _FencAesRandExit
+
+func _FaesRand_test__encode(__VbyteIn *[]byte) []byte {
+	return nil
+} // _FaesRand_test__encode
+
+func _FaesRand_test__decode(___VbyteIn *[]byte) []byte {
+	return nil
+} // _FaesRand_test__decode
+
+func _FaesRand_test__en_de_Exit(___VstrIn string) {
+	__Vb := []byte(___VstrIn)
+	__Vt := _FaesRand_test__encode(&__Vb)
+	__VstrO := string(_FaesRand_test__decode(&__Vt))
+
+	_FnotEqExit(" 182818 : comp error.", ___VstrIn, __VstrO)
+	_FpfN(" 182819 : comp ok.")
+} // _FaesRand_test__en_de_Exit
