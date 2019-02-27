@@ -4,7 +4,7 @@ import (
 	"strconv"
 )
 
-var ()
+//var ()
 
 // func strconv.ParseUint(s string, base int, bitSize int) (uint64, error) {
 func _Fhexstr2uint64(___Vstr string) uint64 {
