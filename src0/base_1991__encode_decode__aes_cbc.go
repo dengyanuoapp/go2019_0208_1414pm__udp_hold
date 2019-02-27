@@ -47,7 +47,9 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 	}
 
 	_FpfN(" 132818 : len Out (%d) ", len(__Vout))
-    if len(__Vout) > 32 { _FpfN( " 132819 : %0x" , __Vout[:32] ) }
+	if len(__Vout) > 32 {
+		_FpfN(" 132819 : %0x", __Vout[:32])
+	}
 
 	return __Vout, nil
 } // _FencAesCbc__only___
