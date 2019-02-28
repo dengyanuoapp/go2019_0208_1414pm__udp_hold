@@ -14,23 +14,23 @@ type _Taes struct {
 
 // https://golang.org/pkg/crypto/cipher/#example_NewCBCEncrypter
 func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
-	var __Vlen, __Vlen2, __Vi, __Volen int
+	var __VlenIn, __Vlen2, __Vi, __Volen int
 	var __Vtmp, __Vout []byte
 
 	_FpfN(" 132811 _FencAesCbc__only___ : len In (%d) , key %x , iv %x", len(*___VbyteIn), *___Vkey, *___Viv)
 
-	__Vlen = len(*___VbyteIn)
-	__Vi = __Vlen & 0xF
+	__VlenIn = len(*___VbyteIn)
+	__Vi = __VlenIn & 0xF
 
 	if 0 != __Vi {
-		__Vlen2 = __Vlen + 16 - __Vi
+		__Vlen2 = __VlenIn + 16 - __Vi
 		__Vtmp = make([]byte, __Vlen2)
 		copy(__Vtmp, (*___VbyteIn))
 		__Volen = __Vlen2 + 16
 
 		_FpfN(" 132812 : use tmp")
 	} else {
-		__Volen = __Vlen + 16
+		__Volen = __VlenIn + 16
 	}
 
 	__Vout = make([]byte, __Volen)
@@ -47,17 +47,7 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 	}
 
 	if 3 == 3 {
-		_Fpf(" 132818 _FencAesCbc__only___ : len Out ( %d , %d ) ", __Vlen, len(__Vout))
-		_FpfhexN(&__Vout, 16, " 132819 : lenIn %d , dataOut: ")
-		if len(__Vout) > 32 {
-			_FpfN("%0x %0x", __Vout[:16], __Vout[16:32])
-		} else {
-			if len(__Vout) > 16 {
-				_FpfN("%0x %0x", __Vout[:16], __Vout[16:])
-			} else {
-				_FpfN("%0x", __Vout)
-			}
-		}
+		_FpfhexN(&__Vout, 24, " 132819 _FencAesCbc__only___ : lenIn %d , dataOut: ", __VlenIn)
 	}
 
 	return __Vout, nil
