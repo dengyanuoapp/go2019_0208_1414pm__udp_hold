@@ -67,15 +67,18 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 			__Vout = make([]byte, __Vlen2)
 			copy(__Vout, _VgenRand.buf[__Vnew:_VgenRand.remain])
 			_VgenRand.remain = __Vnew
+			_FpfN(" 938194 _FgenRand_nByte__ : succeed gen : %d", __Vlen2)
 			break
 		} else {
-			_FpfN(" 938195 _FgenRand_nByte__ : skip the remain , regen ")
+			_FpfN(" 938196 _FgenRand_nByte__ : skip the remain , regen ")
 			_VgenRand.remain = 0
 		}
 
 		_Fsleep_1ms()
 	}
 	_VgenRand.lock.Unlock()
+
+	_FpfN(" 938198 _FgenRand_nByte__ : result : %d ", len(__Vout))
 
 	return __Vout
 } // _FgenRand_nByte__
