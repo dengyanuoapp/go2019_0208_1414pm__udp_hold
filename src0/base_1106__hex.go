@@ -28,8 +28,16 @@ func _FpfhexN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...i
 		___VmaxPrLen = __Vl
 	}
 	_Fpf(___Vfmt, ___Vobj...)
-	_Ppf(" (%d) %x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
-	//_Ppf(" (%d) % 16x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
+
+	//_Ppf(" (%d) %x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
+	_Ppf(" (%d)", __Vl)
+	__Vst := 0
+	for (16 + __Vst) < ___VmaxPrLen {
+		_Ppf(" %x", (*___VbyteIn)[__Vst:__Vst+16])
+		__Vst += 16
+	}
+	_Ppf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
+
 } // _FpfhexN
 
 //func _FcopyByte( &((*___VacceptTCP).Vbuf2) , &((*___VacceptTCP).Vbuf), (*___VacceptTCP).Vlen )
