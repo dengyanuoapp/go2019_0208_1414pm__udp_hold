@@ -33,15 +33,17 @@ func _FreGenRandBuf___() {
 
 	__Vtmp, __Verr := _FencAesCbc__only___(&__Vk, &__Viv, &(_VgenRand.buf))
 	_FerrExit(" 371911 ", __Verr)
-	_FpfN(" 371912 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(__Vtmp), __Vtmp[:16], __Vtmp[16:32], __Vtmp[32:48])
-	_FpfN(" 371913 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
+	if 2 == 3 {
+		_FpfN(" 371912 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(__Vtmp), __Vtmp[:16], __Vtmp[16:32], __Vtmp[32:48])
+		_FpfN(" 371913 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
+	}
 
 	copy(_VgenRand.buf, __Vtmp[16:])
 	_FnotEqExit(" 371914 ", _VsizeOfRandBuf_byte, len(_VgenRand.buf))
-	_FpfN(" 371915: len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
+	//_FpfN(" 371915: len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
 
 	_VgenRand.remain = uint32(_VsizeOfRandBuf_byte)
-	_FpfN(" 371919: _VsizeOfRandBuf_byte : %d , 0x%x ", _VsizeOfRandBuf_byte, _VsizeOfRandBuf_byte)
+	_FpfN(" 371919: _FreGenRandBuf___ : %d , %d : %x", _VsizeOfRandBuf_byte, len(_VgenRand.buf), _VgenRand.buf[:24])
 } // _FreGenRandBuf___
 
 // gen rand byte slice , size is N
@@ -84,16 +86,25 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 } // _FgenRand_nByte__
 
 func _FgenRand_nByte__testExit(___VloopAmount uint32) {
-	var __Vu1, __Vu2 uint16
+	var __Vu1, __Vu2, __Vu3 uint16
 	for ___VloopAmount > 0 {
 		___VloopAmount--
 
 		__Vb2 := _FgenRand_nByte__(2)
 		__Vu1 = uint16(__Vb2[0])
 		__Vu2 = uint16(__Vb2[1])
+		__Vu3 = (__Vu1 << 8) + __Vu2
 
-		__Vb3 := _FgenRand_nByte__(__Vu1 + __Vu2)
-		_FpfN(" 8139111 : %x , %d : %x ", __Vb2, len(__Vb3), __Vb3)
+		//_FpfN(" 813911 _FgenRand_nByte__testExit : %x : %x %x %x , %d %d %d", __Vb2, __Vu1, __Vu2, __Vu3, __Vu1, __Vu2, __Vu3)
+		__Vb3 := _FgenRand_nByte__(__Vu3)
+		if 2 == 3 {
+			_Fpf(" 813914 _FgenRand_nByte__testExit : %x , %d , %d : ", __Vb2, __Vu3, len(__Vb3))
+			if len(__Vb3) <= 16 {
+				_FpfN("%x", __Vb3)
+			} else {
+				_FpfN("%x (16 first ...)", __Vb3[:16])
+			}
+		}
 	}
 } // _FgenRand_nByte__testExit
 
