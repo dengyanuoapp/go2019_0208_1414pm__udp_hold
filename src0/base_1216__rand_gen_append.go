@@ -81,7 +81,8 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 	}
 	_VgenRand.lock.Unlock()
 
-	_FpfN(" 938198 _FgenRand_nByte__ : result : %d ", len(__Vout))
+	//_FpfN(" 938198 _FgenRand_nByte__ : result : %d ", len(__Vout))
+	_FpfhexN(&__Vout, 24, " 938199 _FgenRand_nByte__ : Vout ")
 
 	return __Vout
 } // _FgenRand_nByte__

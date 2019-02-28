@@ -22,13 +22,15 @@ func _PpdL(___VmaxPrLen int, ___Vbuf *[]byte) {
 	}
 } // _PpdL
 
-func _Fpfhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
+func _FpfhexN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	__Vl := len(*___VbyteIn)
 	if __Vl < ___VmaxPrLen {
 		___VmaxPrLen = __Vl
 	}
-	_Fpf(___Vfmt+" (%d) %x\n", ___Vobj, ___VmaxPrLen, (*___VbyteIn)[0:___VmaxPrLen])
-} // _Fpfhex
+	_Fpf(___Vfmt, ___Vobj...)
+	_Ppf(" (%d) %x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
+	//_Ppf(" (%d) % 16x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
+} // _FpfhexN
 
 //func _FcopyByte( &((*___VacceptTCP).Vbuf2) , &((*___VacceptTCP).Vbuf), (*___VacceptTCP).Vlen )
 //(*___VacceptTCP).Vbuf2 = make([]byte , (*___VacceptTCP).Vlen ); copy( (*___VacceptTCP).Vbuf2 , (*___VacceptTCP).Vbuf )
