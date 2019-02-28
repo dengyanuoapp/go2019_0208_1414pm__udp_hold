@@ -17,7 +17,7 @@ func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
 
 	// _FreGenRandBuf___
 	// _FgenRand_nByte__
-	_FgenRand_nByte__testExit(3)
+	_FgenRand_nByte__testExit(1)
 	_FaesRand_test__en_de_Exit("asa90as90sa90as90as9as82391")
 
 	_Fwrite_json_and_rand_Exit(" 192181 ", ___Vkey, "json/"+___Vfname+".json", ___Vdst)
