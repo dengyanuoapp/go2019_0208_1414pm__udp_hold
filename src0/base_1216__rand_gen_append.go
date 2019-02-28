@@ -48,6 +48,8 @@ func _FreGenRandBuf___() {
 func _FgenRand_nByte__(___Vlen uint16) []byte {
 	var __Vout []byte
 
+	_FpfN(" 938191: _VgenRand.remain %d , need : %d ", _VgenRand.remain, ___Vlen)
+
 	if ___Vlen == 0 {
 		return __Vout
 	}
@@ -57,6 +59,7 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 		if _VgenRand.remain == 0 {
 			_FreGenRandBuf___()
 		}
+		_FpfN(" 938192: _VgenRand.remain %d , need : %d ", _VgenRand.remain, ___Vlen)
 
 	}
 	_VgenRand.lock.Unlock()
