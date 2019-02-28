@@ -40,7 +40,7 @@ func _FreGenRandBuf___() {
 	_FnotEqExit(" 371914 ", _VsizeOfRandBuf_byte, len(_VgenRand.buf))
 	_FpfN(" 371915: len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
 
-	_VgenRand.remain = _VsizeOfRandBuf_byte
+	_VgenRand.remain = uint32(_VsizeOfRandBuf_byte)
 	_FpfN(" 371919: _VsizeOfRandBuf_byte : %d , 0x%x ", _VsizeOfRandBuf_byte, _VsizeOfRandBuf_byte)
 } // _FreGenRandBuf___
 
@@ -53,14 +53,27 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 	if ___Vlen == 0 {
 		return __Vout
 	}
+	__Vlen2 := uint32(___Vlen)
 
 	_VgenRand.lock.Lock()
 	for {
 		if _VgenRand.remain == 0 {
 			_FreGenRandBuf___()
 		}
-		_FpfN(" 938192: _VgenRand.remain %d , need : %d ", _VgenRand.remain, ___Vlen)
+		_FpfN(" 938192: _VgenRand.remain %d , need : %d ", _VgenRand.remain, __Vlen2)
 
+		if _VgenRand.remain >= uint32(__Vlen2) {
+			__Vnew := _VgenRand.remain - __Vlen2
+			__Vout = make([]byte, __Vlen2)
+			copy(__Vout, _VgenRand.buf[__Vnew:_VgenRand.remain])
+			_VgenRand.remain = __Vnew
+			break
+		} else {
+			_FpfN(" 938195: skip the remain , regen ")
+			_VgenRand.remain = 0
+		}
+
+		_Fsleep_1ms()
 	}
 	_VgenRand.lock.Unlock()
 
