@@ -33,8 +33,8 @@ func _FreGenRandBuf___() {
 
 	__Vtmp, __Verr := _FencAesCbc__only___(&__Vk, &__Viv, &(_VgenRand.buf))
 	_FerrExit(" 371911 ", __Verr)
-	_FpfN(" 371912: len ( %d ) : %x %x %x ", len(__Vtmp), __Vtmp[:16], __Vtmp[16:32], __Vtmp[32:48])
-	_FpfN(" 371913: len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
+	_FpfN(" 371912 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(__Vtmp), __Vtmp[:16], __Vtmp[16:32], __Vtmp[32:48])
+	_FpfN(" 371913 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
 
 	copy(_VgenRand.buf, __Vtmp[16:])
 	_FnotEqExit(" 371914 ", _VsizeOfRandBuf_byte, len(_VgenRand.buf))
@@ -48,7 +48,7 @@ func _FreGenRandBuf___() {
 func _FgenRand_nByte__(___Vlen uint16) []byte {
 	var __Vout []byte
 
-	_FpfN(" 938191: _VgenRand.remain %d , need : %d ", _VgenRand.remain, ___Vlen)
+	_FpfN(" 938191 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, ___Vlen)
 
 	if ___Vlen == 0 {
 		return __Vout
@@ -60,7 +60,7 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 		if _VgenRand.remain == 0 {
 			_FreGenRandBuf___()
 		}
-		_FpfN(" 938192: _VgenRand.remain %d , need : %d ", _VgenRand.remain, __Vlen2)
+		_FpfN(" 938192 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, __Vlen2)
 
 		if _VgenRand.remain >= uint32(__Vlen2) {
 			__Vnew := _VgenRand.remain - __Vlen2
@@ -69,7 +69,7 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 			_VgenRand.remain = __Vnew
 			break
 		} else {
-			_FpfN(" 938195: skip the remain , regen ")
+			_FpfN(" 938195 _FgenRand_nByte__ : skip the remain , regen ")
 			_VgenRand.remain = 0
 		}
 
