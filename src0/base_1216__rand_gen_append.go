@@ -25,6 +25,7 @@ var (
 
 func _FreGenRandBuf___() {
 	if 0 == len(_VgenRand.buf) {
+		_FtrueExit(" 371911 buf size must large than 16bit ", _VsizeOfRandBuf_byte <= 0x10000)
 		_VgenRand.buf = make([]byte, _VsizeOfRandBuf_byte)
 	}
 	__Vk := _FgenMd5_now0___()
@@ -32,14 +33,14 @@ func _FreGenRandBuf___() {
 	__Viv := _FgenMd5_now1___(&__Vk)
 
 	__Vtmp, __Verr := _FencAesCbc__only___(&__Vk, &__Viv, &(_VgenRand.buf))
-	_FerrExit(" 371911 ", __Verr)
+	_FerrExit(" 371913 ", __Verr)
 	if 2 == 3 {
-		_FpfN(" 371912 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(__Vtmp), __Vtmp[:16], __Vtmp[16:32], __Vtmp[32:48])
-		_FpfN(" 371913 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
+		_FpfN(" 371915 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(__Vtmp), __Vtmp[:16], __Vtmp[16:32], __Vtmp[32:48])
+		_FpfN(" 371916 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
 	}
 
 	copy(_VgenRand.buf, __Vtmp[16:])
-	_FnotEqExit(" 371914 ", _VsizeOfRandBuf_byte, len(_VgenRand.buf))
+	_FnotEqExit(" 371917 ", _VsizeOfRandBuf_byte, len(_VgenRand.buf))
 	//_FpfN(" 371915: len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
 
 	_VgenRand.remain = uint32(_VsizeOfRandBuf_byte)

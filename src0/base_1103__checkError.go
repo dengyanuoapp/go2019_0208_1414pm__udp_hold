@@ -34,3 +34,15 @@ func _FeqExit(___VerrMsg string, ___Va interface{}, ___Vb interface{}) {
 		_Fex("Error: "+___VerrMsg, nil)
 	}
 } // _FeqExit
+
+func _FtrueExit(___VerrMsg string, ___Vbool bool) {
+	if true == ___Vbool {
+		_Fex1("Error: " + ___VerrMsg)
+	}
+} // _FtrueExit
+
+func _FfalseExit(___VerrMsg string, ___Vbool bool) {
+	if false == ___Vbool {
+		_Fex1("Error: " + ___VerrMsg)
+	}
+} // _FfalseExit
