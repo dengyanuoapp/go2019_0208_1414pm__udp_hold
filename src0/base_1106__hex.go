@@ -6,10 +6,10 @@ package main
 //import "std"
 
 // dump hex
-func _PpdL(___Vlen int, ___Vbuf *[]byte) {
+func _PpdL(___VmaxPrLen int, ___Vbuf *[]byte) {
 	__Xlen := len(*___Vbuf)
-	if __Xlen > ___Vlen {
-		__Xlen = ___Vlen
+	if __Xlen > ___VmaxPrLen {
+		__Xlen = ___VmaxPrLen
 	}
 	_Ppf("(%d)", __Xlen)
 	__Xlen--
@@ -22,6 +22,14 @@ func _PpdL(___Vlen int, ___Vbuf *[]byte) {
 	}
 } // _PpdL
 
+func _Fpfhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
+	__Vl := len(*___VbyteIn)
+	if __Vl < ___VmaxPrLen {
+		___VmaxPrLen = __Vl
+	}
+	_Fpf(___Vfmt+" (%d) %x\n", ___Vobj, ___VmaxPrLen, (*___VbyteIn)[0:___VmaxPrLen])
+} // _Fpfhex
+
 //func _FcopyByte( &((*___VacceptTCP).Vbuf2) , &((*___VacceptTCP).Vbuf), (*___VacceptTCP).Vlen )
 //(*___VacceptTCP).Vbuf2 = make([]byte , (*___VacceptTCP).Vlen ); copy( (*___VacceptTCP).Vbuf2 , (*___VacceptTCP).Vbuf )
 func _FcopyByte(___dst *[]byte, ___src *[]byte, ___len int) {
@@ -33,16 +41,16 @@ func _FcopyByte(___dst *[]byte, ___src *[]byte, ___len int) {
 	copy((*___dst), (*___src))
 } // _FcopyByte
 
-func _PpdLN(___Vlen int, ___Vbuf *[]byte) {
-	_PpdL(___Vlen, ___Vbuf)
+func _PpdLN(___VmaxPrLen int, ___Vbuf *[]byte) {
+	_PpdL(___VmaxPrLen, ___Vbuf)
 	_Pn()
 } // _PpdLN
-func _Fpd(___Vlen int, ___Vbuf *[]byte) {
+func _Fpd(___VmaxPrLen int, ___Vbuf *[]byte) {
 	_Fph()
-	_PpdL(___Vlen, ___Vbuf)
+	_PpdL(___VmaxPrLen, ___Vbuf)
 } // _Fpd
-func _FpdN(___Vlen int, ___Vbuf *[]byte) {
-	_Fpd(___Vlen, ___Vbuf)
+func _FpdN(___VmaxPrLen int, ___Vbuf *[]byte) {
+	_Fpd(___VmaxPrLen, ___Vbuf)
 	_Pn()
 } // _FpdN
 
@@ -58,6 +66,7 @@ func _FmakeByte16(___VbyteArr [16]byte) []byte {
 	copy(__Vbyte, ___VbyteArr[:])
 	return __Vbyte
 } // _FmakeByte16
+
 func _FmakeByte32(___VbyteArr [32]byte) []byte {
 	__Vbyte := make([]byte, 32)
 	copy(__Vbyte, ___VbyteArr[:])

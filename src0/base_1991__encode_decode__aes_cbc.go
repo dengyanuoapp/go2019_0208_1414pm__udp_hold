@@ -47,11 +47,16 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 	}
 
 	if 3 == 3 {
-		_Fpf(" 132818 _FencAesCbc__only___ : len Out (%d) ", len(__Vout))
+		_Fpf(" 132818 _FencAesCbc__only___ : len Out ( %d , %d ) ", __Vlen, len(__Vout))
+		_Fpfhex(&__Vout, 16, " 132819 : lenIn %d , dataOut: ")
 		if len(__Vout) > 32 {
-			_FpfN(" 132819 : %0x", __Vout[:32])
+			_FpfN("%0x %0x", __Vout[:16], __Vout[16:32])
 		} else {
-			_FpfN(" 132819 : %0x", __Vout)
+			if len(__Vout) > 16 {
+				_FpfN("%0x %0x", __Vout[:16], __Vout[16:])
+			} else {
+				_FpfN("%0x", __Vout)
+			}
 		}
 	}
 
