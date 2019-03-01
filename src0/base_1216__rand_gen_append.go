@@ -29,7 +29,7 @@ func _FreGenRandBuf___() {
 		_FtrueExit(" 371911 buf size must large than 16bit ", _VsizeOfRandBuf_byte <= 0x10000)
 		_VgenRand.buf = make([]byte, _VsizeOfRandBuf_byte)
 	}
-	__Vk := _FgenMd5_now0___()
+	__Vk := _FgenMd5_now16___()
 	_Fsleep_1ms()
 	__Viv := _FgenMd5_now1___(&__Vk)
 

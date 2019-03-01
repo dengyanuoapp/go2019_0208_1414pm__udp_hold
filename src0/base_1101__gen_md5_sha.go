@@ -59,25 +59,27 @@ func (___Vmd5 *_Tb128) _Fbase_1101__gen_md5T(___Vmd5Input *[]byte) {
 	_FpfN(" 289893 _Fbase_1101b__gen_md5Only [%x] (%x %x)", ___Vmd5.b128, ___Vmd5.A1, ___Vmd5.A2)
 } // _Fbase_1101__gen_md5T
 
+var _VgenMd5_last16 [16]byte
+
 func _FgenMd5_byString__(___Vstr string) []byte {
-	__VtimeMd5_16 := md5.Sum([]byte(___Vstr))
+	_VgenMd5_last16 := md5.Sum([]byte(___Vstr))
 	__VtimeMd5 := make([]byte, 16)
-	copy(__VtimeMd5, __VtimeMd5_16[:16])
+	copy(__VtimeMd5, _VgenMd5_last16[:16])
 	return __VtimeMd5
 } // _FgenMd5_byString__
 
-func _FgenMd5_now0___() []byte {
-	__VtimeStr := []byte(time.Now().String())
-	__VtimeMd5_16 := md5.Sum(__VtimeStr)
+func _FgenMd5_now16___() []byte {
 	__VtimeMd5 := make([]byte, 16)
-	copy(__VtimeMd5, __VtimeMd5_16[:16])
+	__VtimeStr := []byte(time.Now().String())
+	_VgenMd5_last16 := md5.Sum(__VtimeStr)
+	copy(__VtimeMd5, _VgenMd5_last16[:16])
 	return __VtimeMd5
-} // _FgenMd5_now0___
+} // _FgenMd5_now16___
 
 func _FgenMd5_now1___(___Viv *[]byte) []byte {
 	__VtimeStr := time.Now().String()
-	__VtimeMd5_16 := md5.Sum([]byte(__VtimeStr + string(*___Viv)))
+	_VgenMd5_last16 := md5.Sum([]byte(__VtimeStr + string(*___Viv)))
 	__VtimeMd5 := make([]byte, 16)
-	copy(__VtimeMd5, __VtimeMd5_16[:16])
+	copy(__VtimeMd5, _VgenMd5_last16[:16])
 	return __VtimeMd5
 } // _FgenMd5_now1___
