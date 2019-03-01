@@ -96,7 +96,7 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	if 3 == 3 {
 		_FpfhexN(&__Viv, 82, " 838183 iv ")
-		_FpfhexN(&__VcipherText, 82, " 838184 iv ")
+		_FpfhexN(&__VcipherText, 82, " 838184 cipherText ")
 	}
 
 	__Vmode := cipher.NewCBCDecrypter(__Vblock, __Viv)
@@ -104,6 +104,7 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	// CryptBlocks(dst, src []byte)
 	__Vmode.CryptBlocks(__Vout, __VcipherText)
+	_FpfhexN(&__Vout, 82, " 838189 out ")
 
 	return __Vout, nil
 } // _FdecAesCbc__only___

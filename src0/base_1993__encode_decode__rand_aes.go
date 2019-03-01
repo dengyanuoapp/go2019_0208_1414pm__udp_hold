@@ -31,8 +31,8 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
 
-	__Vtmp[1] = byte(__VlenIn & 0xFF)
-	__Vtmp[0] = byte((__VlenIn >> 8) & 0xFF)
+	__Vtmp[1] = byte(__VlenIn & 0xFF)        // byte 1 : low byte of the uint16
+	__Vtmp[0] = byte((__VlenIn >> 8) & 0xFF) // byte 0 : high byte of the uint16
 
 	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
@@ -68,11 +68,24 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 } // _FencAesRand__only
 
 func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+	var (
+		__Vb0, __Vb1, __Vb2, __Vb3, __Vlen int
+	)
 
-	__Vout2, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
-	_FerrExit(" 392395 ", __Verr)
+	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
+	_FerrExit(" 392392 ", __Verr)
 
-	_Fex1(" 83819101939 debug ")
+	__Vlen = len(__VdeO)
+	_FtrueExit(" 392394 ", __Vlen < 32)
+	__Vb1 = int(__VdeO[1]) // byte 1 : low byte of the uint16
+	__Vb0 = int(__VdeO[0]) // byte 0 : high byte of the uint16
+	__Vb2 = (__Vb0 << 8) | __Vb1
+	__Vb3 = __Vb2 + 2
+	_FtrueExit(" 392394 ", __Vb3 > __Vlen)
+
+	_FpfN(" 392395 vb0 %d, vb1 %d , vb2 %d, vb3 %d, vlen %d ", __Vb0, __Vb1, __Vb2, __Vb3, __Vlen)
+	__Vout2 := make([]byte, __Vb2)
+	copy(__Vout2, __VdeO[2:__Vb3])
 
 	_FpfhexlastN(&__Vout2, 40, " 392397 Vout : ")
 	return __Vout2, __Verr
