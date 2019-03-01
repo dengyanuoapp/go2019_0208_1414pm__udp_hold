@@ -16,6 +16,7 @@ const (
 type _TgenRand struct {
 	buf    []byte
 	remain uint32
+	cnt64  uint64
 	lock   sync.Mutex
 }
 
@@ -56,21 +57,21 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 	if ___Vlen == 0 {
 		return __Vout
 	}
-	__Vlen2 := uint32(___Vlen)
+	__VlenReq := uint32(___Vlen)
 
 	_VgenRand.lock.Lock()
 	for {
 		if _VgenRand.remain == 0 {
 			_FreGenRandBuf___()
 		}
-		_FpfN(" 938192 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, __Vlen2)
+		_FpfN(" 938192 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, __VlenReq)
 
-		if _VgenRand.remain >= uint32(__Vlen2) {
-			__Vnew := _VgenRand.remain - __Vlen2
-			__Vout = make([]byte, __Vlen2)
+		if _VgenRand.remain >= __VlenReq {
+			__Vnew := _VgenRand.remain - __VlenReq
+			__Vout = make([]byte, __VlenReq)
 			copy(__Vout, _VgenRand.buf[__Vnew:_VgenRand.remain])
 			_VgenRand.remain = __Vnew
-			_FpfN(" 938194 _FgenRand_nByte__ : succeed gen : %d", __Vlen2)
+			_FpfN(" 938194 _FgenRand_nByte__ : succeed gen : %d", __VlenReq)
 			break
 		} else {
 			_FpfN(" 938196 _FgenRand_nByte__ : skip the remain , regen ")
@@ -81,8 +82,10 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 	}
 	_VgenRand.lock.Unlock()
 
+	_VgenRand.cnt64 += uint64(__VlenReq)
+
 	//_FpfN(" 938198 _FgenRand_nByte__ : result : %d ", len(__Vout))
-	_FpfhexN(&__Vout, 24, " 938199 _FgenRand_nByte__ : remain %d , Vout:", _VgenRand.remain)
+	_FpfhexN(&__Vout, 24, " 938199 _FgenRand_nByte__ : (%d) remain %d , Vout:", _VgenRand.cnt64, _VgenRand.remain)
 
 	return __Vout
 } // _FgenRand_nByte__
