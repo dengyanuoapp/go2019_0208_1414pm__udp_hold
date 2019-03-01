@@ -111,22 +111,25 @@ func _FaesRand_test__decode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte
 	return _FdecAesRandExit(___VeMsg+" 481913 ", ___Vkey, ___VbyteIn)
 } // _FaesRand_test__decode
 
-func _FaesRand_test__en_de_Exit(___VstrIn string) {
-	__Vkey := _FgenRand_nByte__(32)
-	_FpfhexN(&__Vkey, 40, " 738191 : using key ")
+func _FaesRand_test__en_de_Exit(___VstrIn string, ___VloopAmount int) {
+	for ___VloopAmount > 0 {
+		___VloopAmount--
+		__Vkey := _FgenRand_nByte__(32)
+		_FpfhexN(&__Vkey, 40, " 738191 : using key ")
 
-	__VbI := []byte(___VstrIn)
-	__Vt1 := _FaesRand_test__encode(" 182812 ", &__Vkey, &__VbI)
-	// len(2) + string(27) + md5(16) == 2+27+16 == 45 ///// origin_text(45)  --> encAES
-	// // text(45) + padadd(3) == 48 == 3 * 16 as aes_data_load(48)
-	// // iv(16) + aes_data_load(48) == 16 + 48 == 64(aesENtext)
-	// // 64(aesENtext) + random(0-15 byte) == 64 + N byte == 64 + 8(for example) --> 72 byte( aes_ran_gen_Crypt_text(72) )
+		__VbI := []byte(___VstrIn)
+		__Vt1 := _FaesRand_test__encode(" 182812 ", &__Vkey, &__VbI)
+		// len(2) + string(27) + md5(16) == 2+27+16 == 45 ///// origin_text(45)  --> encAES
+		// // text(45) + padadd(3) == 48 == 3 * 16 as aes_data_load(48)
+		// // iv(16) + aes_data_load(48) == 16 + 48 == 64(aesENtext)
+		// // 64(aesENtext) + random(0-15 byte) == 64 + N byte == 64 + 8(for example) --> 72 byte( aes_ran_gen_Crypt_text(72) )
 
-	_FpfhexN(&__Vt1, 48, " 738194 : genRandSecText ")
-	__VbyteO := _FaesRand_test__decode(" 182814 ", &__Vkey, &__Vt1)
-	_FpfhexN(&__VbyteO, 48, " 738195 : plain_text ")
-	__VstrO := string(__VbyteO)
+		_FpfhexN(&__Vt1, 48, " 738194 : genRandSecText ")
+		__VbyteO := _FaesRand_test__decode(" 182814 ", &__Vkey, &__Vt1)
+		_FpfhexN(&__VbyteO, 48, " 738195 : plain_text ")
+		__VstrO := string(__VbyteO)
 
-	_FnotEqExit(" 738198 : comp error.", ___VstrIn, __VstrO)
-	_FpfN(" 738199 : comp ok:%s", ___VstrIn)
+		_FnotEqExit(" 738198 : comp error.", ___VstrIn, __VstrO)
+		_FpfN(" 738199 : comp_ok:%s", ___VstrIn)
+	}
 } // _FaesRand_test__en_de_Exit
