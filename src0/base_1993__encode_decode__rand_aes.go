@@ -1,8 +1,8 @@
 package main
 
 import (
-	//"time"
-	"crypto/md5"
+//"time"
+//"crypto/md5"
 )
 
 var (
@@ -20,7 +20,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(*___VbyteIn)
-	_FpfhexN(___VbyteIn, 16, " 192391 key %x , iv %x , byteIn ", *___Vkey, __Viv)
+	_FpfhexN(___VbyteIn, 20, " 192391 key %x , iv %x , byteIn ", *___Vkey, __Viv)
 
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
 
@@ -31,9 +31,19 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
 	copy(__Vtmp[2:], *___VbyteIn)
-	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
-	_FpfhexN(&__Vtmp, 32, " 192392 pre  : ")
-	_FpfhexlastN(&__Vtmp, 32, " 192393 post : ")
+	//copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
+	if 2 == 3 {
+		_FpfhexN(&__Vtmp, 48, " 192392 pre  : ")
+		_FpfhexN(&__Vtmp, 28, " 192392 pre  : ")
+		_FpfhexN(&__Vtmp, 30, " 192392 pre  : ")
+		_FpfhexN(&__Vtmp, 32, " 192392 pre  : ")
+		_FpfhexN(&__Vtmp, 33, " 192392 pre  : ")
+		_FpfhexN(&__Vtmp, 34, " 192392 pre  : ")
+		_FpfhexlastN(&__Vtmp, 28, " 192393 post : ")
+		_FpfhexlastN(&__Vtmp, 30, " 192393 post : ")
+		_FpfhexlastN(&__Vtmp, 33, " 192393 post : ")
+		_FpfhexlastN(&__Vtmp, 34, " 192393 post : ")
+	}
 	_Fex1("838331 Debug Exit ")
 
 	_FpfN(" 192395 byte (%d) %x , %s ", len(__Vtmp), __Vtmp, string(__Vtmp))

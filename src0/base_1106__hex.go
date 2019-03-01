@@ -24,13 +24,15 @@ func _PpdL(___VmaxPrLen int, ___Vbuf *[]byte) {
 
 func _FpfhexN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	__Vl := len(*___VbyteIn)
+
+	_Fpf(___Vfmt, ___Vobj...)
+	_Ppf(" (%d,%d)", __Vl, ___VmaxPrLen)
+
 	if __Vl < ___VmaxPrLen {
 		___VmaxPrLen = __Vl
 	}
-	_Fpf(___Vfmt, ___Vobj...)
 
 	//_Ppf(" (%d) %x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
-	_Ppf(" (%d)", __Vl)
 	__Vst := 0
 	for (16 + __Vst) < ___VmaxPrLen {
 		_Ppf(" %x", (*___VbyteIn)[__Vst:__Vst+16])
@@ -42,19 +44,21 @@ func _FpfhexN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...i
 
 func _FpfhexlastN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	__Vl := len(*___VbyteIn)
+
+	_Fpf(___Vfmt, ___Vobj...)
+	_Ppf(" (%d,%d)", __Vl, ___VmaxPrLen)
+
 	if __Vl < ___VmaxPrLen {
 		___VmaxPrLen = __Vl
 	}
-	_Fpf(___Vfmt, ___Vobj...)
+	__Vst := __Vl - ___VmaxPrLen
 
 	//_Ppf(" (%d) %x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
-	_Ppf(" (%d)", __Vl)
-	__Vst := 0
-	for (16 + __Vst) < ___VmaxPrLen {
+	for (16 + __Vst) < __Vl {
 		_Ppf(" %x", (*___VbyteIn)[__Vst:__Vst+16])
 		__Vst += 16
 	}
-	_Ppf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
+	_Ppf(" %x\n", (*___VbyteIn)[__Vst:__Vl])
 
 } // _FpfhexlastN
 
