@@ -40,6 +40,24 @@ func _FpfhexN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...i
 
 } // _FpfhexN
 
+func _FpfhexlastN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
+	__Vl := len(*___VbyteIn)
+	if __Vl < ___VmaxPrLen {
+		___VmaxPrLen = __Vl
+	}
+	_Fpf(___Vfmt, ___Vobj...)
+
+	//_Ppf(" (%d) %x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
+	_Ppf(" (%d)", __Vl)
+	__Vst := 0
+	for (16 + __Vst) < ___VmaxPrLen {
+		_Ppf(" %x", (*___VbyteIn)[__Vst:__Vst+16])
+		__Vst += 16
+	}
+	_Ppf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
+
+} // _FpfhexlastN
+
 //func _FcopyByte( &((*___VacceptTCP).Vbuf2) , &((*___VacceptTCP).Vbuf), (*___VacceptTCP).Vlen )
 //(*___VacceptTCP).Vbuf2 = make([]byte , (*___VacceptTCP).Vlen ); copy( (*___VacceptTCP).Vbuf2 , (*___VacceptTCP).Vbuf )
 func _FcopyByte(___dst *[]byte, ___src *[]byte, ___len int) {

@@ -32,6 +32,8 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
 	copy(__Vtmp[2:], *___VbyteIn)
 	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
+	_FpfhexN(&__Vtmp, 32, " 192392 pre  : ")
+	_FpfhexlastN(&__Vtmp, 32, " 192393 post : ")
 	_Fex1("838331 Debug Exit ")
 
 	_FpfN(" 192395 byte (%d) %x , %s ", len(__Vtmp), __Vtmp, string(__Vtmp))
