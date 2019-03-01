@@ -52,7 +52,7 @@ func _FreGenRandBuf___() {
 func _FgenRand_nByte__(___Vlen uint16) []byte {
 	var __Vout []byte
 
-	_FpfN(" 938191 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, ___Vlen)
+	//_FpfN(" 938191 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, ___Vlen)
 
 	if ___Vlen == 0 {
 		return __Vout
@@ -64,17 +64,17 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 		if _VgenRand.remain == 0 {
 			_FreGenRandBuf___()
 		}
-		_FpfN(" 938192 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, __VlenReq)
+		//_FpfN(" 938192 _FgenRand_nByte__ : _VgenRand.remain %d , need : %d ", _VgenRand.remain, __VlenReq)
 
 		if _VgenRand.remain >= __VlenReq {
 			__Vnew := _VgenRand.remain - __VlenReq
 			__Vout = make([]byte, __VlenReq)
 			copy(__Vout, _VgenRand.buf[__Vnew:_VgenRand.remain])
 			_VgenRand.remain = __Vnew
-			_FpfN(" 938194 _FgenRand_nByte__ : succeed gen : %d", __VlenReq)
+			//_FpfN(" 938194 _FgenRand_nByte__ : succeed gen : %d", __VlenReq)
 			break
 		} else {
-			_FpfN(" 938196 _FgenRand_nByte__ : skip the remain , regen ")
+			//_FpfN(" 938196 _FgenRand_nByte__ : skip the remain , regen ")
 			_VgenRand.remain = 0
 		}
 
@@ -84,16 +84,17 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 
 	_VgenRand.cnt64 += uint64(__VlenReq)
 
-	//_FpfN(" 938198 _FgenRand_nByte__ : result : %d ", len(__Vout))
-	_FpfhexN(&__Vout, 24, " 938199 _FgenRand_nByte__ : (%d) remain %d , Vout:", _VgenRand.cnt64, _VgenRand.remain)
+	_FpfhexN(&__Vout, 24, " 938199 _FgenRand_nByte__ : (%d:%d) remain %d , Vout:0x%x ", _VgenRand.cnt64, __VlenReq, _VgenRand.remain, len(__Vout))
 
 	return __Vout
 } // _FgenRand_nByte__
 
 func _FgenRand_nByte__testExit(___VloopAmount uint32) {
 	var __Vu1, __Vu2, __Vu3 uint16
-	for ___VloopAmount > 0 {
-		___VloopAmount--
+	var __Vcnt uint32
+
+	__Vwant64 := uint64(___VloopAmount * _VsizeOfRandBuf_byte)
+	for _VgenRand.cnt64 <= __Vwant64 {
 
 		__Vb2 := _FgenRand_nByte__(2)
 		__Vu1 = uint16(__Vb2[0])
@@ -110,6 +111,8 @@ func _FgenRand_nByte__testExit(___VloopAmount uint32) {
 				_FpfN("%x (16 first ...)", __Vb3[:16])
 			}
 		}
+		_FpfN(" 813916 : %d : %d , %d ", __Vcnt, _VgenRand.cnt64, __Vwant64)
+		__Vcnt++
 	}
 } // _FgenRand_nByte__testExit
 

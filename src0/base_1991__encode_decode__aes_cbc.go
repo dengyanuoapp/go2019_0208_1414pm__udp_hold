@@ -17,7 +17,7 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 	var __VlenIn, __Vlen2, __Vi, __Volen int
 	var __Vtmp, __Vout []byte
 
-	_FpfN(" 132811 _FencAesCbc__only___ : len In (%d) , key %x , iv %x", len(*___VbyteIn), *___Vkey, *___Viv)
+	//_FpfN(" 132811 _FencAesCbc__only___ : len In (%d) , key %x , iv %x", len(*___VbyteIn), *___Vkey, *___Viv)
 
 	__VlenIn = len(*___VbyteIn)
 	__Vi = __VlenIn & 0xF
@@ -46,7 +46,7 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 		__Vmode.CryptBlocks(__Vout[16:], __Vtmp)
 	}
 
-	if 3 == 3 {
+	if 2 == 3 {
 		_FpfhexN(&__Vout, 32, " 132819 _FencAesCbc__only___ : lenIn %d , dataOut: ", __VlenIn)
 	}
 
