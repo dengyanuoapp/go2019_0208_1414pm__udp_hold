@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	_VencAesRand_iv128__now  []byte = make([]byte, 16)
+	//_VencAesRand_iv128__now  []byte = make([]byte, 16)
 	_VencAesRand_iv128__last []byte = make([]byte, 16)
 )
 
@@ -48,8 +48,11 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		_FpfhexlastN(&__Vtmp, 34, " 192393 post : ")
 	}
 
-	__Vout, __Verr := _FencAesCbc__only___(___Vkey, &_VencAesRand_iv128__now, &__Vtmp)
-	_FerrExit(" 192396 ", __Verr)
+	__Vout, __Verr := _FencAesCbc__only___(___Vkey, &__Viv, &__Vtmp)
+	_FerrExit(" 192395 ", __Verr)
+
+	_FpfhexN(&__Vout, 50, " 192396 Vtmp : ")
+	_Fex1(" 192397 ")
 
 	if len(__Vout) > 16 {
 		copy(_VencAesRand_iv128__last, __Vout[:16])
