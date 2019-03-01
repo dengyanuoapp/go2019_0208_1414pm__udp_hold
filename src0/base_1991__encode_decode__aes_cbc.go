@@ -23,7 +23,7 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 	//_FpfN(" 132811 _FencAesCbc__only___ : len In (%d) , key %x , iv %x", len(*___VbyteIn), *___Vkey, *___Viv)
 
 	__VlenIn = len(*___VbyteIn)
-	_FnotEqExit(" 132811 ", 16, __VlenIn)
+	_FnotEqExit(" 132812 ", 16, len(*___Vkey))
 	_FnotEqExit(" 132813 ", 16, len(*___Viv))
 
 	__Vi = __VlenIn & 0xF
