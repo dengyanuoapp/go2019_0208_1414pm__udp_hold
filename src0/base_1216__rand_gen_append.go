@@ -94,6 +94,12 @@ func _FgenRand_nByte__testExit(___VloopAmount uint32) {
 	var __Vcnt uint32
 
 	__Vwant64 := uint64(___VloopAmount * _VsizeOfRandBuf_byte)
+	_FpfN(" ___VloopAmount %d , %ld ", ___VloopAmount, ___VloopAmount)
+	_FpfN(" _VsizeOfRandBuf_byte %d , %ld ", _VsizeOfRandBuf_byte, _VsizeOfRandBuf_byte)
+	_FpfN(" __Vwant64 %d , %ld ", __Vwant64, __Vwant64)
+	_FpfN(" ___VloopAmount %d , %ld ", ___VloopAmount, ___VloopAmount)
+	_Fex1(" 389182 debug stop ")
+
 	for _VgenRand.cnt64 <= __Vwant64 {
 
 		__Vb2 := _FgenRand_nByte__(2)
