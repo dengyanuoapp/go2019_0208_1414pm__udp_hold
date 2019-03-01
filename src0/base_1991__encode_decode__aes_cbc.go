@@ -68,3 +68,7 @@ func _FencAesCbcExit(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) []byte
 	_FerrExit(" 182811 ", __Verr)
 	return __Vbyte
 } // _FencAesCbcExit
+
+func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+	return nil, nil
+} // _FdecAesCbc__only___
