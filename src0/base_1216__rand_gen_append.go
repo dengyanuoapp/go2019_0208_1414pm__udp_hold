@@ -134,7 +134,7 @@ func _FappendRandPAT0_15(___Vbyte *[]byte) []byte {
 
 	__Vtmp2 := uint16(__Vtmp1[0])
 	__Vtmp2 &= 0xF
-	_FpfN(" 381921 : add pat tail rand pat : %d ", __Vtmp2)
+	//_FpfN(" 381921 : add pat tail rand pat : %d ", __Vtmp2)
 
 	__Vtmp3 := _FgenRand_nByte__(__Vtmp2)
 
