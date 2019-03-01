@@ -26,6 +26,7 @@ func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
 		_Fex1(" 389181 debug stop ")
 	}
 
+	// _FdecAesRand__only
 	_FaesRand_test__en_de_Exit("asa90as90sa90as90as9as82391")
 	_Fex1(" 389181 debug stop ")
 
