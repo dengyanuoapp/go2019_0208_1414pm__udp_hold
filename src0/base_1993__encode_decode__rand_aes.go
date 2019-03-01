@@ -44,9 +44,8 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		_FpfhexlastN(&__Vtmp, 33, " 192393 post : ")
 		_FpfhexlastN(&__Vtmp, 34, " 192393 post : ")
 	}
-	_Fex1("838331 Debug Exit ")
 
-	_FpfN(" 192395 byte (%d) %x , %s ", len(__Vtmp), __Vtmp, string(__Vtmp))
+	_FpfhexN(&__Vtmp, 16, " 192395 Vtmp ")
 
 	__Vout, __Verr := _FencAesCbc__only___(___Vkey, &_VencAesRand_iv128__now, &__Vtmp)
 	_FerrExit(" 192396 ", __Verr)
