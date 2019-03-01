@@ -1,8 +1,8 @@
 package main
 
 import (
-//"time"
-//"crypto/md5"
+	//"time"
+	"crypto/md5"
 )
 
 var (
@@ -31,7 +31,9 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
 	copy(__Vtmp[2:], *___VbyteIn)
-	//copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
+	_FpfhexN(&__Vtmp, 48, " 192394 Vtmp : ")
+	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
+	_FpfhexN(&__Vtmp, 48, " 192395 Vtmp : ")
 	if 2 == 3 {
 		_FpfhexN(&__Vtmp, 48, " 192392 pre  : ")
 		_FpfhexN(&__Vtmp, 28, " 192392 pre  : ")
@@ -44,8 +46,6 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		_FpfhexlastN(&__Vtmp, 33, " 192393 post : ")
 		_FpfhexlastN(&__Vtmp, 34, " 192393 post : ")
 	}
-
-	_FpfhexN(&__Vtmp, 16, " 192395 Vtmp ")
 
 	__Vout, __Verr := _FencAesCbc__only___(___Vkey, &_VencAesRand_iv128__now, &__Vtmp)
 	_FerrExit(" 192396 ", __Verr)
