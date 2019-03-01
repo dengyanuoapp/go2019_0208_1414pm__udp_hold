@@ -11,7 +11,7 @@ var (
 )
 
 // func _FencAesRand__gen_iv__by_timeMd5() {
-// 	_VencAesRand_iv128__now := _FgenMd5_now1___(&_VencAesRand_iv128__last)
+// 	_VencAesRand_iv128__now := _FgenMd5_nowB___(&_VencAesRand_iv128__last)
 // 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
 // } // _FencAesRand__gen_iv__by_timeMd5
 
@@ -27,7 +27,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(*___VbyteIn)
-	_FpfhexN(___VbyteIn, 20, " 192391 key %x , iv %x , byteIn ", *___Vkey, __Viv)
+	_FpfhexN(___VbyteIn, 40, " 192391 iv %x , byteIn ", __Viv)
 
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
 
@@ -100,7 +100,7 @@ func _FaesRand_test__decode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte
 
 func _FaesRand_test__en_de_Exit(___VstrIn string) {
 	__Vkey := _FgenRand_nByte__(32)
-	_FpfN(" 738191 : using key :%x", __Vkey)
+	_FpfhexN(&__Vkey, 40, " 738191 : using key ")
 
 	__VbI := []byte(___VstrIn)
 	__Vt1 := _FaesRand_test__encode(" 182812 ", &__Vkey, &__VbI)
