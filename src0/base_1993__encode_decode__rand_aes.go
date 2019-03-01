@@ -25,8 +25,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
 
 	__Vtmp[1] = byte(__VlenIn & 0xFF)
-	__VlenIn >>= 8
-	__Vtmp[0] = byte(__VlenIn & 0xFF)
+	__Vtmp[0] = byte((__VlenIn >> 8) & 0xFF)
 
 	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
@@ -34,6 +33,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	_FpfhexN(&__Vtmp, 48, " 192394 Vtmp : ")
 	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
 	_FpfhexN(&__Vtmp, 48, " 192395 Vtmp : ")
+
 	if 2 == 3 {
 		_FpfhexN(&__Vtmp, 48, " 192392 pre  : ")
 		_FpfhexN(&__Vtmp, 28, " 192392 pre  : ")
