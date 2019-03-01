@@ -16,7 +16,14 @@ var (
 // } // _FencAesRand__gen_iv__by_timeMd5
 
 func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
-	var __Vtmp []byte
+	var (
+		__Vout, __Vtmp []byte
+	)
+
+	if 32 != len(*___Vkey) {
+		_FpfhexN(___Vkey, 32, " 192390 key error len")
+		return __Vout, nil
+	}
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(*___VbyteIn)
@@ -53,11 +60,11 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	_FpfhexlastN(&__Vtmp2, 40, " 192396 Vtmp : ")
 
-	__Vout2 := _FappendRandPAT0_15(&__Vtmp2)
+	__Vout = _FappendRandPAT0_15(&__Vtmp2)
 
-	_FpfhexlastN(&__Vout2, 40, " 192397 Vtmp : ")
+	_FpfhexlastN(&__Vout, 40, " 192397 Vtmp : ")
 
-	return __Vout2, __Verr
+	return __Vout, __Verr
 } // _FencAesRand__only
 
 func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
@@ -92,7 +99,7 @@ func _FaesRand_test__decode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte
 } // _FaesRand_test__decode
 
 func _FaesRand_test__en_de_Exit(___VstrIn string) {
-	__Vkey := _FgenRand_nByte__(16)
+	__Vkey := _FgenRand_nByte__(32)
 	_FpfN(" 738191 : using key :%x", __Vkey)
 
 	__VbI := []byte(___VstrIn)

@@ -70,5 +70,19 @@ func _FencAesCbcExit(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) []byte
 } // _FencAesCbcExit
 
 func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+	var (
+		__Vout []byte
+	)
+
+	if 32 != len(*___Vkey) {
+		_FpfhexN(___Vkey, 32, " 838181 key len error ")
+		return __Vout, nil
+	}
+
+	__VlenIn := len(*___VbyteIn)
+	if __VlenIn < 32 {
+		return __Vout, nil
+	}
+
 	return nil, nil
 } // _FdecAesCbc__only___
