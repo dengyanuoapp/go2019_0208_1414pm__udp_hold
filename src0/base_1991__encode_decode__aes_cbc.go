@@ -83,6 +83,26 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	if __VlenIn < 32 {
 		return __Vout, nil
 	}
+	__VdataEnd := (__VlenIn & 0xF)
+	__Vout = make([]byte, __VdataEnd-16)
+	_FpfhexN(___VbyteIn, 82, " 838181 dataIn ")
 
-	return nil, nil
+	__Viv := (*___VbyteIn)[:16]
+	__VcipherText := (*___VbyteIn)[16:__VdataEnd]
+
+	__Vblock, __Verr := aes.NewCipher(*___Vkey)
+	_FerrExit(" 838182 ", __Verr)
+
+	if 3 == 3 {
+		_FpfhexN(&__Viv, 82, " 838183 iv ")
+		_FpfhexN(&__VcipherText, 82, " 838184 iv ")
+	}
+
+	__Vmode := cipher.NewCBCDecrypter(__Vblock, __Viv)
+	_FnullExit(" 838186 ", __Vmode)
+
+	// CryptBlocks(dst, src []byte)
+	__Vmode.CryptBlocks(__Vout, __VcipherText)
+
+	return __Vout, nil
 } // _FdecAesCbc__only___
