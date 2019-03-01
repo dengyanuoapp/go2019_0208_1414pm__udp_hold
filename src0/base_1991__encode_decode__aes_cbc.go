@@ -83,7 +83,8 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	if __VlenIn < 32 {
 		return __Vout, nil
 	}
-	__VdataEnd := (__VlenIn & 0xF)
+	__VdataEnd := (__VlenIn & 0xFFFFFFF0)
+	_FpfN(" 838180 __VlenIn %d , __VdataEnd %d ", __VlenIn, __VdataEnd)
 	__Vout = make([]byte, __VdataEnd-16)
 	_FpfhexN(___VbyteIn, 82, " 838181 dataIn ")
 
