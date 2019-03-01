@@ -3,7 +3,7 @@ package main
 import (
 	//"encoding/binary"
 	//"fmt"
-	"math/rand"
+	//"math/rand"
 	"sync"
 	"time"
 )
@@ -124,30 +124,23 @@ func _FgenRand_nByte__testExit(___VloopAmount uint32) {
 	}
 } // _FgenRand_nByte__testExit
 
-//	__Vbyte = _FappendRandLen2byteArr( &__Vbyte , 0 , 16 )
-// func math/rand.Uint32() uint32
-func _FappendRandLen2byteArr(___Vbyte *[]byte, ___Vmin, ___Vmax uint32) []byte {
-	__Vi := rand.Uint32()
-	__Vj := ___Vmax - ___Vmin
-	__Vk := uint32(__Vj)
-	__Vl := __Vi % __Vk
-	__Vm := __Vl + ___Vmin
+func _FappendRandPAT0_15(___Vbyte *[]byte) []byte {
 
-	__Vlen := byte(__Vl)
-	__Vlen += byte(___Vmin)
-
-	_Fpt(" 389111 :", __Vi, __Vj, __Vk, __Vl, __Vm, __Vlen, ___Vmin, ___Vmax)
-
-	if __Vlen == 0 {
+	if 0 == len(*___Vbyte) {
 		return *___Vbyte
 	}
 
-	__Vb := make([]byte, __Vlen)
+	__Vtmp1 := _FgenRand_nByte__(1)
 
-	rand.Read(__Vb)
+	__Vtmp2 := uint16(__Vtmp1[0])
+	__Vtmp2 &= 0xF
+	_FpfN(" 381921 : add pat tail rand pat : %d ", __Vtmp2)
 
-	return append(*___Vbyte, __Vb...)
-} // _FappendRandLen2byteArr
+	__Vtmp3 := _FgenRand_nByte__(__Vtmp2)
+
+	__Vout := append(*___Vbyte, __Vtmp3...)
+	return __Vout
+} // _FappendRandPAT0_15
 
 func _FgenTimeRand16byte() []byte {
 	var __Vb []byte

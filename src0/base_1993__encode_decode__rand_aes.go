@@ -48,23 +48,16 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		_FpfhexlastN(&__Vtmp, 34, " 192394 post : ")
 	}
 
-	__Vout, __Verr := _FencAesCbc__only___(___Vkey, &__Viv, &__Vtmp)
+	__Vtmp2, __Verr := _FencAesCbc__only___(___Vkey, &__Viv, &__Vtmp)
 	_FerrExit(" 192395 ", __Verr)
 
-	_FpfhexN(&__Vout, 70, " 192396 Vtmp : ")
-	_Fex1(" 192397 ")
+	_FpfhexlastN(&__Vtmp2, 40, " 192396 Vtmp : ")
 
-	if len(__Vout) > 16 {
-		copy(_VencAesRand_iv128__last, __Vout[:16])
-	}
+	__Vout2 := _FappendRandPAT0_15(&__Vtmp2)
 
-	_FpfN(" 192397 byte (%d) %x , %s ", len(__Vout), __Vout, string(__Vout))
+	_FpfhexlastN(&__Vout2, 40, " 192397 Vtmp : ")
 
-	__Vout = _FappendRandLen2byteArr(&__Vout, 0, 16)
-
-	_FpfN(" 192398 byte (%d) %x , %s ", len(__Vout), __Vout, string(__Vout))
-
-	return __Vout, __Verr
+	return __Vout2, __Verr
 } // _FencAesRand__only
 
 func _FencAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
