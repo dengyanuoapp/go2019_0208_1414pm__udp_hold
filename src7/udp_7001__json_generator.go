@@ -28,7 +28,10 @@ func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
 
 	// _FdecAesCbc__only___
 	// _FdecAesRand__only
-	_FaesRand_test__en_de_Exit("838189183jsadas78asklas9p/avh7o8asadhasi,s,hasjsdjdsa873n1kadsuikl189034jasd", 10000000)
+	//var __VloopAmount = 10000000 // 2:23 == 120+23 == 143 s
+	//var __VloopAmount = 1000000 // 18s
+	var __VloopAmount = 100000 // 5s
+	_FaesRand_test__en_de_Exit("838189183jsadas78asklas9p/avh7o8asadhasi,s,hasjsdjdsa873n1kadsuikl189034jasd", __VloopAmount)
 	//_Fex1(" 389183 debug stop ")
 
 	//_Fwrite_json_and_rand_Exit(" 389189 ", ___Vkey, "json/"+___Vfname+".json", ___Vdst)
