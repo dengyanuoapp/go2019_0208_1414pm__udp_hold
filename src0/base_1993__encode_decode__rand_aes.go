@@ -2,7 +2,9 @@ package main
 
 import (
 	//"time"
+	"bytes"
 	"crypto/md5"
+	"fmt"
 )
 
 var (
@@ -73,21 +75,34 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	)
 
 	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
-	_FerrExit(" 392392 ", __Verr)
+	_FerrExit(" 392391 ", __Verr)
 
 	__Vlen = len(__VdeO)
-	_FtrueExit(" 392394 ", __Vlen < 32)
+	_FtrueExit(" 392392 ", __Vlen < 32)
 	__Vb1 = int(__VdeO[1]) // byte 1 : low byte of the uint16
 	__Vb0 = int(__VdeO[0]) // byte 0 : high byte of the uint16
 	__Vb2 = (__Vb0 << 8) | __Vb1
 	__Vb3 = __Vb2 + 2
-	_FtrueExit(" 392394 ", __Vb3 > __Vlen)
+	_FtrueExit(" 392393 ", __Vb3 > __Vlen)
 
-	//_FpfN(" 392395 vb0 %d, vb1 %d , vb2 %d, vb3 %d, vlen %d ", __Vb0, __Vb1, __Vb2, __Vb3, __Vlen)
+	if __Vb3+16 > __Vlen {
+		return nil, fmt.Errorf(" 392394 : len error ")
+	}
+
+	__Vmd5InPack := __VdeO[__Vb3 : __Vb3+16]
+	__Vmd5calc := _FmakeByte16(md5.Sum(__VdeO[:__Vb3]))
+	if false == bytes.Equal(__Vmd5InPack, __Vmd5calc) {
+		_FpfhexlastN(&__Vmd5InPack, 16, " 392395 ")
+		_FpfhexlastN(&__Vmd5calc, 16, " 392396 ")
+		_FpfhexlastN(&__VdeO, 160, " 392397 ")
+		return nil, fmt.Errorf(" 392397 : md5 error ")
+	}
+
+	_FpfN(" 392398 vb0 %d, vb1 %d , vb2 %d, vb3 %d, vlen %d ", __Vb0, __Vb1, __Vb2, __Vb3, __Vlen)
 	__Vout2 := make([]byte, __Vb2)
 	copy(__Vout2, __VdeO[2:__Vb3])
 
-	//_FpfhexlastN(&__Vout2, 40, " 392397 Vout : ")
+	//_FpfhexlastN(&__Vout2, 40, " 392399 Vout : ")
 	return __Vout2, __Verr
 } // _FdecAesRand__only
 
