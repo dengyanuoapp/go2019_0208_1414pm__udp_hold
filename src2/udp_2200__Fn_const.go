@@ -6,7 +6,7 @@ var (
 )
 
 type _TconfigFn struct {
-	N string   // name
-	G string   // refresh-uri-Github
-	U []string // try-Uris
+	Name string   // name
+	Guri string   // refresh-uri-Github
+	U    []string // try-Uris
 } // _TconfigFn

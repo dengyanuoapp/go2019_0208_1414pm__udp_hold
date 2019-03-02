@@ -83,10 +83,13 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	__Vb0 = int(__VdeO[0]) // byte 0 : high byte of the uint16
 	__Vb2 = (__Vb0 << 8) | __Vb1
 	__Vb3 = __Vb2 + 2
-	_FtrueExit(" 392393 ", __Vb3 > __Vlen)
+
+	//_FpfN(" 392393 vb0 %d, vb1 %d , vb2 %d, vb3 %d, vlen %d ", __Vb0, __Vb1, __Vb2, __Vb3, __Vlen)
+	//_FpfhexlastN(&__VdeO, 128, " 392393 Vtmp : ")
+	//_FtrueExit(" 392393 ", __Vb3 > __Vlen)
 
 	if __Vb3+16 > __Vlen {
-		return nil, fmt.Errorf(" 392394 : len error ")
+		return nil, fmt.Errorf(" 392394 : len error , this is NOT the data for me(using my key).")
 	}
 
 	__Vmd5InPack := __VdeO[__Vb3 : __Vb3+16]
@@ -95,10 +98,9 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		_FpfhexlastN(&__Vmd5InPack, 16, " 392395 ")
 		_FpfhexlastN(&__Vmd5calc, 16, " 392396 ")
 		_FpfhexlastN(&__VdeO, 160, " 392397 ")
-		return nil, fmt.Errorf(" 392397 : md5 error ")
+		return nil, fmt.Errorf(" 392397 : md5 error,it is a fake package(maybe random package) ")
 	}
 
-	//_FpfN(" 392398 vb0 %d, vb1 %d , vb2 %d, vb3 %d, vlen %d ", __Vb0, __Vb1, __Vb2, __Vb3, __Vlen)
 	__Vout2 := make([]byte, __Vb2)
 	copy(__Vout2, __VdeO[2:__Vb3])
 
