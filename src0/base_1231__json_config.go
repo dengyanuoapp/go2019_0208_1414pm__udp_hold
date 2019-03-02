@@ -82,7 +82,7 @@ func _Fbase_104a__try_to_read_json_config_file() {
 		return
 	}
 
-	_FdecJson(_VjsonConfig_bytes, &_VjsonConfig_Now)
+	_FdecJson___(" 389192 ", &_VjsonConfig_bytes, &_VjsonConfig_Now)
 
 } // _Fbase_104a__try_to_read_json_config_file
 
