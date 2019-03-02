@@ -1,15 +1,16 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
 
-func _Fhttp_get(filepath string) ([]byte, error) {
+func _Fhttp_get(___Vuri string) ([]byte, error) {
 
 	// https://golang.org/pkg/net/http/#Get
 	// "net/http" : func Get(url string) (resp *Response, err error)
-	__Vresp, __Verr := http.Get(url)
+	__Vresp, __Verr := http.Get(___Vuri)
 	if __Verr != nil {
 		return nil, __Verr
 	}
