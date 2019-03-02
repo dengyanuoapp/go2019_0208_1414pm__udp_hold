@@ -47,8 +47,9 @@ func init() {
 		uExtMR: &_VuExtMR_Dn,
 		//UcallbackMR : _FuserCallback_u01MR__dataRece_Dn,
 		UcallbackTM: _FuserCallback_u03TM__timer_Dn,
-		Cexit:       &_Cexit,
-		Clog:        &_Clog,
+		// _Fconnect_to_server_01__req_new_sessionID__main_top
+		Cexit: &_Cexit,
+		Clog:  &_Clog,
 	}
 	_VserviceUdpDp = _TserviceUDP{
 		name: "UdpService__Dp",

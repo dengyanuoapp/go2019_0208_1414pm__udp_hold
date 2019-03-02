@@ -89,6 +89,26 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 	return __Vout
 } // _FgenRand_nByte__
 
+func _FgenRand_uint32() uint32 {
+	__Vbuf := _FgenRand_nByte__(4)
+	__Vb0 := uint32(__Vbuf[0])
+	__Vb1 := uint32(__Vbuf[1])
+	__Vb2 := uint32(__Vbuf[2])
+	__Vb3 := uint32(__Vbuf[3])
+	__Vo := __Vb0 | (__Vb1 << 8) | (__Vb2 << 16) | (__Vb3 << 24)
+	return __Vo
+} // _FgenRand_uint32
+
+func _FgenRand_int32() int32 {
+	__Vbuf := _FgenRand_nByte__(4)
+	__Vb0 := int32(__Vbuf[0])
+	__Vb1 := int32(__Vbuf[1])
+	__Vb2 := int32(__Vbuf[2])
+	__Vb3 := int32(__Vbuf[3])
+	__Vo := __Vb0 | (__Vb1 << 8) | (__Vb2 << 16) | (__Vb3 << 24)
+	return __Vo
+} // _FgenRand_uint32
+
 func _FgenRand_nByte__testExit(___VloopAmount uint32) {
 	var __Vu1, __Vu2, __Vu3 uint16
 	var __Vcnt uint32
