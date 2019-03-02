@@ -49,10 +49,10 @@ func _FencJsonExit(___VeMsg string, ___V interface{}) []byte {
 } // _FencJsonExit
 
 //    func Unmarshal(data []byte, v interface{}) error
-func _FdecJson(___Vbyte *[]byte, ___Vout interface{}) {
+func _FdecJson(___VeMsg string, ___Vbyte *[]byte, ___Vout interface{}) {
 	__Verr := json.Unmarshal(*___Vbyte, ___Vout)
 	if __Verr != nil {
-		_Perr(__Verr, "1831919 : gob.NewDecoder failed:")
+		_Perr(__Verr, ___VeMsg+"1831919 : gob.NewDecoder failed:")
 	}
 } // _FdecJson
 
@@ -70,12 +70,14 @@ func _Fwrite_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname str
 	_FwriteFileExit(___VeMsg+" 381915 ", ___Vfname, &__VbufTmp2)
 } // _Fwrite_json_rand_only_Exit
 
-func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string) []byte {
+func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string, ___Vobj interface{}) []byte {
 	var __VbufTmp1, __VbufTmp2 []byte
 	__VbufTmp1 = _FreadFileExit(___VeMsg+" 819183 ", ___Vfname)
 	__VbufTmp2 = _FdecAesRandExit(___VeMsg+" 819184 ", ___Vkey, &__VbufTmp1)
-	//_FdecJson(___VeMsg+" 819185 ", ___Vobj)
-	_FpfhexN(&__VbufTmp2, 80, " 819186 ")
+	//_FpfhexN(&__VbufTmp2, 80, " 819186 ")
+	if nil == ___Vobj {
+		_FdecJson(___VeMsg+" 819187 ", &__VbufTmp2, ___Vobj)
+	}
 	return __VbufTmp2
 } // _Fread_json_rand_only_Exit
 
@@ -84,11 +86,11 @@ func _FtestER__write_json_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfn
 
 	_Fwrite_json_rand_only_Exit(___VeMsg+" 381917 ", ___Vkey, ___Vfname+".rand", ___Vobj)
 
-	__VbufText2 := _Fread_json_rand_only_Exit(___VeMsg+" 381918 ", ___Vkey, ___Vfname+".rand")
+	__VbufText2 := _Fread_json_rand_only_Exit(___VeMsg+" 381918 ", ___Vkey, ___Vfname+".rand", ___Vobj)
 
 	_FfalseExit(" 381919 ", bytes.Equal(__VbufText1, __VbufText2))
 
-	_FpfhexN(&__VbufText1, 80, " 819181 ")
-	_FpfhexN(&__VbufText2, 80, " 819181 ")
-	_FpfN(" 819181 : <%s>", __VbufText2)
+	//_FpfhexN(&__VbufText1, 80, " 819181 ")
+	//_FpfhexN(&__VbufText2, 80, " 819182 ")
+	//_FpfN(" 819183 : <%s>", __VbufText2)
 } // _FtestER__write_json_and_rand_Exit
