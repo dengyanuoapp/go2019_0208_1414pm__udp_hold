@@ -49,12 +49,12 @@ func _FencJsonExit(___VeMsg string, ___V interface{}) []byte {
 } // _FencJsonExit
 
 //    func Unmarshal(data []byte, v interface{}) error
-func _FdecJson(___VeMsg string, ___Vbyte *[]byte, ___Vout interface{}) {
+func _FdecJson___(___VeMsg string, ___Vbyte *[]byte, ___Vout interface{}) {
 	__Verr := json.Unmarshal(*___Vbyte, ___Vout)
 	if __Verr != nil {
 		_Perr(__Verr, ___VeMsg+"1831919 : gob.NewDecoder failed:")
 	}
-} // _FdecJson
+} // _FdecJson___
 
 func _Fwrite_json_only_Exit(___VeMsg string, ___Vfname string, ___Vobj interface{}) []byte {
 	var __Vb []byte
@@ -76,7 +76,7 @@ func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname stri
 	__VbufTmp2 = _FdecAesRandExit(___VeMsg+" 819184 ", ___Vkey, &__VbufTmp1)
 	//_FpfhexN(&__VbufTmp2, 80, " 819186 ")
 	if nil == ___Vobj {
-		_FdecJson(___VeMsg+" 819187 ", &__VbufTmp2, ___Vobj)
+		_FdecJson___(___VeMsg+" 819187 ", &__VbufTmp2, ___Vobj)
 	}
 	return __VbufTmp2
 } // _Fread_json_rand_only_Exit
