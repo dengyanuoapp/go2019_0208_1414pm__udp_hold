@@ -81,7 +81,9 @@ func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname stri
 
 func _FtestER__write_json_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string, ___Vobj interface{}) {
 	__VbufText1 := _Fwrite_json_only_Exit(___VeMsg+" 381916 ", ___Vfname, ___Vobj)
+
 	_Fwrite_json_rand_only_Exit(___VeMsg+" 381917 ", ___Vkey, ___Vfname+".rand", ___Vobj)
+
 	__VbufText2 := _Fread_json_rand_only_Exit(___VeMsg+" 381918 ", ___Vkey, ___Vfname+".rand")
 
 	_FfalseExit(" 381919 ", bytes.Equal(__VbufText1, __VbufText2))
