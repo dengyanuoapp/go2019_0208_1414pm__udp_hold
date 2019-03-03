@@ -17,7 +17,12 @@ var (
 		// hex.DecodeString
 	}
 
-	_VreqNewSession _TreqNewSession
+	_Vconfig_Dn     _TconfigDn
+	_VreqNewSession _TreqNewSession = _TreqNewSession{
+		UpdateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Fn.json.rand",
+		UpdatePasswd: _VpasswdDown_Dn,
+		SrvInfo:      &_Vconfig_Dn,
+	}
 )
 
 func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
