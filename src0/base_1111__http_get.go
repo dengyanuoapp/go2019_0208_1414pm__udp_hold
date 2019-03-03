@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func _Fhttp_getAll(___Vuri string) ([]byte, error) {
+func _Fhttp_getAll(___skipTLS bool, ___Vuri string) ([]byte, error) {
 
 	// https://golang.org/pkg/net/http/#Get
 	// "net/http" : func Get(url string) (resp *Response, err error)
@@ -33,7 +33,7 @@ func _Fhttp_getAll(___Vuri string) ([]byte, error) {
 	return __Vout, nil
 } // _Fhttp_getAll
 
-func _Fhttp_getLimit(___Vuri string, ___VmaxLen int64) ([]byte, error) {
+func _Fhttp_getLimit(___skipTLS bool, ___Vuri string, ___VmaxLen int64) ([]byte, error) {
 
 	// https://golang.org/pkg/net/http/#Get
 	// "net/http" : func Get(url string) (resp *Response, err error)
