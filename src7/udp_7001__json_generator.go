@@ -9,6 +9,7 @@ type _TjFn struct {
 var (
 	_VjFn _TjFn = _TjFn{"Fn", "https://github.com/jasas78/jsonOnly/raw/master/Makefile",
 		[]string{}}
+	_Vself _Tself
 )
 
 // _FencAesRand_only

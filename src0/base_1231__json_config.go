@@ -66,15 +66,15 @@ func _Fbase_104c__try_to_get_env_id128() {
 } // _Fbase_104c__try_to_get_env_id128
 
 func _Fbase_104b__try_to_check_json_config() {
-	if _VjsonConfig_Now.Name != _VprojectName {
-		_VjsonConfig_Now.Name = _VprojectName
+	if _VjsonConfig_Now.Name != _Vself.ProjName {
+		_VjsonConfig_Now.Name = _Vself.ProjName
 		_VjsonConfig_need_save = true
 	}
 } // _Fbase_104b__try_to_check_json_config
 
 // _Fbase_1203__gen_self_md5_sha
 func _Fbase_104a__try_to_read_json_config_file() {
-	__Vfname := _self_prog + ".json"
+	__Vfname := _Vself.progPath + ".json"
 	_VjsonConfig_bytes, __Verr := ioutil.ReadFile(__Vfname)
 	if nil != __Verr {
 		_FpfN(" 389191 read config file <"+__Vfname+"> error, try to gen it... %v", __Verr)
@@ -89,7 +89,7 @@ func _Fbase_104a__try_to_read_json_config_file() {
 func _Fbase_104d__try_to_save_json_config_to_file() {
 	__Vbyte := _FencJsonExit("823811 : jsonConf encoding ", _VjsonConfig_Now)
 
-	__Vfname := _self_prog + ".json"
+	__Vfname := _Vself.progPath + ".json"
 	_FwriteFileExit("823813 jsonconf writing ", __Vfname, &__Vbyte)
 
 	__Vbyte2 := _FreadFileExit(" 823815 config file re-reading ", __Vfname)
@@ -114,8 +114,8 @@ func _Fbase_104z__try_to_read_json_config_top() {
 		_Fbase_104d__try_to_save_json_config_to_file()
 	}
 
-	_self_id128 = _VjsonConfig_Now.Id128
-	_VprojectName = _VjsonConfig_Now.Name
+	_Vself.Id128.b128 = _VjsonConfig_Now.Id128
+	_Vself.ProjName = _VjsonConfig_Now.Name
 
 	//_Fex1( " 381919 :Debug Stop here. " )
 } // _Fbase_104z__try_to_read_json_config_top

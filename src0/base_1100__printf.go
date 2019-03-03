@@ -10,10 +10,6 @@ import (
 )
 
 var (
-	_VprojectName string
-)
-
-var (
 	_Ppf func(___Vfmt string, ___Vpara ...interface{}) (int, error) = fmt.Printf
 	_Ppt func(___Vpara ...interface{}) (int, error)                 = fmt.Print
 	//_Ppn        func (                  ___Vpara ...interface{}) (int, error)   = fmt.Println
@@ -73,8 +69,8 @@ func _FpfN(___Vfmt string, ___Vpara ...interface{}) (int, error) {
 } // _FpfN
 
 func _Fph() {
-	if "" != _VprojectName {
-		_Ppf("%s:", _VprojectName)
+	if "" != _Vself.ProjName {
+		_Ppf("%s:", _Vself.ProjName)
 	}
 } // _Fph
 

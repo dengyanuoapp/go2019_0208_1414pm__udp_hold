@@ -16,11 +16,12 @@ var (
 
 	_Cexit chan string
 	_Clog  chan string
+	_Vself _Tself
 )
 
 func init() {
 
-	_VprojectName = "Fn"
+	_Vself.ProjName = "Fn"
 
 	_Fbase_1203__gen_self_md5_sha()
 	_Fbase_103__gen_rand_seed()
