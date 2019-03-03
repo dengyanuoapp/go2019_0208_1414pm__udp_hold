@@ -14,7 +14,7 @@ import (
 
 type _Tself struct {
 	ProjName string
-	MyId256  _Tb256
+	//MyId256  _Tb256
 
 	progPath string
 	progMd5  _Tb128 // md5sum    : 16 byte : 727bf338cf523b90baccd24cca30b919

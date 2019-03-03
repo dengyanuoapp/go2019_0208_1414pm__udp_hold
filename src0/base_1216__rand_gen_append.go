@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"encoding/binary"
+	"encoding/binary"
 	//"fmt"
 	//"math/rand"
 	"sync"
@@ -167,3 +167,16 @@ func _FgenTimeRand16byte() []byte {
 	__Vb = []byte(time.Now().String())
 	return _Fbase_1101b__gen_md5Only(&__Vb)
 } // _FgenTimeRand16byte
+
+func _FgenRand_int64__() int64 {
+	return ((int64)(binary.BigEndian.Uint64(_FgenRand_nByte__(8))))
+}
+func _FgenRand_uint64__() uint64 {
+	return binary.BigEndian.Uint64(_FgenRand_nByte__(8))
+}
+func _FgenRand_int32__() int32 {
+	return ((int32)(binary.BigEndian.Uint32(_FgenRand_nByte__(4))))
+}
+func _FgenRand_uint32__() uint32 {
+	return binary.BigEndian.Uint32(_FgenRand_nByte__(4))
+}

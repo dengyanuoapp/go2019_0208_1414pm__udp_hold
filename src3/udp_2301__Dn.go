@@ -33,9 +33,11 @@ func init() {
 	_Fbase_1203__init_self_All()
 
 	_Fbase_104z__try_to_read_json_config_top()
+
 	_Fbase_107__rand_init()
 
 	_FPargs()
+	_Fex1(" 838381 debug exit")
 
 	_VserviceTcpMd = _TserviceTCP{
 		name:        "TcpService__DebugLog__Md",
