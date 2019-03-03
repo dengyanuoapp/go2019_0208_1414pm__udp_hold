@@ -19,7 +19,7 @@ var (
 
 	_Vconfig_Dn     _TconfigDn
 	_VreqNewSession _TreqNewSession = _TreqNewSession{
-		UpdateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Fn.json.rand",
+		UpdateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn.json.rand",
 		UpdatePasswd: &_VpasswdDown_Dn,
 		SrvInfo:      &_Vconfig_Dn,
 	}
