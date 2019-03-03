@@ -12,7 +12,18 @@ func _Fhttp_getAll(___skipTLS bool, ___Vuri string) ([]byte, error) {
 
 	// https://golang.org/pkg/net/http/#Get
 	// "net/http" : func Get(url string) (resp *Response, err error)
-	__Vresp, __Verr := http.Get(___Vuri)
+	//__Vresp, __Verr := http.Get(___Vuri)
+	var __Vresp *http.Response
+	var __Verr error
+
+	if ___skipTLS == true { // skip tls
+		__Vtransport := &http.Transport{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
+		__Vclient := &http.Client{Transport: __Vtransport}
+		__Vresp, __Verr = __Vclient.Get(___Vuri)
+	} else { // using tls
+		__Vresp, __Verr = http.Get(___Vuri)
+	}
+
 	if __Verr != nil {
 		return nil, __Verr
 	}
