@@ -11,8 +11,8 @@ import (
 
 var (
 	// you must define a Var and name it : _Vconfig , it must be save as UDP config
-	_VS = _Vself
-	_VC = _Vconfig
+	_VS = &_Vself
+	_VC = &_Vconfig
 )
 
 var (
