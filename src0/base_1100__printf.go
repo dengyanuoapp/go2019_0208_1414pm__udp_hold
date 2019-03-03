@@ -10,6 +10,12 @@ import (
 )
 
 var (
+	// you must define a Var and name it : _Vconfig , it must be save as UDP config
+	_VS = _Vself
+	_VC = _Vconfig
+)
+
+var (
 	_Ppf func(___Vfmt string, ___Vpara ...interface{}) (int, error) = fmt.Printf
 	_Ppt func(___Vpara ...interface{}) (int, error)                 = fmt.Print
 	//_Ppn        func (                  ___Vpara ...interface{}) (int, error)   = fmt.Println

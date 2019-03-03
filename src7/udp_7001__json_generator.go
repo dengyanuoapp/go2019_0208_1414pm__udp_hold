@@ -5,11 +5,16 @@ type _TjFn struct {
 	G string
 	U []string
 } // _TjFn
+type _Tconfig struct {
+	Name  string
+	Id128 []byte
+}
 
 var (
 	_VjFn _TjFn = _TjFn{"Fn", "https://github.com/jasas78/jsonOnly/raw/master/Makefile",
 		[]string{}}
-	_Vself _Tself
+	_Vself   _Tself
+	_Vconfig _Tconfig
 )
 
 // _FencAesRand_only

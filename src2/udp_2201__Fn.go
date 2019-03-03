@@ -4,6 +4,11 @@ import (
 	"flag"
 )
 
+type _Tconfig struct {
+	Name  string
+	Id128 []byte
+}
+
 var (
 	_VserviceUdpFn _TserviceUDP
 	_VserviceUdpFp _TserviceUDP
@@ -14,9 +19,10 @@ var (
 
 	_VserviceTcpMf _TserviceTCP
 
-	_Cexit chan string
-	_Clog  chan string
-	_Vself _Tself
+	_Cexit   chan string
+	_Clog    chan string
+	_Vself   _Tself
+	_Vconfig _Tconfig
 )
 
 func init() {
