@@ -30,8 +30,8 @@ func init() {
 
 	_Vself.ProjName = "Dn"
 
-	_Fbase_1203__gen_self_md5_sha()
-	_Fbase_103__gen_rand_seed()
+	_Fbase_1203__init_self_All()
+
 	_Fbase_104z__try_to_read_json_config_top()
 	_Fbase_107__rand_init()
 
