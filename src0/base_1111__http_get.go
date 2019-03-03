@@ -19,7 +19,7 @@ func _Fhttp_getAll(___skipTLS bool, ___Vuri string) ([]byte, error) {
 
 	// Check server response
 	if __Vresp.StatusCode != http.StatusOK {
-		_FpfN(" 381911 bad status: %s", __Vresp.Status)
+		_FpfN(" 381911 01 bad status: %s", __Vresp.Status)
 		return nil, fmt.Errorf("381912 bad status: %s", __Vresp.Status)
 	}
 
@@ -27,7 +27,7 @@ func _Fhttp_getAll(___skipTLS bool, ___Vuri string) ([]byte, error) {
 	// import "io/ioutil" : func ReadAll(r io.Reader) ([]byte, error)
 	__Vout, __Verr := ioutil.ReadAll(__Vresp.Body)
 	if nil != __Verr {
-		_FpfN(" 381914 %v", __Verr)
+		_FpfN(" 381911 04 %v", __Verr)
 		return nil, __Verr
 	}
 	return __Vout, nil
@@ -45,7 +45,7 @@ func _Fhttp_getLimit(___skipTLS bool, ___Vuri string, ___VmaxLen int64) ([]byte,
 
 	// Check server response
 	if __Vresp.StatusCode != http.StatusOK {
-		_FpfN(" 381911 bad status: %s", __Vresp.Status)
+		_FpfN(" 381914 01 bad status: %s", __Vresp.Status)
 		return nil, fmt.Errorf("381912 bad status: %s", __Vresp.Status)
 	}
 
@@ -57,7 +57,7 @@ func _Fhttp_getLimit(___skipTLS bool, ___Vuri string, ___VmaxLen int64) ([]byte,
 	// import "io/ioutil" : func ReadAll(r io.Reader) ([]byte, error)
 	__Vout, __Verr := ioutil.ReadAll(__Vlimit_1m)
 	if nil != __Verr {
-		_FpfN(" 381914 %v", __Verr)
+		_FpfN(" 381914 04 %v", __Verr)
 		return nil, __Verr
 	}
 	return __Vout, nil

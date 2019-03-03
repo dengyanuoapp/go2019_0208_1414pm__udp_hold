@@ -16,8 +16,8 @@ func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___VoriginObj interface
 
 func _Ftry_download_rand_json01(___VdownUri string, ___Vkey *[]byte, ___VrecoverObj interface{}) ([]byte, error) {
 
-	//__Vtmp1, __Verr := _Fhttp_getLimit(___VdownUri, 1024*64)
-	__Vtmp1, __Verr := _Fhttp_getAll(true, ___VdownUri)
+	__Vtmp1, __Verr := _Fhttp_getLimit(true, ___VdownUri, 1024*64)
+	//__Vtmp1, __Verr := _Fhttp_getAll(true, ___VdownUri)
 	if nil != __Verr {
 		return nil, fmt.Errorf(" 638191 01 : %v", __Verr)
 	}
