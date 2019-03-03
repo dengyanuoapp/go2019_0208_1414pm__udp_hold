@@ -18,13 +18,13 @@ func _Fbase_104c__try_to_get_env_id128() {
 	__Vstr := os.Getenv("id128")
 	_FpfN(" 893871 read env id128 is (%d)[%s]", len(__Vstr), __Vstr)
 	if "" == __Vstr || len(__Vstr) < 32 {
-		if 16 != len(_VC.Id128) {
+		if 16 != len(_VC.MyId128) {
 			_FpfN(" 893873 read env id128 is NULL or too short, and the json.config file id128 error: \n (%d)[%0x] \n",
-				len(_VC.Id128), _VC.Id128)
+				len(_VC.MyId128), _VC.MyId128)
 			_Fex1(" 893874 : Exit now ")
 		}
 		_FpfN(" 893875 env id128 is NULL , and the json.config file id128 ok: \n (%d)[%0x] \n",
-			len(_VC.Id128), _VC.Id128)
+			len(_VC.MyId128), _VC.MyId128)
 
 		return
 	}
@@ -46,7 +46,7 @@ func _Fbase_104c__try_to_get_env_id128() {
 		_Fex1(" Exit now ")
 	}
 
-	if bytes.Equal(__Vbyte, _VC.Id128) {
+	if bytes.Equal(__Vbyte, _VC.MyId128) {
 		_FpfN(" 893878 read env id128 equals to json's id128\n (%d)[%0x] \n",
 			len(__Vbyte), string(__Vbyte))
 		return
@@ -54,9 +54,9 @@ func _Fbase_104c__try_to_get_env_id128() {
 
 	_FpfN(" 893879 read env id128 NOT equals to json's id128\n env : (%d)[%0x] \n json: (%d)[%0x] \n",
 		len(__Vbyte), string(__Vbyte),
-		len(_VC.Id128), string(_VC.Id128))
+		len(_VC.MyId128), string(_VC.MyId128))
 
-	_VC.Id128 = __Vbyte
+	_VC.MyId128 = __Vbyte
 	_VjsonConfig_need_save = true
 } // _Fbase_104c__try_to_get_env_id128
 
@@ -109,7 +109,7 @@ func _Fbase_104z__try_to_read_json_config_top() {
 		_Fbase_104d__try_to_save_json_config_to_file()
 	}
 
-	_Vself.progMd5.b128 = _VC.Id128
+	_Vself.progMd5.b128 = _VC.MyId128
 	_Vself.ProjName = _VC.Name
 
 	//_Fex1( " 381919 :Debug Stop here. " )

@@ -5,8 +5,8 @@ import (
 )
 
 type _Tconfig struct {
-	Name  string
-	Id128 []byte
+	Name    string
+	MyId128 []byte
 }
 
 var (
