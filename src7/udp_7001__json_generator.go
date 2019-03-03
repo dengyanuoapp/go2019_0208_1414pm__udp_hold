@@ -19,7 +19,7 @@ var (
 
 // _FencAesRand_only
 // _FencAesRandExit
-func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
+func _Ftest01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
 
 	if 2 == 3 {
 		// _FreGenRandBuf___
@@ -41,11 +41,11 @@ func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
 	//_Fex1(" 389183 debug stop ")
 
 	//_Fwrite_json_and_rand_Exit(" 389189 ", ___Vkey, "json/"+___Vfname+".json", ___Vdst)
-} // _Ftry_gen_json01
+} // _Ftest01
 
 func main() {
 	_FpfN("\n Start \n")
 
-	_Ftry_gen_json01("fn", &_VpwFile_Dn, &_VjFn)
+	_Ftest01("fn", &_VpasswdDown_Dn, &_VjFn)
 
 } // main
