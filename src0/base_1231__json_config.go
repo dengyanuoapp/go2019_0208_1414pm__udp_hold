@@ -114,7 +114,7 @@ func _Fbase_104z__try_to_read_json_config_top() {
 		_Fbase_104d__try_to_save_json_config_to_file()
 	}
 
-	_Vself.Id128.b128 = _VjsonConfig_Now.Id128
+	_Vself.progMd5.b128 = _VjsonConfig_Now.Id128
 	_Vself.ProjName = _VjsonConfig_Now.Name
 
 	//_Fex1( " 381919 :Debug Stop here. " )

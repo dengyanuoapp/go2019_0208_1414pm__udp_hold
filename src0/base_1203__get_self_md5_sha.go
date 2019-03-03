@@ -14,15 +14,14 @@ import (
 
 type _Tself struct {
 	ProjName string
-	Id128    _Tb128 // md5sum    : 16 byte : 727bf338cf523b90baccd24cca30b919
-	Id256    _Tb256 // sha256sum : 32 byte : 2c6e3b458d5c482bc52a1d7d4f5a7d7766381c9f07d9b32ca605ae45b4e473f5
+	MyId256  _Tb256
 
 	progPath string
+	progMd5  _Tb128 // md5sum    : 16 byte : 727bf338cf523b90baccd24cca30b919
+	progSha  _Tb256 // sha256sum : 32 byte : 2c6e3b458d5c482bc52a1d7d4f5a7d7766381c9f07d9b32ca605ae45b4e473f5
 
 	startTime    time.Time
 	startTimEsha _Tb256
-
-	myKey _Tb256
 
 	debugEnabled bool
 } //    _Tself
@@ -35,9 +34,9 @@ func _Fbase_1203__gen_self_md5_sha() {
 		log.Fatalf("err138191", __Verr)
 	}
 
-	_Vself.Id256._Fbase_1101__gen_shaT(&__Vcontent)
-	_Vself.Id128._Fbase_1101__gen_md5T(&__Vcontent)
-	_FpfN(" 838191 _Fbase_1101b__gen_md5Only return : [%x] (%x %x)", _Vself.Id128.b128, _Vself.Id128.A1, _Vself.Id128.A2)
+	_Vself.progSha._Fbase_1101__gen_shaT(&__Vcontent)
+	_Vself.progMd5._Fbase_1101__gen_md5T(&__Vcontent)
+	_FpfN(" 838191 _Fbase_1101b__gen_md5Only return : [%x] (%x %x)", _Vself.progMd5.b128, _Vself.progMd5.A1, _Vself.progMd5.A2)
 
 	// prog : 1
 	// prog x1 x2 x3 : 4
@@ -46,8 +45,8 @@ func _Fbase_1203__gen_self_md5_sha() {
 		// func hex.DecodeString(s string) ([]byte, error)
 		__Vhex, __Verr := hex.DecodeString(os.Args[__VparaLen-1])
 		if nil == __Verr {
-			//if fmt.Sprintf("%x" , __Vhex) == fmt.Sprintf("%x" , _Vself.Id256 ) {
-			if bytes.Equal(__Vhex, _Vself.Id256.b256) {
+			//if fmt.Sprintf("%x" , __Vhex) == fmt.Sprintf("%x" , _Vself.progSha ) {
+			if bytes.Equal(__Vhex, _Vself.progSha.b256) {
 				_Vself.debugEnabled = true
 			}
 		}
@@ -55,8 +54,8 @@ func _Fbase_1203__gen_self_md5_sha() {
 	log.Printf(" _Vself.debugEnabled : %t\n", _Vself.debugEnabled)
 
 	_Ppn("from:", _Vself.progPath)
-	_FpfN(" 8381191 File md5: [ %x ]", _Vself.Id128.b128)
-	_FpfN(" 8381192 File sha: [ %x ] %x %x %x %x ", _Vself.Id256.b256, _Vself.Id256.A1, _Vself.Id256.A2, _Vself.Id256.A3, _Vself.Id256.A4)
+	_FpfN(" 8381191 File md5: [ %x ]", _Vself.progMd5.b128)
+	_FpfN(" 8381192 File sha: [ %x ] %x %x %x %x ", _Vself.progSha.b256, _Vself.progSha.A1, _Vself.progSha.A2, _Vself.progSha.A3, _Vself.progSha.A4)
 
 } // _Fbase_1203__gen_self_md5_sha
 

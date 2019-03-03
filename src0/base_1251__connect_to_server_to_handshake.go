@@ -19,5 +19,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__Default() {
 
 func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessionID__main_top() {
 	_FpfN(" 311912 01 ")
+	_FpfN(" 311912 02 %v", ___VreqNewSession)
+	_FpfN(" 311912 03 %v", _Vself)
 
 } // _Fconnect_to_server_01__req_new_sessionID__main_top

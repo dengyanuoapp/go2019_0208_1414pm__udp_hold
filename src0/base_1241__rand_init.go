@@ -7,7 +7,7 @@ import (
 )
 
 func _Fbase_107__rand_init() {
-	_FpfN(" 189301 : _Vself.Id128 %d : %0x ", len(_Vself.Id128.b128), _Vself.Id128.b128)
+	_FpfN(" 189301 : _Vself.progMd5 %d : %0x ", len(_Vself.progMd5.b128), _Vself.progMd5.b128)
 
 	// func rand.Seed(seed int64)
 	//rand.Seed(time.Now().Unix())
@@ -15,11 +15,11 @@ func _Fbase_107__rand_init() {
 		_Vself.startTimEsha.A2 ^
 		_Vself.startTimEsha.A3 ^
 		_Vself.startTimEsha.A4 ^
-		_Vself.Id256.A1 ^
-		_Vself.Id256.A2 ^
-		_Vself.Id256.A3 ^
-		_Vself.Id256.A4 ^
-		binary.BigEndian.Uint64((_Vself.Id128.b128[0:8]))))
+		_Vself.progSha.A1 ^
+		_Vself.progSha.A2 ^
+		_Vself.progSha.A3 ^
+		_Vself.progSha.A4 ^
+		binary.BigEndian.Uint64((_Vself.progMd5.b128[0:8]))))
 
 	// wall : wall[63] wall[62:30] wall[29:0] : 1bit,33bit, 30bit
 	// if hasMonotonic == (1 << 63) bit
@@ -37,7 +37,7 @@ func _Fbase_107__rand_init() {
 	// func rand.Uint64() uint64
 	__Vu64 := rand.Uint64
 	__Vb := []byte(fmt.Sprintf("%x", __Vu64))
-	_Vself.myKey._Fbase_1101__gen_shaT(&__Vb)
+	_Vself.MyId256._Fbase_1101__gen_shaT(&__Vb)
 	//     _Vself.myKey , _      = sha256.Sum256( Sprintf( "%x" , __Vu64 ) )
 	//     _self_rand1 , _     = strconv.ParseUint( _Vself.myKey[0:7]     , 16, 64 )
 	//     _self_rand2 , _     = strconv.ParseUint( _Vself.myKey[8:15]    , 16, 64 )
