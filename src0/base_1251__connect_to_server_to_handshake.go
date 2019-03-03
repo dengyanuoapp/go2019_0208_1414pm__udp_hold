@@ -5,8 +5,19 @@ type _TreqNewSession struct {
 	RetryCNT uint16
 } //    _TreqNewSession
 
-func (_VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessionID__main_top() {
-	_FpfN(" 311911 01 ")
+// you can
+func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__Default() {
+	if ___VreqNewSession.Enabled {
+		_FpfN(" 311911 01 ")
+		_Fsleep_100s()
+	} else {
+		//_FpfN(" 311911 03 ")
+		___VreqNewSession._Fconnect_to_server_01__req_new_sessionID__main_top()
+		_FsleepRand_12_to_14s()
+	}
+} // _Fconnect_to_server_01__Default
 
-	_FsleepRand_12_to_14s()
+func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessionID__main_top() {
+	_FpfN(" 311912 01 ")
+
 } // _Fconnect_to_server_01__req_new_sessionID__main_top

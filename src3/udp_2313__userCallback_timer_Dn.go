@@ -40,9 +40,5 @@ func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
 		}
 	}
 
-	if _VuExtTimer_Dn.enabled {
-		_Fsleep_50s()
-	} else {
-		_VreqNewSession._Fconnect_to_server_01__req_new_sessionID__main_top()
-	}
+	_VreqNewSession._Fconnect_to_server_01__Default()
 } // _FuserCallback_u03TM__timer_Dn
