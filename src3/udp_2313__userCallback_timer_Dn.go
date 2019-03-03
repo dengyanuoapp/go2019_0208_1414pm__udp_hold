@@ -16,6 +16,8 @@ var (
 		pw2:      _Taes{"password__used_to_connect_to_Fn", []byte(_FnPasswd)},
 		// hex.DecodeString
 	}
+
+	_VreqNewSession _TreqNewSession
 )
 
 func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
@@ -41,6 +43,6 @@ func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
 	if _VuExtTimer_Dn.enabled {
 		_Fsleep_50s()
 	} else {
-		_Fconnect_to_server_01__req_new_sessionID__main_top()
+		_VreqNewSession._Fconnect_to_server_01__req_new_sessionID__main_top()
 	}
 } // _FuserCallback_u03TM__timer_Dn
