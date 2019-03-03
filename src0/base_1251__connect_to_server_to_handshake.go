@@ -1,10 +1,11 @@
 package main
 
 type _TreqNewSession struct {
-	Enabled   bool
-	RetryCNT  uint16
-	UpdateUri string
-	SrvInfo   interface{}
+	Enabled      bool
+	RetryCNT     uint16
+	UpdateUri    string
+	UpdatePasswd *[]byte
+	SrvInfo      interface{}
 } //    _TreqNewSession
 
 // you can
@@ -30,8 +31,13 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 
 	if 0 == ___VreqNewSession.RetryCNT {
 		_, __Verr := _Ftry_download_rand_json01(___VreqNewSession.UpdateUri, ___VreqNewSession.UpdatePasswd, ___VreqNewSession.SrvInfo)
-		_FpfN(" 311912 10 ", ___VreqNewSession.SrvInfo)
+		if nil == __Verr {
+			_FpfN(" 311912 08 : ok : %s , %v ", ___VreqNewSession.UpdateUri, ___VreqNewSession.SrvInfo)
+		} else {
+			_FpfN(" 311912 09 : Error : %s , %v ", ___VreqNewSession.UpdateUri, __Verr)
+		}
+
 	}
 
-	_Fex1(" 311912 09 ")
+	_Fex1(" 311912 99 ")
 } // _Fconnect_to_server_01__req_new_sessionID__main_top
