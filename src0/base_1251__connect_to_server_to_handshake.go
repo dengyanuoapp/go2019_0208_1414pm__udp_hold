@@ -41,10 +41,16 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 	}
 	if 0 == ___VreqNewSession.remainCnt {
 		__nowUri := ___VreqNewSession.updateUri
+		var __Verr error
 		for {
-			_, __Verr := _Ftry_download_rand_json01(__nowUri, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvInfo)
+			__nowUri2 := _Pspf("%s.%x", __nowUri, _VC.MyId128)
+			_, __Verr = _Ftry_download_rand_json01(__nowUri2, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvInfo)
 			if nil != __Verr {
-				_FpfN(" 311913 01 : Error : update Uri slice failed.: %s , %v ", __nowUri, __Verr)
+				_FpfN(" 311913 01 : Error : update Uri slice failed.: %s , %v ", __nowUri2, __Verr)
+				_, __Verr = _Ftry_download_rand_json01(__nowUri, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvInfo)
+			}
+			if nil != __Verr {
+				_FpfN(" 311913 02 : Error : update Uri slice failed.: %s , %v ", __nowUri, __Verr)
 				___VreqNewSession.skipCnt = 4 // skip 4 time , about 40 second
 				return
 			}
