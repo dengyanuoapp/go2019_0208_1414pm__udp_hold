@@ -28,7 +28,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__Default() {
 
 func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessionID__main_top() {
 	_FpfN(" 311912 01 ")
-	_FpfN(" 311912 02 %v", ___VreqNewSession)
+	//_FpfN(" 311912 02 %v", ___VreqNewSession)
 	//	//_FpfN(" 311912 03 %v", _Vself)
 	//	_FpfN(" 311912 04 %v", _VS)
 	//	//_FpfN(" 311912 05 %v", _Vconfig)
@@ -77,8 +77,18 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 		_FpfNex(" 311913 07 : why reach here ? [%v]", ___VreqNewSession)
 	}
 
-	_FpfN(" 311914 01 : try connect to idx  %d of %d , remain %d , [%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
-		___VreqNewSession.remainCnt, ___VreqNewSession)
+	//_FpfN(" 311914 01 : try connect to idx  %d of %d , remain %d , [%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
+	//	___VreqNewSession.remainCnt, ___VreqNewSession)
 
-	_Fex1(" 311914 99 ")
+	_FpfN(" 311914 02 : try connect to idx  %d of %d , remain %d ", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
+		___VreqNewSession.remainCnt)
+
+	___VreqNewSession.srvIdx++
+	if ___VreqNewSession.srvIdx >= ___VreqNewSession.srvLen {
+		___VreqNewSession.srvIdx = 0
+	}
+
+	___VreqNewSession.remainCnt--
+
+	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_01__req_new_sessionID__main_top
