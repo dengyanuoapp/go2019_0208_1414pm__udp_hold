@@ -17,11 +17,11 @@ var (
 		// hex.DecodeString
 	}
 
-	_Vconfig_Dn     _TconfigDn
+	_Vconfig_Dn     _TconfigXn
 	_VreqNewSession _TreqNewSession = _TreqNewSession{
-		UpdateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn.json.rand",
-		UpdatePasswd: &_VpasswdDown_Dn,
-		SrvInfo:      &_Vconfig_Dn,
+		updateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn.json.rand",
+		updatePasswd: &_VpasswdDown_Dn,
+		srvConfig:    &_Vconfig_Dn,
 	}
 )
 

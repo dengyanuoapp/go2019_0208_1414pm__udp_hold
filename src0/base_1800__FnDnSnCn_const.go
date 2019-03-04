@@ -23,3 +23,10 @@ const (
 	_SnPasswd = "ca79319381829379abe9abe889ac8aa3"
 	_CnPasswd = "3019303f301ab921b8a8c8a9018a78a4"
 )
+
+type _TconfigXn struct {
+	Name     string   // name
+	Guri     string   // refresh-uri-Github
+	UriDn2Fn []string // try-Uris
+	K256     []byte   // passwd to connect the this server
+} // _TconfigXn

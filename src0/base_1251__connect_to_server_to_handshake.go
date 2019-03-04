@@ -1,11 +1,17 @@
 package main
 
 type _TreqNewSession struct {
-	Enabled      bool
-	RetryCNT     uint16
-	UpdateUri    string
-	UpdatePasswd *[]byte
-	SrvInfo      interface{}
+	Enabled bool
+
+	skipCnt   int
+	remainCnt int
+
+	updateUri    string
+	updatePasswd *[]byte
+
+	srvLen    int
+	srvIdx    int
+	srvConfig *_TconfigXn
 } //    _TreqNewSession
 
 // you can
@@ -29,15 +35,37 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 	_FpfN(" 311912 06 %v", _VC)
 	_FpfN(" 311912 07 %v", ___VreqNewSession)
 
-	if 0 == ___VreqNewSession.RetryCNT {
-		_, __Verr := _Ftry_download_rand_json01(___VreqNewSession.UpdateUri, ___VreqNewSession.UpdatePasswd, ___VreqNewSession.SrvInfo)
-		if nil == __Verr {
-			_FpfN(" 311912 08 : ok : %s , %v ", ___VreqNewSession.UpdateUri, ___VreqNewSession.SrvInfo)
-		} else {
-			_FpfN(" 311912 09 : Error : %s , %v ", ___VreqNewSession.UpdateUri, __Verr)
+	if 0 != ___VreqNewSession.skipCnt {
+		___VreqNewSession.skipCnt--
+		return // skip then exit
+	}
+	if 0 == ___VreqNewSession.remainCnt {
+		__nowUri := ___VreqNewSession.updateUri
+		for {
+			_, __Verr := _Ftry_download_rand_json01(__nowUri, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvConfig)
+			if nil != __Verr {
+				_FpfN(" 311913 01 : Error : update Uri slice failed.: %s , %v ", __nowUri, __Verr)
+				___VreqNewSession.skipCnt = 4 // skip 4 time , about 40 second
+				return
+			}
+			_FpfN(" 311913 03 : ok : %s , %v ", __nowUri, ___VreqNewSession.srvConfig)
+			if ___VreqNewSession.srvConfig.Guri == __nowUri { //_Vconfig_Dn     _TconfigXn
+				break
+			}
+
+			// or , the new uri need to be used. try tu use it.
+			__nowUri = ___VreqNewSession.srvConfig.Guri
 		}
+
+		___VreqNewSession.srvLen = len(___VreqNewSession.srvConfig.UriDn2Fn) // try to use the U[:] slice
+		if 0 == ___VreqNewSession.srvLen {
+			_FpfN(" 311913 05 : Error : why Uri slice err ? : %d , %s ", ___VreqNewSession.srvLen, __nowUri)
+			___VreqNewSession.skipCnt = 8 // skip 8 time , about 80 second , before recheck.
+			return
+		}
+		___VreqNewSession.remainCnt = ___VreqNewSession.srvLen * 5 // try to use the U[:] slice , loop 5 time , then refresh URI
 
 	}
 
-	_Fex1(" 311912 99 ")
+	_Fex1(" 311913 99 ")
 } // _Fconnect_to_server_01__req_new_sessionID__main_top
