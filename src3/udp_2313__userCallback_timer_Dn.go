@@ -21,7 +21,7 @@ var (
 	_VreqNewSession _TreqNewSession = _TreqNewSession{
 		updateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn.json.rand",
 		updatePasswd: &_VpasswdDown_Dn,
-		srvConfig:    &_VsrvInfo_Dn,
+		srvInfo:      &_VsrvInfo_Dn,
 	}
 )
 
