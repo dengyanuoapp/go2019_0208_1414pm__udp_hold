@@ -43,4 +43,6 @@ type _TreqNewSession struct {
 	srvLen  int
 	srvIdx  int
 	srvInfo *_TsrvInfo
+
+	UcallbackNS func(*_TreqNewSession) bool // _FuserCallback_u03TM__connect_Dn2Fn
 } //    _TreqNewSession

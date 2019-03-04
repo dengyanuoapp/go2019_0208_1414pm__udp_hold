@@ -22,12 +22,16 @@ var (
 		updateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn2Fn.json.rand",
 		updatePasswd: &_VpasswdDown_Dn,
 		srvInfo:      &_VsrvInfo_Dn,
+		UcallbackNS:  _FuserCallback_u03TM__connect_Dn2Fn,
 	}
 )
 
 func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
 	//_VuExtTimer_Dn.idx++
-	_VreqNewSession._Fconnect_to_server_01__Default()
+	_VreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
 } // _FuserCallback_u03TM__timer_Dn
-func _FuserCallback_u03TM__connect_Dn2Fn(___VreqNewSession *_TreqNewSession) {
+
+// being call in _Fconnect_to_server_03__real
+func _FuserCallback_u03TM__connect_Dn2Fn(___VreqNewSession *_TreqNewSession) bool {
+	return false // false -> call default func ; true --> already deal with , no call to default func call
 } // _FuserCallback_u03TM__connect_Dn2Fn

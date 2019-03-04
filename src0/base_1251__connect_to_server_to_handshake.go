@@ -1,7 +1,7 @@
 package main
 
 // you can
-func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__Default() {
+func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessionID__default() {
 	if ___VreqNewSession.Enabled {
 		_FpfN(" 311911 01 ")
 		_Fsleep_100s()
@@ -10,7 +10,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__Default() {
 		___VreqNewSession._Fconnect_to_server_02__req_new_sessionID__main_top()
 		_FsleepRand_12_to_14s()
 	}
-} // _Fconnect_to_server_01__Default
+} // _Fconnect_to_server_01__req_new_sessionID__default
 
 func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessionID__main_top() {
 	_FpfN(" 311912 01 ")
@@ -69,7 +69,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessio
 	_FpfN(" 311914 02 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
 		___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
 
-	_Fconnect_to_server_03__real(___VreqNewSession)
+	___VreqNewSession._Fconnect_to_server_03__real()
 
 	___VreqNewSession.srvIdx++
 	if ___VreqNewSession.srvIdx >= ___VreqNewSession.srvLen {
@@ -80,8 +80,16 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessio
 
 	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_02__req_new_sessionID__main_top
-func _Fconnect_to_server_03__real(___VreqNewSession *_TreqNewSession) {
+func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_03__real() {
 	//_Ftry_req
 	//UriArrs []string // try-Uris
 	//K256    []byte   // passwd to connect the this server
+	if ___VreqNewSession.UcallbackNS(___VreqNewSession) {
+		return
+	}
+	___VreqNewSession._Fconnect_to_server_04__real_default()
 } // _Fconnect_to_server_03__real
+
+//func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_04__real_default() {
+func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_04__real_default() {
+} // _Fconnect_to_server_04__real_default
