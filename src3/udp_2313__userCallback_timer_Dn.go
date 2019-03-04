@@ -19,7 +19,7 @@ var (
 
 	_VsrvInfo_Dn    _TsrvInfo
 	_VreqNewSession _TreqNewSession = _TreqNewSession{
-		updateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn.json.rand",
+		updateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn2Fn.json.rand",
 		updatePasswd: &_VpasswdDown_Dn,
 		srvInfo:      &_VsrvInfo_Dn,
 	}
