@@ -81,6 +81,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessio
 	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_02__req_new_sessionID__main_top
 func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_03__real() {
+	_FpfN(" 311915 01 ")
 	//_Ftry_req
 	//UriArrs []string // try-Uris
 	//K256    []byte   // passwd to connect the this server
@@ -92,4 +93,5 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_03__real() {
 
 //func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_04__real_default() {
 func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_04__real_default() {
+	_FpfN(" 311917 01 ")
 } // _Fconnect_to_server_04__real_default
