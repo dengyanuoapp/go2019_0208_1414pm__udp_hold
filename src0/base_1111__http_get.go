@@ -19,7 +19,10 @@ func _Fhttp_getAll(___skipTLS bool, ___Vuri string) ([]byte, error) {
 
 	if ___skipTLS == true { // skip tls
 		__Vtransport := &http.Transport{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
-		__Vclient := &http.Client{Transport: __Vtransport}
+		__Vtimeout := time.Duration(15 * time.Second)
+		__Vclient := &http.Client{
+			Timeout:   __Vtimeout,
+			Transport: __Vtransport}
 		__Vresp, __Verr = __Vclient.Get(___Vuri)
 	} else { // using tls
 		__Vresp, __Verr = http.Get(___Vuri)
