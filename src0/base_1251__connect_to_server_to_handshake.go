@@ -71,11 +71,10 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 			return
 		}
 		___VreqNewSession.remainCnt = ___VreqNewSession.srvLen * 9 // try to use the U[:] slice , loop 9 time , then refresh URI
-
 	}
 
 	if 0 == ___VreqNewSession.remainCnt {
-		_FpfN(" 311913 07 : why reach here ? [%v]", ___VreqNewSession)
+		_FpfNex(" 311913 07 : why reach here ? [%v]", ___VreqNewSession)
 	}
 
 	_FpfN(" 311914 01 : try connect to idx  %d of %d , remain %d , [%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,

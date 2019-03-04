@@ -74,6 +74,12 @@ func _FpfN(___Vfmt string, ___Vpara ...interface{}) (int, error) {
 	return __Vn, __Verr
 } // _FpfN
 
+func _FpfNex(___Vfmt string, ___Vpara ...interface{}) {
+	_Fph()
+	_Ppf(___Vfmt+"\n", ___Vpara...)
+	os.Exit(1)
+} // _FpfNex
+
 func _Fph() {
 	if "" != _Vself.ProjName {
 		_Ppf("%s:", _Vself.ProjName)
