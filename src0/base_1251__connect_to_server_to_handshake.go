@@ -64,14 +64,22 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 		}
 
 		___VreqNewSession.srvLen = len(___VreqNewSession.srvInfo.UriDn2Fn) // try to use the U[:] slice
+		_FpfN(" 311913 04 : ==== ==== ==== srvLen %d", ___VreqNewSession.srvLen)
 		if 0 == ___VreqNewSession.srvLen {
 			_FpfN(" 311913 05 : Error : why Uri slice err ? : %d , %s ", ___VreqNewSession.srvLen, __nowUri)
 			___VreqNewSession.skipCnt = 8 // skip 8 time , about 80 second , before recheck.
 			return
 		}
-		___VreqNewSession.remainCnt = ___VreqNewSession.srvLen * 5 // try to use the U[:] slice , loop 5 time , then refresh URI
+		___VreqNewSession.remainCnt = ___VreqNewSession.srvLen * 9 // try to use the U[:] slice , loop 9 time , then refresh URI
 
 	}
 
-	_Fex1(" 311913 99 ")
+	if 0 == ___VreqNewSession.remainCnt {
+		_FpfN(" 311913 07 : why reach here ? [%v]", ___VreqNewSession)
+	}
+
+	_FpfN(" 311914 01 : try connect to idx  %d of %d , remain %d , [%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
+		___VreqNewSession.remainCnt, ___VreqNewSession)
+
+	_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_01__req_new_sessionID__main_top
