@@ -6,16 +6,16 @@ import (
 	//"net"
 	"os"
 	"strconv"
-	"time"
+	//"time"
 )
 
 var (
-	_VuExtTimer_Dn _TuExtTimer = _TuExtTimer{
-		name:     "timer_Dn",
-		timgGap1: 25 * time.Second, // every try must more than 2 gap(10*2==20S)
-		pw2:      _Taes{"password__used_to_connect_to_Fn", []byte(_FnPasswd)},
-		// hex.DecodeString
-	}
+	//	_VuExtTimer_Dn _TuExtTimer = _TuExtTimer{
+	//		name:     "timer_Dn",
+	//		timgGap1: 25 * time.Second, // every try must more than 2 gap(10*2==20S)
+	//		pw2:      _Taes{"password__used_to_connect_to_Fn", []byte(_FnPasswd)},
+	//		// hex.DecodeString
+	//	}
 
 	_VsrvInfo_Dn    _TsrvInfo
 	_VreqNewSession _TreqNewSession = _TreqNewSession{
@@ -26,14 +26,14 @@ var (
 )
 
 func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
-	_VuExtTimer_Dn.idx++
+	//_VuExtTimer_Dn.idx++
 
 	if 2 == 3 {
-		_FpfN(" 839111 : %d : trying to Connect to Fn using key (%s) \n                 %d : <%0x> ",
-			_VuExtTimer_Dn.idx,
-			_VuExtTimer_Dn.pw2.name,
-			len(_VuExtTimer_Dn.pw2.key),
-			_VuExtTimer_Dn.pw2.key)
+		//		_FpfN(" 839111 : %d : trying to Connect to Fn using key (%s) \n                 %d : <%0x> ",
+		//			_VuExtTimer_Dn.idx,
+		//			_VuExtTimer_Dn.pw2.name,
+		//			len(_VuExtTimer_Dn.pw2.key),
+		//			_VuExtTimer_Dn.pw2.key)
 
 		// func strconv.ParseUint(s string, base int, bitSize int) (uint64, error)
 		//__Vu64 , __Verr := strconv.ParseUint( os.Getenv("id128") , 16, 64 ) // : invalid syntax : when 0x prefix
