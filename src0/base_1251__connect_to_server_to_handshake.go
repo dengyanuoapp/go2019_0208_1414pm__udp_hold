@@ -1,19 +1,5 @@
 package main
 
-type _TreqNewSession struct {
-	Enabled bool
-
-	skipCnt   int
-	remainCnt int
-
-	updateUri    string
-	updatePasswd *[]byte
-
-	srvLen  int
-	srvIdx  int
-	srvInfo *_TsrvInfo
-} //    _TreqNewSession
-
 // you can
 func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__Default() {
 	if ___VreqNewSession.Enabled {
@@ -83,7 +69,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessio
 	_FpfN(" 311914 02 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
 		___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
 
-	___VreqNewSession._Fconnect_to_server_03__real()
+	_Fconnect_to_server_03__real(___VreqNewSession)
 
 	___VreqNewSession.srvIdx++
 	if ___VreqNewSession.srvIdx >= ___VreqNewSession.srvLen {
@@ -94,7 +80,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessio
 
 	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_02__req_new_sessionID__main_top
-func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_03__real() {
+func _Fconnect_to_server_03__real(___VreqNewSession *_TreqNewSession) {
 	//_Ftry_req
 	//UriArrs []string // try-Uris
 	//K256    []byte   // passwd to connect the this server
