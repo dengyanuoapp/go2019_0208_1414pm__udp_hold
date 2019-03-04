@@ -80,8 +80,8 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 	//_FpfN(" 311914 01 : try connect to idx  %d of %d , remain %d , [%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
 	//	___VreqNewSession.remainCnt, ___VreqNewSession)
 
-	_FpfN(" 311914 02 : try connect to idx  %d of %d , remain %d ", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
-		___VreqNewSession.remainCnt)
+	_FpfN(" 311914 02 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
+		___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
 
 	___VreqNewSession.srvIdx++
 	if ___VreqNewSession.srvIdx >= ___VreqNewSession.srvLen {
