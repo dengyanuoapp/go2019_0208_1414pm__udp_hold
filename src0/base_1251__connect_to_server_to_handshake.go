@@ -9,9 +9,9 @@ type _TreqNewSession struct {
 	updateUri    string
 	updatePasswd *[]byte
 
-	srvLen    int
-	srvIdx    int
-	srvConfig *_TconfigXn
+	srvLen  int
+	srvIdx  int
+	srvInfo *_TsrvInfo
 } //    _TreqNewSession
 
 // you can
@@ -42,22 +42,22 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 	if 0 == ___VreqNewSession.remainCnt {
 		__nowUri := ___VreqNewSession.updateUri
 		for {
-			_, __Verr := _Ftry_download_rand_json01(__nowUri, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvConfig)
+			_, __Verr := _Ftry_download_rand_json01(__nowUri, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvInfo)
 			if nil != __Verr {
 				_FpfN(" 311913 01 : Error : update Uri slice failed.: %s , %v ", __nowUri, __Verr)
 				___VreqNewSession.skipCnt = 4 // skip 4 time , about 40 second
 				return
 			}
-			_FpfN(" 311913 03 : ok : %s , %v ", __nowUri, ___VreqNewSession.srvConfig)
-			if ___VreqNewSession.srvConfig.Guri == __nowUri { //_Vconfig_Dn     _TconfigXn
+			_FpfN(" 311913 03 : ok : %s , %v ", __nowUri, ___VreqNewSession.srvInfo)
+			if ___VreqNewSession.srvInfo.Guri == __nowUri { //_VsrvInfo_Dn     _TsrvInfo
 				break
 			}
 
 			// or , the new uri need to be used. try tu use it.
-			__nowUri = ___VreqNewSession.srvConfig.Guri
+			__nowUri = ___VreqNewSession.srvInfo.Guri
 		}
 
-		___VreqNewSession.srvLen = len(___VreqNewSession.srvConfig.UriDn2Fn) // try to use the U[:] slice
+		___VreqNewSession.srvLen = len(___VreqNewSession.srvInfo.UriDn2Fn) // try to use the U[:] slice
 		if 0 == ___VreqNewSession.srvLen {
 			_FpfN(" 311913 05 : Error : why Uri slice err ? : %d , %s ", ___VreqNewSession.srvLen, __nowUri)
 			___VreqNewSession.skipCnt = 8 // skip 8 time , about 80 second , before recheck.
