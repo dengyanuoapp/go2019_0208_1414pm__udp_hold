@@ -63,7 +63,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 			__nowUri = ___VreqNewSession.srvInfo.Guri
 		}
 
-		___VreqNewSession.srvLen = len(___VreqNewSession.srvInfo.UriDn2Fn) // try to use the U[:] slice
+		___VreqNewSession.srvLen = len(___VreqNewSession.srvInfo.UriArrs) // try to use the U[:] slice
 		_FpfN(" 311913 04 : ==== ==== ==== srvLen %d", ___VreqNewSession.srvLen)
 		if 0 == ___VreqNewSession.srvLen {
 			_FpfN(" 311913 05 : Error : why Uri slice err ? : %d , %s ", ___VreqNewSession.srvLen, __nowUri)

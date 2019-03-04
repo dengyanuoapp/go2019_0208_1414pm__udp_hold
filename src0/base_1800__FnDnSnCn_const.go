@@ -25,8 +25,8 @@ const (
 )
 
 type _TsrvInfo struct {
-	Name     string   // name
-	Guri     string   // refresh-uri-Github
-	UriDn2Fn []string // try-Uris
-	K256     []byte   // passwd to connect the this server
+	Name    string   // name
+	Guri    string   // refresh-uri-Github
+	UriArrs []string // try-Uris
+	K256    []byte   // passwd to connect the this server
 } // _TsrvInfo

@@ -79,8 +79,8 @@ func init() {
 
 	flag.StringVar(&_VserviceUdpFn.hostPortStr, "cn", ":5353", _VserviceUdpFn.name)
 	flag.StringVar(&_VserviceUdpFp.hostPortStr, "cp", ":32001", _VserviceUdpFp.name)
-	flag.StringVar(&_VserviceUdpFD.hostPortStr, "cd", ":32002", _VserviceUdpFD.name)
-	flag.StringVar(&_VserviceUdpFS.hostPortStr, "cs", ":32003", _VserviceUdpFS.name)
+	flag.StringVar(&_VserviceUdpFD.hostPortStr, "cd", ":32003", _VserviceUdpFD.name)
+	flag.StringVar(&_VserviceUdpFS.hostPortStr, "cs", ":32005", _VserviceUdpFS.name)
 
 	flag.Parse()
 
