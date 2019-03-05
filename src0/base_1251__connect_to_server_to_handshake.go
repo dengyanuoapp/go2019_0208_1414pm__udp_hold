@@ -2,21 +2,21 @@ package main
 
 func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 0:
+	case 1:
 		if nil == ___VUreqNewSession.UcallbackTM {
 			___VUreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
 		} else {
 			___VUreqNewSession.UcallbackTM(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
 		}
-	case 1:
-		_Fex1(" 381991 08 ")
+	case 2:
+		//_Fex1(" 381991 08 ")
 		if nil == ___VUreqNewSession.UcallbackNS {
 			___VUreqNewSession.UcallbackNS(___VUreqNewSession)
 		} else {
 			___VUreqNewSession._Fconnect_to_server_04__real_default()
 		}
 	default:
-		_Fex1(" 381991 09 : %d ", ___Vidx)
+		_FpfNex(" 381991 09 : %d ", ___Vidx)
 	} // switch ___Vidx
 }
 
