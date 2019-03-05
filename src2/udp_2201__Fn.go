@@ -25,6 +25,8 @@ var (
 	_Vconfig _Tconfig
 )
 
+func (___VUreqNewSession *_TUreqNewSession) IRun() {}
+
 func init() {
 
 	_Vself.ProjName = "Fn"

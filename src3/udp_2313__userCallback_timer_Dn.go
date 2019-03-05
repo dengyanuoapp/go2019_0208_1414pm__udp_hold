@@ -27,6 +27,10 @@ var (
 	}
 )
 
+func (___VUreqNewSession *_TUreqNewSession) IRun() {
+	_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
+}
+
 //func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
 func _FuserCallback_u03TM__timer_Dn(___VUreqNewSession *_TUreqNewSession) {
 	//_VuExtTimer_Dn.idx++

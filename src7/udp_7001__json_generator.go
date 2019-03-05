@@ -17,6 +17,8 @@ var (
 	_Vconfig _Tconfig
 )
 
+func (___VUreqNewSession *_TUreqNewSession) IRun() {}
+
 // _FencAesRand_only
 // _FencAesRandExit
 func _Ftest01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {

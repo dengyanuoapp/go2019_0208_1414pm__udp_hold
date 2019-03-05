@@ -2,6 +2,17 @@ package main
 
 //import "fmt"
 
+type Trun interface {
+	IRun()
+} // Trun
+
+func _Frun(___Vrun Trun) {
+	if nil != ___Vrun {
+		//(*___Vrun).IRun()
+		___Vrun.IRun()
+	}
+} // _Frun
+
 func _FnotNullRunUdp02(___Vrun func(*_TUreqNewSession), ___Vpara *_TUreqNewSession) {
 	//_FpfN( "---" )
 	if ___Vrun != nil {
