@@ -9,8 +9,8 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 		//_FpfN(" 311911 03 ")
 		___VreqNewSession._Fconnect_to_server_02__req_new_sessionID__main_top()
 
-		//_FsleepRand_12_to_14s()
-		_Fsleep_1s() // speed up , to test mem leak.
+		_FsleepRand_12_to_14s()
+		//_Fsleep_1s() // speed up , to test mem leak.
 	}
 } // _Fconnect_to_server_01__req_new_sessionID__default
 
