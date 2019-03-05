@@ -31,7 +31,7 @@ type _TsrvInfo struct {
 	K256    []byte   // passwd to connect the this server
 } // _TsrvInfo
 
-type _TreqNewSession struct {
+type _TUreqNewSession struct {
 	Enabled bool
 
 	skipCnt   int
@@ -44,6 +44,6 @@ type _TreqNewSession struct {
 	srvIdx  int
 	srvInfo *_TsrvInfo
 
-	UcallbackNS func(*_TreqNewSession) bool // _FuserCallback_u03TM__connect_Dn2Fn
-	UcallbackTM func(*_TserviceUDP)         // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
-} //    _TreqNewSession
+	UcallbackNS func(*_TUreqNewSession) bool // _FuserCallback_u03TM__connect_Dn2Fn
+	UcallbackTM func(*_TserviceUDP)          // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
+} //    _TUreqNewSession

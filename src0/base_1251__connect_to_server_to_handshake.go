@@ -1,7 +1,7 @@
 package main
 
 // you can
-func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessionID__default() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01__req_new_sessionID__default() {
 	if ___VreqNewSession.Enabled {
 		_FpfN(" 311911 01 ")
 		_Fsleep_100s()
@@ -14,7 +14,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_01__req_new_sessio
 	}
 } // _Fconnect_to_server_01__req_new_sessionID__default
 
-func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessionID__main_top() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessionID__main_top() {
 	//_FpfN(" 311912 01 ")
 	//_FpfN(" 311912 02 %v", ___VreqNewSession)
 	//	//_FpfN(" 311912 03 %v", _Vself)
@@ -84,7 +84,7 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_02__req_new_sessio
 
 	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_02__req_new_sessionID__main_top
-func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_03__real() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_03__real() {
 	//_FpfN(" 311915 01 ")
 	//_Ftry_req
 	//UriArrs []string // try-Uris
@@ -95,8 +95,8 @@ func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_03__real() {
 	___VreqNewSession._Fconnect_to_server_04__real_default()
 } // _Fconnect_to_server_03__real
 
-//func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_04__real_default() {
-func (___VreqNewSession *_TreqNewSession) _Fconnect_to_server_04__real_default() {
+//func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
 	_FpfN(" 311917 01 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
 		___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
 } // _Fconnect_to_server_04__real_default
