@@ -21,13 +21,18 @@ type _TserviceUDP struct {
 	VuremoteAddr *net.UDPAddr
 	VulocalAddr  net.Addr
 
-	UcallbackMR func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top : deal with udp main loop data rece :
+	UcallbackMR func(*_TserviceUDP) // _FuserCallback_u01M__dataRece_Cn
+	// _FuserCallback_u01M__dataRece_Fn__main_top _FuserCallback_u01M__dataRece_Sn
+
 	UcallbackCI func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top : deal with outside chan data in for udp using another handle
+	// _FuserCallback_chanIn_Fn__main_top
 	//UcallbackTM func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
 
 	//UreqNewSessionMR *_TUreqNewSession
 	//UreqNewSessionCI *_TUreqNewSession
 	UreqNewSessionTM *_TUreqNewSession
+
+	UsrvGoCallback01 func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top__default : deal with udp main loop data rece :
 
 	Cexit *chan string
 	Clog  *chan string

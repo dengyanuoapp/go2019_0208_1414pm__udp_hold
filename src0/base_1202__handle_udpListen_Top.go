@@ -1,12 +1,25 @@
 // _TserviceUDP
 package main
 
-import ()
+//import ()
+
+func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
+	switch ___Vidx {
+	case 1:
+		if nil == ___VsrvU.UsrvGoCallback01 {
+			___VsrvU._Fhandle_u01x__udpListen_Udp__read_main_top__default()
+		} else {
+			___VsrvU.UsrvGoCallback01(___VsrvU)
+		}
+	default:
+		_FpfNex(" 839181 09 : %d ", ___Vidx)
+	} // switch ___Vidx
+}
 
 // https://golang.org/pkg/net/#UDPConn.ReadFromUDP
 // func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 //func _Fhandle_udpListen_Udp_main_top(___VserviceUdp *_TserviceUDP, ___Cexit chan string , ___Clog chan string ) {
-func (___VserviceUdp *_TserviceUDP) _Fhandle_u01x__udpListen_Udp__read_main_top() {
+func (___VserviceUdp *_TserviceUDP) _Fhandle_u01x__udpListen_Udp__read_main_top__default() {
 
 	___VserviceUdp._FtryListenToUDP01()
 
@@ -20,7 +33,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01x__udpListen_Udp__read_main_top(
 		___VserviceUdp._Fhandle_u01y__udpListen_Udp__read_main_loop()
 	}
 	(*___VserviceUdp.Cexit) <- "338191 Error : (" + ___VserviceUdp.hostPortStr + ")"
-} // _Fhandle_u01x__udpListen_Udp__read_main_top
+} // _Fhandle_u01x__udpListen_Udp__read_main_top__default
 
 func (___VserviceUdp *_TserviceUDP) _Fhandle_u01y__udpListen_Udp__read_main_loop() {
 	___VserviceUdp.Vulen,
