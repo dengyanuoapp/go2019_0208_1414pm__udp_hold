@@ -33,6 +33,6 @@ func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
 
 // being call in _Fconnect_to_server_03__real
 func _FuserCallback_u03TM__connect_Dn2Fn(___VreqNewSession *_TreqNewSession) bool {
-	_FpfN(" 311916 01 ")
+	//_FpfN(" 311916 01 ")
 	return false // false -> call default func ; true --> already deal with , no call to default func call
 } // _FuserCallback_u03TM__connect_Dn2Fn
