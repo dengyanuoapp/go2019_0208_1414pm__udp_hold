@@ -57,6 +57,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u03x__udpListen__timer__main_top() 
 	if nil == ___VserviceUdp.UreqNewSessionTM {
 		return // no need to run
 	}
+	___VserviceUdp.UreqNewSessionTM.serviceUdP = ___VserviceUdp
 	for {
 		_Fsleep_1s()
 		___VserviceUdp._Fhandle_u03y__udpListen__timer__main_loop()
