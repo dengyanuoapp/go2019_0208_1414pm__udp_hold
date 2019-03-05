@@ -1,6 +1,6 @@
 package main
 
-const (
+/*
 // https://www.callicoder.com/golang-basic-types-operators-type-conversion/
 // Type    Size        Range
 // int8    8 bits      -128 to 127
@@ -22,7 +22,7 @@ const (
 //	_DnPasswd = "b87288938a81838e828291823719aba2"
 //	_SnPasswd = "ca79319381829379abe9abe889ac8aa3"
 //	_CnPasswd = "3019303f301ab921b8a8c8a9018a78a4"
-)
+*/
 
 type _TsrvInfo struct {
 	Name    string   // name
