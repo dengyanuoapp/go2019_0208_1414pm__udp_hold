@@ -10,10 +10,10 @@ type _Tconfig struct {
 }
 
 var (
-	_VserviceUdpFn _TserviceUDP
-	_VserviceUdpFp _TserviceUDP
-	_VserviceUdpFD _TserviceUDP
-	_VserviceUdpFS _TserviceUDP
+	_VserviceUdpWcn _TserviceUDP
+	_VserviceUdpWdn _TserviceUDP
+	_VserviceUdpFp  _TserviceUDP
+	_VserviceUdpFS  _TserviceUDP
 
 	_VfilterFn2dn _TfilterDelay
 
@@ -51,7 +51,7 @@ func init() {
 		cAmount: 10,
 	}
 
-	_VserviceUdpFn = _TserviceUDP{
+	_VserviceUdpWcn = _TserviceUDP{
 		name:        "servicePortForCn",
 		UcallbackMR: _FuserCallback_u01M__dataRece_Cn,
 		Cexit:       &_Cexit,
@@ -64,7 +64,7 @@ func init() {
 		Clog:  &_Clog,
 	}
 
-	_VserviceUdpFD = _TserviceUDP{
+	_VserviceUdpWdn = _TserviceUDP{
 		name:        "servicePortForCD",
 		UcallbackMR: _FuserCallback_u01M__dataRece_Fn__main_top,
 		UcallbackCI: _FuserCallback_chanIn_Fn__main_top,
@@ -79,10 +79,10 @@ func init() {
 		Clog:        &_Clog,
 	}
 
-	flag.StringVar(&_VserviceUdpFn.hostPortStr, "cn", ":5353", _VserviceUdpFn.name)
-	flag.StringVar(&_VserviceUdpFp.hostPortStr, "cp", ":32001", _VserviceUdpFp.name)
-	flag.StringVar(&_VserviceUdpFD.hostPortStr, "cd", ":32003", _VserviceUdpFD.name)
-	flag.StringVar(&_VserviceUdpFS.hostPortStr, "cs", ":32005", _VserviceUdpFS.name)
+	flag.StringVar(&_VserviceUdpWcn.hostPortStr, "FnWcn", ":53535", _VserviceUdpWcn.name)
+	flag.StringVar(&_VserviceUdpWdn.hostPortStr, "cd", ":32001", _VserviceUdpWdn.name)
+	//flag.StringVar(&_VserviceUdpFp.hostPortStr, "cp", ":32003", _VserviceUdpFp.name)
+	//flag.StringVar(&_VserviceUdpFS.hostPortStr, "cs", ":32005", _VserviceUdpFS.name)
 
 	flag.Parse()
 
@@ -102,17 +102,17 @@ func main() {
 
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
-	go _VserviceUdpFn._Fhandle_u01x__udpListen_Udp__read_main_top()
-	go _VserviceUdpFp._Fhandle_u01x__udpListen_Udp__read_main_top()
-	go _VserviceUdpFD._Fhandle_u01x__udpListen_Udp__read_main_top()
-	go _VserviceUdpFS._Fhandle_u01x__udpListen_Udp__read_main_top()
+	go _VserviceUdpWcn._Fhandle_u01x__udpListen_Udp__read_main_top()
+	go _VserviceUdpWdn._Fhandle_u01x__udpListen_Udp__read_main_top()
+	//go _VserviceUdpFp._Fhandle_u01x__udpListen_Udp__read_main_top()
+	//go _VserviceUdpFS._Fhandle_u01x__udpListen_Udp__read_main_top()
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
 	_VfilterFn2dn = _TfilterDelay{
 		sleepGap:              1,
-		udpIn:                 &_VserviceUdpFn,
-		udpOut:                &_VserviceUdpFD,
+		udpIn:                 &_VserviceUdpWcn,
+		udpOut:                &_VserviceUdpWdn,
 		FcallbackMainDelayGen: _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
 		FcallbackFilterChan:   _FuserCallback__FilterDelay__chan_filter__Fn,
 	}
