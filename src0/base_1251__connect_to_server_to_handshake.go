@@ -1,5 +1,9 @@
 package main
 
+import (
+	"net"
+)
+
 func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 1:
@@ -119,10 +123,29 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessi
 
 //func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
 func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
+	__VdstUaddrStr := ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx]
 	_FpfN(" 311917 01 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
-		___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
+		___VreqNewSession.remainCnt, __VdstUaddrStr)
 
-	__VserviceUdp := ___VreqNewSession.serviceUdP
-	_FpfN(" 311917 02 : %v ", __VserviceUdp)
+	___Vsvr := ___VreqNewSession.serviceUdP
+	__VudpConn := ___Vsvr.udpConn
+	//_FpfN(" 311917 02 : %v " , ___Vsvr)
+	_FpfN(" 311917 03 : %v ", __VudpConn)
 
+	// func ResolveUDPAddr(network, address string) (*UDPAddr, error)
+	__VuAddr, __Verr1 := net.ResolveUDPAddr("udp4", __VdstUaddrStr)
+	if __Verr1 != nil {
+		_FpfN("311917 04 : udpDst mistake<%s>[%v]", __VdstUaddrStr, __Verr1)
+		return
+	}
+
+	// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
+	_, __Verr2 := __VudpConn.WriteToUDP([]byte(" 311917 05 "), __VuAddr)
+	if __Verr2 != nil {
+		_FpfN("311917 06 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr2)
+		return
+	}
+	_FpfN("311917 07 : udp send succeed 01 <%s>", __VdstUaddrStr)
+
+	_FsleepRand_12_to_14s()
 } // _Fconnect_to_server_04__real_default
