@@ -89,10 +89,10 @@ func main() {
 
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
-	go _VserviceUdpWcn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
-	go _VserviceUdpWdn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
-	//go _Frun(_VserviceUdpWcn , 1 ) // IRun
-	//go _Frun(_VserviceUdpWdn , 1 )
+	//go _VserviceUdpWcn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
+	//go _VserviceUdpWdn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
+	go _Frun(&_VserviceUdpWcn, 1) // IRun
+	go _Frun(&_VserviceUdpWdn, 1)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
