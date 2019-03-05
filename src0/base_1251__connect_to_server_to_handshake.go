@@ -1,5 +1,14 @@
 package main
 
+func (___VUreqNewSession *_TUreqNewSession) IRun() {
+	if nil == ___VUreqNewSession.UcallbackTM {
+		___VUreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
+	} else {
+		___VUreqNewSession.UcallbackTM(___VUreqNewSession)
+		//_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
+	}
+}
+
 // you can
 func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01__req_new_sessionID__default() {
 	if ___VreqNewSession.Enabled {
