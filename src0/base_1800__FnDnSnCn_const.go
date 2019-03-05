@@ -46,5 +46,5 @@ type _TUreqNewSession struct {
 
 	serviceUdP  *_TserviceUDP
 	UcallbackNS func(*_TUreqNewSession) bool // _FuserCallback_u03TM__connect_Dn2Fn
-	UcallbackTM func(*_TserviceUDP)          // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
+	UcallbackTM func(*_TUreqNewSession)      // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
 } //    _TUreqNewSession
