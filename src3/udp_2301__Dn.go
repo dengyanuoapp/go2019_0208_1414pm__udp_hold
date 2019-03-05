@@ -11,9 +11,6 @@ type _Tconfig struct {
 
 var (
 	_VserviceUdpDn _TserviceUDP
-	_VserviceUdpDp _TserviceUDP
-	_VserviceUdpDC _TserviceUDP
-	_VserviceUdpDS _TserviceUDP
 
 	_VfilterCn2dn _TfilterDelay
 
@@ -64,32 +61,8 @@ func init() {
 		Cexit: &_Cexit,
 		Clog:  &_Clog,
 	}
-	_VserviceUdpDp = _TserviceUDP{
-		name: "UdpService__Dp",
-		//UcallbackMR : _FuserCallback_u01MR__dataRece_Dp,
-		Cexit: &_Cexit,
-		Clog:  &_Clog,
-	}
-
-	_VserviceUdpDC = _TserviceUDP{
-		name: "UdpService__DC",
-		//UcallbackMR : _FuserCallback_u01MR__dataRece__main_top_DC,
-		//UcallbackCI  : _FuserCallback_chanIn__main_top_DC,
-		Cexit: &_Cexit,
-		Clog:  &_Clog,
-	}
-
-	_VserviceUdpDS = _TserviceUDP{
-		name: "UdpService__DS",
-		//UcallbackMR : _FuserCallback_u01MR__dataRece_DS,
-		Cexit: &_Cexit,
-		Clog:  &_Clog,
-	}
 
 	flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":0", _VserviceUdpDn.name)
-	flag.StringVar(&_VserviceUdpDp.hostPortStr, "cp", ":0", _VserviceUdpDp.name)
-	flag.StringVar(&_VserviceUdpDC.hostPortStr, "cd", ":0", _VserviceUdpDC.name)
-	flag.StringVar(&_VserviceUdpDS.hostPortStr, "cs", ":0", _VserviceUdpDS.name)
 
 	flag.Parse()
 
@@ -110,19 +83,16 @@ func main() {
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
 	go _VserviceUdpDn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
-	//go _VserviceUdpDp . _Fhandle_u01x__udpListen_Udp__read_main_top__default( )
-	//go _VserviceUdpDC . _Fhandle_u01x__udpListen_Udp__read_main_top__default( )
-	//go _VserviceUdpDS . _Fhandle_u01x__udpListen_Udp__read_main_top__default( )
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
-	_VfilterCn2dn = _TfilterDelay{
-		sleepGap: 1,
-		udpIn:    &_VserviceUdpDn,
-		udpOut:   &_VserviceUdpDC,
-		//FcallbackMainDelayGen   : _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
-		//FcallbackFilterChan     : _FuserCallback__FilterDelay__chan_filter__Fn,
-	}
+	//	_VfilterCn2dn = _TfilterDelay{
+	//		sleepGap: 1,
+	//		udpIn:    &_VserviceUdpDn,
+	//		udpOut:   &_VserviceUdpDC,
+	//		//FcallbackMainDelayGen   : _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
+	//		//FcallbackFilterChan     : _FuserCallback__FilterDelay__chan_filter__Fn,
+	//	}
 
 	//go _VfilterCn2dn . _FfilterDelayGen01_main_top()
 	// ------------------- filter between workers --------- end
