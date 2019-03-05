@@ -9,7 +9,7 @@ type Trun interface {
 func _Frun(___Vrun Trun) {
 	if nil != ___Vrun {
 		//(*___Vrun).IRun()
-		_FpfN(" 381931 01 : IR run ")
+		//_FpfN(" 381931 01 : IR run ")
 		___Vrun.IRun()
 	}
 } // _Frun
