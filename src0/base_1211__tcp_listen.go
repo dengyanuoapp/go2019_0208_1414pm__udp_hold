@@ -53,6 +53,8 @@ type _TserviceTCP struct {
 	TcallbackAccDataRece func(*_TacceptTCP)  // _FuserCallback__Accept_dataReceive__Log_Fn
 	TcallbackAccDataChan func(*_TacceptTCP)  // _FuserCallback__accept_dataChan__Log_Fn
 
+	TsrvGoCallback01 func(*_TserviceTCP)
+
 	Cexit *chan string
 	Clog  *chan string
 } // _TserviceTCP

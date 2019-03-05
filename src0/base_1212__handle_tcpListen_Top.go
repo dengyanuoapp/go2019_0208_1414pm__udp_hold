@@ -5,6 +5,19 @@ import (
 //"time"
 )
 
+func (___VsrvT *_TserviceTCP) IRun(___Vidx int) {
+	switch ___Vidx {
+	case 1:
+		if nil == ___VsrvT.TsrvGoCallback01 {
+			___VsrvT._Fhandle_udpListen_Tcp__main_top()
+		} else {
+			___VsrvT.TsrvGoCallback01(___VsrvT)
+		}
+	default:
+		_FpfNex(" 739181 09 : %d ", ___Vidx)
+	} // switch ___Vidx
+}
+
 func (___VserviceTcp *_TserviceTCP) _Fhandle_udpListen_Tcp__main_top() {
 
 	___VserviceTcp._FtryListenToTCP01()

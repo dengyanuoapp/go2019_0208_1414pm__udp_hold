@@ -84,14 +84,13 @@ func main() {
 	// ------------------- tcp for debug monitor log --- begin
 	// _Fhandle_tcpAccept01
 	// _FhandleTcp_accept_dataReceiveMsg01
-	go _VserviceTcpMf._Fhandle_udpListen_Tcp__main_top()
+	//go _VserviceTcpMf._Fhandle_udpListen_Tcp__main_top()
+	go _Frun(&_VserviceTcpMf, 1)
 	// ------------------- tcp for debug monitor log --- end
 
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
-	//go _VserviceUdpWcn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
-	//go _VserviceUdpWdn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
-	go _Frun(&_VserviceUdpWcn, 1) // IRun
+	go _Frun(&_VserviceUdpWcn, 1) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
 	go _Frun(&_VserviceUdpWdn, 1)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
