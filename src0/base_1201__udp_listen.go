@@ -25,6 +25,10 @@ type _TserviceUDP struct {
 	UcallbackCI func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top : deal with outside chan data in for udp using another handle
 	UcallbackTM func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
 
+	UreqNewSessionMR *_TreqNewSession
+	UreqNewSessionCI *_TreqNewSession
+	UreqNewSessionTM *_TreqNewSession
+
 	Cexit *chan string
 	Clog  *chan string
 

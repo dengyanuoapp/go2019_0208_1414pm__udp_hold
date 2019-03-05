@@ -55,9 +55,12 @@ func init() {
 		name:   "UdpService__Dn",
 		uExtMR: &_VuExtMR_Dn,
 		//UcallbackMR : _FuserCallback_u01MR__dataRece_Dn,
-		UcallbackTM: _FuserCallback_u03TM__timer_Dn,
+
+		UcallbackTM:      _FuserCallback_u03TM__timer_Dn,
+		UreqNewSessionTM: &_VreqNewSession_Dn,
 		// _Fconnect_to_server_01__req_new_sessionID__default
 		// _Fconnect_to_server_04__real_default
+
 		Cexit: &_Cexit,
 		Clog:  &_Clog,
 	}

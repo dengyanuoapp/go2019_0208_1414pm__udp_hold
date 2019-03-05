@@ -17,8 +17,8 @@ var (
 	//		// hex.DecodeString
 	//	}
 
-	_VsrvInfo_Dn    _TsrvInfo
-	_VreqNewSession _TreqNewSession = _TreqNewSession{
+	_VsrvInfo_Dn       _TsrvInfo
+	_VreqNewSession_Dn _TreqNewSession = _TreqNewSession{
 		updateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn2Fn.json.rand",
 		updatePasswd: &_VpasswdDown_Dn,
 		srvInfo:      &_VsrvInfo_Dn,
@@ -28,7 +28,13 @@ var (
 
 func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
 	//_VuExtTimer_Dn.idx++
-	_VreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
+	//_VreqNewSession_Dn._Fconnect_to_server_01__req_new_sessionID__default()
+	if nil == ___Vsvr.UreqNewSessionTM {
+		_Fex1(" 839191 01 : why nill ? you should fil this and run again. ")
+	}
+
+	//_VreqNewSession_Dn._Fconnect_to_server_01__req_new_sessionID__default()
+	___Vsvr.UreqNewSessionTM._Fconnect_to_server_01__req_new_sessionID__default()
 } // _FuserCallback_u03TM__timer_Dn
 
 // being call in _Fconnect_to_server_03__real
