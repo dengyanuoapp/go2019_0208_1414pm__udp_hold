@@ -65,7 +65,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u03x__udpListen__timer__main_top() 
 		_Fsleep_1s()
 		//___VserviceUdp._Fhandle_u03y__udpListen__timer__main_loop()
 		//_FnotNullRunUdp02(__VUreqNewSessionTM.UcallbackTM, __VUreqNewSessionTM) //  _FuserCallback_u03TM__timer_Dn
-		_Frun(__VUreqNewSessionTM)
+		_Frun(__VUreqNewSessionTM, 0)
 	}
 
 	(*___VserviceUdp.Cexit) <- "538191 Error : (" + ___VserviceUdp.hostPortStr + ")"

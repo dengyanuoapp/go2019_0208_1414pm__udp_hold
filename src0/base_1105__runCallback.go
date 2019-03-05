@@ -3,14 +3,14 @@ package main
 //import "fmt"
 
 type Trun interface {
-	IRun()
+	IRun(int)
 } // Trun
 
-func _Frun(___Vrun Trun) {
+func _Frun(___Vrun Trun, ___Vidx int) {
 	if nil != ___Vrun {
 		//(*___Vrun).IRun()
 		//_FpfN(" 381931 01 : IR run ")
-		___Vrun.IRun()
+		___Vrun.IRun(___Vidx)
 	}
 } // _Frun
 

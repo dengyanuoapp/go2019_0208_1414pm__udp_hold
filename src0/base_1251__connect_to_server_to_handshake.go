@@ -1,12 +1,23 @@
 package main
 
-func (___VUreqNewSession *_TUreqNewSession) IRun() {
-	if nil == ___VUreqNewSession.UcallbackTM {
-		___VUreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
-	} else {
-		___VUreqNewSession.UcallbackTM(___VUreqNewSession)
-		//_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
-	}
+func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
+	switch ___Vidx {
+	case 0:
+		if nil == ___VUreqNewSession.UcallbackTM {
+			___VUreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
+		} else {
+			___VUreqNewSession.UcallbackTM(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
+		}
+	case 1:
+		_Fex1(" 381991 08 ")
+		if nil == ___VUreqNewSession.UcallbackNS {
+			___VUreqNewSession.UcallbackNS(___VUreqNewSession)
+		} else {
+			___VUreqNewSession._Fconnect_to_server_04__real_default()
+		}
+	default:
+		_Fex1(" 381991 09 : %d ", ___Vidx)
+	} // switch ___Vidx
 }
 
 // you can
@@ -82,8 +93,8 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessi
 			___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
 	}
 
-	___VreqNewSession._Fconnect_to_server_03__real()
-	//_Frun( ___VreqNewSession )
+	//___VreqNewSession._Fconnect_to_server_03__real()
+	_Frun(___VreqNewSession, 2)
 
 	___VreqNewSession.srvIdx++
 	if ___VreqNewSession.srvIdx >= ___VreqNewSession.srvLen {
@@ -94,16 +105,17 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessi
 
 	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_02__req_new_sessionID__main_top
-func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_03__real() {
-	//_FpfN(" 311915 01 ")
-	//_Ftry_req
-	//UriArrs []string // try-Uris
-	//K256    []byte   // passwd to connect the this server
-	if ___VreqNewSession.UcallbackNS(___VreqNewSession) { // _FuserCallback_u03TM__connect_Dn2Fn
-		return
-	}
-	___VreqNewSession._Fconnect_to_server_04__real_default()
-} // _Fconnect_to_server_03__real
+
+//func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_03__real() {
+//	//_FpfN(" 311915 01 ")
+//	//_Ftry_req
+//	//UriArrs []string // try-Uris
+//	//K256    []byte   // passwd to connect the this server
+//	if ___VreqNewSession.UcallbackNS(___VreqNewSession) { // _FuserCallback_u03TM__connect_Dn2Fn
+//		return
+//	}
+//	___VreqNewSession._Fconnect_to_server_04__real_default()
+//} // _Fconnect_to_server_03__real
 
 //func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
 func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
