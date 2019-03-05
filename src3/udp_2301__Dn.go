@@ -78,11 +78,13 @@ func main() {
 	// _Fhandle_tcpAccept01
 	// _FhandleTcp_accept_dataReceiveMsg01
 	go _VserviceTcpMd._Fhandle_udpListen_Tcp__main_top()
+	//go _Frun(&_VserviceTcpMd, 1)
 	// ------------------- tcp for debug monitor log --- end
 
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
-	go _VserviceUdpDn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
+	//go _VserviceUdpDn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
+	go _Frun(&_VserviceUdpDn, 1)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
