@@ -23,6 +23,7 @@ var (
 		updatePasswd: &_VpasswdDown_Dn,
 		srvInfo:      &_VsrvInfo_Dn,
 		UcallbackNS:  _FuserCallback_u03TM__connect_Dn2Fn,
+		UcallbackTM:  _FuserCallback_u03TM__timer_Dn,
 	}
 )
 

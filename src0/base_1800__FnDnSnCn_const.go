@@ -45,4 +45,5 @@ type _TreqNewSession struct {
 	srvInfo *_TsrvInfo
 
 	UcallbackNS func(*_TreqNewSession) bool // _FuserCallback_u03TM__connect_Dn2Fn
+	UcallbackTM func(*_TserviceUDP)         // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
 } //    _TreqNewSession
