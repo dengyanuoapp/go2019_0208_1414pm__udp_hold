@@ -121,5 +121,8 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessi
 func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
 	_FpfN(" 311917 01 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
 		___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
-	//_FpfN(" 311917 02 : %v " , ___VreqNewSession
+
+	__VserviceUdp := ___VreqNewSession.serviceUdP
+	_FpfN(" 311917 02 : %v ", __VserviceUdp)
+
 } // _Fconnect_to_server_04__real_default
