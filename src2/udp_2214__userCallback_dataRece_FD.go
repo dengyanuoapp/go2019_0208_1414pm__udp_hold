@@ -14,7 +14,7 @@ type _Tdn struct {
 
 func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP) {
 
-	*___VserviceUDP.Clog <- _Pspf("1738181 Fn receMsg |l:%s|r:%s|(%d)\n",
+	*___VserviceUDP.Clog <- _Pspf("1738181 01 : Fn receMsg |l:%s|r:%s|(%d)\n",
 		___VserviceUDP.VulocalAddr,
 		___VserviceUDP.VuremoteAddr,
 		___VserviceUDP.Vulen)

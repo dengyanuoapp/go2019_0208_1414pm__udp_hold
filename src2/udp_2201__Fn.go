@@ -12,8 +12,6 @@ type _Tconfig struct {
 var (
 	_VserviceUdpWcn _TserviceUDP
 	_VserviceUdpWdn _TserviceUDP
-	_VserviceUdpFp  _TserviceUDP
-	_VserviceUdpFS  _TserviceUDP
 
 	_VfilterFn2dn _TfilterDelay
 
@@ -24,8 +22,6 @@ var (
 	_Vself   _Tself
 	_Vconfig _Tconfig
 )
-
-//func (___VUreqNewSession *_TUreqNewSession) IRun() {}
 
 func init() {
 
@@ -57,13 +53,6 @@ func init() {
 		Cexit:       &_Cexit,
 		Clog:        &_Clog,
 	}
-	_VserviceUdpFp = _TserviceUDP{
-		name: "servicePortForCp",
-		//UcallbackMR            : _FuserCallback_u01M__dataRece_Cp,
-		Cexit: &_Cexit,
-		Clog:  &_Clog,
-	}
-
 	_VserviceUdpWdn = _TserviceUDP{
 		name:        "servicePortForCD",
 		UcallbackMR: _FuserCallback_u01M__dataRece_Fn__main_top,
@@ -72,17 +61,15 @@ func init() {
 		Clog:        &_Clog,
 	}
 
-	_VserviceUdpFS = _TserviceUDP{
-		name:        "servicePortForCS",
-		UcallbackMR: _FuserCallback_u01M__dataRece_Sn,
-		Cexit:       &_Cexit,
-		Clog:        &_Clog,
-	}
+	//	_VserviceUdpFS = _TserviceUDP{
+	//		name:        "servicePortForCS",
+	//		UcallbackMR: _FuserCallback_u01M__dataRece_Sn,
+	//		Cexit:       &_Cexit,
+	//		Clog:        &_Clog,
+	//	}
 
 	flag.StringVar(&_VserviceUdpWcn.hostPortStr, "FnWcn", ":53535", _VserviceUdpWcn.name)
 	flag.StringVar(&_VserviceUdpWdn.hostPortStr, "cd", ":32001", _VserviceUdpWdn.name)
-	//flag.StringVar(&_VserviceUdpFp.hostPortStr, "cp", ":32003", _VserviceUdpFp.name)
-	//flag.StringVar(&_VserviceUdpFS.hostPortStr, "cs", ":32005", _VserviceUdpFS.name)
 
 	flag.Parse()
 
@@ -104,8 +91,6 @@ func main() {
 	// _TserviceUDP
 	go _VserviceUdpWcn._Fhandle_u01x__udpListen_Udp__read_main_top()
 	go _VserviceUdpWdn._Fhandle_u01x__udpListen_Udp__read_main_top()
-	//go _VserviceUdpFp._Fhandle_u01x__udpListen_Udp__read_main_top()
-	//go _VserviceUdpFS._Fhandle_u01x__udpListen_Udp__read_main_top()
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
