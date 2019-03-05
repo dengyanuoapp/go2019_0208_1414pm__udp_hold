@@ -3,15 +3,15 @@ package main
 func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 1:
-		if nil == ___VUreqNewSession.UcallbackTM {
+		if nil == ___VUreqNewSession.UnsCallback01 {
 			___VUreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
 		} else {
-			___VUreqNewSession.UcallbackTM(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
+			___VUreqNewSession.UnsCallback01(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
 		}
 	case 2:
 		//_Fex1(" 381991 08 ")
-		if nil == ___VUreqNewSession.UcallbackNS {
-			___VUreqNewSession.UcallbackNS(___VUreqNewSession)
+		if nil == ___VUreqNewSession.UnsCallback02 {
+			___VUreqNewSession.UnsCallback02(___VUreqNewSession)
 		} else {
 			___VUreqNewSession._Fconnect_to_server_04__real_default()
 		}
@@ -111,7 +111,7 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessi
 //	//_Ftry_req
 //	//UriArrs []string // try-Uris
 //	//K256    []byte   // passwd to connect the this server
-//	if ___VreqNewSession.UcallbackNS(___VreqNewSession) { // _FuserCallback_u03TM__connect_Dn2Fn
+//	if ___VreqNewSession.UnsCallback02(___VreqNewSession) { // _FuserCallback_u03TM__connect_Dn2Fn
 //		return
 //	}
 //	___VreqNewSession._Fconnect_to_server_04__real_default()

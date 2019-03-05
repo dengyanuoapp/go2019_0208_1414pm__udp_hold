@@ -19,11 +19,11 @@ var (
 
 	_VsrvInfo_Dn        _TsrvInfo
 	_VUreqNewSession_Dn _TUreqNewSession = _TUreqNewSession{
-		updateUri:    "https://github.com/jasas78/jsonOnly/raw/master/json/Dn2Fn.json.rand",
-		updatePasswd: &_VpasswdDown_Dn,
-		srvInfo:      &_VsrvInfo_Dn,
-		UcallbackNS:  _FuserCallback_u03TM__connect_Dn2Fn,
-		UcallbackTM:  _FuserCallback_u03TM__timer_Dn,
+		updateUri:     "https://github.com/jasas78/jsonOnly/raw/master/json/Dn2Fn.json.rand",
+		updatePasswd:  &_VpasswdDown_Dn,
+		srvInfo:       &_VsrvInfo_Dn,
+		UnsCallback02: _FuserCallback_u03TM__connect_Dn2Fn,
+		UnsCallback01: _FuserCallback_u03TM__timer_Dn,
 	}
 )
 
