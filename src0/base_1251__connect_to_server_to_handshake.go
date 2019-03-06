@@ -97,8 +97,7 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sess
 			___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
 	}
 
-	//___VreqNewSession._Fconnect_to_server_03__real()
-	_Frun(___VreqNewSession, 2)
+	_Frun(___VreqNewSession, 4) // _Fconnect_to_server_04x__real_default
 
 	___VreqNewSession.srvIdx++
 	if ___VreqNewSession.srvIdx >= ___VreqNewSession.srvLen {
