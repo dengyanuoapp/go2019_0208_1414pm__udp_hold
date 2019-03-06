@@ -7,15 +7,15 @@ import (
 func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 1:
-		if nil == ___VUreqNewSession.UnsCallback01 {
+		if nil == ___VUreqNewSession.UnewSessionCall01 {
 			___VUreqNewSession._Fconnect_to_server_01x__req_new_sessionID__default()
 		} else {
-			___VUreqNewSession.UnsCallback01(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
+			___VUreqNewSession.UnewSessionCall01(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
 		}
 	case 4:
 		//_Fex1(" 381991 08 ")
-		if nil == ___VUreqNewSession.UnsCallback02 {
-			___VUreqNewSession.UnsCallback02(___VUreqNewSession)
+		if nil == ___VUreqNewSession.UnewSessionCall02 {
+			___VUreqNewSession.UnewSessionCall02(___VUreqNewSession)
 		} else {
 			___VUreqNewSession._Fconnect_to_server_04x__real_default()
 		}
