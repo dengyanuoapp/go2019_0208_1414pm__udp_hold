@@ -25,9 +25,13 @@ func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP) {
 		if nil == __Verr {
 			*___VserviceUDP.CuOut01 <- __Vbyte
 		}
+	} else {
+		_FpfN(" 1738181 02 : %s : no CuOut01  ", ___VserviceUDP.name)
 	}
 
-} // _FuserCallback_u01M__dataRece_Fn__main_top
+	_FpfhexN(&___VserviceUDP.Vubuf, 80, " 1738181 03 : %s :", ___VserviceUDP.name)
+
+} // _FuserCallback_u01M__dataRece_Fn__main_top _TserviceUDP
 
 var (
 	_VdnReceCnt int
