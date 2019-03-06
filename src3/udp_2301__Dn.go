@@ -51,7 +51,7 @@ func init() {
 	_VserviceUdpDn = _TserviceUDP{
 		name:   "UdpService__Dn",
 		uExtMR: &_VuExtMR_Dn,
-		//UcallbackMR : _FuserCallback_u01MR__dataRece_Dn,
+		//UsrvLoopCall11 : _FuserCallback_u01MR__dataRece_Dn,
 
 		//UcallbackTM:      _FuserCallback_u03TM__timer_Dn,
 		UreqNewSessionTM: &_VUreqNewSession_Dn,

@@ -23,6 +23,14 @@ func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 		} else {
 			___VsrvU.UsrvGoCallback03(___VsrvU)
 		}
+	case 11:
+		if nil != ___VsrvU.UsrvLoopCall11 {
+			___VsrvU.UsrvLoopCall11(___VsrvU)
+		}
+	case 12:
+		if nil != ___VsrvU.UsrvLoopCall12 {
+			___VsrvU.UsrvLoopCall12(___VsrvU)
+		}
 	default:
 		_FpfNex(" 839181 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
@@ -60,25 +68,21 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01y__udpListen_Udp__read_main_loop
 
 	_FnullExit(" err 338197 : why ___Vconn.ReadFromUDP addr error ?", ___VserviceUdp.VuremoteAddr)
 
-	_FnotNullRunUdp01(___VserviceUdp.UcallbackMR, ___VserviceUdp)
+	//_FnotNullRunUdp01(___VserviceUdp.UsrvLoopCall11, ___VserviceUdp)
+	_Frun(___VserviceUdp, 11)
 } // _Fhandle_u01y__udpListen_Udp__read_main_loop
 
 func (___VserviceUdp *_TserviceUDP) _Fhandle_u02x__udpListen__chanIn_main_top() {
 
 	for {
 		_Fsleep_1s()
-		___VserviceUdp._Fhandle_u02y__udpListen__chanIn_main_loop()
+		//_FpfN( "438195 : udp rece Chan msg ." )
+		//_FnotNullRunUdp01(___VserviceUdp.UsrvLoopCall12, ___VserviceUdp)
+		_Frun(___VserviceUdp, 12)
 	}
 
 	(*___VserviceUdp.Cexit) <- "438191 Error : (" + ___VserviceUdp.hostPortStr + ")"
 } // _Fhandle_u02x__udpListen__chanIn_main_top
-
-func (___VserviceUdp *_TserviceUDP) _Fhandle_u02y__udpListen__chanIn_main_loop() {
-
-	//_FpfN( "438195 : udp rece Chan msg ." )
-	_FnotNullRunUdp01(___VserviceUdp.UcallbackCI, ___VserviceUdp)
-
-} // _Fhandle_u02y__udpListen__chanIn_main_loop
 
 func (___VserviceUdp *_TserviceUDP) _Fhandle_u03x__udpListen__timer__main_top() {
 
