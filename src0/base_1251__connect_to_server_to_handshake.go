@@ -10,14 +10,21 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 		if nil == ___VUreqNewSession.UnewSessionCall01 {
 			___VUreqNewSession._Fconnect_to_server_01x__req_new_sessionID__default()
 		} else {
-			___VUreqNewSession.UnewSessionCall01(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
+			___VUreqNewSession.UnewSessionCall01(___VUreqNewSession) //_FuserCallback_u01__reqNewSession_in_Dn_to_fn(___VUreqNewSession)
 		}
 	case 4:
 		//_Fex1(" 381991 08 ")
-		if nil == ___VUreqNewSession.UnewSessionCall02 {
-			___VUreqNewSession.UnewSessionCall02(___VUreqNewSession)
-		} else {
+		if nil == ___VUreqNewSession.UnewSessionCall04 {
 			___VUreqNewSession._Fconnect_to_server_04x__real_default()
+		} else {
+			___VUreqNewSession.UnewSessionCall04(___VUreqNewSession)
+		}
+	case 8:
+		//_Fex1(" 381991 08 ")
+		if nil == ___VUreqNewSession.UnewSessionCall08 {
+			___VUreqNewSession._Fconnect_to_server_08__saveTo_tmpBuf__default()
+		} else {
+			___VUreqNewSession.UnewSessionCall08(___VUreqNewSession)
 		}
 	default:
 		_FpfNex(" 381991 09 : unknown IRun : %d ", ___Vidx)
@@ -127,7 +134,8 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 	}
 
 	// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
-	_, __Verr2 := __VudpConn.WriteToUDP([]byte(" 311917 05 "), __VuAddr)
+	_Frun(___VreqNewSession, 8)
+	_, __Verr2 := __VudpConn.WriteToUDP(*___VreqNewSession.sendBuf08, __VuAddr)
 	if __Verr2 != nil {
 		_FpfN("311917 06 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr2)
 		return
@@ -136,3 +144,9 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 
 	_FsleepRand_12_to_14s()
 } // _Fconnect_to_server_04__real_default
+
+var __Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default []byte = []byte(" 311918 02 ")
+
+func (___VreqNS *_TUreqNewSession) _Fconnect_to_server_08__saveTo_tmpBuf__default() {
+	___VreqNS.sendBuf08 = &__Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default
+} // _Fconnect_to_server_08__saveTo_tmpBuf__default

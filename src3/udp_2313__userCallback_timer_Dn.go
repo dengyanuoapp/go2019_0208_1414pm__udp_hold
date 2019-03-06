@@ -19,28 +19,16 @@ var (
 
 	_VsrvInfo_Dn        _TsrvInfo
 	_VUreqNewSession_Dn _TUreqNewSession = _TUreqNewSession{
-		updateUri:         "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/Dn2Fn.json.rand",
-		updatePasswd:      &_VpasswdDown_Dn,
-		srvInfo:           &_VsrvInfo_Dn,
-		UnewSessionCall02: _FuserCallback_u03TM__connect_Dn2Fn,
-		UnewSessionCall01: _FuserCallback_u03TM__timer_Dn,
+		updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/Dn2Fn.json.rand",
+		updatePasswd: &_VpasswdDown_Dn,
+		srvInfo:      &_VsrvInfo_Dn,
+		//UnewSessionCall04: _FuserCallback_u04__,
+		//UnewSessionCall01: _FuserCallback_u01__reqNewSession_in_Dn_to_fn,
+		UnewSessionCall08: _FuserCallback_u08_packageData_saveTo_tmpBuf,
 	}
 )
 
-//func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
-func _FuserCallback_u03TM__timer_Dn(___VUreqNewSession *_TUreqNewSession) {
-	//_VuExtTimer_Dn.idx++
-	//_VUreqNewSession_Dn._Fconnect_to_server_01x__req_new_sessionID__default()
-	//	if nil == ___Vsvr.UreqNewSessionTM {
-	//		_Fex1(" 839191 01 : why nill ? you should fil this and run again. ")
-	//	}
-
-	___VUreqNewSession._Fconnect_to_server_01x__req_new_sessionID__default()
-
-} // _FuserCallback_u03TM__timer_Dn
-
-// being call in _Fconnect_to_server_03__real
-func _FuserCallback_u03TM__connect_Dn2Fn(___VreqNewSession *_TUreqNewSession) {
-	//_FpfN(" 311916 01 ")
-	//return false // false -> call default func ; true --> already deal with , no call to default func call
-} // _FuserCallback_u03TM__connect_Dn2Fn
+func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
+	__Vb := []byte(" 311917 02 ")
+	___VreqNS.sendBuf08 = &__Vb
+} // _FuserCallback_u08_packageData_saveTo_tmpBuf

@@ -45,6 +45,9 @@ type _TUreqNewSession struct {
 	srvInfo *_TsrvInfo
 
 	serviceUdP        *_TserviceUDP
-	UnewSessionCall01 func(*_TUreqNewSession) // 0: _Fhandle_u03x__udpListen__timer__main_top__default : deal with timer ARRAY in udp
-	UnewSessionCall02 func(*_TUreqNewSession) // 1: _FuserCallback_u03TM__connect_Dn2Fn
+	UnewSessionCall01 func(*_TUreqNewSession) // 1: _Fhandle_u03x__udpListen__timer__main_top__default : deal with timer ARRAY in udp
+	UnewSessionCall04 func(*_TUreqNewSession) // 4: _FuserCallback_u04__
+	UnewSessionCall08 func(*_TUreqNewSession) // 8:
+
+	sendBuf08 *[]byte // send tmp buf gen by UnewSessionCall08
 } //    _TUreqNewSession
