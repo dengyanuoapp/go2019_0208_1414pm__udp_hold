@@ -6,23 +6,24 @@ package main
 func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 1:
-		if nil == ___VsrvU.UsrvGoCallback01 {
+		if nil == ___VsrvU.UsrvGoCall01 {
 			___VsrvU._Fhandle_u01x__udpListen_Udp__read_main_top__default()
 		} else {
-			___VsrvU.UsrvGoCallback01(___VsrvU)
+			___VsrvU.UsrvGoCall01(___VsrvU)
 		}
 	case 2:
-		if nil == ___VsrvU.UsrvGoCallback02 {
+		if nil == ___VsrvU.UsrvGoCall02 {
 			___VsrvU._Fhandle_u02x__udpListen__chanIn_main_top()
 		} else {
-			___VsrvU.UsrvGoCallback02(___VsrvU)
+			___VsrvU.UsrvGoCall02(___VsrvU)
 		}
 	case 3:
-		if nil == ___VsrvU.UsrvGoCallback03 {
+		if nil == ___VsrvU.UsrvGoCall03 {
 			___VsrvU._Fhandle_u03x__udpListen__timer__main_top()
 		} else {
-			___VsrvU.UsrvGoCallback03(___VsrvU)
+			___VsrvU.UsrvGoCall03(___VsrvU)
 		}
+
 	case 11:
 		if nil != ___VsrvU.UsrvLoopCall11 {
 			___VsrvU.UsrvLoopCall11(___VsrvU)
@@ -31,6 +32,7 @@ func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 		if nil != ___VsrvU.UsrvLoopCall12 {
 			___VsrvU.UsrvLoopCall12(___VsrvU)
 		}
+
 	default:
 		_FpfNex(" 839181 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx

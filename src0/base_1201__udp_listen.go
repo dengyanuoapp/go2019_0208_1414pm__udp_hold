@@ -29,15 +29,13 @@ type _TserviceUDP struct {
 	// _FuserCallback_chanIn_Fn__main_top
 	UsrvLoopCall12 func(*_TserviceUDP) // UcallbackCI: _FuserCallback_chanIn_Fn__main_top,
 
-	//UcallbackTM func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
-
 	//UreqNewSessionMR *_TUreqNewSession
 	//UreqNewSessionCI *_TUreqNewSession
 	UreqNewSessionTM *_TUreqNewSession
 
-	UsrvGoCallback01 func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top__default : deal with udp main loop data rece :
-	UsrvGoCallback02 func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top
-	UsrvGoCallback03 func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top
+	UsrvGoCall01 func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top__default : deal with udp main loop data rece :
+	UsrvGoCall02 func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top
+	UsrvGoCall03 func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top
 
 	Cexit *chan string
 	Clog  *chan string
