@@ -25,12 +25,12 @@ func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 		}
 
 	case 11:
-		if nil != ___VsrvU.UsrvLoopCall11 {
-			___VsrvU.UsrvLoopCall11(___VsrvU)
+		if nil != ___VsrvU.UuserLoopCall11 {
+			___VsrvU.UuserLoopCall11(___VsrvU)
 		}
 	case 12:
-		if nil != ___VsrvU.UsrvLoopCall12 {
-			___VsrvU.UsrvLoopCall12(___VsrvU)
+		if nil != ___VsrvU.UuserLoopCall12 {
+			___VsrvU.UuserLoopCall12(___VsrvU)
 		}
 
 	default:
@@ -70,7 +70,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01y__udpListen_Udp__read_main_loop
 
 	_FnullExit(" err 338197 : why ___Vconn.ReadFromUDP addr error ?", ___VserviceUdp.VuremoteAddr)
 
-	//_FnotNullRunUdp01(___VserviceUdp.UsrvLoopCall11, ___VserviceUdp)
+	//_FnotNullRunUdp01(___VserviceUdp.UuserLoopCall11, ___VserviceUdp)
 	_Frun(___VserviceUdp, 11)
 } // _Fhandle_u01y__udpListen_Udp__read_main_loop
 
@@ -79,7 +79,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u02x__udpListen__chanIn_main_top() 
 	for {
 		_Fsleep_1s()
 		//_FpfN( "438195 : udp rece Chan msg ." )
-		//_FnotNullRunUdp01(___VserviceUdp.UsrvLoopCall12, ___VserviceUdp)
+		//_FnotNullRunUdp01(___VserviceUdp.UuserLoopCall12, ___VserviceUdp)
 		_Frun(___VserviceUdp, 12)
 	}
 

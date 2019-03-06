@@ -23,11 +23,11 @@ type _TserviceUDP struct {
 
 	//UcallbackMR func(*_TserviceUDP) // _FuserCallback_u01M__dataRece_Cn
 	// _FuserCallback_u01M__dataRece_Fn__main_top _FuserCallback_u01M__dataRece_Sn
-	UsrvLoopCall11 func(*_TserviceUDP) // UcallbackMR: _FuserCallback_u01M__dataRece_Fn__main_top,
+	UuserLoopCall11 func(*_TserviceUDP) // UcallbackMR: _FuserCallback_u01M__dataRece_Fn__main_top,
 
 	//UcallbackCI func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top : deal with outside chan data in for udp using another handle
 	// _FuserCallback_chanIn_Fn__main_top
-	UsrvLoopCall12 func(*_TserviceUDP) // UcallbackCI: _FuserCallback_chanIn_Fn__main_top,
+	UuserLoopCall12 func(*_TserviceUDP) // UcallbackCI: _FuserCallback_chanIn_Fn__main_top,
 
 	//UreqNewSessionMR *_TUreqNewSession
 	//UreqNewSessionCI *_TUreqNewSession
