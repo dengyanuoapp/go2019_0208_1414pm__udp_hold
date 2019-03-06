@@ -11,8 +11,20 @@ func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 		} else {
 			___VsrvU.UsrvGoCallback01(___VsrvU)
 		}
+	case 2:
+		if nil == ___VsrvU.UsrvGoCallback02 {
+			___VsrvU._Fhandle_u02x__udpListen__chanIn_main_top()
+		} else {
+			___VsrvU.UsrvGoCallback02(___VsrvU)
+		}
+	case 3:
+		if nil == ___VsrvU.UsrvGoCallback03 {
+			___VsrvU._Fhandle_u03x__udpListen__timer__main_top()
+		} else {
+			___VsrvU.UsrvGoCallback03(___VsrvU)
+		}
 	default:
-		_FpfNex(" 839181 09 : %d ", ___Vidx)
+		_FpfNex(" 839181 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
 }
 
@@ -26,8 +38,11 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01x__udpListen_Udp__read_main_top_
 	___VserviceUdp.Vubuf = make([]byte, 2048)    // silice : with var len
 	___VserviceUdp.CuIn01 = make(chan []byte, 5) // silice : with var len
 
-	go ___VserviceUdp._Fhandle_u02x__udpListen__chanIn_main_top()
-	go ___VserviceUdp._Fhandle_u03x__udpListen__timer__main_top()
+	//go ___VserviceUdp._Fhandle_u02x__udpListen__chanIn_main_top()
+	go _Frun(___VserviceUdp, 2)
+
+	//go ___VserviceUdp._Fhandle_u03x__udpListen__timer__main_top()
+	go _Frun(___VserviceUdp, 3)
 
 	for {
 		___VserviceUdp._Fhandle_u01y__udpListen_Udp__read_main_loop()

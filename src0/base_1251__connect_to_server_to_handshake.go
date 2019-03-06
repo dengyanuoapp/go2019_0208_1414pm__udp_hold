@@ -20,7 +20,7 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 			___VUreqNewSession._Fconnect_to_server_04__real_default()
 		}
 	default:
-		_FpfNex(" 381991 09 : %d ", ___Vidx)
+		_FpfNex(" 381991 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
 }
 
