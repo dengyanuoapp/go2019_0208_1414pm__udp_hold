@@ -110,18 +110,6 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessi
 	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_02__req_new_sessionID__main_top
 
-//func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_03__real() {
-//	//_FpfN(" 311915 01 ")
-//	//_Ftry_req
-//	//UriArrs []string // try-Uris
-//	//K256    []byte   // passwd to connect the this server
-//	if ___VreqNewSession.UnsCallback02(___VreqNewSession) { // _FuserCallback_u03TM__connect_Dn2Fn
-//		return
-//	}
-//	___VreqNewSession._Fconnect_to_server_04__real_default()
-//} // _Fconnect_to_server_03__real
-
-//func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
 func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
 	__VdstUaddrStr := ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx]
 	_FpfN(" 311917 01 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
