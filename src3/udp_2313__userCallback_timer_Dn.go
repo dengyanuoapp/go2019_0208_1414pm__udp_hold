@@ -30,12 +30,12 @@ var (
 //func _FuserCallback_u03TM__timer_Dn(___Vsvr *_TserviceUDP) {
 func _FuserCallback_u03TM__timer_Dn(___VUreqNewSession *_TUreqNewSession) {
 	//_VuExtTimer_Dn.idx++
-	//_VUreqNewSession_Dn._Fconnect_to_server_01__req_new_sessionID__default()
+	//_VUreqNewSession_Dn._Fconnect_to_server_01x__req_new_sessionID__default()
 	//	if nil == ___Vsvr.UreqNewSessionTM {
 	//		_Fex1(" 839191 01 : why nill ? you should fil this and run again. ")
 	//	}
 
-	___VUreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
+	___VUreqNewSession._Fconnect_to_server_01x__req_new_sessionID__default()
 
 } // _FuserCallback_u03TM__timer_Dn
 

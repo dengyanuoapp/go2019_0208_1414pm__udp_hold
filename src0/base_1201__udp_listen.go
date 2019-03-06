@@ -31,7 +31,7 @@ type _TserviceUDP struct {
 	UsrvGoCall02 func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top__default
 	UsrvGoCall03 func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top__default
 
-	// _Fconnect_to_server_01__req_new_sessionID__default
+	// _Fconnect_to_server_01x__req_new_sessionID__default
 	UreqNewSessionTM *_TUreqNewSession // called by UsrvGoCall03 , if nil , then UsrvGoCall03 stop
 
 	Cexit *chan string

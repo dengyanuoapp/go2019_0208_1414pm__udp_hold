@@ -8,16 +8,16 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 1:
 		if nil == ___VUreqNewSession.UnsCallback01 {
-			___VUreqNewSession._Fconnect_to_server_01__req_new_sessionID__default()
+			___VUreqNewSession._Fconnect_to_server_01x__req_new_sessionID__default()
 		} else {
 			___VUreqNewSession.UnsCallback01(___VUreqNewSession) //_FuserCallback_u03TM__timer_Dn(___VUreqNewSession)
 		}
-	case 2:
+	case 4:
 		//_Fex1(" 381991 08 ")
 		if nil == ___VUreqNewSession.UnsCallback02 {
 			___VUreqNewSession.UnsCallback02(___VUreqNewSession)
 		} else {
-			___VUreqNewSession._Fconnect_to_server_04__real_default()
+			___VUreqNewSession._Fconnect_to_server_04x__real_default()
 		}
 	default:
 		_FpfNex(" 381991 09 : unknown IRun : %d ", ___Vidx)
@@ -25,20 +25,20 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 }
 
 // you can
-func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01__req_new_sessionID__default() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01x__req_new_sessionID__default() {
 	if ___VreqNewSession.Enabled {
 		_FpfN(" 311911 01 ")
 		_Fsleep_100s()
 	} else {
 		//_FpfN(" 311911 03 ")
-		___VreqNewSession._Fconnect_to_server_02__req_new_sessionID__main_top()
+		___VreqNewSession._Fconnect_to_server_01y__req_new_sessionID__main_top()
 
 		_FsleepRand_12_to_14s()
 		//_Fsleep_1s() // speed up , to test mem leak.
 	}
-} // _Fconnect_to_server_01__req_new_sessionID__default
+} // _Fconnect_to_server_01x__req_new_sessionID__default
 
-func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessionID__main_top() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sessionID__main_top() {
 	//_FpfN(" 311912 01 ")
 	//_FpfN(" 311912 02 %v", ___VreqNewSession)
 	//	//_FpfN(" 311912 03 %v", _Vself)
@@ -108,9 +108,9 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_02__req_new_sessi
 	___VreqNewSession.remainCnt--
 
 	//_Fex1(" 311914 99 ")
-} // _Fconnect_to_server_02__req_new_sessionID__main_top
+} // _Fconnect_to_server_01y__req_new_sessionID__main_top
 
-func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04__real_default() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default() {
 	__VdstUaddrStr := ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx]
 	_FpfN(" 311917 01 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
 		___VreqNewSession.remainCnt, __VdstUaddrStr)
