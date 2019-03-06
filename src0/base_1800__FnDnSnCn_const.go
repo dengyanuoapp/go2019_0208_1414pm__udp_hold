@@ -45,6 +45,6 @@ type _TUreqNewSession struct {
 	srvInfo *_TsrvInfo
 
 	serviceUdP    *_TserviceUDP
-	UnsCallback01 func(*_TUreqNewSession) // 0: _Fhandle_u03x__udpListen__timer__main_top : deal with timer ARRAY in udp
+	UnsCallback01 func(*_TUreqNewSession) // 0: _Fhandle_u03x__udpListen__timer__main_top__default : deal with timer ARRAY in udp
 	UnsCallback02 func(*_TUreqNewSession) // 1: _FuserCallback_u03TM__connect_Dn2Fn
 } //    _TUreqNewSession

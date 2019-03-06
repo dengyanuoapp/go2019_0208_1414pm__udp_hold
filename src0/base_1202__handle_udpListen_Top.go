@@ -13,13 +13,13 @@ func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 		}
 	case 2:
 		if nil == ___VsrvU.UsrvGoCall02 {
-			___VsrvU._Fhandle_u02x__udpListen__chanIn_main_top()
+			___VsrvU._Fhandle_u02x__udpListen__chanIn_main_top__default()
 		} else {
 			___VsrvU.UsrvGoCall02(___VsrvU)
 		}
 	case 3:
 		if nil == ___VsrvU.UsrvGoCall03 {
-			___VsrvU._Fhandle_u03x__udpListen__timer__main_top()
+			___VsrvU._Fhandle_u03x__udpListen__timer__main_top__default()
 		} else {
 			___VsrvU.UsrvGoCall03(___VsrvU)
 		}
@@ -48,10 +48,10 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01x__udpListen_Udp__read_main_top_
 	___VserviceUdp.Vubuf = make([]byte, 2048)    // silice : with var len
 	___VserviceUdp.CuIn01 = make(chan []byte, 5) // silice : with var len
 
-	//go ___VserviceUdp._Fhandle_u02x__udpListen__chanIn_main_top()
+	//go ___VserviceUdp._Fhandle_u02x__udpListen__chanIn_main_top__default()
 	go _Frun(___VserviceUdp, 2)
 
-	//go ___VserviceUdp._Fhandle_u03x__udpListen__timer__main_top()
+	//go ___VserviceUdp._Fhandle_u03x__udpListen__timer__main_top__default()
 	go _Frun(___VserviceUdp, 3)
 
 	for {
@@ -74,7 +74,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01y__udpListen_Udp__read_main_loop
 	_Frun(___VserviceUdp, 11)
 } // _Fhandle_u01y__udpListen_Udp__read_main_loop
 
-func (___VserviceUdp *_TserviceUDP) _Fhandle_u02x__udpListen__chanIn_main_top() {
+func (___VserviceUdp *_TserviceUDP) _Fhandle_u02x__udpListen__chanIn_main_top__default() {
 
 	for {
 		_Fsleep_1s()
@@ -84,9 +84,9 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u02x__udpListen__chanIn_main_top() 
 	}
 
 	(*___VserviceUdp.Cexit) <- "438191 Error : (" + ___VserviceUdp.hostPortStr + ")"
-} // _Fhandle_u02x__udpListen__chanIn_main_top
+} // _Fhandle_u02x__udpListen__chanIn_main_top__default
 
-func (___VserviceUdp *_TserviceUDP) _Fhandle_u03x__udpListen__timer__main_top() {
+func (___VserviceUdp *_TserviceUDP) _Fhandle_u03x__udpListen__timer__main_top__default() {
 
 	__VUreqNewSessionTM := ___VserviceUdp.UreqNewSessionTM
 	if nil == __VUreqNewSessionTM {
@@ -103,12 +103,4 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u03x__udpListen__timer__main_top() 
 	}
 
 	(*___VserviceUdp.Cexit) <- "538191 Error : (" + ___VserviceUdp.hostPortStr + ")"
-} // _Fhandle_u03x__udpListen__timer__main_top
-
-//func (___VserviceUdp *_TserviceUDP) _Fhandle_u03y__udpListen__timer__main_loop() {
-//
-//	//_FpfN( "538195 : udp timer check ..." )
-//
-//	_FnotNullRunUdp01(___VserviceUdp.UreqNewSessionTM.UcallbackTM, ___VserviceUdp)
-//
-//} // _Fhandle_u03y__udpListen__timer__main_loop
+} // _Fhandle_u03x__udpListen__timer__main_top__default

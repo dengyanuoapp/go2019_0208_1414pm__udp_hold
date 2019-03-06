@@ -25,7 +25,7 @@ type _TserviceUDP struct {
 	// _FuserCallback_u01M__dataRece_Fn__main_top _FuserCallback_u01M__dataRece_Sn
 	UuserLoopCall11 func(*_TserviceUDP) // UcallbackMR: _FuserCallback_u01M__dataRece_Fn__main_top,
 
-	//UcallbackCI func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top : deal with outside chan data in for udp using another handle
+	//UcallbackCI func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top__default : deal with outside chan data in for udp using another handle
 	// _FuserCallback_chanIn_Fn__main_top
 	UuserLoopCall12 func(*_TserviceUDP) // UcallbackCI: _FuserCallback_chanIn_Fn__main_top,
 
@@ -34,8 +34,8 @@ type _TserviceUDP struct {
 	UreqNewSessionTM *_TUreqNewSession
 
 	UsrvGoCall01 func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top__default : deal with udp main loop data rece :
-	UsrvGoCall02 func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top
-	UsrvGoCall03 func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top
+	UsrvGoCall02 func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top__default
+	UsrvGoCall03 func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top__default
 
 	Cexit *chan string
 	Clog  *chan string
