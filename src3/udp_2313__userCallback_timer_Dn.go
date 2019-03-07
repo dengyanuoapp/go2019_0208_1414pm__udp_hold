@@ -44,6 +44,7 @@ func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 		MeIdx128: _VC.MyId128,
 		MeSeq16:  _FgenRand_nByte__(16),
 	}
+	_FpfN(" 311919 01 : %v ", _VreqIneedToLogin__Dn)
 
 	__Vb := []byte(" 311919 02 ")
 
