@@ -32,9 +32,20 @@ var (
 type _TreqIneedToLogin struct {
 	MeName   string
 	MeIdx128 []byte
+	MeSeq16  []byte
 }
 
+var _VreqIneedToLogin__Dn _TreqIneedToLogin
+
 func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
+
+	_VreqIneedToLogin__Dn = _TreqIneedToLogin{
+		MeName:   _VC.Name,
+		MeIdx128: _VC.MyId128,
+		MeSeq16:  _FgenRand_nByte__(16),
+	}
+
 	__Vb := []byte(" 311919 02 ")
+
 	___VreqNS.sendBuf08 = &__Vb
 } // _FuserCallback_u08_packageData_saveTo_tmpBuf
