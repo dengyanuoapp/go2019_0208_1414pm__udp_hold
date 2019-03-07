@@ -5,10 +5,6 @@ type _TjFn struct {
 	G string
 	U []string
 } // _TjFn
-type _Tconfig struct {
-	Name    string
-	MyId128 []byte
-}
 
 var (
 	_VjFn _TjFn = _TjFn{"Fn", "https://github.com/jasas78/jsonOnly/raw/master/Makefile",

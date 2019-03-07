@@ -4,11 +4,6 @@ import (
 	"flag"
 )
 
-type _Tconfig struct {
-	Name    string
-	MyId128 []byte
-} //    _Tconfig
-
 var (
 	_VserviceUdpDn _TserviceUDP
 

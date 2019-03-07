@@ -28,6 +28,12 @@ var (
 	}
 )
 
+// _Tconfig
+type _TreqIneedToLogin struct {
+	MeName   string
+	MeIdx128 []byte
+}
+
 func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 	__Vb := []byte(" 311919 02 ")
 	___VreqNS.sendBuf08 = &__Vb
