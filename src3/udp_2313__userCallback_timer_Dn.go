@@ -44,9 +44,14 @@ func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 		MeIdx128: _VC.MyId128,
 		MeSeq16:  _FgenRand_nByte__(16),
 	}
-	_FpfN(" 311919 01 : %v ", _VreqIneedToLogin__Dn)
+	//_FpfN(" 311919 01 : %v ", _VreqIneedToLogin__Dn)
 
-	__Vb := []byte(" 311919 02 ")
+	//__Vb := []byte(" 311919 02 ")
+	//___VreqNS.sendBuf08 = &__Vb
 
-	___VreqNS.sendBuf08 = &__Vb
+	__VbufTmp1 := _FencJsonExit(" 311919 05 ", &_VreqIneedToLogin__Dn)
+	__VbufTmp2 := _FencAesRandExit(" 311919 06 ", &(___VreqNS.srvInfo.K256), &__VbufTmp1)
+	_FpfN(" 311919 07 get package len (%d / %d ) ", len(__VbufTmp1), len(__VbufTmp2))
+	___VreqNS.sendBuf08 = &__VbufTmp2
+
 } // _FuserCallback_u08_packageData_saveTo_tmpBuf
