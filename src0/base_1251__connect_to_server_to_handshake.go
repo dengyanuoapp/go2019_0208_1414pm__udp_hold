@@ -140,7 +140,8 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 		_FpfN(" 311917 06 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr2)
 		return
 	}
-	_FpfN(" 311917 07 : udp send succeed 01 dst<%s>, local<%v>, listen<%v>", __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
+	_FpfN(" 311917 07 : udp send succeed (%d) 01 dst<%s>, local<%v>, listen<%v>",
+		len(*___VreqNewSession.sendBuf081), __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
 
 	_Fsleep_10s()
 	_, __Verr3 := __VudpConn.WriteToUDP(*___VreqNewSession.sendBuf082, __VuAddr)
@@ -148,7 +149,8 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 		_FpfN(" 311917 08 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr3)
 		return
 	}
-	_FpfN(" 311917 09 : udp send succeed 02 dst<%s>, local<%v>, listen<%v>", __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
+	_FpfN(" 311917 09 : udp send succeed (%d) 02 dst<%s>, local<%v>, listen<%v>",
+		len(*___VreqNewSession.sendBuf082), __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
 	_Pn()
 
 	_Fsleep_10s()
