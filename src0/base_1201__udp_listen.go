@@ -20,6 +20,7 @@ type _TserviceUDP struct {
 	Vulen        int
 	VuremoteAddr *net.UDPAddr
 	VulocalAddr  net.Addr
+	VuSrvInfo    *_TsrvInfo
 
 	UuserLoopCall11 func(*_TserviceUDP) // UcallbackMR: _FuserCallback_u01M__dataRece_Fn__main_top,
 	// _FuserCallback_u01M__dataRece_Fn__main_top _FuserCallback_u01M__dataRece_Sn _FuserCallback_u01M__dataRece_Cn

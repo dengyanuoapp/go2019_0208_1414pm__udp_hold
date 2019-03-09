@@ -49,11 +49,14 @@ func init() {
 		Clog:            &_Clog,
 	}
 	_VserviceUdpWdn = _TserviceUDP{
-		name:            "servicePortForCD",
+		name:            "servicePortForDn",
 		UuserLoopCall11: _FuserCallback_u01M__dataRece_Fn__main_top,
 		UuserLoopCall12: _FuserCallback_chanIn_Fn__main_top,
-		Cexit:           &_Cexit,
-		Clog:            &_Clog,
+
+		VuSrvInfo: &_TsrvInfo{K256: _VpasswdDown_Dn},
+
+		Cexit: &_Cexit,
+		Clog:  &_Clog,
 	}
 
 	//	_VserviceUdpFS = _TserviceUDP{
