@@ -42,6 +42,9 @@ func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP) {
 	//_FpfNhex(&__Vb3, 80, " 1738181 07 : %s :", __Vb3)
 	_FpfN(" 1738181 08 : %d / %d : %s \n", ___VserviceUDP.Vulen, len(__Vb3), __Vb3)
 
+	if nil != ___VserviceUDP.CuOut01 {
+	}
+
 } // _FuserCallback_u01M__dataRece_Fn__main_top _TserviceUDP
 
 var (
