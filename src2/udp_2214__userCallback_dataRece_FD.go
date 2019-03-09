@@ -21,19 +21,26 @@ func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP) {
 
 	if nil != ___VserviceUDP.CuOut01 {
 		__Vcn2dn := _Tdn{1, ___VserviceUDP.VuremoteAddr.IP, ___VserviceUDP.VuremoteAddr.Port}
-		__Vbyte, __Verr := json.Marshal(__Vcn2dn)
-		if nil == __Verr {
-			*___VserviceUDP.CuOut01 <- __Vbyte
+		__Vbyte2, __Verr2 := json.Marshal(__Vcn2dn)
+		if nil == __Verr2 {
+			*___VserviceUDP.CuOut01 <- __Vbyte2
 		}
 	} else {
 		_FpfN(" 1738181 02 : %s : no CuOut01  ", ___VserviceUDP.name)
 	}
 
-	_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738181 03 :")
-	_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738181 04 : %s :", ___VserviceUDP.name)
-	__Vdec := _FdecAesRandExit(" 1738181 05 ", &___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
-	//_FpfNhex(&__Vdec, 80, " 1738181 06 : %s :", __Vdec)
-	_FpfN(" 1738181 07 : %s \n", __Vdec)
+	//_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738181 03 :")
+	//_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738181 04 : %s :", ___VserviceUDP.name)
+
+	//__Vb3 := _FdecAesRandExit(" 1738181 05 ", &___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
+	__Vb3, __Verr3 := _FdecAesRand__only(&___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
+	if nil != __Verr3 {
+		_FpfN(" 1738181 06 received error package , ignore it: %v :", __Verr3)
+		return
+	}
+
+	//_FpfNhex(&__Vb3, 80, " 1738181 07 : %s :", __Vb3)
+	_FpfN(" 1738181 08 : %s \n", __Vb3)
 
 } // _FuserCallback_u01M__dataRece_Fn__main_top _TserviceUDP
 
