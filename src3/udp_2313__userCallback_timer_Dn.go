@@ -44,15 +44,24 @@ func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 		MeIdx128: _VC.MyId128,
 		MeSeq16:  _FgenRand_nByte__(16),
 	}
-	//_FpfN(" 311919 01 : %v ", _VreqIneedToLogin__Dn)
+	//_FpfN(" 838981 01 : %v ", _VreqIneedToLogin__Dn)
 
-	//__Vb := []byte(" 311919 02 ")
-	//___VreqNS.sendBuf08 = &__Vb
+	//__Vb := []byte(" 838981 02 ")
+	//___VreqNS.sendBuf081 = &__Vb
 
-	__VbufTmp1 := _FencJsonExit(" 311919 05 ", &_VreqIneedToLogin__Dn)
-	__VbufTmp2 := _FencAesRandExit(" 311919 06 ", &(___VreqNS.srvInfo.K256), &__VbufTmp1)
-	_FpfNhex(&(___VreqNS.srvInfo.K256), 80, " 311919 07 pack data using key  : ")
-	_FpfN(" 311919 08 pack data to (len origin : %d / packed : %d ) ", len(__VbufTmp1), len(__VbufTmp2))
-	___VreqNS.sendBuf08 = &__VbufTmp2
+	__VbufTmp1 := _FencJsonExit(" 838981 03 ", &_VreqIneedToLogin__Dn)
+
+	//	__VbufTmp2 := _FencAesRandExit(" 838981 04 ", &(___VreqNS.srvInfo.K256), &__VbufTmp1)
+	//	_FpfNhex(&(___VreqNS.srvInfo.K256), 40, " 838981 05 pack data using key  : ")
+	//	_FpfN(" 838981 06 pack data to (len origin : %d / packed : %d ) ", len(__VbufTmp1), len(__VbufTmp2))
+	//
+	//	__VbufTmp3 := _FencAesRandExit(" 838981 07 ", &(___VreqNS.srvInfo.K256), &__VbufTmp1)
+	//	//_FpfNhex(&(___VreqNS.srvInfo.K256), 40, " 838981 08 pack data using key  : ")
+	//	_FpfN(" 838981 09 pack data to (len origin : %d / packed : %d ) ", len(__VbufTmp1), len(__VbufTmp3))
+
+	__VbufTmp2, __VbufTmp3 := _FencAesRandExit2(" 838981 00 ", &(___VreqNS.srvInfo.K256), &__VbufTmp1)
+
+	___VreqNS.sendBuf081 = &__VbufTmp2
+	___VreqNS.sendBuf082 = &__VbufTmp3
 
 } // _FuserCallback_u08_packageData_saveTo_tmpBuf

@@ -49,5 +49,6 @@ type _TUreqNewSession struct {
 	UnewSessionCall04 func(*_TUreqNewSession) // 4: _FuserCallback_u04__
 	UnewSessionCall08 func(*_TUreqNewSession) // 8:
 
-	sendBuf08 *[]byte // send tmp buf gen by UnewSessionCall08
+	sendBuf081 *[]byte // send tmp buf gen by UnewSessionCall08
+	sendBuf082 *[]byte // send tmp buf gen by UnewSessionCall08
 } //    _TUreqNewSession

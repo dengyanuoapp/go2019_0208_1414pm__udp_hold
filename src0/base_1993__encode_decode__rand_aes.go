@@ -114,6 +114,14 @@ func _FencAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []by
 	return __Vb
 } // _FencAesRandExit
 
+func _FencAesRandExit2(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, []byte) {
+	__Vb1, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn)
+	_FerrExit(___VeMsg+" 292392 01", __Verr)
+	__Vb2, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn)
+	_FerrExit(___VeMsg+" 292392 02", __Verr)
+	return __Vb1, __Vb2
+} // _FencAesRandExit
+
 func _FdecAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
 	__Vb, __Verr := _FdecAesRand__only(___Vkey, ___VbyteIn)
 	_FerrExit(___VeMsg+" 292395 ", __Verr)

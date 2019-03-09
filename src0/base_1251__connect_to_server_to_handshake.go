@@ -129,26 +129,26 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 	// func ResolveUDPAddr(network, address string) (*UDPAddr, error)
 	__VuAddr, __Verr1 := net.ResolveUDPAddr("udp4", __VdstUaddrStr)
 	if __Verr1 != nil {
-		_FpfN("311917 04 : udpDst mistake<%s>[%v]", __VdstUaddrStr, __Verr1)
+		_FpfN(" 311917 04 : udpDst mistake<%s>[%v]", __VdstUaddrStr, __Verr1)
 		return
 	}
 
 	// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 	_Frun(___VreqNewSession, 8)
-	_, __Verr2 := __VudpConn.WriteToUDP(*___VreqNewSession.sendBuf08, __VuAddr)
+	_, __Verr2 := __VudpConn.WriteToUDP(*___VreqNewSession.sendBuf081, __VuAddr)
 	if __Verr2 != nil {
-		_FpfN("311917 06 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr2)
+		_FpfN(" 311917 06 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr2)
 		return
 	}
-	_FpfN("311917 07 : udp send succeed 01 dst<%s>, local<%v>, listen<%v>", __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
+	_FpfN(" 311917 07 : udp send succeed 01 dst<%s>, local<%v>, listen<%v>", __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
 
 	_Fsleep_10s()
-	_, __Verr3 := __VudpConn.WriteToUDP(*___VreqNewSession.sendBuf08, __VuAddr)
+	_, __Verr3 := __VudpConn.WriteToUDP(*___VreqNewSession.sendBuf082, __VuAddr)
 	if __Verr3 != nil {
-		_FpfN("311917 08 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr3)
+		_FpfN(" 311917 08 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr3)
 		return
 	}
-	_FpfN("311917 09 : udp send succeed 02 dst<%s>, local<%v>, listen<%v>", __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
+	_FpfN(" 311917 09 : udp send succeed 02 dst<%s>, local<%v>, listen<%v>", __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
 	_Pn()
 
 	_Fsleep_10s()
@@ -158,5 +158,6 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 var __Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default []byte = []byte(" 311918 02 ")
 
 func (___VreqNS *_TUreqNewSession) _Fconnect_to_server_08__saveTo_tmpBuf__default() {
-	___VreqNS.sendBuf08 = &__Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default
+	___VreqNS.sendBuf081 = &__Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default
+	___VreqNS.sendBuf082 = &__Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default
 } // _Fconnect_to_server_08__saveTo_tmpBuf__default
