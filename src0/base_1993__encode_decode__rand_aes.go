@@ -23,13 +23,13 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	)
 
 	if 32 != len(*___Vkey) {
-		_FpfhexN(___Vkey, 32, " 192390 key error len")
+		_FpfNhex(___Vkey, 32, " 192390 key error len")
 		return __Vout, nil
 	}
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(*___VbyteIn)
-	//_FpfhexN(___VbyteIn, 40, " 192391 iv %x , byteIn ", __Viv)
+	//_FpfNhex(___VbyteIn, 40, " 192391 iv %x , byteIn ", __Viv)
 
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
 
@@ -39,18 +39,18 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
 	copy(__Vtmp[2:], *___VbyteIn)
-	//_FpfhexN(&__Vtmp, 48, " 192392 Vtmp : ")
+	//_FpfNhex(&__Vtmp, 48, " 192392 Vtmp : ")
 	//copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
 	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(__Vtmp[:2+__VlenIn])))
-	//_FpfhexN(&__Vtmp, 48, " 192393 Vtmp : ")
+	//_FpfNhex(&__Vtmp, 48, " 192393 Vtmp : ")
 
 	if 2 == 3 {
-		_FpfhexN(&__Vtmp, 48, " 192394 pre  : ")
-		_FpfhexN(&__Vtmp, 28, " 192394 pre  : ")
-		_FpfhexN(&__Vtmp, 30, " 192394 pre  : ")
-		_FpfhexN(&__Vtmp, 32, " 192394 pre  : ")
-		_FpfhexN(&__Vtmp, 33, " 192394 pre  : ")
-		_FpfhexN(&__Vtmp, 34, " 192394 pre  : ")
+		_FpfNhex(&__Vtmp, 48, " 192394 pre  : ")
+		_FpfNhex(&__Vtmp, 28, " 192394 pre  : ")
+		_FpfNhex(&__Vtmp, 30, " 192394 pre  : ")
+		_FpfNhex(&__Vtmp, 32, " 192394 pre  : ")
+		_FpfNhex(&__Vtmp, 33, " 192394 pre  : ")
+		_FpfNhex(&__Vtmp, 34, " 192394 pre  : ")
 		_FpfhexlastN(&__Vtmp, 28, " 192394 post : ")
 		_FpfhexlastN(&__Vtmp, 30, " 192394 post : ")
 		_FpfhexlastN(&__Vtmp, 33, " 192394 post : ")
@@ -132,7 +132,7 @@ func _FaesRand_test__en_de_Exit(___VstrIn string, ___VloopAmount int) {
 	for ___VloopAmount > 0 {
 		___VloopAmount--
 		__Vkey := _FgenRand_nByte__(32)
-		//_FpfhexN(&__Vkey, 40, " 738191 : using key ")
+		//_FpfNhex(&__Vkey, 40, " 738191 : using key ")
 
 		__VbI := []byte(___VstrIn)
 		__Vt1 := _FaesRand_test__encode(" 182812 ", &__Vkey, &__VbI)
@@ -141,9 +141,9 @@ func _FaesRand_test__en_de_Exit(___VstrIn string, ___VloopAmount int) {
 		// // iv(16) + aes_data_load(48) == 16 + 48 == 64(aesENtext)
 		// // 64(aesENtext) + random(0-15 byte) == 64 + N byte == 64 + 8(for example) --> 72 byte( aes_ran_gen_Crypt_text(72) )
 
-		//_FpfhexN(&__Vt1, 48, " 738194 : genRandSecText ")
+		//_FpfNhex(&__Vt1, 48, " 738194 : genRandSecText ")
 		__VbyteO := _FaesRand_test__decode(" 182814 ", &__Vkey, &__Vt1)
-		//_FpfhexN(&__VbyteO, 48, " 738195 : plain_text ")
+		//_FpfNhex(&__VbyteO, 48, " 738195 : plain_text ")
 		__VstrO := string(__VbyteO)
 
 		_FnotEqExit(" 738198 : comp error.", ___VstrIn, __VstrO)

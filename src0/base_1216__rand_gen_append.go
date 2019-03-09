@@ -45,7 +45,7 @@ func _FreGenRandBuf___() {
 	//_FpfN(" 371915: len ( %d ) : %x %x %x ", len(_VgenRand.buf), _VgenRand.buf[:16], _VgenRand.buf[16:32], _VgenRand.buf[32:48])
 
 	_VgenRand.remain = uint32(_VsizeOfRandBuf_byte)
-	//_FpfhexN(&_VgenRand.buf, 40, " 371919: _FreGenRandBuf___ : bufSize[%d] ", _VsizeOfRandBuf_byte)
+	//_FpfNhex(&_VgenRand.buf, 40, " 371919: _FreGenRandBuf___ : bufSize[%d] ", _VsizeOfRandBuf_byte)
 } // _FreGenRandBuf___
 
 // gen rand byte slice , size is N
@@ -84,7 +84,7 @@ func _FgenRand_nByte__(___Vlen uint16) []byte {
 
 	_VgenRand.cnt64 += uint64(__VlenReq)
 
-	//_FpfhexN(&__Vout, 24, " 938199 _FgenRand_nByte__ : (%d:%d) remain %d , Vout:0x%x ", _VgenRand.cnt64, __VlenReq, _VgenRand.remain, len(__Vout))
+	//_FpfNhex(&__Vout, 24, " 938199 _FgenRand_nByte__ : (%d:%d) remain %d , Vout:0x%x ", _VgenRand.cnt64, __VlenReq, _VgenRand.remain, len(__Vout))
 
 	return __Vout
 } // _FgenRand_nByte__

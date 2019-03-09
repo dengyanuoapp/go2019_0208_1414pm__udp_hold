@@ -51,7 +51,7 @@ func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 
 	__VbufTmp1 := _FencJsonExit(" 311919 05 ", &_VreqIneedToLogin__Dn)
 	__VbufTmp2 := _FencAesRandExit(" 311919 06 ", &(___VreqNS.srvInfo.K256), &__VbufTmp1)
-	_FpfhexN(&(___VreqNS.srvInfo.K256), 80, " 311919 07 pack data using key  : ")
+	_FpfNhex(&(___VreqNS.srvInfo.K256), 80, " 311919 07 pack data using key  : ")
 	_FpfN(" 311919 08 pack data to (len origin : %d / packed : %d ) ", len(__VbufTmp1), len(__VbufTmp2))
 	___VreqNS.sendBuf08 = &__VbufTmp2
 

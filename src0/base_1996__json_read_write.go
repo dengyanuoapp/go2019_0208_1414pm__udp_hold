@@ -22,14 +22,14 @@ func _Ftry_download_rand_json01(___VdownUri string, ___Vkey *[]byte, ___Vrecover
 		return nil, fmt.Errorf(" 638191 01 : %v", __Verr)
 	}
 
-	//_FpfhexN(&__Vtmp1, 40, " 638192 %x :", _Fbase_1101b__gen_md5Only(&__Vtmp1))
+	//_FpfNhex(&__Vtmp1, 40, " 638192 %x :", _Fbase_1101b__gen_md5Only(&__Vtmp1))
 
 	//__Vtmp2 := _FdecAesRandExit(" 638194 ", ___Vkey, &__Vtmp1)
 	__Vtmp2, __Verr := _FdecAesRand__only(___Vkey, &__Vtmp1)
-	//_FpfhexN(&__Vtmp2, 40, " 638195 %s :", __Vtmp2)
+	//_FpfNhex(&__Vtmp2, 40, " 638195 %s :", __Vtmp2)
 	if nil != __Verr {
 		//_FpfN(" 638197 %v :", __Verr)
-		//_FpfhexN(&__Vtmp1, 40, " 638198 receive error data :")
+		//_FpfNhex(&__Vtmp1, 40, " 638198 receive error data :")
 		return nil, fmt.Errorf(" 638191 03 : %v", __Verr)
 	}
 

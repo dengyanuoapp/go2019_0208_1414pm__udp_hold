@@ -22,7 +22,7 @@ func _PpdL(___VmaxPrLen int, ___Vbuf *[]byte) {
 	}
 } // _PpdL
 
-func _FpfhexN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
+func _FpfNhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	__Vl := len(*___VbyteIn)
 
 	_Fpf(___Vfmt, ___Vobj...)
@@ -40,7 +40,7 @@ func _FpfhexN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...i
 	}
 	_Ppf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
 
-} // _FpfhexN
+} // _FpfNhex
 
 func _FpfhexlastN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	__Vl := len(*___VbyteIn)

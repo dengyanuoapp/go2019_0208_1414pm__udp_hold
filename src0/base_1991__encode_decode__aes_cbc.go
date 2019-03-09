@@ -56,7 +56,7 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 		__Vmode.CryptBlocks(__Vout[16:], (*___VbyteIn))
 	}
 
-	//_FpfhexN(&__Vout, 32, " 132819 _FencAesCbc__only___ : lenIn %d , dataOut: ", __VlenIn)
+	//_FpfNhex(&__Vout, 32, " 132819 _FencAesCbc__only___ : lenIn %d , dataOut: ", __VlenIn)
 
 	return __Vout, nil
 } // _FencAesCbc__only___
@@ -73,7 +73,7 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	)
 
 	if 32 != len(*___Vkey) {
-		//_FpfhexN(___Vkey, 32, " 838181 key len error ")
+		//_FpfNhex(___Vkey, 32, " 838181 key len error ")
 		return __Vout, nil
 	}
 
@@ -84,7 +84,7 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	__VdataEnd := (__VlenIn & 0xFFFFFFF0)
 	//_FpfN(" 838180 __VlenIn %d , __VdataEnd %d ", __VlenIn, __VdataEnd)
 	__Vout = make([]byte, __VdataEnd-16)
-	//_FpfhexN(___VbyteIn, 82, " 838181 dataIn ")
+	//_FpfNhex(___VbyteIn, 82, " 838181 dataIn ")
 
 	__Viv := (*___VbyteIn)[:16]
 	__VcipherText := (*___VbyteIn)[16:__VdataEnd]
@@ -93,8 +93,8 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	_FerrExit(" 838182 ", __Verr)
 
 	if 2 == 3 {
-		_FpfhexN(&__Viv, 82, " 838183 iv ")
-		_FpfhexN(&__VcipherText, 82, " 838184 cipherText ")
+		_FpfNhex(&__Viv, 82, " 838183 iv ")
+		_FpfNhex(&__VcipherText, 82, " 838184 cipherText ")
 	}
 
 	__Vmode := cipher.NewCBCDecrypter(__Vblock, __Viv)
@@ -102,7 +102,7 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	// CryptBlocks(dst, src []byte)
 	__Vmode.CryptBlocks(__Vout, __VcipherText)
-	//_FpfhexN(&__Vout, 82, " 838189 out ")
+	//_FpfNhex(&__Vout, 82, " 838189 out ")
 
 	return __Vout, nil
 } // _FdecAesCbc__only___

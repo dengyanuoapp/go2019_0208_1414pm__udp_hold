@@ -29,10 +29,11 @@ func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP) {
 		_FpfN(" 1738181 02 : %s : no CuOut01  ", ___VserviceUDP.name)
 	}
 
-	_FpfhexN(&___VserviceUDP.Vubuf, 80, " 1738181 03 :")
-	_FpfhexN(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738181 04 : %s :", ___VserviceUDP.name)
+	_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738181 03 :")
+	_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738181 04 : %s :", ___VserviceUDP.name)
 	__Vdec := _FdecAesRandExit(" 1738181 05 ", &___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
-	_FpfhexN(&__Vdec, 80, " 1738181 06 : %s :", __Vdec)
+	//_FpfNhex(&__Vdec, 80, " 1738181 06 : %s :", __Vdec)
+	_FpfN(" 1738181 07 : %s \n", __Vdec)
 
 } // _FuserCallback_u01M__dataRece_Fn__main_top _TserviceUDP
 

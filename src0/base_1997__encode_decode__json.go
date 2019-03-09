@@ -74,7 +74,7 @@ func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname stri
 	var __VbufTmp1, __VbufTmp2 []byte
 	__VbufTmp1 = _FreadFileExit(___VeMsg+" 819183 ", ___Vfname)
 	__VbufTmp2 = _FdecAesRandExit(___VeMsg+" 819184 ", ___Vkey, &__VbufTmp1)
-	//_FpfhexN(&__VbufTmp2, 80, " 819186 ")
+	//_FpfNhex(&__VbufTmp2, 80, " 819186 ")
 	if nil == ___Vobj {
 		_FdecJson___(___VeMsg+" 819187 ", &__VbufTmp2, ___Vobj)
 	}
@@ -90,7 +90,7 @@ func _FtestER__write_json_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfn
 
 	_FfalseExit(" 381919 ", bytes.Equal(__VbufText1, __VbufText2))
 
-	//_FpfhexN(&__VbufText1, 80, " 819181 ")
-	//_FpfhexN(&__VbufText2, 80, " 819182 ")
+	//_FpfNhex(&__VbufText1, 80, " 819181 ")
+	//_FpfNhex(&__VbufText2, 80, " 819182 ")
 	//_FpfN(" 819183 : <%s>", __VbufText2)
 } // _FtestER__write_json_and_rand_Exit
