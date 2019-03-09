@@ -42,6 +42,6 @@ func _Ftest01(___Vfname string, ___Vkey *[]byte, ___Vdst interface{}) {
 func main() {
 	_FpfN("\n Start \n")
 
-	_Ftest01("fn", &_VpasswdDown_Dn, &_VjFn)
+	_Ftest01("fn", &_Vpasswd_udp_Fn_waitForCliens01, &_VjFn)
 
 } // main

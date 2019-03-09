@@ -43,17 +43,17 @@ func init() {
 	}
 
 	_VserviceUdpWcn = _TserviceUDP{
-		name:            "servicePortForCn",
+		name:            "FnServicePortForCn",
 		UuserLoopCall11: _FuserCallback_u01M__dataRece_Cn,
 		Cexit:           &_Cexit,
 		Clog:            &_Clog,
 	}
 	_VserviceUdpWdn = _TserviceUDP{
-		name:            "servicePortForDn",
+		name:            "FnServicePortForDn",
 		UuserLoopCall11: _FuserCallback_u01M__dataRece_Fn__main_top,
 		UuserLoopCall12: _FuserCallback_chanIn_Fn__main_top,
 
-		VuSrvInfo: &_TsrvInfo{K256: _VpasswdDown_Dn},
+		VuSrvInfo: &_TsrvInfo{K256: _Vpasswd_udp_Fn_waitForCliens01},
 
 		Cexit: &_Cexit,
 		Clog:  &_Clog,
