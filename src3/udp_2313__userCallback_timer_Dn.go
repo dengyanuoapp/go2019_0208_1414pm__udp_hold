@@ -19,8 +19,8 @@ var (
 
 	_VsrvInfo_Dn        _TsrvInfo
 	_VUreqNewSession_Dn _TUreqNewSession = _TUreqNewSession{
-		updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/Dn2Fn.json.rand",
-		updatePasswd: &_Vpasswd_udp_Dn_download_config,
+		updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
+		updatePasswd: &_Vpasswd_udp_FnWdn_download_config,
 		srvInfo:      &_VsrvInfo_Dn,
 		//UnewSessionCall04: _FuserCallback_u04__,
 		//UnewSessionCall01: _FuserCallback_u01__reqNewSession_in_Dn_to_fn,
