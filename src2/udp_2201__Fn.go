@@ -51,7 +51,7 @@ func init() {
 	_VserviceUdpWdn = _TserviceUDP{
 		name:            "FnServicePortForDn",
 		UuserLoopCall11: _FuserCallback_u01M__dataRece_Fn__main_top,
-		UuserLoopCall12: _FuserCallback_chanIn_Fn__main_top,
+		UuserLoopCall21: _FuserCallback_chanIn_Fn__main_top,
 
 		VuSrvInfo: &_TsrvInfo{K256: _Vpasswd_udp_Fn_waitForCliens01},
 
@@ -83,13 +83,13 @@ func main() {
 	// _Fhandle_tcpAccept01
 	// _FhandleTcp_accept_dataReceiveMsg01
 	//go _VserviceTcpMf._Fhandle_udpListen_Tcp__main_top()
-	go _Frun(&_VserviceTcpMf, 1)
+	go _Frun(&_VserviceTcpMf, 101)
 	// ------------------- tcp for debug monitor log --- end
 
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
-	go _Frun(&_VserviceUdpWcn, 1) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
-	go _Frun(&_VserviceUdpWdn, 1)
+	go _Frun(&_VserviceUdpWcn, 201) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
+	go _Frun(&_VserviceUdpWdn, 201)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin

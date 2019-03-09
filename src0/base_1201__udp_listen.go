@@ -25,7 +25,7 @@ type _TserviceUDP struct {
 	UuserLoopCall11 func(*_TserviceUDP) // UcallbackMR: _FuserCallback_u01M__dataRece_Fn__main_top,
 	// _FuserCallback_u01M__dataRece_Fn__main_top _FuserCallback_u01M__dataRece_Sn _FuserCallback_u01M__dataRece_Cn
 
-	UuserLoopCall12 func(*_TserviceUDP) // UcallbackCI: _FuserCallback_chanIn_Fn__main_top,
+	UuserLoopCall21 func(*_TserviceUDP) // UcallbackCI: _FuserCallback_chanIn_Fn__main_top,
 	// _FuserCallback_chanIn_Fn__main_top
 
 	UsrvGoCall01 func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top__default : deal with udp main loop data rece :

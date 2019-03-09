@@ -7,7 +7,7 @@ import (
 
 func (___VsrvT *_TserviceTCP) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 1:
+	case 101:
 		if nil == ___VsrvT.TsrvGoCallback01 {
 			___VsrvT._Fhandle_udpListen_Tcp__main_top()
 		} else {

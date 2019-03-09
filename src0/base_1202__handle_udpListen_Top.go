@@ -5,32 +5,32 @@ package main
 
 func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 1:
+	case 201:
 		if nil == ___VsrvU.UsrvGoCall01 {
 			___VsrvU._Fhandle_u01x__udpListen_Udp__read_main_top__default()
 		} else {
 			___VsrvU.UsrvGoCall01(___VsrvU)
 		}
-	case 2:
+	case 202:
 		if nil == ___VsrvU.UsrvGoCall02 {
 			___VsrvU._Fhandle_u02x__udpListen__chanIn_main_top__default()
 		} else {
 			___VsrvU.UsrvGoCall02(___VsrvU)
 		}
-	case 3:
+	case 203:
 		if nil == ___VsrvU.UsrvGoCall03 {
 			___VsrvU._Fhandle_u03x__udpListen__timer__main_top__default()
 		} else {
 			___VsrvU.UsrvGoCall03(___VsrvU)
 		}
 
-	case 11:
+	case 211:
 		if nil != ___VsrvU.UuserLoopCall11 {
 			___VsrvU.UuserLoopCall11(___VsrvU)
 		}
-	case 12:
-		if nil != ___VsrvU.UuserLoopCall12 {
-			___VsrvU.UuserLoopCall12(___VsrvU)
+	case 221:
+		if nil != ___VsrvU.UuserLoopCall21 {
+			___VsrvU.UuserLoopCall21(___VsrvU)
 		}
 
 	default:
@@ -49,10 +49,10 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01x__udpListen_Udp__read_main_top_
 	___VserviceUdp.CuIn01 = make(chan []byte, 5) // silice : with var len
 
 	//go ___VserviceUdp._Fhandle_u02x__udpListen__chanIn_main_top__default()
-	go _Frun(___VserviceUdp, 2)
+	go _Frun(___VserviceUdp, 202)
 
 	//go ___VserviceUdp._Fhandle_u03x__udpListen__timer__main_top__default()
-	go _Frun(___VserviceUdp, 3)
+	go _Frun(___VserviceUdp, 203)
 
 	for {
 		___VserviceUdp._Fhandle_u01y__udpListen_Udp__read_main_loop()
@@ -71,7 +71,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u01y__udpListen_Udp__read_main_loop
 	_FnullExit(" err 338197 : why ___Vconn.ReadFromUDP addr error ?", ___VserviceUdp.VuremoteAddr)
 
 	//_FnotNullRunUdp01(___VserviceUdp.UuserLoopCall11, ___VserviceUdp)
-	_Frun(___VserviceUdp, 11)
+	_Frun(___VserviceUdp, 211)
 } // _Fhandle_u01y__udpListen_Udp__read_main_loop
 
 func (___VserviceUdp *_TserviceUDP) _Fhandle_u02x__udpListen__chanIn_main_top__default() {
@@ -79,8 +79,8 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u02x__udpListen__chanIn_main_top__d
 	for {
 		_Fsleep_1s()
 		//_FpfN( "438195 : udp rece Chan msg ." )
-		//_FnotNullRunUdp01(___VserviceUdp.UuserLoopCall12, ___VserviceUdp)
-		_Frun(___VserviceUdp, 12)
+		//_FnotNullRunUdp01(___VserviceUdp.UuserLoopCall21, ___VserviceUdp)
+		_Frun(___VserviceUdp, 221)
 	}
 
 	(*___VserviceUdp.Cexit) <- "438191 Error : (" + ___VserviceUdp.hostPortStr + ")"
@@ -99,7 +99,7 @@ func (___VserviceUdp *_TserviceUDP) _Fhandle_u03x__udpListen__timer__main_top__d
 		//_Fsleep_1s()
 		//___VserviceUdp._Fhandle_u03y__udpListen__timer__main_loop()
 		//_FnotNullRunUdp02(__VUreqNewSessionTM.UcallbackTM, __VUreqNewSessionTM) //  _FuserCallback_u01__reqNewSession_in_Dn_to_fn
-		_Frun(__VUreqNewSessionTM, 1)
+		_Frun(__VUreqNewSessionTM, 301)
 	}
 
 	(*___VserviceUdp.Cexit) <- "538191 Error : (" + ___VserviceUdp.hostPortStr + ")"
