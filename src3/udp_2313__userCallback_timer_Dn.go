@@ -3,10 +3,10 @@
 package main
 
 import (
-//"net"
-//"os"
-//"strconv"
-//"time"
+	//"net"
+	//"os"
+	//"strconv"
+	"time"
 )
 
 var (
@@ -33,7 +33,7 @@ type _TreqIneedToLogin struct {
 	MeName   string
 	MeIdx128 []byte
 	MeSeq128 []byte
-	MeCNT    int32
+	MeTime   int64
 }
 
 var _VreqIneedToLogin__Dn _TreqIneedToLogin
@@ -44,7 +44,7 @@ func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _FgenRand_nByte__(16),
-		MeCNT:    _VreqIneedToLogin__Dn.MeCNT + 1,
+		MeTime:   time.Now().Unix(),
 	}
 	//_FpfN(" 838981 01 : %v ", _VreqIneedToLogin__Dn)
 
