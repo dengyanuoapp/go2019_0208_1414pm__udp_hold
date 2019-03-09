@@ -149,7 +149,9 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 		return
 	}
 	_FpfN("311917 09 : udp send succeed 02 dst<%s>, local<%v>, listen<%v>", __VdstUaddrStr, ___Vsvr.VulocalAddr, ___Vsvr.udpAddr)
+	_Pn()
 
+	_Fsleep_10s()
 	_FsleepRand_12_to_14s()
 } // _Fconnect_to_server_04__real_default
 
