@@ -7,24 +7,24 @@ import (
 func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 301:
-		if nil == ___VUreqNewSession.UnewSessionCall01 {
+		if nil == ___VUreqNewSession.UnewSessionCall301 {
 			___VUreqNewSession._Fconnect_to_server_01x__req_new_sessionID__default()
 		} else {
-			___VUreqNewSession.UnewSessionCall01(___VUreqNewSession) //_FuserCallback_u01__reqNewSession_in_Dn_to_fn(___VUreqNewSession)
+			___VUreqNewSession.UnewSessionCall301(___VUreqNewSession) //_FuserCallback_u01__reqNewSession_in_Dn_to_fn(___VUreqNewSession)
 		}
 	case 304:
 		//_Fex1(" 381991 08 ")
-		if nil == ___VUreqNewSession.UnewSessionCall04 {
+		if nil == ___VUreqNewSession.UnewSessionCall304 {
 			___VUreqNewSession._Fconnect_to_server_04x__real_default()
 		} else {
-			___VUreqNewSession.UnewSessionCall04(___VUreqNewSession)
+			___VUreqNewSession.UnewSessionCall304(___VUreqNewSession)
 		}
 	case 308:
 		//_Fex1(" 381991 08 ")
-		if nil == ___VUreqNewSession.UnewSessionCall08 {
+		if nil == ___VUreqNewSession.UnewSessionCall308 {
 			___VUreqNewSession._Fconnect_to_server_08__saveTo_tmpBuf__default()
 		} else {
-			___VUreqNewSession.UnewSessionCall08(___VUreqNewSession)
+			___VUreqNewSession.UnewSessionCall308(___VUreqNewSession)
 		}
 	default:
 		_FpfNex(" 381991 09 : unknown IRun : %d ", ___Vidx)

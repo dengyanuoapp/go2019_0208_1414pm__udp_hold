@@ -6,22 +6,22 @@ package main
 func (___VsrvU *_TserviceUDP) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 201:
-		if nil == ___VsrvU.UsrvGoCall01 {
+		if nil == ___VsrvU.UsrvGoCall201 {
 			___VsrvU._Fhandle_u01x__udpListen_Udp__read_main_top__default()
 		} else {
-			___VsrvU.UsrvGoCall01(___VsrvU)
+			___VsrvU.UsrvGoCall201(___VsrvU)
 		}
 	case 202:
-		if nil == ___VsrvU.UsrvGoCall02 {
+		if nil == ___VsrvU.UsrvGoCall202 {
 			___VsrvU._Fhandle_u02x__udpListen__chanIn_main_top__default()
 		} else {
-			___VsrvU.UsrvGoCall02(___VsrvU)
+			___VsrvU.UsrvGoCall202(___VsrvU)
 		}
 	case 203:
-		if nil == ___VsrvU.UsrvGoCall03 {
+		if nil == ___VsrvU.UsrvGoCall203 {
 			___VsrvU._Fhandle_u03x__udpListen__timer__main_top__default()
 		} else {
-			___VsrvU.UsrvGoCall03(___VsrvU)
+			___VsrvU.UsrvGoCall203(___VsrvU)
 		}
 
 	case 211:
