@@ -10,7 +10,7 @@ func _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout(___Vf
 	___Vf.CfSwap01 <- "818392 : ok, time Gap reach, action please." + _FtimeNow() // It's time to swap
 } // _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout
 
-func _FuserCallback__FilterDelay__chan_filter__Fn(___Vf *_TfilterDelay) {
+func _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn(___Vf *_TfilterDelay) {
 
 	//_FpfN( " 818395: filter select start" );
 	select {
@@ -24,7 +24,7 @@ func _FuserCallback__FilterDelay__chan_filter__Fn(___Vf *_TfilterDelay) {
 	}
 	//_FpfN( " 818399: filter select end" );
 
-} // _FuserCallback__FilterDelay__chan_filter__Fn
+} // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
 
 var _Vcnt_Cn2Dn int
 

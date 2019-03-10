@@ -13,7 +13,7 @@ type _TfilterDelay struct {
 	CfOut01  *chan []byte // Filter's outChain, to the receiver's InChain
 
 	Fusercallback__521_delayGapAction  func(*_TfilterDelay) // _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout
-	Fusercallback__511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__FilterDelay__chan_filter__Fn
+	Fusercallback__511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
 
 	Cexit *chan string
 	Clog  *chan string
@@ -69,6 +69,6 @@ func (___Vf *_TfilterDelay) _FfilterDelayGen01_filter_top() {
 func (___Vf *_TfilterDelay) _FfilterDelayGen01_filter_loop() {
 	//_FpfN( " 421193 : filter main " )
 	if nil != ___Vf.Fusercallback__511_filterTheChanIn {
-		___Vf.Fusercallback__511_filterTheChanIn(___Vf) // _FuserCallback__FilterDelay__chan_filter__Fn
+		___Vf.Fusercallback__511_filterTheChanIn(___Vf) // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
 	}
 } // _FfilterDelayGen01_filter_loop
