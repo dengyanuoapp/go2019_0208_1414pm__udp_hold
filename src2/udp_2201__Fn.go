@@ -94,15 +94,15 @@ func main() {
 
 	// ------------------- filter between workers --------- begin
 	_VfilterFn2dn = _TfilterDelay{
-		sleepGap:              1,
-		udpIn:                 &_VserviceUdp_FnWaitCn,
-		udpOut:                &_VserviceUdp_FnWaitDn,
-		FcallbackMainDelayGen: _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
-		FcallbackFilterChan:   _FuserCallback__FilterDelay__chan_filter__Fn,
+		sleepGap:                           1,
+		udpIn:                              &_VserviceUdp_FnWaitCn,
+		udpOut:                             &_VserviceUdp_FnWaitDn,
+		Fusercallback__521_delayGapAction:  _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
+		Fusercallback__511_filterTheChanIn: _FuserCallback__FilterDelay__chan_filter__Fn,
 	}
 
 	//go _VfilterFn2dn._FfilterDelayGen01_main_top()
-	go _Frun(&_VfilterFn2dn, 501)
+	go _Frun(&_VfilterFn2dn, 501) // IRun
 	// ------------------- filter between workers --------- end
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)

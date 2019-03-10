@@ -12,8 +12,8 @@ type _TfilterDelay struct {
 	CfIn01   chan []byte  // Filter's inChain,  to the sender's OutChain , make in Filter , then add to the sender's outChain-pointer
 	CfOut01  *chan []byte // Filter's outChain, to the receiver's InChain
 
-	FcallbackMainDelayGen func(*_TfilterDelay) // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
-	FcallbackFilterChan   func(*_TfilterDelay) // _FuserCallback__FilterDelay__chan_filter__Fn
+	Fusercallback__521_delayGapAction  func(*_TfilterDelay) // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
+	Fusercallback__511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__FilterDelay__chan_filter__Fn
 
 	Cexit *chan string
 	Clog  *chan string
@@ -51,9 +51,9 @@ func _FfilterDelayGen01_main_top(___Vf *_TfilterDelay) {
 
 func (___Vf *_TfilterDelay) _FfilterDelayGen01_main_loop() {
 	//_FpfN( " 418113 : filter main " )
-	if nil != ___Vf.FcallbackMainDelayGen {
+	if nil != ___Vf.Fusercallback__521_delayGapAction {
 		//_FpfN( " 418115 : filter main " )
-		___Vf.FcallbackMainDelayGen(___Vf) // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
+		___Vf.Fusercallback__521_delayGapAction(___Vf) // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
 	}
 } // _FfilterDelayGen01_main_loop
 
@@ -68,7 +68,7 @@ func (___Vf *_TfilterDelay) _FfilterDelayGen01_filter_top() {
 
 func (___Vf *_TfilterDelay) _FfilterDelayGen01_filter_loop() {
 	//_FpfN( " 421193 : filter main " )
-	if nil != ___Vf.FcallbackFilterChan {
-		___Vf.FcallbackFilterChan(___Vf) // _FuserCallback__FilterDelay__chan_filter__Fn
+	if nil != ___Vf.Fusercallback__511_filterTheChanIn {
+		___Vf.Fusercallback__511_filterTheChanIn(___Vf) // _FuserCallback__FilterDelay__chan_filter__Fn
 	}
 } // _FfilterDelayGen01_filter_loop
