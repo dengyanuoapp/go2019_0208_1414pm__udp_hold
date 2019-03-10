@@ -35,6 +35,7 @@ var _VreqIneedToLogin__Dn _TreqIneedToLogin
 func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 
 	_VreqIneedToLogin__Dn = _TreqIneedToLogin{
+		ReqStr:   "reqLogin_Dn2Fn",
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _FgenRand_nByte__(16),
