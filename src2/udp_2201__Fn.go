@@ -85,6 +85,7 @@ func main() {
 
 	// ------------------- filter between workers --------- begin
 	_VfilterFn2dn = _TfilterDelay{
+		name:                               "filter_FnReceFromCnDelayNoteDn",
 		sleepGap:                           1,
 		udpIn:                              &_VserviceUdp_FnWaitCn,
 		udpOut:                             &_VserviceUdp_FnWaitDn,

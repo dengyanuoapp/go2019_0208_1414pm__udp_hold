@@ -49,7 +49,7 @@ func _FuserCallback_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
 				__Vdb = (1 == (_VdnReceCnt % 10))
 			}
 			if __Vdb {
-				_FpfN(" 2738181 01 (idx:%d) : rece from Chan : Fn : empty{}: (len:%d)", _VdnReceCnt, len(__VdnIn))
+				_FpfN(" 2738181 01 (idx:%d) : rece from Chan : %s : empty{}: (len:%d)", _VdnReceCnt, ___VserviceUDP.name, len(__VdnIn))
 			}
 		} else {
 			___VserviceUDP._FuserCallback_chanIn_Fn__ok(&__VdnIn)
