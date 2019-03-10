@@ -14,7 +14,7 @@ type _TfilterDelay struct {
 
 	Fusercallback__501_fileterMainTop  func(*_TfilterDelay) // _FfilterDelay501__main_top__default
 	Fusercallback__511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
-	Fusercallback__521_delayGapAction  func(*_TfilterDelay) // _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout
+	Fusercallback__521_delayGapAction  func(*_TfilterDelay) // _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default
 
 	Cexit *chan string
 	Clog  *chan string
@@ -27,6 +27,12 @@ func (___Vf *_TfilterDelay) IRun(___Vidx int) {
 			_FfilterDelay501__main_top__default(___Vf)
 		} else {
 			___Vf.Fusercallback__501_fileterMainTop(___Vf)
+		}
+	case 521:
+		if nil == ___Vf.Fusercallback__521_delayGapAction {
+			_FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default(___Vf)
+		} else {
+			___Vf.Fusercallback__521_delayGapAction(___Vf)
 		}
 	default:
 		_FpfNex(" 848182 09 : unknown IRun : %d ", ___Vidx)
@@ -51,17 +57,14 @@ func _FfilterDelay501__main_top__default(___Vf *_TfilterDelay) {
 
 	for {
 		_Fsleep_10sX(___Vf.sleepGap)
-		___Vf._FfilterDelayGen01_main_loop()
+		_Frun(___Vf, 521) // _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default
 	}
 } // _FfilterDelay501__main_top__default
 
-func (___Vf *_TfilterDelay) _FfilterDelayGen01_main_loop() {
-	//_FpfN( " 418113 : filter main " )
-	if nil != ___Vf.Fusercallback__521_delayGapAction {
-		//_FpfN( " 418115 : filter main " )
-		___Vf.Fusercallback__521_delayGapAction(___Vf) // _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout
-	}
-} // _FfilterDelayGen01_main_loop
+func _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default(___Vf *_TfilterDelay) {
+	//_FpfN( " 818391: filter swap user start" );
+	___Vf.CfSwap01 <- "818392 : ok, time Gap reach, action please." + _FtimeNow() // It's time to swap
+} // _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default
 
 func (___Vf *_TfilterDelay) _FfilterDelayGen01_filter_top() {
 	//_FpfN( " 421191 : filter main " )

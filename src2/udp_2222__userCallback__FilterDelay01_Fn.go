@@ -5,11 +5,6 @@ import (
 	"sync"
 )
 
-func _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout(___Vf *_TfilterDelay) {
-	//_FpfN( " 818391: filter swap user start" );
-	___Vf.CfSwap01 <- "818392 : ok, time Gap reach, action please." + _FtimeNow() // It's time to swap
-} // _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout
-
 func _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn(___Vf *_TfilterDelay) {
 
 	//_FpfN( " 818395: filter select start" );
