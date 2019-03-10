@@ -47,11 +47,22 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 	_FpfN(" 1738183 01 __VreqId128 : %x", __VreqId128)
 
 	__V2242_rMap.mux.Lock()
+
 	__Vreq2, __Vexist2 := __V2242_rMap.reqMapNow[__VreqId128]
 	if true == __Vexist2 {
-		_FpfN(" 1738183 02 %t , %v", __Vexist2, __Vreq2)
+		//_FpfN(" 1738183 02 %t , %v", __Vexist2, __Vreq2)
+		__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
+			cnt: __Vreq2.cnt + 1,
+			req: __V2242_req,
+		}
+		_FpfN(" 1738183 03 %v ", __V2242_rMap)
 	} else {
-		_FpfN(" 1738183 03 %t ", __Vexist2)
+		//_FpfN(" 1738183 04 %t ", __Vexist2)
+		__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
+			cnt: 1,
+			req: __V2242_req,
+		}
+		_FpfN(" 1738183 05 %v ", __V2242_rMap)
 	}
 
 	__V2242_rMap.mux.Unlock()
