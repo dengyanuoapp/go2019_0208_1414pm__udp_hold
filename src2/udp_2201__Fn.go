@@ -5,8 +5,8 @@ import (
 )
 
 var (
-	_VserviceUdpWcn _TserviceUDP
-	_VserviceUdpWdn _TserviceUDP
+	_VserviceUdp_FnWaitCn _TserviceUDP
+	_VserviceUdp_FnWaitDn _TserviceUDP
 
 	_VfilterFn2dn _TfilterDelay
 
@@ -42,13 +42,13 @@ func init() {
 		cAmount: 10,
 	}
 
-	_VserviceUdpWcn = _TserviceUDP{
+	_VserviceUdp_FnWaitCn = _TserviceUDP{
 		name:             "FnServicePortForCn",
 		UuserLoopCall211: _FuserCallback_u01M__dataRece_Cn,
 		Cexit:            &_Cexit,
 		Clog:             &_Clog,
 	}
-	_VserviceUdpWdn = _TserviceUDP{
+	_VserviceUdp_FnWaitDn = _TserviceUDP{
 		name:             "FnServicePortForDn",
 		UuserLoopCall211: _FuserCallback_u01M__dataRece_Fn__main_top,
 		UuserLoopCall221: _FuserCallback_chanIn_Fn__main_top,
@@ -66,8 +66,8 @@ func init() {
 	//		Clog:        &_Clog,
 	//	}
 
-	flag.StringVar(&_VserviceUdpWcn.hostPortStr, "FnWcn", ":53535", _VserviceUdpWcn.name)
-	flag.StringVar(&_VserviceUdpWdn.hostPortStr, "cd", ":32001", _VserviceUdpWdn.name)
+	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
+	flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "cd", ":32001", _VserviceUdp_FnWaitDn.name)
 
 	flag.Parse()
 
@@ -88,15 +88,15 @@ func main() {
 
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
-	go _Frun(&_VserviceUdpWcn, 201) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
-	go _Frun(&_VserviceUdpWdn, 201)
+	go _Frun(&_VserviceUdp_FnWaitCn, 201) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
+	go _Frun(&_VserviceUdp_FnWaitDn, 201)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
 	_VfilterFn2dn = _TfilterDelay{
 		sleepGap:              1,
-		udpIn:                 &_VserviceUdpWcn,
-		udpOut:                &_VserviceUdpWdn,
+		udpIn:                 &_VserviceUdp_FnWaitCn,
+		udpOut:                &_VserviceUdp_FnWaitDn,
 		FcallbackMainDelayGen: _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
 		FcallbackFilterChan:   _FuserCallback__FilterDelay__chan_filter__Fn,
 	}
