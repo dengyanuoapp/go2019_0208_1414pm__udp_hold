@@ -1,11 +1,15 @@
 package main
 
 import (
-//"fmt"
+	"time"
+	//"fmt"
 )
 
-var __VreqIneedToLogin__FnWaitDn _TreqIneedToLogin
-var __Vmap__FnWaitDn map[[16]byte]_TreqIneedToLogin
+var (
+	__VreqIneedToLogin__FnWaitDn _TreqIneedToLogin
+	__Vmap__FnWaitDn             map[[16]byte]_TreqIneedToLogin
+	__Vhex16                     [16]byte
+)
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01x() {
 	//_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738182 01 :")
@@ -18,7 +22,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 		return
 	}
 
-	_FpfN(" 1738182 05 : rcev : %d : %s", len(__Vb401), __Vb401)
+	_FpfN(" 1738182 05 : rcev : %d : %s : %d", len(__Vb401), __Vb401, time.Now().Unix())
 	__Verr402 := _FdecJson___(" 1738182 06 ", &__Vb401, &__VreqIneedToLogin__FnWaitDn)
 	if nil != __Verr402 {
 		_FpfN(" 1738182 07 decJson error: %v :", __Verr402)
@@ -35,7 +39,11 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01y() {
 
+	copy(__Vhex16[:], __VreqIneedToLogin__FnWaitDn.MeIdx128)
+	_FpfN(" 1738183 01 __Vhex16 : %x", __Vhex16)
+
 	// if
 	//___VserviceUDP.CuOut01 <-
 
+	_Pn()
 } // _FuserCallback__client_req_accept_FnWaitDn__01y _TserviceUDP
