@@ -59,13 +59,6 @@ func init() {
 		Clog:  &_Clog,
 	}
 
-	//	_VserviceUdpFS = _TserviceUDP{
-	//		name:        "servicePortForCS",
-	//		UuserLoopCall211: _FuserCallback_u01M__dataRece_Sn,
-	//		Cexit:       &_Cexit,
-	//		Clog:        &_Clog,
-	//	}
-
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
 	flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "FnWdn", ":32001", _VserviceUdp_FnWaitDn.name)
 
@@ -80,9 +73,7 @@ func init() {
 func main() {
 
 	// ------------------- tcp for debug monitor log --- begin
-	// _Fhandle_tcpAccept01
-	// _FhandleTcp_accept_dataReceiveMsg01
-	//go _VserviceTcpMf._Fhandle_udpListen_Tcp__main_top()
+	// IRun _Fhandle_udpListen_Tcp__main_top()
 	go _Frun(&_VserviceTcpMf, 101)
 	// ------------------- tcp for debug monitor log --- end
 
