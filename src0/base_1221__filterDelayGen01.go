@@ -12,8 +12,9 @@ type _TfilterDelay struct {
 	CfIn01   chan []byte  // Filter's inChain,  to the sender's OutChain , make in Filter , then add to the sender's outChain-pointer
 	CfOut01  *chan []byte // Filter's outChain, to the receiver's InChain
 
-	Fusercallback__521_delayGapAction  func(*_TfilterDelay) // _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout
+	Fusercallback__501_fileterMainTop  func(*_TfilterDelay) // _FfilterDelay501__main_top__default
 	Fusercallback__511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
+	Fusercallback__521_delayGapAction  func(*_TfilterDelay) // _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout
 
 	Cexit *chan string
 	Clog  *chan string
@@ -22,13 +23,18 @@ type _TfilterDelay struct {
 func (___Vf *_TfilterDelay) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 501:
+		if nil == ___Vf.Fusercallback__501_fileterMainTop {
+			_FfilterDelay501__main_top__default(___Vf)
+		} else {
+			___Vf.Fusercallback__501_fileterMainTop(___Vf)
+		}
 	default:
 		_FpfNex(" 848182 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
 }
 
 //    _VserviceUdpWdn._Fhandle_u01x__udpListen_Udp__read_main_top__default
-func _FfilterDelayGen01_main_top(___Vf *_TfilterDelay) {
+func _FfilterDelay501__main_top__default(___Vf *_TfilterDelay) {
 
 	if 1 > ___Vf.sleepGap {
 		_Fex(" 418111 : error sleep gap ", nil)
@@ -47,7 +53,7 @@ func _FfilterDelayGen01_main_top(___Vf *_TfilterDelay) {
 		_Fsleep_10sX(___Vf.sleepGap)
 		___Vf._FfilterDelayGen01_main_loop()
 	}
-} // _FfilterDelayGen01_main_top
+} // _FfilterDelay501__main_top__default
 
 func (___Vf *_TfilterDelay) _FfilterDelayGen01_main_loop() {
 	//_FpfN( " 418113 : filter main " )

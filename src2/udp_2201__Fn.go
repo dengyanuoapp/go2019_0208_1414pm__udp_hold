@@ -101,7 +101,7 @@ func main() {
 		Fusercallback__511_filterTheChanIn: _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
 	}
 
-	//go _VfilterFn2dn._FfilterDelayGen01_main_top()
+	//go _VfilterFn2dn. _FfilterDelay501__main_top__default
 	go _Frun(&_VfilterFn2dn, 501) // IRun
 	// ------------------- filter between workers --------- end
 

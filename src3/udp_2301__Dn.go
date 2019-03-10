@@ -87,7 +87,7 @@ func main() {
 	//		//Fusercallback__511_filterTheChanIn     : _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
 	//	}
 
-	//go _VfilterCn2dn . _FfilterDelayGen01_main_top()
+	//go _VfilterCn2dn . _FfilterDelay501__main_top__default()
 	// ------------------- filter between workers --------- end
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
