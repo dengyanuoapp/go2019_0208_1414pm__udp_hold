@@ -97,7 +97,7 @@ func main() {
 		sleepGap:                           1,
 		udpIn:                              &_VserviceUdp_FnWaitCn,
 		udpOut:                             &_VserviceUdp_FnWaitDn,
-		Fusercallback__521_delayGapAction:  _FuserCallback__FilterDelay__main_swap_signal_gen__Fn,
+		Fusercallback__521_delayGapAction:  _FuserCallback__filterGapAction_gen_a_signal_to_swapChan_when_timeout,
 		Fusercallback__511_filterTheChanIn: _FuserCallback__FilterDelay__chan_filter__Fn,
 	}
 
