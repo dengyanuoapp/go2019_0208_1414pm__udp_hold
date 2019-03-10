@@ -5,9 +5,14 @@ import (
 	"sync"
 )
 
+var (
+	__Vucb511_FnWaitDn__cnt01 int
+)
+
 func _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn(___Vf *_TfilterDelay) {
 
-	//_FpfN( " 818395: filter select start" );
+	_FpfN(" 818395: filter select start : %d", __Vucb511_FnWaitDn__cnt01)
+	__Vucb511_FnWaitDn__cnt01++
 	select {
 	case __Vstr := <-___Vf.CfSwap01:
 		//_FpfN( " 818396: filter swap received " + __Vstr )
