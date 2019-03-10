@@ -12,9 +12,10 @@ type _TfilterDelay struct {
 	CfIn01   chan []byte  // Filter's inChain,  to the sender's OutChain , make in Filter , then add to the sender's outChain-pointer
 	CfOut01  *chan []byte // Filter's outChain, to the receiver's InChain
 
-	Fusercallback__501_fileterMainTop  func(*_TfilterDelay) // _FfilterDelay501__main_top__default
-	Fusercallback__511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
-	Fusercallback__521_delayGapAction  func(*_TfilterDelay) // _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default
+	Fusercallback__501_fileterMainTop func(*_TfilterDelay) // _FfilterDelay501__main_top__default
+	Fusercallback__521_delayGapAction func(*_TfilterDelay) // _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default
+
+	Fusercallback__511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn
 
 	Cexit *chan string
 	Clog  *chan string
@@ -27,6 +28,12 @@ func (___Vf *_TfilterDelay) IRun(___Vidx int) {
 			_FfilterDelay501__main_top__default(___Vf)
 		} else {
 			___Vf.Fusercallback__501_fileterMainTop(___Vf)
+		}
+	case 511:
+		if nil == ___Vf.Fusercallback__511_filterTheChanIn {
+			_Fex1(" 848182 511 : you must define Fusercallback__511_filterTheChanIn ")
+		} else {
+			___Vf.Fusercallback__511_filterTheChanIn(___Vf)
 		}
 	case 521:
 		if nil == ___Vf.Fusercallback__521_delayGapAction {
@@ -71,13 +78,6 @@ func (___Vf *_TfilterDelay) _FfilterDelayGen01_filter_top() {
 	for {
 		//_Fsleep_1s() ;
 		_Fsleep_1ms()
-		___Vf._FfilterDelayGen01_filter_loop()
+		_Frun(___Vf, 511) // _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn
 	}
 } // _FfilterDelayGen01_filter_top
-
-func (___Vf *_TfilterDelay) _FfilterDelayGen01_filter_loop() {
-	//_FpfN( " 421193 : filter main " )
-	if nil != ___Vf.Fusercallback__511_filterTheChanIn {
-		___Vf.Fusercallback__511_filterTheChanIn(___Vf) // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
-	}
-} // _FfilterDelayGen01_filter_loop

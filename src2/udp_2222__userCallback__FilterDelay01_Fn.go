@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-func _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn(___Vf *_TfilterDelay) {
+func _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn(___Vf *_TfilterDelay) {
 
 	//_FpfN( " 818395: filter select start" );
 	select {
@@ -19,7 +19,7 @@ func _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn(___Vf *_TfilterD
 	}
 	//_FpfN( " 818399: filter select end" );
 
-} // _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn
+} // _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn
 
 var _Vcnt_Cn2Dn int
 

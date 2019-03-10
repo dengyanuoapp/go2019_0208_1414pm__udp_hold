@@ -88,7 +88,7 @@ func main() {
 		sleepGap:                           1,
 		udpIn:                              &_VserviceUdp_FnWaitCn,
 		udpOut:                             &_VserviceUdp_FnWaitDn,
-		Fusercallback__511_filterTheChanIn: _FuserCallback__filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
+		Fusercallback__511_filterTheChanIn: _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
 	}
 
 	//go _VfilterFn2dn. _FfilterDelay501__main_top__default
