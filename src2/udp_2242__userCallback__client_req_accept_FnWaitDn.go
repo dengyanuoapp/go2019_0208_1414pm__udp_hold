@@ -3,12 +3,18 @@ package main
 import (
 	"time"
 	//"fmt"
+	"sync"
 )
 
+type _TreqAcceptMap struct {
+	mux        sync.Mutex
+	reqMapNow  map[[16]byte]_TreqIneedToLogin
+	reqMapLast map[[16]byte]_TreqIneedToLogin
+}
+
 var (
-	__VreqIneedToLogin__FnWaitDn _TreqIneedToLogin
-	__Vmap__FnWaitDn             map[[16]byte]_TreqIneedToLogin
-	__Vhex16                     [16]byte
+	__V2242_req  _TreqIneedToLogin
+	__V2242_rMap _TreqAcceptMap
 )
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01x() {
@@ -23,12 +29,12 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 	}
 
 	_FpfN(" 1738182 05 : rcev : %d : %s : %d", len(__Vb401), __Vb401, time.Now().Unix())
-	__Verr402 := _FdecJson___(" 1738182 06 ", &__Vb401, &__VreqIneedToLogin__FnWaitDn)
+	__Verr402 := _FdecJson___(" 1738182 06 ", &__Vb401, &__V2242_req)
 	if nil != __Verr402 {
 		_FpfN(" 1738182 07 decJson error: %v :", __Verr402)
 		return
 	}
-	if __VreqIneedToLogin__FnWaitDn.ReqStr != "reqLogin_Dn2Fn" || __VreqIneedToLogin__FnWaitDn.MeName != "Dn" {
+	if __V2242_req.ReqStr != "reqLogin_Dn2Fn" || __V2242_req.MeName != "Dn" {
 		_FpfN(" 1738182 08 not req to me . ")
 		return
 	}
@@ -39,8 +45,9 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01y() {
 
-	copy(__Vhex16[:], __VreqIneedToLogin__FnWaitDn.MeIdx128)
-	_FpfN(" 1738183 01 __Vhex16 : %x", __Vhex16)
+	var __VreqId128 [16]byte
+	copy(__VreqId128[:], __V2242_req.MeIdx128)
+	_FpfN(" 1738183 01 __VreqId128 : %x", __VreqId128)
 
 	// if
 	//___VserviceUDP.CuOut01 <-
