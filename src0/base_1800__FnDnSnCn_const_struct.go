@@ -1,5 +1,9 @@
 package main
 
+import (
+	"sync"
+)
+
 /*
 // https://www.callicoder.com/golang-basic-types-operators-type-conversion/
 // Type    Size        Range
@@ -62,4 +66,14 @@ type _TreqIneedToLogin struct {
 	//MeSeq128 [16]byte
 	MeIdx128 []byte
 	MeSeq128 []byte
+}
+type _TreqLoginCNT struct {
+	cnt int
+	req _TreqIneedToLogin
+}
+
+type _TreqAcceptMap struct {
+	mux        sync.Mutex
+	reqMapNow  map[[16]byte]_TreqLoginCNT
+	reqMapLast map[[16]byte]_TreqLoginCNT
 }

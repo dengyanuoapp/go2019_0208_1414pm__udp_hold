@@ -3,14 +3,8 @@ package main
 import (
 	"time"
 	//"fmt"
-	"sync"
+	//"sync"
 )
-
-type _TreqAcceptMap struct {
-	mux        sync.Mutex
-	reqMapNow  map[[16]byte]_TreqIneedToLogin
-	reqMapLast map[[16]byte]_TreqIneedToLogin
-}
 
 var (
 	__V2242_req  _TreqIneedToLogin
@@ -49,6 +43,10 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 	copy(__VreqId128[:], __V2242_req.MeIdx128)
 	_FpfN(" 1738183 01 __VreqId128 : %x", __VreqId128)
 
+	__V2242_rMap.mux.Lock()
+	//__V2242_rMap .reqMapNow[__VreqId128].
+
+	__V2242_rMap.mux.Unlock()
 	// if
 	//___VserviceUDP.CuOut01 <-
 
