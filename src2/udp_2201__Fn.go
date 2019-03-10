@@ -101,7 +101,8 @@ func main() {
 		FcallbackFilterChan:   _FuserCallback__FilterDelay__chan_filter__Fn,
 	}
 
-	go _VfilterFn2dn._FfilterDelayGen01_main_top()
+	//go _VfilterFn2dn._FfilterDelayGen01_main_top()
+	go _Frun(&_VfilterFn2dn, 501)
 	// ------------------- filter between workers --------- end
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)

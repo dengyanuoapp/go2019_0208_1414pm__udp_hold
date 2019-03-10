@@ -19,8 +19,16 @@ type _TfilterDelay struct {
 	Clog  *chan string
 } // _TfilterDelay
 
+func (___Vf *_TfilterDelay) IRun(___Vidx int) {
+	switch ___Vidx {
+	case 501:
+	default:
+		_FpfNex(" 848182 09 : unknown IRun : %d ", ___Vidx)
+	} // switch ___Vidx
+}
+
 //    _VserviceUdpWdn._Fhandle_u01x__udpListen_Udp__read_main_top__default
-func (___Vf *_TfilterDelay) _FfilterDelayGen01_main_top() {
+func _FfilterDelayGen01_main_top(___Vf *_TfilterDelay) {
 
 	if 1 > ___Vf.sleepGap {
 		_Fex(" 418111 : error sleep gap ", nil)
