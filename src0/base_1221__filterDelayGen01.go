@@ -9,8 +9,8 @@ type _TfilterDelay struct {
 	udpOut   *_TserviceUDP
 
 	CfSwap01 chan string
-	CfIn01   chan []byte
-	CfOut01  *chan []byte
+	CfIn01   chan []byte  // Filter's inChain,  to the sender's OutChain , make in Filter , then add to the sender's outChain-pointer
+	CfOut01  *chan []byte // Filter's outChain, to the receiver's InChain
 
 	FcallbackMainDelayGen func(*_TfilterDelay) // _FuserCallback__FilterDelay__main_swap_signal_gen__Fn
 	FcallbackFilterChan   func(*_TfilterDelay) // _FuserCallback__FilterDelay__chan_filter__Fn

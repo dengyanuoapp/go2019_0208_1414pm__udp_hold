@@ -67,7 +67,7 @@ func init() {
 	//	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
-	flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "cd", ":32001", _VserviceUdp_FnWaitDn.name)
+	flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "FnWdn", ":32001", _VserviceUdp_FnWaitDn.name)
 
 	flag.Parse()
 
