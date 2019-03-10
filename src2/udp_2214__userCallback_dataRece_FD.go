@@ -2,7 +2,7 @@
 package main
 
 import (
-	"encoding/json"
+	//"encoding/json"
 	"net"
 )
 
@@ -20,32 +20,36 @@ func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP) {
 		___VserviceUDP.Vulen)
 
 	if nil != ___VserviceUDP.CuOut01 {
-		__Vcn2dn := _Tdn{1, ___VserviceUDP.VuremoteAddr.IP, ___VserviceUDP.VuremoteAddr.Port}
-		__Vbyte2, __Verr2 := json.Marshal(__Vcn2dn)
-		if nil == __Verr2 {
-			*___VserviceUDP.CuOut01 <- __Vbyte2
-		}
+		//		__Vcn2dn := _Tdn{1, ___VserviceUDP.VuremoteAddr.IP, ___VserviceUDP.VuremoteAddr.Port}
+		//		__Vbyte2, __Verr2 := json.Marshal(__Vcn2dn)
+		//		if nil == __Verr2 {
+		//			*___VserviceUDP.CuOut01 <- __Vbyte2
+		//		}
+		___VserviceUDP._FuserCallback_u01M__dataRece_Fn__002()
 	} else {
 		_FpfN(" 1738181 02 : %s : no CuOut01  ", ___VserviceUDP.name)
 	}
 
-	//_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738181 03 :")
-	//_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738181 04 : %s :", ___VserviceUDP.name)
+} // _FuserCallback_u01M__dataRece_Fn__main_top _TserviceUDP
 
-	//__Vb3 := _FdecAesRandExit(" 1738181 05 ", &___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
+func (___VserviceUDP *_TserviceUDP) _FuserCallback_u01M__dataRece_Fn__002() {
+	//_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738182 03 :")
+	//_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738182 04 : %s :", ___VserviceUDP.name)
+
+	//__Vb3 := _FdecAesRandExit(" 1738182 05 ", &___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
 	__Vb3, __Verr3 := _FdecAesRand__only(&___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
 	if nil != __Verr3 {
-		_FpfN(" 1738181 06 received error package , ignore it: %v :", __Verr3)
+		_FpfN(" 1738182 06 received error package , ignore it: %v :", __Verr3)
 		return
 	}
 
-	//_FpfNhex(&__Vb3, 80, " 1738181 07 : %s :", __Vb3)
-	_FpfN(" 1738181 08 : %d / %d : %s \n", ___VserviceUDP.Vulen, len(__Vb3), __Vb3)
+	//_FpfNhex(&__Vb3, 80, " 1738182 07 : %s :", __Vb3)
+	_FpfN(" 1738182 08 : %d / %d : %s \n", ___VserviceUDP.Vulen, len(__Vb3), __Vb3)
 
 	if nil != ___VserviceUDP.CuOut01 {
 	}
 
-} // _FuserCallback_u01M__dataRece_Fn__main_top _TserviceUDP
+} // _FuserCallback_u01M__dataRece_Fn__002 _TserviceUDP
 
 var (
 	_VdnReceCnt int
