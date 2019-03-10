@@ -52,3 +52,10 @@ type _TUreqNewSession struct {
 	sendBuf081 *[]byte // send tmp buf gen by UnewSessionCall308
 	sendBuf082 *[]byte // send tmp buf gen by UnewSessionCall308
 } //    _TUreqNewSession
+
+type _TreqIneedToLogin struct {
+	MeName   string
+	MeIdx128 []byte
+	MeSeq128 []byte
+	MeTime   int64
+}

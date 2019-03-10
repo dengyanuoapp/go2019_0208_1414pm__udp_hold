@@ -29,13 +29,7 @@ var (
 )
 
 // _Tconfig
-type _TreqIneedToLogin struct {
-	MeName   string
-	MeIdx128 []byte
-	MeSeq128 []byte
-	MeTime   int64
-}
-
+// _TreqIneedToLogin
 var _VreqIneedToLogin__Dn _TreqIneedToLogin
 
 func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {

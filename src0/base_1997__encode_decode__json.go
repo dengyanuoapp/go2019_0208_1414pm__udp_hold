@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	//"io/ioutil"
 	//"log"
-	//"fmt"
+	"fmt"
 	//"math"
 )
 
@@ -49,11 +49,12 @@ func _FencJsonExit(___VeMsg string, ___V interface{}) []byte {
 } // _FencJsonExit
 
 //    func Unmarshal(data []byte, v interface{}) error
-func _FdecJson___(___VeMsg string, ___Vbyte *[]byte, ___Vout interface{}) {
+func _FdecJson___(___VeMsg string, ___Vbyte *[]byte, ___Vout interface{}) error {
 	__Verr := json.Unmarshal(*___Vbyte, ___Vout)
 	if __Verr != nil {
-		_Perr(__Verr, ___VeMsg+"1831919 : gob.NewDecoder failed:")
+		return fmt.Errorf(___VeMsg+"1831919 : gob.NewDecoder failed: %v", __Verr)
 	}
+	return nil
 } // _FdecJson___
 
 func _Fwrite_json_only_Exit(___VeMsg string, ___Vfname string, ___Vobj interface{}) []byte {
