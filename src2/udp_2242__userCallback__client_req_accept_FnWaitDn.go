@@ -4,7 +4,7 @@ import (
 //"fmt"
 )
 
-var _VreqIneedToLogin__FnWaitDn _TreqIneedToLogin
+var __VreqIneedToLogin__FnWaitDn _TreqIneedToLogin
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn() {
 	//_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738182 01 :")
@@ -18,13 +18,16 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn()
 	}
 
 	_FpfN(" 1738182 05 : rcev : %d : %s", len(__Vb401), __Vb401)
-	__Verr402 := _FdecJson___(" 1738182 06 ", &__Vb401, &_VreqIneedToLogin__FnWaitDn)
+	__Verr402 := _FdecJson___(" 1738182 06 ", &__Vb401, &__VreqIneedToLogin__FnWaitDn)
 	if nil != __Verr402 {
 		_FpfN(" 1738182 07 decJson error: %v :", __Verr402)
 		return
 	}
+	if __VreqIneedToLogin__FnWaitDn.ReqStr != "reqLogin_Dn2Fn" || __VreqIneedToLogin__FnWaitDn.MeName != "Dn" {
+		_FpfN(" 1738182 08 not req to me . ")
+	}
 
-	_FpfN(" 1738182 08 decJson ok")
+	_FpfN(" 1738182 09 decJson ok, for Fn(me).")
 
 	// if
 	//___VserviceUDP.CuOut01 <-
