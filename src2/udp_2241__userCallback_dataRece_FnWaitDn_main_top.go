@@ -28,7 +28,7 @@ func _FuserCallback_u01M__dataRece_Fn__main_top(___VserviceUDP *_TserviceUDP) {
 		_FpfN(" 1738181 02 : %s : deal with CuOut01. ", ___VserviceUDP.name)
 	} else {
 		_FpfN(" 1738181 03 : %s : no CuOut01 now , skip. ", ___VserviceUDP.name)
-		___VserviceUDP._FuserCallback__client_req_accept_FnWaitDn()
+		___VserviceUDP._FuserCallback__client_req_accept_FnWaitDn__01x()
 	}
 
 } // _FuserCallback_u01M__dataRece_Fn__main_top _TserviceUDP

@@ -5,8 +5,9 @@ import (
 )
 
 var __VreqIneedToLogin__FnWaitDn _TreqIneedToLogin
+var __Vmap__FnWaitDn map[[16]byte]_TreqIneedToLogin
 
-func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn() {
+func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01x() {
 	//_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738182 01 :")
 	//_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738182 02 : %s :", ___VserviceUDP.name)
 
@@ -29,8 +30,12 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn()
 	}
 
 	_FpfN(" 1738182 09 decJson ok, for Fn(me).")
+	___VserviceUDP._FuserCallback__client_req_accept_FnWaitDn__01y()
+} // _FuserCallback__client_req_accept_FnWaitDn__01x _TserviceUDP
+
+func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01y() {
 
 	// if
 	//___VserviceUDP.CuOut01 <-
 
-} // _FuserCallback__client_req_accept_FnWaitDn _TserviceUDP
+} // _FuserCallback__client_req_accept_FnWaitDn__01y _TserviceUDP
