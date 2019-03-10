@@ -25,6 +25,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn()
 	}
 	if __VreqIneedToLogin__FnWaitDn.ReqStr != "reqLogin_Dn2Fn" || __VreqIneedToLogin__FnWaitDn.MeName != "Dn" {
 		_FpfN(" 1738182 08 not req to me . ")
+		return
 	}
 
 	_FpfN(" 1738182 09 decJson ok, for Fn(me).")
