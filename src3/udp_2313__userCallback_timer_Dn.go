@@ -41,6 +41,9 @@ func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 		MeSeq128: _FgenRand_nByte__(16),
 		MeTime:   time.Now().Unix(),
 	}
+	//copy(_VreqIneedToLogin__Dn.MeIdx128[:], _VC.MyId128)
+	//copy(_VreqIneedToLogin__Dn.MeSeq128[:], _FgenRand_nByte__(16))
+
 	//_FpfN(" 838981 01 : %v ", _VreqIneedToLogin__Dn)
 
 	//__Vb := []byte(" 838981 02 ")
