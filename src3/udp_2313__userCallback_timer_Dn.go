@@ -19,6 +19,7 @@ var (
 
 	_VsrvInfo_Dn        _TsrvInfo
 	_VUreqNewSession_Dn _TUreqNewSession = _TUreqNewSession{
+		name:         "_VUreqNewSession_Dn",
 		updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
 		updatePasswd: &_Vpasswd_udp_FnWaitDn_download_config,
 		srvInfo:      &_VsrvInfo_Dn,

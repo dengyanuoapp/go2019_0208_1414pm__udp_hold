@@ -32,6 +32,7 @@ type _TsrvInfo struct {
 } // _TsrvInfo
 
 type _TUreqNewSession struct {
+	name    string
 	Enabled bool
 
 	skipCnt   int
