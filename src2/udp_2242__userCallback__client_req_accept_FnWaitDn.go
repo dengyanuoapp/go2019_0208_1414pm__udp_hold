@@ -63,6 +63,13 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 			req: __V2242_req,
 		}
 		_FpfN(" 1738183 05 %v ", __V2242_rMap)
+
+		__Vreq3, __Vexist3 := __V2242_rMap.reqMapLast[__VreqId128]
+		if true == __Vexist3 && __Vreq3.cnt == 1 {
+			_FpfN(" 1738183 06 , try : ok ")
+		} else {
+			_FpfN(" 1738183 07 , try : failed ")
+		}
 	}
 
 	__V2242_rMap.mux.Unlock()
