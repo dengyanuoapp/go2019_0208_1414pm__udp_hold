@@ -1,14 +1,17 @@
 package main
 
 import (
-	"time"
-	//"fmt"
-	//"sync"
+//"time"
+//"fmt"
+//"sync"
 )
 
 var (
 	__V2242_req  _TreqIneedToLogin
-	__V2242_rMap _TreqAcceptMap
+	__V2242_rMap _TreqAcceptMap = _TreqAcceptMap{
+		reqMapNow:  make(map[[16]byte]_TreqLoginCNT),
+		reqMapLast: make(map[[16]byte]_TreqLoginCNT),
+	}
 )
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01x() {
@@ -22,7 +25,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 		return
 	}
 
-	_FpfN(" 1738182 05 : rcev : %d : %s : %d", len(__Vb401), __Vb401, time.Now().Unix())
+	//_FpfN(" 1738182 05 : rcev : %d : %s : %d", len(__Vb401), __Vb401, time.Now().Unix())
 	__Verr402 := _FdecJson___(" 1738182 06 ", &__Vb401, &__V2242_req)
 	if nil != __Verr402 {
 		_FpfN(" 1738182 07 decJson error: %v :", __Verr402)
@@ -33,7 +36,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 		return
 	}
 
-	_FpfN(" 1738182 09 decJson ok, for Fn(me).")
+	//_FpfN(" 1738182 09 decJson ok, for Fn(me).")
 	___VserviceUDP._FuserCallback__client_req_accept_FnWaitDn__01y()
 } // _FuserCallback__client_req_accept_FnWaitDn__01x _TserviceUDP
 
@@ -44,7 +47,12 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 	_FpfN(" 1738183 01 __VreqId128 : %x", __VreqId128)
 
 	__V2242_rMap.mux.Lock()
-	//__V2242_rMap .reqMapNow[__VreqId128].
+	__Vreq2, __Vexist2 := __V2242_rMap.reqMapNow[__VreqId128]
+	if true == __Vexist2 {
+		_FpfN(" 1738183 02 %t , %v", __Vexist2, __Vreq2)
+	} else {
+		_FpfN(" 1738183 03 %t ", __Vexist2)
+	}
 
 	__V2242_rMap.mux.Unlock()
 	// if
