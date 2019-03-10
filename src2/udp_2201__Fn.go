@@ -50,8 +50,8 @@ func init() {
 	}
 	_VserviceUdp_FnWaitDn = _TserviceUDP{
 		name:             "FnServicePortForDn",
-		UuserLoopCall211: _FuserCallback_u01M__dataRece_Fn__main_top,
-		UuserLoopCall221: _FuserCallback_chanIn_Fn__main_top,
+		UuserLoopCall211: _FuserCallback__dataRece__main_top__FnWaitDn,
+		UuserLoopCall221: _FuserCallback_chanIn__main_top__FnWaitDn,
 
 		VuSrvInfo: &_TsrvInfo{K256: _Vpasswd_udp_Fn_waitForCliens01},
 
