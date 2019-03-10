@@ -54,9 +54,9 @@ type _TUreqNewSession struct {
 } //    _TUreqNewSession
 
 type _TreqIneedToLogin struct {
+	MeTime   int64
 	ReqStr   string
 	MeName   string
 	MeIdx128 []byte
 	MeSeq128 []byte
-	MeTime   int64
 }
