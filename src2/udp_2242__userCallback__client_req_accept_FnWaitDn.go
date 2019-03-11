@@ -7,10 +7,17 @@ import (
 )
 
 var (
-	__V2242_req  _TreqIneedToLogin
+	__V2242_req _TreqIneedToLogin
+
 	__V2242_rMap _TreqAcceptMap = _TreqAcceptMap{
 		reqMapNow:  make(map[[16]byte]_TreqLoginCNT),
 		reqMapLast: make(map[[16]byte]_TreqLoginCNT),
+	}
+
+	__VuAcceptClientMap _TuAcceptClientMap = _TuAcceptClientMap{
+		maxClient:        100,
+		maxConnPerClient: 3,
+		uMap:             make(map[[16]byte]_TuAcceptClientSt),
 	}
 )
 
@@ -65,6 +72,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__211y__client_req_accept_FnWa
 				cnt: 10000,
 				req: __V2242_req,
 			} // set the cnt to forbit the continue test.
+			//go __V2242_req . _FuserCallback__211z__acceptClient_FnWaitDn( 3 )
 		} else {
 			_FpfN(" 1738183 07 , try : failed ")
 			__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{

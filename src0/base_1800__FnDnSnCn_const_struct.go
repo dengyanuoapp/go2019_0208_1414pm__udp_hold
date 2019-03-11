@@ -67,6 +67,7 @@ type _TreqIneedToLogin struct {
 	MeIdx128 []byte
 	MeSeq128 []byte
 }
+
 type _TreqLoginCNT struct {
 	cnt int
 	req _TreqIneedToLogin
@@ -76,4 +77,15 @@ type _TreqAcceptMap struct {
 	mux        sync.Mutex
 	reqMapNow  map[[16]byte]_TreqLoginCNT
 	reqMapLast map[[16]byte]_TreqLoginCNT
+}
+
+type _TuAcceptClientSt struct {
+	cnt int
+	req _TreqIneedToLogin
+}
+type _TuAcceptClientMap struct {
+	mux              sync.Mutex
+	maxClient        int
+	maxConnPerClient int
+	uMap             map[[16]byte]_TuAcceptClientSt
 }
