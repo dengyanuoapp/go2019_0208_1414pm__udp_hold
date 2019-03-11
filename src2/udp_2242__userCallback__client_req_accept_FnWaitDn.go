@@ -84,4 +84,11 @@ var __V_cnt_v211y int
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__221y_chanIn__FnWaitDn() {
 	__V_cnt_v211y++
 	_FpfN(" 1738184 01 : --------------------------- swap --------------------------- %d : %s", __V_cnt_v211y, _FtimeNow())
+
+	__V2242_rMap.mux.Lock()
+
+	__V2242_rMap.reqMapLast = __V2242_rMap.reqMapNow
+	__V2242_rMap.reqMapNow = make(map[[16]byte]_TreqLoginCNT)
+
+	__V2242_rMap.mux.Unlock()
 } // _FuserCallback__221y_chanIn__FnWaitDn
