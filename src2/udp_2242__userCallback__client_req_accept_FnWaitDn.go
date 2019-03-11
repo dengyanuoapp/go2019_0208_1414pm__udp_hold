@@ -80,4 +80,5 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__211y__client_req_accept_FnWa
 } // _FuserCallback__211y__client_req_accept_FnWaitDn _TserviceUDP
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__221y_chanIn__FnWaitDn() {
+	_FpfN(" 1738184 01 : --------------------------- swap --------------------------- %s", _FtimeNow())
 } // _FuserCallback__221y_chanIn__FnWaitDn
