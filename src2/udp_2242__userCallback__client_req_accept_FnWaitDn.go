@@ -51,7 +51,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__211y__client_req_accept_FnWa
 
 	var __VreqId128 [16]byte
 	copy(__VreqId128[:], __V2242_req.MeIdx128)
-	_FpfN(" 1738183 01 __VreqId128 : %x", __VreqId128)
+	//_FpfN(" 1738183 01 __VreqId128 : %x", __VreqId128)
 
 	__V2242_rMap.mux.Lock()
 
@@ -93,7 +93,7 @@ var __V_cnt_v211y int
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback__221y_chanIn__FnWaitDn() {
 	__V_cnt_v211y++
-	_FpfN(" 1738184 01 : --------------------------- swap --------------------------- %d : %s", __V_cnt_v211y, _FtimeNow())
+	//_FpfN(" 1738184 01 : --------------------------- swap --------------------------- %d : %s", __V_cnt_v211y, _FtimeNow())
 
 	__V2242_rMap.mux.Lock()
 
