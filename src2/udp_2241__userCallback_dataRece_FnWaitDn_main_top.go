@@ -52,12 +52,12 @@ func _FuserCallback__221_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP
 				_FpfN(" 2738181 01 (idx:%d) : rece from Chan : %s : empty{}: (len:%d)", _VdnReceCnt, ___VserviceUDP.name, len(__VdnIn))
 			}
 		} else {
-			___VserviceUDP._FuserCallback__211x__chanIn_Fn__ok(&__VdnIn)
+			___VserviceUDP._FuserCallback__211x__chanIn_FnWaitDn__ok(&__VdnIn)
 		}
 		return
 	}
 } // _FuserCallback__221_chanIn__main_top__FnWaitDn
 
-func (___VserviceUDP *_TserviceUDP) _FuserCallback__211x__chanIn_Fn__ok(___VdnIn *[]byte) {
+func (___VserviceUDP *_TserviceUDP) _FuserCallback__211x__chanIn_FnWaitDn__ok(___VdnIn *[]byte) {
 	_FpfN(" 3738181 01 (idx:%d) : rece from Chan : Fn : ok: (len:%d)"+string(*___VdnIn), _VdnReceCnt, len(*___VdnIn))
-} // _FuserCallback__211x__chanIn_Fn__ok
+} // _FuserCallback__211x__chanIn_FnWaitDn__ok
