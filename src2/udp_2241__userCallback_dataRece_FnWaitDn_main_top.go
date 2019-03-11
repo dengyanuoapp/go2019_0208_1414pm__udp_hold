@@ -12,7 +12,7 @@ type _Tdn struct {
 	Port    int
 }
 
-func _FuserCallback__dataRece__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
+func _FuserCallback__211_dataRece__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
 
 	*___VserviceUDP.Clog <- _Pspf("1738181 01 : Fn receMsg |l:%s|r:%s|(%d)\n",
 		___VserviceUDP.VulocalAddr,
@@ -31,13 +31,13 @@ func _FuserCallback__dataRece__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) 
 		___VserviceUDP._FuserCallback__client_req_accept_FnWaitDn__01x()
 	}
 
-} // _FuserCallback__dataRece__main_top__FnWaitDn _TserviceUDP
+} // _FuserCallback__211_dataRece__main_top__FnWaitDn _TserviceUDP
 
 var (
 	_VdnReceCnt int
 )
 
-func _FuserCallback_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
+func _FuserCallback__221_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
 	select {
 	case __VdnIn := <-___VserviceUDP.CuIn01:
 		_VdnReceCnt++
@@ -56,7 +56,7 @@ func _FuserCallback_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
 		}
 		return
 	}
-} // _FuserCallback_chanIn__main_top__FnWaitDn
+} // _FuserCallback__221_chanIn__main_top__FnWaitDn
 
 func (___VserviceUDP *_TserviceUDP) _FuserCallback_chanIn_Fn__ok(___VdnIn *[]byte) {
 	_FpfN(" 3738181 01 (idx:%d) : rece from Chan : Fn : ok: (len:%d)"+string(*___VdnIn), _VdnReceCnt, len(*___VdnIn))
