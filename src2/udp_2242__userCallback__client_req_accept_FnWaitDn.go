@@ -55,20 +55,22 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__211y__client_req_accept_FnWa
 			cnt: __Vreq2.cnt + 1,
 			req: __V2242_req,
 		}
-		_FpfN(" 1738183 03 %v ", __V2242_rMap)
+		_FpfN(" 1738183 03 %v : try failed for more", __V2242_rMap)
 	} else {
 		//_FpfN(" 1738183 04 %t ", __Vexist2)
-		__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
-			cnt: 1,
-			req: __V2242_req,
-		}
-		_FpfN(" 1738183 05 %v ", __V2242_rMap)
-
 		__Vreq3, __Vexist3 := __V2242_rMap.reqMapLast[__VreqId128]
 		if true == __Vexist3 && __Vreq3.cnt == 1 {
 			_FpfN(" 1738183 06 , try : ok ")
+			__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
+				cnt: 10000,
+				req: __V2242_req,
+			} // set the cnt to forbit the continue test.
 		} else {
 			_FpfN(" 1738183 07 , try : failed ")
+			__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
+				cnt: 1,
+				req: __V2242_req,
+			} // set the cnt to forbit the continue test.
 		}
 	}
 
