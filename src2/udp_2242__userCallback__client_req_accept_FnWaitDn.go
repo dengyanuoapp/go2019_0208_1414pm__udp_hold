@@ -72,7 +72,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__211y__client_req_accept_FnWa
 				cnt: 10000,
 				req: __V2242_req,
 			} // set the cnt to forbit the continue test.
-			//go __V2242_req . _FuserCallback__211z__acceptClient_FnWaitDn( 3 )
+			go __VuAcceptClientMap._FuserCallback__acceptClient01__default(__V2242_req, __VreqId128)
 		} else {
 			_FpfN(" 1738183 07 , try : failed ")
 			__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
