@@ -14,7 +14,7 @@ var (
 	}
 )
 
-func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01x() {
+func (___VserviceUDP *_TserviceUDP) _FuserCallback__211x__client_req_accept_FnWaitDn() {
 	//_FpfNhex(&___VserviceUDP.Vubuf, 40, " 1738182 01 :")
 	//_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738182 02 : %s :", ___VserviceUDP.name)
 
@@ -37,10 +37,10 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 	}
 
 	//_FpfN(" 1738182 09 decJson ok, for Fn(me).")
-	___VserviceUDP._FuserCallback__client_req_accept_FnWaitDn__01y()
-} // _FuserCallback__client_req_accept_FnWaitDn__01x _TserviceUDP
+	___VserviceUDP._FuserCallback__211y__client_req_accept_FnWaitDn()
+} // _FuserCallback__211x__client_req_accept_FnWaitDn _TserviceUDP
 
-func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__01y() {
+func (___VserviceUDP *_TserviceUDP) _FuserCallback__211y__client_req_accept_FnWaitDn() {
 
 	var __VreqId128 [16]byte
 	copy(__VreqId128[:], __V2242_req.MeIdx128)
@@ -77,4 +77,4 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__client_req_accept_FnWaitDn__
 	//___VserviceUDP.CuOut01 <-
 
 	_Pn()
-} // _FuserCallback__client_req_accept_FnWaitDn__01y _TserviceUDP
+} // _FuserCallback__211y__client_req_accept_FnWaitDn _TserviceUDP
