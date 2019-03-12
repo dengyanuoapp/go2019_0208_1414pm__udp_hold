@@ -88,6 +88,7 @@ type _TuAcceptClientSt struct {
 type _TuAcceptClientMap struct {
 	muxAcc           sync.Mutex
 	maxClient        int
+	cntClient        int
 	maxConnPerClient int
-	uMap             map[[16]byte]_TuAcceptClientSt
+	uMap             map[[16]byte][]_TuAcceptClientSt
 }
