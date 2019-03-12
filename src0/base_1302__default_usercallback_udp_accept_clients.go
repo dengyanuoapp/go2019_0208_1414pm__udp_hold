@@ -6,7 +6,6 @@ func (___VaccM *_TuAcceptClientMap) _FuserCallback__acceptClient01__default(___V
 	__VaccSt, __Vexist3 := ___VaccM.uMap[___Vid]
 	if true == __Vexist3 {
 		__VaccLen := len(__VaccSt)
-		__Vi
 		for __Vi0 := 0; __Vi0 < __VaccLen; __Vi0++ {
 			__VaccSt[__Vi0].CexitAcc <- _FencJsonExit(" 668191 02 ", __Vi0)
 		}

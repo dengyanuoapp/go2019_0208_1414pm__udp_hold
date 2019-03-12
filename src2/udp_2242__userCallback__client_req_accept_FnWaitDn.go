@@ -17,7 +17,7 @@ var (
 	__VuAcceptClientMap _TuAcceptClientMap = _TuAcceptClientMap{
 		maxClient:        100,
 		maxConnPerClient: 3,
-		uMap:             make(map[[16]byte]_TuAcceptClientSt),
+		uMap:             make(map[[16]byte][]_TuAcceptClientSt),
 	}
 )
 
