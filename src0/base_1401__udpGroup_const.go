@@ -23,7 +23,6 @@ type _TudpNodeSt struct {
 	unPwIn256    [32]byte
 	unAddr       *net.UDPAddr
 	unConn       *net.UDPConn
-	unRemoteAddr *net.UDPAddr
 	unLocalAddr  net.Addr
 	unErr        error
 	unBuf        []byte
@@ -32,5 +31,7 @@ type _TudpNodeSt struct {
 	unSend       chan _TudpNodeDataSend  // try get data from chan, then send it out.
 	unCBrece     func(*_TudpNodeSt)      // if nil , use the default procedure to deal with receive
 	unCBsend     func(*_TudpNodeSt)      // if nil , use the default procedure to deal with receive
+	unRemoteAddr *net.UDPAddr
 	name         string
+	hostPortStr  string
 }
