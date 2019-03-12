@@ -19,7 +19,8 @@ type _TudpNodeDataSend struct {
 type _TudpNodeSt struct {
 	// the input password , all data try AES decode, if faild , then drop it.
 	// if nil , then ignore(no filter , directly receive)
-	unPwIn256    *[32]byte
+	unPwIn256LP  *[]byte
+	unPwIn256    [32]byte
 	unAddr       *net.UDPAddr
 	unConn       *net.UDPConn
 	unRemoteAddr *net.UDPAddr

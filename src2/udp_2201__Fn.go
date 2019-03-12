@@ -45,7 +45,8 @@ func init() {
 	}
 
 	_VsrvUdp_FunWaitDun = _TudpNodeSt{
-		name: "_VsrvUdp_FunWaitDun",
+		name:        "_VsrvUdp_FunWaitDun",
+		unPwIn256LP: &_Vpasswd_udp_Fn_waitForCliens01,
 	}
 
 	_VserviceUdp_FnWaitCn = _TserviceUDP{
@@ -98,7 +99,7 @@ func main() {
 	//		Fusercallback__511_filterTheChanIn: _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
 	//	}
 
-	copy(_VsrvUdp_FunWaitDun.unPwIn256[:], _Vpasswd_udp_Fn_waitForCliens01)
+	// IRun _FsrvGroup__140201__main_top__default
 	go _Frun(&_VsrvUdp_FunWaitDun, 140201)
 
 	//go _VfilterFn2dn. _FfilterDelay501__main_top__default
