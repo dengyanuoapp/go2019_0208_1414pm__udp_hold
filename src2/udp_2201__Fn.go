@@ -6,9 +6,9 @@ import (
 
 var (
 	_VserviceUdp_FnWaitCn _TserviceUDP
-	_VserviceUdp_FnWaitDn _TserviceUDP
+	//_VserviceUdp_FnWaitDn _TserviceUDP
 
-	_VfilterFn2dn _TfilterDelay
+	//_VfilterFn2dn _TfilterDelay
 
 	_VserviceTcpMf _TserviceTCP
 
@@ -48,19 +48,19 @@ func init() {
 		Cexit:            &_Cexit,
 		Clog:             &_Clog,
 	}
-	_VserviceUdp_FnWaitDn = _TserviceUDP{
-		name:             "FnServicePortForDn",
-		UuserLoopCall211: _FuserCallback__211_dataRece__main_top__FnWaitDn,
-		UuserLoopCall221: _FuserCallback__221_chanIn__main_top__FnWaitDn,
-
-		VuSrvInfo: &_TsrvInfo{K256: _Vpasswd_udp_Fn_waitForCliens01},
-
-		Cexit: &_Cexit,
-		Clog:  &_Clog,
-	}
+	//	_VserviceUdp_FnWaitDn = _TserviceUDP{
+	//		name:             "FnServicePortForDn",
+	//		UuserLoopCall211: _FuserCallback__211_dataRece__main_top__FnWaitDn,
+	//		UuserLoopCall221: _FuserCallback__221_chanIn__main_top__FnWaitDn,
+	//
+	//		VuSrvInfo: &_TsrvInfo{K256: _Vpasswd_udp_Fn_waitForCliens01},
+	//
+	//		Cexit: &_Cexit,
+	//		Clog:  &_Clog,
+	//	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
-	flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "FnWdn", ":32001", _VserviceUdp_FnWaitDn.name)
+	//flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "FnWdn", ":32001", _VserviceUdp_FnWaitDn.name)
 
 	flag.Parse()
 
@@ -80,20 +80,20 @@ func main() {
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
 	go _Frun(&_VserviceUdp_FnWaitCn, 201) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
-	go _Frun(&_VserviceUdp_FnWaitDn, 201)
+	//go _Frun(&_VserviceUdp_FnWaitDn, 201)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
-	_VfilterFn2dn = _TfilterDelay{
-		name:                               "filter_FnReceFromCnDelayNoteDn",
-		sleepGap:                           1,
-		udpIn:                              &_VserviceUdp_FnWaitCn,
-		udpOut:                             &_VserviceUdp_FnWaitDn,
-		Fusercallback__511_filterTheChanIn: _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
-	}
+	//	_VfilterFn2dn = _TfilterDelay{
+	//		name:                               "filter_FnReceFromCnDelayNoteDn",
+	//		sleepGap:                           1,
+	//		udpIn:                              &_VserviceUdp_FnWaitCn,
+	//		udpOut:                             &_VserviceUdp_FnWaitDn,
+	//		Fusercallback__511_filterTheChanIn: _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
+	//	}
 
 	//go _VfilterFn2dn. _FfilterDelay501__main_top__default
-	go _Frun(&_VfilterFn2dn, 501) // IRun
+	//go _Frun(&_VfilterFn2dn, 501) // IRun
 	// ------------------- filter between workers --------- end
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
