@@ -9,7 +9,7 @@ import (
 var (
 	__V2242_req _TreqIneedToLogin
 
-	__V2242_rMap _TreqAcceptMap = _TreqAcceptMap{
+	__V2242_rMap _TreqLogintMap = _TreqLogintMap{
 		reqMapNow:  make(map[[16]byte]_TreqLoginCNT),
 		reqMapLast: make(map[[16]byte]_TreqLoginCNT),
 	}
@@ -39,7 +39,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__211x__client_req_accept_FnWa
 		return
 	}
 	if __V2242_req.ReqStr != "reqLogin_Dn2Fn" || __V2242_req.MeName != "Dn" {
-		_FpfN(" 1738182 08 not req to me . ")
+		_FpfN(" 1738182 08 not reqL to me . ")
 		return
 	}
 
@@ -53,36 +53,36 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__211y__client_req_accept_FnWa
 	copy(__VreqId128[:], __V2242_req.MeIdx128)
 	//_FpfN(" 1738183 01 __VreqId128 : %x", __VreqId128)
 
-	__V2242_rMap.mux.Lock()
+	__V2242_rMap.muxLogin.Lock()
 
 	__Vreq2, __Vexist2 := __V2242_rMap.reqMapNow[__VreqId128]
 	if true == __Vexist2 {
 		//_FpfN(" 1738183 02 %t , %v", __Vexist2, __Vreq2)
 		__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
-			cnt: __Vreq2.cnt + 1,
-			req: __V2242_req,
+			cntL: __Vreq2.cntL + 1,
+			reqL: __V2242_req,
 		}
 		_FpfN(" 1738183 03 %v : try failed for more", __V2242_rMap)
 	} else {
 		//_FpfN(" 1738183 04 %t ", __Vexist2)
 		__Vreq3, __Vexist3 := __V2242_rMap.reqMapLast[__VreqId128]
-		if true == __Vexist3 && __Vreq3.cnt == 1 {
+		if true == __Vexist3 && __Vreq3.cntL == 1 {
 			_FpfN(" 1738183 06 , try : ok ")
 			__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
-				cnt: 10000,
-				req: __V2242_req,
-			} // set the cnt to forbit the continue test.
+				cntL: 10000,
+				reqL: __V2242_req,
+			} // set the cntL to forbit the continue test.
 			go __VuAcceptClientMap._FuserCallback__acceptClient01__default(__V2242_req, __VreqId128)
 		} else {
 			_FpfN(" 1738183 07 , try : failed ")
 			__V2242_rMap.reqMapNow[__VreqId128] = _TreqLoginCNT{
-				cnt: 1,
-				req: __V2242_req,
-			} // set the cnt to forbit the continue test.
+				cntL: 1,
+				reqL: __V2242_req,
+			} // set the cntL to forbit the continue test.
 		}
 	}
 
-	__V2242_rMap.mux.Unlock()
+	__V2242_rMap.muxLogin.Unlock()
 	// if
 	//___VserviceUDP.CuOut01 <-
 
@@ -95,10 +95,10 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__221y_chanIn__FnWaitDn() {
 	__V_cnt_v211y++
 	//_FpfN(" 1738184 01 : --------------------------- swap --------------------------- %d : %s", __V_cnt_v211y, _FtimeNow())
 
-	__V2242_rMap.mux.Lock()
+	__V2242_rMap.muxLogin.Lock()
 
 	__V2242_rMap.reqMapLast = __V2242_rMap.reqMapNow
 	__V2242_rMap.reqMapNow = make(map[[16]byte]_TreqLoginCNT)
 
-	__V2242_rMap.mux.Unlock()
+	__V2242_rMap.muxLogin.Unlock()
 } // _FuserCallback__221y_chanIn__FnWaitDn
