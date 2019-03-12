@@ -10,6 +10,8 @@ var (
 
 	//_VfilterFn2dn _TfilterDelay
 
+	_VsrvUdp_FunWaitDun _TudpNodeSt
+
 	_VserviceTcpMf _TserviceTCP
 
 	_Cexit   chan string
