@@ -31,8 +31,8 @@ func _FsrvGroup__140201__main_top__default(___Vun *_TudpNodeSt) {
 }
 
 func (___Vun *_TudpNodeSt) _FsrvGroup__140201x__listen() {
-	___Vun.unBuf = make([]byte, 2048)               // silice : with var len
-	___Vun.unSend = make(chan _TudpNodeDataSend, 5) // silice : with var len
+	___Vun.unBuf = make([]byte, 2048)                 // silice : with var len
+	___Vun.unCHsend = make(chan _TudpNodeDataSend, 5) // silice : with var len
 
 	//_FtryListenToUDP01()
 	___Vun.unAddr, ___Vun.unErr = net.ResolveUDPAddr("udp4", ___Vun.hostPortStr)
@@ -67,7 +67,9 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr =
 			___Vun.unConn.ReadFromUDP(___Vun.unBuf)
 		if nil == ___Vun.unRerr {
-			_FpfNhex(&___Vun.unBuf, 20, " 831818 01 rece: %d,%s", ___Vun.unLocalPort, _FtimeNow())
+			_FpfNhex(&___Vun.unBuf, 28, " 831818 01 rece: %d,%s", ___Vun.unLocalPort, _FtimeNow())
+			if nil != ___Vun.unCHrece {
+			}
 		} else {
 			_FpfN(" 831818 09 rece error : [%v] ", ___Vun.unRerr)
 		}
