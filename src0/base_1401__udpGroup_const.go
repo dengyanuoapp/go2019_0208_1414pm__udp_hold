@@ -5,9 +5,9 @@ import (
 )
 
 type _TudpNodeDataRece struct {
-	unRemoteAddr net.Addr
-	unInLen      int
-	unInBuf      *[]byte
+	unInRemoteAddr *net.UDPAddr
+	unInLen        int
+	unInBuf        *[]byte
 }
 type _TudpNodeDataSend struct {
 	unDstAddr *net.UDPAddr

@@ -84,6 +84,12 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 
 func (___Vun *_TudpNodeSt) _FsrvGroup__140201yy__receiveCallBack_default() {
 	_FpfN(" 839191 01 rece error : [%v] ", ___Vun.unRerr)
+	__Vrece := _TudpNodeDataRece{
+		unInRemoteAddr: ___Vun.unRemoteAddr,
+		unInLen:        ___Vun.unLen,
+		unInBuf:        &___Vun.unBuf,
+	}
+	(*___Vun.unCHrece) <- __Vrece
 }
 
 func (___Vun *_TudpNodeSt) _FsrvGroup__140201z__send() {
