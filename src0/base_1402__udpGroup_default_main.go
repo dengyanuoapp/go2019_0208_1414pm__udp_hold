@@ -67,7 +67,7 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr =
 			___Vun.unConn.ReadFromUDP(___Vun.unBuf)
 		if nil == ___Vun.unRerr {
-			_FpfNhex(&___Vun.unBuf, 40, " 831818 01 rece: %d", ___Vun.unLocalPort)
+			_FpfNhex(&___Vun.unBuf, 40, " 831818 01 rece: %d,%s", ___Vun.unLocalPort, _FtimeNow())
 		} else {
 			_FpfN(" 831818 09 rece error : [%v] ", ___Vun.unRerr)
 		}
