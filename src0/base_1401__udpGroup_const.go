@@ -25,6 +25,8 @@ type _TudpNodeSt struct {
 	unConn       *net.UDPConn
 	unLocalAddr  net.Addr
 	unErr        error
+	unRerr       error
+	unSerr       error
 	unBuf        []byte
 	unLen        int
 	unRece       *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan

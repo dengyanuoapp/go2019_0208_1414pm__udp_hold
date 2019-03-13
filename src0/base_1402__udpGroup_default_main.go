@@ -5,6 +5,7 @@ import (
 )
 
 // _TudpNodeSt
+// _Fhandle_u01x__udpListen_Udp__read_main_top__default
 func (___Vun *_TudpNodeSt) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 140201:
@@ -58,9 +59,18 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201x__listen() {
 
 }
 
+// _Fhandle_u01y__udpListen_Udp__read_main_loop
 func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 	for {
-		_Fsleep_1s()
+		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
+		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr =
+			___Vun.unConn.ReadFromUDP(___Vun.unBuf)
+		if nil == ___Vun.unRerr {
+			_FpfNhex(&___Vun.unBuf, 40, " 831818 01 rece:")
+		} else {
+			_FpfN(" 831818 09 rece error : [%v] ", ___Vun.unRerr)
+		}
+		//_Fsleep_1s()
 	}
 }
 
@@ -69,5 +79,3 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201z__send() {
 		_Fsleep_1s()
 	}
 }
-
-// _Fhandle_u01x__udpListen_Udp__read_main_top__default
