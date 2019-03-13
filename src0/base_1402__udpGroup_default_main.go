@@ -67,14 +67,23 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr =
 			___Vun.unConn.ReadFromUDP(___Vun.unBuf)
 		if nil == ___Vun.unRerr {
-			_FpfNhex(&___Vun.unBuf, 22, " 831818 01 rece: %d,%d", ___Vun.unLocalPort, _FtimeI64())
+			_FpfNhex(&___Vun.unBuf, 22, " 831818 01 rece: %5d,%11d", ___Vun.unLocalPort, _FtimeI64())
 			if nil != ___Vun.unCHrece {
+				if nil == ___Vun.unCBrece {
+					___Vun._FsrvGroup__140201yy__receiveCallBack_default()
+				} else {
+					___Vun.unCBrece(___Vun)
+				}
 			}
 		} else {
 			_FpfN(" 831818 09 rece error : [%v] ", ___Vun.unRerr)
 		}
 		//_Fsleep_1s()
 	}
+}
+
+func (___Vun *_TudpNodeSt) _FsrvGroup__140201yy__receiveCallBack_default() {
+	_FpfN(" 839191 01 rece error : [%v] ", ___Vun.unRerr)
 }
 
 func (___Vun *_TudpNodeSt) _FsrvGroup__140201z__send() {
