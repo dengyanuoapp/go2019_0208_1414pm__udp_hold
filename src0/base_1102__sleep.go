@@ -15,6 +15,7 @@ func _Fsleep_30s()      { time.Sleep(30 * time.Second) }       //
 func _Fsleep_50s()      { time.Sleep(50 * time.Second) }       //
 func _Fsleep_100s()     { time.Sleep(100 * time.Second) }      //
 func _FtimeNow() string { return time.Now().String() }         //
+func _FtimeI64() int64  { return time.Now().Unix() }           //
 
 func _Fsleep_1sX(___Vs int) {
 	for i := 0; i < ___Vs; i++ {
