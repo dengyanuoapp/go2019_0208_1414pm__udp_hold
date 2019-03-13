@@ -20,6 +20,16 @@ func _FsrvGroup__140201__main_top__default(___Vun *_TudpNodeSt) {
 	}
 	_FpfN(" 918381 01 : %x ", ___Vun.unPwIn256)
 
+	___Vun._FsrvGroup__140201x__listen()
+
+	go ___Vun._FsrvGroup__140201y__receive()
+
+	go ___Vun._FsrvGroup__140201z__send()
+
+	//_Fex1(" 918381 09 ")
+}
+
+func (___Vun *_TudpNodeSt) _FsrvGroup__140201x__listen() {
 	___Vun.unBuf = make([]byte, 2048)               // silice : with var len
 	___Vun.unSend = make(chan _TudpNodeDataSend, 5) // silice : with var len
 
@@ -46,20 +56,15 @@ func _FsrvGroup__140201__main_top__default(___Vun *_TudpNodeSt) {
 	_FpfN(" 918381 067 ___Vun.unLocalAddr  %v", ___Vun.unLocalAddr)
 	//_FpfN(" 918381 068 ___Vun.unRemoteAddr %v", ___Vun.unRemoteAddr)
 
-	go ___Vun._FsrvGroup__140201x__receive()
-
-	___Vun._FsrvGroup__140201y__send()
-
-	_Fex1(" 918381 09 ")
 }
 
-func (___Vun *_TudpNodeSt) _FsrvGroup__140201x__receive() {
+func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 	for {
 		_Fsleep_1s()
 	}
 }
 
-func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__send() {
+func (___Vun *_TudpNodeSt) _FsrvGroup__140201z__send() {
 	for {
 		_Fsleep_1s()
 	}
