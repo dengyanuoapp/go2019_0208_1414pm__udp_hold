@@ -38,5 +38,31 @@ func _FsrvGroup__140201__main_top__default(___Vun *_TudpNodeSt) {
 	//    //func (c *UDPConn) LocalAddr() Addr
 	___Vun.unLocalAddr = ___Vun.unConn.LocalAddr()
 
+	//_FpfN(" 918381 061 %v", ___Vun)
+	//_FpfN(" 918381 062 %+v", ___Vun)
+	//_FpfN(" 918381 063 %#v", ___Vun)
+	//_FpfN(" 918381 065 ___Vun.unConn       %v", ___Vun.unConn)
+	//_FpfN(" 918381 066 ___Vun.unAddr       %v", ___Vun.unAddr)
+	_FpfN(" 918381 067 ___Vun.unLocalAddr  %v", ___Vun.unLocalAddr)
+	//_FpfN(" 918381 068 ___Vun.unRemoteAddr %v", ___Vun.unRemoteAddr)
+
+	go ___Vun._FsrvGroup__140201x__receive()
+
+	___Vun._FsrvGroup__140201y__send()
+
 	_Fex1(" 918381 09 ")
 }
+
+func (___Vun *_TudpNodeSt) _FsrvGroup__140201x__receive() {
+	for {
+		_Fsleep_1s()
+	}
+}
+
+func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__send() {
+	for {
+		_Fsleep_1s()
+	}
+}
+
+// _Fhandle_u01x__udpListen_Udp__read_main_top__default
