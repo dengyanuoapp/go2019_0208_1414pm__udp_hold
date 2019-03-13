@@ -48,6 +48,7 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201x__listen() {
 
 	//    //func (c *UDPConn) LocalAddr() Addr
 	___Vun.unLocalAddr = ___Vun.unConn.LocalAddr()
+	___Vun.unLocalPort = ___Vun.unLocalAddr.(*net.UDPAddr).Port
 
 	//_FpfN(" 918381 061 %v", ___Vun)
 	//_FpfN(" 918381 062 %+v", ___Vun)
@@ -66,7 +67,7 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr =
 			___Vun.unConn.ReadFromUDP(___Vun.unBuf)
 		if nil == ___Vun.unRerr {
-			_FpfNhex(&___Vun.unBuf, 40, " 831818 01 rece:")
+			_FpfNhex(&___Vun.unBuf, 40, " 831818 01 rece: %d", ___Vun.unLocalPort)
 		} else {
 			_FpfN(" 831818 09 rece error : [%v] ", ___Vun.unRerr)
 		}

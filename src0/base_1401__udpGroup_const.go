@@ -24,6 +24,7 @@ type _TudpNodeSt struct {
 	unAddr       *net.UDPAddr
 	unConn       *net.UDPConn
 	unLocalAddr  net.Addr
+	unLocalPort  int
 	unErr        error
 	unRerr       error
 	unSerr       error
