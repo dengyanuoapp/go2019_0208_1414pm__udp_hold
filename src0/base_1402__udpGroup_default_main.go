@@ -67,7 +67,7 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr =
 			___Vun.unConn.ReadFromUDP(___Vun.unBuf)
 		if nil == ___Vun.unRerr {
-			_FpfNhex(&___Vun.unBuf, 22, " 831818 01 rece: %5d,%11d", ___Vun.unLocalPort, _FtimeI64())
+			_FpfNhex(&___Vun.unBuf, 40, " 831818 01 rece: %5d,%11d", ___Vun.unLocalPort, _FtimeI64())
 			if nil != ___Vun.unCHrece {
 				if nil == ___Vun.unCBrece {
 					___Vun._FsrvGroup__140201yy__receiveCallBack_default()
@@ -88,6 +88,19 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201yy__receiveCallBack_default() {
 
 func (___Vun *_TudpNodeSt) _FsrvGroup__140201z__send() {
 	for {
-		_Fsleep_1s()
+		select {
+		case __VchSend := <-___Vun.unCHsend: // _TudpNodeDataSend
+			_FpfN(" 839118 01 send ")
+
+			// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
+			_, __Verr2 := ___Vun.unConn.WriteToUDP(*__VchSend.unOutBuf, __VchSend.unDstAddr)
+			if __Verr2 != nil {
+				_FpfN(" 839118 06 : udp send error <%s>[%v]", __VchSend.unDstAddr, __Verr2)
+				return
+			}
+			_FpfN(" 839118 07 : %s : udp send succeed (%d) 01 dst<%s>, local<%v>, listen<%v>", ___Vun.name,
+				len(*__VchSend.unOutBuf), __VchSend.unDstAddr, ___Vun.unLocalAddr, ___Vun.unAddr)
+		}
+		//_Fsleep_1s()
 	}
 }
