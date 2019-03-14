@@ -32,8 +32,9 @@ type _TudpNodeSt struct {
 	unLen        int
 	unCHrece     *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	unCHsend     chan _TudpNodeDataSend  // try get data from chan, then send it out.
+	unCBinit     func(*_TudpNodeSt)      //
 	unCBrece     func(*_TudpNodeSt)      // if nil , use the default procedure to deal with receive
-	unCBsend     func(*_TudpNodeSt)      // if nil , use the default procedure to deal with receive
+	unCBsend     func(*_TudpNodeSt)      // if nil , use the default procedure to deal with send
 	unRemoteAddr *net.UDPAddr
 	name         string
 	hostPortStr  string

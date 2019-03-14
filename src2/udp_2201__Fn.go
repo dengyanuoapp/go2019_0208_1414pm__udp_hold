@@ -14,6 +14,8 @@ var (
 
 	_VserviceTcpMf _TserviceTCP
 
+	_VudpTimer01 _TudpTimer
+
 	_Cexit   chan string
 	_Clog    chan string
 	_Vself   _Tself
@@ -66,6 +68,15 @@ func init() {
 	//		Clog:  &_Clog,
 	//	}
 
+	_VudpTimer01 = _TudpTimer{
+		gap:          _T10s,
+		uTmCHudpRece: &_VsrvUdp_FunWaitDun,
+		//uTmCHudpRece      chan _TudpNodeDataRece,
+		//uTmCHudpSend      : &_VsrvUdp_FunWaitDun
+		//uTmCB150001init   func(*_TudpTimer)       ,
+		//uTmCB150201filter func(*_TudpTimer)       ,
+	}
+
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
 	//flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "FnWdn", ":32001", _VserviceUdp_FnWaitDn.name)
 	//flag.StringVar(&_VsrvUdp_FunWaitDun.hostPortStr, "FunWdun", ":42001", _VsrvUdp_FunWaitDun.name)
@@ -104,9 +115,11 @@ func main() {
 	// IRun _FsrvGroup__140201__main_top__default
 	go _Frun(&_VsrvUdp_FunWaitDun, 140201)
 
+	go _Frun(&_VudpTimer01, 150001) // IRun _FudpTimer__150001x__init__default
+
 	//go _VfilterFn2dn. _FfilterDelay501__main_top__default
 	//go _Frun(&_VfilterFn2dn, 501) // IRun
 	// ------------------- filter between workers --------- end
 
-	_Fex(" the reason exit : "+<-_Cexit, nil)
+	_Fex(" 893189 99 : the reason exit : "+<-_Cexit, nil)
 } // main
