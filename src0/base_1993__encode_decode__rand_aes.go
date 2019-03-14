@@ -74,12 +74,16 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		__Vb0, __Vb1, __Vb2, __Vb3, __Vlen int
 	)
 
+	_FpfNhex(___VbyteIn, 50, " 392391 00 : %x : ", ___Vkey)
 	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
 	_FerrExit(" 392391 01", __Verr)
 
 	__Vlen = len(__VdeO)
 	_FpfNhex(&__VdeO, 50, " 392391 02 : %d : ", __Vlen)
-	_FtrueExit(" 392391 03", __Vlen < 32)
+	if __Vlen < 32 {
+		return nil, fmt.Errorf(" 392391 03 : why len error ? (%d) ")
+	}
+
 	__Vb1 = int(__VdeO[1]) // byte 1 : low byte of the uint16
 	__Vb0 = int(__VdeO[0]) // byte 0 : high byte of the uint16
 	__Vb2 = (__Vb0 << 8) | __Vb1
