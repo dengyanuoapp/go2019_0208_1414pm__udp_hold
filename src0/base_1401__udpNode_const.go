@@ -5,13 +5,13 @@ import (
 )
 
 type _TudpNodeDataRece struct {
-	unInRemoteAddr *net.UDPAddr
+	unInRemoteAddr net.UDPAddr
 	unInLen        int
-	unInBuf        *[]byte
+	unInBuf        []byte
 }
 type _TudpNodeDataSend struct {
-	unDstAddr *net.UDPAddr
-	unOutBuf  *[]byte
+	unDstAddr net.UDPAddr
+	unOutBuf  []byte
 }
 
 // _TserviceUDP
@@ -19,8 +19,8 @@ type _TudpNodeDataSend struct {
 type _TudpNodeSt struct {
 	// the input password , all data try AES decode, if faild , then drop it.
 	// if nil , then ignore(no filter , directly receive)
-	unPwIn256LP  *[]byte
-	unPwIn256    [32]byte
+	unPwIn256LP  *[]byte // if nil , use random [32]byte , or , copy it.
+	unPwIn256R   [32]byte
 	unAddr       *net.UDPAddr
 	unConn       *net.UDPConn
 	unLocalAddr  net.Addr
@@ -28,7 +28,7 @@ type _TudpNodeSt struct {
 	unErr        error
 	unRerr       error
 	unSerr       error
-	unBuf        *[]byte
+	unRbuf       []byte // receive-buf
 	unLen        int
 	unCHrece     *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	unCHsend     chan _TudpNodeDataSend  // try get data from chan, then send it out.

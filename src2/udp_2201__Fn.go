@@ -112,7 +112,7 @@ func main() {
 	//		Fusercallback__511_filterTheChanIn: _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
 	//	}
 
-	// IRun _FudpNode__140201__main_top__default
+	// IRun _FudpNode__140201__main_init__default
 	go _Frun(&_VsrvUdp_FunWaitDun, 140201)
 
 	go _Frun(&_VudpTimer01, 150001) // IRun _FudpTimer__150001x__init__default
