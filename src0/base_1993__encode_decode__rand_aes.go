@@ -74,14 +74,18 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		__Vb0, __Vb1, __Vb2, __Vb3, __Vlen int
 	)
 
-	_FpfNhex(___VbyteIn, 50, " 392391 00 : %x : ", ___Vkey)
+	if nil == ___Vkey {
+		return nil, fmt.Errorf(" 392391 01 : why key len error nil ? ")
+	}
+
+	_FpfNhex(___VbyteIn, 50, " 392391 05 : %x : ", ___Vkey)
 	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
-	_FerrExit(" 392391 01", __Verr)
+	_FerrExit(" 392391 06", __Verr)
 
 	__Vlen = len(__VdeO)
-	_FpfNhex(&__VdeO, 50, " 392391 02 : %d : ", __Vlen)
+	_FpfNhex(&__VdeO, 50, " 392391 08 : %d : ", __Vlen)
 	if __Vlen < 32 {
-		return nil, fmt.Errorf(" 392391 03 : why len error ? (%d) ")
+		return nil, fmt.Errorf(" 392391 09 : why len error ? (%d) ")
 	}
 
 	__Vb1 = int(__VdeO[1]) // byte 1 : low byte of the uint16
@@ -94,16 +98,16 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//_FtrueExit(" 392393 ", __Vb3 > __Vlen)
 
 	if __Vb3+16 > __Vlen {
-		return nil, fmt.Errorf(" 392391 04: len error , this is NOT the data for me(using my key).")
+		return nil, fmt.Errorf(" 392392 04: len error , this is NOT the data for me(using my key).")
 	}
 
 	__Vmd5InPack := __VdeO[__Vb3 : __Vb3+16]
 	__Vmd5calc := _FmakeByte16(md5.Sum(__VdeO[:__Vb3]))
 	if false == bytes.Equal(__Vmd5InPack, __Vmd5calc) {
-		_FpfhexlastN(&__Vmd5InPack, 16, " 392391 05 ")
-		_FpfhexlastN(&__Vmd5calc, 16, " 392391 06 ")
-		_FpfhexlastN(&__VdeO, 160, " 392391 07 ")
-		return nil, fmt.Errorf(" 392391 08: md5 error,it is a fake package(maybe random package) ")
+		_FpfhexlastN(&__Vmd5InPack, 16, " 392392 05 ")
+		_FpfhexlastN(&__Vmd5calc, 16, " 392392 06 ")
+		_FpfhexlastN(&__VdeO, 160, " 392392 07 ")
+		return nil, fmt.Errorf(" 392392 08: md5 error,it is a fake package(maybe random package) ")
 	}
 
 	__Vout2 := make([]byte, __Vb2)
