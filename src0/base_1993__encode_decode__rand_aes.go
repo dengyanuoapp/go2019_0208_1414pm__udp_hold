@@ -81,7 +81,7 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		return nil, fmt.Errorf(" 392391 02 : why input len error nil ? ")
 	}
 
-	_FpfNhex(___VbyteIn, 50, " 392391 05 : %x : ", ___Vkey)
+	_FpfNhex(___VbyteIn, 50, " 392391 05 : %v : ", ___Vkey)
 	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
 	_FerrExit(" 392391 06", __Verr)
 
