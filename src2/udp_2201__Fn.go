@@ -72,7 +72,7 @@ func init() {
 		gap:          _T10s,
 		uTmCHudpRece: &_VudpNode_FunWaitDun,
 		//uTmCHudpRece      chan _TudpNodeDataRece,
-		//uTmCHudpSend      : &_VudpNode_FunWaitDun
+		//uTmCHudpSend      : &_VudpNode_FunWaitDun,
 		//uTmCB150001init   func(*_TudpTimer)       ,
 		//uTmCB150201filter func(*_TudpTimer)       ,
 	}

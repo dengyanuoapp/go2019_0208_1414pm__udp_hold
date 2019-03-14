@@ -42,16 +42,27 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directC
 
 func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDecodeOut() {
 
-	//__Vtmp2, __Verr := _FdecAesRand__only(___Vkey, &__Vtmp1)
+	__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unPwIn256B, &___Vun.unRbuf)
+	if nil != __Verr2 {
+		_FpfNhex(&___Vun.unRbuf, 38, " 439191 01 rece : %d ,%11d %v %x",
+			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unPwIn256B)
+		return
+	}
+
+	//	__Vrece := _TudpNodeDataRece{
+	//		unInRemoteAddr: *___Vun.unRemoteAddr,
+	//		unInLen:        ___Vun.unLen,
+	//		unInBuf:        make([]byte, ___Vun.unLen),
+	//	}
+	//	copy(__Vrece.unInBuf, ___Vun.unRbuf[:___Vun.unLen])
 
 	__Vrece := _TudpNodeDataRece{
 		unInRemoteAddr: *___Vun.unRemoteAddr,
-		unInLen:        ___Vun.unLen,
-		unInBuf:        make([]byte, ___Vun.unLen),
+		unInLen:        len(__Vtmp2),
+		unInBuf:        __Vtmp2,
 	}
-	copy(__Vrece.unInBuf, ___Vun.unRbuf[:___Vun.unLen])
 
-	_FpfNhex(&__Vrece.unInBuf, 38, " 439191 01 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
+	_FpfNhex(&__Vrece.unInBuf, 38, " 439191 09 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
 
 	(*___Vun.unCHrece) <- __Vrece
 }
