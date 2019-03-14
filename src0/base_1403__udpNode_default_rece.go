@@ -10,8 +10,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201y__receive() {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
-					___Vun._FudpNode__140201yy__receiveCallBack_default__directChanOut()
-					//___Vun._FudpNode__140201yyy__receiveCallBack_default__randDecodeOut()
+					//___Vun._FudpNode__140201yy__receiveCallBack_default__directChanOut()
+					___Vun._FudpNode__140201yyy__receiveCallBack_default__randDecodeOut()
 				} else {
 					___Vun.unCBrece(___Vun)
 				}
@@ -41,4 +41,14 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directC
 }
 
 func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDecodeOut() {
+	__Vrece := _TudpNodeDataRece{
+		unInRemoteAddr: *___Vun.unRemoteAddr,
+		unInLen:        ___Vun.unLen,
+		unInBuf:        make([]byte, ___Vun.unLen),
+	}
+	copy(__Vrece.unInBuf, ___Vun.unRbuf[:___Vun.unLen])
+
+	_FpfNhex(&__Vrece.unInBuf, 38, " 439191 01 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
+
+	(*___Vun.unCHrece) <- __Vrece
 }

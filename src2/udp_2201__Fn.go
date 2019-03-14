@@ -10,7 +10,7 @@ var (
 
 	//_VfilterFn2dn _TfilterDelay
 
-	_VsrvUdp_FunWaitDun _TudpNodeSt
+	_VudpNode_FunWaitDun _TudpNodeSt
 
 	_VserviceTcpMf _TserviceTCP
 
@@ -46,8 +46,8 @@ func init() {
 		cAmount: 10,
 	}
 
-	_VsrvUdp_FunWaitDun = _TudpNodeSt{
-		name:        "_VsrvUdp_FunWaitDun",
+	_VudpNode_FunWaitDun = _TudpNodeSt{
+		name:        "_VudpNode_FunWaitDun",
 		unPwIn256LP: &_Vpasswd_udp_Fn_waitForCliens01,
 	}
 
@@ -70,17 +70,17 @@ func init() {
 
 	_VudpTimer01 = _TudpTimer{
 		gap:          _T10s,
-		uTmCHudpRece: &_VsrvUdp_FunWaitDun,
+		uTmCHudpRece: &_VudpNode_FunWaitDun,
 		//uTmCHudpRece      chan _TudpNodeDataRece,
-		//uTmCHudpSend      : &_VsrvUdp_FunWaitDun
+		//uTmCHudpSend      : &_VudpNode_FunWaitDun
 		//uTmCB150001init   func(*_TudpTimer)       ,
 		//uTmCB150201filter func(*_TudpTimer)       ,
 	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
 	//flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "FnWdn", ":32001", _VserviceUdp_FnWaitDn.name)
-	//flag.StringVar(&_VsrvUdp_FunWaitDun.hostPortStr, "FunWdun", ":42001", _VsrvUdp_FunWaitDun.name)
-	flag.StringVar(&_VsrvUdp_FunWaitDun.hostPortStr, "FunWdun", ":32001", _VsrvUdp_FunWaitDun.name)
+	//flag.StringVar(&_VudpNode_FunWaitDun.hostPortStr, "FunWdun", ":42001", _VudpNode_FunWaitDun.name)
+	flag.StringVar(&_VudpNode_FunWaitDun.hostPortStr, "FunWdun", ":32001", _VudpNode_FunWaitDun.name)
 
 	flag.Parse()
 
@@ -113,7 +113,7 @@ func main() {
 	//	}
 
 	// IRun _FudpNode__140201__main_init__default
-	go _Frun(&_VsrvUdp_FunWaitDun, 140201)
+	go _Frun(&_VudpNode_FunWaitDun, 140201)
 
 	go _Frun(&_VudpTimer01, 150001) // IRun _FudpTimer__150001x__init__default
 
