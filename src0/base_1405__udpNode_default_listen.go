@@ -5,7 +5,6 @@ import (
 )
 
 func (___Vun *_TudpNodeSt) _FudpNode__140201x__listen() {
-	___Vun.unBuf = make([]byte, 2048)                 // silice : with var len
 	___Vun.unCHsend = make(chan _TudpNodeDataSend, 5) // silice : with var len
 
 	//_FtryListenToUDP01()
