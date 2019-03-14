@@ -30,7 +30,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default() {
 		unInLen:        ___Vun.unLen,
 		unInBuf:        &___Vun.unBuf,
 	}
-	_FpfNhex(__Vrece.unInBuf, 40, " 839191 01 rece : %d , %v ", __Vrece.unInLen, __Vrece.unInRemoteAddr)
+	_FpfNhex(__Vrece.unInBuf, 38, " 839191 01 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
 
 	(*___Vun.unCHrece) <- __Vrece
 }
