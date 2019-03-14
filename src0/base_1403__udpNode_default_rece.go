@@ -1,7 +1,7 @@
 package main
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
-func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
+func (___Vun *_TudpNodeSt) _FudpNode__140201y__receive() {
 	for {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr =
@@ -11,7 +11,7 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 				_FpfNhex(&___Vun.unBuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
-					___Vun._FsrvGroup__140201yy__receiveCallBack_default()
+					___Vun._FudpNode__140201yy__receiveCallBack_default()
 				} else {
 					___Vun.unCBrece(___Vun)
 				}
@@ -23,7 +23,7 @@ func (___Vun *_TudpNodeSt) _FsrvGroup__140201y__receive() {
 	}
 }
 
-func (___Vun *_TudpNodeSt) _FsrvGroup__140201yy__receiveCallBack_default() {
+func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default() {
 
 	__Vrece := _TudpNodeDataRece{
 		unInRemoteAddr: ___Vun.unRemoteAddr,

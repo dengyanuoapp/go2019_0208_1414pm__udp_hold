@@ -1,6 +1,6 @@
 package main
 
-func (___Vun *_TudpNodeSt) _FsrvGroup__140201z__send() {
+func (___Vun *_TudpNodeSt) _FudpNode__140201z__send() {
 	for {
 		select {
 		case __VchSend := <-___Vun.unCHsend: // _TudpNodeDataSend
