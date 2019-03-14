@@ -41,6 +41,9 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directC
 }
 
 func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDecodeOut() {
+
+	//__Vtmp2, __Verr := _FdecAesRand__only(___Vkey, &__Vtmp1)
+
 	__Vrece := _TudpNodeDataRece{
 		unInRemoteAddr: *___Vun.unRemoteAddr,
 		unInLen:        ___Vun.unLen,

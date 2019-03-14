@@ -20,7 +20,8 @@ type _TudpNodeSt struct {
 	// the input password , all data try AES decode, if faild , then drop it.
 	// if nil , then ignore(no filter , directly receive)
 	unPwIn256LP  *[]byte // if nil , use random [32]byte , or , copy it.
-	unPwIn256R   [32]byte
+	unPwIn256B   []byte
+	unPwIn256F   [32]byte
 	unAddr       *net.UDPAddr
 	unConn       *net.UDPConn
 	unLocalAddr  net.Addr
