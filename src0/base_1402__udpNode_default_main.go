@@ -27,6 +27,7 @@ func _FudpNode__140201__main_init__default(___Vun *_TudpNodeSt) {
 		copy(___Vun.unPwIn256B, *___Vun.unPwIn256LP)
 		copy(___Vun.unPwIn256F[:], ___Vun.unPwIn256B)
 	}
+	_FpfN(" 918381 02 : LP %x, B %x, F %x ", ___Vun.unPwIn256LP, ___Vun.unPwIn256B, ___Vun.unPwIn256F)
 
 	___Vun._FudpNode__140201x__listen()
 

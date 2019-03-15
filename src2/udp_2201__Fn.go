@@ -115,7 +115,8 @@ func main() {
 	// IRun _FudpNode__140201__main_init__default
 	go _Frun(&_VudpNode_FunWaitDun, 140201)
 
-	go _Frun(&_VudpTimer01, 150001) // IRun _FudpTimer__150001x__init__default
+	// IRun _FudpTimer__150001x__init__default
+	go _Frun(&_VudpTimer01, 150001)
 
 	//go _VfilterFn2dn. _FfilterDelay501__main_top__default
 	//go _Frun(&_VfilterFn2dn, 501) // IRun
