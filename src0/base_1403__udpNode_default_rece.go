@@ -42,7 +42,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directC
 
 func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDecodeOut() {
 
-	if nil != ___Vun.unPwIn256B {
+	if nil == ___Vun.unPwIn256B {
 		_FpfN(" 439191 01 key ERROR : len %d ,%11d ,addr %v , key %x.",
 			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unPwIn256B)
 		return
