@@ -1,22 +1,22 @@
 package main
 
 type _TtestLeng01 struct {
-	I01   int64
-	I02   int64
-	S01   string
-	S02   string
-	B01   []byte
-	B02   []byte
-	B1024 []byte
+	I01 int64
+	I02 int64
+	S01 string
+	S02 string
+	B01 []byte
+	B02 []byte
+	BBB []byte
 }
 type _TtestLeng02 struct {
-	I01   int64
-	I02   int64
-	S01   string
-	S02   string
-	B01   [16]byte
-	B02   [32]byte
-	B1024 [1024]byte
+	I01 int64
+	I02 int64
+	S01 string
+	S02 string
+	B01 [16]byte
+	B02 [32]byte
+	BBB [128]byte
 }
 
 func _FtestLen01() {
@@ -33,7 +33,7 @@ func _FtestLen01() {
 
 	__Vtl01.B01 = _FgenRand_nByte__(16)
 	__Vtl01.B02 = _FgenRand_nByte__(32)
-	__Vtl01.B1024 = _FgenRand_nByte__(1024)
+	__Vtl01.BBB = _FgenRand_nByte__(128)
 
 	__Vtl02.I01 = __Vtl01.I01
 	__Vtl02.I02 = __Vtl01.I02
@@ -43,8 +43,22 @@ func _FtestLen01() {
 
 	copy(__Vtl02.B01[:], __Vtl01.B01)
 	copy(__Vtl02.B02[:], __Vtl01.B02)
-	copy(__Vtl02.B1024[:], __Vtl01.B1024)
+	copy(__Vtl02.BBB[:], __Vtl01.BBB)
 
-	_FpfN("__Vtl01 %v", __Vtl01)
-	_FpfN("__Vtl02 %v", __Vtl02)
+	_FpfN("__Vtl01 %x", __Vtl01)
+	_FpfN("__Vtl02 %x", __Vtl02)
+	__Vb01, _ := _FencJson(__Vtl01)
+	__Vb02, _ := _FencJson(__Vtl02)
+	_FpfN("_FencJson %d %d", len(__Vb01), len(__Vb02))
+
+	__Vb03, _ := _FencGob(__Vtl01)
+	__Vb04, _ := _FencGob(__Vtl02)
+	_FpfN("_FencGob %d %d", len(__Vb03), len(__Vb04))
+	_FpfN("__Vb03 %x", __Vb03)
+	_FpfN("__Vb04 %x", __Vb04)
+
+	__Vb05 := _FencBin1(__Vtl01)
+	__Vb06 := _FencBin2(__Vtl02)
+	_FpfN("_FencBin %d %d", len(__Vb05), len(__Vb06))
+
 }

@@ -11,16 +11,16 @@ import (
 	//"math"
 )
 
-func _FencGob(___V interface{}) []byte {
+func _FencGob(___V interface{}) ([]byte, error) {
 	//__VbBuf := new(bytes.Buffer)
 	var __VbBuf bytes.Buffer
 	__Venc := gob.NewEncoder(&__VbBuf) // Will write to __VbBuf.
 	__Verr := __Venc.Encode(___V)
 	if __Verr != nil {
 		_Perr(__Verr, "1831915 : gob.NewEncoder failed:")
-		return nil
+		return nil, __Verr
 	}
-	return __VbBuf.Bytes()
+	return __VbBuf.Bytes(), nil
 } // _FencGob
 
 func _FdecGob(___Vbyte []byte, ___Vout interface{}) {
