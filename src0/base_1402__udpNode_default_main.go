@@ -20,17 +20,7 @@ func _FudpNode__140201__main_init__default(___Vun *_TudpNodeSt) {
 	___Vun.unRbuf = make([]byte, 1500)
 	_FpfN(" 918381 01 : %x ", ___Vun.unPwIn256LP)
 
-	if nil == ___Vun.unPwIn256LP {
-		_FpfN(" 918381 02 : %x ", ___Vun.unPwIn256LP)
-		copy(___Vun.unPwIn256B, _FgenRand_nByte__(32))
-		copy(___Vun.unPwIn256F[:], ___Vun.unPwIn256B)
-	} else {
-		//copy(___Vun.unPwIn256B, *___Vun.unPwIn256LP)
-		_FpfN(" 918381 03 : %x ", ___Vun.unPwIn256LP)
-		___Vun.unPwIn256B = *___Vun.unPwIn256LP
-		copy(___Vun.unPwIn256F[:], ___Vun.unPwIn256B)
-	}
-	_FpfN(" 918381 05 : LP %x, B %x, F %x ", ___Vun.unPwIn256LP, ___Vun.unPwIn256B, ___Vun.unPwIn256F)
+	___Vun.unKey.initKey() // initKey
 
 	___Vun._FudpNode__140201x__listen()
 

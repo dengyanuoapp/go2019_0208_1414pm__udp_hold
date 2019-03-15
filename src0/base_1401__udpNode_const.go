@@ -17,11 +17,7 @@ type _TudpNodeDataSend struct {
 // _TserviceUDP
 // a udp node: input accept AES256 rand only , can output anything
 type _TudpNodeSt struct {
-	// the input password , all data try AES decode, if faild , then drop it.
-	// if nil , then ignore(no filter , directly receive)
-	unPwIn256LP  *[]byte // if nil , use random [32]byte , or , copy it.
-	unPwIn256B   []byte
-	unPwIn256F   [32]byte
+	unRkey       _Tkey256
 	unAddr       *net.UDPAddr
 	unConn       *net.UDPConn
 	unLocalAddr  net.Addr
