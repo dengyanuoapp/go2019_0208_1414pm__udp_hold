@@ -109,6 +109,15 @@ func _FgenRand_int32() int32 {
 	return __Vo
 } // _FgenRand_uint32
 
+func _FgenRand_int64() int64 {
+	__Vuint64 := binary.LittleEndian.Uint64(_FgenRand_nByte__(8))
+	return int64(__Vuint64)
+}
+func _FgenRand_uint64() uint64 {
+	__Vuint64 := binary.LittleEndian.Uint64(_FgenRand_nByte__(8))
+	return __Vuint64
+}
+
 func _FgenRand_nByte__testExit(___VloopAmount uint32) {
 	var __Vu1, __Vu2, __Vu3 uint16
 	var __Vcnt uint32
