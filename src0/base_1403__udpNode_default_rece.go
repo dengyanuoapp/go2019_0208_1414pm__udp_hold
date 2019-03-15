@@ -69,7 +69,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDe
 	}
 
 	if __Vrece.unInLen < 400 && __Vrece.unInLen > 32 {
-		_FpfN(" 439191 05 rece : %d ,%11d %v : %s", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr, __Vrece.unInBuf)
+		//_FpfN(" 439191 05 rece : %d ,%11d %v : %s", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr, __Vrece.unInBuf)
 	} else {
 		_FpfNhex(&__Vrece.unInBuf, 38, " 439191 06 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
 	}
