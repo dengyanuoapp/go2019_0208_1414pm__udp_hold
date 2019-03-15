@@ -17,7 +17,7 @@ type _TudpNodeDataSend struct {
 // _TserviceUDP
 // a udp node: input accept AES256 rand only , can output anything
 type _TudpNodeSt struct {
-	unRkeyLP     *[]byte
+	unRKeyLP     *[]byte
 	unRkey       _Tkey256
 	unAddr       *net.UDPAddr
 	unConn       *net.UDPConn

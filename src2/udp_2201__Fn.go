@@ -48,7 +48,7 @@ func init() {
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
 		name:     "_VudpNode_FunWaitDun",
-		unRkeyLP: &_Vpasswd_udp_Fn_waitForCliens01,
+		unRKeyLP: &_Vpasswd_udp_Fn_waitForCliens01,
 	}
 
 	_VserviceUdp_FnWaitCn = _TserviceUDP{
