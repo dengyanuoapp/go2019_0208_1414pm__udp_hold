@@ -52,8 +52,9 @@ func _Finit__2301() {
 	//	flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":0", _VserviceUdpDn.name)
 
 	_VudpGroup_Dn2Fn = _TudpGroupSt{
-		ugName:   "udpGroup_Dn2Fn",
-		ugAmount: 10,
+		ugName:        "udpGroup_Dn2Fn",
+		ugAmount:      10,
+		ugHostPortStr: make([]string, 1),
 	}
 	flag.StringVar(&_VudpGroup_Dn2Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn2Fn.ugName)
 
