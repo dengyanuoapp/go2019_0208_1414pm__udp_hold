@@ -5,17 +5,12 @@ import (
 )
 
 var (
-	_VserviceUdpDn _TserviceUDP
-
-	_VfilterCn2dn _TfilterDelay
-
 	_VserviceTcpMd _TserviceTCP
-
-	_Cexit chan string
-	_Clog  chan string
-
-	_Vself   _Tself
-	_Vconfig _Tconfig
+	_VudpGroup01   _TudpGroupSt
+	_Cexit         chan string
+	_Clog          chan string
+	_Vself         _Tself
+	_Vconfig       _Tconfig
 )
 
 func init() {
@@ -41,19 +36,25 @@ func init() {
 		Clog:    &_Clog,
 		cAmount: 10,
 	}
+
 	// _FuserCallback_UdataRece_Dn
 	// _FuserCallback_UdataMain_Dn
-	_VserviceUdpDn = _TserviceUDP{
-		name:   "UdpService__Dn",
-		uExtMR: &_VuExtMR_Dn,
+	//	_VserviceUdpDn = _TserviceUDP{
+	//		name:   "UdpService__Dn",
+	//		uExtMR: &_VuExtMR_Dn,
+	//
+	//		UreqNewSessionTM: &_VUreqNewSession_Dn,
+	//
+	//		Cexit: &_Cexit,
+	//		Clog:  &_Clog,
+	//	}
+	//
+	//	flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":0", _VserviceUdpDn.name)
 
-		UreqNewSessionTM: &_VUreqNewSession_Dn,
-
-		Cexit: &_Cexit,
-		Clog:  &_Clog,
+	_VudpGroup01 := _TudpGroupSt{
+		ugName: "UdpNode__Dn",
 	}
-
-	flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":0", _VserviceUdpDn.name)
+	flag.StringVar(&_VudpGroup01.ugHostPortStr, "cn", ":0", _VudpGroup01.ugName)
 
 	flag.Parse()
 
@@ -75,11 +76,13 @@ func main() {
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
 	//go _VserviceUdpDn._Fhandle_u01x__udpListen_Udp__read_main_top__default()
-	go _Frun(&_VserviceUdpDn, 201)
+	//go _Frun(&_VserviceUdpDn, 201)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
+	go _Frun(&_VudpGroup01, 150201) // IRun _FudpGroup__150201__main_init__default _TudpGroupSt
+
 	// ------------------- filter between workers --------- begin
-	//	_VfilterCn2dn = _TfilterDelay{
+	//	_VfilterCn2dn := _TfilterDelay{
 	//		sleepGap: 1,
 	//		udpIn:    &_VserviceUdpDn,
 	//		udpOut:   &_VserviceUdpDC,
