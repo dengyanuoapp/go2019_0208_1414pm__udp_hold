@@ -33,6 +33,3 @@ func _FudpTimer__150101x__init__default(___Vgtm *_TgapTimer) {
 
 	go _Frun(___Vgtm, 150201)
 }
-func _FudpTimer__150102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
-	_Fdebug1(" 138181 01 ")
-}
