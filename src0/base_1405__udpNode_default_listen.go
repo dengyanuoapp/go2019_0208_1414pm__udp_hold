@@ -8,7 +8,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201x__listen() {
 	___Vun.unCHsend = make(chan _TudpNodeDataSend, 5) // silice : with var len
 
 	//_FtryListenToUDP01()
-	___Vun.unAddr, ___Vun.unErr = net.ResolveUDPAddr("udp4", ___Vun.hostPortStr)
+	___Vun.unAddr, ___Vun.unErr = net.ResolveUDPAddr("udp4", ___Vun.unHostPortStr)
 	if ___Vun.unErr != nil {
 		_Fex("918381 03", ___Vun.unErr)
 	}

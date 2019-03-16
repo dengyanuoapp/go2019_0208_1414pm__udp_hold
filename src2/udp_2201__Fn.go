@@ -47,7 +47,7 @@ func _Finit_2201() {
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
-		name:     "_VudpNode_FunWaitDun",
+		unName:   "_VudpNode_FunWaitDun",
 		unRKeyLP: &_Vpasswd_udp_Fn_waitForCliens01,
 	}
 
@@ -80,7 +80,7 @@ func _Finit_2201() {
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
 	//flag.StringVar(&_VserviceUdp_FnWaitDn.hostPortStr, "FnWdn", ":32001", _VserviceUdp_FnWaitDn.name)
 	//flag.StringVar(&_VudpNode_FunWaitDun.hostPortStr, "FunWdun", ":42001", _VudpNode_FunWaitDun.name)
-	flag.StringVar(&_VudpNode_FunWaitDun.hostPortStr, "FunWdun", ":32001", _VudpNode_FunWaitDun.name)
+	flag.StringVar(&_VudpNode_FunWaitDun.unHostPortStr, "FunWdun", ":32001", _VudpNode_FunWaitDun.unName)
 
 	flag.Parse()
 
