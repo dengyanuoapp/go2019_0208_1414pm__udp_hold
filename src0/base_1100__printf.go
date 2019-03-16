@@ -123,7 +123,8 @@ func _Fdebug1(___Vfmt string, ___Vpara ...interface{}) {
 	__Vstr1 := _FgetFrame(1).Function
 	__Vstr2 := string([]byte(__Vstr1)[strings.LastIndexByte(__Vstr1, '.')+1:])
 	//_FpfN(___Vfmt+" : %s", ___Vpara, _FgetFuncName3())
-	_FpfN(___Vfmt+" : %s", ___Vpara, __Vstr2)
+	_Fpf(___Vfmt, ___Vpara...)
+	_Ppf(": %s\n\n", __Vstr2)
 }
 
 func _FgetFrame(skipFrames int) runtime.Frame {
