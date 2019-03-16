@@ -15,5 +15,5 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 
 // _TudpGroupSt
 func _FudpGroup__150201__main_init__default(___Vug *_TudpGroupSt) {
-	_FpfNex(" 834811 99 : exit.")
+	_FpfNex(" 834811 99 : exit.[%#v]", ___Vug)
 }
