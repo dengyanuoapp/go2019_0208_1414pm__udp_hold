@@ -52,7 +52,8 @@ func init() {
 	//	flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":0", _VserviceUdpDn.name)
 
 	_VudpGroup01 := _TudpGroupSt{
-		ugName: "UdpNode__Dn",
+		ugName:   "UdpNode__Dn",
+		ugAmount: 10,
 	}
 	flag.StringVar(&_VudpGroup01.ugHostPortStr, "cn", ":0", _VudpGroup01.ugName)
 
@@ -79,7 +80,8 @@ func main() {
 	//go _Frun(&_VserviceUdpDn, 201)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
-	go _Frun(&_VudpGroup01, 150201) // IRun _FudpGroup__150201__main_init__default _TudpGroupSt
+	// _TudpNodeSt _TudpGroupSt
+	go _Frun(&_VudpGroup01, 150201) // IRun _FudpGroup__150201__main_init__default
 
 	// ------------------- filter between workers --------- begin
 	//	_VfilterCn2dn := _TfilterDelay{

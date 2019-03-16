@@ -9,7 +9,11 @@ import (
 func (___Vun *_TudpNodeSt) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 140201:
-		_FudpNode__140201__main_init__default(___Vun)
+		if nil == ___Vun.unCBinit {
+			_FudpNode__140201__main_init__default(___Vun)
+		} else {
+			___Vun.unCBinit(___Vun)
+		}
 	default:
 		_FpfNex(" 937191 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
