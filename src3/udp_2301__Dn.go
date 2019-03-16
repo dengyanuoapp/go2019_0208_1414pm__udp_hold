@@ -45,8 +45,11 @@ func _Finit__2301() {
 	flag.Parse()
 
 	_VtmUdpConn__Dn2Fn = _TgapTimer{
-		gap01:        _T10s,
-		uTmSrvInfo01: &_TsrvInfo{},
+		gap01: _T10s,
+		uTmSrvInfo01: &_TsrvInfo{
+			Name: "srvDn2Fn",
+			Guri: "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
+		},
 	}
 
 	// _FdebugPrintTest()
