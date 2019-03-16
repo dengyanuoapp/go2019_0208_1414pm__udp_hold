@@ -16,16 +16,22 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 // _TudpGroupSt
 // _TudpNodeSt
 func _FudpGroup__150201__main_init__default(___Vug *_TudpGroupSt) {
-	___Vug.ugRkeyS = make([]*_Tkey256, ___Vug.ugAmount)
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
-	if nil == ___Vug.ugRkeyLP {
-		for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
-			___Vug.ugNodeS[__Vi].unName = ___Vug.ugName
-			___Vug.ugNodeS[__Vi].unHostPortStr = ___Vug.ugHostPortStr
-			//___Vug.ugRkeyS[__Vi]    = *___Vug.ugRkeyLP
+	__VunPortLen := len(___Vug.ugHostPortStr)
+	__VunKeyLen := len(___Vug.ugRkeyLP)
+	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
+		__Vun := &(___Vug.ugNodeS[__Vi])
+		__Vun.unName = ___Vug.ugName
+		if 0 == __VunPortLen {
+			__Vun.unHostPortStr = ":0"
+		} else {
+			__Vun.unHostPortStr = ___Vug.ugHostPortStr[__Vi]
 		}
-	} else {
-		for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
+		if 0 == __VunKeyLen {
+			__Vb := _FgenRand_nByte__(32)
+			__Vun.unRKeyLP = &__Vb
+		} else {
+			__Vun.unRKeyLP = ___Vug.ugRkeyLP[__Vi]
 		}
 	}
 

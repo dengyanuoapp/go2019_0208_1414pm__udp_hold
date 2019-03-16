@@ -55,7 +55,7 @@ func _Finit__2301() {
 		ugName:   "udpGroup_Dn2Fn",
 		ugAmount: 10,
 	}
-	flag.StringVar(&_VudpGroup_Dn2Fn.ugHostPortStr, "cn", ":0", _VudpGroup_Dn2Fn.ugName)
+	flag.StringVar(&_VudpGroup_Dn2Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn2Fn.ugName)
 
 	flag.Parse()
 
