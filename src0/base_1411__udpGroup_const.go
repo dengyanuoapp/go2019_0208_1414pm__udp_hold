@@ -4,6 +4,8 @@ type _TudpGroupSt struct {
 	ugName        string
 	ugHostPortStr string
 	ugAmount      int
+	ugRKeyLP      *[]byte
+	ugRkey        []_Tkey256
 	ugNarr        []_TudpNodeSt
 	ugCHrece      *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	ugCHsend      chan _TudpNodeDataSend  // try get data from chan, then send it out.

@@ -42,16 +42,16 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directC
 
 func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDecodeOut() {
 
-	if nil == ___Vun.unRkey.Bkey {
+	if nil == ___Vun.unRkeyX.Bkey {
 		_FpfN(" 439191 01 key ERROR : len %d ,%11d ,addr %v , key %x.",
-			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkey.Bkey)
+			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkeyX.Bkey)
 		return
 	}
 
-	__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unRkey.Bkey, &___Vun.unRbuf)
+	__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unRkeyX.Bkey, &___Vun.unRbuf)
 	if nil != __Verr2 {
 		_FpfNhex(&___Vun.unRbuf, 38, " 439191 03 rece Null : %d ,%11d %v %x:",
-			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkey.Bkey)
+			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkeyX.Bkey)
 		return
 	}
 

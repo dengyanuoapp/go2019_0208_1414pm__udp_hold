@@ -24,7 +24,7 @@ func _FudpNode__140201__main_init__default(___Vun *_TudpNodeSt) {
 	___Vun.unRbuf = make([]byte, 1500)
 	_FpfN(" 918381 01 : %x ", ___Vun.unRKeyLP)
 
-	___Vun.unRkey.initKey(___Vun.unRKeyLP) // initKey
+	___Vun.unRkeyX.initKey(___Vun.unRKeyLP) // initKey
 
 	___Vun._FudpNode__140201x__listen()
 
