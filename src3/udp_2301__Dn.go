@@ -13,7 +13,7 @@ var (
 	_Vconfig         _Tconfig
 )
 
-func init() {
+func _Finit__2301() {
 
 	_Vself.ProjName = "Dn"
 
@@ -51,22 +51,24 @@ func init() {
 	//
 	//	flag.StringVar(&_VserviceUdpDn.hostPortStr, "cn", ":0", _VserviceUdpDn.name)
 
-	_VudpGroup_Dn2Fn := _TudpGroupSt{
+	_VudpGroup_Dn2Fn = _TudpGroupSt{
 		ugName:   "udpGroup_Dn2Fn",
 		ugAmount: 10,
 	}
 	flag.StringVar(&_VudpGroup_Dn2Fn.ugHostPortStr, "cn", ":0", _VudpGroup_Dn2Fn.ugName)
 
 	flag.Parse()
-	_FpfN(" 834811 97 : exit.[%#v]", _VudpGroup_Dn2Fn)
 
 	// _FdebugPrintTest()
 
 	_Cexit = make(chan string, 3)
 	_Clog = make(chan string, 100)
+
 }
 
 func main() {
+
+	_Finit__2301()
 
 	// ------------------- tcp for debug monitor log --- begin
 	// _Fhandle_tcpAccept01
@@ -81,12 +83,11 @@ func main() {
 	//go _Frun(&_VserviceUdpDn, 201)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
-	_FpfNex(" 834811 98 : exit.[%#v]", _VudpGroup_Dn2Fn)
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn2Fn, 150201) // IRun _FudpGroup__150201__main_init__default
 
 	// ------------------- filter between workers --------- begin
-	//	_VfilterCn2dn := _TfilterDelay{
+	//	_VfilterCn2dn = _TfilterDelay{
 	//		sleepGap: 1,
 	//		udpIn:    &_VserviceUdpDn,
 	//		udpOut:   &_VserviceUdpDC,

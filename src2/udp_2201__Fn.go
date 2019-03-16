@@ -22,7 +22,7 @@ var (
 	_Vconfig _Tconfig
 )
 
-func init() {
+func _Finit_2201() {
 
 	_Vself.ProjName = "Fn"
 
@@ -91,6 +91,7 @@ func init() {
 }
 
 func main() {
+	_Finit_2201()
 
 	// ------------------- tcp for debug monitor log --- begin
 	// IRun _Fhandle_udpListen_Tcp__main_top()
