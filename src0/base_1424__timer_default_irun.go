@@ -8,6 +8,8 @@ func (___Vgtm *_TgapTimer) IRun(___Vidx int) {
 		} else {
 			___Vgtm.uTmCB150101init(___Vgtm)
 		}
+	case 150102:
+		_FudpTimer__150102x__init__tryUdpConn__default(___Vgtm)
 	case 150201:
 		if nil == ___Vgtm.uTmCB150201filter {
 			_FudpTimer__150201x__filter_receive__default(___Vgtm)
@@ -30,4 +32,7 @@ func _FudpTimer__150101x__init__default(___Vgtm *_TgapTimer) {
 	___Vgtm.uTmCHudpRece01.unCHrece = &__VuRece
 
 	go _Frun(___Vgtm, 150201)
+}
+func _FudpTimer__150102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
+	_Fdebug1(" 138181 01 ")
 }

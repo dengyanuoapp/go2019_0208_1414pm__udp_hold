@@ -29,6 +29,7 @@ import (
 */
 
 type _TsrvInfo struct {
+	runing  bool
 	Name    string   // name
 	Guri    string   // refresh-uri-Github
 	UriArrs []string // try-Uris
