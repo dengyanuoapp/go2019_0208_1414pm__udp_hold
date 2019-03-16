@@ -36,4 +36,5 @@ type _TudpNodeSt struct {
 	unRemoteAddr  *net.UDPAddr
 	unName        string
 	unHostPortStr string
+	unIdx         int
 }

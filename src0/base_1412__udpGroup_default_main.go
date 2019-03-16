@@ -21,13 +21,14 @@ func _FudpGroup__150201__main_init__default(___Vug *_TudpGroupSt) {
 	__VunKeyLen := len(___Vug.ugRkeyLP)
 	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
 		__Vun := &(___Vug.ugNodeS[__Vi])
+		__Vun.unIdx = __Vi
 		__Vun.unName = ___Vug.ugName
-		if 0 == __VunPortLen {
+		if __Vi >= __VunPortLen {
 			__Vun.unHostPortStr = ":0"
 		} else {
 			__Vun.unHostPortStr = ___Vug.ugHostPortStr[__Vi]
 		}
-		if 0 == __VunKeyLen {
+		if __Vi >= __VunKeyLen {
 			__Vb := _FgenRand_nByte__(32)
 			__Vun.unRKeyLP = &__Vb
 		} else {
@@ -35,5 +36,6 @@ func _FudpGroup__150201__main_init__default(___Vug *_TudpGroupSt) {
 		}
 	}
 
-	_FpfNex(" 834811 99 : exit.[%#v]", ___Vug)
+	_FpfN(" 834811 98 : exit.[%#v]", ___Vug)
+	_FpfNex(" 834811 99 : exit. ")
 }
