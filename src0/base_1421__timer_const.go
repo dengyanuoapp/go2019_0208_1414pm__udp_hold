@@ -35,10 +35,16 @@ const (
 //func _Fsleep_100s()     { time.Sleep(100 * time.Second) }      //
 
 // _TudpNodeSt
-type _TudpTimer struct {
+type _TgapTimer struct {
 	gap               time.Duration
-	uTmCHudpRece      *_TudpNodeSt
-	uTmCHudpSend      *_TudpNodeSt
-	uTmCB150001init   func(*_TudpTimer) // if nil , use the default init procedure
-	uTmCB150201filter func(*_TudpTimer) // if nil , use the default filter procedure to deal with receive
+	uTmCHudpRece01    *_TudpNodeSt
+	uTmCHudpRece02    *_TudpNodeSt
+	uTmCHudpSend01    *_TudpNodeSt
+	uTmCHudpSend02    *_TudpNodeSt
+	uTmCHbyteRece01   []byte
+	uTmCHbyteRece02   []byte
+	uTmCHbyteSend01   []byte
+	uTmCHbyteSend02   []byte
+	uTmCB150101init   func(*_TgapTimer) // if nil , use the default init procedure
+	uTmCB150201filter func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
 }

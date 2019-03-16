@@ -14,7 +14,7 @@ var (
 
 	_VserviceTcpMf _TserviceTCP
 
-	_VudpTimer01 _TudpTimer
+	_VudpTimer01 _TgapTimer
 
 	_Cexit   chan string
 	_Clog    chan string
@@ -68,13 +68,13 @@ func _Finit_2201() {
 	//		Clog:  &_Clog,
 	//	}
 
-	_VudpTimer01 = _TudpTimer{
-		gap:          _T10s,
-		uTmCHudpRece: &_VudpNode_FunWaitDun,
-		//uTmCHudpRece      chan _TudpNodeDataRece,
+	_VudpTimer01 = _TgapTimer{
+		gap:            _T10s,
+		uTmCHudpRece01: &_VudpNode_FunWaitDun,
+		//uTmCHudpRece01      chan _TudpNodeDataRece,
 		//uTmCHudpSend      : &_VudpNode_FunWaitDun,
-		//uTmCB150001init   func(*_TudpTimer)       ,
-		//uTmCB150201filter func(*_TudpTimer)       ,
+		//uTmCB150101init   func(*_TgapTimer)       ,
+		//uTmCB150201filter func(*_TgapTimer)       ,
 	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
