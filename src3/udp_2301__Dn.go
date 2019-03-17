@@ -46,7 +46,7 @@ func _Finit__2301() {
 
 	_VtmUdpConn__Dn2Fn = _TgapTimer{
 		uTmGap02: _T10s,
-		uTmSrvInfo02: &_TsrvInfo{
+		uTmSetSrvInfo02: &_TsrvInfo{
 			name: "srvDn2Fn",
 			Guri: "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
 		},

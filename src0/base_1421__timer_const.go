@@ -48,7 +48,8 @@ type _TgapTimer struct {
 	uTmCHudpSend02    *_TudpNodeSt
 	uTmCHbyteRece02   []byte
 	uTmCHbyteSend02   []byte
-	uTmSrvInfo02      *_TsrvInfo        // input , try to connect
+	uTmSetSrvInfo02   *_TsrvInfo // input , try to connect
+	uTmCHtryConn2     chan _TsrvInfo
 	uTmCB150101init   func(*_TgapTimer) // if nil , use the default init procedure
 	uTmCB150201filter func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
 }
