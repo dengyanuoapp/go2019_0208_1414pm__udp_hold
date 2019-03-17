@@ -7,7 +7,7 @@ func _FudpTimer__150102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	__Vns := ___Vgtm.uTmGapNewSession2
 	_Fdebug1(" 138181 01 %#v ", ___Vgtm.uTmGapNewSession2)
 
-	__Vgap := ___Vgtm.uTmGap02
+	__Vgap := ___Vgtm.uTmGapX
 	if 0 == __Vgap {
 		_Fdebug1(" 138181 02 %#v ", ___Vgtm.uTmGapNewSession2)
 		_FpfN(" 138181 03 : sorry , gap is ZERO , skip gap loop. ")
