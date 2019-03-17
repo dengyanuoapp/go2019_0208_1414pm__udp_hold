@@ -50,7 +50,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yyy__receiveCallBack_default__randDe
 
 	__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unRkeyX.Bkey, &___Vun.unRbuf)
 	if nil != __Verr2 {
-		_FpfNhex(&___Vun.unRbuf, 38, " 439191 03 rece Null : %d ,%11d %v %x:",
+		_FpfNhex(&___Vun.unRbuf, 68, " 439191 03 rece Null or error : %d ,%11d %v %x:",
 			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkeyX.Bkey)
 		return
 	}

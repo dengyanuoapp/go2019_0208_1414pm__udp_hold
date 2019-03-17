@@ -15,7 +15,7 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	case 430304:
 		//_Fex1(" 381991 08 ")
 		if nil == ___VUreqNewSession.UnewSessionCall430304 {
-			___VUreqNewSession._Fconnect_to_server_04x__real_default()
+			___VUreqNewSession._Fconnect_to_server_430304x__real_default()
 		} else {
 			___VUreqNewSession.UnewSessionCall430304(___VUreqNewSession)
 		}
@@ -104,7 +104,7 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sess
 			___VreqNewSession.remainCnt, ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx])
 	}
 
-	_Frun(___VreqNewSession, 304) // _Fconnect_to_server_04x__real_default
+	_Frun(___VreqNewSession, 430304) // _Fconnect_to_server_430304x__real_default
 
 	___VreqNewSession.srvIdx++
 	if ___VreqNewSession.srvIdx >= ___VreqNewSession.srvLen {
@@ -116,7 +116,7 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sess
 	//_Fex1(" 311914 99 ")
 } // _Fconnect_to_server_01y__req_new_sessionID__main_top
 
-func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_430304x__real_default() {
 	__VdstUaddrStr := ___VreqNewSession.srvInfo.UriArrs[___VreqNewSession.srvIdx]
 	_FpfN(" 311917 01 : try connect to idx  %d of %d , remain %d ,[%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
 		___VreqNewSession.remainCnt, __VdstUaddrStr)
@@ -134,7 +134,7 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 	}
 
 	// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
-	_Frun(___VreqNewSession, 308)
+	_Frun(___VreqNewSession, 308) // IRun _Fconnect_to_server_430308__saveTo_tmpBuf__default
 	_, __Verr2 := __VudpConn.WriteToUDP(*___VreqNewSession.sendBuf081, __VuAddr)
 	if __Verr2 != nil {
 		_FpfN(" 311917 06 : udp send error <%s>[%v]", __VdstUaddrStr, __Verr2)
