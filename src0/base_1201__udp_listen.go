@@ -22,10 +22,10 @@ type _TserviceUDP struct {
 	VulocalAddr  net.Addr
 	VuSrvInfo    *_TsrvInfo
 
-	UuserLoopCall211 func(*_TserviceUDP) // UcallbackMR: _FuserCallback__211_dataRece__main_top__FnWaitDn,
+	UuserLoopCall20211 func(*_TserviceUDP) // UcallbackMR: _FuserCallback__20211_dataRece__main_top__FnWaitDn,
 	// _FuserCallback_u01M__dataRece_Sn _FuserCallback_u01M__dataRece_Cn
 
-	UuserLoopCall221 func(*_TserviceUDP) // _FuserCallback__221_chanIn__main_top__FnWaitDn
+	UuserLoopCall20221 func(*_TserviceUDP) // _FuserCallback__20221_chanIn__main_top__FnWaitDn
 
 	UsrvGoCall201 func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top__default : deal with udp main loop data rece :
 	UsrvGoCall202 func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top__default

@@ -12,7 +12,7 @@ type _Tdn struct {
 	Port    int
 }
 
-func _FuserCallback__211_dataRece__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
+func _FuserCallback__20211_dataRece__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
 
 	*___VserviceUDP.Clog <- _Pspf("1738181 01 : Fn receMsg |l:%s|r:%s|(%d)\n",
 		___VserviceUDP.VulocalAddr,
@@ -28,16 +28,16 @@ func _FuserCallback__211_dataRece__main_top__FnWaitDn(___VserviceUDP *_TserviceU
 		_FpfN(" 1738181 02 : %s : deal with CuOut01. ", ___VserviceUDP.name)
 	} else {
 		//_FpfN(" 1738181 03 : %s : no CuOut01 now , skip. ", ___VserviceUDP.name)
-		___VserviceUDP._FuserCallback__211x__client_req_accept_FnWaitDn()
+		___VserviceUDP._FuserCallback__20211x__client_req_accept_FnWaitDn()
 	}
 
-} // _FuserCallback__211_dataRece__main_top__FnWaitDn _TserviceUDP
+} // _FuserCallback__20211_dataRece__main_top__FnWaitDn _TserviceUDP
 
 var (
 	_VdnReceCnt int
 )
 
-func _FuserCallback__221_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
+func _FuserCallback__20221_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP) {
 	select {
 	case __VdnIn := <-___VserviceUDP.CuIn01:
 		_VdnReceCnt++
@@ -52,13 +52,13 @@ func _FuserCallback__221_chanIn__main_top__FnWaitDn(___VserviceUDP *_TserviceUDP
 				_FpfN(" 2738181 01 (idx:%d) : rece from Chan : %s : empty{}: (len:%d)", _VdnReceCnt, ___VserviceUDP.name, len(__VdnIn))
 			}
 		} else {
-			___VserviceUDP._FuserCallback__221x__chanIn_FnWaitDn__ok(&__VdnIn)
+			___VserviceUDP._FuserCallback__20221x__chanIn_FnWaitDn__ok(&__VdnIn)
 		}
-		___VserviceUDP._FuserCallback__221y_chanIn__FnWaitDn()
+		___VserviceUDP._FuserCallback__20221y_chanIn__FnWaitDn()
 		return
 	}
-} // _FuserCallback__221_chanIn__main_top__FnWaitDn
+} // _FuserCallback__20221_chanIn__main_top__FnWaitDn
 
-func (___VserviceUDP *_TserviceUDP) _FuserCallback__221x__chanIn_FnWaitDn__ok(___VdnIn *[]byte) {
+func (___VserviceUDP *_TserviceUDP) _FuserCallback__20221x__chanIn_FnWaitDn__ok(___VdnIn *[]byte) {
 	_FpfN(" 3738181 01 (idx:%d) : rece from Chan : Fn : ok: (len:%d)"+string(*___VdnIn), _VdnReceCnt, len(*___VdnIn))
-} // _FuserCallback__221x__chanIn_FnWaitDn__ok
+} // _FuserCallback__20221x__chanIn_FnWaitDn__ok
