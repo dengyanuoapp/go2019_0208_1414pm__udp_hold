@@ -23,9 +23,9 @@ var (
 		updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
 		updatePasswd: &_Vpasswd_udp_FnWaitDn_download_config,
 		srvInfo:      &_VsrvInfo_Dn,
-		//UnewSessionCall304: _FuserCallback_u04__,
-		//UnewSessionCall301: _FuserCallback_u01__reqNewSession_in_Dn_to_fn,
-		UnewSessionCall308: _FuserCallback_u08_packageData_saveTo_tmpBuf,
+		//UnewSessionCall130304: _FuserCallback_u04__,
+		//UnewSessionCall130301: _FuserCallback_u01__reqNewSession_in_Dn_to_fn,
+		UnewSessionCall130308: _FuserCallback_u08_packageData_saveTo_tmpBuf,
 	}
 )
 
