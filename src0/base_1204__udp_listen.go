@@ -22,16 +22,16 @@ type _TserviceUDP struct {
 	VulocalAddr  net.Addr
 	VuSrvInfo    *_TsrvInfo
 
-	UuserLoopCall10211 func(*_TserviceUDP) // UcallbackMR: _FuserCallback__20211_dataRece__main_top__FnWaitDn,
+	UuserLoopCall100211 func(*_TserviceUDP) // UcallbackMR: _FuserCallback__20211_dataRece__main_top__FnWaitDn,
 	// _FuserCallback_u01M__dataRece_Sn _FuserCallback_u01M__dataRece_Cn
 
-	UuserLoopCall10221 func(*_TserviceUDP) // _FuserCallback__20221_chanIn__main_top__FnWaitDn
+	UuserLoopCall100221 func(*_TserviceUDP) // _FuserCallback__20221_chanIn__main_top__FnWaitDn
 
 	UsrvGoCall100201 func(*_TserviceUDP) // _Fhandle_u01x__udpListen_Udp__read_main_top__default : deal with udp main loop data rece :
 	UsrvGoCall100202 func(*_TserviceUDP) // _Fhandle_u02x__udpListen__chanIn_main_top__default
 	UsrvGoCall100203 func(*_TserviceUDP) // _Fhandle_u03x__udpListen__timer__main_top__default
 
-	// _Fconnect_to_server_01x__req_new_sessionID__default
+	// _Fconnect_to_server_430301x__req_new_sessionID__default
 	UreqNewSessionTM *_TUreqNewSession // called by UsrvGoCall100203 , if nil , then UsrvGoCall100203 stop
 
 	Cexit *chan string

@@ -8,7 +8,7 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 430301:
 		if nil == ___VUreqNewSession.UnewSessionCall430301 {
-			___VUreqNewSession._Fconnect_to_server_01x__req_new_sessionID__default()
+			___VUreqNewSession._Fconnect_to_server_430301x__req_new_sessionID__default()
 		} else {
 			___VUreqNewSession.UnewSessionCall430301(___VUreqNewSession) //_FuserCallback_u01__reqNewSession_in_Dn_to_fn(___VUreqNewSession)
 		}
@@ -22,7 +22,7 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 	case 430308:
 		//_Fex1(" 381991 08 ")
 		if nil == ___VUreqNewSession.UnewSessionCall430308 {
-			___VUreqNewSession._Fconnect_to_server_08__saveTo_tmpBuf__default()
+			___VUreqNewSession._Fconnect_to_server_430308__saveTo_tmpBuf__default()
 		} else {
 			___VUreqNewSession.UnewSessionCall430308(___VUreqNewSession)
 		}
@@ -32,7 +32,7 @@ func (___VUreqNewSession *_TUreqNewSession) IRun(___Vidx int) {
 }
 
 // you can
-func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01x__req_new_sessionID__default() {
+func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_430301x__req_new_sessionID__default() {
 	if ___VreqNewSession.Enabled {
 		_FpfN(" 311911 01 ")
 		_Fsleep_100s()
@@ -43,7 +43,7 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01x__req_new_sess
 		_FsleepRand_12_to_14s()
 		//_Fsleep_1s() // speed up , to test mem leak.
 	}
-} // _Fconnect_to_server_01x__req_new_sessionID__default
+} // _Fconnect_to_server_430301x__req_new_sessionID__default
 
 func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sessionID__main_top() {
 	//_FpfN(" 311912 01 ")
@@ -157,9 +157,9 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_04x__real_default
 	_FsleepRand_12_to_14s()
 } // _Fconnect_to_server_04__real_default
 
-var __Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default []byte = []byte(" 311918 02 ")
+var __Vbuf__Fconnect_to_server_430308__saveTo_tmpBuf__default []byte = []byte(" 311918 02 ")
 
-func (___VreqNS *_TUreqNewSession) _Fconnect_to_server_08__saveTo_tmpBuf__default() {
-	___VreqNS.sendBuf081 = &__Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default
-	___VreqNS.sendBuf082 = &__Vbuf__Fconnect_to_server_08__saveTo_tmpBuf__default
-} // _Fconnect_to_server_08__saveTo_tmpBuf__default
+func (___VreqNS *_TUreqNewSession) _Fconnect_to_server_430308__saveTo_tmpBuf__default() {
+	___VreqNS.sendBuf081 = &__Vbuf__Fconnect_to_server_430308__saveTo_tmpBuf__default
+	___VreqNS.sendBuf082 = &__Vbuf__Fconnect_to_server_430308__saveTo_tmpBuf__default
+} // _Fconnect_to_server_430308__saveTo_tmpBuf__default
