@@ -48,9 +48,19 @@ type _TgapTimer struct {
 	uTmCHudpSend02    *_TudpNodeSt
 	uTmCHbyteRece02   []byte
 	uTmCHbyteSend02   []byte
-	uTmSetSrvInfo02   *_TsrvInfo // input , try to connect
-	uTmNowSrvInfo02   _TsrvInfo  // using
+	uTmGapNewSession2 *_TgapNewSession // input , try to connect
 	uTmCHtryConn2     chan _TsrvInfo
 	uTmCB150101init   func(*_TgapTimer) // if nil , use the default init procedure
 	uTmCB150201filter func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
+}
+
+//_TUreqNewSession
+type _TgapNewSession struct {
+	name         string
+	connected    bool
+	tryCnt       int
+	skipCnt      int
+	updateUri    string
+	updatePasswd []byte
+	srvInfo      *_TsrvInfo
 }
