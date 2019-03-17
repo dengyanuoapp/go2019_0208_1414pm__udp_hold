@@ -2,9 +2,9 @@ package main
 
 func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 150201:
+	case 650201:
 		if nil == ___Vug.ugCBinit {
-			_FudpGroup__150201__main_init__default(___Vug)
+			_FudpGroup__650201__main_init__default(___Vug)
 		} else {
 			___Vug.ugCBinit(___Vug)
 		}
@@ -15,7 +15,7 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 
 // _TudpGroupSt
 // _TudpNodeSt
-func _FudpGroup__150201__main_init__default(___Vug *_TudpGroupSt) {
+func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
 	__VunPortLen := len(___Vug.ugHostPortStr)
 	__VunKeyLen := len(___Vug.ugRkeyLP)

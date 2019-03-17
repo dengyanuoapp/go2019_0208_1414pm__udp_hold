@@ -53,14 +53,14 @@ func _Finit_2201() {
 
 	_VserviceUdp_FnWaitCn = _TserviceUDP{
 		name:               "FnServicePortForCn",
-		UuserLoopCall20211: _FuserCallback_u01M__dataRece_Cn,
+		UuserLoopCall10211: _FuserCallback_u01M__dataRece_Cn,
 		Cexit:              &_Cexit,
 		Clog:               &_Clog,
 	}
 	//	_VserviceUdp_FnWaitDn = _TserviceUDP{
 	//		name:             "FnServicePortForDn",
-	//		UuserLoopCall20211: _FuserCallback__20211_dataRece__main_top__FnWaitDn,
-	//		UuserLoopCall20221: _FuserCallback__20221_chanIn__main_top__FnWaitDn,
+	//		UuserLoopCall10211: _FuserCallback__20211_dataRece__main_top__FnWaitDn,
+	//		UuserLoopCall10221: _FuserCallback__20221_chanIn__main_top__FnWaitDn,
 	//
 	//		VuSrvInfo: &_TsrvInfo{K256: _Vpasswd_udp_Fn_waitForCliens01},
 	//
@@ -73,8 +73,8 @@ func _Finit_2201() {
 		uTmCHudpReceLX: &_VudpNode_FunWaitDun,
 		//uTmCHudpReceLX      chan _TudpNodeDataRece,
 		//uTmCHudpSend      : &_VudpNode_FunWaitDun,
-		//uTmCB150101init   func(*_TgapTimer)       ,
-		//uTmCB150201filter func(*_TgapTimer)       ,
+		//uTmCB750101init   func(*_TgapTimer)       ,
+		//uTmCB750201filter func(*_TgapTimer)       ,
 	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
@@ -110,11 +110,11 @@ func main() {
 	//		sleepGap:                           1,
 	//		udpIn:                              &_VserviceUdp_FnWaitCn,
 	//		udpOut:                             &_VserviceUdp_FnWaitDn,
-	//		Fusercallback__12511_filterTheChanIn: _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
+	//		Fusercallback__320511_filterTheChanIn: _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn,
 	//	}
 
-	// IRun _FudpNode__140201__main_init__default
-	go _Frun(&_VudpNode_FunWaitDun, 140201)
+	// IRun _FudpNode__540201__main_init__default
+	go _Frun(&_VudpNode_FunWaitDun, 540201)
 
 	// IRun _FudpTimer__150101x__init__default
 	go _Frun(&_VudpTimer01, 150001)

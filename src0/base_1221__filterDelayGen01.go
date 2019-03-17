@@ -13,10 +13,10 @@ type _TfilterDelay struct {
 	CfIn01   chan []byte  // Filter's inChain,  to the sender's OutChain , make in Filter , then add to the sender's outChain-pointer
 	CfOut01  *chan []byte // Filter's outChain, to the receiver's InChain
 
-	Fusercallback__12501_fileterMainTop func(*_TfilterDelay) // _FfilterDelay501__main_top__default
-	Fusercallback__12521_delayGapAction func(*_TfilterDelay) // _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default
+	Fusercallback__320501_fileterMainTop func(*_TfilterDelay) // _FfilterDelay501__main_top__default
+	Fusercallback__320521_delayGapAction func(*_TfilterDelay) // _FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default
 
-	Fusercallback__12511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn
+	Fusercallback__320511_filterTheChanIn func(*_TfilterDelay) // _FuserCallback__511_filterDelay_chan_from_FnWaitCn_to_FnWaitDn
 
 	Cexit *chan string
 	Clog  *chan string
@@ -24,23 +24,23 @@ type _TfilterDelay struct {
 
 func (___Vf *_TfilterDelay) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 12501:
-		if nil == ___Vf.Fusercallback__12501_fileterMainTop {
+	case 320501:
+		if nil == ___Vf.Fusercallback__320501_fileterMainTop {
 			_FfilterDelay501__main_top__default(___Vf)
 		} else {
-			___Vf.Fusercallback__12501_fileterMainTop(___Vf)
+			___Vf.Fusercallback__320501_fileterMainTop(___Vf)
 		}
-	case 12511:
-		if nil == ___Vf.Fusercallback__12511_filterTheChanIn {
-			_Fex1(" 848182 511 : you must define Fusercallback__12511_filterTheChanIn ")
+	case 320511:
+		if nil == ___Vf.Fusercallback__320511_filterTheChanIn {
+			_Fex1(" 848182 511 : you must define Fusercallback__320511_filterTheChanIn ")
 		} else {
-			___Vf.Fusercallback__12511_filterTheChanIn(___Vf)
+			___Vf.Fusercallback__320511_filterTheChanIn(___Vf)
 		}
-	case 12521:
-		if nil == ___Vf.Fusercallback__12521_delayGapAction {
+	case 320521:
+		if nil == ___Vf.Fusercallback__320521_delayGapAction {
 			_FuserCallback__521_filterGapAction_gen_a_signal_to_swapChan_when_timeout__default(___Vf)
 		} else {
-			___Vf.Fusercallback__12521_delayGapAction(___Vf)
+			___Vf.Fusercallback__320521_delayGapAction(___Vf)
 		}
 	default:
 		_FpfNex(" 848182 09 : unknown IRun : %d ", ___Vidx)

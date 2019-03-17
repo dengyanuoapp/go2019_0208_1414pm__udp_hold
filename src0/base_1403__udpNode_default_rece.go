@@ -1,7 +1,7 @@
 package main
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
-func (___Vun *_TudpNodeSt) _FudpNode__140201y__receive() {
+func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
 	for {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
@@ -10,8 +10,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201y__receive() {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
-					//___Vun._FudpNode__140201yy__receiveCallBack_default__directChanOut()
-					___Vun._FudpNode__140201yyy__receiveCallBack_default__randDecodeOut()
+					//___Vun._FudpNode__540201yy__receiveCallBack_default__directChanOut()
+					___Vun._FudpNode__540201yyy__receiveCallBack_default__randDecodeOut()
 				} else {
 					___Vun.unCBrece(___Vun)
 				}
@@ -23,7 +23,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201y__receive() {
 	}
 }
 
-func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directChanOut() {
+func (___Vun *_TudpNodeSt) _FudpNode__540201yy__receiveCallBack_default__directChanOut() {
 
 	__Vrece := _TudpNodeDataRece{
 		unInRemoteAddr: *___Vun.unRemoteAddr,
@@ -40,7 +40,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directC
 	//_FpfNhex(__Vrece2.unInBuf, 38, " 839191 02 rece : %d ,%11d %v ", __Vrece2.unInLen, _FtimeI64(), __Vrece2.unInRemoteAddr)
 }
 
-func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDecodeOut() {
+func (___Vun *_TudpNodeSt) _FudpNode__540201yyy__receiveCallBack_default__randDecodeOut() {
 
 	if nil == ___Vun.unRkeyX.Bkey {
 		_FpfN(" 439191 01 key ERROR : len %d ,%11d ,addr %v , key %x.",

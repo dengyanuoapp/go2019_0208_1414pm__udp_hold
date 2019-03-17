@@ -67,9 +67,9 @@ func main() {
 	go _Frun(&_VserviceTcpMd, 101)
 
 	// _TudpNodeSt _TudpGroupSt
-	go _Frun(&_VudpGroup_Dn2Fn, 150201) // IRun _FudpGroup__150201__main_init__default
+	go _Frun(&_VudpGroup_Dn2Fn, 650201) // IRun _FudpGroup__650201__main_init__default
 
-	go _Frun(&_VtmUdpConn__Dn2Fn, 150102) // IRun _FudpTimer__150102x__init__tryUdpConn__default
+	go _Frun(&_VtmUdpConn__Dn2Fn, 750102) // IRun _FudpTimer__750102x__init__tryUdpConn__default
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
 } // main

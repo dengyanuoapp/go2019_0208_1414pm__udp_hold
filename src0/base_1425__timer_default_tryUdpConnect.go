@@ -3,7 +3,7 @@ package main
 // _TreqIneedToLogin
 // _TsrvInfo
 // _TgapTimer
-func _FudpTimer__150102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
+func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	__Vns := ___Vgtm.uTmGapNewSession2
 	_Fdebug1(" 138181 01 %#v ", ___Vgtm.uTmGapNewSession2)
 

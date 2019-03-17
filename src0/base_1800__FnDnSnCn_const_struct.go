@@ -53,12 +53,12 @@ type _TUreqNewSession struct {
 	srvInfo *_TsrvInfo
 
 	serviceUdP            *_TserviceUDP
-	UnewSessionCall130301 func(*_TUreqNewSession) // 1: _Fhandle_u03x__udpListen__timer__main_top__default : deal with timer ARRAY in udp
-	UnewSessionCall130304 func(*_TUreqNewSession) // 4: _FuserCallback_u04__
-	UnewSessionCall130308 func(*_TUreqNewSession) // 8:
+	UnewSessionCall430301 func(*_TUreqNewSession) // 1: _Fhandle_u03x__udpListen__timer__main_top__default : deal with timer ARRAY in udp
+	UnewSessionCall430304 func(*_TUreqNewSession) // 4: _FuserCallback_u04__
+	UnewSessionCall430308 func(*_TUreqNewSession) // 8:
 
-	sendBuf081 *[]byte // send tmp buf gen by UnewSessionCall130308
-	sendBuf082 *[]byte // send tmp buf gen by UnewSessionCall130308
+	sendBuf081 *[]byte // send tmp buf gen by UnewSessionCall430308
+	sendBuf082 *[]byte // send tmp buf gen by UnewSessionCall430308
 } //    _TUreqNewSession
 
 type _TreqIneedToLogin struct {

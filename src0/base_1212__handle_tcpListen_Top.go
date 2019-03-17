@@ -7,11 +7,11 @@ import (
 
 func (___VsrvT *_TserviceTCP) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 10101:
-		if nil == ___VsrvT.TsrvGoCallback10101 {
+	case 200101:
+		if nil == ___VsrvT.TsrvGoCallback200101 {
 			___VsrvT._Fhandle_udpListen_Tcp__main_top()
 		} else {
-			___VsrvT.TsrvGoCallback10101(___VsrvT)
+			___VsrvT.TsrvGoCallback200101(___VsrvT)
 		}
 	default:
 		_FpfNex(" 739181 09 : unknown IRun : %d ", ___Vidx)
