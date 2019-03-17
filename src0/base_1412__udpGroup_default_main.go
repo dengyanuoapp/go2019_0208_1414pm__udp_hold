@@ -41,7 +41,7 @@ func _FudpGroup__150201__main_init__default(___Vug *_TudpGroupSt) {
 	for {
 		_Fdebug1(" 834811 99 : udpGroup %s runing.... ", ___Vug.ugName)
 		//_Fsleep_1s(_T100s)
-		_Fsleep(_T100s)
+		_Fsleep(_T1200s)
 
 	}
 }

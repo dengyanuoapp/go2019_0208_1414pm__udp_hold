@@ -17,6 +17,10 @@ const (
 	_T110s  = 110 * time.Second
 	_T120s  = 120 * time.Second
 	_T140s  = 140 * time.Second
+	_T1200s = 1200 * time.Second
+	_T2400s = 2400 * time.Second
+	_T3600s = 3600 * time.Second
+	_T7200s = 7200 * time.Second
 	_T1ms   = 1 * time.Millisecond
 	_T5ms   = 5 * time.Millisecond
 	_T10ms  = 10 * time.Millisecond
@@ -29,6 +33,9 @@ const (
 	_T110ms = 110 * time.Millisecond
 	_T120ms = 120 * time.Millisecond
 	_T140ms = 140 * time.Millisecond
+	_T240ms = 240 * time.Millisecond
+	_T360ms = 360 * time.Millisecond
+	_T720ms = 720 * time.Millisecond
 )
 
 //_FtimeNow
@@ -41,7 +48,7 @@ type _TgapTimer struct {
 	uTmCHudpSend02    *_TudpNodeSt
 	uTmCHbyteRece02   []byte
 	uTmCHbyteSend02   []byte
-	uTmSrvInfo02      *_TsrvInfo
+	uTmSrvInfo02      *_TsrvInfo        // input , try to connect
 	uTmCB150101init   func(*_TgapTimer) // if nil , use the default init procedure
 	uTmCB150201filter func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
 }
