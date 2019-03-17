@@ -70,8 +70,8 @@ func _Finit_2201() {
 
 	_VudpTimer01 = _TgapTimer{
 		uTmGapX:        _T10s,
-		uTmCHudpRece02: &_VudpNode_FunWaitDun,
-		//uTmCHudpRece02      chan _TudpNodeDataRece,
+		uTmCHudpReceLX: &_VudpNode_FunWaitDun,
+		//uTmCHudpReceLX      chan _TudpNodeDataRece,
 		//uTmCHudpSend      : &_VudpNode_FunWaitDun,
 		//uTmCB150101init   func(*_TgapTimer)       ,
 		//uTmCB150201filter func(*_TgapTimer)       ,

@@ -44,7 +44,7 @@ const (
 // _TudpNodeSt
 type _TgapTimer struct {
 	uTmGapX        time.Duration
-	uTmCHudpRece02 *_TudpNodeSt
+	uTmCHudpReceLX *_TudpNodeSt
 	//uTmCHudpSend02    *_TudpNodeSt
 	//uTmCHbyteRece02   []byte
 	//uTmCHbyteSend02   []byte
