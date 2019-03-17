@@ -29,7 +29,7 @@ func _FudpTimer__150101x__init__default(___Vgtm *_TgapTimer) {
 	}
 
 	__VuRece := make(chan _TudpNodeDataRece, 10)
-	___Vgtm.uTmCHudpReceLX.unCHrece = &__VuRece
+	___Vgtm.uTmCHudpReceLX.unCHreceLX = &__VuRece
 
 	go _Frun(___Vgtm, 150201)
 }

@@ -6,7 +6,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201y__receive() {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
 		if nil == ___Vun.unRerr {
-			if nil == ___Vun.unCHrece {
+			if nil == ___Vun.unCHreceLX {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
@@ -34,9 +34,9 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yy__receiveCallBack_default__directC
 
 	_FpfNhex(&__Vrece.unInBuf, 38, " 839191 01 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
 
-	(*___Vun.unCHrece) <- __Vrece
+	(*___Vun.unCHreceLX) <- __Vrece
 
-	//__Vrece2 := <-(*___Vun.unCHrece)
+	//__Vrece2 := <-(*___Vun.unCHreceLX)
 	//_FpfNhex(__Vrece2.unInBuf, 38, " 839191 02 rece : %d ,%11d %v ", __Vrece2.unInLen, _FtimeI64(), __Vrece2.unInRemoteAddr)
 }
 
@@ -74,5 +74,5 @@ func (___Vun *_TudpNodeSt) _FudpNode__140201yyy__receiveCallBack_default__randDe
 		_FpfNhex(&__Vrece.unInBuf, 38, " 439191 06 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
 	}
 
-	(*___Vun.unCHrece) <- __Vrece
+	(*___Vun.unCHreceLX) <- __Vrece
 }

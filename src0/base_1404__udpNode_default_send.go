@@ -3,7 +3,7 @@ package main
 func (___Vun *_TudpNodeSt) _FudpNode__140201z__send() {
 	for {
 		select {
-		case __VchSend := <-___Vun.unCHsend: // _TudpNodeDataSend
+		case __VchSend := <-___Vun.unCHsendX: // _TudpNodeDataSend
 			_FpfN(" 839118 01 send ")
 
 			// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
