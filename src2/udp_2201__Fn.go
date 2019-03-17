@@ -95,13 +95,13 @@ func main() {
 
 	// ------------------- tcp for debug monitor log --- begin
 	// IRun _Fhandle_udpListen_Tcp__main_top()
-	go _Frun(&_VserviceTcpMf, 101)
+	go _Frun(&_VserviceTcpMf, 200101)
 	// ------------------- tcp for debug monitor log --- end
 
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
 	// _TserviceUDP
-	go _Frun(&_VserviceUdp_FnWaitCn, 201) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
-	//go _Frun(&_VserviceUdp_FnWaitDn, 201)
+	go _Frun(&_VserviceUdp_FnWaitCn, 100201) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
+	//go _Frun(&_VserviceUdp_FnWaitDn, 100201)
 	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// ------------------- filter between workers --------- begin
