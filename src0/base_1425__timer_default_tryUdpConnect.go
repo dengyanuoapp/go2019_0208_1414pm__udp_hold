@@ -44,6 +44,6 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	}
 }
 
-func (___Vsrv *_TsrvInfo) _FudpTimer__750102y__tryGetSrvInfoFromUri() *_TsrvInfo {
-	return true
+func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() *_TsrvInfo {
+	return nil
 }

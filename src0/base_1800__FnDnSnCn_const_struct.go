@@ -33,9 +33,9 @@ type _TsrvInfo struct {
 	UriArrs []string // try-Uris
 	K256    []byte   // passwd to connect the this server
 	name    string   // name
-	runing  bool
-	tryCnt2 int
-	tryCnt3 int
+	//runing  bool
+	//tryCnt2 int
+	//tryCnt3 int
 } // _TsrvInfo
 
 type _TUreqNewSession struct {
