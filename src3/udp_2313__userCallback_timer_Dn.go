@@ -60,7 +60,7 @@ func _FuserCallback_u08_packageData_saveTo_tmpBuf(___VreqNS *_TUreqNewSession) {
 	//	//_FpfNhex(&(___VreqNS.srvInfo.K256), 40, " 838981 08 pack data using key  : ")
 	//	_FpfN(" 838981 09 pack data to (len origin : %d / packed : %d ) ", len(__VbufTmp1), len(__VbufTmp3))
 
-	__VbufTmp2, __VbufTmp3 := _FencAesRandExit2(" 838981 00 ", &(___VreqNS.srvInfo.K256), &__VbufTmp1)
+	__VbufTmp2, __VbufTmp3 := _FencAesRandExit2(" 838981 00 ", &(___VreqNS.srvInfo.K256[0]), &__VbufTmp1)
 
 	___VreqNS.sendBuf081 = &__VbufTmp2
 	___VreqNS.sendBuf082 = &__VbufTmp3

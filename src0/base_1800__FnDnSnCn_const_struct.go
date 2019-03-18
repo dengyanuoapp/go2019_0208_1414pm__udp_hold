@@ -29,13 +29,10 @@ import (
 */
 
 type _TsrvInfo struct {
-	Guri    string   // refresh-uri-Github
-	UriArrs []string // try-Uris
-	K256    []byte   // passwd to connect the this server
-	name    string   // name
-	//runing  bool
-	//tryCnt2 int
-	//tryCnt3 int
+	UriArrs    []string // try-Uris
+	K256       [][]byte // passwd to connect the this server
+	name       string   // name
+	refreshUri string   // refresh-uri-Github
 } // _TsrvInfo
 
 type _TUreqNewSession struct {

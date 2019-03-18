@@ -26,7 +26,7 @@ func (___VserviceUDP *_TserviceUDP) _FuserCallback__20211x__client_req_accept_Fn
 	//_FpfNhex(&___VserviceUDP.VuSrvInfo.K256, 80, " 1738182 02 : %s :", ___VserviceUDP.name)
 
 	//__Vb401 := _FdecAesRandExit(" 1738182 03 ", &___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
-	__Vb401, __Verr401 := _FdecAesRand__only(&___VserviceUDP.VuSrvInfo.K256, &___VserviceUDP.Vubuf)
+	__Vb401, __Verr401 := _FdecAesRand__only(&___VserviceUDP.VuSrvInfo.K256[0], &___VserviceUDP.Vubuf)
 	if nil != __Verr401 {
 		_FpfN(" 1738182 04 received error package , ignore it: %v :", __Verr401)
 		return

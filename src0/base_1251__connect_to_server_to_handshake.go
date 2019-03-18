@@ -74,12 +74,12 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sess
 				return
 			}
 			_FpfN(" 311913 03 : ok : %s , %v ", __nowUri, ___VreqNewSession.srvInfo)
-			if ___VreqNewSession.srvInfo.Guri == __nowUri { //_VsrvInfo_Dn     _TsrvInfo
+			if ___VreqNewSession.srvInfo.refreshUri == __nowUri { //_VsrvInfo_Dn     _TsrvInfo
 				break
 			}
 
 			// or , the new uri need to be used. try tu use it.
-			__nowUri = ___VreqNewSession.srvInfo.Guri
+			__nowUri = ___VreqNewSession.srvInfo.refreshUri
 		}
 
 		___VreqNewSession.srvLen = len(___VreqNewSession.srvInfo.UriArrs) // try to use the U[:] slice
