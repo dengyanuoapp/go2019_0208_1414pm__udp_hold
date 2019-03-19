@@ -5,13 +5,13 @@ import (
 )
 
 var (
-	_VserviceTcpMd   _TserviceTCP
-	_VudpGroup_Dn2Fn _TudpGroupSt
-	_VudpConnTM      _TgapTimer
-	_Cexit           chan string
-	_Clog            chan string
-	_Vself           _Tself
-	_Vconfig         _Tconfig
+	_VserviceTcpMd     _TserviceTCP
+	_VudpGroup_Dn2Fn   _TudpGroupSt
+	_VconnTimerU_Dn2Fn _TgapTimer
+	_Cexit             chan string
+	_Clog              chan string
+	_Vself             _Tself
+	_Vconfig           _Tconfig
 )
 
 func _Finit__2301() {
@@ -44,7 +44,7 @@ func _Finit__2301() {
 
 	flag.Parse()
 
-	_VudpConnTM = _TgapTimer{
+	_VconnTimerU_Dn2Fn = _TgapTimer{
 		uTmGapX: _T10s,
 		uTmGapNewSession2: &_TgapNewSession{
 			name:         "srvDn2Fn",
@@ -69,7 +69,7 @@ func main() {
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn2Fn, 650201) // IRun _FudpGroup__650201__main_init__default
 
-	go _Frun(&_VudpConnTM, 750102) // IRun _FudpTimer__750102x__init__tryUdpConn__default
+	go _Frun(&_VconnTimerU_Dn2Fn, 750102) // IRun _FudpTimer__750102x__init__tryUdpConn__default
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
 } // main
