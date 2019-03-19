@@ -43,15 +43,15 @@ const (
 
 // _TudpNodeSt
 type _TgapTimer struct {
-	uTmGapX        time.Duration
-	uTmCHudpReceLX *_TudpNodeSt
+	uTmGapX            time.Duration
+	uTmCHudpReceLX     *_TudpNodeSt
+	uTmGapNewSession2  *_TgapNewSession // input , try to connect
+	uTmReqIneedToLogin chan _TreqIneedToLogin
+	uTmCB750101init    func(*_TgapTimer) // if nil , use the default init procedure
+	uTmCB750201filter  func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
 	//uTmCHudpSend02    *_TudpNodeSt
 	//uTmCHbyteRece02   []byte
 	//uTmCHbyteSend02   []byte
-	uTmGapNewSession2 *_TgapNewSession // input , try to connect
-	//uTmCHtryConn2     chan _TsrvInfo
-	uTmCB750101init   func(*_TgapTimer) // if nil , use the default init procedure
-	uTmCB750201filter func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
 }
 
 //_TUreqNewSession

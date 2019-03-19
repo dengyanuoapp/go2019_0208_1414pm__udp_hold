@@ -20,18 +20,26 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 			__VnewSession.tryCnt = 0
 			__VnewSession.skipCnt = 6 // set timeout to 60s , not try re-connect
 		} else { // true != __VnewSession.connected
-			if 0 == __VnewSession.tryCnt {
-				if 0 == __VnewSession.skipCnt {
+			// tryCnt , skipCnt
+			if 0 == __VnewSession.skipCnt {
+				if 0 == __VnewSession.tryCnt { // 0,0 : re-download
 					__VsrvInfo := __VnewSession._FudpTimer__750102y__tryGetSrvInfoFromUri()
 					if nil == __VsrvInfo {
-						// do nothing , except set timeoutto nex 30s
+						// get srvInfo error, set timeout to 80s
 						__VnewSession.skipCnt = 3
 					} else {
+						var __Vreq _TreqIneedToLogin
+						___Vgtm.uTmReqIneedToLogin <- __Vreq
+						_Fsleep(__Vgap)
+						___Vgtm.uTmReqIneedToLogin <- __Vreq
+						// add another gap before retry
+						__VnewSession.skipCnt = 2
 					}
-				} else {
+				} else { // xTry,0
+					__VnewSession.skipCnt--
 				}
-			} else { // 0 != __VnewSession.tryCnt
-				if 0 == __VnewSession.skipCnt {
+			} else { // 0 == __VnewSession.skipCnt
+				if 0 != __VnewSession.tryCnt {
 				} else {
 				}
 			}
