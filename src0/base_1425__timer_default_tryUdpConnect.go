@@ -21,37 +21,32 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 			__VnewSession.skipCnt = 6 // set timeout to 60s , not try re-connect
 		} else { // true != __VnewSession.connected
 			// tryCnt , skipCnt
-			if 0 == __VnewSession.skipCnt {
+			if 0 != __VnewSession.skipCnt {
+				__VnewSession.skipCnt-- // wait only , do nothing.
+			} else { // 0 == __VnewSession.skipCnt
 				if 0 == __VnewSession.tryCnt { // 0,0 : re-download
-					__VsrvInfo := __VnewSession._FudpTimer__750102y__tryGetSrvInfoFromUri()
-					if nil == __VsrvInfo {
-						// get srvInfo error, set timeout to 80s
-						__VnewSession.skipCnt = 3
+					__VnewSession._FudpTimer__750102y__tryGetSrvInfoFromUri()
+					if nil == __VnewSession.srvInfo {
+						__VnewSession.skipCnt = 6 // srvInfo get error , wait 60s before retry
 					} else {
-						var __Vreq _TreqIneedToLogin
-						___Vgtm.uTmReqIneedToLogin <- __Vreq
-						_Fsleep(__Vgap)
-						___Vgtm.uTmReqIneedToLogin <- __Vreq
-						// add another gap before retry
-						__VnewSession.skipCnt = 2
 					}
 				} else { // xTry,0
-					__VnewSession.skipCnt--
-				}
-			} else { // 0 == __VnewSession.skipCnt
-				if 0 != __VnewSession.tryCnt {
-				} else {
 				}
 			}
 		}
-		//		__Vsrv3 := __VnewSession._Fanalyze_srvInfo__whether_trying_to_connect()
-		//		if nil != __Vsrv3 {
-		//			//___Vgtm.uTmGapNewSession2
-		//		}
 		_Fsleep(__Vgap) // mini Gap , at least
 	}
 }
 
-func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() *_TsrvInfo {
-	return nil
+func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() {
+	//						var __Vreq _TreqIneedToLogin
+	//						___Vgtm.uTmReqIneedToLogin <- __Vreq
+	//						_Fsleep(__Vgap)
+	//						___Vgtm.uTmReqIneedToLogin <- __Vreq
+	//						// add another gap before retry
+	//						__VnewSession.skipCnt = 2
+}
+
+func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
+	___VnewSession.srvInfo = nil
 }
