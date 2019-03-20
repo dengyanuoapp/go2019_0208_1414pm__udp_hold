@@ -46,7 +46,7 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 						*___Vgtm.uTmUconnPortLX <- *__VucPort
 					}
 					__VnewSession.tryCnt--
-					__VnewSession.skipCnt = 3
+					__VnewSession.skipCnt = 2
 				}
 			}
 		}
