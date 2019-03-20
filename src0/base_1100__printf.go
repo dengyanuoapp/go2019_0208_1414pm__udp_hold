@@ -119,12 +119,17 @@ func _FgetFuncName3() string {
 	return __Vstr2
 } // _FgetFuncName3
 
+var __VfpndbI641 int64
+var __VfpndbI642 int64
+
 func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	__Vstr1 := _FgetFrame(1).Function
 	__Vstr2 := string([]byte(__Vstr1)[strings.LastIndexByte(__Vstr1, '.')+1:])
 	//_FpfN(___Vfmt+" : %s", ___Vpara, _FgetFuncName3())
 	_Fpf(___Vfmt, ___Vpara...)
-	_Ppf("%11d: %s\n\n", _FtimeI64(), __Vstr2)
+	__VfpndbI642 = __VfpndbI641
+	__VfpndbI641 = _FtimeI64()
+	_Ppf("%11d:%2d: %s\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2)
 }
 
 func _FgetFrame(skipFrames int) runtime.Frame {

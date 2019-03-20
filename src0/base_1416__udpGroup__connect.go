@@ -10,7 +10,8 @@ func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
 	for {
 		select {
 		case __VchPort := <-___Vug.ugCHuConnPortX:
-			_FpfNdb(" 838111 03 : %s, %0x", __VchPort.Uri, __VchPort.K256)
+			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.Uri, __VchPort.K256)
+			_FpfNdb(" 838111 04 : %s", __VchPort.Uri)
 		}
 	}
 }
