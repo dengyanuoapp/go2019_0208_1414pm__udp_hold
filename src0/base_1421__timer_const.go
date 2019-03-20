@@ -62,5 +62,5 @@ type _TgapNewSession struct {
 	skipCnt      int
 	updateUri    string
 	updatePasswd []byte
-	srvInfo      *_TsrvInfo
+	srvInfo      _TsrvInfo
 }

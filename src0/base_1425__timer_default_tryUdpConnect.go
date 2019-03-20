@@ -16,6 +16,7 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	}
 
 	for {
+		_Fsleep(__Vgap) // mini Gap , at least
 		if true == __VnewSession.connected {
 			__VnewSession.tryCnt = 0
 			__VnewSession.skipCnt = 6 // set timeout to 60s , not try re-connect
@@ -40,7 +41,6 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 				}
 			}
 		}
-		_Fsleep(__Vgap) // mini Gap , at least
 	}
 }
 
@@ -55,5 +55,19 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() {
 
 // _TgapNewSession _TsrvInfo
 func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
+	_Fdebug1("238191 01 : %v", ___VnewSession)
+
+    // _Fconnect_to_server_01y__req_new_sessionID__main_top
+	__Vsi2 := _TsrvInfo{
+        name       : ___VnewSession . name
+        refreshUri : ___VnewSession . updateUri
+        K256       : ___VnewSession . updatePasswd
+	}
+
+	var __Vsi3 _TsrvInfo
+
+    for __Vsi3.refreshUri != __Vsi2.refreshUri {
+    }
+
 	___VnewSession.srvInfo = nil
 }

@@ -29,6 +29,7 @@ import (
 */
 
 type _TsrvInfo struct {
+	ok         bool
 	UriArrs    []string // try-Uris
 	K256       [][]byte // passwd to connect the this server
 	name       string   // name
