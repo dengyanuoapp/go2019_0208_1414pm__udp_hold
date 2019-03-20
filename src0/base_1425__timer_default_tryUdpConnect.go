@@ -73,6 +73,7 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 	//for __VtmpSi2.refreshUri != __Vsi2.refreshUri {
 	// _Fconnect_to_server_01y__req_new_sessionID__main_top
 	for {
+		_Fsleep(_T1s) // mini Gap , at least
 		__nowUri3 = _Pspf("%s.%x", __Vsi2.refreshUri, _VC.MyId128)
 
 		_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
@@ -95,6 +96,8 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 		}
 
 		___VnewSession.srvInfo = __VtmpSi2
+
+		_FpfN(" 311913 08 : %s , %s", ___VnewSession.srvInfo.refreshUri, __nowUri3)
 
 		if ___VnewSession.srvInfo.refreshUri == __nowUri3 { //_VsrvInfo_Dn     _TsrvInfo
 			break

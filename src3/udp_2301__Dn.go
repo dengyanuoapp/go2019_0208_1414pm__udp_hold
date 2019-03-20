@@ -49,7 +49,7 @@ func _Finit__2301() {
 		uTmGapNewSession2: &_TgapNewSession{
 			name:         "srvDn2Fn",
 			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
-			updatePasswd: _Vpasswd_udp_Fn_waitForCliens01,
+			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 		},
 	}
 
