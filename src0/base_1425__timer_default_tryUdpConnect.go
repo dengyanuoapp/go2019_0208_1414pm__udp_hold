@@ -36,8 +36,8 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 					}
 
 				} else { // xTry,0skip
-					_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d", __VnewSession.tryCnt, __VnewSession.skipCnt)
-					__VnewSession._FudpTimer__750102z__tryfillSendChan()
+					__VucPort := __VnewSession._FudpTimer__750102z__tryfillSendChan()
+					_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 					__VnewSession.tryCnt--
 					__VnewSession.skipCnt = 2
 				}
@@ -46,14 +46,20 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	}
 }
 
-// _TgapNewSession _TsrvInfo
-func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() {
-	//						var __Vreq _TreqIneedToLogin
-	//						___Vgtm.uTmReqIneedToLogin <- __Vreq
-	//						_Fsleep(__Vgap)
-	//						___Vgtm.uTmReqIneedToLogin <- __Vreq
-	//						// add another gap before retry
-	//						__VnewSession.skipCnt = 2
+// _TgapNewSession _TsrvInfo _TudpConnPort
+func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() *_TudpConnPort {
+	__Vlen2 := len(___VnewSession.srvInfo.UriArrs)
+	__Vlen3 := len(___VnewSession.srvInfo.K256)
+	__Vidx2 := ___VnewSession.tryCnt % __Vlen2
+	__VuConn := _TudpConnPort{
+		Uri: ___VnewSession.srvInfo.UriArrs[__Vidx2],
+	}
+	if __Vidx2 >= __Vlen3 {
+		__VuConn.K256 = ___VnewSession.srvInfo.K256[0]
+	} else {
+		__VuConn.K256 = ___VnewSession.srvInfo.K256[__Vidx2]
+	}
+	return &__VuConn
 }
 
 // _TgapNewSession _TsrvInfo

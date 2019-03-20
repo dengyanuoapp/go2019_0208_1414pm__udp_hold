@@ -28,6 +28,11 @@ import (
 //	_CnPasswd = "3019303f301ab921b8a8c8a9018a78a4"
 */
 
+type _TudpConnPort struct {
+	Uri  string
+	K256 []byte
+}
+
 type _TsrvInfo struct {
 	ok         bool
 	UriArrs    []string // try-Uris
