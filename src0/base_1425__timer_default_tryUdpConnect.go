@@ -27,7 +27,7 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 			} else { // 0 == __VnewSession.skipCnt
 				if 0 == __VnewSession.tryCnt { // 0,0 : re-download
 					__VnewSession._FudpTimer__750102y__tryGetSrvInfoFromUri()
-					if nil == __VnewSession.srvInfo {
+					if false == __VnewSession.srvInfo.ok {
 						__VnewSession.skipCnt = 6 // srvInfo get error , wait 60s before retry
 					} else {
 						__VnewSession.tryCnt = 20 * len(__VnewSession.srvInfo.UriArrs)
@@ -57,17 +57,50 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() {
 func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
 	_Fdebug1("238191 01 : %v", ___VnewSession)
 
-    // _Fconnect_to_server_01y__req_new_sessionID__main_top
+	___VnewSession.srvInfo.ok = false
+
 	__Vsi2 := _TsrvInfo{
-        name       : ___VnewSession . name
-        refreshUri : ___VnewSession . updateUri
-        K256       : ___VnewSession . updatePasswd
+		name:       ___VnewSession.name,
+		refreshUri: ___VnewSession.updateUri,
+		refreshPwd: ___VnewSession.updatePasswd,
 	}
 
-	var __Vsi3 _TsrvInfo
+	var (
+		__VtmpSi2 _TsrvInfo
+		__Verr2   error
+		__nowUri3 string
+	)
+	//for __VtmpSi2.refreshUri != __Vsi2.refreshUri {
+	// _Fconnect_to_server_01y__req_new_sessionID__main_top
+	for {
+		__nowUri3 = _Pspf("%s.%x", __Vsi2.refreshUri, _VC.MyId128)
 
-    for __Vsi3.refreshUri != __Vsi2.refreshUri {
-    }
+		_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, __Vsi2.refreshPwd, &__VtmpSi2)
+		if nil != __Verr2 {
+			_FpfN(" 311913 04 : Error : update Uri slice failed.: %s , %v ", __nowUri2, __Verr2)
+			__nowUri3 = __Vsi2.refreshUri
+			_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, __Vsi2.updatePasswd, &__VtmpSi2)
+			if nil != __Verr2 {
+				_FpfN(" 311913 05 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
+				return
+			} else {
+				_FpfN(" 311913 06 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+			}
+		} else {
+			_FpfN(" 311913 07 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+		}
 
-	___VnewSession.srvInfo = nil
+		___VnewSession.srvInfo = __VtmpSi2
+
+		if ___VnewSession.srvInfo.refreshUri == __nowUri3 { //_VsrvInfo_Dn     _TsrvInfo
+			break
+		}
+
+		_FpfN(" 311913 08 : download loop ing")
+
+	}
+
+	_FpfN(" 311913 09 : all ok : %s , %v ", __nowUri3, __VtmpSi2)
+
+	___VnewSession.srvInfo.ok = false
 }

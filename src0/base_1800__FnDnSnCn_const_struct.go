@@ -34,6 +34,7 @@ type _TsrvInfo struct {
 	K256       [][]byte // passwd to connect the this server
 	name       string   // name
 	refreshUri string   // refresh-uri-Github
+	refreshPwd []byte
 } // _TsrvInfo
 
 type _TUreqNewSession struct {
