@@ -39,7 +39,7 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 	//_FpfN(" 834811 97 : exit.[%#v]", ___Vug)
 	//_FpfNex(" 834811 98 : exit. ")
 	for {
-		_Fdebug1(" 834811 99 : udpGroup %s runing.... ", ___Vug.ugName)
+		_FpfNdb(" 834811 99 : udpGroup %s runing.... ", ___Vug.ugName)
 		//_Fsleep_1s(_T100s)
 		_Fsleep(_T1200s)
 

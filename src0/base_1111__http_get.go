@@ -75,7 +75,7 @@ func _Fhttp_getLimit(___skipTLS bool, ___Vuri string, ___VmaxLen int64) ([]byte,
 
 	// Check server response
 	if __Vresp.StatusCode != http.StatusOK {
-		_FpfN(" 381914 01 bad status: %s", __Vresp.Status)
+		//_FpfN(" 381914 01 bad status: %s", __Vresp.Status)
 		return nil, fmt.Errorf("381912 bad status: %s", __Vresp.Status)
 	}
 

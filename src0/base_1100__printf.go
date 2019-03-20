@@ -119,7 +119,7 @@ func _FgetFuncName3() string {
 	return __Vstr2
 } // _FgetFuncName3
 
-func _Fdebug1(___Vfmt string, ___Vpara ...interface{}) {
+func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	__Vstr1 := _FgetFrame(1).Function
 	__Vstr2 := string([]byte(__Vstr1)[strings.LastIndexByte(__Vstr1, '.')+1:])
 	//_FpfN(___Vfmt+" : %s", ___Vpara, _FgetFuncName3())

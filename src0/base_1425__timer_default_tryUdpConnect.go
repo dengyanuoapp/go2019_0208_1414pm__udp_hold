@@ -6,11 +6,11 @@ package main
 //uTmGapNewSession2 *_TgapNewSession
 func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	__VnewSession := ___Vgtm.uTmGapNewSession2
-	_Fdebug1(" 138181 01 %#v ", ___Vgtm.uTmGapNewSession2)
+	_FpfNdb(" 138181 01 %#v ", ___Vgtm.uTmGapNewSession2)
 
 	__Vgap := ___Vgtm.uTmGapX
 	if 0 == __Vgap {
-		_Fdebug1(" 138181 02 %#v ", ___Vgtm.uTmGapNewSession2)
+		_FpfNdb(" 138181 02 %#v ", ___Vgtm.uTmGapNewSession2)
 		_FpfN(" 138181 03 : sorry , gap is ZERO , skip gap loop. ")
 		return
 	}
@@ -55,7 +55,7 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() {
 
 // _TgapNewSession _TsrvInfo
 func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
-	_Fdebug1("238191 01 : %v", ___VnewSession)
+	_FpfNdb("238191 01 : %v", ___VnewSession)
 
 	___VnewSession.srvInfo.ok = false
 
@@ -78,14 +78,14 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 
 		_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
 		if nil != __Verr2 {
-			_FpfN(" 311913 02 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
+			//_FpfN(" 311913 02 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
 			__nowUri3 = __Vsi2.refreshUri
 			_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
 			if nil != __Verr2 {
 				_FpfN(" 311913 03 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
 				return
 			} else {
-				_FpfN(" 311913 04 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+				//_FpfN(" 311913 04 : ok : %s , %v ", __nowUri3, __VtmpSi2)
 			}
 		} else {
 			_FpfN(" 311913 05 : ok : %s , %v ", __nowUri3, __VtmpSi2)
@@ -97,10 +97,13 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 
 		___VnewSession.srvInfo = __VtmpSi2
 
-		_FpfN(" 311913 06 : %s , %s , %s", __VtmpSi2.refreshUri, ___VnewSession.srvInfo.refreshUri, __nowUri3)
-		_FpfN(" 311913 07 : %v", ___VnewSession.srvInfo)
+		if "" == ___VnewSession.srvInfo.refreshUri {
+			//_FpfN(" 311913 06 : %v", ___VnewSession.srvInfo)
+			break
+		}
 
 		if ___VnewSession.srvInfo.refreshUri == __nowUri3 { //_VsrvInfo_Dn     _TsrvInfo
+			_FpfN(" 311913 07 : %s , %s , %s", __VtmpSi2.refreshUri, ___VnewSession.srvInfo.refreshUri, __nowUri3)
 			break
 		}
 
@@ -108,7 +111,7 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 
 	}
 
-	_FpfN(" 311913 09 : all ok : %s , %v ", __nowUri3, __VtmpSi2)
+	_FpfNdb(" 311913 09 : all ok : %s , %v ", __nowUri3, __VtmpSi2)
 
 	___VnewSession.srvInfo.ok = false
 }
