@@ -29,8 +29,14 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 					if nil == __VnewSession.srvInfo {
 						__VnewSession.skipCnt = 6 // srvInfo get error , wait 60s before retry
 					} else {
+						__VnewSession.tryCnt = 20 * len(__VnewSession.srvInfo.UriArrs)
+						__VnewSession.skipCnt = 2
+						// try 20 times of UriArrs to connect
 					}
-				} else { // xTry,0
+				} else { // xTry,0skip
+					__VnewSession._FudpTimer__750102z__tryfillSendChan()
+					__VnewSession.tryCnt--
+					__VnewSession.skipCnt = 2
 				}
 			}
 		}
@@ -47,6 +53,7 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() {
 	//						__VnewSession.skipCnt = 2
 }
 
+// _TgapNewSession _TsrvInfo
 func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
 	___VnewSession.srvInfo = nil
 }
