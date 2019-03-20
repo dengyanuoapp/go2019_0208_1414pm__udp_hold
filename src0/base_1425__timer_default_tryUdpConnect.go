@@ -16,7 +16,8 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	}
 
 	for {
-		_Fsleep(__Vgap) // mini Gap , at least
+		//_Fsleep(__Vgap) // mini Gap , at least
+		_FsleepRand_12_to_14s()
 		if true == __VnewSession.connected {
 			__VnewSession.tryCnt = 0
 			__VnewSession.skipCnt = 6 // set timeout to 60s , not try re-connect
@@ -31,7 +32,7 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 						__VnewSession.skipCnt = 6 // srvInfo get error , wait 60s before retry
 					} else {
 						__VnewSession.tryCnt = 20 * len(__VnewSession.srvInfo.UriArrs)
-						__VnewSession.skipCnt = 2
+						__VnewSession.skipCnt = 3
 						// try 20 times of UriArrs to connect
 					}
 
@@ -41,9 +42,11 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 						_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 					} else {
 						*___Vgtm.uTmUconnPortLX <- *__VucPort
+						_FsleepRand_12_to_14s()
+						*___Vgtm.uTmUconnPortLX <- *__VucPort
 					}
 					__VnewSession.tryCnt--
-					__VnewSession.skipCnt = 2
+					__VnewSession.skipCnt = 3
 				}
 			}
 		}
