@@ -2,6 +2,7 @@ package main
 
 // _TudpGroupSt
 // _TudpNodeSt
+// _TudpConnPort
 func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
 	//__Vlen := len(___Vug.ugCHuConnPortX)
@@ -9,7 +10,7 @@ func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
 	for {
 		select {
 		case __VchPort := <-___Vug.ugCHuConnPortX:
-			_FpfNdb(" 838111 03 : %v", __VchPort)
+			_FpfNdb(" 838111 03 : %s, %0x", __VchPort.Uri, __VchPort.K256)
 		}
 	}
 }
