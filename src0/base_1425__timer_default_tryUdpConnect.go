@@ -34,7 +34,9 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 						__VnewSession.skipCnt = 2
 						// try 20 times of UriArrs to connect
 					}
+
 				} else { // xTry,0skip
+					_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d", __VnewSession.tryCnt, __VnewSession.skipCnt)
 					__VnewSession._FudpTimer__750102z__tryfillSendChan()
 					__VnewSession.tryCnt--
 					__VnewSession.skipCnt = 2
@@ -44,6 +46,7 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 	}
 }
 
+// _TgapNewSession _TsrvInfo
 func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() {
 	//						var __Vreq _TreqIneedToLogin
 	//						___Vgtm.uTmReqIneedToLogin <- __Vreq
