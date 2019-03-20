@@ -36,9 +36,10 @@ func _Finit__2301() {
 	}
 
 	_VudpGroup_Dn2Fn = _TudpGroupSt{
-		ugName:        "udpGroup_Dn2Fn",
-		ugAmount:      10,
-		ugHostPortStr: make([]string, 1),
+		ugName:         "udpGroup_Dn2Fn",
+		ugAmount:       10,
+		ugHostPortStr:  make([]string, 1),
+		ugCHuConnPortX: make(chan _TudpConnPort, 8),
 	}
 	flag.StringVar(&_VudpGroup_Dn2Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn2Fn.ugName)
 
@@ -51,6 +52,7 @@ func _Finit__2301() {
 			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
 			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 		},
+		uTmUconnPortLX: &_VudpGroup_Dn2Fn.ugCHuConnPortX,
 	}
 
 	// _FdebugPrintTest()
