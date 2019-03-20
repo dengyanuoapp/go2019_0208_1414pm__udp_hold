@@ -23,7 +23,7 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 // _TudpNodeSt
 func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
-	_Frun(___Vug, 650301) //
+	go _Frun(___Vug, 650301) //
 
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
 	__VunPortLen := len(___Vug.ugHostPortStr)
