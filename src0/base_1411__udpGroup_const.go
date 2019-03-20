@@ -12,4 +12,5 @@ type _TudpGroupSt struct {
 	ugCBinit       func(*_TudpGroupSt) //
 	ugCBrece       func(*_TudpGroupSt) // if nil , use the default procedure to deal with receive
 	ugCBsend       func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
+	ugCBportConn   func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
 }

@@ -8,6 +8,12 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 		} else {
 			___Vug.ugCBinit(___Vug)
 		}
+	case 650301:
+		if nil == ___Vug.ugCBportConn {
+			_FudpGroup__650301__connPort__default(___Vug)
+		} else {
+			___Vug.ugCBportConn(___Vug)
+		}
 	default:
 		_FpfNex(" 838911 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
@@ -16,6 +22,9 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 // _TudpGroupSt
 // _TudpNodeSt
 func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
+
+	_Frun(___Vug, 650301) //
+
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
 	__VunPortLen := len(___Vug.ugHostPortStr)
 	__VunKeyLen := len(___Vug.ugRkeyLP)
