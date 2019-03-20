@@ -37,7 +37,11 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 
 				} else { // xTry,0skip
 					__VucPort := __VnewSession._FudpTimer__750102z__tryfillSendChan()
-					_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
+					if nil == ___Vgtm.uTmUconnPortLX {
+						_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
+					} else {
+						*___Vgtm.uTmUconnPortLX <- *__VucPort
+					}
 					__VnewSession.tryCnt--
 					__VnewSession.skipCnt = 2
 				}
