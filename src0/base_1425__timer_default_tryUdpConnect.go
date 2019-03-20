@@ -78,17 +78,17 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 
 		_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
 		if nil != __Verr2 {
-			_FpfN(" 311913 04 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
+			_FpfN(" 311913 02 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
 			__nowUri3 = __Vsi2.refreshUri
 			_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
 			if nil != __Verr2 {
-				_FpfN(" 311913 05 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
+				_FpfN(" 311913 03 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
 				return
 			} else {
-				_FpfN(" 311913 06 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+				_FpfN(" 311913 04 : ok : %s , %v ", __nowUri3, __VtmpSi2)
 			}
 		} else {
-			_FpfN(" 311913 07 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+			_FpfN(" 311913 05 : ok : %s , %v ", __nowUri3, __VtmpSi2)
 		}
 
 		if nil == __VtmpSi2.refreshPwd {
@@ -97,7 +97,8 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 
 		___VnewSession.srvInfo = __VtmpSi2
 
-		_FpfN(" 311913 08 : %s , %s", ___VnewSession.srvInfo.refreshUri, __nowUri3)
+		_FpfN(" 311913 06 : %s , %s , %s", __VtmpSi2.refreshUri, ___VnewSession.srvInfo.refreshUri, __nowUri3)
+		_FpfN(" 311913 07 : %v", ___VnewSession.srvInfo)
 
 		if ___VnewSession.srvInfo.refreshUri == __nowUri3 { //_VsrvInfo_Dn     _TsrvInfo
 			break
