@@ -111,7 +111,7 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 
 	}
 
-	_FpfNdb(" 311913 09 : all ok : %s , %v ", __nowUri3, __VtmpSi2)
+	//_FpfNdb(" 311913 09 : all ok : %s , %v ", __nowUri3, __VtmpSi2)
 
-	___VnewSession.srvInfo.ok = false
+	___VnewSession.srvInfo.ok = true
 }
