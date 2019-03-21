@@ -15,3 +15,6 @@ func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
 		}
 	}
 }
+
+//	ugRANDidx     []int
+//	ugRANDremain  int
