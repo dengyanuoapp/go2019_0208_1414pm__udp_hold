@@ -1,6 +1,6 @@
 package main
 
-func (___VuConnPort *_TudpConnPort) _FudpGroup__650301x01__packData() *[]byte {
+func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort() *[]byte {
 	var __VbOut []byte
 	return &__VbOut
 }
