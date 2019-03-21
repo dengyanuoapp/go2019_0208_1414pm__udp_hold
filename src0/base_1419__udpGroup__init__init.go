@@ -31,6 +31,7 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
 	___Vug.unCHtmpSendLX = make([](*(chan _TudpNodeDataSend)), ___Vug.ugAmount)
+	___Vug.unCHtmpReceX = make(chan _TudpNodeDataRece, ___Vug.ugAmount)
 	__VunPortLen := len(___Vug.ugHostPortStr)
 	__VunKeyLen := len(___Vug.ugRkeyLP)
 	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
