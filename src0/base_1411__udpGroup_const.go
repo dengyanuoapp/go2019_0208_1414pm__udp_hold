@@ -13,4 +13,6 @@ type _TudpGroupSt struct {
 	ugCBportConn   func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
 	//ugCHreceLX     *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	//ugCHsendX      chan _TudpNodeDataSend  // try get data from chan, then send it out.
+	unCHtmpReceX  chan _TudpNodeDataRece        // unCHreceLX    *chan _TudpNodeDataRece //
+	unCHtmpSendLX [](*(chan _TudpNodeDataSend)) // unCHsendX     chan _TudpNodeDataSend  //
 }

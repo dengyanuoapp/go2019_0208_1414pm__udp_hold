@@ -23,11 +23,14 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 // _FudpNode__540201yyy__receiveCallBack_default__randDecodeOut
 // _TudpGroupSt
 // _TudpNodeSt
+//	unCHtmpReceX  chan _TudpNodeDataRece      // unCHreceLX    *chan _TudpNodeDataRece //
+//	unCHtmpSendLX [](*(chan _TudpNodeDataSend)) // unCHsendX     chan _TudpNodeDataSend  //
 func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
 	go _Frun(___Vug, 650301) //
 
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
+	___Vug.unCHtmpSendLX = make([](*(chan _TudpNodeDataSend)), ___Vug.ugAmount)
 	__VunPortLen := len(___Vug.ugHostPortStr)
 	__VunKeyLen := len(___Vug.ugRkeyLP)
 	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
@@ -45,6 +48,8 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 		} else {
 			__Vun.unRKeyLP = ___Vug.ugRkeyLP[__Vi]
 		}
+		__Vun.unCHreceLX = &(___Vug.unCHtmpReceX)
+		___Vug.unCHtmpSendLX[__Vi] = &(__Vun.unCHsendX)
 	}
 
 	//_FpfN(" 834811 97 : exit.[%#v]", ___Vug)
