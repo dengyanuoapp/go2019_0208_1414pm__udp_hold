@@ -106,7 +106,8 @@ func _FgenRand_int32() int32 {
 	__Vb2 := int32(__Vbuf[2])
 	__Vb3 := int32(__Vbuf[3])
 	__Vo := __Vb0 | (__Vb1 << 8) | (__Vb2 << 16) | (__Vb3 << 24)
-	return __Vo
+	return __Vo & 0x7FFFFFFF
+	//               1 2 3 4
 } // _FgenRand_uint32
 
 func _FgenRand_int() int {
@@ -115,7 +116,8 @@ func _FgenRand_int() int {
 
 func _FgenRand_int64() int64 {
 	__Vuint64 := binary.LittleEndian.Uint64(_FgenRand_nByte__(8))
-	return int64(__Vuint64)
+	return int64(__Vuint64 & 0x7FffFFffFFffFFff)
+	//                          1 2 3 4 5 6 7 8
 }
 func _FgenRand_uint64() uint64 {
 	__Vuint64 := binary.LittleEndian.Uint64(_FgenRand_nByte__(8))

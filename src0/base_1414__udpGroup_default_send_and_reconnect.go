@@ -30,17 +30,26 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 		_FpfNex(" 838117 01 : why NULL ?")
 		return
 	}
+
 	__Vidx := 0
-	if 1 == __Vlen {
+	_FpfN(" 838117 02 : idx 0 now. len %d", __Vlen)
+
+	if 1 != __Vlen {
 		for {
-			__Vidx = int(_FgenRand_int32())
+			__Vidx = _FgenRand_int()
+			_FpfN(" 838117 03 : idx %0x", __Vidx)
+
 			__Vidx = __Vidx % __Vlen
+			_FpfN(" 838117 04 : idx %0x , %d ", __Vidx, __Vidx)
+
 			if ___Vug.ugLastSendIdx != __Vidx {
 				___Vug.ugLastSendIdx = __Vidx
 				break
 			}
 		}
 	}
+	_FpfN(" 838117 05 : idx %0x , %d ", __Vidx, __Vidx)
+
 	__Vch := ___Vug.ugCHtmpSendLX[__Vidx]
 	if nil == __Vch {
 		_FpfNex(" 838117 03 : why NULL ?")
