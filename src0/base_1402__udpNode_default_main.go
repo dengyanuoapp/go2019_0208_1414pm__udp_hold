@@ -22,7 +22,7 @@ func (___Vun *_TudpNodeSt) IRun(___Vidx int) {
 func _FudpNode__540201__main_init__default(___Vun *_TudpNodeSt) {
 
 	___Vun.unRbuf = make([]byte, 1500)
-	_FpfN(" 918381 01 : nodeArr[ %d ] < %s , %s >using %x ", ___Vun.unIdx, ___Vun.unName, ___Vun.unHostPortStr, ___Vun.unRKeyLP)
+	//_FpfN(" 918381 01 : nodeArr[ %d ] < %s , %s >using %x ", ___Vun.unIdx, ___Vun.unName, ___Vun.unHostPortStr, ___Vun.unRKeyLP)
 
 	___Vun.unRkeyX.initKey(___Vun.unRKeyLP) // initKey
 
