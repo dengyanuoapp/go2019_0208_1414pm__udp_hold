@@ -1,6 +1,7 @@
 package main
 
 import (
+	"net"
 	"sync"
 )
 
@@ -29,8 +30,9 @@ import (
 */
 
 type _TudpConnPort struct {
-	Uri  string
-	K256 []byte
+	//Uri  string
+	DstAddr net.UDPAddr
+	K256    []byte
 }
 
 type _TsrvInfo struct {

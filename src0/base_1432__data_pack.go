@@ -7,6 +7,10 @@ const (
 	Cmd__data
 )
 
+var (
+	_VersionProtocol01 = []byte{0x83, 0x20, 0x71, 0xc8}
+)
+
 type _TdataPack_991 struct {
 	V [4]byte // version
 	C byte    // cmd
@@ -24,6 +28,20 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort() *[]byte {
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
-	var __VbOut []byte
+
+	__Vb2, __Verr2 := _FencGob(&__Vreq)
+	if nil != __Verr2 {
+		_FpfN(" 381923 01 : %v", __Verr2)
+		return nil
+	}
+
+	__Vlen2 := len(__Vb2)
+	//_FpfN(" 381923 02 : %x", __Vb2)
+	_FpfN(" 381923 03 : len %d: %v", __Vlen2, __Vb2)
+
+	__VbOut := make([]byte, __Vlen2+5)
+	__VbOut[0] = Cmd__loginReqTryNoToken
+	copy(__VbOut[1:], _VersionProtocol01)
+	copy(__VbOut[5:], __Vb2)
 	return &__VbOut
 }
