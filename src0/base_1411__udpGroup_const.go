@@ -15,6 +15,4 @@ type _TudpGroupSt struct {
 	//ugCHsendX      chan _TudpNodeDataSend  // try get data from chan, then send it out.
 	ugCHtmpReceX  chan _TudpNodeDataRece        // unCHreceLX    *chan _TudpNodeDataRece //
 	ugCHtmpSendLX [](*(chan _TudpNodeDataSend)) // unCHsendX     chan _TudpNodeDataSend  //
-	ugRANDidx     []int
-	ugRANDremain  int
 }
