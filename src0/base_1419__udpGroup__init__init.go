@@ -51,6 +51,7 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 		}
 		__Vun.unCHreceLX = &(___Vug.unCHtmpReceX)
 		___Vug.unCHtmpSendLX[__Vi] = &(__Vun.unCHsendX)
+		_Frun(__Vun, 540201) // IRun // _FudpNode__540201__main_init__default
 	}
 
 	//_FpfN(" 834811 97 : exit.[%#v]", ___Vug)
