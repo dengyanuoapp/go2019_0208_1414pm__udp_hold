@@ -13,19 +13,18 @@ func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
 			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
 			_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
 			__VusData := _TudpNodeDataSend{
-				usDstAddr: __VchPort.DstAddr,
+				usToAddr: __VchPort,
+				usOutBuf: *(__VchPort._FdataPack__101__udpConnPort()),
 			}
 			___Vug.
-				_FudpGroup__650301z__send_using_rand_port(&__VusData,
-					__VchPort.
-						_FdataPack__101__udpConnPort())
+				_FudpGroup__650301zzz__send_byteOnly(&__VusData)
 		}
 	}
 }
 
 //	ugRANDidx     []int
 //	ugRANDremain  int
-func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___VbIn *[]byte) {
+func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNodeDataSend) {
 	__Vlen := len(___Vug.ugCHtmpSendLX)
 	if 0 == __Vlen {
 		_FpfNex(" 838117 01 : why NULL ?")
@@ -48,18 +47,5 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___VbIn *[]byte
 		return
 	}
 
-	__VusData := _TudpNodeDataSend{
-		//unDstAddr : ,// net.UDPAddr
-		usOutBuf: (*___VbIn),
-	}
-
-	(*__Vch) <- __VusData
-}
-
-func (___Vug *_TudpGroupSt) _FudpGroup__650301z__send_using_rand_port(___Vs *_TudpNodeDataSend, ___VbIn *[]byte) {
-	if nil == ___VbIn {
-		_FpfNex(" 838112 01 : why NULL ?")
-		return
-	}
-	___Vug._FudpGroup__650301zzz__send_byteOnly(___VbIn)
+	(*__Vch) <- (*___Vs)
 }

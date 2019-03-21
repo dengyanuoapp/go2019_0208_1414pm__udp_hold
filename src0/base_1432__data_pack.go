@@ -1,7 +1,8 @@
 package main
 
 const (
-	Cmd__loginReqTryNoToken = iota
+	Cmd__NULL = iota
+	Cmd__loginReqTryNoToken
 	Cmd__loginTmpToken
 	Cmd__loginReqWithToken
 	Cmd__data

@@ -10,8 +10,8 @@ type _TudpNodeDataRece struct {
 	unInBuf        []byte
 }
 type _TudpNodeDataSend struct {
-	usDstAddr net.UDPAddr
-	usOutBuf  []byte
+	usToAddr _TudpConnPort
+	usOutBuf []byte
 }
 
 // _TserviceUDP
