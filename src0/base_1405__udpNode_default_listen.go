@@ -28,7 +28,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201x__listen() {
 	//_FpfN(" 918381 063 %#v", ___Vun)
 	//_FpfN(" 918381 065 ___Vun.unConn       %v", ___Vun.unConn)
 	//_FpfN(" 918381 066 ___Vun.unAddr       %v", ___Vun.unAddr)
-	_FpfN(" 918381 067 ___Vun.unLocalAddr  %v", ___Vun.unLocalAddr)
+	_FpfN(" 918381 067 listen on : ___Vun.unLocalAddr  %v, %s , key %x", ___Vun.unLocalAddr, ___Vun.unName, ___Vun.unRkeyX.B32)
 	//_FpfN(" 918381 068 ___Vun.unRemoteAddr %v", ___Vun.unRemoteAddr)
 
 }

@@ -10,13 +10,13 @@ type _Tkey256 struct {
 
 func (___Vkey *_Tkey256) initKey(___VinBlp *[]byte) {
 	if nil == ___VinBlp {
-		_FpfN(" 893818 02 : %x ", ___VinBlp)
+		_FpfN(" 893818 02 using key : %x (new gen random) ", ___VinBlp)
 		___Vkey.Bkey = _FgenRand_nByte__(32)
 		copy(___Vkey.B32[:], ___Vkey.Bkey)
 	} else {
-		_FpfN(" 893818 03 : %x ", ___VinBlp)
+		//_FpfN(" 893818 03 using key : %x ", ___VinBlp)
 		___Vkey.Bkey = *___VinBlp
 		copy(___Vkey.B32[:], ___Vkey.Bkey)
 	}
-	_FpfN(" 893818 05 : BinLP %x, B %x, F %x ", ___VinBlp, ___Vkey.Bkey, ___Vkey.B32)
+	//_FpfN(" 893818 05 using key : BinLP %x, B %x, F %x ", ___VinBlp, ___Vkey.Bkey, ___Vkey.B32)
 }
