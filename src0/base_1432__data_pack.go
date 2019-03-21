@@ -1,5 +1,12 @@
 package main
 
+const (
+	Cmd__loginReqTryNoToken = iota
+	Cmd__loginTmpToken
+	Cmd__loginReqWithToken
+	Cmd__data
+)
+
 type _TdataPack_991 struct {
 	V [4]byte // version
 	C byte    // cmd
