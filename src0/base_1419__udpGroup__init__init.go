@@ -31,7 +31,7 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
 		__Vun := &(___Vug.ugNodeS[__Vi])
 		__Vun.unIdx = __Vi
-		__Vun.unName = ___Vug.ugName
+		__Vun.unName = _Pspf( "%s__%02d" , ___Vug.ugName , __Vi )
 		if __Vi >= __VunPortLen {
 			__Vun.unHostPortStr = ":0"
 		} else {
