@@ -33,6 +33,7 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 				if 0 == __VnewSession.tryCnt { // 0,0 : re-download
 					__VnewSession._FudpTimer__750102y__tryGetSrvInfoFromUri()
 					if false == __VnewSession.srvInfo.ok {
+						_FpfN(" 138181 04 : download failed. ")
 						__VnewSession.skipCnt = 6 // srvInfo get error , wait 60s before retry
 					} else {
 						__VnewSession.tryCnt = 20 * len(__VnewSession.srvInfo.UriArrs)
