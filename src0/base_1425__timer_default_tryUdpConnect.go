@@ -36,8 +36,10 @@ func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
 						_FpfN(" 138181 04 : download failed. ")
 						__VnewSession.skipCnt = 6 // srvInfo get error , wait 60s before retry
 					} else {
+						//_FpfN(" 138181 05 : download succeed. ")
 						__VnewSession.tryCnt = 20 * len(__VnewSession.srvInfo.UriArrs)
 						__VnewSession.skipCnt = 3
+						_FpfN(" 138181 06 : download succeed. : %d ", __VnewSession.tryCnt)
 						// try 20 times of UriArrs to connect
 					}
 
