@@ -50,7 +50,7 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 			}
 		}
 	}
-	if len(___Vug_ugLastSendIdx_Arr) > 5 {
+	if len(___Vug_ugLastSendIdx_Arr) > 25 {
 		___Vug_ugLastSendIdx_Arr = append(___Vug_ugLastSendIdx_Arr[2:], __Vidx)
 	} else {
 		___Vug_ugLastSendIdx_Arr = append(___Vug_ugLastSendIdx_Arr, __Vidx)
