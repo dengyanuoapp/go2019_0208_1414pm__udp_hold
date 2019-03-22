@@ -45,7 +45,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort() *[]byte {
 	copy(__VbOut[1:], _VersionProtocol01)
 	copy(__VbOut[5:], __Vb2)
 
-	_FpfN(" 381923 05 : len %d: %v", len(__VbOut), __VbOut)
+	//_FpfN(" 381923 05 : len %d: %v", len(__VbOut), __VbOut)
 
 	return &__VbOut
 }
