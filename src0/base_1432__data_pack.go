@@ -2,10 +2,11 @@ package main
 
 const (
 	Cmd__NULL = iota
+	Cmd__idle
+	Cmd__data
 	Cmd__loginReqTryNoToken
 	Cmd__loginTmpToken
 	Cmd__loginReqWithToken
-	Cmd__data
 )
 
 var (
