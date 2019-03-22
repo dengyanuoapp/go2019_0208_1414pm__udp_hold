@@ -73,7 +73,8 @@ func _Fread_gob_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname strin
 } // _Fread_gob_rand_only_Exit
 
 func _FtestER__write_gob_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string, ___Vobj interface{}) {
-	__VbufText1 := _Fwrite_gob_only_Exit(___VeMsg+" 1831911 01 ", ___Vfname, ___Vobj)
+	__VbufText1 := _Fwrite_gob_only_Exit(___VeMsg+" 1831911 00 ", ___Vfname, ___Vobj)
+	_Fwrite_json_only_Exit(___VeMsg+" 1831911 01 ", ___Vfname+".json", ___Vobj)
 
 	_Fwrite_gob_rand_only_Exit(___VeMsg+" 1831911 02 ", ___Vkey, ___Vfname+".rand", ___Vobj)
 

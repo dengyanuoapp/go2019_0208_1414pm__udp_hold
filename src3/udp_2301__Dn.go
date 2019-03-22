@@ -48,8 +48,9 @@ func _Finit__2301() {
 	_VconnTimerU_Dn2Fn = _TgapTimer{
 		uTmGapX: _T10s,
 		uTmGapNewSession2: &_TgapNewSession{
-			name:         "srvDn2Fn",
-			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
+			name: "srvDn2Fn",
+			//updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
+			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.gob.rand",
 			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 		},
 		uTmUconnPortLX: &_VudpGroup_Dn2Fn.ugCHuConnPortX,
