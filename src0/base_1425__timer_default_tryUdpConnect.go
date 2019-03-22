@@ -120,10 +120,15 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri
 				_FpfN(" 311913 03 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
 				return
 			} else {
-				_FpfN(" 311913 04 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+				if 0 == len(__VtmpSi2.UriArrs) {
+					_FpfN(" 311913 04 : error decode error : %s , %v ", __nowUri3, __VtmpSi2)
+					return
+				} else {
+					_FpfN(" 311913 05 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+				}
 			}
 		} else {
-			_FpfN(" 311913 05 : ok : %s , %v ", __nowUri3, __VtmpSi2)
+			_FpfN(" 311913 06 : ok : %s , %v ", __nowUri3, __VtmpSi2)
 		}
 
 		if nil == __VtmpSi2.refreshPwd {
