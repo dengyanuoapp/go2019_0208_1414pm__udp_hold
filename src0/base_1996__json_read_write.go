@@ -14,9 +14,7 @@ func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___VoriginObj interface
 } // _Ftry_gen_json01
 
 func _Ftry_gen_gob01(___Vfname string, ___Vkey *[]byte, ___VoriginObj interface{}) {
-	//_FgenRand_nByte__testExit(8)
-	//_FaesRand_test__en_de_Exit("asa90as90sa90as90as9as82391")
-	//_FtestER__write_gob_and_rand_Exit(" 192181 02", ___Vkey, "json/"+___Vfname+".gob", ___VoriginObj)
+	_FtestER__write_gob_and_rand_Exit(" 192181 02", ___Vkey, "json/"+___Vfname+".gob", ___VoriginObj)
 } // _Ftry_gen_gob01
 
 func _Ftry_download_rand_json01(___VdownUri string, ___Vkey *[]byte, ___VrecoverObj interface{}) ([]byte, error) {

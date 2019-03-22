@@ -83,15 +83,16 @@ func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname stri
 } // _Fread_json_rand_only_Exit
 
 func _FtestER__write_json_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string, ___Vobj interface{}) {
-	__VbufText1 := _Fwrite_json_only_Exit(___VeMsg+" 381916 ", ___Vfname, ___Vobj)
+	__VbufText1 := _Fwrite_json_only_Exit(___VeMsg+" 381916 01 ", ___Vfname, ___Vobj)
 
-	_Fwrite_json_rand_only_Exit(___VeMsg+" 381917 ", ___Vkey, ___Vfname+".rand", ___Vobj)
+	_Fwrite_json_rand_only_Exit(___VeMsg+" 381916 02 ", ___Vkey, ___Vfname+".rand", ___Vobj)
 
-	__VbufText2 := _Fread_json_rand_only_Exit(___VeMsg+" 381918 ", ___Vkey, ___Vfname+".rand", ___Vobj)
+	__VbufText2 := _Fread_json_rand_only_Exit(___VeMsg+" 381916 03 ", ___Vkey, ___Vfname+".rand", ___Vobj)
 
-	_FfalseExit(" 381919 ", bytes.Equal(__VbufText1, __VbufText2))
+	_FfalseExit(" 381916 04 ", bytes.Equal(__VbufText1, __VbufText2))
 
-	//_FpfNhex(&__VbufText1, 80, " 819181 ")
-	//_FpfNhex(&__VbufText2, 80, " 819182 ")
-	//_FpfN(" 819183 : <%s>", __VbufText2)
+	_FpfNdb(" 381916 05 : gob rand test ok. ")
+	//_FpfNhex(&__VbufText1, 80, " 381916 06 ")
+	//_FpfNhex(&__VbufText2, 80, " 381916 07 ")
+	//_FpfN(" 381916 08 : <%s>", __VbufText2)
 } // _FtestER__write_json_and_rand_Exit
