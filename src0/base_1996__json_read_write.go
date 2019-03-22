@@ -39,7 +39,8 @@ func _Ftry_download_rand_json01(___VdownUri string, ___Vkey *[]byte, ___Vrecover
 	if nil != ___VrecoverObj {
 		_FdecJson___(" 192182 05 ", &__Vtmp2, ___VrecoverObj)
 	}
-	_FpfN(" 192182 06 %v , %v ", __Vtmp2, ___VrecoverObj)
+
+	_FpfNhex(&__Vtmp2, 40, " 192182 06 : %v ", ___VrecoverObj)
 
 	return __Vtmp2, nil
 } //  _Ftry_download_rand_json01
