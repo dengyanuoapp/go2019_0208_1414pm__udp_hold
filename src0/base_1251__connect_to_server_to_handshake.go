@@ -65,15 +65,15 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sess
 			__nowUri2 := _Pspf("%s.%x", __nowUri, _VC.MyId128)
 			_, __Verr = _Ftry_download_rand_json01(__nowUri2, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvInfo)
 			if nil != __Verr {
-				_FpfN(" 311913 01 : Error : update Uri slice failed.: %s , %v ", __nowUri2, __Verr)
+				_FpfN(" 311915 01 : Error : update Uri slice failed.: %s , %v ", __nowUri2, __Verr)
 				_, __Verr = _Ftry_download_rand_json01(__nowUri, ___VreqNewSession.updatePasswd, ___VreqNewSession.srvInfo)
 			}
 			if nil != __Verr {
-				_FpfN(" 311913 02 : Error : update Uri slice failed.: %s , %v ", __nowUri, __Verr)
+				_FpfN(" 311915 02 : Error : update Uri slice failed.: %s , %v ", __nowUri, __Verr)
 				___VreqNewSession.skipCnt = 4 // skip 4 time , about 40 second
 				return
 			}
-			_FpfN(" 311913 03 : ok : %s , %v ", __nowUri, ___VreqNewSession.srvInfo)
+			_FpfN(" 311915 03 : ok : %s , %v ", __nowUri, ___VreqNewSession.srvInfo)
 			if ___VreqNewSession.srvInfo.refreshUri == __nowUri { //_VsrvInfo_Dn     _TsrvInfo
 				break
 			}
@@ -83,9 +83,9 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sess
 		}
 
 		___VreqNewSession.srvLen = len(___VreqNewSession.srvInfo.UriArrs) // try to use the U[:] slice
-		_FpfN(" 311913 04 : ==== ==== ==== srvLen %d", ___VreqNewSession.srvLen)
+		_FpfN(" 311915 04 : ==== ==== ==== srvLen %d", ___VreqNewSession.srvLen)
 		if 0 == ___VreqNewSession.srvLen {
-			_FpfN(" 311913 05 : Error : why Uri slice err ? : %d , %s ", ___VreqNewSession.srvLen, __nowUri)
+			_FpfN(" 311915 05 : Error : why Uri slice err ? : %d , %s ", ___VreqNewSession.srvLen, __nowUri)
 			___VreqNewSession.skipCnt = 8 // skip 8 time , about 80 second , before recheck.
 			return
 		}
@@ -93,7 +93,7 @@ func (___VreqNewSession *_TUreqNewSession) _Fconnect_to_server_01y__req_new_sess
 	}
 
 	if 0 == ___VreqNewSession.remainCnt {
-		_FpfNex(" 311913 07 : why reach here ? [%v]", ___VreqNewSession)
+		_FpfNex(" 311915 07 : why reach here ? [%v]", ___VreqNewSession)
 	}
 
 	//_FpfN(" 311914 01 : try connect to idx  %d of %d , remain %d , [%v]", ___VreqNewSession.srvIdx, ___VreqNewSession.srvLen,
