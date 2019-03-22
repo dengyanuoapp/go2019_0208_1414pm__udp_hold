@@ -31,7 +31,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort() *[]byte {
 		//ToSeq128 []byte,
 	}
 
-	__Vb2, __Verr2 := _FencGob(&__Vreq)
+	__Vb2, __Verr2 := _FencGob__only(&__Vreq)
 	if nil != __Verr2 {
 		_FpfN(" 381923 01 : %v", __Verr2)
 		return nil

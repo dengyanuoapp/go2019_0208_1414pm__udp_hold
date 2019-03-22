@@ -54,8 +54,8 @@ func _FtestLen01() {
 	__Vb02, _ := _FencJson(__Vtl02)
 	_FpfN("838118 03 : _FencJson %d %d", len(__Vb01), len(__Vb02))
 
-	__Vb03, _ := _FencGob(__Vtl01)
-	__Vb04, _ := _FencGob(__Vtl02)
+	__Vb03, _ := _FencGob__only(__Vtl01)
+	__Vb04, _ := _FencGob__only(__Vtl02)
 	_FpfN("838118 06 : _FencGob %d %d", len(__Vb03), len(__Vb04))
 	_FpfNhex(&__Vb03, 30, "838118 07 : __Vb03 ")
 	_FpfNhex(&__Vb04, 30, "838118 08 : __Vb04 ")
