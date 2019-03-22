@@ -11,7 +11,7 @@ func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
 		select {
 		case __VchPort := <-___Vug.ugCHuConnPortX:
 			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
-			_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
+			//_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
 			__VusData := _TudpNodeDataSend{
 				usToAddr: __VchPort,
 				usOutBuf: *(__VchPort._FdataPack__101__udpConnPort()),
@@ -55,7 +55,7 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 	} else {
 		___Vug_ugLastSendIdx_Arr = append(___Vug_ugLastSendIdx_Arr, __Vidx)
 	}
-	_FpfN(" 838117 05 : idx %0x , %d , %v", __Vidx, __Vidx, ___Vug_ugLastSendIdx_Arr)
+	//_FpfN(" 838117 05 : idx %0x , %d , %v", __Vidx, __Vidx, ___Vug_ugLastSendIdx_Arr)
 
 	__Vch := ___Vug.ugCHtmpSendLX[__Vidx]
 	if nil == __Vch {
