@@ -45,8 +45,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNode
 				_FpfN(" 839119 03 : why error ? %v", __Verr)
 				return
 			}
-			_FpfN(" 839119 04 : rand pack len %d", len(__Vbuf))
 			_, __Verr2 = ___Vun.unConn.WriteToUDP(__Vbuf, &___Vus.usToAddr.DstAddr)
+			_FpfNhex(&__Vbuf, 40, " 839119 04 : %s : udp send succeed ", ___Vun.unName)
 		} else {
 			_FpfN(" 839119 05 : why key len error (%d) ?", __VkLen)
 			return
@@ -55,15 +55,15 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNode
 		//usToAddr _TudpConnPort
 		// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 		_, __Verr2 = ___Vun.unConn.WriteToUDP(___Vus.usOutBuf, &___Vus.usToAddr.DstAddr)
+		_FpfNhex(&___Vus.usOutBuf, 40, " 839119 06 : %s : udp send succeed ", ___Vun.unName)
 	}
 
 	if __Verr2 != nil {
-		_FpfN(" 839119 06 : udp send error <%s>[%v]", ___Vus.usToAddr.DstAddr, __Verr2)
+		_FpfN(" 839119 08 : udp send error <%s>[%v]", ___Vus.usToAddr.DstAddr, __Verr2)
 		return
 	}
 
 	if 2 == 2 {
-		_Fpf(" 839119 07 : %s : udp send succeed (%d) ", ___Vun.unName, len(___Vus.usOutBuf))
 		_Ppf("01 dst<%v>, local<%v>, listen<%v>\n", ___Vus.usToAddr.DstAddr, ___Vun.unLocalAddr, ___Vun.unAddr)
 	}
 }
