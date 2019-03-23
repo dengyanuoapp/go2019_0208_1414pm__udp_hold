@@ -7,17 +7,17 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
 	//__Vlen := len(___Vug.ugCHuConnPortX)
 	//_FpfNdb(" 838111 01 len : %d", __Vlen)
+	var __VusData _TudpNodeDataSend
 	for {
 		select {
 		case __VchPort := <-___Vug.ugCHuConnPortX: // _TudpConnPort
 			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
 			//_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
-			__VusData := _TudpNodeDataSend{
-				usToAddr: __VchPort,
-				usOutBuf: *(__VchPort._FdataPack__101__udpConnPort()),
-			}
-			___Vug.
-				_FudpGroup__650301zzz__send_byteOnly(&__VusData)
+			__VusData.usToAddr = __VchPort
+			//__VusData .  usOutBuf= *(__VchPort._FdataPack__101__udpConnPort()),
+			__VchPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
+
+			___Vug._FudpGroup__650301zzz__send_byteOnly(&__VusData)
 		}
 	}
 }
