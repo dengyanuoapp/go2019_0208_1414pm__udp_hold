@@ -36,10 +36,6 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 		_FpfNex(" 834811 01 : why zero amounn ?")
 	}
 
-	_Fsleep(_T1s)
-
-	go _Frun(___Vug, 650301) // _FudpGroup__650301__CHin_select_send__default
-
 	__VunPortLen := len(___Vug.ugHostPortStr)
 	__VunKeyLen := len(___Vug.ugRkeyLP)
 	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
@@ -61,6 +57,10 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 		___Vug.ugCHtmpSendLX[__Vi] = &(__Vun.unCHsendX)
 		_Frun(__Vun, 540201) // IRun // _FudpNode__540201__main_init__default
 	}
+
+	_Fsleep(_T1s)
+
+	go _Frun(___Vug, 650301) // _FudpGroup__650301__CHin_select_send__default
 
 	//_FpfN(" 834811 97 : exit.[%#v]", ___Vug)
 	//_FpfNex(" 834811 98 : exit. ")

@@ -17,6 +17,8 @@ const (
 	_T110s  = 110 * time.Second
 	_T120s  = 120 * time.Second
 	_T140s  = 140 * time.Second
+	_T360s  = 360 * time.Second
+	_T600s  = 600 * time.Second
 	_T1200s = 1200 * time.Second
 	_T2400s = 2400 * time.Second
 	_T3600s = 3600 * time.Second
