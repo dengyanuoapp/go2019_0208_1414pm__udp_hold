@@ -38,8 +38,9 @@ func _Finit__2301() {
 	_VudpGroup_Dn2Fn = _TudpGroupSt{
 		ugName:         "udpGroup_Dn2Fn",
 		ugAmount:       10,
-		ugHostPortStr:  make([]string, 1),
 		ugCHuConnPortX: make(chan _TudpConnPort, 8),
+		ugHostPortStr:  []string{":0"},
+		//ugHostPortStr:  make([]string, 1),
 	}
 	flag.StringVar(&_VudpGroup_Dn2Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn2Fn.ugName)
 
