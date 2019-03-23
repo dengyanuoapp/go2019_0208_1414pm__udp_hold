@@ -17,8 +17,8 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 			//__VusData .  usOutBuf= *(__VchPort._FdataPack__101__udpConnPort()),
 			__VchPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
 
-			___Vug._FudpGroup__650301zzz__send_byteOnly(&__VusData)
 		}
+		___Vug._FudpGroup__650301zzz__send_byteOnly(&__VusData)
 	}
 }
 
@@ -27,22 +27,26 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 var ___Vug_ugLastSendIdx_Arr []int
 
 func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNodeDataSend) {
+	if (nil == ___Vs) || (0 == len(___Vs.usOutBuf)) {
+		_FpfN(" 838117 01 : why NULL ?")
+		return
+	}
 	__Vlen := len(___Vug.ugCHtmpSendLX)
 	if 0 == __Vlen {
-		_FpfNex(" 838117 01 : why NULL ?")
+		_FpfNex(" 838117 02 : why NULL ?")
 		return
 	}
 
 	__Vidx := 0
-	//_FpfN(" 838117 02 : idx 0 now. len %d", __Vlen)
+	//_FpfN(" 838117 03 : idx 0 now. len %d", __Vlen)
 
 	if 1 != __Vlen {
 		for {
 			__Vidx = _FgenRand_int()
-			//_FpfN(" 838117 03 : idx %0x", __Vidx)
+			//_FpfN(" 838117 04 : idx %0x", __Vidx)
 
 			__Vidx = __Vidx % __Vlen
-			//_FpfN(" 838117 04 : idx %0x , %d ", __Vidx, __Vidx)
+			//_FpfN(" 838117 05 : idx %0x , %d ", __Vidx, __Vidx)
 
 			if ___Vug.ugLastSendIdx != __Vidx {
 				___Vug.ugLastSendIdx = __Vidx
@@ -55,13 +59,13 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 	} else {
 		___Vug_ugLastSendIdx_Arr = append(___Vug_ugLastSendIdx_Arr, __Vidx)
 	}
-	//_FpfN(" 838117 05 : idx %0x , %d , %v", __Vidx, __Vidx, ___Vug_ugLastSendIdx_Arr)
+	//_FpfN(" 838117 06 : idx %0x , %d , %v", __Vidx, __Vidx, ___Vug_ugLastSendIdx_Arr)
 
 	__Vch := ___Vug.ugCHtmpSendLX[__Vidx]
 	if nil == __Vch {
-		_FpfNex(" 838117 03 : why NULL ?")
+		_FpfNex(" 838117 07 : why NULL ?")
 		return
 	}
 
-	(*__Vch) <- (*___Vs)
+	(*__Vch) <- (*___Vs) // send plainText to the single node : the rand-gen being process in specified-node
 }
