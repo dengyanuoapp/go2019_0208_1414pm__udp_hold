@@ -26,13 +26,41 @@ func (___Vus *_TudpNodeDataSend) _FudpNode__540201zz__try_Rand_buf_before_send()
 }
 
 func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNodeDataSend) {
-	//usToAddr _TudpConnPort
-	// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
-	_, __Verr2 := ___Vun.unConn.WriteToUDP(___Vus.usOutBuf, &___Vus.usToAddr.DstAddr)
+	if nil == ___Vus {
+		_FpfN(" 839119 01 : why nil ?")
+		return
+	}
+	if 0 == len(___Vus.usOutBuf) {
+		_FpfN(" 839119 02 : why buf NIL ?")
+		return
+	}
+
+	var __Verr2 error
+	__VkLen := len(___Vus.usToAddr.K256) //_TudpConnPort
+	__VkLen = 0                          // force disable the rand aes
+	if 0 != __VkLen {
+		if 32 == __VkLen {
+			__Vbuf, __Verr := _FdecAesRand__only(&___Vus.usToAddr.K256, &___Vus.usOutBuf)
+			if nil != __Verr {
+				_FpfN(" 839119 03 : why error ? %v", __Verr)
+				return
+			}
+			_, __Verr2 = ___Vun.unConn.WriteToUDP(__Vbuf, &___Vus.usToAddr.DstAddr)
+		} else {
+			_FpfN(" 839119 04 : why key len error (%d) ?", __VkLen)
+			return
+		}
+	} else {
+		//usToAddr _TudpConnPort
+		// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
+		_, __Verr2 = ___Vun.unConn.WriteToUDP(___Vus.usOutBuf, &___Vus.usToAddr.DstAddr)
+	}
+
 	if __Verr2 != nil {
 		_FpfN(" 839119 06 : udp send error <%s>[%v]", ___Vus.usToAddr.DstAddr, __Verr2)
 		return
 	}
+
 	if 2 == 2 {
 		_Fpf(" 839119 07 : %s : udp send succeed (%d) ", ___Vun.unName, len(___Vus.usOutBuf))
 		_Ppf("01 dst<%v>, local<%v>, listen<%v>\n", ___Vus.usToAddr.DstAddr, ___Vun.unLocalAddr, ___Vun.unAddr)
