@@ -70,8 +70,10 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yyy__receiveCallBack_default__randDe
 
 	if __Vrece.unInLen < 400 && __Vrece.unInLen > 32 {
 		//_FpfN(" 439191 05 rece : %d ,%11d %v : %s", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr, __Vrece.unInBuf)
+		_FpfNhex(&___Vun.unRbuf, 68, " 439191 06 origin: %d :", ___Vun.unLen)
+		_FpfNhex(&__Vrece.unInBuf, 38, " 439191 07 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
 	} else {
-		_FpfNhex(&__Vrece.unInBuf, 38, " 439191 06 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
+		_FpfNhex(&__Vrece.unInBuf, 38, " 439191 08 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
 	}
 
 	(*___Vun.unCHreceLX) <- __Vrece

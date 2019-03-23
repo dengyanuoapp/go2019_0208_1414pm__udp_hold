@@ -55,7 +55,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNode
 		//usToAddr _TudpConnPort
 		// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 		_, __Verr2 = ___Vun.unConn.WriteToUDP(___Vus.usOutBuf, &___Vus.usToAddr.DstAddr)
-        _FpfNhex(&___Vus.usOutBuf, 40, " 839119 06 : %s : udp send direct :", ___Vun.unName)
+		_FpfNhex(&___Vus.usOutBuf, 40, " 839119 06 : %s : udp send direct :", ___Vun.unName)
 	}
 
 	if __Verr2 != nil {
