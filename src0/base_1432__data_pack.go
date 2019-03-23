@@ -44,7 +44,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort() *[]byte {
 	//_FpfN(" 381923 03 : len %d: %v", __Vlen2, __Vb2)
 
 	__VbOut := make([]byte, __Vlen2+5)
-	__VbOut[0] = Cmd__loginReqTryNoToken
+	__VbOut[0] = Cmd__loginS1ReqTryNoToken
 	copy(__VbOut[1:], _VersionProtocol01)
 	copy(__VbOut[5:], __Vb2)
 

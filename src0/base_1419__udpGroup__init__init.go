@@ -9,10 +9,10 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 			___Vug.ugCBinit(___Vug)
 		}
 	case 650301:
-		if nil == ___Vug.ugCBportConn {
-			_FudpGroup__650301__connPort__default(___Vug)
+		if nil == ___Vug.ugCBchInSend {
+			_FudpGroup__650301__CHin_select_send__default(___Vug)
 		} else {
-			___Vug.ugCBportConn(___Vug)
+			___Vug.ugCBchInSend(___Vug)
 		}
 	default:
 		_FpfNex(" 838911 09 : unknown IRun : %d ", ___Vidx)

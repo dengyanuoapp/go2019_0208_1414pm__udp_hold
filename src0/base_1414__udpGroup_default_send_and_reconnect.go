@@ -3,7 +3,7 @@ package main
 // _TudpGroupSt
 // _TudpNodeSt
 // _TudpConnPort
-func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
+func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
 	//__Vlen := len(___Vug.ugCHuConnPortX)
 	//_FpfNdb(" 838111 01 len : %d", __Vlen)
