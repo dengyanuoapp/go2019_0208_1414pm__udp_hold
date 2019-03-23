@@ -4,20 +4,22 @@ const (
 	Cmd__NULL = iota
 	Cmd__idle
 	Cmd__data
-	Cmd__loginReqTryNoToken
-	Cmd__loginTmpToken
-	Cmd__loginReqWithToken
+	Cmd__loginS1ReqTryNoToken
+	Cmd__loginS2ReplyTmpToken
+	Cmd__loginS3ReqWithToken
 )
 
 var (
 	_VersionProtocol01 = []byte{0x83, 0x20, 0x71, 0xc8}
 )
 
+/*
 type _TdataPack_991 struct {
-	V [4]byte // version
 	C byte    // cmd
+	V [4]byte // version
 	D []byte  // gob.package
 }
+*/
 
 // _TreqIneedToLogin
 func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort() *[]byte {

@@ -3,8 +3,8 @@ package main
 func (___Vun *_TudpNodeSt) _FudpNode__540201z__send() {
 	for {
 		select {
-		case __VchSend := <-___Vun.unCHsendX: // _TudpNodeDataSend // usToAddr _TudpConnPort
-			//_FpfN(" 839118 01 send ")
+		case __VchSend := <-___Vun.unCHsendX: // _TudpNodeDataSend
+			//_FpfN(" 839118 01 send ") // usToAddr _TudpConnPort
 
 			__VchSend._FudpNode__540201zz__try_Rand_buf_before_send()
 			___Vun._FudpNode__540201zzz__send_buf_real(&__VchSend)
@@ -20,7 +20,7 @@ func (___Vus *_TudpNodeDataSend) _FudpNode__540201zz__try_Rand_buf_before_send()
 	}
 
 	if 32 != __Vlen {
-		_FpfN(" 839117 01 key Len error %d ", __Vlen)
+		_FpfNex(" 839117 01 key Len error %d ", __Vlen)
 	}
 
 }

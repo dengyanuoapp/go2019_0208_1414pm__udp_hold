@@ -9,7 +9,7 @@ func _FudpGroup__650301__connPort__default(___Vug *_TudpGroupSt) {
 	//_FpfNdb(" 838111 01 len : %d", __Vlen)
 	for {
 		select {
-		case __VchPort := <-___Vug.ugCHuConnPortX:
+		case __VchPort := <-___Vug.ugCHuConnPortX: // _TudpConnPort
 			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
 			//_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
 			__VusData := _TudpNodeDataSend{
