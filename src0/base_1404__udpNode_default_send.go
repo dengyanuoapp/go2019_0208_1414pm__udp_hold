@@ -37,17 +37,18 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNode
 
 	var __Verr2 error
 	__VkLen := len(___Vus.usToAddr.K256) //_TudpConnPort
-	__VkLen = 0                          // force disable the rand aes
+	//__VkLen = 0 // force disable the rand aes
 	if 0 != __VkLen {
 		if 32 == __VkLen {
-			__Vbuf, __Verr := _FdecAesRand__only(&___Vus.usToAddr.K256, &___Vus.usOutBuf)
+			__Vbuf, __Verr := _FencAesRand__only(&___Vus.usToAddr.K256, &___Vus.usOutBuf)
 			if nil != __Verr {
 				_FpfN(" 839119 03 : why error ? %v", __Verr)
 				return
 			}
+			_FpfN(" 839119 04 : rand pack len %d", len(__Vbuf))
 			_, __Verr2 = ___Vun.unConn.WriteToUDP(__Vbuf, &___Vus.usToAddr.DstAddr)
 		} else {
-			_FpfN(" 839119 04 : why key len error (%d) ?", __VkLen)
+			_FpfN(" 839119 05 : why key len error (%d) ?", __VkLen)
 			return
 		}
 	} else {
