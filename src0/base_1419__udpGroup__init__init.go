@@ -27,11 +27,19 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 //	ugCHtmpSendLX [](*(chan _TudpNodeDataSend)) // unCHsendX     chan _TudpNodeDataSend  //
 func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
-	go _Frun(___Vug, 650301) //
-
+	___Vug.ugCHuConnPortX = make(chan _TudpConnPort, 8)
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
 	___Vug.ugCHtmpSendLX = make([](*(chan _TudpNodeDataSend)), ___Vug.ugAmount)
 	___Vug.ugCHtmpReceX = make(chan _TudpNodeDataRece, ___Vug.ugAmount)
+
+	if 0 == ___Vug.ugAmount {
+		_FpfNex(" 834811 01 : why zero amounn ?")
+	}
+
+	_Fsleep(_T1s)
+
+	go _Frun(___Vug, 650301) // _FudpGroup__650301__CHin_select_send__default
+
 	__VunPortLen := len(___Vug.ugHostPortStr)
 	__VunKeyLen := len(___Vug.ugRkeyLP)
 	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
