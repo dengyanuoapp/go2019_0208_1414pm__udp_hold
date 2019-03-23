@@ -51,7 +51,7 @@ func (___Vf *_TfilterDelay) _F511x__try_update_task_list__gen_and_swap_out(___Vs
 			_VmapCn2dn_tmp[__Vkey] = __Vvalue
 		}
 	}
-	__Vbyte, _ := _FencJson(_VmapCn2dn_tmp)
+	__Vbyte, _ := _FencJson___(_VmapCn2dn_tmp)
 
 	//_Ppf( " 828391 09: (%d) %d , %s \n"    , _Vcnt_Cn2Dn , len(__Vbyte) , __Vbyte )
 

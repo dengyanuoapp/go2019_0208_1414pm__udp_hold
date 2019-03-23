@@ -129,6 +129,9 @@ func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	_Fpf(___Vfmt, ___Vpara...)
 	__VfpndbI642 = __VfpndbI641
 	__VfpndbI641 = _FtimeI64()
+	if 0 == __VfpndbI642 {
+		__VfpndbI642 = __VfpndbI641
+	}
 	_Ppf("%11d:%2d: %s\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2)
 }
 

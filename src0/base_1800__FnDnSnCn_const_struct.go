@@ -36,8 +36,9 @@ type _TudpConnPort struct {
 }
 
 type _TsrvInfo struct {
-	ok         bool
-	UriArrs    []string // try-Uris
+	ok      bool
+	UriArrs []string // try-Uris
+	//UdstAddr   []net.UDPAddr
 	K256       [][]byte // passwd to connect the this server
 	name       string   // name
 	refreshUri string   // refresh-uri-Github

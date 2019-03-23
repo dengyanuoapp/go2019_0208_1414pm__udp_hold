@@ -7,9 +7,6 @@ import (
 // _FencAesRand_only
 // _FencAesRandExit
 func _Ftry_gen_json01(___Vfname string, ___Vkey *[]byte, ___VoriginObj interface{}) {
-
-	//_FgenRand_nByte__testExit(8)
-	//_FaesRand_test__en_de_Exit("asa90as90sa90as90as9as82391")
 	_FtestER__write_json_and_rand_Exit(" 192181 01", ___Vkey, "json/"+___Vfname+".json", ___VoriginObj)
 } // _Ftry_gen_json01
 
@@ -40,7 +37,7 @@ func _Ftry_download_rand_json01(___VdownUri string, ___Vkey *[]byte, ___Vrecover
 		_FdecJson___(" 192182 05 ", &__Vtmp2, ___VrecoverObj)
 	}
 
-	_FpfNhex(&__Vtmp2, 40, " 192182 06 : %v ", ___VrecoverObj)
+	//_FpfNhex(&__Vtmp2, 40, " 192182 06 : %v ", ___VrecoverObj)
 
 	return __Vtmp2, nil
 } //  _Ftry_download_rand_json01

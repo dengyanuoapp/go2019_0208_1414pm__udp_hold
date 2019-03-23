@@ -50,8 +50,8 @@ func _FtestLen01() {
 
 	_FpfN("838118 01 : __Vtl01 %x", __Vtl01)
 	_FpfN("838118 02 : __Vtl02 %x", __Vtl02)
-	__Vb01, _ := _FencJson(__Vtl01)
-	__Vb02, _ := _FencJson(__Vtl02)
+	__Vb01, _ := _FencJson___(__Vtl01)
+	__Vb02, _ := _FencJson___(__Vtl02)
 	_FpfN("838118 03 : _FencJson %d %d", len(__Vb01), len(__Vb02))
 
 	__Vb03, _ := _FencGob__only(__Vtl01)

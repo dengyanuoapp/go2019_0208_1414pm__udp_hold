@@ -12,30 +12,33 @@ import (
 )
 
 func _FencGob__only(___V interface{}) ([]byte, error) {
+	_FinterfaceObjIsPointerOrExit("1831915 01", ___V)
 	//__VbBuf := new(bytes.Buffer)
 	var __VbBuf bytes.Buffer
 	__Venc := gob.NewEncoder(&__VbBuf) // Will write to __VbBuf.
 	__Verr := __Venc.Encode(___V)
 	if __Verr != nil {
-		_Perr(__Verr, "1831915 01: gob.NewEncoder failed:")
+		_Perr(__Verr, "1831915 02: gob.NewEncoder failed:")
 		return nil, __Verr
 	}
 	return __VbBuf.Bytes(), nil
 } // _FencGob__only
 
 func _FdecGob__only(___Vbyte *[]byte, ___Vout interface{}) {
+	_FinterfaceObjIsPointerOrExit("1831915 03", ___Vout)
 	__Vdec := gob.NewDecoder(bytes.NewReader(*___Vbyte)) // Will write to __VbBuf.
 	__Verr := __Vdec.Decode(___Vout)
 	if __Verr != nil {
-		_Perr(__Verr, "1831915 03: gob.NewDecoder failed:")
+		_Perr(__Verr, "1831915 04: gob.NewDecoder failed:")
 	}
 } // _FdecGob__only
 
 func _FdecGob___(___VeMsg string, ___Vbyte *[]byte, ___Vout interface{}) error {
+	_FinterfaceObjIsPointerOrExit("1831915 05", ___Vout)
 	__Vdec := gob.NewDecoder(bytes.NewReader(*___Vbyte)) // Will write to __VbBuf.
 	__Verr := __Vdec.Decode(___Vout)
 	if __Verr != nil {
-		return fmt.Errorf(___VeMsg+"1831915 05 : gob.NewDecoder failed: %v", __Verr)
+		return fmt.Errorf(___VeMsg+"1831915 06 : gob.NewDecoder failed: %v", __Verr)
 	}
 	return nil
 } // _FdecGob___
@@ -67,7 +70,9 @@ func _Fread_gob_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname strin
 	__VbufTmp2 = _FdecAesRandExit(___VeMsg+" 1831916 06 ", ___Vkey, &__VbufTmp1)
 	//_FpfNhex(&__VbufTmp2, 80, " 1831916 07 ")
 	if nil == ___Vobj {
-		_FdecGob___(___VeMsg+" 1831916 08 ", &__VbufTmp2, ___Vobj)
+		_FpfNex(" 1831916 08 , why nil ?")
+	} else {
+		_FdecGob___(___VeMsg+" 1831916 09 ", &__VbufTmp2, ___Vobj)
 	}
 	return __VbufTmp2
 } // _Fread_gob_rand_only_Exit
@@ -80,10 +85,17 @@ func _FtestER__write_gob_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfna
 
 	__VbufText2 := _Fread_gob_rand_only_Exit(___VeMsg+" 1831911 03 ", ___Vkey, ___Vfname+".rand", ___Vobj)
 
-	_FfalseExit(" 1831911 04 ", bytes.Equal(__VbufText1, __VbufText2))
+	_FfalseExit(" 1831911 05 ", bytes.Equal(__VbufText1, __VbufText2))
 
-	_FpfNdb(" 1831911 05 : gob rand test ok. ")
-	//_FpfNhex(&__VbufText1, 80, " 1831911 06 ")
-	//_FpfNhex(&__VbufText2, 80, " 1831911 07 ")
-	//_FpfN(" 1831911 08 : <%s>", __VbufText2)
+	if 3 == 3 {
+		var __Vobj3 _TsrvInfo
+		_Fread_gob_rand_only_Exit(___VeMsg+" 1831911 13 ", ___Vkey, ___Vfname+".rand", &__Vobj3)
+		__VbufText3 := []byte(_Pspf("%#v", __Vobj3))
+		_FwriteFileExit(___VeMsg+" 1831911 14 ", ___Vfname+".rand.ex.printf.txt", &__VbufText3)
+	}
+
+	_FpfNdb(" 1831911 06 : gob rand test ok. ")
+	//_FpfNhex(&__VbufText1, 80, " 1831911 07 ")
+	//_FpfNhex(&__VbufText2, 80, " 1831911 08 ")
+	//_FpfN(" 1831911 09 : <%s>", __VbufText2)
 } // _FtestER__write_gob_and_rand_Exit
