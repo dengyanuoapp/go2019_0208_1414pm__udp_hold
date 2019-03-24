@@ -1,17 +1,21 @@
 package main
 
+import "net"
+
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
 func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
+	var __VuAddr *net.UDPAddr
 	for {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
-		___Vun.unLen, ___Vun.unRemoteAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
+		___Vun.unLen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
+		___Vun.unRemoteAddr = *__VuAddr
 		if nil == ___Vun.unRerr {
 			if nil == ___Vun.unCHreceLX {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
-					//___Vun._FudpNode__540201yy__receiveCallBack_default__directChanOut()
-					___Vun._FudpNode__540201yyy__receiveCallBack_default__randDecodeOut()
+					//___Vun._FudpNode__540201yy2__receiveCallBack_default__directChanOut()
+					___Vun._FudpNode__540201yy3__receiveCallBack_default__randDecodeOut()
 				} else {
 					___Vun.unCBrece(___Vun)
 				}
@@ -23,10 +27,10 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
 	}
 }
 
-func (___Vun *_TudpNodeSt) _FudpNode__540201yy__receiveCallBack_default__directChanOut() {
+func (___Vun *_TudpNodeSt) _FudpNode__540201yy2__receiveCallBack_default__directChanOut() {
 
 	__Vrece := _TudpNodeDataRece{
-		urInRemoteAddr: *___Vun.unRemoteAddr,
+		urInRemoteAddr: ___Vun.unRemoteAddr,
 		urInLen:        ___Vun.unLen,
 		urInBuf:        make([]byte, ___Vun.unLen),
 	}
@@ -40,11 +44,11 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy__receiveCallBack_default__directC
 	//_FpfNhex(__Vrece2.urInBuf, 38, " 839191 02 rece : %d ,%11d %v ", __Vrece2.urInLen, _FtimeI64(), __Vrece2.urInRemoteAddr)
 }
 
-func (___Vun *_TudpNodeSt) _FudpNode__540201yyy__receiveCallBack_default__randDecodeOut() {
+func (___Vun *_TudpNodeSt) _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut() {
 
 	if ___Vun.unRkeyX.disable {
 		__Vrece := _TudpNodeDataRece{
-			urInRemoteAddr: *___Vun.unRemoteAddr,
+			urInRemoteAddr: ___Vun.unRemoteAddr,
 			urInLen:        ___Vun.unLen,
 			urInBuf:        ___Vun.unRbuf,
 		}
@@ -67,7 +71,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yyy__receiveCallBack_default__randDe
 	}
 
 	__Vrece := _TudpNodeDataRece{
-		urInRemoteAddr: *___Vun.unRemoteAddr,
+		urInRemoteAddr: ___Vun.unRemoteAddr,
 		urInLen:        len(__Vtmp2),
 		urInBuf:        __Vtmp2,
 	}
