@@ -9,17 +9,16 @@ func (___Vgtm *_TgapTimer) IRun(___Vidx int) {
 			___Vgtm.uTmCB750101init(___Vgtm)
 		}
 	case 750102:
-		_FudpTimer__750102x__init__tryUdpConn__default(___Vgtm)
+		_FudpTimer__750102x__init__tryUdpLogin__default(___Vgtm)
 	case 750201:
-		if nil == ___Vgtm.uTmCB750201filter {
-			_FudpTimer__750201x__filter_receive__default(___Vgtm)
+		if nil == ___Vgtm.uTmCB750201rece2 {
+			_FudpTimer__750201x__gap_receive__default(___Vgtm)
 		} else {
-			___Vgtm.uTmCB750201filter(___Vgtm)
+			___Vgtm.uTmCB750201rece2(___Vgtm)
 		}
 	default:
 		_FpfNex(" 839182 99 unknow :idx %d", ___Vidx)
 	}
-	//uTmCB750201filter
 }
 
 // try received from uTmCHudpReceLX
@@ -33,5 +32,8 @@ func _FudpTimer__750101x__init__default(___Vgtm *_TgapTimer) {
 	__VuRece := make(chan _TudpNodeDataRece, 10)
 	___Vgtm.uTmCHudpReceLX.unCHreceLX = &__VuRece
 
-	go _Frun(___Vgtm, 750201) // IRun
+	_Fsleep(_T1s)
+
+	// IRun _FudpTimer__750201x__gap_receive__default
+	go _Frun(___Vgtm, 750201)
 }

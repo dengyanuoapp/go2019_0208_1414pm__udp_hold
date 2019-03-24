@@ -51,7 +51,7 @@ type _TgapTimer struct {
 	uTmReqIneedToLogin chan _TreqIneedToLogin
 	uTmUconnPortLX     *chan _TudpConnPort
 	uTmCB750101init    func(*_TgapTimer) // if nil , use the default init procedure
-	uTmCB750201filter  func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
+	uTmCB750201rece2   func(*_TgapTimer) // if nil , use the default filter procedure to deal with receive
 	//uTmCHudpSend02    *_TudpNodeSt
 	//uTmCHbyteRece02   []byte
 	//uTmCHbyteSend02   []byte

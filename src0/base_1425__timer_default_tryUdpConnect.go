@@ -8,7 +8,7 @@ import (
 // _TsrvInfo
 // _TgapTimer
 //uTmGapNewSession2 *_TgapNewSession
-func _FudpTimer__750102x__init__tryUdpConn__default(___Vgtm *_TgapTimer) {
+func _FudpTimer__750102x__init__tryUdpLogin__default(___Vgtm *_TgapTimer) {
 	__VnewSession := ___Vgtm.uTmGapNewSession2
 	_FpfNdb(" 138181 01 %#v ", ___Vgtm.uTmGapNewSession2)
 

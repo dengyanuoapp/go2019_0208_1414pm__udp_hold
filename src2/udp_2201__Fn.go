@@ -75,7 +75,7 @@ func _Finit_2201() {
 		//uTmCHudpReceLX      chan _TudpNodeDataRece,
 		//uTmCHudpSend      : &_VudpNode_FunWaitDun,
 		//uTmCB750101init   func(*_TgapTimer)       ,
-		//uTmCB750201filter func(*_TgapTimer)       ,
+		//uTmCB750201rece2 func(*_TgapTimer)       ,
 	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
@@ -118,7 +118,7 @@ func main() {
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
 	go _Frun(&_VudpNode_FunWaitDun, 540201)
 
-	// IRun _FudpTimer__150101x__init__default
+	// IRun _FudpTimer__750101x__init__default
 	go _Frun(&_VudpTimer01, 750101)
 
 	//go _VfilterFn2dn. _FfilterDelay501__main_top__default
