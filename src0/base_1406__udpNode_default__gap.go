@@ -26,7 +26,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	___Vun.unRmap.unrMux.Lock()
 
 	___Vun.unRmap.unrMapLast = ___Vun.unRmap.unrMapNow
-	___Vun.unRmap.unrMapNow = make(map[string]_TudpNodeDataRece)
+	___Vun.unRmap.unrMapNow = make(map[string]_TuNodeDataRcnt)
 
 	___Vun.unRmap.unrMux.Unlock()
 }
@@ -50,5 +50,19 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		return
 	}
 
-	//(*___Vun.unCHreceLX) <- __Vrece
+	__Vreply := true
+
+	___Vun.unRmap.unrMux.Lock()
+
+	__Vlast, __VokL := ___Vun.unRmap.unrMapLast[__VrKey]
+	if __VokL { // map[string]_TuNodeDataRcnt
+		if 1 == __Vlast.cnt {
+		}
+	}
+
+	___Vun.unRmap.unrMux.Unlock()
+
+	if __Vreply {
+		(*___Vun.unCHreceLX) <- __Vrece
+	}
 }
