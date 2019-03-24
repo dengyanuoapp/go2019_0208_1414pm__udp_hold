@@ -32,8 +32,10 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy3__receiveCallBack_default__randDe
 		__Vrece := _TudpNodeDataRece{
 			urInRemoteAddr: ___Vun.unRemoteAddr,
 			urInLen:        ___Vun.unRlen,
-			urInBuf:        ___Vun.unRbuf,
+			urInBuf:        ___Vun.unRbuf[:___Vun.unRlen],
+			//urInBuf:        make([]byte,___Vun.unRlen)
 		}
+		//copy(__Vrece.urInBuf,        ___Vun.unRbuf[:___Vun.unRlen])
 		(*___Vun.unCHreceLX) <- __Vrece
 		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
 		return

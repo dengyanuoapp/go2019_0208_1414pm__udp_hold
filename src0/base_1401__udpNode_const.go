@@ -2,6 +2,7 @@ package main
 
 import (
 	"net"
+	"sync"
 	"time"
 )
 
@@ -13,6 +14,12 @@ type _TudpNodeDataRece struct {
 type _TudpNodeDataSend struct {
 	usToAddr _TudpConnPort
 	usOutBuf []byte
+}
+
+type _TuNodeDataRmap struct {
+	mux        sync.Mutex
+	unrMapNow  map[[16]byte]_TudpNodeDataRece
+	unrMapLast map[[16]byte]_TudpNodeDataRece
 }
 
 // _TserviceUDP

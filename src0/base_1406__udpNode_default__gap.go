@@ -28,4 +28,13 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 // replace the _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut
 func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	_FpfNhex(&___Vun.unRbuf, 30, " 848232 01 rece %d", ___Vun.unRlen)
+
+	__Vrece := _TudpNodeDataRece{
+		urInRemoteAddr: ___Vun.unRemoteAddr,
+		urInLen:        ___Vun.unRlen,
+		urInBuf:        ___Vun.unRbuf[:___Vun.unRlen],
+		//urInBuf:        make([]byte,___Vun.unRlen)
+	}
+	//copy(__Vrece.urInBuf,        ___Vun.unRbuf[:___Vun.unRlen])
+	(*___Vun.unCHreceLX) <- __Vrece
 }
