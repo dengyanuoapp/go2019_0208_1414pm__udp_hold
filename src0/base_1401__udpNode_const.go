@@ -29,7 +29,7 @@ type _TudpNodeSt struct {
 	unRerr        error
 	unSerr        error
 	unRbuf        []byte // receive-buf
-	unLen         int
+	unRlen        int
 	unCHreceLX    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	unCHsendX     chan _TudpNodeDataSend  // try get data from chan, then send it out.
 	unCBinit      func(*_TudpNodeSt)      //
