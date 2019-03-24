@@ -46,7 +46,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNode
 				return
 			}
 			_, __Verr2 = ___Vun.unConn.WriteToUDP(__Vbuf, &___Vus.usToAddr.DstAddr)
-			_FpfNhex(&__Vbuf, 8, " 839119 04 : %s : udp send rand %11d:%d: dst<%v>, local<%v>, listen<%v>",
+			_FpfNhex(&__Vbuf, 6, " 839119 04 : %s : udp send rand %11d:%d: dst<%v>, local<%v>, listen<%v>",
 				___Vun.unName, _FtimeI64(), len(___Vus.usOutBuf), ___Vus.usToAddr.DstAddr, ___Vun.unLocalAddr, ___Vun.unAddr)
 		} else {
 			_FpfN(" 839119 05 : why key len error (%d) ?", __VkLen)
