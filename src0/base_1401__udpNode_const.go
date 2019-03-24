@@ -2,6 +2,7 @@ package main
 
 import (
 	"net"
+	"time"
 )
 
 type _TudpNodeDataRece struct {
@@ -22,6 +23,7 @@ type _TudpNodeSt struct {
 	unAddr        *net.UDPAddr
 	unConn        *net.UDPConn
 	unLocalAddr   net.Addr
+	unLoopGap     time.Duration
 	unLocalPort   int
 	unErr         error
 	unRerr        error

@@ -47,8 +47,9 @@ func _Finit_2201() {
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
-		unName:   "_VudpNode_FunWaitDun",
-		unRKeyLP: &_Vpasswd_udp_Fn_waitForCliens01,
+		unName:    "_VudpNode_FunWaitDun",
+		unRKeyLP:  &_Vpasswd_udp_Fn_waitForCliens01,
+		unLoopGap: _T10s,
 	}
 
 	_VserviceUdp_FnWaitCn = _TserviceUDP{
