@@ -70,12 +70,7 @@ func _Finit_2201() {
 	//	}
 
 	_VudpTimer01 = _TgapTimer{
-		uTmGapX:        _T10s,
 		uTmCHudpReceLX: &_VudpNode_FunWaitDun,
-		//uTmCHudpReceLX      chan _TudpNodeDataRece,
-		//uTmCHudpSend      : &_VudpNode_FunWaitDun,
-		//uTmCB750101init   func(*_TgapTimer)       ,
-		//uTmCB750201rece2 func(*_TgapTimer)       ,
 	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)

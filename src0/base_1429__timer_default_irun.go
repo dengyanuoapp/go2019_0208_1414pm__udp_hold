@@ -16,6 +16,12 @@ func (___Vgtm *_TgapTimer) IRun(___Vidx int) {
 		} else {
 			___Vgtm.uTmCB750201rece2(___Vgtm)
 		}
+	case 750301:
+		if nil == ___Vgtm.uTmCB750301gap2 {
+			_FudpTimer__750301x__gap_loop__default(___Vgtm)
+		} else {
+			___Vgtm.uTmCB750301gap2(___Vgtm)
+		}
 	default:
 		_FpfNex(" 839182 99 unknow :idx %d", ___Vidx)
 	}
@@ -36,4 +42,7 @@ func _FudpTimer__750101x__init__default(___Vgtm *_TgapTimer) {
 
 	// IRun _FudpTimer__750201x__gap_receive__default
 	go _Frun(___Vgtm, 750201)
+
+	// _FudpTimer__750301x__gap_loop__default
+	go _Frun(___Vgtm, 750301)
 }
