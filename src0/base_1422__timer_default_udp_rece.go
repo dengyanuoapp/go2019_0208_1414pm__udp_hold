@@ -10,8 +10,8 @@ func _FudpTimer__750201x__filter_receive__default(___Vutm *_TgapTimer) {
 			//_FpfNhex(&__Vrece.urrBuf, 32, " 388193 03 : %T %d", __Vrece.urrBuf, __Vrece.urrLen)
 			//_FpfN(" 388193 04 : %T len <%d>:\n '%s'\n==------end======= ", __Vrece.urrBuf, __Vrece.urrLen, __Vrece.urrBuf)
 			//_Ppt(" 388193 05 : ", __Vrece.urrBuf)
-			_FpfNhex(&__Vrece.urrBuf, 40, " 388193 06 : %T , decode len <%d>: ", __Vrece.urrBuf, __Vrece.urrLen)
+			_FpfNhex(&__Vrece.urrBuf, 38, " 388193 06 : %T , decode len <%d>: %11d", __Vrece.urrBuf, __Vrece.urrLen, _FtimeI64())
 		}
-		_Ppf("                                     %d\n", _FtimeI64())
+		//_Ppf("                                     %d\n", _FtimeI64())
 	}
 }
