@@ -75,7 +75,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy4__receiveCallBack_default__randDe
 	if __Vunr.urrLen < 400 && __Vunr.urrLen > 32 {
 		//_FpfN(" 439192 05 rece : %d ,%11d %v : %s", __Vunr.urrLen, _FtimeI64(), __Vunr.urrRemoteAddr, __Vunr.urrBuf)
 		//_FpfNhex(___VbufIn, 48, " 439192 06 origin len %d :", ___Vun.unRlen)
-		_FpfNhex(&__Vunr.urrBuf, 33, " 439192 07 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __Vunr.urrRemoteAddr)
+		//_FpfNhex(&__Vunr.urrBuf, 33, " 439192 07 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __Vunr.urrRemoteAddr)
 	} else {
 		_FpfNhex(&__Vunr.urrBuf, 38, " 439192 08 rece : %d ,%11d %v ", __Vunr.urrLen, _FtimeI64(), __Vunr.urrRemoteAddr)
 	}
