@@ -25,14 +25,14 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	_FpfNdb(" 848231 01 ")
 	___Vun.unRmap.unrMux.Lock()
 
-	_FpfN(" 848231 03 %v", ___Vun.unRmap.unrMapLast)
-	_FpfN(" 848231 04 %v", ___Vun.unRmap.unrMapNow)
+	_FpfN(" 848231 03 last %v", ___Vun.unRmap.unrMapLast)
+	_FpfN(" 848231 04 now  %v", ___Vun.unRmap.unrMapNow)
 
 	___Vun.unRmap.unrMapLast = ___Vun.unRmap.unrMapNow
 	___Vun.unRmap.unrMapNow = make(map[string]_TuNodeDataRcnt)
 
-	_FpfN(" 848231 06 %v", ___Vun.unRmap.unrMapLast)
-	_FpfN(" 848231 07 %v", ___Vun.unRmap.unrMapNow)
+	_FpfN(" 848231 06 last %v", ___Vun.unRmap.unrMapLast)
+	_FpfN(" 848231 07 now  %v", ___Vun.unRmap.unrMapNow)
 
 	___Vun.unRmap.unrMux.Unlock()
 }
@@ -80,6 +80,8 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		} else {
 			_FpfN(" 848232 08 ")
 		}
+		_FpfN(" 848231 081 last %v", ___Vun.unRmap.unrMapLast)
+		_FpfN(" 848231 082 now  %v", ___Vun.unRmap.unrMapNow)
 	}
 
 	___Vun.unRmap.unrMux.Unlock()
