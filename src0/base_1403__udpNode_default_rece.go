@@ -26,24 +26,35 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
 func (___Vun *_TudpNodeSt) _FudpNode__540201yy__receiveCallBack_default__directChanOut() {
 
 	__Vrece := _TudpNodeDataRece{
-		unInRemoteAddr: *___Vun.unRemoteAddr,
-		unInLen:        ___Vun.unLen,
-		unInBuf:        make([]byte, ___Vun.unLen),
+		urInRemoteAddr: *___Vun.unRemoteAddr,
+		urInLen:        ___Vun.unLen,
+		urInBuf:        make([]byte, ___Vun.unLen),
 	}
-	copy(__Vrece.unInBuf, ___Vun.unRbuf[:___Vun.unLen])
+	copy(__Vrece.urInBuf, ___Vun.unRbuf[:___Vun.unLen])
 
-	_FpfNhex(&__Vrece.unInBuf, 38, " 839191 01 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
+	_FpfNhex(&__Vrece.urInBuf, 38, " 839191 01 rece : %d ,%11d %v ", __Vrece.urInLen, _FtimeI64(), __Vrece.urInRemoteAddr)
 
 	(*___Vun.unCHreceLX) <- __Vrece
 
 	//__Vrece2 := <-(*___Vun.unCHreceLX)
-	//_FpfNhex(__Vrece2.unInBuf, 38, " 839191 02 rece : %d ,%11d %v ", __Vrece2.unInLen, _FtimeI64(), __Vrece2.unInRemoteAddr)
+	//_FpfNhex(__Vrece2.urInBuf, 38, " 839191 02 rece : %d ,%11d %v ", __Vrece2.urInLen, _FtimeI64(), __Vrece2.urInRemoteAddr)
 }
 
 func (___Vun *_TudpNodeSt) _FudpNode__540201yyy__receiveCallBack_default__randDecodeOut() {
 
-	if nil == ___Vun.unRkeyX.Bkey {
-		_FpfN(" 439191 01 key ERROR : len %d ,%11d ,addr %v , key %x.",
+	if ___Vun.unRkeyX.disable {
+		__Vrece := _TudpNodeDataRece{
+			urInRemoteAddr: *___Vun.unRemoteAddr,
+			urInLen:        ___Vun.unLen,
+			urInBuf:        ___Vun.unRbuf,
+		}
+		(*___Vun.unCHreceLX) <- __Vrece
+		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
+		return
+	}
+
+	if 32 != len(___Vun.unRkeyX.Bkey) {
+		_FpfN(" 439191 02 key ERROR : len %d ,%11d ,addr %v , key %x.",
 			___Vun.unLen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkeyX.Bkey)
 		return
 	}
@@ -55,25 +66,18 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yyy__receiveCallBack_default__randDe
 		return
 	}
 
-	//	__Vrece := _TudpNodeDataRece{
-	//		unInRemoteAddr: *___Vun.unRemoteAddr,
-	//		unInLen:        ___Vun.unLen,
-	//		unInBuf:        make([]byte, ___Vun.unLen),
-	//	}
-	//	copy(__Vrece.unInBuf, ___Vun.unRbuf[:___Vun.unLen])
-
 	__Vrece := _TudpNodeDataRece{
-		unInRemoteAddr: *___Vun.unRemoteAddr,
-		unInLen:        len(__Vtmp2),
-		unInBuf:        __Vtmp2,
+		urInRemoteAddr: *___Vun.unRemoteAddr,
+		urInLen:        len(__Vtmp2),
+		urInBuf:        __Vtmp2,
 	}
 
-	if __Vrece.unInLen < 400 && __Vrece.unInLen > 32 {
-		//_FpfN(" 439191 05 rece : %d ,%11d %v : %s", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr, __Vrece.unInBuf)
-		_FpfNhex(&___Vun.unRbuf, 68, " 439191 06 origin: %d :", ___Vun.unLen)
-		_FpfNhex(&__Vrece.unInBuf, 38, " 439191 07 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
+	if __Vrece.urInLen < 400 && __Vrece.urInLen > 32 {
+		//_FpfN(" 439191 05 rece : %d ,%11d %v : %s", __Vrece.urInLen, _FtimeI64(), __Vrece.urInRemoteAddr, __Vrece.urInBuf)
+		//_FpfNhex(&___Vun.unRbuf, 48, " 439191 06 origin len %d :", ___Vun.unLen)
+		_FpfNhex(&__Vrece.urInBuf, 33, " 439191 07 oldLen %d %11d from %v", ___Vun.unLen, _FtimeI64(), __Vrece.urInRemoteAddr)
 	} else {
-		_FpfNhex(&__Vrece.unInBuf, 38, " 439191 08 rece : %d ,%11d %v ", __Vrece.unInLen, _FtimeI64(), __Vrece.unInRemoteAddr)
+		_FpfNhex(&__Vrece.urInBuf, 38, " 439191 08 rece : %d ,%11d %v ", __Vrece.urInLen, _FtimeI64(), __Vrece.urInRemoteAddr)
 	}
 
 	(*___Vun.unCHreceLX) <- __Vrece
