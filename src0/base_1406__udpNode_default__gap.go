@@ -50,13 +50,23 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		return
 	}
 
-	__Vreply := true
+	__Vreply := false
 
 	___Vun.unRmap.unrMux.Lock()
 
-	__Vlast, __VokL := ___Vun.unRmap.unrMapLast[__VrKey]
-	if __VokL { // map[string]_TuNodeDataRcnt
-		if 1 == __Vlast.cnt {
+	__Vnow, __VokN := ___Vun.unRmap.unrMapNow[__VrKey]
+	if __VokN {
+		__Vnow.cnt++ // alreay exist ... so , skip
+	} else {
+		___Vun.unRmap.unrMapNow[__VrKey] = _TuNodeDataRcnt{
+			cnt: 1,
+			urr: __Vrece,
+		}
+		__Vlast, __VokL := ___Vun.unRmap.unrMapLast[__VrKey]
+		if __VokL { // map[string]_TuNodeDataRcnt
+			if 1 == __Vlast.cnt {
+				__Vreply = true
+			}
 		}
 	}
 
