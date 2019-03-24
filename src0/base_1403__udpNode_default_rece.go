@@ -30,12 +30,12 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy3__receiveCallBack_default__randDe
 
 	if ___Vun.unRkeyX.disable {
 		__Vrece := _TudpNodeDataRece{
-			urInRemoteAddr: ___Vun.unRemoteAddr,
-			urInLen:        ___Vun.unRlen,
-			urInBuf:        ___Vun.unRbuf[:___Vun.unRlen],
-			//urInBuf:        make([]byte,___Vun.unRlen)
+			urrRemoteAddr: ___Vun.unRemoteAddr,
+			urrLen:        ___Vun.unRlen,
+			urrBuf:        ___Vun.unRbuf[:___Vun.unRlen],
+			//urrBuf:        make([]byte,___Vun.unRlen)
 		}
-		//copy(__Vrece.urInBuf,        ___Vun.unRbuf[:___Vun.unRlen])
+		//copy(__Vrece.urrBuf,        ___Vun.unRbuf[:___Vun.unRlen])
 		(*___Vun.unCHreceLX) <- __Vrece
 		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
 		return
@@ -55,17 +55,17 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy3__receiveCallBack_default__randDe
 	}
 
 	__Vrece := _TudpNodeDataRece{
-		urInRemoteAddr: ___Vun.unRemoteAddr,
-		urInLen:        len(__Vtmp2),
-		urInBuf:        __Vtmp2,
+		urrRemoteAddr: ___Vun.unRemoteAddr,
+		urrLen:        len(__Vtmp2),
+		urrBuf:        __Vtmp2,
 	}
 
-	if __Vrece.urInLen < 400 && __Vrece.urInLen > 32 {
-		//_FpfN(" 439191 05 rece : %d ,%11d %v : %s", __Vrece.urInLen, _FtimeI64(), __Vrece.urInRemoteAddr, __Vrece.urInBuf)
+	if __Vrece.urrLen < 400 && __Vrece.urrLen > 32 {
+		//_FpfN(" 439191 05 rece : %d ,%11d %v : %s", __Vrece.urrLen, _FtimeI64(), __Vrece.urrRemoteAddr, __Vrece.urrBuf)
 		//_FpfNhex(&___Vun.unRbuf, 48, " 439191 06 origin len %d :", ___Vun.unRlen)
-		_FpfNhex(&__Vrece.urInBuf, 33, " 439191 07 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __Vrece.urInRemoteAddr)
+		_FpfNhex(&__Vrece.urrBuf, 33, " 439191 07 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __Vrece.urrRemoteAddr)
 	} else {
-		_FpfNhex(&__Vrece.urInBuf, 38, " 439191 08 rece : %d ,%11d %v ", __Vrece.urInLen, _FtimeI64(), __Vrece.urInRemoteAddr)
+		_FpfNhex(&__Vrece.urrBuf, 38, " 439191 08 rece : %d ,%11d %v ", __Vrece.urrLen, _FtimeI64(), __Vrece.urrRemoteAddr)
 	}
 
 	(*___Vun.unCHreceLX) <- __Vrece
