@@ -24,6 +24,9 @@ func _FudpNode__540201__main_init__default(___Vun *_TudpNodeSt) {
 	___Vun.unRbuf = make([]byte, 1500)
 	//_FpfN(" 918381 01 : nodeArr[ %d ] < %s , %s >using %x ", ___Vun.unIdx, ___Vun.unName, ___Vun.unHostPortStr, ___Vun.unRKeyLP)
 
+	___Vun.unRmap.unrMapLast = make(map[[16]byte]_TudpNodeDataRece)
+	___Vun.unRmap.unrMapNow = make(map[[16]byte]_TudpNodeDataRece)
+
 	___Vun.unRkeyX.initKey(___Vun.unRKeyLP) // initKey
 
 	___Vun._FudpNode__540201x__listen()

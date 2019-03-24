@@ -23,6 +23,12 @@ func _FudpNode__540211y__gap_default(___Vun *_TudpNodeSt) {
 
 func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	_FpfNdb(" 848231 01 ")
+	___Vun.unRmap.unrMux.Lock()
+
+	___Vun.unRmap.unrMapLast = ___Vun.unRmap.unrMapNow
+	___Vun.unRmap.unrMapNow = make(map[[16]byte]_TudpNodeDataRece)
+
+	___Vun.unRmap.unrMux.Unlock()
 }
 
 // replace the _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut
