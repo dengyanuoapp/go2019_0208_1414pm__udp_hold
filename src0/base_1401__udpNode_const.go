@@ -17,7 +17,7 @@ type _TudpNodeDataSend struct {
 }
 
 type _TuNodeDataRmap struct {
-	mux        sync.Mutex
+	unrMux     sync.Mutex
 	unrMapNow  map[[16]byte]_TudpNodeDataRece
 	unrMapLast map[[16]byte]_TudpNodeDataRece
 }
@@ -47,4 +47,5 @@ type _TudpNodeSt struct {
 	unName        string
 	unHostPortStr string
 	unIdx         int
+	unRmap        _TuNodeDataRmap
 }

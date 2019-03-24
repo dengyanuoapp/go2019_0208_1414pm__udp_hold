@@ -33,10 +33,10 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		urrRemoteAddr: ___Vun.unRemoteAddr,
 		urrLen:        ___Vun.unRlen,
 		urrBuf:        ___Vun.unRbuf[:___Vun.unRlen],
-		//urrBuf:        make([]byte,___Vun.unRlen)
 	}
+
 	_FpfNhex(&___Vun.unRbuf, 30, " 848232 02 ")
 	_FpfNhex(&__Vrece.urrBuf, 30, " 848232 03 ")
-	//copy(__Vrece.urrBuf,        ___Vun.unRbuf[:___Vun.unRlen])
+
 	//(*___Vun.unCHreceLX) <- __Vrece
 }
