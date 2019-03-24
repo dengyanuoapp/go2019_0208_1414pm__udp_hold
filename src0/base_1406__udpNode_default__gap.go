@@ -42,7 +42,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 
 // replace the _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut
 func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
-	_FpfNhex(&___Vun.unRbuf, 30, " 848232 01 rece %d", ___Vun.unRlen)
+	//_FpfNhex(&___Vun.unRbuf, 30, " 848232 01 rece %d", ___Vun.unRlen)
 
 	__Vrece := _TudpNodeDataRece{
 		urrRemoteAddr: ___Vun.unRemoteAddr,
@@ -51,8 +51,8 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	}
 	__VrKey := __Vrece.urrRemoteAddr.String()
 
-	_FpfNhex(&___Vun.unRbuf, 30, " 848232 02 <%s>", __VrKey)
-	_FpfNhex(&__Vrece.urrBuf, 30, " 848232 03 ")
+	//_FpfNhex(&___Vun.unRbuf, 30, " 848232 02 <%s>", __VrKey)
+	//_FpfNhex(&__Vrece.urrBuf, 30, " 848232 03 ")
 
 	if "" == __VrKey {
 		_FpfN(" 848232 04 address error %v", __Vrece.urrRemoteAddr)
@@ -76,7 +76,7 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		if __VokL { // map[string]_TuNodeDataRcnt
 			if 1 == __Vlast.cnt {
 				__Vreply = true
-				_FpfN(" 848232 06 ")
+				//_FpfN(" 848232 06 ")
 			} else {
 				_FpfN(" 848232 07 ")
 			}
@@ -90,7 +90,7 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 					_FpfN(" 848232 09 ")
 				}
 			} else {
-				_FpfN(" 848232 10 ")
+				//_FpfN(" 848232 10 ")
 			}
 		}
 		//_FpfN(" 848231 11 las2 %v", ___Vun.unRmap.unrMapLas2)

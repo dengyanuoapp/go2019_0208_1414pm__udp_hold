@@ -34,7 +34,7 @@ func _FudpNode__540201__main_init__default(___Vun *_TudpNodeSt) {
 
 	go ___Vun._FudpNode__540211x__gap()
 
-	_Fsleep(_T1s)
+	_Fsleep(_T50ms)
 
 	go ___Vun._FudpNode__540201y__receive()
 
