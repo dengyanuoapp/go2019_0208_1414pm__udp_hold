@@ -24,6 +24,7 @@ type _TuNodeDataRmap struct {
 	unrMux     sync.Mutex
 	unrMapNow  map[string]_TuNodeDataRcnt
 	unrMapLast map[string]_TuNodeDataRcnt
+	unrMapLas2 map[string]_TuNodeDataRcnt
 }
 
 // _TserviceUDP
