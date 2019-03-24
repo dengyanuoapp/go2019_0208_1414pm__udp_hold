@@ -28,6 +28,10 @@ func _FudpNode__540201__main_init__default(___Vun *_TudpNodeSt) {
 
 	___Vun._FudpNode__540201x__listen()
 
+	_Fsleep(_T1s)
+
+	go ___Vun._FudpNode__540211x__gap()
+
 	go ___Vun._FudpNode__540201y__receive()
 
 	go ___Vun._FudpNode__540201z__send()
