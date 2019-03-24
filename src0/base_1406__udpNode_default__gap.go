@@ -26,7 +26,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	___Vun.unRmap.unrMux.Lock()
 
 	___Vun.unRmap.unrMapLast = ___Vun.unRmap.unrMapNow
-	___Vun.unRmap.unrMapNow = make(map[[16]byte]_TudpNodeDataRece)
+	___Vun.unRmap.unrMapNow = make(map[string]_TudpNodeDataRece)
 
 	___Vun.unRmap.unrMux.Unlock()
 }
@@ -40,9 +40,15 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		urrLen:        ___Vun.unRlen,
 		urrBuf:        ___Vun.unRbuf[:___Vun.unRlen],
 	}
+	__VrKey := __Vrece.urrRemoteAddr.String()
 
-	_FpfNhex(&___Vun.unRbuf, 30, " 848232 02 ")
+	_FpfNhex(&___Vun.unRbuf, 30, " 848232 02 <%s>", __VrKey)
 	_FpfNhex(&__Vrece.urrBuf, 30, " 848232 03 ")
+
+	if "" == __VrKey {
+		_FpfN(" 848232 04 address error %v", __Vrece.urrRemoteAddr)
+		return
+	}
 
 	//(*___Vun.unCHreceLX) <- __Vrece
 }

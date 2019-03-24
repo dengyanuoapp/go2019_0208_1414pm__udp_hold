@@ -17,9 +17,11 @@ type _TudpNodeDataSend struct {
 }
 
 type _TuNodeDataRmap struct {
-	unrMux     sync.Mutex
-	unrMapNow  map[[16]byte]_TudpNodeDataRece
-	unrMapLast map[[16]byte]_TudpNodeDataRece
+	unrMux sync.Mutex
+	//unrMapNow   map[[16]byte]_TudpNodeDataRece
+	//unrMapLast  map[[16]byte]_TudpNodeDataRece
+	unrMapNow  map[string]_TudpNodeDataRece
+	unrMapLast map[string]_TudpNodeDataRece
 }
 
 // _TserviceUDP
