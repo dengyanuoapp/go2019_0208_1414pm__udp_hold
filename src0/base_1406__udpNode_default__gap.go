@@ -25,8 +25,14 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	_FpfNdb(" 848231 01 ")
 	___Vun.unRmap.unrMux.Lock()
 
+	_FpfN(" 848231 03 %v", ___Vun.unRmap.unrMapLast)
+	_FpfN(" 848231 04 %v", ___Vun.unRmap.unrMapNow)
+
 	___Vun.unRmap.unrMapLast = ___Vun.unRmap.unrMapNow
 	___Vun.unRmap.unrMapNow = make(map[string]_TuNodeDataRcnt)
+
+	_FpfN(" 848231 06 %v", ___Vun.unRmap.unrMapLast)
+	_FpfN(" 848231 07 %v", ___Vun.unRmap.unrMapNow)
 
 	___Vun.unRmap.unrMux.Unlock()
 }
@@ -57,6 +63,7 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	__Vnow, __VokN := ___Vun.unRmap.unrMapNow[__VrKey]
 	if __VokN {
 		__Vnow.cnt++ // alreay exist ... so , skip
+		_FpfN(" 848232 05 ")
 	} else {
 		___Vun.unRmap.unrMapNow[__VrKey] = _TuNodeDataRcnt{
 			cnt: 1,
@@ -66,11 +73,18 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		if __VokL { // map[string]_TuNodeDataRcnt
 			if 1 == __Vlast.cnt {
 				__Vreply = true
+				_FpfN(" 848232 06 ")
+			} else {
+				_FpfN(" 848232 07 ")
 			}
+		} else {
+			_FpfN(" 848232 08 ")
 		}
 	}
 
 	___Vun.unRmap.unrMux.Unlock()
+
+	_FpfN(" 848232 09 :  __Vreply %t", __Vreply)
 
 	if __Vreply {
 		(*___Vun.unCHreceLX) <- __Vrece
