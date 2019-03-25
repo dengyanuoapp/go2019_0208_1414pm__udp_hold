@@ -33,6 +33,7 @@ type _TudpConnPort struct {
 	//Uri  string
 	DstAddr net.UDPAddr
 	K256    []byte
+	TK      []byte // token
 }
 
 type _TsrvInfo struct {
@@ -79,6 +80,7 @@ type _TreqIneedToLogin struct {
 	MeSeq128 []byte
 	ToIdx128 []byte
 	ToSeq128 []byte
+	Token    []byte
 }
 
 type _TreqLoginCNT struct {

@@ -38,6 +38,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _VS.meSeq128,
+		Token:    ___VuConnPort.TK,
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
@@ -60,6 +61,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 
 	//_FpfN(" 381923 05 : len %d: %v", len(___VoutBuf), ___VoutBuf)
 }
+
 func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() (*_TreqIneedToLogin, bool) {
 	//_FpfNdb(" 387192 01 : data decode start ")
 	if __Vundr.urrLen < (1 + 4 + 32 + 32) {
