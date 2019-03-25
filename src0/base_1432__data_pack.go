@@ -1,5 +1,9 @@
 package main
 
+import (
+	"bytes"
+)
+
 const (
 	Cmd__NULL = iota
 	Cmd__idle
@@ -7,6 +11,7 @@ const (
 	Cmd__loginS1ReqTryNoToken
 	Cmd__loginS2ReplyTmpToken
 	Cmd__loginS3ReqWithToken
+	Cmd__end
 )
 
 var (
@@ -51,6 +56,39 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 
 	//_FpfN(" 381923 05 : len %d: %v", len(___VoutBuf), ___VoutBuf)
 }
-func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() {
-	_FpfNdb(" 387192 01 : data decode start ")
+func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() (*_TreqIneedToLogin, bool) {
+	//_FpfNdb(" 387192 01 : data decode start ")
+	if __Vundr.urrLen < (1 + 4 + 32) {
+		_FpfNdb(" 387192 02 : data decode start ")
+		return nil, false
+	}
+
+	if false == bytes.Equal(__Vundr.urrBuf[1:5], _VersionProtocol01) {
+		_FpfNdb(" 387192 03 : protocol version error ")
+		return nil, false
+	}
+
+	if __Vundr.urrBuf[0] >= Cmd__end {
+		_FpfNdb(" 387192 04 : unknown type ")
+		return nil, false
+	}
+
+	if __Vundr.urrBuf[0] != Cmd__loginS1ReqTryNoToken {
+		_FpfNdb(" 387192 05 : under constructing ")
+		return nil, false
+	}
+
+	_FpfNdb(" 387192 06 : Cmd__loginS1ReqTryNoToken decode start ")
+
+	var __VloginS1ReqTryNoToken _TreqIneedToLogin
+
+	__Vbuf2 := __Vundr.urrBuf[5:]
+	__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &__VloginS1ReqTryNoToken)
+	if nil != __Verr2 {
+		_FpfNdb(" 387193 03 :error :%v", __Verr2)
+		return nil, false
+	}
+
+	_FpfNdb(" 387193 05 : %#v", __VloginS1ReqTryNoToken)
+	return &__VloginS1ReqTryNoToken, true
 }
