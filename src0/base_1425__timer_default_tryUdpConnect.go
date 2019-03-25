@@ -46,16 +46,20 @@ func _FudpTimer__750102x__init__tryUdpLogin__default(___Vgtm *_TgapTimer) {
 					}
 
 				} else { // xTry,0skip
+					___Vgtm.uTmToken = _FgenRand_nByte__(16)
 					__VucPort := __VnewSession._FudpTimer__750102z__tryfillSendChan() // _TudpConnPort
-					if nil == ___Vgtm.uTmUconnPortLX {
-						_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
-					} else {
-						*___Vgtm.uTmUconnPortLX <- *__VucPort
-						_FsleepRand_12_to_14s()
-						*___Vgtm.uTmUconnPortLX <- *__VucPort
+					if nil != __VucPort {
+						__VucPort.TK = ___Vgtm.uTmToken
+						if nil == ___Vgtm.uTmUconnPortLX {
+							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
+						} else {
+							*___Vgtm.uTmUconnPortLX <- *__VucPort
+							_FsleepRand_12_to_14s()
+							*___Vgtm.uTmUconnPortLX <- *__VucPort
+						}
+						__VnewSession.tryCnt--
+						__VnewSession.skipCnt = 2
 					}
-					__VnewSession.tryCnt--
-					__VnewSession.skipCnt = 2
 				}
 			}
 		}
@@ -85,7 +89,6 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() *_
 	} else {
 		__VuConn.K256 = ___VnewSession.srvInfo.K256[__Vidx2]
 	}
-	__VuConn.TK = _FgenRand_nByte__(16)
 	return &__VuConn
 }
 

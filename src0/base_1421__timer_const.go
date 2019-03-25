@@ -53,6 +53,7 @@ type _TgapTimer struct {
 	uTmCB750101init    func(*_TgapTimer) // if nil , use the default init procedure
 	uTmCB750201rece2   func(*_TgapTimer) // if nil , use the default receive
 	uTmCB750301gap2    func(*_TgapTimer) // if nil , use the default gap loop
+	uTmToken           []byte
 	//uTmCHudpSend02    *_TudpNodeSt
 	//uTmCHbyteRece02   []byte
 	//uTmCHbyteSend02   []byte
