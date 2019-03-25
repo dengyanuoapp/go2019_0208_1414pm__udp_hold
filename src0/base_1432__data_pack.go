@@ -35,7 +35,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 
 	__Vb2, __Verr2 := _FencGob__only(&__Vreq)
 	if nil != __Verr2 {
-		_FpfN(" 381923 01 : %v", __Verr2)
+		_FpfN(" 387191 01 : %v", __Verr2)
 		*___VoutBuf = []byte{}
 		return
 	}
@@ -50,4 +50,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 	copy((*___VoutBuf)[5:], __Vb2)
 
 	//_FpfN(" 381923 05 : len %d: %v", len(___VoutBuf), ___VoutBuf)
+}
+func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() {
+	_FpfNdb(" 387192 01 : data decode start ")
 }
