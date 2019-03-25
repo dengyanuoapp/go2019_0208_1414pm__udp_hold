@@ -69,6 +69,7 @@ type _TUreqNewSession struct {
 } //    _TUreqNewSession
 
 type _TreqIneedToLogin struct {
+	//Pk     []byte // my Port Key
 	MeTime int64
 	ReqStr string
 	MeName string

@@ -22,6 +22,7 @@ var (
 type _TdataPack_991 struct {
 	C byte    // cmd
 	V [4]byte // version
+	K [32]byte // TheSendPortReceiveKey
 	D []byte  // gob.package
 }
 */
@@ -49,16 +50,16 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 	//_FpfN(" 381923 02 : %x", __Vb2)
 	//_FpfN(" 381923 03 : len %d: %v", __Vlen2, __Vb2)
 
-	*___VoutBuf = make([]byte, __Vlen2+5)
+	*___VoutBuf = make([]byte, __Vlen2+37)
 	(*___VoutBuf)[0] = Cmd__loginS1ReqTryNoToken
 	copy((*___VoutBuf)[1:], _VersionProtocol01)
-	copy((*___VoutBuf)[5:], __Vb2)
+	copy((*___VoutBuf)[37:], __Vb2)
 
 	//_FpfN(" 381923 05 : len %d: %v", len(___VoutBuf), ___VoutBuf)
 }
 func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() (*_TreqIneedToLogin, bool) {
 	//_FpfNdb(" 387192 01 : data decode start ")
-	if __Vundr.urrLen < (1 + 4 + 32) {
+	if __Vundr.urrLen < (1 + 4 + 32 + 32) {
 		_FpfNdb(" 387192 02 : data decode start ")
 		return nil, false
 	}
@@ -82,13 +83,13 @@ func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() (*_TreqIneedToLo
 
 	var __VloginS1ReqTryNoToken _TreqIneedToLogin
 
-	__Vbuf2 := __Vundr.urrBuf[5:]
+	__Vbuf2 := __Vundr.urrBuf[37:]
 	__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &__VloginS1ReqTryNoToken)
 	if nil != __Verr2 {
 		_FpfNdb(" 387193 03 :error :%v", __Verr2)
 		return nil, false
 	}
 
-	_FpfNdb(" 387193 05 : %#v", __VloginS1ReqTryNoToken)
+	_FpfNdb(" 387193 05 : %#v, key is %x", __VloginS1ReqTryNoToken, __Vundr.urrBuf[5:37])
 	return &__VloginS1ReqTryNoToken, true
 }
