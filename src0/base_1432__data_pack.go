@@ -95,6 +95,6 @@ func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() (*_TreqIneedToLo
 		return nil, false
 	}
 
-	_FpfNdb(" 387193 05 : %#v, key is %x", __VloginS1ReqTryNoToken, __Vundr.urrBuf[5:37])
+	_FpfNdb(" 387193 05 : %#v, key %x", __VloginS1ReqTryNoToken, __Vundr.urrBuf[5:37])
 	return &__VloginS1ReqTryNoToken, true
 }
