@@ -15,7 +15,10 @@ const (
 )
 
 var (
-	_VersionProtocol01 = []byte{0x83, 0x20, 0x71, 0xc8}
+	_VersionProtocol01    = []byte{0x83, 0x20, 0x71, 0xc8}
+	_VdataPackageMinLen   = 1 + 4 + 32 + 32
+	_VdataPackageKeyStart = 1 + 4
+	_VdataPackageObjStart = 1 + 4 + 32
 )
 
 /*

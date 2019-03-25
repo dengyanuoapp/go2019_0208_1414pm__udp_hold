@@ -30,7 +30,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNode
 		_FpfN(" 839119 01 : why nil ?")
 		return
 	}
-	if 0 == len(___Vus.usOutBuf) {
+	if len(___Vus.usOutBuf) < _VdataPackageMinLen {
 		_FpfN(" 839119 02 : why buf NIL ?")
 		return
 	}
@@ -40,6 +40,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNode
 	//__VkLen = 0 // force disable the rand aes
 	if 0 != __VkLen {
 		if 32 == __VkLen {
+			copy(___Vus.usOutBuf[_VdataPackageKeyStart:], ___Vus.usToAddr.K256)
 			__Vbuf, __Verr := _FencAesRand__only(&___Vus.usToAddr.K256, &___Vus.usOutBuf)
 			if nil != __Verr {
 				_FpfN(" 839119 03 : why error ? %v", __Verr)
