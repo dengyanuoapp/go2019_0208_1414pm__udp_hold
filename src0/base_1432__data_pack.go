@@ -102,7 +102,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 		return
 	}
 
-	_FpfNdb(" 387192 06 : Cmd__loginS1ReqTryNoToken decode start ")
+	//_FpfNdb(" 387192 06 : Cmd__loginS1ReqTryNoToken decode start ")
 
 	__Vbuf2 := ___Vbuf[37:]
 	__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &___Vdecode.D__loginS1ReqTryNoToken)
@@ -113,5 +113,5 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 
 	___Vdecode.remotePortKey = ___Vbuf[5:37]
 
-	_FpfNdb(" 387193 05 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])
+	//_FpfNdb(" 387193 05 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])
 }
