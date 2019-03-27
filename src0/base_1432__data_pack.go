@@ -31,7 +31,7 @@ type _TdataPack_991 struct {
 */
 
 type _Tdecode struct {
-	ok                      true
+	ok                      bool
 	Type                    byte
 	remotePortKey           []byte
 	D__loginS1ReqTryNoToken _TreqIneedToLogin
