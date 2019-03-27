@@ -19,8 +19,8 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 			__VusData.usToAddr = __VchPort
 			//__VusData .  usOutBuf= *(__VchPort._FdataPack__101__udpConnPort()),
 			__VchPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
-			//__Vidx = ___Vug . _FudpGroup__650301www__send_genIdx()
-			__Vidx = 0
+			__Vidx = ___Vug._FudpGroup__650301www__send_genIdx()
+			//__Vidx = 0
 
 		}
 		___Vug._FudpGroup__650301zzz__send_byteOnly(&__VusData, __Vidx)
