@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"net"
 )
 
 const (
@@ -32,8 +33,9 @@ type _TdataPack_991 struct {
 
 type _Tdecode struct {
 	ok                      bool
-	Type                    byte
+	remoteAddr              net.UDPAddr
 	remotePortKey           []byte
+	Type                    byte
 	D__loginS1ReqTryNoToken _TreqIneedToLogin
 }
 
