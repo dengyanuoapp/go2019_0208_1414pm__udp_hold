@@ -45,15 +45,15 @@ const (
 
 // _TudpNodeSt
 type _TgapTimer struct {
-	uTmGapX          time.Duration
-	uTmCHudpReceLX   *_TudpNodeSt
-	uTmSrvDownInfoLX *_TsrvDownInfo // input , try to connect
-	uTmUconnPortLX   *chan _TudpConnPort
-	uTmDecodeOutLX   *chan _Tdecode
-	uTmCB750101init  func(*_TgapTimer) // if nil , use the default init procedure
-	uTmCB750201rece2 func(*_TgapTimer) // if nil , use the default receive
-	uTmCB750301gap2  func(*_TgapTimer) // if nil , use the default gap loop
-	uTmToken         []byte
+	uTmGapX           time.Duration
+	uTmSrvDownInfoLX  *_TsrvDownInfo // input , try to connect
+	uTmCHunDataReceLI *_TudpNodeSt
+	uTmUconnPortLX    *chan _TudpConnPort
+	uTmDecodeOutLX    *chan _Tdecode
+	uTmCB750101init   func(*_TgapTimer) // if nil , use the default init procedure
+	uTmCB750201rece2  func(*_TgapTimer) // if nil , use the default receive
+	uTmCB750301gap2   func(*_TgapTimer) // if nil , use the default gap loop
+	uTmToken          []byte
 	//uTmCHudpSend02    *_TudpNodeSt
 	//uTmCHbyteRece02   []byte
 	//uTmCHbyteSend02   []byte

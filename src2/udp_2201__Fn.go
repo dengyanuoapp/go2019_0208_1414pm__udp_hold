@@ -70,7 +70,7 @@ func _Finit_2201() {
 	//	}
 
 	_VudpTimer01 = _TgapTimer{
-		uTmCHudpReceLX: &_VudpNode_FunWaitDun,
+		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
 	}
 
 	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)

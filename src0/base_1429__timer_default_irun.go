@@ -27,16 +27,16 @@ func (___Vgtm *_TgapTimer) IRun(___Vidx int) {
 	}
 }
 
-// try received from uTmCHudpReceLX
+// try received from uTmCHunDataReceLI
 func _FudpTimer__750101x__init__default(___Vgtm *_TgapTimer) {
 	_FpfN(" 838918 01 : udpTimer 750101 ")
 
-	if nil == ___Vgtm.uTmCHudpReceLX {
+	if nil == ___Vgtm.uTmCHunDataReceLI {
 		_Fex1(" 838918 02 : you must set the Receive _TudpNodeSt ")
 	}
 
 	__VuRece := make(chan _TudpNodeDataRece, 10)
-	___Vgtm.uTmCHudpReceLX.unCHreceLX = &__VuRece
+	___Vgtm.uTmCHunDataReceLI.unCHreceLX = &__VuRece
 
 	_Fsleep(_T1s)
 
