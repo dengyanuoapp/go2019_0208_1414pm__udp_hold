@@ -30,6 +30,13 @@ type _TdataPack_991 struct {
 }
 */
 
+type _Tdecode struct {
+	ok                      true
+	Type                    byte
+	remotePortKey           []byte
+	D__loginS1ReqTryNoToken _TreqIneedToLogin
+}
+
 // _TreqIneedToLogin
 func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]byte) {
 	__Vreq := _TreqIneedToLogin{
@@ -62,39 +69,45 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 	//_FpfN(" 381923 05 : len %d: %v", len(___VoutBuf), ___VoutBuf)
 }
 
-func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode() (*_TreqIneedToLogin, bool) {
-	//_FpfNdb(" 387192 01 : data decode start ")
-	if __Vundr.urrLen < (1 + 4 + 32 + 32) {
+func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode_loginS1ReqTryNoToken(___Vdecode *_Tdecode) {
+	_FdataPack__dataDecode_common(___Vdecode, __Vundr.urrLen, __Vundr.urrBuf)
+}
+
+func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []byte) {
+	if nil == ___Vdecode {
+		return
+	}
+	___Vdecode.ok = false
+	___Vdecode.Type = 0
+
+	if ___Vlen < (1 + 4 + 32 + 32) {
 		_FpfNdb(" 387192 02 : data decode start ")
-		return nil, false
+		return
 	}
 
-	if false == bytes.Equal(__Vundr.urrBuf[1:5], _VersionProtocol01) {
+	if false == bytes.Equal(___Vbuf[1:5], _VersionProtocol01) {
 		_FpfNdb(" 387192 03 : protocol version error ")
-		return nil, false
+		return
 	}
 
-	if __Vundr.urrBuf[0] >= Cmd__end {
+	if ___Vbuf[0] >= Cmd__end {
 		_FpfNdb(" 387192 04 : unknown type ")
-		return nil, false
+		return
 	}
 
-	if __Vundr.urrBuf[0] != Cmd__loginS1ReqTryNoToken {
+	if ___Vbuf[0] != Cmd__loginS1ReqTryNoToken {
 		_FpfNdb(" 387192 05 : under constructing ")
-		return nil, false
+		return
 	}
 
 	_FpfNdb(" 387192 06 : Cmd__loginS1ReqTryNoToken decode start ")
 
-	var __VloginS1ReqTryNoToken _TreqIneedToLogin
-
-	__Vbuf2 := __Vundr.urrBuf[37:]
-	__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &__VloginS1ReqTryNoToken)
+	__Vbuf2 := ___Vbuf[37:]
+	__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &___Vdecode.D__loginS1ReqTryNoToken)
 	if nil != __Verr2 {
 		_FpfNdb(" 387193 03 :error :%v", __Verr2)
-		return nil, false
+		return
 	}
 
-	_FpfNdb(" 387193 05 : %#v, key %x", __VloginS1ReqTryNoToken, __Vundr.urrBuf[5:37])
-	return &__VloginS1ReqTryNoToken, true
+	_FpfNdb(" 387193 05 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])
 }

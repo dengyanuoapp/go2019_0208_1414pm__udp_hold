@@ -12,12 +12,15 @@ func _FudpTimer__750201x__gap_receive__default(___Vutm *_TgapTimer) {
 func _FudpTimer__750201x10__gap_receive__default(___Vutm *_TgapTimer) {
 	//_FpfNdb(" 388195 01 : filte received start ")
 	var __Vundr _TudpNodeDataRece
+	var __Vdecode _Tdecode
 	for {
 		//_Fsleep_100s()
 		select {
 		case __Vundr = <-(*___Vutm.uTmCHudpReceLX.unCHreceLX): // _TudpNodeDataRece
 			_FpfNhex(&__Vundr.urrBuf, 38, " 388195 06 : %T , decode len <%d>: %11d", __Vundr.urrBuf, __Vundr.urrLen, _FtimeI64())
-			__Vundr._FdataPack__301__dataDecode()
+			__Vundr._FdataPack__301__dataDecode_loginS1ReqTryNoToken(&__Vdecode)
+
+			_FpfNdb(" 388195 07 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)
 		}
 	}
 }
