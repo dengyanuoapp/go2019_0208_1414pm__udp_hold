@@ -7,14 +7,14 @@ import (
 // _TreqIneedToLogin
 // _TsrvInfo
 // _TgapTimer
-//uTmGapNewSession2 *_TgapNewSession
+// uTmSrvDownInfoLX *_TsrvDownInfo
 func _FudpTimer__750102x__init__tryUdpLogin__default(___Vgtm *_TgapTimer) {
-	__VnewSession := ___Vgtm.uTmGapNewSession2
-	_FpfNdb(" 138181 01 %#v ", ___Vgtm.uTmGapNewSession2)
+	__VnewSession := ___Vgtm.uTmSrvDownInfoLX
+	_FpfNdb(" 138181 01 %#v ", ___Vgtm.uTmSrvDownInfoLX)
 
 	__Vgap := ___Vgtm.uTmGapX
 	if 0 == __Vgap {
-		_FpfNdb(" 138181 02 %#v ", ___Vgtm.uTmGapNewSession2)
+		_FpfNdb(" 138181 02 %#v ", ___Vgtm.uTmSrvDownInfoLX)
 		_FpfN(" 138181 03 : sorry , gap is ZERO , skip gap loop. ")
 		return
 	}
@@ -66,8 +66,8 @@ func _FudpTimer__750102x__init__tryUdpLogin__default(___Vgtm *_TgapTimer) {
 	}
 }
 
-// _TgapNewSession _TsrvInfo _TudpConnPort
-func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() *_TudpConnPort {
+// _TsrvDownInfo _TsrvInfo _TudpConnPort
+func (___VnewSession *_TsrvDownInfo) _FudpTimer__750102z__tryfillSendChan() *_TudpConnPort {
 	__Vlen2 := len(___VnewSession.srvInfo.UriArrs)
 	__Vlen3 := len(___VnewSession.srvInfo.K256)
 	__Vidx2 := ___VnewSession.tryCnt % __Vlen2
@@ -92,8 +92,8 @@ func (___VnewSession *_TgapNewSession) _FudpTimer__750102z__tryfillSendChan() *_
 	return &__VuConn
 }
 
-// _TgapNewSession _TsrvInfo
-func (___VnewSession *_TgapNewSession) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
+// _TsrvDownInfo _TsrvInfo
+func (___VnewSession *_TsrvDownInfo) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
 	_FpfNdb("238191 01 : %v", ___VnewSession)
 
 	___VnewSession.srvInfo.ok = false

@@ -45,22 +45,23 @@ const (
 
 // _TudpNodeSt
 type _TgapTimer struct {
-	uTmGapX            time.Duration
-	uTmCHudpReceLX     *_TudpNodeSt
-	uTmGapNewSession2  *_TgapNewSession // input , try to connect
-	uTmReqIneedToLogin chan _TreqIneedToLogin
-	uTmUconnPortLX     *chan _TudpConnPort
-	uTmCB750101init    func(*_TgapTimer) // if nil , use the default init procedure
-	uTmCB750201rece2   func(*_TgapTimer) // if nil , use the default receive
-	uTmCB750301gap2    func(*_TgapTimer) // if nil , use the default gap loop
-	uTmToken           []byte
+	uTmGapX          time.Duration
+	uTmCHudpReceLX   *_TudpNodeSt
+	uTmSrvDownInfoLX *_TsrvDownInfo // input , try to connect
+	uTmUconnPortLX   *chan _TudpConnPort
+	uTmDecodeOutLX   *chan _Tdecode
+	uTmCB750101init  func(*_TgapTimer) // if nil , use the default init procedure
+	uTmCB750201rece2 func(*_TgapTimer) // if nil , use the default receive
+	uTmCB750301gap2  func(*_TgapTimer) // if nil , use the default gap loop
+	uTmToken         []byte
 	//uTmCHudpSend02    *_TudpNodeSt
 	//uTmCHbyteRece02   []byte
 	//uTmCHbyteSend02   []byte
+	//uTmReqIneedToLogin chan _TreqIneedToLogin
 }
 
 //_TUreqNewSession
-type _TgapNewSession struct {
+type _TsrvDownInfo struct {
 	name         string
 	connected    bool
 	tryCnt       int
