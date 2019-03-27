@@ -109,5 +109,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 		return
 	}
 
+	___Vdecode.remotePortKey = ___Vbuf[5:37]
+
 	_FpfNdb(" 387193 05 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])
 }
