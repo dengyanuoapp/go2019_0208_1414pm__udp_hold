@@ -20,6 +20,7 @@ func _FudpTimer__750201x10__gap_receive__default(___Vutm *_TgapTimer) {
 			//_FpfNhex(&__Vundr.urrBuf, 38, " 388195 06 : %T , decode len <%d>: %11d", __Vundr.urrBuf, __Vundr.urrLen, _FtimeI64())
 			__Vundr._FdataPack__301__dataDecode_loginS1ReqTryNoToken(&__Vdecode) // _Tdecode
 			__Vdecode.remoteAddr = __Vundr.urrRemoteAddr
+			__Vdecode.receiveTime = _FtimeInt()
 
 			//_FpfNdb(" 388195 07 : %#v, key %x", __Vundr, __Vdecode.remotePortKey)
 			_FpfNdb(" 388195 08 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)

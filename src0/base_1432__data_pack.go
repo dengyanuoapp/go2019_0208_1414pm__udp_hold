@@ -33,6 +33,7 @@ type _TdataPack_991 struct {
 
 type _Tdecode struct {
 	ok                      bool
+	receiveTime             int
 	remoteAddr              net.UDPAddr
 	remotePortKey           []byte
 	Type                    byte
