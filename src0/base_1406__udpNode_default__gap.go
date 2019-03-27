@@ -49,12 +49,12 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		urrLen:        ___Vun.unRlen,
 		urrBuf:        ___Vun.unRbuf[:___Vun.unRlen],
 	}
-	__VrKey := __Vrece.urrRemoteAddr.String()
+	__VrKey := __Vrece.urrRemoteAddr.IP.String()
 
 	//_FpfNhex(&___Vun.unRbuf, 30, " 848232 02 <%s>", __VrKey)
 	//_FpfNhex(&__Vrece.urrBuf, 30, " 848232 03 ")
 
-	if "" == __VrKey {
+	if "" == __VrKey || "<nil>" == __VrKey {
 		_FpfN(" 848232 04 address error %v", __Vrece.urrRemoteAddr)
 		return
 	}
