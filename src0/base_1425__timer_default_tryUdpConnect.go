@@ -50,12 +50,12 @@ func _FudpTimer__750102x__init__tryUdpLogin__default(___Vgtm *_TgapTimer) {
 					__VucPort := __VnewSession._FudpTimer__750102z__tryfillSendChan() // _TudpConnPort
 					if nil != __VucPort {
 						__VucPort.TK = ___Vgtm.uTmToken
-						if nil == ___Vgtm.uTmUconnPortLX {
+						if nil == ___Vgtm.uTmCHugConnPortLO {
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
-							*___Vgtm.uTmUconnPortLX <- *__VucPort
+							*___Vgtm.uTmCHugConnPortLO <- *__VucPort
 							_FsleepRand_12_to_14s()
-							*___Vgtm.uTmUconnPortLX <- *__VucPort
+							*___Vgtm.uTmCHugConnPortLO <- *__VucPort
 						}
 						__VnewSession.tryCnt--
 						__VnewSession.skipCnt = 2

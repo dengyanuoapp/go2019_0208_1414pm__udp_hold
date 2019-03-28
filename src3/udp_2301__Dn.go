@@ -54,7 +54,7 @@ func _Finit__2301() {
 			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 			//updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
 		},
-		uTmUconnPortLX: &_VudpGroup_Dn2Fn.ugCHuConnPortX,
+		uTmCHugConnPortLO: &_VudpGroup_Dn2Fn.ugCHuConnPortX,
 	}
 
 	// _FdebugPrintTest()
