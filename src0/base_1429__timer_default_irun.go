@@ -8,8 +8,6 @@ func (___Vgtm *_TgapTimer) IRun(___Vidx int) {
 		} else {
 			___Vgtm.uTmCB750101init(___Vgtm)
 		}
-	case 750102:
-		_FudpTimer__750102x__init__tryUdpLogin__default(___Vgtm)
 	case 750201:
 		if nil == ___Vgtm.uTmCB750201rece2 {
 			_FudpTimer__750201x__gap_receive__default(___Vgtm)

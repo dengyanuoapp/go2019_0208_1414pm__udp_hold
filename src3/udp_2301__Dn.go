@@ -5,13 +5,13 @@ import (
 )
 
 var (
-	_VserviceTcpMd     _TserviceTCP
-	_VudpGroup_Dn2Fn   _TudpGroupSt
-	_VconnTimerU_Dn2Fn _TgapTimer
-	_Cexit             chan string
-	_Clog              chan string
-	_Vself             _Tself
-	_Vconfig           _Tconfig
+	_VserviceTcpMd   _TserviceTCP
+	_VudpGroup_Dn2Fn _TudpGroupSt
+	_VloginGenerator _TloginGenerator
+	_Cexit           chan string
+	_Clog            chan string
+	_Vself           _Tself
+	_Vconfig         _Tconfig
 )
 
 func _Finit__2301() {
@@ -46,15 +46,14 @@ func _Finit__2301() {
 
 	flag.Parse()
 
-	_VconnTimerU_Dn2Fn = _TgapTimer{
-		uTmGapX: _T10s,
-		uTmSrvDownInfoLX: &_TsrvDownInfo{
+	_VloginGenerator = _TloginGenerator{
+		ulSrvDownInfoLX: &_TsrvDownInfo{
 			name:         "srvDn2Fn",
 			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.gob.rand",
 			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 			//updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.json.rand",
 		},
-		uTmCHugConnPortLO: &_VudpGroup_Dn2Fn.ugCHuConnPortX,
+		ulCHugConnPortLO: &_VudpGroup_Dn2Fn.ugCHuConnPortX,
 	}
 
 	// _FdebugPrintTest()
@@ -75,7 +74,7 @@ func main() {
 	// _FudpGroup__650301__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
 
-	go _Frun(&_VconnTimerU_Dn2Fn, 750102) // IRun _FudpTimer__750102x__init__tryUdpLogin__default
+	go _Frun(&_VloginGenerator, 850102) // IRun _FudpTimer__850102x__init__tryUdpLogin__default
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
 } // main
