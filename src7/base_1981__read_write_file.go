@@ -1,1 +1,0 @@
-../src0/base_1981__read_write_file.go

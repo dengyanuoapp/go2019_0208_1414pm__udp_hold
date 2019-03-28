@@ -5,8 +5,6 @@ import (
 )
 
 var (
-	_VserviceUdp_FnWaitCn _TserviceUDP
-
 	_VudpNode_FunWaitDun _TudpNodeSt
 
 	_VserviceTcpMf _TserviceTCP
@@ -49,18 +47,10 @@ func _Finit_2201() {
 		unLoopGap: _T10s,
 	}
 
-	_VserviceUdp_FnWaitCn = _TserviceUDP{
-		name:                "FnServicePortForCn",
-		UuserLoopCall100211: _FuserCallback_u01M__dataRece_Cn,
-		Cexit:               &_Cexit,
-		Clog:                &_Clog,
-	}
-
 	_VudpTimer01 = _TgapTimer{
 		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
 	}
 
-	flag.StringVar(&_VserviceUdp_FnWaitCn.hostPortStr, "FnWcn", ":53535", _VserviceUdp_FnWaitCn.name)
 	flag.StringVar(&_VudpNode_FunWaitDun.unHostPortStr, "FunWdun", ":32001", _VudpNode_FunWaitDun.unName)
 
 	flag.Parse()
@@ -78,12 +68,6 @@ func main() {
 	// IRun _Fhandle_udpListen_Tcp__main_top()
 	go _Frun(&_VserviceTcpMf, 200101)
 	// ------------------- tcp for debug monitor log --- end
-
-	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- begin
-	// _TserviceUDP
-	go _Frun(&_VserviceUdp_FnWaitCn, 100201) // IRun // _Fhandle_u01x__udpListen_Udp__read_main_top__default
-	//go _Frun(&_VserviceUdp_FnWaitDn, 100201)
-	// ------------------- udp for worker clinet : Cn , Dn , Sn --------- end
 
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
 	// _FdataPack__301__dataDecode_loginS1ReqTryNoToken

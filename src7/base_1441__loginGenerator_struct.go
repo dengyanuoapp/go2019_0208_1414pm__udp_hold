@@ -1,1 +1,0 @@
-../src0/base_1441__loginGenerator_struct.go

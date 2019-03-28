@@ -14,23 +14,23 @@ func _Frun(___Vrun Trun, ___Vidx int) {
 	}
 } // _Frun
 
-func _FnotNullRunUdp02(___Vrun func(*_TUreqNewSession), ___Vpara *_TUreqNewSession) {
-	//_FpfN( "---" )
-	if ___Vrun != nil {
-		___Vrun(___Vpara)
-	} else {
-		_Fsleep_10s()
-	}
-} // _FnotNullRunUdp02
+//func _FnotNullRunUdp02(___Vrun func(*_TUreqNewSession), ___Vpara *_TUreqNewSession) {
+//	//_FpfN( "---" )
+//	if ___Vrun != nil {
+//		___Vrun(___Vpara)
+//	} else {
+//		_Fsleep_10s()
+//	}
+//} // _FnotNullRunUdp02
 
-func _FnotNullRunUdp01(___Vrun func(*_TserviceUDP), ___Vpara *_TserviceUDP) {
-	//_FpfN( "---" )
-	if ___Vrun != nil {
-		___Vrun(___Vpara)
-	} else {
-		_Fsleep_10s()
-	}
-} // _FnotNullRunUdp01
+//func _FnotNullRunUdp01(___Vrun func(*_TserviceUDP), ___Vpara *_TserviceUDP) {
+//	//_FpfN( "---" )
+//	if ___Vrun != nil {
+//		___Vrun(___Vpara)
+//	} else {
+//		_Fsleep_10s()
+//	}
+//} // _FnotNullRunUdp01
 
 func _FnotNullRun011_tcp_service_chan(___Vrun func(*_TserviceTCP), ___Vpara *_TserviceTCP) {
 	//_FpfN( "---" )
