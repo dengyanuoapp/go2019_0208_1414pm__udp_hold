@@ -55,12 +55,16 @@ func _FudpTimer__850102x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 					__VucPort := __VnewSession._FudpTimer__750102z__tryfillSendChan() // _TudpConnPort
 					if nil != __VucPort {
 						__VucPort.TK = ___Vlg.ulTmpToken
-						if nil == ___Vlg.ulCHugConnPortLO {
+						if nil == ___Vlg.ulCHunSendLO {
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
-							*___Vlg.ulCHugConnPortLO <- *__VucPort
+							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d", __VnewSession.tryCnt, __VnewSession.skipCnt)
+							var __VusData _TudpNodeDataSend // _TudpConnPort
+							__VucPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
+							__VusData.usToAddr = *__VucPort // _TudpConnPort
+							*___Vlg.ulCHunSendLO <- __VusData
 							_FsleepRand_12_to_14s()
-							*___Vlg.ulCHugConnPortLO <- *__VucPort
+							*___Vlg.ulCHunSendLO <- __VusData
 						}
 						__VnewSession.tryCnt--
 						__VnewSession.skipCnt = 2

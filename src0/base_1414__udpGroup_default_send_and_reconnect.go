@@ -13,15 +13,18 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	)
 	for {
 		select {
-		case __VchPort := <-___Vug.ugCHuConnPortI: // _TudpConnPort
-			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
-			//_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
-			__VusData.usToAddr = __VchPort
-			//__VusData .  usOutBuf= *(__VchPort._FdataPack__101__udpConnPort()),
-			__VchPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
+		//		case __VchPort := <-___Vug.ugCHuConnPortI: // _TudpConnPort
+		//			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
+		//			//_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
+		//			__VusData.usToAddr = __VchPort
+		//			//__VusData .  usOutBuf= *(__VchPort._FdataPack__101__udpConnPort()),
+		//			__VchPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
+		//			__Vidx = ___Vug._FudpGroup__650301www__send_genIdx()
+		//			//__Vidx = 0
+		//
+		//		}
+		case __VusData = <-___Vug.ugCHSendLI: // _TudpNodeDataSend
 			__Vidx = ___Vug._FudpGroup__650301www__send_genIdx()
-			//__Vidx = 0
-
 		}
 		___Vug._FudpGroup__650301zzz__send_byteOnly(&__VusData, __Vidx)
 	}

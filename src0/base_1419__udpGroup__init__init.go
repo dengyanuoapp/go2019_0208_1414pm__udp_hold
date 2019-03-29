@@ -27,7 +27,8 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 //	ugChTmpSendLI [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  //
 func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
-	___Vug.ugCHuConnPortI = make(chan _TudpConnPort, 8)
+	//___Vug.ugCHuConnPortI = make(chan _TudpConnPort, 8)
+	___Vug.ugCHSendLI = make(chan _TudpNodeDataSend, 8)
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
 	___Vug.ugChTmpSendLI = make([](*(chan _TudpNodeDataSend)), ___Vug.ugAmount)
 	___Vug.ugChTmpReceO = make(chan _TudpNodeDataRece, ___Vug.ugAmount)
