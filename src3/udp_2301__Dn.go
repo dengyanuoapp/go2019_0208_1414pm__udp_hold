@@ -6,7 +6,7 @@ import (
 
 var (
 	_VserviceTcpMd   _TserviceTCP
-	_VudpGroup_Dn2Fn _TudpGroupSt
+	_VudpGroup_Dn    _TudpGroupSt
 	_VloginGenerator _TloginGenerator
 	_Cexit           chan string
 	_Clog            chan string
@@ -34,12 +34,12 @@ func _Finit__2301() {
 		cAmount:     10,
 	}
 
-	_VudpGroup_Dn2Fn = _TudpGroupSt{
-		ugName:        "udpGroup_Dn2Fn",
+	_VudpGroup_Dn = _TudpGroupSt{
+		ugName:        "udpGroup_Dn",
 		ugAmount:      10,
 		ugHostPortStr: []string{":0"},
 	}
-	flag.StringVar(&_VudpGroup_Dn2Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn2Fn.ugName)
+	flag.StringVar(&_VudpGroup_Dn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn.ugName)
 
 	flag.Parse()
 
@@ -49,7 +49,7 @@ func _Finit__2301() {
 			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.gob.rand", // gob  json
 			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 		},
-		ulCHugConnPortLO: &_VudpGroup_Dn2Fn.ugCHuConnPortX,
+		ulCHugConnPortLO: &_VudpGroup_Dn.ugCHuConnPortX,
 	}
 
 	// _FdebugPrintTest()
@@ -66,7 +66,7 @@ func main() {
 	go _Frun(&_VserviceTcpMd, 200101)
 
 	// _TudpNodeSt _TudpGroupSt
-	go _Frun(&_VudpGroup_Dn2Fn, 650201) // IRun _FudpGroup__650201__main_init__default
+	go _Frun(&_VudpGroup_Dn, 650201) // IRun _FudpGroup__650201__main_init__default
 	// _FudpGroup__650301__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
 

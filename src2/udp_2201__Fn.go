@@ -8,6 +8,7 @@ var (
 	_VudpNode_FunWaitDun _TudpNodeSt
 	_VserviceTcpMf       _TserviceTCP
 	_VudpTimer01         _TgapTimer
+	_VudpGroup_Fn        _TudpGroupSt
 	_Cexit               chan string
 	_Clog                chan string
 	_Vself               _Tself
@@ -46,6 +47,13 @@ func _Finit_2201() {
 		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
 	}
 
+	_VudpGroup_Fn = _TudpGroupSt{
+		ugName:        "udpGroup_Fn",
+		ugAmount:      20,
+		ugHostPortStr: []string{":0"},
+	}
+	flag.StringVar(&_VudpGroup_Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Fn.ugName)
+
 	flag.StringVar(&_VudpNode_FunWaitDun.unHostPortStr, "FunWdun", ":32001", _VudpNode_FunWaitDun.unName)
 
 	flag.Parse()
@@ -70,6 +78,11 @@ func main() {
 
 	// _FudpTimer__750201x__gap_receive__default
 	go _Frun(&_VudpTimer01, 750101) // IRun _FudpTimer__750101x__init__default
+
+	// _TudpNodeSt _TudpGroupSt
+	go _Frun(&_VudpGroup_Fn, 650201) // IRun _FudpGroup__650201__main_init__default
+	// _FudpGroup__650301__CHin_select_send__default
+	// _FdataPack__101__udpConnPort
 
 	_Fex(" 893189 99 : the reason exit : "+<-_Cexit, nil)
 } // main
