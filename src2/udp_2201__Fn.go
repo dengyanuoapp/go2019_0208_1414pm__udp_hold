@@ -49,6 +49,10 @@ func _Finit_2201() {
 		uTmDecodeLO:       &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
 	}
 
+	_VloginCheck_FnWaitDun = _TloginCheck{
+		ucCHSendLO: &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
+	}
+
 	_VudpGroup_Fn = _TudpGroupSt{
 		ugName:        "udpGroup_Fn",
 		ugAmount:      20,
