@@ -46,10 +46,10 @@ const (
 // _TudpNodeSt
 type _TgapTimer struct {
 	uTmCHunDataReceLI *_TudpNodeSt // an udpNode pointer , if not nil , read from it's unCHreceLO
-	uTmDecodeOutLX    *chan _Tdecode
-	uTmCB750101init   func(*_TgapTimer) // if nil , use the default init procedure
-	uTmCB750201rece2  func(*_TgapTimer) // if nil , use the default receive
-	uTmCB750301gap2   func(*_TgapTimer) // if nil , use the default gap loop
+	uTmDecodeLO       *chan _Tdecode
+	uTmCB750101init   func(*_TgapTimer) // if nil , use the default init procedure // _FudpTimer__750101x__init__default
+	uTmCB750201rece2  func(*_TgapTimer) // if nil , use the default receive        // _FudpTimer__750201x__gap_receive__default
+	uTmCB750301gap2   func(*_TgapTimer) // if nil , use the default gap loop       // _FudpTimer__750301x__gap_loop__default
 	uTmGapX           time.Duration
 	//uTmCHugConnPortLO *chan _TudpConnPort // nor-nil ==> every gap , gen tryConn package and push into this chan , usually a udpGroupNodeArr
 	//uTmSrvDownInfoLX  *_TsrvDownInfo      // input , try to connect
