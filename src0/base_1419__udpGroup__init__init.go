@@ -23,7 +23,7 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 // _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
 // _TudpGroupSt
 // _TudpNodeSt
-//	ugCHtmpReceO  chan _TudpNodeDataRece      // unCHreceLX    *chan _TudpNodeDataRece //
+//	ugCHtmpReceO  chan _TudpNodeDataRece      // unCHreceLO    *chan _TudpNodeDataRece //
 //	ugCHtmpSendLI [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  //
 func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
@@ -53,7 +53,7 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 		} else {
 			__Vun.unRKeyLP = ___Vug.ugRkeyLP[__Vi]
 		}
-		__Vun.unCHreceLX = &(___Vug.ugCHtmpReceO)
+		__Vun.unCHreceLO = &(___Vug.ugCHtmpReceO)
 		___Vug.ugCHtmpSendLI[__Vi] = &(__Vun.unCHsendI)
 		_Frun(__Vun, 540201) // IRun // _FudpNode__540201__main_init__default
 	}

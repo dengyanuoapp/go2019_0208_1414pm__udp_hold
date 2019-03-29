@@ -10,7 +10,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
 		___Vun.unRlen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
 		___Vun.unRemoteAddr = *__VuAddr
 		if nil == ___Vun.unRerr {
-			if nil == ___Vun.unCHreceLX {
+			if nil == ___Vun.unCHreceLO {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
@@ -38,7 +38,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy3__receiveCallBack_default__randDe
 			//urrBuf:        make([]byte,___Vun.unRlen)
 		}
 		//copy(__Vrece.urrBuf,        ___Vun.unRbuf[:___Vun.unRlen])
-		(*___Vun.unCHreceLX) <- __Vrece
+		(*___Vun.unCHreceLO) <- __Vrece
 		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
 		return
 	}
@@ -80,5 +80,5 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy4__receiveCallBack_default__randDe
 		_FpfNhex(&__Vunr.urrBuf, 38, " 439192 08 rece : %d ,%11d %v ", __Vunr.urrLen, _FtimeI64(), __Vunr.urrRemoteAddr)
 	}
 
-	(*___Vun.unCHreceLX) <- __Vunr
+	(*___Vun.unCHreceLO) <- __Vunr
 }

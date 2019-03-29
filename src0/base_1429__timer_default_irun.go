@@ -34,7 +34,7 @@ func _FudpTimer__750101x__init__default(___Vgtm *_TgapTimer) {
 	}
 
 	__VuRece := make(chan _TudpNodeDataRece, 10)
-	___Vgtm.uTmCHunDataReceLI.unCHreceLX = &__VuRece
+	___Vgtm.uTmCHunDataReceLI.unCHreceLO = &__VuRece
 
 	_Fsleep(_T1s)
 

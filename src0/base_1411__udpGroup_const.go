@@ -9,7 +9,7 @@ type _TudpGroupSt struct {
 	ugCBinit       func(*_TudpGroupSt) //
 	ugCBchInSend   func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
 	ugCHuConnPortI chan _TudpConnPort
-	ugCHtmpReceO   chan _TudpNodeDataRece        // unCHreceLX    *chan _TudpNodeDataRece //
+	ugCHtmpReceO   chan _TudpNodeDataRece        // unCHreceLO    *chan _TudpNodeDataRece //
 	ugCHtmpSendLI  [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  //
 	ugLastSendIdx  int
 	//ugDecodeI      chan _Tdecode

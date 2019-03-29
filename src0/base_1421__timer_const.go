@@ -45,7 +45,7 @@ const (
 
 // _TudpNodeSt
 type _TgapTimer struct {
-	uTmCHunDataReceLI *_TudpNodeSt // an udpNode pointer , if not nil , read from it's unCHreceLX
+	uTmCHunDataReceLI *_TudpNodeSt // an udpNode pointer , if not nil , read from it's unCHreceLO
 	uTmDecodeOutLX    *chan _Tdecode
 	uTmCB750101init   func(*_TgapTimer) // if nil , use the default init procedure
 	uTmCB750201rece2  func(*_TgapTimer) // if nil , use the default receive
