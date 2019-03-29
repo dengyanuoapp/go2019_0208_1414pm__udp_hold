@@ -3,7 +3,7 @@ package main
 func (___Vun *_TudpNodeSt) _FudpNode__540201z__send() {
 	for {
 		select {
-		case __VchSend := <-___Vun.unCHsendX: // _TudpNodeDataSend
+		case __VchSend := <-___Vun.unCHsendI: // _TudpNodeDataSend
 			//_FpfN(" 839118 01 send ") // usToAddr _TudpConnPort
 
 			__VchSend._FudpNode__540201zz__try_Rand_buf_before_send()

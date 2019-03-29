@@ -5,7 +5,7 @@ import (
 )
 
 func (___Vun *_TudpNodeSt) _FudpNode__540201x__listen() {
-	___Vun.unCHsendX = make(chan _TudpNodeDataSend, 5) // silice : with var len
+	___Vun.unCHsendI = make(chan _TudpNodeDataSend, 5) // silice : with var len
 
 	//_FtryListenToUDP01()
 	___Vun.unAddr, ___Vun.unErr = net.ResolveUDPAddr("udp4", ___Vun.unHostPortStr)

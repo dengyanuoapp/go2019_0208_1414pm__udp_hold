@@ -23,14 +23,14 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 // _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
 // _TudpGroupSt
 // _TudpNodeSt
-//	ugCHtmpReceX  chan _TudpNodeDataRece      // unCHreceLX    *chan _TudpNodeDataRece //
-//	ugCHtmpSendLX [](*(chan _TudpNodeDataSend)) // unCHsendX     chan _TudpNodeDataSend  //
+//	ugCHtmpReceO  chan _TudpNodeDataRece      // unCHreceLX    *chan _TudpNodeDataRece //
+//	ugCHtmpSendLI [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  //
 func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
-	___Vug.ugCHuConnPortX = make(chan _TudpConnPort, 8)
+	___Vug.ugCHuConnPortI = make(chan _TudpConnPort, 8)
 	___Vug.ugNodeS = make([]_TudpNodeSt, ___Vug.ugAmount)
-	___Vug.ugCHtmpSendLX = make([](*(chan _TudpNodeDataSend)), ___Vug.ugAmount)
-	___Vug.ugCHtmpReceX = make(chan _TudpNodeDataRece, ___Vug.ugAmount)
+	___Vug.ugCHtmpSendLI = make([](*(chan _TudpNodeDataSend)), ___Vug.ugAmount)
+	___Vug.ugCHtmpReceO = make(chan _TudpNodeDataRece, ___Vug.ugAmount)
 
 	if 0 == ___Vug.ugAmount {
 		_FpfNex(" 834811 01 : why zero amounn ?")
@@ -53,8 +53,8 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 		} else {
 			__Vun.unRKeyLP = ___Vug.ugRkeyLP[__Vi]
 		}
-		__Vun.unCHreceLX = &(___Vug.ugCHtmpReceX)
-		___Vug.ugCHtmpSendLX[__Vi] = &(__Vun.unCHsendX)
+		__Vun.unCHreceLX = &(___Vug.ugCHtmpReceO)
+		___Vug.ugCHtmpSendLI[__Vi] = &(__Vun.unCHsendI)
 		_Frun(__Vun, 540201) // IRun // _FudpNode__540201__main_init__default
 	}
 

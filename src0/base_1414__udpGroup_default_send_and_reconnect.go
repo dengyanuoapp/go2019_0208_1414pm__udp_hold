@@ -5,7 +5,7 @@ package main
 // _TudpConnPort
 func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
-	//__Vlen := len(___Vug.ugCHuConnPortX)
+	//__Vlen := len(___Vug. ugCHuConnPortI)
 	//_FpfNdb(" 838111 01 len : %d", __Vlen)
 	var (
 		__VusData _TudpNodeDataSend
@@ -13,7 +13,7 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	)
 	for {
 		select {
-		case __VchPort := <-___Vug.ugCHuConnPortX: // _TudpConnPort
+		case __VchPort := <-___Vug.ugCHuConnPortI: // _TudpConnPort
 			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
 			//_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
 			__VusData.usToAddr = __VchPort
@@ -44,7 +44,7 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 	}
 	//_FpfN(" 838117 06 : idx %0x , %d , %v", ___Vidx, ___Vidx, ___Vug_ugLastSendIdx_Arr)
 
-	__Vch := ___Vug.ugCHtmpSendLX[___Vidx]
+	__Vch := ___Vug.ugCHtmpSendLI[___Vidx]
 	if nil == __Vch {
 		_FpfNex(" 838117 07 : why NULL ?")
 		return
@@ -54,7 +54,7 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 }
 
 func (___Vug *_TudpGroupSt) _FudpGroup__650301www__send_genIdx() int {
-	__Vlen := len(___Vug.ugCHtmpSendLX)
+	__Vlen := len(___Vug.ugCHtmpSendLI)
 	if 0 == __Vlen {
 		_FpfNex(" 838117 02 : why NULL ?")
 		return 0

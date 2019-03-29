@@ -6,12 +6,13 @@ type _TudpGroupSt struct {
 	ugAmount       int
 	ugRkeyLP       [](*[]byte)
 	ugNodeS        []_TudpNodeSt
-	ugCHuConnPortX chan _TudpConnPort
-	ugCBinit       func(*_TudpGroupSt)           //
-	ugCBchInSend   func(*_TudpGroupSt)           // if nil , use the default procedure to deal with send
-	ugCHtmpReceX   chan _TudpNodeDataRece        // unCHreceLX    *chan _TudpNodeDataRece //
-	ugCHtmpSendLX  [](*(chan _TudpNodeDataSend)) // unCHsendX     chan _TudpNodeDataSend  //
+	ugCBinit       func(*_TudpGroupSt) //
+	ugCBchInSend   func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
+	ugCHuConnPortI chan _TudpConnPort
+	ugCHtmpReceO   chan _TudpNodeDataRece        // unCHreceLX    *chan _TudpNodeDataRece //
+	ugCHtmpSendLI  [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  //
 	ugLastSendIdx  int
+	//ugDecodeI      chan _Tdecode
 	//ugCBrece       func(*_TudpGroupSt) // if nil , use the default procedure to deal with receive
 	//ugCBsend       func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
 }
