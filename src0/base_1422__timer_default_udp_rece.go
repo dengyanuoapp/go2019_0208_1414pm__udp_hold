@@ -22,8 +22,12 @@ func _FudpTimer__700201x10__gap_receive__default(___Vutm *_TgapTimer) {
 			__Vdecode.remoteAddr = __Vundr.urrRemoteAddr
 			__Vdecode.receiveTime = _FtimeInt()
 
-			//_FpfNdb(" 388195 07 : %#v, key %x", __Vundr, __Vdecode.remotePortKey)
-			_FpfNdb(" 388195 08 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)
+			if nil == ___Vutm.uTmDecodeLO {
+				//_FpfNdb(" 388195 07 : %#v, key %x", __Vundr, __Vdecode.remotePortKey)
+				_FpfNdb(" 388195 08 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)
+			} else {
+				(*___Vutm.uTmDecodeLO) <- __Vdecode
+			}
 		}
 	}
 }

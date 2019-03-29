@@ -46,6 +46,7 @@ func _Finit_2201() {
 
 	_VudpTimer01 = _TgapTimer{
 		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
+		uTmDecodeLO:       &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
 	}
 
 	_VudpGroup_Fn = _TudpGroupSt{
