@@ -46,6 +46,9 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 	}
 
 	___Vdecode.remotePortKey = ___Vbuf[5:37]
+	___Vdecode.ok = true
+	___Vdecode.Type = ___Vbuf[0]
+	___Vdecode.receiveTime = _FtimeInt()
 
 	//_FpfNdb(" 387193 05 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])
 }
