@@ -80,6 +80,8 @@ func main() {
 	// _FudpTimer__750201x__gap_receive__default
 	go _Frun(&_VudpTimer01, 750101) // IRun _FudpTimer__750101x__init__default
 
+	go _Frun(&_VloginCheck_FnWaitDun, 900101) // _FloginCheck__900101x__init__default
+
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Fn, 650201) // IRun _FudpGroup__650201__main_init__default
 	// _FudpGroup__650301__CHin_select_send__default
