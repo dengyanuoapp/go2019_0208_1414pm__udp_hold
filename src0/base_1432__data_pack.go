@@ -8,7 +8,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _VS.meSeq128,
-		Token:    ___VuConnPort.TK,
+		TokenA:   ___VuConnPort.TK,
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}

@@ -57,7 +57,8 @@ type _TreqIneedToLogin struct {
 	MeSeq128 []byte
 	ToIdx128 []byte
 	ToSeq128 []byte
-	Token    []byte
+	TokenA   []byte
+	TokenB   []byte
 }
 
 type _TreqLoginCNT struct {
