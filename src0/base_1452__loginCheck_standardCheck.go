@@ -18,6 +18,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
 				case Cmd__loginS1ReqTryNoToken:
+					_FloginCheck_step102__sReply_token2(&__Vdecode, ___Vlc.ucCHSendLO)
 				default:
 					_FpfNdb(" 838392 07 : unknow how to deal with : %d", __Vdecode.Type)
 				}
