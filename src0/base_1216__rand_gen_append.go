@@ -195,3 +195,9 @@ func _FgenRand_int32__() int32 {
 func _FgenRand_uint32__() uint32 {
 	return binary.BigEndian.Uint32(_FgenRand_nByte__(4))
 }
+
+func _FgenB16(___VbIn *[]byte) [16]byte {
+	var __Vb16 [16]byte
+	copy(__Vb16[:], (*___VbIn)[:16])
+	return __Vb16
+}
