@@ -67,8 +67,8 @@ func main() {
 	go _Frun(&_VserviceTcpMd, 200101)
 
 	// _TudpNodeSt _TudpGroupSt
-	go _Frun(&_VudpGroup_Dn, 650201) // IRun _FudpGroup__650201__main_init__default
-	// _FudpGroup__650301__CHin_select_send__default
+	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
+	// _FudpGroup__600201__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
 
 	go _Frun(&_VloginGenerator, 850102) // IRun _FudpTimer__850102x__init__tryUdpLogin__default

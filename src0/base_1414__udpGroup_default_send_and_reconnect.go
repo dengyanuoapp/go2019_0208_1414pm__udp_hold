@@ -3,7 +3,7 @@ package main
 // _TudpGroupSt
 // _TudpNodeSt
 // _TudpConnPort
-func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
+func _FudpGroup__600201__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
 	//__Vlen := len(___Vug. ugCHuConnPortI)
 	//_FpfNdb(" 838111 01 len : %d", __Vlen)
@@ -19,14 +19,14 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 		//			__VusData.usToAddr = __VchPort
 		//			//__VusData .  usOutBuf= *(__VchPort._FdataPack__101__udpConnPort()),
 		//			__VchPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
-		//			__Vidx = ___Vug._FudpGroup__650301www__send_genIdx()
+		//			__Vidx = ___Vug._FudpGroup__600201www__send_genIdx()
 		//			//__Vidx = 0
 		//
 		//		}
 		case __VusData = <-___Vug.ugCHSendI: // _TudpNodeDataSend
-			__Vidx = ___Vug._FudpGroup__650301www__send_genIdx()
+			__Vidx = ___Vug._FudpGroup__600201www__send_genIdx()
 		}
-		___Vug._FudpGroup__650301zzz__send_byteOnly(&__VusData, __Vidx)
+		___Vug._FudpGroup__600201zzz__send_byteOnly(&__VusData, __Vidx)
 	}
 }
 
@@ -34,7 +34,7 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 //	ugRANDremain  int
 var ___Vug_ugLastSendIdx_Arr []int
 
-func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNodeDataSend, ___Vidx int) {
+func (___Vug *_TudpGroupSt) _FudpGroup__600201zzz__send_byteOnly(___Vs *_TudpNodeDataSend, ___Vidx int) {
 	if (nil == ___Vs) || (0 == len(___Vs.usOutBuf)) {
 		_FpfN(" 838117 01 : why NULL ?")
 		return
@@ -56,7 +56,7 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 	(*__Vch) <- (*___Vs) // send plainText to the single node : the rand-gen being process in specified-node
 }
 
-func (___Vug *_TudpGroupSt) _FudpGroup__650301www__send_genIdx() int {
+func (___Vug *_TudpGroupSt) _FudpGroup__600201www__send_genIdx() int {
 	__Vlen := len(___Vug.ugChTmpSendLI)
 	if 0 == __Vlen {
 		_FpfNex(" 838117 02 : why NULL ?")

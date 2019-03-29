@@ -77,14 +77,14 @@ func main() {
 	// _FdataPack__301__dataDecode_loginS1ReqTryNoToken
 	go _Frun(&_VudpNode_FunWaitDun, 540201) // IRun _FudpNode__540201__main_init__default
 
-	// _FudpTimer__750201x__gap_receive__default
-	go _Frun(&_VudpTimer01, 750101) // IRun _FudpTimer__750101x__init__default
+	// _FudpTimer__700201x__gap_receive__default
+	go _Frun(&_VudpTimer01, 700101) // IRun _FudpTimer__700101x__init__default
 
 	go _Frun(&_VloginCheck_FnWaitDun, 900101) // _FloginCheck__900101x__init__default
 
 	// _TudpNodeSt _TudpGroupSt
-	go _Frun(&_VudpGroup_Fn, 650201) // IRun _FudpGroup__650201__main_init__default
-	// _FudpGroup__650301__CHin_select_send__default
+	go _Frun(&_VudpGroup_Fn, 600101) // IRun _FudpGroup__600101__main_init__default
+	// _FudpGroup__600201__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
 
 	_Fex(" 893189 99 : the reason exit : "+<-_Cexit, nil)

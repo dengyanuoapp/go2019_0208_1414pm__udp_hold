@@ -2,15 +2,15 @@ package main
 
 func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 650201:
+	case 600101:
 		if nil == ___Vug.ugCBinit {
-			_FudpGroup__650201__main_init__default(___Vug)
+			_FudpGroup__600101__main_init__default(___Vug)
 		} else {
 			___Vug.ugCBinit(___Vug)
 		}
-	case 650301:
+	case 600201:
 		if nil == ___Vug.ugCBchInSend {
-			_FudpGroup__650301__CHin_select_send__default(___Vug)
+			_FudpGroup__600201__CHin_select_send__default(___Vug)
 		} else {
 			___Vug.ugCBchInSend(___Vug)
 		}
@@ -25,7 +25,7 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 // _TudpNodeSt
 //	ugChTmpReceO  chan _TudpNodeDataRece      // unCHreceLO    *chan _TudpNodeDataRece //
 //	ugChTmpSendLI [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  //
-func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
+func _FudpGroup__600101__main_init__default(___Vug *_TudpGroupSt) {
 
 	//___Vug.ugCHuConnPortI = make(chan _TudpConnPort, 8)
 	___Vug.ugCHSendI = make(chan _TudpNodeDataSend, 8)
@@ -61,7 +61,7 @@ func _FudpGroup__650201__main_init__default(___Vug *_TudpGroupSt) {
 
 	_Fsleep(_T1s)
 
-	go _Frun(___Vug, 650301) // _FudpGroup__650301__CHin_select_send__default
+	go _Frun(___Vug, 600201) // _FudpGroup__600201__CHin_select_send__default
 
 	//_FpfN(" 834811 97 : exit.[%#v]", ___Vug)
 	//_FpfNex(" 834811 98 : exit. ")
