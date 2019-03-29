@@ -50,7 +50,7 @@ func _Finit__2301() {
 			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 		},
 		//ulCHugConnPortLO: &_VudpGroup_Dn.ugCHuConnPortI,
-		ulCHunSendLO: &_VudpGroup_Dn.ugCHSendLI,
+		ulCHunSendLO: &_VudpGroup_Dn.ugCHSendI,
 	}
 
 	// _FdebugPrintTest()

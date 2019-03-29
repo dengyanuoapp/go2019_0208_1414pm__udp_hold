@@ -23,7 +23,7 @@ func _FudpGroup__650301__CHin_select_send__default(___Vug *_TudpGroupSt) {
 		//			//__Vidx = 0
 		//
 		//		}
-		case __VusData = <-___Vug.ugCHSendLI: // _TudpNodeDataSend
+		case __VusData = <-___Vug.ugCHSendI: // _TudpNodeDataSend
 			__Vidx = ___Vug._FudpGroup__650301www__send_genIdx()
 		}
 		___Vug._FudpGroup__650301zzz__send_byteOnly(&__VusData, __Vidx)

@@ -8,6 +8,4 @@ type _TloginGenerator struct {
 	ulCB850101init    func(*_TgapTimer)       // if nil , use the default init procedure
 	ulCB850201chRece  func(*_TgapTimer)       // if nil , use the default receive
 	ulCB850301ConnGen func(*_TgapTimer)       // if nil , use the default receive
-	//ulCHugConnPortLO *chan _TudpConnPort // every gap , gen tryConn package and push into this chan , usually a udpGroupNodeArr
-	//ulDecodeOutLX     *chan _Tdecode
 }

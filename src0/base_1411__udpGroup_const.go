@@ -11,7 +11,7 @@ type _TudpGroupSt struct {
 	ugCBinit      func(*_TudpGroupSt) //
 	ugCBchInSend  func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
 	//ugCHuConnPortI chan _TudpConnPort
-	ugCHSendLI    chan _TudpNodeDataSend // all data need to be sent by nodeS send here , then  will distribute to one of node
+	ugCHSendI     chan _TudpNodeDataSend // all data need to be sent by nodeS send here , then  will distribute to one of node
 	ugLastSendIdx int
 	//ugDecodeI      chan _Tdecode
 	//ugCBrece       func(*_TudpGroupSt) // if nil , use the default procedure to deal with receive
