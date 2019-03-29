@@ -71,7 +71,7 @@ func main() {
 	// _FudpGroup__600201__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
 
-	go _Frun(&_VloginGenerator, 850102) // IRun _FudpTimer__850102x__init__tryUdpLogin__default
+	go _Frun(&_VloginGenerator, 800101) // IRun _FudpTimer__800101x__init__tryUdpLogin__default
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
 } // main

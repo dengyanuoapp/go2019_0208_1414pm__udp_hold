@@ -19,8 +19,8 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 	} // switch ___Vidx
 }
 
-// _FudpNode__540201__main_init__default
-// _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
+// _FudpNode__500101__main_init__default
+// _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
 // _TudpGroupSt
 // _TudpNodeSt
 //	ugChTmpReceO  chan _TudpNodeDataRece      // unCHreceLO    *chan _TudpNodeDataRece //
@@ -56,7 +56,7 @@ func _FudpGroup__600101__main_init__default(___Vug *_TudpGroupSt) {
 		}
 		__Vun.unCHreceLO = &(___Vug.ugChTmpReceO)
 		___Vug.ugChTmpSendLI[__Vi] = &(__Vun.unCHsendI)
-		_Frun(__Vun, 540201) // IRun // _FudpNode__540201__main_init__default
+		_Frun(__Vun, 500101) // IRun // _FudpNode__500101__main_init__default
 	}
 
 	_Fsleep(_T1s)

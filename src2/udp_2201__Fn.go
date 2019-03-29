@@ -75,7 +75,7 @@ func main() {
 
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
 	// _FdataPack__301__dataDecode_loginS1ReqTryNoToken
-	go _Frun(&_VudpNode_FunWaitDun, 540201) // IRun _FudpNode__540201__main_init__default
+	go _Frun(&_VudpNode_FunWaitDun, 500101) // IRun _FudpNode__500101__main_init__default
 
 	// _FudpTimer__700201x__gap_receive__default
 	go _Frun(&_VudpTimer01, 700101) // IRun _FudpTimer__700101x__init__default

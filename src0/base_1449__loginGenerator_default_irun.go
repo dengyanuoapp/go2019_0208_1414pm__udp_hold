@@ -6,8 +6,8 @@ import (
 
 func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 	switch ___Vidx {
-	case 850102:
-		_FudpTimer__850102x__init__tryUdpLogin__default(___Vlg)
+	case 800101:
+		_FudpTimer__800101x__init__tryUdpLogin__default(___Vlg)
 	default:
 		_FpfNex(" 739182 99 unknow :idx %d", ___Vidx)
 	}
@@ -18,7 +18,7 @@ func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 // _TgapTimer
 // _TloginGenerator
 // ulSrvDownInfoLX *_TsrvDownInfo
-func _FudpTimer__850102x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
+func _FudpTimer__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 	__VnewSession := ___Vlg.ulSrvDownInfoLX
 	_FpfNdb(" 138181 01 %#v ", ___Vlg.ulSrvDownInfoLX)
 

@@ -1,19 +1,19 @@
 package main
 
-func (___Vun *_TudpNodeSt) _FudpNode__540201z__send() {
+func (___Vun *_TudpNodeSt) _FudpNode__500101z__send() {
 	for {
 		select {
 		case __VchSend := <-___Vun.unCHsendI: // _TudpNodeDataSend
 			//_FpfN(" 839118 01 send ") // usToAddr _TudpConnPort
 
-			__VchSend._FudpNode__540201zz__try_Rand_buf_before_send()
-			___Vun._FudpNode__540201zzz__send_buf_real(&__VchSend)
+			__VchSend._FudpNode__500101zz__try_Rand_buf_before_send()
+			___Vun._FudpNode__500101zzz__send_buf_real(&__VchSend)
 		}
 		//_Fsleep_1s()
 	}
 }
 
-func (___Vus *_TudpNodeDataSend) _FudpNode__540201zz__try_Rand_buf_before_send() {
+func (___Vus *_TudpNodeDataSend) _FudpNode__500101zz__try_Rand_buf_before_send() {
 	__Vlen := len(___Vus.usToAddr.K256)
 	if 0 == __Vlen {
 		return
@@ -25,7 +25,7 @@ func (___Vus *_TudpNodeDataSend) _FudpNode__540201zz__try_Rand_buf_before_send()
 
 }
 
-func (___Vun *_TudpNodeSt) _FudpNode__540201zzz__send_buf_real(___Vus *_TudpNodeDataSend) {
+func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNodeDataSend) {
 	if nil == ___Vus {
 		_FpfN(" 839119 01 : why nil ?")
 		return

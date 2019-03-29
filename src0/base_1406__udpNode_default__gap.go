@@ -40,7 +40,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	___Vun.unRmap.unrMux.Unlock()
 }
 
-// replace the _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
+// replace the _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
 func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	//_FpfNhex(&___Vun.unRbuf, 30, " 848232 01 rece %d", ___Vun.unRlen)
 
@@ -105,6 +105,6 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 
 	if __Vreply {
 		//(*___Vun.unCHreceLO) <- __Vrece
-		___Vun._FudpNode__540201yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
+		___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
 	}
 }

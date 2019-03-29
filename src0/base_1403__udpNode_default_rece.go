@@ -3,7 +3,7 @@ package main
 import "net"
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
-func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
+func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 	var __VuAddr *net.UDPAddr
 	for {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
@@ -14,8 +14,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
-					___Vun._FudpNode__540201yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect()
-					//___Vun._FudpNode__540201yy4__receiveCallBack_default__randDecodeOut_mustDecode()
+					___Vun._FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect()
+					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()
 				} else {
 					___Vun.unCBrece(___Vun)
 				}
@@ -27,7 +27,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201y__receive() {
 	}
 }
 
-func (___Vun *_TudpNodeSt) _FudpNode__540201yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() {
+func (___Vun *_TudpNodeSt) _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() {
 
 	var __Vrece _TudpNodeDataRece
 	if ___Vun.unRkeyX.disable {
@@ -42,11 +42,11 @@ func (___Vun *_TudpNodeSt) _FudpNode__540201yy3__receiveCallBack_default__randDe
 		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
 		return
 	}
-	___Vun._FudpNode__540201yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
+	___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
 
 }
 
-func (___Vun *_TudpNodeSt) _FudpNode__540201yy4__receiveCallBack_default__randDecodeOut_mustDecode(___VbufIn *[]byte) {
+func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(___VbufIn *[]byte) {
 
 	if ___Vun.unRkeyX.disable {
 		_FpfNhex(___VbufIn, 30, " 439192 01 key disabled ,skip rece rand decode")
