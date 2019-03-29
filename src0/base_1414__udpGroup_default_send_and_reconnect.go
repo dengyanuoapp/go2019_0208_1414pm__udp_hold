@@ -44,7 +44,7 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 	}
 	//_FpfN(" 838117 06 : idx %0x , %d , %v", ___Vidx, ___Vidx, ___Vug_ugLastSendIdx_Arr)
 
-	__Vch := ___Vug.ugCHtmpSendLI[___Vidx]
+	__Vch := ___Vug.ugChTmpSendLI[___Vidx]
 	if nil == __Vch {
 		_FpfNex(" 838117 07 : why NULL ?")
 		return
@@ -54,7 +54,7 @@ func (___Vug *_TudpGroupSt) _FudpGroup__650301zzz__send_byteOnly(___Vs *_TudpNod
 }
 
 func (___Vug *_TudpGroupSt) _FudpGroup__650301www__send_genIdx() int {
-	__Vlen := len(___Vug.ugCHtmpSendLI)
+	__Vlen := len(___Vug.ugChTmpSendLI)
 	if 0 == __Vlen {
 		_FpfNex(" 838117 02 : why NULL ?")
 		return 0

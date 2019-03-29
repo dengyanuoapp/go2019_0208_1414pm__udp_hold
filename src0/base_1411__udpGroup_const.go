@@ -1,6 +1,8 @@
 package main
 
 type _TudpGroupSt struct {
+	ugChTmpReceO   chan _TudpNodeDataRece        // unCHreceLO    *chan _TudpNodeDataRece // interal used
+	ugChTmpSendLI  [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  // interal used
 	ugName         string
 	ugHostPortStr  []string
 	ugAmount       int
@@ -9,8 +11,7 @@ type _TudpGroupSt struct {
 	ugCBinit       func(*_TudpGroupSt) //
 	ugCBchInSend   func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
 	ugCHuConnPortI chan _TudpConnPort
-	ugCHtmpReceO   chan _TudpNodeDataRece        // unCHreceLO    *chan _TudpNodeDataRece //
-	ugCHtmpSendLI  [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  //
+	ugCHSendLI     chan _TudpNodeDataSend // all data need to be sent by nodeS send here , then  will distribute to one of node
 	ugLastSendIdx  int
 	//ugDecodeI      chan _Tdecode
 	//ugCBrece       func(*_TudpGroupSt) // if nil , use the default procedure to deal with receive

@@ -5,14 +5,15 @@ import (
 )
 
 var (
-	_VudpNode_FunWaitDun _TudpNodeSt
-	_VserviceTcpMf       _TserviceTCP
-	_VudpTimer01         _TgapTimer
-	_VudpGroup_Fn        _TudpGroupSt
-	_Cexit               chan string
-	_Clog                chan string
-	_Vself               _Tself
-	_Vconfig             _Tconfig
+	_VudpNode_FunWaitDun   _TudpNodeSt
+	_VserviceTcpMf         _TserviceTCP
+	_VudpTimer01           _TgapTimer
+	_VloginCheck_FnWaitDun _TloginCheck
+	_VudpGroup_Fn          _TudpGroupSt
+	_Cexit                 chan string
+	_Clog                  chan string
+	_Vself                 _Tself
+	_Vconfig               _Tconfig
 )
 
 func _Finit_2201() {
