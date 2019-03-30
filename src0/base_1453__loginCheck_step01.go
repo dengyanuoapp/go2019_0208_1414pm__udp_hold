@@ -11,6 +11,15 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102__sReply_tokenB(___Vdecode *_Tde
 
 	__Vk := _FgenB16(&___Vdecode.D__loginS1ReqTryNoToken.MeIdx128)
 
+	if len(___Vlc.ucMapConnA) > 300 {
+		_FdeleteOld_conA(&___Vlc.ucMapConnA)
+	}
+
 	_FpfNdb(" 838393 03 : key is <%x> ", __Vk)
+	___Vdecode.D__loginS1ReqTryNoToken.TokenA = _FgenRand_nByte__(16)
+
 	___Vlc.ucMapConnA[__Vk] = *___Vdecode
+}
+
+func _FdeleteOld_conA(___Vm *map[[16]byte]_Tdecode) {
 }
