@@ -22,4 +22,14 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102__sReply_tokenB(___Vdecode *_Tde
 }
 
 func _FdeleteOld_conA(___Vm *map[[16]byte]_Tdecode) {
+	var __Vdel [][16]byte
+	__Vnow := _FtimeInt()
+	for __k, __v := range *___Vm {
+		if __Vnow-__v.receiveTime > 100 {
+			__Vdel = append(__Vdel, __k)
+		}
+	}
+	for _, __v := range __Vdel {
+		delete(*___Vm, __v)
+	}
 }
