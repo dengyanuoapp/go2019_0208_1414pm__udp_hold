@@ -26,13 +26,20 @@ func _FudpTimer__700201x10__gap_receive__default(___Vutm *_TgapTimer) {
 				//_FpfNdb(" 388195 05 : %#v, key %x", __Vundr, __Vdecode.remotePortKey)
 				_FpfNdb(" 388195 06 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)
 			} else {
+				__VoutT := false
 				switch __Vdecode.Type {
-				case Cmd__loginS1ReqTryNoToken:
-					_FpfN(" 388195 08 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.D__loginS1ReqTryNoToken.TokenA)
+				case Cmd__loginS1ReqTryNoToken: // 15540362231554036223
+					_FpfN(" 388195 07 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.D__loginS1ReqTryNoToken.TokenA)
+					__VoutT = true
 				default:
-					_FpfN(" 388195 09 : type %d", __Vdecode.Type)
+					_FpfN(" 388195 08 : type %d", __Vdecode.Type)
 				}
-				(*___Vutm.uTmDecodeLO) <- __Vdecode
+				if __VoutT {
+					if nil != ___Vutm.uTmDecodeLO {
+						_FpfN(" 388195 09 real outChain : type %d", __Vdecode.Type)
+						(*___Vutm.uTmDecodeLO) <- __Vdecode
+					}
+				}
 			}
 		}
 	}

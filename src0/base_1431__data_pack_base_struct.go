@@ -15,6 +15,25 @@ const (
 	Cmd__end
 )
 
+func CmdType(___Vc int) string {
+	switch ___Vc {
+	case Cmd__NULL:
+		return "Cmd__NULL"
+	case Cmd__idle:
+		return "Cmd__idle"
+	case Cmd__data:
+		return "Cmd__data"
+	case Cmd__loginS1ReqTryNoToken:
+		return "Cmd__loginS1ReqTryNoToken"
+	case Cmd__loginS2ReplyTmpToken:
+		return "Cmd__loginS2ReplyTmpToken"
+	case Cmd__loginS3ReqWithToken:
+		return "Cmd__loginS3ReqWithToken"
+	default:
+		return "Cmd__unknown"
+	}
+}
+
 var (
 	_VersionProtocol01    = []byte{0x83, 0x20, 0x71, 0xc8}
 	_VdataPackageMinLen   = 1 + 4 + 32 + 32

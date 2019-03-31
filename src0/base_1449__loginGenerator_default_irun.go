@@ -63,7 +63,7 @@ func _FudpTimer__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 							var __VusData _TudpNodeDataSend // _TudpConnPort
 							__VucPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
 							__VusData.usToAddr = *__VucPort   // _TudpConnPort
-							*___Vlg.ulCHunSendLO <- __VusData // 15540362231554036223
+							*___Vlg.ulCHunSendLO <- __VusData //
 							_FsleepRand_12_to_14s()
 							*___Vlg.ulCHunSendLO <- __VusData // 15540362231554036223
 						}
