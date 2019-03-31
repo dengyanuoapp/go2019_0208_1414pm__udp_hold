@@ -7,18 +7,18 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102__sReply_tokenB(___Vdecode *_Tde
 	}
 
 	_FpfNdb(" 838393 01 : ...... ")
-	//___Vlc.ucMapConnA        map[[16]byte]_TconnInfo // _TreqIneedToLogin MeIdx128
+	//___Vlc.ucM.cmAnow        map[[16]byte]_TconnInfo // _TreqIneedToLogin MeIdx128
 
 	__Vk := _FgenB16(&___Vdecode.D__loginS1ReqTryNoToken.MeIdx128)
 
-	if len(___Vlc.ucMapConnA) > 300 {
-		_FdeleteOld_conA(&___Vlc.ucMapConnA)
+	if len(___Vlc.ucM.cmAnow) > 300 {
+		_FdeleteOld_conA(&___Vlc.ucM.cmAnow)
 	}
 
 	_FpfNdb(" 838393 03 : key is <%x> ", __Vk)
 	___Vdecode.D__loginS1ReqTryNoToken.TokenA = _FgenRand_nByte__(16)
 
-	___Vlc.ucMapConnA[__Vk] = *___Vdecode
+	___Vlc.ucM.cmAnow[__Vk] = *___Vdecode
 }
 
 func _FdeleteOld_conA(___Vm *map[[16]byte]_Tdecode) {
