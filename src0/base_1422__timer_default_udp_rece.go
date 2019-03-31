@@ -17,15 +17,21 @@ func _FudpTimer__700201x10__gap_receive__default(___Vutm *_TgapTimer) {
 		//_Fsleep_100s()
 		select {
 		case __Vundr = <-(*___Vutm.uTmCHunDataReceLI.unCHreceLO): // _TudpNodeDataRece
-			//_FpfNhex(&__Vundr.urrBuf, 38, " 388195 06 : %T , decode len <%d>: %11d", __Vundr.urrBuf, __Vundr.urrLen, _FtimeI64())
+			//_FpfNhex(&__Vundr.urrBuf, 38, " 388195 03 : %T , decode len <%d>: %11d", __Vundr.urrBuf, __Vundr.urrLen, _FtimeI64())
 			__Vundr._FdataPack__301__dataDecode_loginS1ReqTryNoToken(&__Vdecode) // _Tdecode
 			__Vdecode.remoteAddr = __Vundr.urrRemoteAddr
 			__Vdecode.receiveTime = _FtimeInt()
 
 			if nil == ___Vutm.uTmDecodeLO {
-				//_FpfNdb(" 388195 07 : %#v, key %x", __Vundr, __Vdecode.remotePortKey)
-				_FpfNdb(" 388195 08 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)
+				//_FpfNdb(" 388195 05 : %#v, key %x", __Vundr, __Vdecode.remotePortKey)
+				_FpfNdb(" 388195 06 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)
 			} else {
+				switch __Vdecode.Type {
+				case Cmd__loginS1ReqTryNoToken:
+					_FpfN(" 388195 08 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.D__loginS1ReqTryNoToken.TokenA)
+				default:
+					_FpfN(" 388195 09 : type %d", __Vdecode.Type)
+				}
 				(*___Vutm.uTmDecodeLO) <- __Vdecode
 			}
 		}
