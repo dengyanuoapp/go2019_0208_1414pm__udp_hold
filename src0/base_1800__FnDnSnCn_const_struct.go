@@ -46,7 +46,7 @@ type _TsrvInfo struct {
 	refreshPwd []byte
 } // _TsrvInfo
 
-type _TreqIneedToLogin struct {
+type _TloginReq struct {
 	//Pk     []byte // my Port Key
 	MeTime int64
 	ReqStr string
@@ -61,20 +61,20 @@ type _TreqIneedToLogin struct {
 	TokenB   []byte
 }
 
-type _TreqLoginCNT struct {
-	cntL int
-	reqL _TreqIneedToLogin
-}
-
-type _TreqLogintMap struct {
-	muxLogin   sync.Mutex
-	reqMapNow  map[[16]byte]_TreqLoginCNT
-	reqMapLast map[[16]byte]_TreqLoginCNT
-}
+//type _TreqLoginCNT struct {
+//	cntL int
+//	reqL _TloginReq
+//}
+//
+//type _TreqLogintMap struct {
+//	muxLogin   sync.Mutex
+//	reqMapNow  map[[16]byte]_TreqLoginCNT
+//	reqMapLast map[[16]byte]_TreqLoginCNT
+//}
 
 type _TuAcceptClientSt struct {
 	cId128   [16]byte
-	reqA     _TreqIneedToLogin
+	reqA     _TloginReq
 	CexitAcc chan []byte
 }
 

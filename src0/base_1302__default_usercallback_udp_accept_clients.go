@@ -1,6 +1,6 @@
 package main
 
-func (___VaccM *_TuAcceptClientMap) _FuserCallback__acceptClient01__default(___Vreq _TreqIneedToLogin, ___Vid [16]byte) {
+func (___VaccM *_TuAcceptClientMap) _FuserCallback__acceptClient01__default(___Vreq _TloginReq, ___Vid [16]byte) {
 	_FpfN(" 668191 01 : accepting %x :%v", ___Vid, ___Vreq)
 
 	__VaccSt, __Vexist3 := ___VaccM.uMap[___Vid]

@@ -7,7 +7,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102x__sReply_tokenB(___Vdecode *_Td
 	}
 
 	_FpfNdb(" 838393 01 : ...... ")
-	//___Vlc.ucM.cmAnow        map[[16]byte]_TconnInfo // _TreqIneedToLogin MeIdx128
+	//___Vlc.ucM.cmAnow        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
 	__Vk := _FgenB16(&___Vdecode.D__loginS1ReqTryNoToken.MeIdx128)
 
@@ -36,6 +36,7 @@ func _FdeleteOld_conA(___Vm *map[[16]byte]_Tdecode) {
 	}
 }
 
+// _TloginReq
 func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Tdecode) {
 	var ___VnewUnSend _TudpNodeDataSend
 

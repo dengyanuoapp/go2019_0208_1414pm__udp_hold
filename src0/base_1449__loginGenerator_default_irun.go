@@ -13,7 +13,7 @@ func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 	}
 }
 
-// _TreqIneedToLogin
+// _TloginReq
 // _TsrvInfo
 // _TgapTimer
 // _TloginGenerator

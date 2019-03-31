@@ -4,7 +4,7 @@ import (
 	"sync"
 )
 
-// _TreqIneedToLogin
+// _TloginReq
 type _TconnInfo struct {
 	ciId128 []byte
 }

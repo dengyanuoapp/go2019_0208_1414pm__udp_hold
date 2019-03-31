@@ -37,5 +37,5 @@ type _Tdecode struct {
 	remoteAddr              net.UDPAddr
 	remotePortKey           []byte
 	Type                    byte
-	D__loginS1ReqTryNoToken _TreqIneedToLogin
+	D__loginS1ReqTryNoToken _TloginReq
 }
