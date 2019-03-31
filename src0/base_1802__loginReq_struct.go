@@ -21,7 +21,8 @@ func _Fbyte2str(___Vb *[]byte) string {
 
 func (___Vlr *_TloginReq) String() string {
 	__Vo := _Pspf(
-		" %d %s %s me:%x %x to:%x %x tokenAB: %s,%s ",
+		//" %d %s %s me:%x %x to:%x %x tokenAB: %s,%s ",
+		" %d %s %s me:%x %x to:%x %x tokenAB: %x,%x ",
 		___Vlr.MeTime,
 		___Vlr.ReqStr,
 		___Vlr.MeName,
@@ -31,7 +32,9 @@ func (___Vlr *_TloginReq) String() string {
 		___Vlr.ToIdx128,
 		___Vlr.ToSeq128,
 
-		_Fbyte2str(&___Vlr.TokenA),
-		_Fbyte2str(&___Vlr.TokenB))
+		//_Fbyte2str(&___Vlr.TokenA),
+		//_Fbyte2str(&___Vlr.TokenB))
+		___Vlr.TokenA,
+		___Vlr.TokenB)
 	return __Vo
 }
