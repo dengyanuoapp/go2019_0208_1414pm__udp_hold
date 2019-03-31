@@ -52,7 +52,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		// TokenB   : , // []byte
 	}
 
-	_FpfNdb(" 838394 01 start %#v", ___Vreq)
+	_FpfNdb(" 838394 01 start %s", ___Vreq.String())
 	if nil == ___Vlc.ucCHSendLO {
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
