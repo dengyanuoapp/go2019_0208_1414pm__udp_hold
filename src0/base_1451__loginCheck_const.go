@@ -10,9 +10,9 @@ type _TconnInfo struct {
 }
 
 type _TconnMap struct {
-	cmAnow  map[[16]byte]_Tdecode // _TreqIneedToLogin MeIdx128
-	cmAlast map[[16]byte]_Tdecode // _TreqIneedToLogin MeIdx128
-	cmAlas2 map[[16]byte]_Tdecode // _TreqIneedToLogin MeIdx128
+	cmAnow  map[[16]byte]_Tdecode // key by 16byte : MeIdx128
+	cmAlast map[[16]byte]_Tdecode // key by 16byte : MeIdx128
+	cmAlas2 map[[16]byte]_Tdecode // key by 16byte : MeIdx128
 	cmMux   sync.Mutex
 }
 
