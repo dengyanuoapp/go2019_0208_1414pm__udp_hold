@@ -39,7 +39,7 @@ func _FdeleteOld_conA(___Vm *map[[16]byte]_Tdecode) {
 func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Tdecode) {
 	var ___VnewUnSend _TudpNodeDataSend
 
-	_FpfN(" 838394 01 start ")
+	_FpfNdb(" 838394 01 start ")
 	if nil == ___Vlc.ucCHSendLO {
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {

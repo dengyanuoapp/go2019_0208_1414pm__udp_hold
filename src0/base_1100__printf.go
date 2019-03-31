@@ -121,6 +121,7 @@ func _FgetFuncName3() string {
 
 var __VfpndbI641 int64
 var __VfpndbI642 int64
+var __VpfNdbMap map[string]int
 
 func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	__Vstr1 := _FgetFrame(1).Function
@@ -132,7 +133,23 @@ func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	if 0 == __VfpndbI642 {
 		__VfpndbI642 = __VfpndbI641
 	}
-	_Ppf("%11d:%2d: %s\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2)
+	_, _, __Vline, _ := runtime.Caller(1)
+	__Vstr3 := _Pspf("%s_%d", __Vstr2, __Vline)
+
+	if nil == __VpfNdbMap {
+		__VpfNdbMap = make(map[string]int)
+	}
+	__Vi3, __Vok3 := __VpfNdbMap[__Vstr3]
+	if true == __Vok3 {
+		__Vi3 += 1
+	} else {
+		__Vi3 = 1
+	}
+
+	__VpfNdbMap[__Vstr3] = __Vi3
+
+	//_Ppf("%11d:%2d: %s_%d\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2, __Vline)
+	_Ppf("%11d:%2d: %s(%d)\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2, __Vi3)
 }
 
 func _FgetFrame(skipFrames int) runtime.Frame {
