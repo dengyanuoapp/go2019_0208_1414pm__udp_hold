@@ -14,7 +14,8 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		//_Fsleep_100s()
 		select {
 		case __Vdecode = <-___Vlc.ucDecodeI: // _Tdecode
-			_FpfNdb(" 838392 05 : %#v", __Vdecode)
+			//_FpfNdb(" 838392 05 : %#v", __Vdecode) // 15540463611554046361
+			_FpfNdb(" 838392 05 : %s", __Vdecode.String()) // 15540463611554046361
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
 				case Cmd__loginS1ReqTryNoToken:

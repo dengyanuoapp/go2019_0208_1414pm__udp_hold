@@ -15,7 +15,7 @@ const (
 	Cmd__end
 )
 
-func CmdType(___Vc int) string {
+func _FcmdType(___Vc byte) string {
 	switch ___Vc {
 	case Cmd__NULL:
 		return "Cmd__NULL"
@@ -57,4 +57,33 @@ type _Tdecode struct {
 	remotePortKey           []byte
 	Type                    byte
 	D__loginS1ReqTryNoToken _TloginReq
+}
+
+func (___Vd *_Tdecode) String() string {
+	var __Vcontent string
+	switch ___Vd.Type {
+	case Cmd__NULL:
+		__Vcontent = "===Cmd__NULL==="
+	case Cmd__idle:
+		__Vcontent = "===Cmd__idle==="
+	case Cmd__data:
+		__Vcontent = "===Cmd__data==="
+	case Cmd__loginS1ReqTryNoToken:
+		__Vcontent = "===Cmd__loginS1ReqTryNoToken==="
+	case Cmd__loginS2ReplyTmpToken:
+		__Vcontent = "===Cmd__loginS2ReplyTmpToken==="
+	case Cmd__loginS3ReqWithToken:
+		__Vcontent = "===Cmd__loginS3ReqWithToken=="
+	default:
+		__Vcontent = "===---==="
+	}
+	__Vrs := _Pspf(
+		"ok:%T rece %d addr %s key %x %s :%s",
+		___Vd.ok,
+		___Vd.receiveTime,
+		___Vd.remoteAddr.String(),
+		___Vd.remotePortKey,
+		_FcmdType(___Vd.Type),
+		__Vcontent)
+	return __Vrs
 }
