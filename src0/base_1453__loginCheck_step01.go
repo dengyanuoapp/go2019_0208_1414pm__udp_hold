@@ -38,12 +38,25 @@ func _FdeleteOld_conA(___Vm *map[[16]byte]_Tdecode) {
 
 // _TloginReq
 func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Tdecode) {
-	var ___VnewUnSend _TudpNodeDataSend
+	//var ___VnewUnSend _TudpNodeDataSend
 
-	_FpfNdb(" 838394 01 start ")
+	___Vreq := _TloginReq{
+		MeTime:   _FtimeInt(),                 // int64
+		ReqStr:   " step102y__sReply_tokenB ", // string
+		MeName:   _VC.Name,
+		MeIdx128: _VC.MyId128,
+		MeSeq128: _VS.meSeq128,
+		ToIdx128: ___Vdecode.D__loginS1ReqTryNoToken.MeIdx128, // []byte
+		ToSeq128: ___Vdecode.D__loginS1ReqTryNoToken.MeSeq128, // []byte
+		// TokenA   : , // []byte
+		// TokenB   : , // []byte
+	}
+
+	_FpfNdb(" 838394 01 start %#v", ___Vreq)
 	if nil == ___Vlc.ucCHSendLO {
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
-		(*___Vlc.ucCHSendLO) <- ___VnewUnSend // _TudpNodeDataSend
+		_FpfN(" 838394 03 , fake Chan ")
+		// (*___Vlc.ucCHSendLO) <- ___VnewUnSend // _TudpNodeDataSend
 	}
 }

@@ -3,8 +3,8 @@ package main
 // _TloginReq
 func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]byte) {
 	__Vreq := _TloginReq{
-		MeTime:   _FtimeI64(),
-		ReqStr:   "try_to_login01",
+		MeTime:   _FtimeInt(),
+		ReqStr:   " step01__reqNewLogin ",
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _VS.meSeq128,

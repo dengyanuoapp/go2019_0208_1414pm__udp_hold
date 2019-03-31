@@ -47,12 +47,9 @@ type _TsrvInfo struct {
 } // _TsrvInfo
 
 type _TloginReq struct {
-	//Pk     []byte // my Port Key
-	MeTime int64
-	ReqStr string
-	MeName string
-	//MeIdx128      [16]byte
-	//MeSeq128      [16]byte
+	MeTime   int
+	ReqStr   string
+	MeName   string
 	MeIdx128 []byte
 	MeSeq128 []byte
 	ToIdx128 []byte
