@@ -1,10 +1,5 @@
 package main
 
-import (
-	"net"
-	//"sync"
-)
-
 /*
 // https://www.callicoder.com/golang-basic-types-operators-type-conversion/
 // Type    Size        Range
@@ -28,39 +23,6 @@ import (
 //	_SnPasswd = "ca79319381829379abe9abe889ac8aa3"
 //	_CnPasswd = "3019303f301ab921b8a8c8a9018a78a4"
 */
-
-type _TudpConnPort struct {
-	//Uri  string
-	DstAddr net.UDPAddr
-	K256    []byte
-	TK      []byte // token
-}
-
-type _TsrvInfo struct {
-	ok      bool
-	UriArrs []string // try-Uris
-	//UdstAddr   []net.UDPAddr
-	K256       [][]byte // passwd to connect the this server
-	name       string   // name
-	refreshUri string   // refresh-uri-Github
-	refreshPwd []byte
-} // _TsrvInfo
-
-type _TloginReq struct {
-	MeTime   int
-	ReqStr   string
-	MeName   string
-	MeIdx128 []byte
-	MeSeq128 []byte
-	ToIdx128 []byte
-	ToSeq128 []byte
-	TokenA   []byte
-	TokenB   []byte
-}
-
-func (___Vlr *_TloginReq) String() string {
-	return "===0aaeeb6ff2c8cd980641fdecf4f640b2==="
-}
 
 //type _TreqLoginCNT struct {
 //	cntL int
