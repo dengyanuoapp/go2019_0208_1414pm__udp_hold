@@ -2,7 +2,7 @@ package main
 
 import (
 	"net"
-	"sync"
+	//"sync"
 )
 
 /*
@@ -73,16 +73,16 @@ func (___Vlr *_TloginReq) String() string {
 //	reqMapLast map[[16]byte]_TreqLoginCNT
 //}
 
-type _TuAcceptClientSt struct {
-	cId128   [16]byte
-	reqA     _TloginReq
-	CexitAcc chan []byte
-}
-
-type _TuAcceptClientMap struct {
-	muxAcc           sync.Mutex
-	maxClient        int
-	cntClient        int
-	maxConnPerClient int
-	uMap             map[[16]byte][]_TuAcceptClientSt
-}
+//type _TuAcceptClientSt struct {
+//	cId128   [16]byte
+//	reqA     _TloginReq
+//	CexitAcc chan []byte
+//}
+//
+//type _TuAcceptClientMap struct {
+//	muxAcc           sync.Mutex
+//	maxClient        int
+//	cntClient        int
+//	maxConnPerClient int
+//	uMap             map[[16]byte][]_TuAcceptClientSt
+//}
