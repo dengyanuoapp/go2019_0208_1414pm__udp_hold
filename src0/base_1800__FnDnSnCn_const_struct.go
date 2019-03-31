@@ -58,6 +58,10 @@ type _TloginReq struct {
 	TokenB   []byte
 }
 
+func (___Vlr *_TloginReq) String() string {
+	return "===0aaeeb6ff2c8cd980641fdecf4f640b2==="
+}
+
 //type _TreqLoginCNT struct {
 //	cntL int
 //	reqL _TloginReq
