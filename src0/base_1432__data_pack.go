@@ -2,22 +2,22 @@ package main
 
 // _TloginReq
 func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]byte) {
-	_FdataPack__100__tokeMe(&___VuConnPort.TKme, ___VoutBuf)
-}
-
-func _FdataPack__100__tokeMe(___VtokenMe *[]byte, ___VoutBuf *[]byte) {
 	__Vreq := _TloginReq{
 		MeTime:   _FtimeInt(),
 		ReqStr:   " step01__reqNewLogin ",
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _VS.meSeq128,
-		TokenL:   *___VtokenMe,
+		TokenL:   ___VuConnPort.TKme,
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
+	__Vreq._FdataPack__100__tokeMe(___VoutBuf)
+}
 
-	__Vb2, __Verr2 := _FencGob__only(&__Vreq)
+func (___Vreq *_TloginReq) _FdataPack__100__tokeMe(___VoutBuf *[]byte) {
+
+	__Vb2, __Verr2 := _FencGob__only(___Vreq)
 	if nil != __Verr2 {
 		_FpfN(" 387191 01 : %v", __Verr2)
 		*___VoutBuf = []byte{}
