@@ -14,13 +14,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 	_FpfNdb(" 838393 02 : %s", ___Vdecode.String()) // 15540463611554046361
 	//___Vlc.ucM.cmAnow        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
-	__VlenArr := []int{
-		len(___Vdecode.Dlogin.ToIdx128),
-		len(___Vdecode.Dlogin.ToSeq128),
-		len(___Vdecode.Dlogin.MeIdx128),
-		len(___Vdecode.Dlogin.MeSeq128),
-		len(___Vdecode.Dlogin.TokenA),
-		len(___Vdecode.Dlogin.TokenB)}
+	__VlenArr := ___Vdecode.Count128()
 	if false == reflect.DeepEqual(__VlenArr, __VfirstLoginLenArr) {
 		_FpfNdb(" 838393 03 len error , ignore %d ", __VlenArr)
 		return

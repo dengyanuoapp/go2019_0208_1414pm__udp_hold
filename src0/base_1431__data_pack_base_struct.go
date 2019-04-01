@@ -78,3 +78,13 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent)
 	return __Vrs
 }
+
+func (___Vd *_Tdecode) Count128() []int {
+	return []int{
+		len(___Vd.Dlogin.ToIdx128),
+		len(___Vd.Dlogin.ToSeq128),
+		len(___Vd.Dlogin.MeIdx128),
+		len(___Vd.Dlogin.MeSeq128),
+		len(___Vd.Dlogin.TokenA),
+		len(___Vd.Dlogin.TokenB)}
+}
