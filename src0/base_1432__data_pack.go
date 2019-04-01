@@ -2,13 +2,17 @@ package main
 
 // _TloginReq
 func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]byte) {
+	_FdataPack__100__tokeMe(&___VuConnPort.TKme, ___VoutBuf)
+}
+
+func _FdataPack__100__tokeMe(___VtokenMe *[]byte, ___VoutBuf *[]byte) {
 	__Vreq := _TloginReq{
 		MeTime:   _FtimeInt(),
 		ReqStr:   " step01__reqNewLogin ",
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _VS.meSeq128,
-		TokenL:   ___VuConnPort.TKme,
+		TokenL:   *___VtokenMe,
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
