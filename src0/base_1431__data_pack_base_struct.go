@@ -8,10 +8,10 @@ import (
 const (
 	Cmd__NULL = iota
 	Cmd__idle
-	Cmd__data
 	Cmd__loginS1ReqTryNoToken
 	Cmd__loginS2ReplyTmpToken
 	Cmd__loginS3ReqWithToken
+	Cmd__data
 	Cmd__end
 )
 
