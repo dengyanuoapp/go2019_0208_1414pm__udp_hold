@@ -53,9 +53,9 @@ func _FdeleteOld_cmdStack(___Vm *map[[16]byte]_Tdecode) {
 
 // _TloginReq _Tdecode
 func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Tdecode) {
-	//var ___VnewUnSend _TudpNodeDataSend
+	var __VunSend _TudpNodeDataSend
 
-	___Vreq := _TloginReq{
+	__Vreq := _TloginReq{
 		MeTime:   _FtimeInt(),                 // int64
 		ReqStr:   " step102y__sReply_tokenB ", // string
 		MeName:   _VC.Name,
@@ -67,12 +67,14 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
-	_FpfNdb(" 838394 01 start %s", ___Vreq.String())
+	_FpfNdb(" 838394 01 start %s", __Vreq.String())
 	if nil == ___Vlc.ucCHSendLO {
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
 		_FpfN(" 838394 03 , fake Chan ")
 		//__VucPort. _FdataPack__101__udpConnPort(&__VusData.usOutBuf)
+		__Vreq._FdataPack__100__tokeMe(&__VunSend.usOutBuf)
+		//__VunSend . usToAddr = // _TudpConnPort
 		// (*___Vlc.ucCHSendLO) <- ___VnewUnSend // _TudpNodeDataSend
 	}
 }
