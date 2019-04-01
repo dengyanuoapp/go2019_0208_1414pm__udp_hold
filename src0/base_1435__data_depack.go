@@ -32,7 +32,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 	}
 
 	if ___Vbuf[0] != Cmd__loginS1ReqTryNoToken {
-		_FpfNdb(" 387192 05 : under constructing ")
+		_FpfNhex(&___Vbuf, 500, " 387192 05 : under constructing ")
 		return
 	}
 
