@@ -9,11 +9,13 @@ type _TconnInfo struct {
 	ciId128 []byte
 }
 
-type _TconnMap struct {
-	cmAnow  map[[16]byte]_Tdecode // key by 16byte : MeIdx128
-	cmAlast map[[16]byte]_Tdecode // key by 16byte : MeIdx128
-	cmAlas2 map[[16]byte]_Tdecode // key by 16byte : MeIdx128
-	cmMux   sync.Mutex
+type _TcmdMap struct {
+	M   map[[16]byte]_Tdecode // key by 16byte : MeIdx128
+	mux sync.Mutex
+}
+type _TdataMap struct {
+	M   map[[16]byte]_Tdecode // key by 16byte : MeIdx128
+	mux sync.Mutex
 }
 
 type _TloginCheck struct {
@@ -21,7 +23,8 @@ type _TloginCheck struct {
 	ucCHSendLO        *chan _TudpNodeDataSend // ugCHSendI
 	ucCB900101init    func(*_TloginCheck)     // if nil , use the default init procedure
 	ucCB900201stCheck func(*_TloginCheck)     // if nil , use the default receive
-	ucM               _TconnMap
+	ucCmd             _TcmdMap
+	ucData            _TdataMap
 }
 
 func _FcheckDecodeType(___Vdecode *_Tdecode, ___VwantType byte) bool { // match --> return false , others -> return true
