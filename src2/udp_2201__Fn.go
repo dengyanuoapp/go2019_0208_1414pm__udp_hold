@@ -79,7 +79,7 @@ func main() {
 	// ------------------- tcp for debug monitor log --- end
 
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
-	// _FdataPack__301__dataDecode_loginS1ReqTryNoToken
+	// _FdataPack__decode_from_udpNodeDataRece
 	go _Frun(&_VudpNode_FunWaitDun, 500101) // IRun _FudpNode__500101__main_init__default
 
 	// _FudpTimer__700201x__gap_receive__default

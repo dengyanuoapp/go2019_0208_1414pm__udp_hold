@@ -5,7 +5,7 @@ import (
 	//"net"
 )
 
-func (__Vundr *_TudpNodeDataRece) _FdataPack__301__dataDecode_loginS1ReqTryNoToken(___Vdecode *_Tdecode) {
+func (__Vundr *_TudpNodeDataRece) _FdataPack__decode_from_udpNodeDataRece(___Vdecode *_Tdecode) {
 	_FdataPack__dataDecode_common(___Vdecode, __Vundr.urrLen, __Vundr.urrBuf)
 }
 

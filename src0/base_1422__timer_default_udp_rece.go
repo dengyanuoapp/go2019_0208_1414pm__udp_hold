@@ -18,7 +18,7 @@ func _FudpTimer__700201x10__gap_receive__default(___Vutm *_TgapTimer) {
 		select {
 		case __Vundr = <-(*___Vutm.uTmCHunDataReceLI.unCHreceLO): // _TudpNodeDataRece
 			//_FpfNhex(&__Vundr.urrBuf, 38, " 388195 03 : %T , decode len <%d>: %11d", __Vundr.urrBuf, __Vundr.urrLen, _FtimeI64())
-			__Vundr._FdataPack__301__dataDecode_loginS1ReqTryNoToken(&__Vdecode) // _Tdecode
+			__Vundr._FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _Tdecode
 			__Vdecode.remoteAddr = __Vundr.urrRemoteAddr
 			__Vdecode.receiveTime = _FtimeInt()
 
