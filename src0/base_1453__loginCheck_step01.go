@@ -10,9 +10,9 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 		return
 	}
 
-	//_FpfNdb(" 838393 01 : ...... ")
-	_FpfNdb(" 838393 02 : %s", ___Vdecode.String()) // 15540463611554046361
-	//___Vlc.ucCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
+	////_FpfNdb(" 838393 01 : ...... ")
+	//_FpfNdb(" 838393 02 : %s", ___Vdecode.String()) // 15540463611554046361
+	////___Vlc.ucCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
 	__VlenArr := ___Vdecode.Count128()
 	if false == reflect.DeepEqual(__VlenArr, __VfirstLoginLenArr) {
@@ -26,7 +26,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 		_FdeleteOld_cmdStack(&___Vlc.ucCmd.M)
 	}
 
-	_FpfNdb(" 838393 04 : key is <%x> ", __Vk)
+	//_FpfNdb(" 838393 04 : key is <%x> ", __Vk)
 	___Vdecode.Dlogin.TokenB = _FgenRand_nByte__(16)
 
 	___Vlc.ucCmd.M[__Vk] = *___Vdecode
