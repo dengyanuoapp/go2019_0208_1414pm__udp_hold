@@ -1,11 +1,11 @@
 package main
 
 type _TdataTran struct {
-	MeIdx128 []byte
-	MeSeq128 []byte
-	ToIdx128 []byte
-	ToSeq128 []byte
-	TokenD   []byte
+	meIdx128 []byte
+	meSeq128 []byte
+	toIdx128 []byte
+	toSeq128 []byte
+	tokenD   []byte
 	Dcmd     byte
 	Doffset  uint64
 	Dbuf     []byte
@@ -15,12 +15,12 @@ func (___Vlr *_TdataTran) String() string {
 	__Vo := _Pspf(
 		" me:%x %x to:%x %x tokenD: %x cmd %d offset 0x%x %x",
 
-		___Vlr.MeIdx128,
-		___Vlr.MeSeq128,
-		___Vlr.ToIdx128,
-		___Vlr.ToSeq128,
+		___Vlr.meIdx128,
+		___Vlr.meSeq128,
+		___Vlr.toIdx128,
+		___Vlr.toSeq128,
 
-		___Vlr.TokenD,
+		___Vlr.tokenD,
 
 		___Vlr.Dcmd,
 		___Vlr.Doffset,

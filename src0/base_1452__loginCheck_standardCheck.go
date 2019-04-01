@@ -14,18 +14,18 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		//_Fsleep_100s()
 		select {
 		case __Vdecode = <-___Vlc.ucDecodeI: // _Tdecode
-			//_FpfNdb(" 838392 04 : %#v", __Vdecode) // 15540463611554046361
-			_FpfNdb(" 838392 05 : %s", __Vdecode.String()) // 15540463611554046361
+			//_FpfNdb(" 838392 05 : %s", __Vdecode.String()) // 15540463611554046361
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
 				case Cmd__loginS1ReqTryNoToken:
-					_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenA)
-					___Vlc._FloginCheck_step900201y__sReply_tokenB(&__Vdecode)
+					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenA)
+					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
+					___Vlc._FloginCheck_step900201y__s2Reply_tokenB(&__Vdecode)
 				default:
-					_FpfNdb(" 838392 07 : unknow how to deal with : %d", __Vdecode.Type)
+					_FpfNdb(" 838392 08 : unknow how to deal with : %d", __Vdecode.Type)
 				}
 			} else {
-				_FpfNdb(" 838392 08 : why not ok ?")
+				_FpfNdb(" 838392 09 : why not ok ?")
 			}
 		}
 	}

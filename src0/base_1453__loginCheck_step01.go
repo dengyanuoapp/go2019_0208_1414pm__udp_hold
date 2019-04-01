@@ -1,13 +1,24 @@
 package main
 
-func (___Vlc *_TloginCheck) _FloginCheck_step900201y__sReply_tokenB(___Vdecode *_Tdecode) {
+func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode *_Tdecode) {
 	if _FcheckDecodeType(___Vdecode, Cmd__loginS1ReqTryNoToken) {
 		_FpfNdb(" 838393 01 type error , ignore ")
 		return
 	}
 
-	_FpfNdb(" 838393 01 : ...... ")
+	//_FpfNdb(" 838393 01 : ...... ")
+	_FpfNdb(" 838393 02 : %s", ___Vdecode.String()) // 15540463611554046361
 	//___Vlc.ucM.cmAnow        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
+
+	if (0 != len(___Vdecode.Dlogin.ToIdx128)) ||
+		(0 != len(___Vdecode.Dlogin.ToSeq128)) ||
+		(16 != len(___Vdecode.Dlogin.MeIdx128)) ||
+		(16 != len(___Vdecode.Dlogin.MeSeq128)) ||
+		(0 != len(___Vdecode.Dlogin.TokenA)) ||
+		(0 != len(___Vdecode.Dlogin.TokenB)) {
+		_FpfNdb(" 838393 03 len error , ignore ")
+		return
+	}
 
 	__Vk := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
 
