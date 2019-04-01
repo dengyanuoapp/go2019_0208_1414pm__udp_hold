@@ -86,7 +86,7 @@ func main() {
 	go _Frun(&_VudpTimer01, 700101) // IRun _FudpTimer__700101x__init__default
 
 	// _FloginCheck__900201x__standardCheck
-	// _FloginCheck_step102x__sReply_tokenB
+	// _FloginCheck_step900201y__sReply_tokenB
 	go _Frun(&_VloginCheck_FnWaitDun, 900101) // _FloginCheck__900101x__init__default
 
 	// _TudpNodeSt _TudpGroupSt
