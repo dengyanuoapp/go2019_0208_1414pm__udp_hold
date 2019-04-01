@@ -7,7 +7,7 @@ import (
 func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 800101:
-		_FudpTimer__800101x__init__tryUdpLogin__default(___Vlg)
+		_FudpDecode__800101x__init__tryUdpLogin__default(___Vlg)
 	default:
 		_FpfNex(" 739182 99 unknow :idx %d", ___Vidx)
 	}
@@ -18,7 +18,7 @@ func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 // _TuDecode
 // _TloginGenerator
 // ulSrvDownInfoLX *_TsrvDownInfo
-func _FudpTimer__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
+func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 	__VnewSession := ___Vlg.ulSrvDownInfoLX
 	_FpfNdb(" 138181 01 %#v ", ___Vlg.ulSrvDownInfoLX)
 
@@ -36,7 +36,7 @@ func _FudpTimer__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 				__VnewSession.skipCnt-- // wait only , do nothing.
 			} else { // 0 == __VnewSession.skipCnt
 				if 0 == __VnewSession.tryCnt { // 0,0 : re-download
-					__VnewSession._FudpTimer__750102y__tryGetSrvInfoFromUri()
+					__VnewSession._FudpDecode__750102y__tryGetSrvInfoFromUri()
 					if false == __VnewSession.srvInfo.ok {
 						_FpfN(" 138181 04 : download failed. ")
 						__VnewSession.skipCnt = 6 // srvInfo get error , wait 60s before retry
@@ -52,7 +52,7 @@ func _FudpTimer__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 
 				} else { // xTry,0skip
 					___Vlg.ulTmpToken = _FgenRand_nByte__(16)
-					__VucPort := __VnewSession._FudpTimer__750102z__tryfillSendChan() // _TudpConnPort
+					__VucPort := __VnewSession._FudpDecode__750102z__tryfillSendChan() // _TudpConnPort
 					if nil != __VucPort {
 						__VucPort.TK = ___Vlg.ulTmpToken
 						if nil == ___Vlg.ulCHunSendLO {
@@ -77,7 +77,7 @@ func _FudpTimer__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 }
 
 // _TsrvDownInfo _TsrvInfo _TudpConnPort
-func (___VnewSession *_TsrvDownInfo) _FudpTimer__750102z__tryfillSendChan() *_TudpConnPort {
+func (___VnewSession *_TsrvDownInfo) _FudpDecode__750102z__tryfillSendChan() *_TudpConnPort {
 	__Vlen2 := len(___VnewSession.srvInfo.UriArrs)
 	__Vlen3 := len(___VnewSession.srvInfo.K256)
 	__Vidx2 := ___VnewSession.tryCnt % __Vlen2
@@ -103,7 +103,7 @@ func (___VnewSession *_TsrvDownInfo) _FudpTimer__750102z__tryfillSendChan() *_Tu
 }
 
 // _TsrvDownInfo _TsrvInfo
-func (___VnewSession *_TsrvDownInfo) _FudpTimer__750102y__tryGetSrvInfoFromUri() {
+func (___VnewSession *_TsrvDownInfo) _FudpDecode__750102y__tryGetSrvInfoFromUri() {
 	_FpfNdb("238191 01 : %v", ___VnewSession)
 
 	___VnewSession.srvInfo.ok = false

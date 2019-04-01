@@ -1,6 +1,6 @@
 package main
 
-func _FudpTimer__700301x__gap_loop__default(___Vutm *_TuDecode) {
+func _FudpDecode__700301x__gap_loop__default(___Vutm *_TuDecode) {
 	_FpfNdb(" 388194 01 : gap main loop start ")
 	if 0 == ___Vutm.uTmGapX {
 		_FpfN(" 388194 02 : Warn : why ZERO gap ? ")

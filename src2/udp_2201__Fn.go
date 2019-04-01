@@ -7,7 +7,7 @@ import (
 var (
 	_VudpNode_FunWaitDun   _TudpNodeSt
 	_VserviceTcpMf         _TserviceTCP
-	_VudpTimer01           _TuDecode
+	_VudpDecode01          _TuDecode
 	_VloginCheck_FnWaitDun _TloginCheck
 	_VudpGroup_Fn          _TudpGroupSt
 	_Cexit                 chan string
@@ -44,7 +44,7 @@ func _Finit_2201() {
 		unLoopGap: _T10s,
 	}
 
-	_VudpTimer01 = _TuDecode{
+	_VudpDecode01 = _TuDecode{
 		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
 		uTmDecodeLO:       &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
 	}
@@ -82,8 +82,8 @@ func main() {
 	// _FdataPack__decode_from_udpNodeDataRece
 	go _Frun(&_VudpNode_FunWaitDun, 500101) // IRun _FudpNode__500101__main_init__default
 
-	// _FudpTimer__700201x__gap_receive__default
-	go _Frun(&_VudpTimer01, 700101) // IRun _FudpTimer__700101x__init__default
+	// _FudpDecode__700201x__gap_receive__default
+	go _Frun(&_VudpDecode01, 700101) // IRun _FudpDecode__700101x__init__default
 
 	// _FloginCheck__900201x__standardCheck
 	// _FloginCheck_step900201y__sReply_tokenB
