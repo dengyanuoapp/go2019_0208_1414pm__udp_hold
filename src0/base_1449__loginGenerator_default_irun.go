@@ -54,12 +54,12 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 					___Vlg.ulTmpToken = _FgenRand_nByte__(16)
 					__VucPort := __VnewSession._FudpDecode__750102z__tryfillSendChan() // _TudpConnPort
 					if nil != __VucPort {
-						__VucPort.TK = ___Vlg.ulTmpToken
+						__VucPort.TKme = ___Vlg.ulTmpToken
 						if nil == ___Vlg.ulCHunSendLO {
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
 							_Pn()
-							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d, Token %x", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort.TK)
+							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d, Token %x", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort.TKme)
 							var __VusData _TudpNodeDataSend // _TudpConnPort
 							__VucPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
 							__VusData.usToAddr = *__VucPort   // _TudpConnPort

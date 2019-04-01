@@ -9,7 +9,7 @@ type _TudpConnPort struct {
 	//Uri  string
 	DstAddr net.UDPAddr
 	K256    []byte
-	TK      []byte // token
+	TKme    []byte // token
 }
 
 type _TsrvInfo struct {
