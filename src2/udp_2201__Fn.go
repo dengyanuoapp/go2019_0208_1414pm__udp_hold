@@ -46,7 +46,7 @@ func _Finit_2201() {
 
 	_VudpDecode01 = _TuDecode{
 		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
-		uTmDecodeLO:       &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
+		uTmDecodeCmdLO:    &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
 	}
 
 	_VloginCheck_FnWaitDun = _TloginCheck{

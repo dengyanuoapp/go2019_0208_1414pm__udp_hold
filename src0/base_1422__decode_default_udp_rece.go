@@ -22,7 +22,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 			__Vdecode.remoteAddr = __Vundr.urrRemoteAddr
 			__Vdecode.receiveTime = _FtimeInt()
 
-			if nil == ___Vutm.uTmDecodeLO {
+			if nil == ___Vutm.uTmDecodeCmdLO {
 				//_FpfNdb(" 388195 05 : %#v, key %x", __Vundr, __Vdecode.remotePortKey)
 				_FpfNdb(" 388195 06 : %#v, key %x", __Vdecode, __Vdecode.remotePortKey)
 			} else {
@@ -35,9 +35,9 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 					_FpfN(" 388195 08 : type %d", __Vdecode.Type)
 				}
 				if __VoutT {
-					if nil != ___Vutm.uTmDecodeLO {
+					if nil != ___Vutm.uTmDecodeCmdLO {
 						_FpfN(" 388195 09 real outChain : type %d", __Vdecode.Type)
-						(*___Vutm.uTmDecodeLO) <- __Vdecode // 15540463611554046361
+						(*___Vutm.uTmDecodeCmdLO) <- __Vdecode // 15540463611554046361
 					}
 				}
 			}
