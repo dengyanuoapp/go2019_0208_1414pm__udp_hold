@@ -10,13 +10,13 @@ func (___Vgtm *_TuDecode) IRun(___Vidx int) {
 		}
 	case 700201:
 		if nil == ___Vgtm.uTmCB700201rece2 {
-			_FudpDecode__700201x__gap_receive__default(___Vgtm)
+			_FudpDecode__700201x__receive__default(___Vgtm)
 		} else {
 			___Vgtm.uTmCB700201rece2(___Vgtm)
 		}
 	case 700301:
 		if nil == ___Vgtm.uTmCB700301gap2 {
-			_FudpDecode__700301x__gap_loop__default(___Vgtm)
+			_FudpDecode__700301x__loop__default(___Vgtm)
 		} else {
 			___Vgtm.uTmCB700301gap2(___Vgtm)
 		}
@@ -38,9 +38,9 @@ func _FudpDecode__700101x__init__default(___Vgtm *_TuDecode) {
 
 	_Fsleep(_T1s)
 
-	// IRun _FudpDecode__700201x__gap_receive__default
+	// IRun _FudpDecode__700201x__receive__default
 	go _Frun(___Vgtm, 700201)
 
-	// _FudpDecode__700301x__gap_loop__default
+	// _FudpDecode__700301x__loop__default
 	go _Frun(___Vgtm, 700301)
 }

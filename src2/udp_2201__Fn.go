@@ -82,7 +82,7 @@ func main() {
 	// _FdataPack__decode_from_udpNodeDataRece
 	go _Frun(&_VudpNode_FunWaitDun, 500101) // IRun _FudpNode__500101__main_init__default
 
-	// _FudpDecode__700201x__gap_receive__default
+	// _FudpDecode__700201x__receive__default
 	go _Frun(&_VudpDecode01, 700101) // IRun _FudpDecode__700101x__init__default
 
 	// _FloginCheck__900201x__standardCheck

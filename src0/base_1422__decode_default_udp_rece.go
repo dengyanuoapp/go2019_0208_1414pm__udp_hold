@@ -1,15 +1,15 @@
 package main
 
-func _FudpDecode__700201x__gap_receive__default(___Vutm *_TuDecode) {
+func _FudpDecode__700201x__receive__default(___Vutm *_TuDecode) {
 	//_FpfNdb(" 388193 01 : filte received start ")
 	if (nil != ___Vutm.uTmCHunDataReceLI) && (nil != ___Vutm.uTmCHunDataReceLI.unCHreceLO) {
-		go _FudpDecode__700201x10__gap_receive__default(___Vutm)
+		go _FudpDecode__700201x10__receive__default(___Vutm)
 	} else {
 		_FpfNdb(" 388193 09 : why no input channel ?")
 	}
 }
 
-func _FudpDecode__700201x10__gap_receive__default(___Vutm *_TuDecode) {
+func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 	//_FpfNdb(" 388195 01 : filte received start ")
 	var __Vundr _TudpNodeDataRece
 	var __Vdecode _Tdecode
