@@ -15,7 +15,7 @@ func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 
 // _TloginReq
 // _TsrvInfo
-// _TgapTimer
+// _TuDecode
 // _TloginGenerator
 // ulSrvDownInfoLX *_TsrvDownInfo
 func _FudpTimer__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {

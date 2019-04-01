@@ -1,6 +1,6 @@
 package main
 
-func (___Vgtm *_TgapTimer) IRun(___Vidx int) {
+func (___Vgtm *_TuDecode) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 700101:
 		if nil == ___Vgtm.uTmCB700101init {
@@ -26,7 +26,7 @@ func (___Vgtm *_TgapTimer) IRun(___Vidx int) {
 }
 
 // try received from uTmCHunDataReceLI
-func _FudpTimer__700101x__init__default(___Vgtm *_TgapTimer) {
+func _FudpTimer__700101x__init__default(___Vgtm *_TuDecode) {
 	_FpfN(" 838918 01 : udpTimer 700101 ")
 
 	if nil == ___Vgtm.uTmCHunDataReceLI {

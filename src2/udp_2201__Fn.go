@@ -7,7 +7,7 @@ import (
 var (
 	_VudpNode_FunWaitDun   _TudpNodeSt
 	_VserviceTcpMf         _TserviceTCP
-	_VudpTimer01           _TgapTimer
+	_VudpTimer01           _TuDecode
 	_VloginCheck_FnWaitDun _TloginCheck
 	_VudpGroup_Fn          _TudpGroupSt
 	_Cexit                 chan string
@@ -44,7 +44,7 @@ func _Finit_2201() {
 		unLoopGap: _T10s,
 	}
 
-	_VudpTimer01 = _TgapTimer{
+	_VudpTimer01 = _TuDecode{
 		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
 		uTmDecodeLO:       &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
 	}
