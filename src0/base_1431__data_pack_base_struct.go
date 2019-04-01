@@ -51,19 +51,20 @@ type _TdataPack_991 struct {
 */
 
 type _Tdecode struct {
-	ok                      bool
-	receiveTime             int
-	remoteAddr              net.UDPAddr
-	remotePortKey           []byte
-	Type                    byte
-	D__loginS1ReqTryNoToken _TloginReq
+	ok            bool
+	receiveTime   int
+	remoteAddr    net.UDPAddr
+	remotePortKey []byte
+	Type          byte
+	Dlogin        _TloginReq
+	Ddata         _TdataTran
 }
 
 func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
 	switch ___Vd.Type {
 	case Cmd__loginS1ReqTryNoToken:
-		__Vcontent = ___Vd.D__loginS1ReqTryNoToken.String()
+		__Vcontent = ___Vd.Dlogin.String()
 	default:
 		__Vcontent = _Pspf("===under constructing %d===", ___Vd.Type)
 	}
