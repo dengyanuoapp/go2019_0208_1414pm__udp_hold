@@ -16,7 +16,15 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 		(16 != len(___Vdecode.Dlogin.MeSeq128)) ||
 		(0 != len(___Vdecode.Dlogin.TokenA)) ||
 		(0 != len(___Vdecode.Dlogin.TokenB)) {
-		_FpfNdb(" 838393 03 len error , ignore ")
+		_FpfNdb(
+			" 838393 03 len error , ignore %d,%d %d,%d %d,%d ",
+			len(___Vdecode.Dlogin.ToIdx128),
+			len(___Vdecode.Dlogin.ToSeq128),
+			len(___Vdecode.Dlogin.MeIdx128),
+			len(___Vdecode.Dlogin.MeSeq128),
+			len(___Vdecode.Dlogin.TokenA),
+			len(___Vdecode.Dlogin.TokenB))
+
 		return
 	}
 
@@ -26,7 +34,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 		_FdeleteOld_conA(&___Vlc.ucM.cmAnow)
 	}
 
-	_FpfNdb(" 838393 03 : key is <%x> ", __Vk)
+	_FpfNdb(" 838393 04 : key is <%x> ", __Vk)
 	___Vdecode.Dlogin.TokenA = _FgenRand_nByte__(16)
 
 	___Vlc.ucM.cmAnow[__Vk] = *___Vdecode
