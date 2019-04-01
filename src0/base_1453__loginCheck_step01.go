@@ -23,7 +23,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 	__Vk := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
 
 	if len(___Vlc.ucCmd.M) > 300 {
-		_FdeleteOld_conA(&___Vlc.ucCmd.M)
+		_FdeleteOld_cmdStack(&___Vlc.ucCmd.M)
 	}
 
 	_FpfNdb(" 838393 04 : key is <%x> ", __Vk)
@@ -34,11 +34,13 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 	___Vlc._FloginCheck_step102y__sReply_tokenB(___Vdecode)
 }
 
-func _FdeleteOld_conA(___Vm *map[[16]byte]_Tdecode) {
+var __VmaxCmdPerid int = 100
+
+func _FdeleteOld_cmdStack(___Vm *map[[16]byte]_Tdecode) {
 	var __Vdel [][16]byte
 	__Vnow := _FtimeInt()
 	for __k, __v := range *___Vm {
-		if __Vnow-__v.receiveTime > 100 {
+		if __Vnow-__v.receiveTime > __VmaxCmdPerid {
 			__Vdel = append(__Vdel, __k)
 		}
 	}
