@@ -59,7 +59,7 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
 							_Pn()
-							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d, %x", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort.TK)
+							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d, Token %x", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort.TK)
 							var __VusData _TudpNodeDataSend // _TudpConnPort
 							__VucPort._FdataPack__101__udpConnPort(&__VusData.usOutBuf)
 							__VusData.usToAddr = *__VucPort   // _TudpConnPort
