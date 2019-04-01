@@ -27,7 +27,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 	}
 
 	//_FpfNdb(" 838393 04 : key is <%x> ", __Vk)
-	___Vdecode.Dlogin.TokenB = _FgenRand_nByte__(16)
+	___Vdecode.Dlogin.TokenR = _FgenRand_nByte__(16)
 
 	___Vlc.ucCmd.M[__Vk] = *___Vdecode
 
@@ -63,8 +63,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		MeSeq128: _VS.meSeq128,
 		ToIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
 		ToSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
-		// TokenA   : , // []byte
-		// TokenB   : , // []byte
+		TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
+		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
 	_FpfNdb(" 838394 01 start %s", ___Vreq.String())

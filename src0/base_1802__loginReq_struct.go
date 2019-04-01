@@ -8,8 +8,8 @@ type _TloginReq struct {
 	MeSeq128 []byte
 	ToIdx128 []byte
 	ToSeq128 []byte
-	TokenA   []byte
-	TokenB   []byte
+	TokenL   []byte // token Local
+	TokenR   []byte // token Remote
 }
 
 func _Fbyte2str(___Vb *[]byte) string {
@@ -32,9 +32,9 @@ func (___Vlr *_TloginReq) String() string {
 		___Vlr.ToIdx128,
 		___Vlr.ToSeq128,
 
-		//_Fbyte2str(&___Vlr.TokenA),
-		//_Fbyte2str(&___Vlr.TokenB))
-		___Vlr.TokenA,
-		___Vlr.TokenB)
+		//_Fbyte2str(&___Vlr.TokenL),
+		//_Fbyte2str(&___Vlr.TokenR))
+		___Vlr.TokenL,
+		___Vlr.TokenR)
 	return __Vo
 }

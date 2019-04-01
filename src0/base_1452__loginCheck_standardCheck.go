@@ -18,7 +18,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
 				case Cmd__loginS1ReqTryNoToken:
-					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenA)
+					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
 					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
 					___Vlc._FloginCheck_step900201y__s2Reply_tokenB(&__Vdecode)
 				default:

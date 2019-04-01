@@ -85,6 +85,6 @@ func (___Vd *_Tdecode) Count128() []int {
 		len(___Vd.Dlogin.ToSeq128),
 		len(___Vd.Dlogin.MeIdx128),
 		len(___Vd.Dlogin.MeSeq128),
-		len(___Vd.Dlogin.TokenA),
-		len(___Vd.Dlogin.TokenB)}
+		len(___Vd.Dlogin.TokenL),
+		len(___Vd.Dlogin.TokenR)}
 }
