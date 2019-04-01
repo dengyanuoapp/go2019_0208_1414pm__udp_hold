@@ -14,8 +14,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
-					___Vun._FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect()
-					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()
+					___Vun._FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() // if gap is not set , default
+					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()    // if gap set , use this
 				} else {
 					___Vun.unCBrece(___Vun)
 				}

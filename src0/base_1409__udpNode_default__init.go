@@ -32,7 +32,8 @@ func _FudpNode__500101__main_init__default(___Vun *_TudpNodeSt) {
 
 	___Vun._FudpNode__500101x__listen()
 
-	go ___Vun._FudpNode__540211x__gap()
+	go ___Vun._FudpNode__540211x__gap() // active only if unLoopGap is set to some delayGap ==>> pipe the unRmap
+	// if gap set ==> replace unCBrece from default-direct to _FudpNode__540211z__receiveCallBack_withTimeGap
 
 	_Fsleep(_T50ms)
 
