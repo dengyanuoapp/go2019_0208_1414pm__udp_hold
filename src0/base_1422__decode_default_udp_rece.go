@@ -20,7 +20,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 			//_FpfNhex(&__Vundr.urrBuf, 38, " 388195 02 : %T , decode len <%d>: %11d", __Vundr.urrBuf, __Vundr.urrLen, _FtimeI64())
 			__Vundr._FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _Tdecode
 			__Vdecode.remoteAddr = __Vundr.urrRemoteAddr
-			__Vdecode.receiveTime = _FtimeInt()
+			//__Vdecode.receiveTime = _FtimeInt()
 
 			switch __Vdecode.Type {
 			case Cmd__loginS1ReqTryNoToken, Cmd__loginS2ReplyTmpToken, Cmd__loginS3ReqWithToken: // 15540362231554036223

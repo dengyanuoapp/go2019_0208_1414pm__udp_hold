@@ -31,7 +31,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 
 	___Vlc.ucCmd.M[__Vk] = *___Vdecode
 
-	_FpfNdb(" 838393 06 : %s", ___Vdecode.String())
+	_FpfNdb(" 838393 06 : [decode:<%s>]", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step102y__sReply_tokenB(___Vdecode)
 }
@@ -67,12 +67,11 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
-	_FpfNdb(" 838394 01 start %s", __Vreq.String())
+	_FpfNdb(" 838394 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ucCHSendLO {
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
 		_FpfN(" 838394 03 , fake Chan ")
-		//__VucPort. _FdataPack__101__udpConnPort(&__VusData.usOutBuf)
 		__Vreq._FdataPack__100__tokeMe(&__VunSend.usOutBuf)
 		//__VunSend . usToAddr = // _TudpConnPort
 		// (*___Vlc.ucCHSendLO) <- ___VnewUnSend // _TudpNodeDataSend
