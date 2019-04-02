@@ -25,16 +25,11 @@ func (___Vgtm *_TuDecode) IRun(___Vidx int) {
 	}
 }
 
-// try received from uTmCHunDataReceLI
+// try received from uTmCHunDataReceI
 func _FudpDecode__700101x__init__default(___Vgtm *_TuDecode) {
 	_FpfN(" 838918 01 : udpTimer 700101 ")
 
-	if nil == ___Vgtm.uTmCHunDataReceLI {
-		_Fex1(" 838918 02 : you must set the Receive _TudpNodeSt ")
-	}
-
-	__VuRece := make(chan _TudpNodeDataRece, 10)
-	___Vgtm.uTmCHunDataReceLI.unCHreceLO = &__VuRece
+	___Vgtm.uTmCHunDataReceI = make(chan _TudpNodeDataRece, 10)
 
 	_Fsleep(_T1s)
 

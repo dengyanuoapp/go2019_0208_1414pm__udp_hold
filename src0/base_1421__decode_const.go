@@ -9,16 +9,14 @@ import (
 
 // _TudpNodeSt
 type _TuDecode struct {
-	uTmCHunDataReceLI *_TudpNodeSt // an udpNode pointer , if not nil , read from it's unCHreceLO
-	uTmDecodeCmdLO    *chan _Tdecode
-	uTmDecodeDataLO   *chan _Tdecode
-	uTmCB700101init   func(*_TuDecode) // if nil , use the default init procedure // _FudpDecode__700101x__init__default
-	uTmCB700201rece2  func(*_TuDecode) // if nil , use the default receive        // _FudpDecode__700201x__receive__default
-	uTmCB700301gap2   func(*_TuDecode) // if nil , use the default gap loop       // _FudpDecode__700301x__loop__default
-	uTmGapX           time.Duration
-	//uTmCHugConnPortLO *chan _TudpConnPort // nor-nil ==> every gap , gen tryConn package and push into this chan , usually a udpGroupNodeArr
-	//uTmSrvDownInfoLX  *_TsrvDownInfo      // input , try to connect
-	//uTmToken          []byte
+	uTmCHunDataReceI chan _TudpNodeDataRece // an udpNode pointer , if not nil , read from it's unCHreceLO
+	uTmDecodeCmdLO   *chan _Tdecode
+	uTmDecodeDataLO  *chan _Tdecode
+	uTmCB700101init  func(*_TuDecode) // if nil , use the default init procedure // _FudpDecode__700101x__init__default
+	uTmCB700201rece2 func(*_TuDecode) // if nil , use the default receive        // _FudpDecode__700201x__receive__default
+	uTmCB700301gap2  func(*_TuDecode) // if nil , use the default gap loop       // _FudpDecode__700301x__loop__default
+	uTmGapX          time.Duration
+	//uTmCHunDataReceLI *_TudpNodeSt // an udpNode pointer , if not nil , read from it's unCHreceLO
 }
 
 //_TUreqNewSession

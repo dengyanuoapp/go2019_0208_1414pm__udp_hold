@@ -1,12 +1,7 @@
 package main
 
 func _FudpDecode__700201x__receive__default(___Vutm *_TuDecode) {
-	//_FpfNdb(" 388193 01 : filte received start ")
-	if (nil != ___Vutm.uTmCHunDataReceLI) && (nil != ___Vutm.uTmCHunDataReceLI.unCHreceLO) {
-		go _FudpDecode__700201x10__receive__default(___Vutm)
-	} else {
-		_FpfNdb(" 388193 09 : why no input channel ?")
-	}
+	go _FudpDecode__700201x10__receive__default(___Vutm)
 }
 
 func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
@@ -16,7 +11,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 	for {
 		//_Fsleep_100s()
 		select {
-		case __Vundr = <-(*___Vutm.uTmCHunDataReceLI.unCHreceLO): // _TudpNodeDataRece
+		case __Vundr = <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataRece
 			//_FpfNhex(&__Vundr.urrBuf, 38, " 388195 02 : %T , decode len <%d>: %11d", __Vundr.urrBuf, __Vundr.urrLen, _FtimeI64())
 			__Vundr._FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _Tdecode
 			__Vdecode.remoteAddr = __Vundr.urrRemoteAddr
