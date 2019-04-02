@@ -12,10 +12,10 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
-	__Vreq._FdataPack__100__tokeMe(___VoutBuf)
+	__Vreq._FdataPack__100__loginReq(___VoutBuf)
 }
 
-func (___Vreq *_TloginReq) _FdataPack__100__tokeMe(___VoutBuf *[]byte) {
+func (___Vreq *_TloginReq) _FdataPack__100__loginReq(___VoutBuf *[]byte) {
 
 	__Vb2, __Verr2 := _FencGob__only(___Vreq)
 	if nil != __Verr2 {
