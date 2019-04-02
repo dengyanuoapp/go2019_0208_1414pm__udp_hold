@@ -24,8 +24,8 @@ type _TudpNodeSt struct {
 	unRkeyX       _Tkey256
 	unAddr        *net.UDPAddr
 	unConn        *net.UDPConn
-	unLocalAddr   net.Addr
 	unLoopGap     time.Duration
+	unLocalAddr   net.Addr
 	unLocalPort   int
 	unErr         error
 	unRerr        error
@@ -43,4 +43,19 @@ type _TudpNodeSt struct {
 	unCBrece      func(*_TudpNodeSt)      // if nil , use the default procedure to deal with receive
 	unCBsend      func(*_TudpNodeSt)      // if nil , use the default procedure to deal with send
 	unCBgap       func(*_TudpNodeSt)      // if unLoopGap is not ZERO , call this.
+}
+
+func (___Vun _TudpNodeSt) String() string {
+	return _Pspf(
+		"key %x,addr %s,gap %d,Laddr %s,Rbuf(%d)%x, Raddr %s name %s,%s,%d",
+		___Vun.unRkeyX.B32,
+		___Vun.unAddr.String(),
+		___Vun.unLoopGap,
+		___Vun.unLocalAddr,
+		___Vun.unRlen,
+		___Vun.unRbuf[:20],
+		___Vun.unRemoteAddr.String(),
+		___Vun.unName,
+		___Vun.unHostPortStr,
+		___Vun.unIdx)
 }
