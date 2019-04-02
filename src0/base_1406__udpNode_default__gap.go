@@ -42,7 +42,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 
 // replace the _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
 func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
-	//_FpfNhex(&___Vun.unRbuf, 30, " 848232 01 rece %d", ___Vun.unRlen)
+	//_FpfNhex(&___Vun.unRbuf, 30, " 848236 01 rece %d", ___Vun.unRlen)
 
 	__Vrece := _TudpNodeDataRece{
 		urrRemoteAddr: ___Vun.unRemoteAddr,
@@ -51,14 +51,14 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	}
 	__VrKey := __Vrece.urrRemoteAddr.IP.String()
 
-	//_FpfNhex(&___Vun.unRbuf, 30, " 848232 02 <%s>", __VrKey)
-	//_FpfNhex(&__Vrece.urrBuf, 30, " 848232 03 ")
+	//_FpfNhex(&___Vun.unRbuf, 30, " 848236 02 <%s>", __VrKey)
+	//_FpfNhex(&__Vrece.urrBuf, 30, " 848236 03 ")
 
 	if "" == __VrKey || "<nil>" == __VrKey {
-		_FpfN(" 848232 04 address error %v", __Vrece.urrRemoteAddr)
+		_FpfN(" 848236 04 address error %v", __Vrece.urrRemoteAddr)
 		return
 	}
-	//_FpfNdb(" 848232 05 %s", __VrKey)
+	//_FpfNdb(" 848236 05 %s", __VrKey)
 
 	__Vreply := false
 
@@ -67,7 +67,7 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	__Vnow, __VokN := ___Vun.unRmap.unrMapNow[__VrKey]
 	if __VokN {
 		__Vnow.cnt++ // alreay exist ... so , skip
-		_FpfN(" 848232 06 ")
+		_FpfN(" 848232 01 ")
 	} else {
 		___Vun.unRmap.unrMapNow[__VrKey] = _TuNodeDataRcnt{
 			cnt: 1,
@@ -77,34 +77,35 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		if __VokL { // map[string]_TuNodeDataRcnt
 			if 1 == __Vlast.cnt {
 				__Vreply = true
-				//_FpfN(" 848232 06 ")
+				//_FpfN(" 848232 03 ")
 			} else {
-				_FpfN(" 848232 07 ")
+				_FpfN(" 848232 04 ")
 			}
 		} else {
 			__Vlas2, __Vok2 := ___Vun.unRmap.unrMapLas2[__VrKey]
 			if __Vok2 { // map[string]_TuNodeDataRcnt
 				if 1 == __Vlas2.cnt {
-					//_FpfN(" 848232 08 ")
+					//_FpfN(" 848232 06 ")
 					__Vreply = true
 				} else {
-					_FpfN(" 848232 09 ")
+					_FpfN(" 848232 07 ")
 				}
 			} else {
-				//_FpfN(" 848232 10 ")
+				//_FpfN(" 848232 09 ")
 			}
 		}
-		//_FpfN(" 848231 11 las2 %v", ___Vun.unRmap.unrMapLas2)
-		//_FpfN(" 848231 12 last %v", ___Vun.unRmap.unrMapLast)
-		//_FpfN(" 848231 13 now  %v", ___Vun.unRmap.unrMapNow)
+		//_FpfN(" 848235 01 las2 %v", ___Vun.unRmap.unrMapLas2)
+		//_FpfN(" 848235 02 last %v", ___Vun.unRmap.unrMapLast)
+		//_FpfN(" 848235 03 now  %v", ___Vun.unRmap.unrMapNow)
 	}
 
 	___Vun.unRmap.unrMux.Unlock()
 
-	//_FpfN(" 848232 19 :  __Vreply %t", __Vreply)
+	//_FpfN(" 848235 06 :  __Vreply %t", __Vreply)
 
 	if __Vreply {
 		//(*___Vun.unCHreceLO) <- __Vrece
+		_FpfN(" 848235 09 custom receive")
 		___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
 	}
 }

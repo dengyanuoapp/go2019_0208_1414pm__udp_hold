@@ -17,6 +17,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 					___Vun._FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() // if gap is not set , default
 					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()    // if gap set , use this
 				} else {
+					_FpfN(" 831818 02 custom receive")
 					___Vun.unCBrece(___Vun)
 				}
 			}
@@ -42,6 +43,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy3__receiveCallBack_default__randDe
 		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
 		return
 	}
+	_FpfN(" 439191 02 custom receive")
 	___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
 
 }
@@ -61,7 +63,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 
 	__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unRkeyX.Bkey, ___VbufIn)
 	if nil != __Verr2 {
-		_FpfN(" 439192 04 rece buf: %v ", ___VbufIn)
+		_FpfN(" 439192 03 rece buf: %v ", ___VbufIn)
 		_FpfNhex(___VbufIn, 68, " 439192 04 rece Null or error : %d ,%11d %v %x. error:%v ",
 			___Vun.unRlen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkeyX.Bkey, __Verr2)
 		return
