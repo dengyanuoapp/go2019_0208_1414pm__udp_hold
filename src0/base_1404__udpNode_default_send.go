@@ -53,15 +53,16 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 				" 839119 04 : %s : udp send rand %11d:%d: dst<%v>, local<%v>, listen<%v> key<%x>",
 				___Vun.unName, _FtimeI64(), len(___Vus.usOutBuf), ___Vus.usToAddr.DstAddr,
 				___Vun.unLocalAddr, ___Vun.unAddr, ___Vus.usToAddr.K256)
+			_FpfN(" 839119 05 : origin %s", ___Vus.String())
 		} else {
-			_FpfN(" 839119 05 : why key len error (%d) ?", __VkLen)
+			_FpfN(" 839119 06 : why key len error (%d) ?", __VkLen)
 			return
 		}
 	} else {
 		//usToAddr _TudpConnPort
 		// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 		_, __Verr2 = ___Vun.unConn.WriteToUDP(___Vus.usOutBuf, &___Vus.usToAddr.DstAddr)
-		_FpfNhex(&___Vus.usOutBuf, 40, " 839119 06 : %s : udp send direct :", ___Vun.unName)
+		_FpfNhex(&___Vus.usOutBuf, 40, " 839119 07 : %s : udp send direct :", ___Vun.unName)
 	}
 
 	if __Verr2 != nil {
