@@ -19,7 +19,7 @@ func (___Vs *_TudpNodeDataSend) String() string {
 	return _Pspf("{%s}(%d %x)",
 		___Vs.usToAddr.String(),
 		len(___Vs.usOutBuf),
-		___Vs.usOutBuf[:14])
+		___Vs.usOutBuf[:7])
 
 }
 func (___Vr *_TudpNodeDataRece) String() string {

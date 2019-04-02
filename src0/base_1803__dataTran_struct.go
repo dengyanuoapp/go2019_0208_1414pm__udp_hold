@@ -13,14 +13,14 @@ type _TdataTran struct {
 
 func (___Vlr *_TdataTran) String() string {
 	__Vo := _Pspf(
-		" me:%x %x to:%x %x tokenD: %x cmd %d offset 0x%x %x",
+		" me:%x,%x to:%x,%x tokenD: %x cmd %d offset 0x%x,%x",
 
-		___Vlr.meIdx128,
-		___Vlr.meSeq128,
-		___Vlr.toIdx128,
-		___Vlr.toSeq128,
+		___Vlr.meIdx128[:5],
+		___Vlr.meSeq128[:5],
+		___Vlr.toIdx128[:5],
+		___Vlr.toSeq128[:5],
 
-		___Vlr.tokenD,
+		___Vlr.tokenD[:5],
 
 		___Vlr.Dcmd,
 		___Vlr.Doffset,
