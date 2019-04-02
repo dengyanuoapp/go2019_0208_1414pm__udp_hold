@@ -14,7 +14,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
-					_FpfN(" 831818 03 default receive:{%s}", ___Vun.String())
+					//_FpfN(" 831818 03 default receive:{%s}", ___Vun.String())
 					___Vun._FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() // if gap is not set , default
 					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()    // if gap set , use this
 				} else {
@@ -44,7 +44,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy3__receiveCallBack_default__randDe
 		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
 		return
 	}
-	_FpfNhex(&___Vun.unRbuf, 40, " 439191 02 custom receive ")
+	//_FpfNhex(&___Vun.unRbuf, 40, " 439191 02 custom receive ")
 	//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
 	___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&___Vun.unRbuf)
 
@@ -88,7 +88,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 	if nil == ___Vun.unCHreceLO {
 		_FpfN(" 439196 08 udpNodeDataRece can NOT output , for outChan is null : %s", __Vunr.String())
 	} else {
-		_FpfN(" 439196 09 udpNodeDataRece : %s", __Vunr.String())
+		//_FpfN(" 439196 09 udpNodeDataRece : %s", __Vunr.String())
 		(*___Vun.unCHreceLO) <- __Vunr
 	}
 }
