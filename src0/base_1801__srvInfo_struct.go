@@ -9,7 +9,6 @@ type _TudpConnPort struct {
 	//Uri  string
 	DstAddr net.UDPAddr
 	K256    []byte
-	//TKme    []byte // token
 }
 
 type _TsrvInfo struct {
@@ -23,9 +22,7 @@ type _TsrvInfo struct {
 } // _TsrvInfo
 
 func (___Vucp *_TudpConnPort) String() string {
-	return _Pspf("[%s](key %x TKme %x)",
+	return _Pspf("[%s](key %x)",
 		___Vucp.DstAddr.String(),
-		___Vucp.K256,
-		//___Vucp.TKme)
-		[]byte{})
+		___Vucp.K256)
 }
