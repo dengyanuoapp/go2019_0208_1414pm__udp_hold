@@ -76,7 +76,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		__VunSend.usToAddr = _TudpConnPort{
 			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.remotePortKey, // []byte
-			TKme:    __Vreq.TokenL,            // []byte // token
+			//TKme:    __Vreq.TokenL,            // []byte // token
 		}
 		_FpfNdb(" 838394 04 [unSend:<%s>]", __VunSend.String())
 		// (*___Vlc.ucCHSendLO) <- ___VnewUnSend // _TudpNodeDataSend
