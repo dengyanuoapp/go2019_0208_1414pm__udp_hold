@@ -27,14 +27,14 @@ func (___Vlr *_TloginReq) String() string {
 		___Vlr.ReqStr,
 		___Vlr.MeName,
 
-		___Vlr.MeIdx128,
-		___Vlr.MeSeq128,
-		___Vlr.ToIdx128,
-		___Vlr.ToSeq128,
+		___Vlr.MeIdx128[:8],
+		___Vlr.MeSeq128[:8],
+		___Vlr.ToIdx128[:8],
+		___Vlr.ToSeq128[:8],
 
 		//_Fbyte2str(&___Vlr.TokenL),
 		//_Fbyte2str(&___Vlr.TokenR))
-		___Vlr.TokenL,
-		___Vlr.TokenR)
+		___Vlr.TokenL[:8],
+		___Vlr.TokenR[:8])
 	return __Vo
 }

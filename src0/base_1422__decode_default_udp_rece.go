@@ -21,22 +21,22 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 			case Cmd__loginS1ReqTryNoToken, Cmd__loginS2ReplyTmpToken, Cmd__loginS3ReqWithToken: // 15540362231554036223
 				//_FpfN(" 388195 03 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 				if nil == ___Vutm.uTmDecodeCmdLO {
-					_FpfN(" 388195 04 : outChan null , ignore ")
+					_FpfN(" 388195 04 : outChan null , ignore:%s", __Vdecode.String())
 				} else {
-					//_FpfN(" 388195 051 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
-					//_FpfN(" 388195 052 real outChain : %s", __Vdecode.String())
+					//_FpfN(" 388195 05 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+					//_FpfN(" 388195 06 real outChain : %s", __Vdecode.String())
 					(*___Vutm.uTmDecodeCmdLO) <- __Vdecode // 15540463611554046361
 				}
 			case Cmd__data:
-				_FpfN(" 388195 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+				_FpfN(" 388197 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 				if nil == ___Vutm.uTmDecodeDataLO {
-					_FpfN(" 388195 07 : outChan null , ignore ")
+					_FpfN(" 388197 03 : outChan null , ignore ")
 				} else {
-					_FpfN(" 388195 08 real outChain : type %d", __Vdecode.Type)
+					_FpfN(" 388197 05 real outChain : type %d", __Vdecode.Type)
 					(*___Vutm.uTmDecodeDataLO) <- __Vdecode //
 				}
 			default:
-				_FpfN(" 388195 09 : type %d : unknow how to deal with.", __Vdecode.Type)
+				_FpfN(" 388197 09 : type %d : unknow how to deal with.", __Vdecode.Type)
 			}
 		}
 	}

@@ -63,7 +63,7 @@ type _Tdecode struct {
 func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
 	switch ___Vd.Type {
-	case Cmd__loginS1ReqTryNoToken:
+	case Cmd__loginS1ReqTryNoToken, Cmd__loginS2ReplyTmpToken, Cmd__loginS3ReqWithToken:
 		__Vcontent = ___Vd.Dlogin.String()
 	default:
 		__Vcontent = _Pspf("===under constructing %d===", ___Vd.Type)
@@ -73,7 +73,7 @@ func (___Vd *_Tdecode) String() string {
 		___Vd.ok,
 		___Vd.receiveTime,
 		___Vd.remoteAddr.String(),
-		___Vd.remotePortKey,
+		___Vd.remotePortKey[:8],
 		_FcmdType(___Vd.Type),
 		__Vcontent)
 	return __Vrs
