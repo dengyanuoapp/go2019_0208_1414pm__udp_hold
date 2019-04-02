@@ -35,11 +35,17 @@ func _Finit__2301() {
 		cAmount:     10,
 	}
 
+	_VudpDecode_Dn = _TuDecode{
+		//uTmDecodeCmdLO: &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
+	}
+
 	_VudpGroup_Dn = _TudpGroupSt{
 		ugName:        "udpGroup_Dn",
 		ugAmount:      10,
 		ugHostPortStr: []string{":0"},
+		ugCHreceLO:    &_VudpDecode_Dn.uTmCHunDataReceI,
 	}
+
 	flag.StringVar(&_VudpGroup_Dn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn.ugName)
 
 	flag.Parse()
@@ -71,6 +77,9 @@ func main() {
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
 	// _FudpGroup__600201__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
+
+	// _FudpDecode__700201x__receive__default
+	go _Frun(&_VudpDecode_Dn, 700101) // IRun _FudpDecode__700101x__init__default
 
 	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
 
