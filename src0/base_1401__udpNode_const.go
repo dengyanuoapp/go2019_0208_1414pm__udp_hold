@@ -6,16 +6,6 @@ import (
 	"time"
 )
 
-type _TudpNodeDataRece struct {
-	urrRemoteAddr net.UDPAddr
-	urrLen        int
-	urrBuf        []byte
-}
-type _TudpNodeDataSend struct {
-	usToAddr _TudpConnPort
-	usOutBuf []byte
-}
-
 type _TuNodeDataRcnt struct {
 	cnt int
 	urr _TudpNodeDataRece
