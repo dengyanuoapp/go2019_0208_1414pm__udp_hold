@@ -44,8 +44,9 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy3__receiveCallBack_default__randDe
 		_FpfNhex(&___Vun.unRbuf, 30, " 439191 01 key disabled ,skip rece rand decode")
 		return
 	}
-	_FpfN(" 439191 02 custom receive")
-	___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
+	_FpfNhex(&___Vun.unRbuf, 40, " 439191 02 custom receive ")
+	//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
+	___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&___Vun.unRbuf)
 
 }
 
