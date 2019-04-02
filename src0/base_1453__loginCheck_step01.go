@@ -72,7 +72,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
 		_FpfN(" 838394 03 , fake Chan ")
-		__Vreq._FdataPack__100__loginReq(&__VunSend.usOutBuf)
+		__Vreq._FdataPack__100__loginReq(Cmd__loginS2ReplyTmpToken, &__VunSend.usOutBuf)
 		__VunSend.usToAddr = _TudpConnPort{
 			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.remotePortKey, // []byte

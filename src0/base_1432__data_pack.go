@@ -12,10 +12,10 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VoutBuf *[]b
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
-	__Vreq._FdataPack__100__loginReq(___VoutBuf)
+	__Vreq._FdataPack__100__loginReq(Cmd__loginS1ReqTryNoToken, ___VoutBuf)
 }
 
-func (___Vreq *_TloginReq) _FdataPack__100__loginReq(___VoutBuf *[]byte) {
+func (___Vreq *_TloginReq) _FdataPack__100__loginReq(___Vcmd byte, ___VoutBuf *[]byte) {
 
 	__Vb2, __Verr2 := _FencGob__only(___Vreq)
 	if nil != __Verr2 {
@@ -29,7 +29,7 @@ func (___Vreq *_TloginReq) _FdataPack__100__loginReq(___VoutBuf *[]byte) {
 	//_FpfN(" 381923 03 : len %d: %v", __Vlen2, __Vb2)
 
 	*___VoutBuf = make([]byte, __Vlen2+37)
-	(*___VoutBuf)[0] = Cmd__loginS1ReqTryNoToken
+	(*___VoutBuf)[0] = ___Vcmd
 	copy((*___VoutBuf)[1:], _VersionProtocol01)
 	copy((*___VoutBuf)[37:], __Vb2)
 
