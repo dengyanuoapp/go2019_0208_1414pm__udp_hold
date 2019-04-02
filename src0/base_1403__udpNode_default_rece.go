@@ -31,8 +31,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 
 func (___Vun *_TudpNodeSt) _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() {
 
-	var __Vrece _TudpNodeDataRece
 	if ___Vun.unRkeyX.disable {
+		var __Vrece _TudpNodeDataRece
 		__Vrece = _TudpNodeDataRece{
 			urrRemoteAddr: ___Vun.unRemoteAddr,
 			urrLen:        ___Vun.unRlen,
@@ -85,5 +85,6 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		_FpfNhex(&__Vunr.urrBuf, 38, " 439192 08 rece : %d ,%11d %v ", __Vunr.urrLen, _FtimeI64(), __Vunr.urrRemoteAddr)
 	}
 
+	_FpfN(" 439192 09 udpNodeDataRece : %s", __Vunr.String())
 	(*___Vun.unCHreceLO) <- __Vunr
 }
