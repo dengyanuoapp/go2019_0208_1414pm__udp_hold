@@ -6,8 +6,8 @@ import (
 
 var (
 	_VudpNode_FunWaitDun   _TudpNodeSt
-	_VserviceTcpMf         _TserviceTCP
-	_VudpDecode01          _TuDecode
+	_VserviceTcp_Fn        _TserviceTCP
+	_VudpDecode_Fn         _TuDecode
 	_VloginCheck_FnWaitDun _TloginCheck
 	_VudpGroup_Fn          _TudpGroupSt
 	_Cexit                 chan string
@@ -27,7 +27,7 @@ func _Finit_2201() {
 
 	_FPargs()
 
-	_VserviceTcpMf = _TserviceTCP{
+	_VserviceTcp_Fn = _TserviceTCP{
 		name:                 "servicePortDebugLog",
 		hostPortStr:          "127.0.0.1:56781",
 		TcallbackSvrDataChan: _FuserCallback__service_dataChan__Log_Fn,
@@ -44,7 +44,7 @@ func _Finit_2201() {
 		unLoopGap: _T10s,
 	}
 
-	_VudpDecode01 = _TuDecode{
+	_VudpDecode_Fn = _TuDecode{
 		uTmCHunDataReceLI: &_VudpNode_FunWaitDun,
 		uTmDecodeCmdLO:    &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
 	}
@@ -75,7 +75,7 @@ func main() {
 
 	// ------------------- tcp for debug monitor log --- begin
 	// IRun _Fhandle_udpListen_Tcp__main_top()
-	go _Frun(&_VserviceTcpMf, 200101)
+	go _Frun(&_VserviceTcp_Fn, 200101)
 	// ------------------- tcp for debug monitor log --- end
 
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
@@ -83,7 +83,7 @@ func main() {
 	go _Frun(&_VudpNode_FunWaitDun, 500101) // IRun _FudpNode__500101__main_init__default
 
 	// _FudpDecode__700201x__receive__default
-	go _Frun(&_VudpDecode01, 700101) // IRun _FudpDecode__700101x__init__default
+	go _Frun(&_VudpDecode_Fn, 700101) // IRun _FudpDecode__700101x__init__default
 
 	// _FloginCheck__900201x__standardCheck
 	// _FloginCheck_step900201y__s2Reply_tokenB

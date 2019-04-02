@@ -5,13 +5,14 @@ import (
 )
 
 var (
-	_VserviceTcpMd   _TserviceTCP
-	_VudpGroup_Dn    _TudpGroupSt
-	_VloginGenerator _TloginGenerator
-	_Cexit           chan string
-	_Clog            chan string
-	_Vself           _Tself
-	_Vconfig         _Tconfig
+	_VserviceTcp_Dn     _TserviceTCP
+	_VudpGroup_Dn       _TudpGroupSt
+	_VudpDecode_Dn      _TuDecode
+	_VloginGenerator_Dn _TloginGenerator
+	_Cexit              chan string
+	_Clog               chan string
+	_Vself              _Tself
+	_Vconfig            _Tconfig
 )
 
 func _Finit__2301() {
@@ -26,7 +27,7 @@ func _Finit__2301() {
 
 	_FPargs()
 
-	_VserviceTcpMd = _TserviceTCP{
+	_VserviceTcp_Dn = _TserviceTCP{
 		name:        "TcpService__DebugLog__Md",
 		hostPortStr: "127.0.0.1:56782",
 		Cexit:       &_Cexit,
@@ -43,7 +44,7 @@ func _Finit__2301() {
 
 	flag.Parse()
 
-	_VloginGenerator = _TloginGenerator{
+	_VloginGenerator_Dn = _TloginGenerator{
 		ulSrvDownInfoLX: &_TsrvDownInfo{
 			name:         "srvDn2Fn",
 			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.gob.rand", // gob  json
@@ -64,14 +65,14 @@ func main() {
 
 	_Finit__2301()
 
-	go _Frun(&_VserviceTcpMd, 200101)
+	go _Frun(&_VserviceTcp_Dn, 200101)
 
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
 	// _FudpGroup__600201__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
 
-	go _Frun(&_VloginGenerator, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
+	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
 } // main
