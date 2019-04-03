@@ -26,6 +26,7 @@ type _TloginCheck struct {
 	ucCB900201stCheck func(*_TloginCheck)     // if nil , use the default receive
 	ucCmd             _TcmdMap
 	ucData            _TdataMap
+	ucTokenA          []byte
 }
 
 func _FcheckDecodeType(___Vdecode *_Tdecode, ___VwantType byte) bool { // match --> return false , others -> return true

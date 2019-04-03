@@ -1,8 +1,7 @@
 package main
 
 type _TloginGenerator struct {
-	ulCHconnectSuccI  chan bool // connect/login succeed true/false
-	ulTmpToken        []byte
+	ulCHconnectSuccI  chan bool           // connect/login succeed true/false
 	ulSrvDownInfoLX   *_TsrvDownInfo      // server Info seting , update by Github , try to connect
 	ulCB850101init    func(*_TuDecode)    // if nil , use the default init procedure
 	ulCB850201chRece  func(*_TuDecode)    // if nil , use the default receive

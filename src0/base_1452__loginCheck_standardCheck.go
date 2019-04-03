@@ -1,5 +1,7 @@
 package main
 
+//var ___VinitLoginIdx01 [16]byte = [16]byte{1, 1, 1, 1, 1, 2, 3, 4, 4, 3, 2, 1, 1, 1, 1, 1}
+
 func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 	_Fsleep(_T1s)
 	if nil == ___Vlc.ucCHSendLO {
@@ -35,15 +37,20 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				_FpfNdb(" 838392 09 : why not ok ?")
 			}
 		case __VuConnPort = <-___Vlc.ulCHconnPortI: // _TudpConnPort
-			_FpfNdb(" 838392 10 : under constructing ? {%s}", __VuConnPort.String())
-			/*
-				var __VusData _TudpNodeDataSend // _TudpConnPort
-				__VucPort._FdataPack__101__udpConnPort(&___Vlg.ulTmpToken, &__VusData.usOutBuf)
-				__VusData.usToAddr = *__VucPort   // _TudpConnPort
-				*___Vlg.ulCHunSendLO <- __VusData //
-				_FsleepRand_12_to_14s()
-				*___Vlg.ulCHunSendLO <- __VusData // 15540362231554036223
-			*/
+			//_FpfNdb(" 838392 10 : under constructing ? {%s}", __VuConnPort.String())
+			___Vlc.ucTokenA = _FgenRand_nByte__(16) // tokenA / Lo
+
+			var __VusData _TudpNodeDataSend // _TudpConnPort
+			__VloginReq := __VuConnPort._FdataPack__101__udpConnPort(&___Vlc.ucTokenA, &__VusData.usOutBuf)
+
+			//___Vlc.ucCmd.mux.Lock()
+			//___Vlc.ucCmd.M[___VinitLoginIdx01] = *__VloginReq // unknow the srv's id128 , so ,use fixed _TcmdMap
+			//___Vlc.ucCmd.mux.Unlock()
+
+			__VusData.usToAddr = __VuConnPort // _TudpConnPort
+			*___Vlc.ulCHunSendLO <- __VusData //
+			_FsleepRand_12_to_14s()
+			*___Vlc.ulCHunSendLO <- __VusData // 15540362231554036223
 
 		}
 	}

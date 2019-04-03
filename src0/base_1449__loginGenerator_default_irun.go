@@ -51,7 +51,6 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 					}
 
 				} else { // xTry,0skip
-					___Vlg.ulTmpToken = _FgenRand_nByte__(16)
 					__VucPort := __VnewSession._FudpDecode__750102z__tryfillSendChan() // _TudpConnPort
 					if nil == __VucPort {
 						_FpfNdb(" 138181 09: why nil ?")
@@ -60,7 +59,7 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
 							_Pn()
-							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d, TkMe %x", __VnewSession.tryCnt, __VnewSession.skipCnt, ___Vlg.ulTmpToken)
+							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d", __VnewSession.tryCnt, __VnewSession.skipCnt)
 							(*___Vlg.ulCHuConnPortLO) <- (*__VucPort)
 						}
 						__VnewSession.tryCnt--

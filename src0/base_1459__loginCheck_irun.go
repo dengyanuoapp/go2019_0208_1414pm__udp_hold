@@ -22,8 +22,9 @@ func (___Vlc *_TloginCheck) IRun(___Vidx int) {
 func (___Vlc *_TloginCheck) _FloginCheck__900101x__init__default() {
 
 	___Vlc.ucDecodeI = make(chan _Tdecode, 8)
-	___Vlc.ucCmd.M = make(map[[16]byte]_Tdecode)
 	___Vlc.ulCHconnPortI = make(chan _TudpConnPort, 8)
+	___Vlc.ucCmd.M = make(map[[16]byte]_Tdecode)
+	___Vlc.ucData.M = make(map[[16]byte]_Tdecode)
 
 	_FpfNdb(" 838391 01 start ")
 	go _Frun(___Vlc, 900201) // _FloginCheck__900201x__standardCheck
