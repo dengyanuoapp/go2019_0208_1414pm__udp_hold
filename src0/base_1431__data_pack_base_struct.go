@@ -6,14 +6,16 @@ import (
 )
 
 const (
-	Cmd__NULL                    = iota // 0
-	Cmd__idle                           // 1
-	Cmd__loginS01genReplyTokenA         // 2
-	Cmd__loginS02genReplyTokenB         // 3
-	Cmd__loginS03acceptWithToken        // 4
-	Cmd__loginS04acceptWithToken        // 5
-	Cmd__data                           // 6
-	Cmd__end                            // 7
+	Cmd__NULL                   = iota // 0
+	Cmd__idle                          // 1
+	Cmd__loginS01genReplyTokenA        // 2
+
+	Cmd__loginS02genReplyTokenB  // 3
+	Cmd__loginS03acceptWithToken // 4
+	Cmd__loginS04acceptWithToken // 5
+
+	Cmd__data // 6
+	Cmd__end  // 7
 )
 
 func _FcmdType(___Vc byte) string {
