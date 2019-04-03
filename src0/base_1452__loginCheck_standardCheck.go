@@ -25,12 +25,17 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
 				case Cmd__loginS01genReplyTokenA:
+					// ============================ step 02 : Fn gen tokenB, to Dn, cmd fill 02 ====================
 					___Vlc._FloginCheck_step900201y__s2Reply_tokenB(&__Vdecode)
-					//				case Cmd__loginS02genReplyTokenB:
-					//				case Cmd__loginS03acceptWithToken:
-					//					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
-					//					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
+				case Cmd__loginS02genReplyTokenB:
+					// ============================ step 03 : Dn check tokenA,id128,seq128 ,ACCEPT --> cmd fill 03 ====================
+					___Vlc.
+						_FloginCheck_step900201y__s3accept_tokenA(&__Vdecode)
+					//                case Cmd__loginS03acceptWithToken:
+					//                    // ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 					//					___Vlc._FloginCheck_step900201y__s3accept_tokenA(&__Vdecode)
+					//					//					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
+					//					//					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
 				default:
 					_FpfNdb(" 838392 08 : unknow how to deal with : type %d,", __Vdecode.Type)
 				}
@@ -38,6 +43,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				_FpfNdb(" 838392 09 : why not ok ?")
 			}
 		case __VuConnPort = <-___Vlc.ulCHconnPortI: // _TudpConnPort
+			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
 			//_FpfNdb(" 838392 10 : under constructing ? {%s}", __VuConnPort.String())
 			___Vlc.ucTokenA = _FgenRand_nByte__(16) // tokenA / Lo
 

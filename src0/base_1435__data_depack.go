@@ -33,7 +33,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 
 	switch ___Vbuf[0] {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
-		Cmd__loginS03acceptWithToken, Cmd__loginS04acceptWithToken:
+		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		__Vbuf2 := ___Vbuf[37:]
 		__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &___Vdecode.Dlogin)
 		if nil != __Verr2 {

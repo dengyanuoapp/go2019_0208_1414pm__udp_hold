@@ -12,7 +12,7 @@ const (
 
 	Cmd__loginS02genReplyTokenB  // 3
 	Cmd__loginS03acceptWithToken // 4
-	Cmd__loginS04acceptWithToken // 5
+	//Cmd__loginS04acceptWithToken // 5
 
 	Cmd__data // 6
 	Cmd__end  // 7
@@ -32,8 +32,8 @@ func _FcmdType(___Vc byte) string {
 		return "Cmd__loginS02genReplyTokenB"
 	case Cmd__loginS03acceptWithToken:
 		return "Cmd__loginS03acceptWithToken"
-	case Cmd__loginS04acceptWithToken:
-		return "Cmd__loginS04acceptWithToken"
+	//case Cmd__loginS04acceptWithToken:
+	//	return "Cmd__loginS04acceptWithToken"
 	default:
 		return "Cmd__unknown"
 	}
@@ -68,7 +68,7 @@ type _Tdecode struct {
 func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
 	switch ___Vd.Type {
-	case Cmd__loginS02genReplyTokenB, Cmd__loginS03acceptWithToken, Cmd__loginS04acceptWithToken:
+	case Cmd__loginS02genReplyTokenB, Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		__Vcontent = ___Vd.Dlogin.String()
 	default:
 		__Vcontent = _Pspf("===under constructing %d===", ___Vd.Type)
