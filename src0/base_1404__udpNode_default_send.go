@@ -49,7 +49,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 				return
 			}
 			_, __Verr2 = ___Vun.unConn.WriteToUDP(__Vbuf, &___Vus.usToAddr.DstAddr)
-			if 3 == 3 {
+			if 3 == 2 {
 				if 2 == 2 {
 					_FpfNhex(&__Vbuf, 32,
 						" 839119 04 udp send-rand %11d len:%d: dst<%v>, local<%v>, key<%x>",
