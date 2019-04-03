@@ -41,17 +41,16 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			___Vlc.ucTokenA = _FgenRand_nByte__(16) // tokenA / Lo
 
 			var __VusData _TudpNodeDataSend // _TudpConnPort
-			__VloginReq := __VuConnPort._FdataPack__101__udpConnPort(&___Vlc.ucTokenA, &__VusData.usOutBuf)
+			__VuConnPort._FdataPack__101__udpConnPort(&___Vlc.ucTokenA, &__VusData.usOutBuf)
 
 			//___Vlc.ucCmd.mux.Lock()
 			//___Vlc.ucCmd.M[___VinitLoginIdx01] = *__VloginReq // unknow the srv's id128 , so ,use fixed _TcmdMap
 			//___Vlc.ucCmd.mux.Unlock()
 
 			__VusData.usToAddr = __VuConnPort // _TudpConnPort
-			*___Vlc.ulCHunSendLO <- __VusData //
+			*___Vlc.ucCHSendLO <- __VusData   //
 			_FsleepRand_12_to_14s()
-			*___Vlc.ulCHunSendLO <- __VusData // 15540362231554036223
-
+			*___Vlc.ucCHSendLO <- __VusData // 15540362231554036223
 		}
 	}
 }

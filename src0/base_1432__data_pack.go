@@ -1,7 +1,7 @@
 package main
 
 // _TloginReq
-func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[]byte, ___VoutBuf *[]byte) *_TloginReq {
+func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[]byte, ___VoutBuf *[]byte) {
 	__Vreq := _TloginReq{
 		MeTime:   _FtimeInt(),
 		ReqStr:   " loginS01genReplyTokenA ",
@@ -13,7 +13,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[
 		//ToSeq128 []byte,
 	}
 	__Vreq._FdataPack__100__loginReq(Cmd__loginS01genReplyTokenA, ___VoutBuf)
-	return &__Vreq
+	//return &__Vreq
 }
 
 func (___Vreq *_TloginReq) _FdataPack__100__loginReq(___Vcmd byte, ___VoutBuf *[]byte) {
