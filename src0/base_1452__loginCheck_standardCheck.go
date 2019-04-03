@@ -14,6 +14,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 	_FpfN(" 838392 02 start")
 
 	var __Vdecode _Tdecode
+	var __VuConnPort _TudpConnPort
 	for {
 		//_Fsleep_100s()
 		select {
@@ -33,6 +34,17 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			} else {
 				_FpfNdb(" 838392 09 : why not ok ?")
 			}
+		case __VuConnPort = <-___Vlc.ulCHconnPortI: // _TudpConnPort
+			_FpfNdb(" 838392 10 : under constructing ? {%s}", __VuConnPort.String())
+			/*
+				var __VusData _TudpNodeDataSend // _TudpConnPort
+				__VucPort._FdataPack__101__udpConnPort(&___Vlg.ulTmpToken, &__VusData.usOutBuf)
+				__VusData.usToAddr = *__VucPort   // _TudpConnPort
+				*___Vlg.ulCHunSendLO <- __VusData //
+				_FsleepRand_12_to_14s()
+				*___Vlg.ulCHunSendLO <- __VusData // 15540362231554036223
+			*/
+
 		}
 	}
 }

@@ -20,6 +20,7 @@ type _TdataMap struct {
 
 type _TloginCheck struct {
 	ucDecodeI         chan _Tdecode
+	ulCHconnPortI     chan _TudpConnPort      // all data need to be sent by nodeS send here , then  will distribute to one of node
 	ucCHSendLO        *chan _TudpNodeDataSend // ugCHSendI
 	ucCB900101init    func(*_TloginCheck)     // if nil , use the default init procedure
 	ucCB900201stCheck func(*_TloginCheck)     // if nil , use the default receive

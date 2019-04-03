@@ -63,7 +63,8 @@ func _Finit__2301() {
 			updateUri:    "https://raw.githubusercontent.com/jasas78/jsonOnly/master/json/FnWaitDn.gob.rand", // gob  json
 			updatePasswd: _Vpasswd_udp_FnWaitDn_download_config,
 		},
-		ulCHunSendLO: &_VudpGroup_Dn.ugCHSendI,
+		//ulCHunSendLO: &_VudpGroup_Dn.ugCHSendI,
+		ulCHuConnPortLO: &_VloginCheck_Dn.ulCHconnPortI, // chan _TudpConnPort
 	}
 
 	// _FdebugPrintTest()

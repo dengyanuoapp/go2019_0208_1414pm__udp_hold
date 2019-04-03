@@ -53,18 +53,15 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 				} else { // xTry,0skip
 					___Vlg.ulTmpToken = _FgenRand_nByte__(16)
 					__VucPort := __VnewSession._FudpDecode__750102z__tryfillSendChan() // _TudpConnPort
-					if nil != __VucPort {
-						if nil == ___Vlg.ulCHunSendLO {
+					if nil == __VucPort {
+						_FpfNdb(" 138181 09: why nil ?")
+					} else {
+						if nil == ___Vlg.ulCHuConnPortLO {
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
 							_Pn()
 							_FpfNdb(" 138181 08: tryCnt %d , skipCnt %d, TkMe %x", __VnewSession.tryCnt, __VnewSession.skipCnt, ___Vlg.ulTmpToken)
-							var __VusData _TudpNodeDataSend // _TudpConnPort
-							__VucPort._FdataPack__101__udpConnPort(&___Vlg.ulTmpToken, &__VusData.usOutBuf)
-							__VusData.usToAddr = *__VucPort   // _TudpConnPort
-							*___Vlg.ulCHunSendLO <- __VusData //
-							_FsleepRand_12_to_14s()
-							*___Vlg.ulCHunSendLO <- __VusData // 15540362231554036223
+							(*___Vlg.ulCHuConnPortLO) <- (*__VucPort)
 						}
 						__VnewSession.tryCnt--
 						__VnewSession.skipCnt = 2
