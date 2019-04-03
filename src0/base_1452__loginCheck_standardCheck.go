@@ -23,12 +23,10 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				switch __Vdecode.Type {
 				case Cmd__loginS02genReplyToken2:
 					___Vlc._FloginCheck_step900201y__s2Reply_tokenB(&__Vdecode)
-					/*
-						case Cmd__loginS03acceptWithToken:
-							//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
-							//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
-							___Vlc._FloginCheck_step900201y__s3accept_tokenA(&__Vdecode)
-					*/
+				case Cmd__loginS03acceptWithToken:
+					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
+					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
+					___Vlc._FloginCheck_step900201y__s3accept_tokenA(&__Vdecode)
 				default:
 					_FpfNdb(" 838392 08 : unknow how to deal with : %d", __Vdecode.Type)
 				}
