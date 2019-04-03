@@ -9,10 +9,13 @@ var (
 	_VudpGroup_Dn       _TudpGroupSt
 	_VudpDecode_Dn      _TuDecode
 	_VloginGenerator_Dn _TloginGenerator
-	_Cexit              chan string
-	_Clog               chan string
-	_Vself              _Tself
-	_Vconfig            _Tconfig
+
+	_VloginCheck_Dn _TloginCheck
+
+	_Cexit   chan string
+	_Clog    chan string
+	_Vself   _Tself
+	_Vconfig _Tconfig
 )
 
 func _Finit__2301() {
@@ -36,7 +39,11 @@ func _Finit__2301() {
 	}
 
 	_VudpDecode_Dn = _TuDecode{
-		//uTmDecodeCmdLO: &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
+		uTmDecodeCmdLO: &_VloginCheck_Dn.ucDecodeI, // _TloginCheck _Tdecode
+	}
+
+	_VloginCheck_Dn = _TloginCheck{
+		ucCHSendLO: &_VudpGroup_Dn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{
@@ -80,6 +87,10 @@ func main() {
 
 	// _FudpDecode__700201x__receive__default
 	go _Frun(&_VudpDecode_Dn, 700101) // IRun _FudpDecode__700101x__init__default
+
+	// _FloginCheck__900201x__standardCheck
+	// _FloginCheck_step900201y__s2Reply_tokenB
+	go _Frun(&_VloginCheck_Dn, 900101) // _FloginCheck__900101x__init__default
 
 	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
 
