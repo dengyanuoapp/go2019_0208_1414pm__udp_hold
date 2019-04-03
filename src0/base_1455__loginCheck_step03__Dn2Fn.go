@@ -3,18 +3,18 @@ package main
 import "reflect"
 
 func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA(___Vdecode *_Tdecode) {
-	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyToken2) {
-		_FpfNdb(" 838393 01 type error , ignore ")
+	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyTokenB) {
+		_FpfNdb(" 838381 01 type error , ignore ")
 		return
 	}
 
-	////_FpfNdb(" 838393 01 : ...... ")
-	//_FpfNdb(" 838393 02 : %s", ___Vdecode.String()) // 15540463611554046361
+	////_FpfNdb(" 838381 01 : ...... ")
+	//_FpfNdb(" 838381 02 : %s", ___Vdecode.String()) // 15540463611554046361
 	////___Vlc.ucCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
 	__VlenArr := ___Vdecode.Count128()
 	if false == reflect.DeepEqual(__VlenArr, __Vstep03_LoginLenArr) {
-		_FpfNdb(" 838393 03 len error , ignore %d ", __VlenArr)
+		_FpfNdb(" 838381 03 len error , ignore %d ", __VlenArr)
 		return
 	}
 
@@ -24,12 +24,12 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA(___Vdecode
 		_FdeleteOld_cmdStack(&___Vlc.ucCmd.M)
 	}
 
-	//_FpfNdb(" 838393 04 : key is <%x> ", __Vk)
+	//_FpfNdb(" 838381 04 : key is <%x> ", __Vk)
 	___Vdecode.Dlogin.TokenR = _FgenRand_nByte__(16)
 
 	___Vlc.ucCmd.M[__Vk] = *___Vdecode
 
-	//_FpfNdb(" 838393 06 : [decode:<%s>]", ___Vdecode.String())
+	//_FpfNdb(" 838381 06 : [decode:<%s>]", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step03__accept_tokenA(___Vdecode)
 }
@@ -50,17 +50,17 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA(___Vdecode *_Tdec
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
-	_FpfNdb(" 838394 01 start [req:<%s>]", __Vreq.String())
+	_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ucCHSendLO {
-		_FpfN(" 838394 02 , why output-Chan nil ? ")
+		_FpfN(" 838382 02 , why output-Chan nil ? ")
 	} else {
-		_FpfN(" 838394 03 , fake Chan ")
+		_FpfN(" 838382 03 , fake Chan ")
 		__Vreq._FdataPack__100__loginReq(Cmd__loginS03acceptWithToken, &__VunSend.usOutBuf)
 		__VunSend.usToAddr = _TudpConnPort{
 			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.remotePortKey, // []byte
 		}
-		_FpfNdb(" 838394 04 [pre-unSend:<%s>]{%s}", __VunSend.String(), __Vreq.String())
+		_FpfNdb(" 838382 04 [pre-unSend:<%s>]{%s}", __VunSend.String(), __Vreq.String())
 		(*___Vlc.ucCHSendLO) <- __VunSend // _TudpNodeDataSend
 	}
 }

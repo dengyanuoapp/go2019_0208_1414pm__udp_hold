@@ -8,7 +8,8 @@ import (
 const (
 	Cmd__NULL = iota
 	Cmd__idle
-	Cmd__loginS02genReplyToken2
+	Cmd__loginS01genReplyTokenA
+	Cmd__loginS02genReplyTokenB
 	Cmd__loginS03acceptWithToken
 	Cmd__loginS04acceptWithToken
 	Cmd__data
@@ -23,8 +24,10 @@ func _FcmdType(___Vc byte) string {
 		return "Cmd__idle"
 	case Cmd__data:
 		return "Cmd__data"
-	case Cmd__loginS02genReplyToken2:
-		return "Cmd__loginS02genReplyToken2"
+	case Cmd__loginS01genReplyTokenA:
+		return "Cmd__loginS01genReplyTokenA"
+	case Cmd__loginS02genReplyTokenB:
+		return "Cmd__loginS02genReplyTokenB"
 	case Cmd__loginS03acceptWithToken:
 		return "Cmd__loginS03acceptWithToken"
 	case Cmd__loginS04acceptWithToken:
@@ -63,7 +66,7 @@ type _Tdecode struct {
 func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
 	switch ___Vd.Type {
-	case Cmd__loginS02genReplyToken2, Cmd__loginS03acceptWithToken, Cmd__loginS04acceptWithToken:
+	case Cmd__loginS02genReplyTokenB, Cmd__loginS03acceptWithToken, Cmd__loginS04acceptWithToken:
 		__Vcontent = ___Vd.Dlogin.String()
 	default:
 		__Vcontent = _Pspf("===under constructing %d===", ___Vd.Type)
