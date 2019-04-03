@@ -32,7 +32,8 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 	}
 
 	switch ___Vbuf[0] {
-	case Cmd__loginS02genReplyTokenB, Cmd__loginS03acceptWithToken, Cmd__loginS04acceptWithToken:
+	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
+		Cmd__loginS03acceptWithToken, Cmd__loginS04acceptWithToken:
 		__Vbuf2 := ___Vbuf[37:]
 		__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &___Vdecode.Dlogin)
 		if nil != __Verr2 {
@@ -41,7 +42,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 		}
 
 	default:
-		_FpfNhex(&___Vbuf, 500, " 387193 05 : under constructing : %d ", ___Vbuf[0])
+		_FpfNhex(&___Vbuf, 500, " 387193 05 : under constructing : type %d ,", ___Vbuf[0])
 	}
 
 	___Vdecode.remotePortKey = ___Vbuf[5:37]
