@@ -52,10 +52,10 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 			if 3 == 3 {
 				if 2 == 2 {
 					_FpfNhex(&__Vbuf, 36,
-						" 839119 04 udp send-rand %11d len:%d: dst<%v>, local<%v>, listen<%v> key<%x>{%s}",
+						" 839119 04 udp send-rand %11d len:%d: dst<%v>, local<%v>, listen<%v> key<%x>",
 						_FtimeI64(), len(___Vus.usOutBuf),
 						___Vus.usToAddr.DstAddr, ___Vun.unLocalAddr, ___Vun.unAddr,
-						___Vus.usToAddr.K256[:8], ___Vun.String())
+						___Vus.usToAddr.K256[:8])
 				} else {
 					_FpfNhex(&__Vbuf, 16, " 839119 05 send: %s", ___Vun.String())
 				}
