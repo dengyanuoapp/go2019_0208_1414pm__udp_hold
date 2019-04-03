@@ -12,3 +12,20 @@ note :
 2. CmdMap(S) and CmdMap(C) is the same, only difference working in Client and Server
 
 */
+
+var __Vstep02_LoginLenArr []int = []int{0, 0, 16, 16, 16, 0}
+var __Vstep03_LoginLenArr []int = []int{0, 0, 16, 16, 16, 16}
+var __VmaxCmdPerid int = 100
+
+func _FdeleteOld_cmdStack(___Vm *map[[16]byte]_Tdecode) {
+	var __Vdel [][16]byte
+	__Vnow := _FtimeInt()
+	for __k, __v := range *___Vm {
+		if __Vnow-__v.receiveTime > __VmaxCmdPerid {
+			__Vdel = append(__Vdel, __k)
+		}
+	}
+	for _, __v := range __Vdel {
+		delete(*___Vm, __v)
+	}
+}

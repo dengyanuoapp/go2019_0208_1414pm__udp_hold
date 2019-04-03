@@ -8,9 +8,9 @@ import (
 const (
 	Cmd__NULL = iota
 	Cmd__idle
-	Cmd__loginS1ReqTryNoToken
-	Cmd__loginS2ReplyTmpToken
-	Cmd__loginS3ReqWithToken
+	Cmd__loginS02genReplyToken2
+	Cmd__loginS03acceptWithToken
+	Cmd__loginS04acceptWithToken
 	Cmd__data
 	Cmd__end
 )
@@ -23,12 +23,12 @@ func _FcmdType(___Vc byte) string {
 		return "Cmd__idle"
 	case Cmd__data:
 		return "Cmd__data"
-	case Cmd__loginS1ReqTryNoToken:
-		return "Cmd__loginS1ReqTryNoToken"
-	case Cmd__loginS2ReplyTmpToken:
-		return "Cmd__loginS2ReplyTmpToken"
-	case Cmd__loginS3ReqWithToken:
-		return "Cmd__loginS3ReqWithToken"
+	case Cmd__loginS02genReplyToken2:
+		return "Cmd__loginS02genReplyToken2"
+	case Cmd__loginS03acceptWithToken:
+		return "Cmd__loginS03acceptWithToken"
+	case Cmd__loginS04acceptWithToken:
+		return "Cmd__loginS04acceptWithToken"
 	default:
 		return "Cmd__unknown"
 	}
@@ -63,7 +63,7 @@ type _Tdecode struct {
 func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
 	switch ___Vd.Type {
-	case Cmd__loginS1ReqTryNoToken, Cmd__loginS2ReplyTmpToken, Cmd__loginS3ReqWithToken:
+	case Cmd__loginS02genReplyToken2, Cmd__loginS03acceptWithToken, Cmd__loginS04acceptWithToken:
 		__Vcontent = ___Vd.Dlogin.String()
 	default:
 		__Vcontent = _Pspf("===under constructing %d===", ___Vd.Type)

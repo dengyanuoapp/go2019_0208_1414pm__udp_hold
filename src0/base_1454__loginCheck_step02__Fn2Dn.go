@@ -2,10 +2,8 @@ package main
 
 import "reflect"
 
-var __VfirstLoginLenArr []int = []int{0, 0, 16, 16, 16, 0}
-
 func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode *_Tdecode) {
-	if _FcheckDecodeType(___Vdecode, Cmd__loginS1ReqTryNoToken) {
+	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyToken2) {
 		_FpfNdb(" 838393 01 type error , ignore ")
 		return
 	}
@@ -15,7 +13,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 	////___Vlc.ucCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
 	__VlenArr := ___Vdecode.Count128()
-	if false == reflect.DeepEqual(__VlenArr, __VfirstLoginLenArr) {
+	if false == reflect.DeepEqual(__VlenArr, __Vstep02_LoginLenArr) {
 		_FpfNdb(" 838393 03 len error , ignore %d ", __VlenArr)
 		return
 	}
@@ -34,21 +32,6 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB(___Vdecode 
 	//_FpfNdb(" 838393 06 : [decode:<%s>]", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step102y__sReply_tokenB(___Vdecode)
-}
-
-var __VmaxCmdPerid int = 100
-
-func _FdeleteOld_cmdStack(___Vm *map[[16]byte]_Tdecode) {
-	var __Vdel [][16]byte
-	__Vnow := _FtimeInt()
-	for __k, __v := range *___Vm {
-		if __Vnow-__v.receiveTime > __VmaxCmdPerid {
-			__Vdel = append(__Vdel, __k)
-		}
-	}
-	for _, __v := range __Vdel {
-		delete(*___Vm, __v)
-	}
 }
 
 // _TloginReq _Tdecode
@@ -72,7 +55,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
 		_FpfN(" 838394 03 , fake Chan ")
-		__Vreq._FdataPack__100__loginReq(Cmd__loginS2ReplyTmpToken, &__VunSend.usOutBuf)
+		__Vreq._FdataPack__100__loginReq(Cmd__loginS03acceptWithToken, &__VunSend.usOutBuf)
 		__VunSend.usToAddr = _TudpConnPort{
 			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.remotePortKey, // []byte

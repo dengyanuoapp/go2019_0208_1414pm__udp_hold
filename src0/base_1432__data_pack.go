@@ -12,7 +12,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
-	__Vreq._FdataPack__100__loginReq(Cmd__loginS1ReqTryNoToken, ___VoutBuf)
+	__Vreq._FdataPack__100__loginReq(Cmd__loginS02genReplyToken2, ___VoutBuf)
 }
 
 func (___Vreq *_TloginReq) _FdataPack__100__loginReq(___Vcmd byte, ___VoutBuf *[]byte) {
