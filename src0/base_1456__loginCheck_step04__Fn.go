@@ -33,22 +33,32 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 		return
 	}
 
-	__Vk128 := _FgenB16(&___Vdecode.Dlogin.ToIdx128)
-	___Vlc.ulCmd.mux.Lock()                   //               _TcmdMap
-	__Vold, __Vok4 := ___Vlc.ulCmd.M[__Vk128] //               _TcmdMap
+	__Vk128 := _FgenB16(&___Vdecode.Dlogin.MeIdx128) // Dn's id
+	___Vlc.ulCmd.mux.Lock()                          //               _TcmdMap
+	__Vold, __Vok4 := ___Vlc.ulCmd.M[__Vk128]        //               _TcmdMap
+	___Vlc.ulCmd.mux.Unlock()                        //               _TcmdMap
+
 	if false == __Vok4 {
-		_FpfN(" 838383 07 : error : not found(key:%x), %s ", __Vk128[:5], ___Vdecode.String())
-		_FpfN(" 838383 08 : %#v", ___Vlc.ulCmd.M)
-		_Fex1(" 838383 09 ")
+		_FpfN(" 838383 07 : error : not found(key:%x), %s ", String5(&___Vdecode.Dlogin.MeIdx128), ___Vdecode.String())
+		//_FpfN(" 838383 08 : %#v", ___Vlc.ulCmd.M)
+		//_Fex1(" 838383 09 ")
 		return
 	}
 	if (_FtimeInt() - __Vold.receiveTime) > __VmaxCmdPerid {
-		_FpfN(" 838383 18 : error : timeOut. %s ", __Vold.String())
-		_FpfN(" 838383 19 : error : timeOut. %s ", ___Vdecode.String())
+		_FpfN(" 838383 11 : error : timeOut. %s ", __Vold.String())
+		_FpfN(" 838383 12 : error : timeOut. %s ", ___Vdecode.String())
 		return
 	}
 
-	//if false == bytes.Equal(___Vdecode.Dlogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
+	if false == bytes.Equal(___Vdecode.Dlogin.MeIdx128, __Vold.Dlogin.MeIdx128) ||
+		false == bytes.Equal(___Vdecode.Dlogin.MeSeq128, __Vold.Dlogin.MeSeq128) ||
+		false == bytes.Equal(___Vdecode.Dlogin.ToIdx128, __Vold.Dlogin.ToIdx128) ||
+		false == bytes.Equal(___Vdecode.Dlogin.ToSeq128, __Vold.Dlogin.ToSeq128) ||
+		false == bytes.Equal(___Vdecode.Dlogin.TokenL, __Vold.Dlogin.TokenL) ||
+		false == bytes.Equal(___Vdecode.Dlogin.TokenR, __Vold.Dlogin.TokenR) {
+		_FpfN("   838383 18 %s ", __Vold.String())
+		_FpfNex(" 838383 19 %s ", ___Vdecode.String())
+	}
 
 	_FpfN("   838383 20 %s ", __Vold.String())
 	_FpfNex(" 838383 21 %s ", ___Vdecode.String())
