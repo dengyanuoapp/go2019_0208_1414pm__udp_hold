@@ -70,7 +70,14 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 	if nil == ___Vlc.ulCHdataMachineIdLO {
 		_FpfN(" 838382 06 , why output-Chan nil ? ulCHdataMachineIdLO")
 	} else {
-		__Vid := _TdataMachinEid{}
+		__Vid := _TdataMachinEid{
+			diConnPort: _TudpConnPort{
+				___Vdecode.remoteAddr,     // net.UDPAddr
+				___Vdecode.remotePortKey}, // []byte
+			diIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
+			diSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
+			diToken:  ___Vdecode.Dlogin.TokenL,   // []byte
+		}
 		_FpfNdb(" 838382 07 [insertId:<%s>]", __Vid.String())
 		(*___Vlc.ulCHdataMachineIdLO) <- __Vid
 	}

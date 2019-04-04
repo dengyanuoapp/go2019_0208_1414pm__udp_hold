@@ -2,6 +2,9 @@ package main
 
 type _TdataMachinEid struct {
 	diConnPort _TudpConnPort
+	diIdx128   []byte
+	diSeq128   []byte
+	diToken    []byte
 }
 
 type _TdataMachine struct {
