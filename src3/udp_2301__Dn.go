@@ -44,7 +44,8 @@ func _Finit__2301() {
 	}
 
 	_VloginCheck_Dn = _TloginCheck{
-		ulCHSendLO: &_VudpGroup_Dn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
+		ulCHSendLO:          &_VudpGroup_Dn.ugCHSendI,             // _TudpGroupSt _TudpNodeDataSend
+		ulCHdataMachineIdLO: &_VdataMachine_Dn.dmCHdataMachineIdI, // *chan _TdataMachinEid
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{

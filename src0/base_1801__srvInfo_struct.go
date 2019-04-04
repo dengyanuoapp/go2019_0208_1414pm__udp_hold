@@ -24,5 +24,5 @@ type _TsrvInfo struct {
 func (___Vucp *_TudpConnPort) String() string {
 	return _Pspf("[%s](key %x)",
 		___Vucp.DstAddr.String(),
-		___Vucp.K256[:5])
+		String5(&___Vucp.K256))
 }

@@ -55,7 +55,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 
 	//_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ulCHSendLO {
-		_FpfN(" 838382 06 , why output-Chan nil ? ulCHSendLO")
+		_FpfN(" 838382 02 , why output-Chan nil ? ulCHSendLO")
 	} else {
 		//_FpfN(" 838382 03 , fake Chan ")
 		__Vreq._FdataPack__100__loginReq(Cmd__loginS03acceptWithToken, &__VunSend.usOutBuf)
