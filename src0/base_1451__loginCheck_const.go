@@ -1,9 +1,5 @@
 package main
 
-import (
-	"sync"
-)
-
 /*
 the Dn2Fn , step 01 , "Dn" gen a tokenL(A) and send to "Fn" , rec in tokenA(S) , sending : tokenL(A),-
 the Fn2Dn , step 02 , "Fn" gen a tokenR(B) and send to "Dn" , rec in CmdMap(C) , sending : tokenL(B),tokenR(A)
@@ -22,36 +18,6 @@ note :
 
 */
 
-// _TloginReq
-//type _TconnInfo struct {
-//	ciId128 []byte
-//}
-
-type _TcmdMap struct {
-	M   map[[16]byte]_Tdecode // key by 16byte : MeIdx128
-	mux sync.Mutex
-}
-
-func (___Vcm *_TcmdMap) String() string {
-	if 0 == len((*___Vcm).M) {
-		return ""
-	}
-
-	var __VstrO string
-
-	__Vi := 0
-	for ___Vk := range (*___Vcm).M {
-		__VstrO += _Pspf("%x ", ___Vk[:5])
-		__Vi++
-	}
-	return __VstrO
-}
-
-//type _TdataMap struct {
-//	M   map[[16]byte]_Tdecode // key by 16byte : MeIdx128
-//	mux sync.Mutex
-//}
-
 type _TloginCheck struct {
 	ulDecodeI           chan _Tdecode
 	ulCHconnPortI       chan _TudpConnPort      // all data need to be sent by nodeS send here , then  will distribute to one of node
@@ -63,16 +29,6 @@ type _TloginCheck struct {
 	//ulData              _TdataMap
 	ulTokenA  []byte
 	ulGenTime int
-}
-
-func String5(___Vb *[]byte) string {
-	if (nil == ___Vb) || (0 == len(*___Vb)) {
-		return ""
-	}
-	if len(*___Vb) < 5 {
-		return _Pspf("%x", *___Vb)
-	}
-	return _Pspf("%x", (*___Vb)[:5])
 }
 
 func (___Vlc *_TloginCheck) String() string {
