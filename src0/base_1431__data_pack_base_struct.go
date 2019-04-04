@@ -68,12 +68,12 @@ func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
 	switch ___Vd.Type {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB, Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
-		__Vcontent = ___Vd.Dlogin.String()
+		__Vcontent = "Dlogin:" + ___Vd.Dlogin.String()
 	default:
-		__Vcontent = _Pspf("===under constructing %d===", ___Vd.Type)
+		__Vcontent = _Pspf("Content:===under constructing %d===", ___Vd.Type)
 	}
 	__Vrs := _Pspf(
-		"ok:%T rece:%d addr:%s key:%x type:%s :%s",
+		"ok:%T rece:%d addr:%s key:%x type:%s {%s}",
 		___Vd.ok,
 		___Vd.receiveTime,
 		___Vd.remoteAddr.String(),

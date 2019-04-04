@@ -33,7 +33,7 @@ type _TloginCheck struct {
 
 func (___Vlc *_TloginCheck) String() string {
 	return _Pspf(
-		"loginChck-cmdMap:{%s} key:%x,%d",
+		"logCk-cmdMap:{%s} key:%x ti:%d",
 		___Vlc.ulCmd.String(),
 		String5(&___Vlc.ulTokenA),
 		___Vlc.ulGenTime)

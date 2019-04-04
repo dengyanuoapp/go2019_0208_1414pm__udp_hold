@@ -12,6 +12,9 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,
 	}
+	if 0 != len(__Vreq.TokenR) {
+		_FpfNex(" 381923 00 : why len is not ZERO ?")
+	}
 	__Vreq._FdataPack__100__loginReq(Cmd__loginS01genReplyTokenA, ___VoutBuf)
 	//return &__Vreq
 }
