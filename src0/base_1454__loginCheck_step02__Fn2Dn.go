@@ -8,7 +8,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 		return
 	}
 
-	////_FpfNdb(" 838393 05 : ...... ")
+	////_FpfNdb(" 838393 02 : ...... ")
 	//_FpfNdb(" 838393 04 : %s", ___Vdecode.String()) // 15540463611554046361
 	////___Vlc.ulCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
