@@ -26,16 +26,18 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				switch __Vdecode.Type {
 				case Cmd__loginS01genReplyTokenA:
 					// ============================ step 02 : Fn gen tokenB, to Dn, cmd fill 02 ====================
-					___Vlc._FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn(&__Vdecode)
+					___Vlc.
+						_FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn(&__Vdecode)
 				case Cmd__loginS02genReplyTokenB:
 					// ============================ step 03 : Dn check tokenA,id128,seq128 ,ACCEPT --> cmd fill 03 ====================
 					___Vlc.
-						_FloginCheck_step900201y__s3accept_tokenA_file03send_Dn(&__Vdecode)
-					//                case Cmd__loginS03acceptWithToken:
-					//                    // ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
-					//					___Vlc._FloginCheck_step900201y__s3accept_tokenA_file03send_Dn(&__Vdecode)
-					//					//					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
-					//					//					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
+						_FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(&__Vdecode)
+				case Cmd__loginS03acceptWithToken:
+					// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
+					___Vlc.
+						_FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(&__Vdecode)
+					//					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
+					//					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
 				default:
 					_FpfNdb(" 838392 08 : unknow how to deal with : type %d,", __Vdecode.Type)
 				}

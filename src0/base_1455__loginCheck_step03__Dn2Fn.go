@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send_Dn(___Vdecode *_Tdecode) {
+func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(___Vdecode *_Tdecode) {
 	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyTokenB) {
 		_FpfNdb(" 838381 01 type error , ignore ")
 		return
