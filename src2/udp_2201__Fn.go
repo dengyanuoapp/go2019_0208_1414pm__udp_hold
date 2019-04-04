@@ -10,6 +10,7 @@ var (
 	_VudpDecode_Fn         _TuDecode
 	_VloginCheck_FnWaitDun _TloginCheck
 	_VudpGroup_Fn          _TudpGroupSt
+	_VdataMachine_Fn       _TdataMachine
 	_Cexit                 chan string
 	_Clog                  chan string
 	_Vself                 _Tself

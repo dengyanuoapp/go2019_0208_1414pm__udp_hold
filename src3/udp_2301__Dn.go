@@ -9,6 +9,7 @@ var (
 	_VudpGroup_Dn       _TudpGroupSt
 	_VudpDecode_Dn      _TuDecode
 	_VloginGenerator_Dn _TloginGenerator
+	_VdataMachine_Dn    _TdataMachine
 
 	_VloginCheck_Dn _TloginCheck
 
