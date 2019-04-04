@@ -2,7 +2,6 @@ package main
 
 // _TudpGroupSt
 // _TudpNodeSt
-// _TudpConnPort
 func _FudpGroup__600201__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
 	//__Vlen := len(___Vug. ugCHuConnPortI)
@@ -13,7 +12,7 @@ func _FudpGroup__600201__CHin_select_send__default(___Vug *_TudpGroupSt) {
 	)
 	for {
 		select {
-		//		case __VchPort := <-___Vug.ugCHuConnPortI: // _TudpConnPort
+		//		case __VchPort := <-___Vug.ugCHuConnPortI: //
 		//			//_FpfNdb(" 838111 03 : %s, %0x", __VchPort.DstAddr, __VchPort.K256)
 		//			//_FpfNdb(" 838111 04 : %v", __VchPort.DstAddr)
 		//			__VusData.usToAddr = __VchPort

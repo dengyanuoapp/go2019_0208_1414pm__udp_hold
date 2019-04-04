@@ -50,8 +50,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
-	//_FpfN(" 838382 08 %s ", ___Vdecode.String())
-	//_FpfNex(" 838382 09 %s ", __Vreq.String())
+	//_FpfN("   838382 10 %s ", ___Vdecode.String())
+	//_FpfNex(" 838382 11 %s ", __Vreq.String())
 
 	//_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ulCHSendLO {
@@ -71,7 +71,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 		_FpfN(" 838382 06 , why output-Chan nil ? ulCHdataMachineIdLO")
 	} else {
 		__Vid := _TdataMachinEid{}
-		_FpfNdb(" 838382 08 [insertId:<%s>]", __Vid.String())
+		_FpfNdb(" 838382 07 [insertId:<%s>]", __Vid.String())
 		(*___Vlc.ulCHdataMachineIdLO) <- __Vid
 	}
 }

@@ -4,7 +4,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101z__send() {
 	for {
 		select {
 		case __VchSend := <-___Vun.unCHsendI: // _TudpNodeDataSend
-			//_FpfN(" 839118 01 send ") // usToAddr _TudpConnPort
+			//_FpfN(" 839118 01 send ") // usToAddr
 
 			__VchSend._FudpNode__500101zz__try_Rand_buf_before_send()
 			___Vun._FudpNode__500101zzz__send_buf_real(&__VchSend)
@@ -36,7 +36,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 	}
 
 	var __Verr2 error
-	__VkLen := len(___Vus.usToAddr.K256) //_TudpConnPort
+	__VkLen := len(___Vus.usToAddr.K256) //
 	//__VkLen = 0 // force disable the rand aes
 	if 0 != __VkLen {
 		if 32 == __VkLen {
@@ -68,7 +68,6 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 			return
 		}
 	} else {
-		//usToAddr _TudpConnPort
 		// func (c *UDPConn) WriteToUDP(b []byte, addr *UDPAddr) (int, error)
 		_, __Verr2 = ___Vun.unConn.WriteToUDP(___Vus.usOutBuf, &___Vus.usToAddr.DstAddr)
 		_FpfNhex(&___Vus.usOutBuf, 40, " 839121 07 : %s : udp send direct :", ___Vun.unName)

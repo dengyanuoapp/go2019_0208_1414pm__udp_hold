@@ -25,5 +25,5 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
 	_Fsleep(_T1s)
 
-	go _Frun(___Vdm, 1000201)
+	go _Frun(___Vdm, 1000201) // _FdataMachin__1000201x__receive__default
 }

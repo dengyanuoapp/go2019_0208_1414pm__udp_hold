@@ -6,7 +6,6 @@ import (
 )
 
 type _TudpConnPort struct {
-	//Uri  string
 	DstAddr net.UDPAddr
 	K256    []byte
 }
