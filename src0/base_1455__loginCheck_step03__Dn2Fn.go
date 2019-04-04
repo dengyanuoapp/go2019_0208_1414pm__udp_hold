@@ -50,14 +50,14 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
-	_FpfN(" 838382 08 %s ", ___Vdecode.String())
-	_FpfNex(" 838382 09 %s ", __Vreq.String())
+	//_FpfN(" 838382 08 %s ", ___Vdecode.String())
+	//_FpfNex(" 838382 09 %s ", __Vreq.String())
 
-	_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
+	//_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ulCHSendLO {
 		_FpfN(" 838382 02 , why output-Chan nil ? ")
 	} else {
-		_FpfN(" 838382 03 , fake Chan ")
+		//_FpfN(" 838382 03 , fake Chan ")
 		__Vreq._FdataPack__100__loginReq(Cmd__loginS03acceptWithToken, &__VunSend.usOutBuf)
 		__VunSend.usToAddr = _TudpConnPort{
 			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
