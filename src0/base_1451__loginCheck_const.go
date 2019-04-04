@@ -4,6 +4,24 @@ import (
 	"sync"
 )
 
+/*
+the Dn2Fn , step 01 , "Dn" gen a tokenL(A) and send to "Fn" , rec in tokenA(S) , sending : tokenL(A),-
+the Fn2Dn , step 02 , "Fn" gen a tokenR(B) and send to "Dn" , rec in CmdMap(C) , sending : tokenL(B),tokenR(A)
+the Dn2Fn , step 03 , "Dn" check CmdMap(S) tokenR == A and delay less than 10s, then accept it : clear DataMap, gen new DataMap[ID128(Fn)]
+the Fn2Dn , step 04 , "Fn" check CmdMap(C) tokenR == B and delay less than 10s, then accept it : clear DataMap, gen new DataMap[ID128(Dn)]
+
+Dn 01 [ no check ]                             MeIdC,MeSeqC -----,------ tokenLc,------- ( gen MeIdC MeSeqC tokenLc ) reC - send 1      : no data
+Fn 02 [ check byte len only : 0,0,16,16,16,0]  MeIdS,MeSeqS MeIdC,MeSeqC tokenLs,tokenLc ( gen MeIdS MeSeqS tokenLs ) reC 1 send 5-10   : no data
+Dn 03 [ check MeIdC,MeSeqC,tokenLc]            MeIdS,MeSeqS MeIdC,MeSeqC tokenLs,tokenLc ( gen MeIdS MeSeqS tokenLs ) reC - send 1*rece : reset data
+Fn 04 [ check key,time,MeIdC,MeSeqC,tokenLc,MeIdS,MeSeqS,tokenLs]     -,- -,- -,-        ( gen nothing              ) reC - send 0      : reset data
+
+note :
+1. setp 01 precess in : _FdataPack__101__udpConnPort
+
+2. CmdMap(S) and CmdMap(C) is the same, only difference working in Client and Server
+
+*/
+
 // _TloginReq
 type _TconnInfo struct {
 	ciId128 []byte

@@ -23,28 +23,3 @@ package main
 //	_SnPasswd = "ca79319381829379abe9abe889ac8aa3"
 //	_CnPasswd = "3019303f301ab921b8a8c8a9018a78a4"
 */
-
-//type _TreqLoginCNT struct {
-//	cntL int
-//	reqL _TloginReq
-//}
-//
-//type _TreqLogintMap struct {
-//	muxLogin   sync.Mutex
-//	reqMapNow  map[[16]byte]_TreqLoginCNT
-//	reqMapLast map[[16]byte]_TreqLoginCNT
-//}
-
-//type _TuAcceptClientSt struct {
-//	cId128   [16]byte
-//	reqA     _TloginReq
-//	CexitAcc chan []byte
-//}
-//
-//type _TuAcceptClientMap struct {
-//	muxAcc           sync.Mutex
-//	maxClient        int
-//	cntClient        int
-//	maxConnPerClient int
-//	uMap             map[[16]byte][]_TuAcceptClientSt
-//}

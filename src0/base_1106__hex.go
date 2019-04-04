@@ -1,10 +1,5 @@
 package main
 
-//import "fmt"
-//import "os"
-//import "flag"
-//import "std"
-
 // dump hex
 func _PpdL(___VmaxPrLen int, ___Vbuf *[]byte) {
 	__Xlen := len(*___Vbuf)
