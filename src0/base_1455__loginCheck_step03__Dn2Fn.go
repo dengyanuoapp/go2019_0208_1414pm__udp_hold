@@ -35,14 +35,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 		return
 	}
 
-	_FpfNex(" 838381 07 %s ", ___Vdecode.String())
-
-	//_FpfNdb(" 838381 08 : key is <%x> ", __Vk16)
-	___Vdecode.Dlogin.TokenR = _FgenRand_nByte__(16)
-
-	//___Vlc.ulCmd.M[__Vk16] = *___Vdecode
-
-	//_FpfNdb(" 838381 08 : [decode:<%s>]", ___Vdecode.String())
+	//_FpfNex(" 838381 07 %s ", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step03__accept_tokenA(___Vdecode)
 }
@@ -62,6 +55,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA(___Vdecode *_Tdec
 		TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
+
+	_FpfNex(" 838382 09 %s ", ___Vdecode.String())
 
 	_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ulCHSendLO {
