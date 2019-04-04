@@ -2,7 +2,7 @@ package main
 
 import "reflect"
 
-func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send(___Vdecode *_Tdecode) {
+func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send_Dn(___Vdecode *_Tdecode) {
 	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyTokenB) {
 		_FpfNdb(" 838381 01 type error , ignore ")
 		return
@@ -17,6 +17,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 		_FpfNdb(" 838381 03 len error , ignore %d ", __VlenArr)
 		return
 	}
+
+	_FpfNex(" 838381 09 %s ", ___Vdecode.String())
 
 	__Vk := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
 

@@ -76,7 +76,7 @@ func _FpfN(___Vfmt string, ___Vpara ...interface{}) (int, error) {
 
 func _FpfNex(___Vfmt string, ___Vpara ...interface{}) {
 	_Fph()
-	_Ppf(___Vfmt+"\n", ___Vpara...)
+	_Ppf(___Vfmt+"\n\n\n\n", ___Vpara...)
 	os.Exit(1)
 } // _FpfNex
 

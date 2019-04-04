@@ -89,7 +89,7 @@ func main() {
 	go _Frun(&_VudpDecode_Dn, 700101) // IRun _FudpDecode__700101x__init__default
 
 	// _FloginCheck__900201x__standardCheck
-	// _FloginCheck_step900201y__s2Reply_tokenB_fill02send
+	// _FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn
 	go _Frun(&_VloginCheck_Dn, 900101) // _FloginCheck__900101x__init__default
 
 	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
