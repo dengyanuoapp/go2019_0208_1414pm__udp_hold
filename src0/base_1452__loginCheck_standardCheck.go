@@ -35,7 +35,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				case Cmd__loginS03acceptWithToken:
 					// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 					___Vlc.
-						_FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(&__Vdecode)
+						_FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(&__Vdecode)
 					//					//_FpfNdb(" 838392 06 : %x", __Vdecode.Dlogin.TokenL)
 					//					//_FpfNdb(" 838392 07 : %s", __Vdecode.String()) // 15540463611554046361
 				default:

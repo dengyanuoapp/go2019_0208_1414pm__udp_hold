@@ -29,7 +29,12 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 		return
 	}
 
-	//_FpfNex(" 838381 07 %s ", ___Vdecode.String())
+	if (_FtimeInt() - ___Vlc.ulGenTime) > __VmaxCmdPerid {
+		_FpfN(" 838381 07 : error : timeOut. %s ", ___Vdecode.String())
+		return
+	}
+
+	//_FpfNex(" 838381 08 %s ", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step03__accept_tokenA_Dn(___Vdecode)
 }
