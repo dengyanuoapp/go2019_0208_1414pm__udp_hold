@@ -50,7 +50,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 		return
 	}
 
-	if (___Vdecode.receiveTime - __Vold.receiveTime) > __VmaxCmdPerid {
+	if (___Vdecode.receiveTime - __Vold.receiveTime) > 10 {
 		_FpfN(" 838385 15 : error : timeOut. %s ", __Vold.String())
 		_FpfN(" 838385 16 : error : timeOut. %s ", ___Vdecode.String())
 		return
@@ -66,8 +66,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 		_FpfNex(" 838386 19 %s ", ___Vdecode.String())
 	}
 
-	_FpfN("   838386 20 %s ", __Vold.String())
-	_FpfNex(" 838386 21 %s ", ___Vdecode.String())
+	//_FpfN("   838386 20 %s ", __Vold.String())
+	//_FpfNex(" 838386 21 %s ", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step04__accept_tokenB_Fn(___Vdecode)
 }
@@ -76,7 +76,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 func (___Vlc *_TloginCheck) _FloginCheck_step04__accept_tokenB_Fn(___Vdecode *_Tdecode) {
 
 	if nil == ___Vlc.ulCHdataMachineIdLO {
-		_FpfN(" 838384 06 , why output-Chan nil ? ulCHdataMachineIdLO")
+		_FpfN(" 838387 06 , why output-Chan nil ? ulCHdataMachineIdLO")
 	} else {
 		__Vid := _TdataMachinEid{
 			diConnPort: _TudpConnPort{
@@ -86,7 +86,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step04__accept_tokenB_Fn(___Vdecode *_T
 			diSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
 			diToken:  ___Vdecode.Dlogin.TokenL,   // []byte
 		}
-		_FpfNdb(" 838384 07 [insertId:<%s>]", __Vid.String())
+		_FpfNdb(" 838387 07 [insertId:<%s>]", __Vid.String())
 		(*___Vlc.ulCHdataMachineIdLO) <- __Vid
 	}
 }
