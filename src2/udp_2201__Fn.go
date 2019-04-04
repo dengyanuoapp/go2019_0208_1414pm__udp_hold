@@ -51,7 +51,8 @@ func _Finit_2201() {
 	}
 
 	_VloginCheck_FnWaitDun = _TloginCheck{
-		ulCHSendLO: &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
+		ulCHSendLO:          &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
+		ulCHdataMachineIdLO: &_VdataMachine_Fn.dmCHdataMachineIdI,
 	}
 
 	_VudpGroup_Fn = _TudpGroupSt{
