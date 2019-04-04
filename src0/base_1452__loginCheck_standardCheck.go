@@ -15,12 +15,12 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 
 	_FpfN(" 838392 02 start")
 
-	var __Vdecode _Tdecode
-	var __VuConnPort _TudpConnPort
+	//var __Vdecode _Tdecode
+	//var __VuConnPort _TudpConnPort
 	for {
 		//_Fsleep_100s()
 		select {
-		case __Vdecode = <-___Vlc.ulDecodeI: // _Tdecode
+		case __Vdecode := <-___Vlc.ulDecodeI: // _Tdecode
 			//_FpfNdb(" 838392 05 : %s", __Vdecode.String()) // 15540463611554046361
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
@@ -44,7 +44,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			} else {
 				_FpfNdb(" 838392 09 : why not ok ?")
 			}
-		case __VuConnPort = <-___Vlc.ulCHconnPortI: // _TudpConnPort
+		case __VuConnPort := <-___Vlc.ulCHconnPortI: // _TudpConnPort
 			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
 			//_FpfNdb(" 838392 10 : under constructing ? {%s}", __VuConnPort.String())
 			___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
