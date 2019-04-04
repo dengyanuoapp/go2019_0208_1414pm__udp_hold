@@ -43,7 +43,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		ReqStr:   " step102y__sReply_tokenB ", // string
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
-		MeSeq128: _VS.meSeq128,
+		MeSeq128: _VS.MySeq128,
 		ToIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
 		ToSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
 		TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte

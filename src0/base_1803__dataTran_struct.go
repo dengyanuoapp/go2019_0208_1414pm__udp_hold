@@ -2,7 +2,7 @@ package main
 
 type _TdataTran struct {
 	meIdx128 []byte
-	meSeq128 []byte
+	MySeq128 []byte
 	toIdx128 []byte
 	toSeq128 []byte
 	tokenD   []byte
@@ -16,7 +16,7 @@ func (___Vlr *_TdataTran) String() string {
 		" me:%x,%x to:%x,%x tokenD: %x cmd %d offset 0x%x,%x",
 
 		___Vlr.meIdx128[:5],
-		___Vlr.meSeq128[:5],
+		___Vlr.MySeq128[:5],
 		___Vlr.toIdx128[:5],
 		___Vlr.toSeq128[:5],
 

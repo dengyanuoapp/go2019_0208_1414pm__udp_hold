@@ -22,7 +22,7 @@ type _Tself struct {
 
 	startTime    time.Time
 	startTimEsha _Tb256
-	meSeq128     []byte
+	MySeq128     []byte
 
 	debugEnabled bool
 } //    _Tself
@@ -66,7 +66,7 @@ func _Fbase_1203__gen_rand_seed() {
 	_VS.startTime = time.Now()
 	__Vb := []byte(_Pspf("%x", _VS.startTime))
 	_VS.startTimEsha._Fbase_1101__gen_shaT(&__Vb)
-	_VS.meSeq128 = _FgenRand_nByte__(16)
+	_VS.MySeq128 = _FgenRand_nByte__(16)
 } // _Fbase_1203__gen_rand_seed()
 
 func _Fbase_1203__init_self_All() {

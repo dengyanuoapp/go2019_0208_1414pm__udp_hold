@@ -7,7 +7,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[
 		ReqStr:   " loginS01genReplyTokenA ",
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
-		MeSeq128: _VS.meSeq128,
+		MeSeq128: _VS.MySeq128,
 		TokenL:   *___VuTokenMe,
 		//ToIdx128 []byte,
 		//ToSeq128 []byte,

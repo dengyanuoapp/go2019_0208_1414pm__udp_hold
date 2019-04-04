@@ -1,6 +1,9 @@
 package main
 
-import "reflect"
+import (
+	"bytes"
+	"reflect"
+)
 
 func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send_Dn(___Vdecode *_Tdecode) {
 	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyTokenB) {
@@ -18,20 +21,29 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 		return
 	}
 
-	_FpfNex(" 838381 09 %s ", ___Vdecode.String())
-
-	__Vk := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
-
-	if len(___Vlc.ucCmd.M) > 300 {
-		_FdeleteOld_cmdStack(&___Vlc.ucCmd.M)
+	__Vk16 := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
+	__Vdc2, __Vok2 := ___Vlc.ucCmd.M[__Vk16] // _Tdecode , bool
+	if false == __Vok2 {
+		_FpfN(" 838381 04 : error : no recorde, ignore. %s ", ___Vdecode.String())
+		return
 	}
 
-	//_FpfNdb(" 838381 04 : key is <%x> ", __Vk)
+	if false == bytes.Equal(___Vdecode.Dlogin.MeIdx128, __Vdc2.Dlogin.MeIdx128) || // the Dn's id
+		false == bytes.Equal(___Vdecode.Dlogin.MeSeq128, __Vdc2.Dlogin.MeSeq128) || // the Dn's seq
+		false == bytes.Equal(___Vdecode.Dlogin.ToIdx128, _VC.MyId128) ||
+		false == bytes.Equal(___Vdecode.Dlogin.ToSeq128, _VS.MySeq128) {
+		_FpfN(" 838381 05 : error : no equal, ignore. %s ", ___Vdecode.String())
+		return
+	}
+
+	_FpfNex(" 838381 07 %s ", ___Vdecode.String())
+
+	//_FpfNdb(" 838381 08 : key is <%x> ", __Vk16)
 	___Vdecode.Dlogin.TokenR = _FgenRand_nByte__(16)
 
-	___Vlc.ucCmd.M[__Vk] = *___Vdecode
+	___Vlc.ucCmd.M[__Vk16] = *___Vdecode
 
-	//_FpfNdb(" 838381 06 : [decode:<%s>]", ___Vdecode.String())
+	//_FpfNdb(" 838381 08 : [decode:<%s>]", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step03__accept_tokenA(___Vdecode)
 }
@@ -45,7 +57,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA(___Vdecode *_Tdec
 		ReqStr:   " step102y__sReply_tokenB ", // string
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
-		MeSeq128: _VS.meSeq128,
+		MeSeq128: _VS.MySeq128,
 		ToIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
 		ToSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
 		TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
