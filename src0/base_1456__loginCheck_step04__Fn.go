@@ -86,7 +86,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step04__accept_tokenB_Fn(___Vdecode *_T
 			diSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
 			diToken:  ___Vdecode.Dlogin.TokenL,   // []byte
 		}
-		_FpfNdb(" 838387 07 [insertId:<%s>]", __Vid.String())
+		_FpfNdb(" 838387 07 [push-reset-dataMachineId:<%s>]", __Vid.String())
 		(*___Vlc.ulCHdataMachineIdLO) <- __Vid
 	}
 }
