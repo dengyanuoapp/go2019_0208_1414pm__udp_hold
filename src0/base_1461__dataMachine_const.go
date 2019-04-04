@@ -15,6 +15,10 @@ type _TdataMachine struct {
 
 func (___Vdi *_TdataMachinEid) String() string {
 	return _Pspf(
-		" to{%s} ",
-		___Vdi.diConnPort.String())
+		" to{%s} id:%x,%x tk:%x",
+		___Vdi.diConnPort.String(),
+		String5(&___Vdi.diIdx128),
+		String5(&___Vdi.diSeq128),
+		String5(&___Vdi.diToken),
+	)
 }
