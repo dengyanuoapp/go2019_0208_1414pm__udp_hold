@@ -74,7 +74,7 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent = _Pspf("===under constructing %d===", ___Vd.Type)
 	}
 	__Vrs := _Pspf(
-		"ok:%T rece %d addr %s key %x %s :%s",
+		"ok:%T rece:%d addr:%s key:%x type:%s :%s",
 		___Vd.ok,
 		___Vd.receiveTime,
 		___Vd.remoteAddr.String(),

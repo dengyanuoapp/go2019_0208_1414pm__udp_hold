@@ -23,7 +23,7 @@ func (___Vs *_TudpNodeDataSend) String() string {
 
 }
 func (___Vr *_TudpNodeDataRece) String() string {
-	return _Pspf("[%s](%d %d %x)",
+	return _Pspf("[%s](%d len:%d %x)",
 		___Vr.urrRemoteAddr.String(),
 		___Vr.urrLen,
 		len(___Vr.urrBuf),

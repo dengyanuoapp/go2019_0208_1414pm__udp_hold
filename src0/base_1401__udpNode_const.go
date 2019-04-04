@@ -47,7 +47,7 @@ type _TudpNodeSt struct {
 
 func (___Vun _TudpNodeSt) String() string {
 	return _Pspf(
-		"key %x,addr %s,gap %d,Laddr %s,Rbuf(%d)%x, Raddr %s name %s,%s,%d",
+		"key %x,addr %s,gap %d,Laddr %s,Rbuf(len:%d)%x, Raddr %s name %s,%s,%d",
 		___Vun.unRkeyX.B32,
 		___Vun.unAddr.String(),
 		___Vun.unLoopGap,

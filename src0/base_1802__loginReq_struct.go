@@ -22,7 +22,7 @@ func _Fbyte2str(___Vb *[]byte) string {
 func (___Vlr *_TloginReq) String() string {
 	__Vo := _Pspf(
 		//" %d %s %s me:%x %x to:%x %x tokenAB: %s,%s ",
-		" %d %s %s me:%x %x to:%x %x tokenAB: %x,%x ",
+		" %d %s %s me:%x,%x to:%x,%x tokenAB: %x,%x ",
 		___Vlr.MeTime,
 		___Vlr.ReqStr,
 		___Vlr.MeName,
