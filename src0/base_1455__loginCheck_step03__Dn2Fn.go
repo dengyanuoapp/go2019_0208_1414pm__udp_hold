@@ -56,7 +56,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA(___Vdecode *_Tdec
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
-	_FpfNex(" 838382 09 %s ", ___Vdecode.String())
+	_FpfN(" 838382 08 %s ", ___Vdecode.String())
+	_FpfNex(" 838382 09 %s ", __Vreq.String())
 
 	_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ulCHSendLO {
