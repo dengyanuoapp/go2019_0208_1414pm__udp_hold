@@ -46,6 +46,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
 			//_FpfNdb(" 838392 10 : under constructing ? {%s}", __VuConnPort.String())
 			___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
+			___Vlc.ulGenTime = _FtimeInt()
 
 			var __VusData _TudpNodeDataSend // _TudpConnPort
 			__VuConnPort._FdataPack__101__udpConnPort(&___Vlc.ulTokenA, &__VusData.usOutBuf)

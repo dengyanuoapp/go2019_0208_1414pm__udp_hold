@@ -12,7 +12,7 @@ the Fn2Dn , step 04 , "Fn" check CmdMap(C) tokenR == B and delay less than 10s, 
 
 Dn 01 [ no check ]                             MeIdC,MeSeqC -----,------ tokenLc,------- ( gen MeIdC MeSeqC tokenLc ) reC - send 1      : no data
 Fn 02 [ check byte len only : 0,0,16,16,16,0]  MeIdS,MeSeqS MeIdC,MeSeqC tokenLs,tokenLc ( gen MeIdS MeSeqS tokenLs ) reC 1 send 5-10   : no data
-Dn 03 [ check MeIdC,MeSeqC,tokenLc]            MeIdS,MeSeqS MeIdC,MeSeqC tokenLs,tokenLc ( gen MeIdS MeSeqS tokenLs ) reC - send 1*rece : reset data
+Dn 03 [ check time,MeIdC,MeSeqC,tokenLc]       MeIdS,MeSeqS MeIdC,MeSeqC tokenLs,tokenLc ( gen MeIdS MeSeqS tokenLs ) reC - send 1*rece : reset data
 Fn 04 [ check key,time,MeIdC,MeSeqC,tokenLc,MeIdS,MeSeqS,tokenLs]     -,- -,- -,-        ( gen nothing              ) reC - send 0      : reset data
 
 note :
@@ -45,6 +45,7 @@ type _TloginCheck struct {
 	ulCmd             _TcmdMap
 	ulData            _TdataMap
 	ulTokenA          []byte
+	ulGenTime         int
 }
 
 func _FcheckDecodeType(___Vdecode *_Tdecode, ___VwantType byte) bool { // match --> return false , others -> return true

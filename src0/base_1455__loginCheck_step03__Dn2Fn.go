@@ -11,22 +11,11 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 		return
 	}
 
-	////_FpfNdb(" 838381 01 : ...... ")
-	//_FpfNdb(" 838381 02 : %s", ___Vdecode.String()) // 15540463611554046361
-	////___Vlc.ulCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
-
 	__VlenArr := ___Vdecode.Count128()
 	if false == reflect.DeepEqual(__VlenArr, __Vstep03_LoginLenArr) {
 		_FpfNdb(" 838381 03 len error , ignore %d ", __VlenArr)
 		return
 	}
-
-	//__Vk16 := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
-	//__Vdc2, __Vok2 := ___Vlc.ulCmd.M[__Vk16] // _Tdecode , bool
-	//	if false == __Vok2 {
-	//		_FpfN(" 838381 04 : error : no recorde<%x>, ignore. %s ", __Vk16[:8], ___Vdecode.String())
-	//		return
-	//	}
 
 	if false == bytes.Equal(___Vdecode.Dlogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
 		false == bytes.Equal(___Vdecode.Dlogin.ToIdx128, _VC.MyId128) ||
@@ -35,18 +24,23 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 		return
 	}
 
+	if (_FtimeInt() - ___Vdecode.receiveTime) > __VmaxCmdPerid {
+		_FpfN(" 838381 06 : error : timeOut. %s ", ___Vdecode.String())
+		return
+	}
+
 	//_FpfNex(" 838381 07 %s ", ___Vdecode.String())
 
-	___Vlc._FloginCheck_step03__accept_tokenA(___Vdecode)
+	___Vlc._FloginCheck_step03__accept_tokenA_Dn(___Vdecode)
 }
 
 // _TloginReq _Tdecode
-func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA(___Vdecode *_Tdecode) {
+func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_Tdecode) {
 	var __VunSend _TudpNodeDataSend
 
 	__Vreq := _TloginReq{
-		MeTime:   _FtimeInt(),                 // int64
-		ReqStr:   " step102y__sReply_tokenB ", // string
+		MeTime:   _FtimeInt(),               // int64
+		ReqStr:   " step03__accept_tokenA ", // string
 		MeName:   _VC.Name,
 		MeIdx128: _VC.MyId128,
 		MeSeq128: _VS.MySeq128,
