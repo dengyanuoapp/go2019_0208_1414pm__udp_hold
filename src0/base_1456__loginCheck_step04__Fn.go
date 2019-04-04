@@ -38,18 +38,19 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 	__Vold, __Vok4 := ___Vlc.ulCmd.M[__Vk128] //               _TcmdMap
 	if false == __Vok4 {
 		_FpfN(" 838383 07 : error : not found(key:%x), %s ", __Vk128[:5], ___Vdecode.String())
+		_FpfN(" 838383 08 : %#v", ___Vlc.ulCmd.M)
 		return
 	}
 	if (_FtimeInt() - __Vold.receiveTime) > __VmaxCmdPerid {
-		_FpfN(" 838383 06 : error : timeOut. %s ", __Vold.String())
-		_FpfN(" 838383 07 : error : timeOut. %s ", ___Vdecode.String())
+		_FpfN(" 838383 18 : error : timeOut. %s ", __Vold.String())
+		_FpfN(" 838383 19 : error : timeOut. %s ", ___Vdecode.String())
 		return
 	}
 
 	//if false == bytes.Equal(___Vdecode.Dlogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
 
-	_FpfN("   838383 08 %s ", __Vold.String())
-	_FpfNex(" 838383 09 %s ", ___Vdecode.String())
+	_FpfN("   838383 20 %s ", __Vold.String())
+	_FpfNex(" 838383 21 %s ", ___Vdecode.String())
 
 	___Vlc._FloginCheck_step04__accept_tokenB_Fn(___Vdecode)
 }
