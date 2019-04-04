@@ -39,6 +39,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 	if false == __Vok4 {
 		_FpfN(" 838383 07 : error : not found(key:%x), %s ", __Vk128[:5], ___Vdecode.String())
 		_FpfN(" 838383 08 : %#v", ___Vlc.ulCmd.M)
+		_Fex1(" 838383 09 ")
 		return
 	}
 	if (_FtimeInt() - __Vold.receiveTime) > __VmaxCmdPerid {
