@@ -55,7 +55,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 
 	//_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ulCHSendLO {
-		_FpfN(" 838382 02 , why output-Chan nil ? ")
+		_FpfN(" 838382 06 , why output-Chan nil ? ulCHSendLO")
 	} else {
 		//_FpfN(" 838382 03 , fake Chan ")
 		__Vreq._FdataPack__100__loginReq(Cmd__loginS03acceptWithToken, &__VunSend.usOutBuf)
@@ -65,5 +65,13 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 		}
 		_FpfNdb(" 838382 04 [pre-unSend:<%s>]{%s}", __VunSend.String(), __Vreq.String())
 		(*___Vlc.ulCHSendLO) <- __VunSend // _TudpNodeDataSend
+	}
+
+	if nil == ___Vlc.ulCHdataMachineIdLO {
+		_FpfN(" 838382 06 , why output-Chan nil ? ulCHdataMachineIdLO")
+	} else {
+		__Vid := _TdataMachinEid{}
+		_FpfNdb(" 838382 08 [insertId:<%s>]", __Vid.String())
+		(*___Vlc.ulCHdataMachineIdLO) <- __Vid
 	}
 }
