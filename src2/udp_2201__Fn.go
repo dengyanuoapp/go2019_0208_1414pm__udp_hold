@@ -96,5 +96,7 @@ func main() {
 	// _FudpGroup__600201__CHin_select_send__default
 	// _FdataPack__101__udpConnPort
 
+	go _Frun(&_VdataMachine_Fn, 1000101) // IRun _FdataMachin__1000101__main_init__default
+
 	_Fex(" 893189 99 : the reason exit : "+<-_Cexit, nil)
 } // main

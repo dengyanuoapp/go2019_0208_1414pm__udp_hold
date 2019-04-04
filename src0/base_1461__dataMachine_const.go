@@ -6,6 +6,7 @@ type _TdataMachinEid struct {
 
 type _TdataMachine struct {
 	dmCHdataMachineIdI chan _TdataMachinEid
+	dmCBinit           func(*_TdataMachine) // if nil , use the default init procedure // _FudpDecode__700101x__init__default
 }
 
 func (___Vdi *_TdataMachinEid) String() string {
