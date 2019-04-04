@@ -52,8 +52,6 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 
 	if false == bytes.Equal(___Vdecode.Dlogin.MeIdx128, __Vold.Dlogin.MeIdx128) ||
 		false == bytes.Equal(___Vdecode.Dlogin.MeSeq128, __Vold.Dlogin.MeSeq128) ||
-		false == bytes.Equal(___Vdecode.Dlogin.ToIdx128, __Vold.Dlogin.ToIdx128) ||
-		false == bytes.Equal(___Vdecode.Dlogin.ToSeq128, __Vold.Dlogin.ToSeq128) ||
 		false == bytes.Equal(___Vdecode.Dlogin.TokenL, __Vold.Dlogin.TokenL) ||
 		false == bytes.Equal(___Vdecode.Dlogin.TokenR, __Vold.Dlogin.TokenR) {
 		_FpfN("   838383 18 %s ", __Vold.String())
