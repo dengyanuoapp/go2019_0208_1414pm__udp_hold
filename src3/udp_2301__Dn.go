@@ -39,11 +39,11 @@ func _Finit__2301() {
 	}
 
 	_VudpDecode_Dn = _TuDecode{
-		uTmDecodeCmdLO: &_VloginCheck_Dn.ucDecodeI, // _TloginCheck _Tdecode
+		uTmDecodeCmdLO: &_VloginCheck_Dn.ulDecodeI, // _TloginCheck _Tdecode
 	}
 
 	_VloginCheck_Dn = _TloginCheck{
-		ucCHSendLO: &_VudpGroup_Dn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
+		ulCHSendLO: &_VudpGroup_Dn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{

@@ -19,14 +19,14 @@ type _TdataMap struct {
 }
 
 type _TloginCheck struct {
-	ucDecodeI         chan _Tdecode
+	ulDecodeI         chan _Tdecode
 	ulCHconnPortI     chan _TudpConnPort      // all data need to be sent by nodeS send here , then  will distribute to one of node
-	ucCHSendLO        *chan _TudpNodeDataSend // ugCHSendI
-	ucCB900101init    func(*_TloginCheck)     // if nil , use the default init procedure
-	ucCB900201stCheck func(*_TloginCheck)     // if nil , use the default receive
-	ucCmd             _TcmdMap
-	ucData            _TdataMap
-	ucTokenA          []byte
+	ulCHSendLO        *chan _TudpNodeDataSend // ugCHSendI
+	ulCB900101init    func(*_TloginCheck)     // if nil , use the default init procedure
+	ulCB900201stCheck func(*_TloginCheck)     // if nil , use the default receive
+	ulCmd             _TcmdMap
+	ulData            _TdataMap
+	ulTokenA          []byte
 }
 
 func _FcheckDecodeType(___Vdecode *_Tdecode, ___VwantType byte) bool { // match --> return false , others -> return true

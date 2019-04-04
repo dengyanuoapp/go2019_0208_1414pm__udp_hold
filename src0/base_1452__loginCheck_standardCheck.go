@@ -4,7 +4,7 @@ package main
 
 func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 	_Fsleep(_T1s)
-	if nil == ___Vlc.ucCHSendLO {
+	if nil == ___Vlc.ulCHSendLO {
 		_Pn()
 		_Pn()
 		_FpfNdb(" 838392 01 why no Chan output ? exit loop")
@@ -20,7 +20,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 	for {
 		//_Fsleep_100s()
 		select {
-		case __Vdecode = <-___Vlc.ucDecodeI: // _Tdecode
+		case __Vdecode = <-___Vlc.ulDecodeI: // _Tdecode
 			//_FpfNdb(" 838392 05 : %s", __Vdecode.String()) // 15540463611554046361
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
@@ -45,19 +45,22 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		case __VuConnPort = <-___Vlc.ulCHconnPortI: // _TudpConnPort
 			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
 			//_FpfNdb(" 838392 10 : under constructing ? {%s}", __VuConnPort.String())
-			___Vlc.ucTokenA = _FgenRand_nByte__(16) // tokenA / Lo
+			___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
 
 			var __VusData _TudpNodeDataSend // _TudpConnPort
-			__VuConnPort._FdataPack__101__udpConnPort(&___Vlc.ucTokenA, &__VusData.usOutBuf)
+			__VuConnPort._FdataPack__101__udpConnPort(&___Vlc.ulTokenA, &__VusData.usOutBuf)
 
-			//___Vlc.ucCmd.mux.Lock()
-			//___Vlc.ucCmd.M[___VinitLoginIdx01] = *__VloginReq // unknow the srv's id128 , so ,use fixed _TcmdMap
-			//___Vlc.ucCmd.mux.Unlock()
+			//___Vlc.ulCmd.mux.Lock()
+			//___Vlc.ulCmd.M[___VinitLoginIdx01] = *__VloginReq // unknow the srv's id128 , so ,use fixed _TcmdMap
+			//___Vlc.ulCmd.mux.Unlock()
+
+			//__Vk16 := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
+			//___Vlc.ulCmd.M[__Vk16] = *___Vdecode
 
 			__VusData.usToAddr = __VuConnPort // _TudpConnPort
-			*___Vlc.ucCHSendLO <- __VusData   //
+			*___Vlc.ulCHSendLO <- __VusData   //
 			_FsleepRand_12_to_14s()
-			*___Vlc.ucCHSendLO <- __VusData // 15540362231554036223
+			*___Vlc.ulCHSendLO <- __VusData // 15540362231554036223
 		}
 	}
 }

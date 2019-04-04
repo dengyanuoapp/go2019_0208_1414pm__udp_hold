@@ -46,11 +46,11 @@ func _Finit_2201() {
 	}
 
 	_VudpDecode_Fn = _TuDecode{
-		uTmDecodeCmdLO: &_VloginCheck_FnWaitDun.ucDecodeI, // _TloginCheck _Tdecode
+		uTmDecodeCmdLO: &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
 	}
 
 	_VloginCheck_FnWaitDun = _TloginCheck{
-		ucCHSendLO: &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
+		ulCHSendLO: &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
 	}
 
 	_VudpGroup_Fn = _TudpGroupSt{

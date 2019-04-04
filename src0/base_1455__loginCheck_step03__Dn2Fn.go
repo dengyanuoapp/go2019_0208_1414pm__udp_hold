@@ -13,7 +13,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 
 	////_FpfNdb(" 838381 01 : ...... ")
 	//_FpfNdb(" 838381 02 : %s", ___Vdecode.String()) // 15540463611554046361
-	////___Vlc.ucCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
+	////___Vlc.ulCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
 	__VlenArr := ___Vdecode.Count128()
 	if false == reflect.DeepEqual(__VlenArr, __Vstep03_LoginLenArr) {
@@ -21,15 +21,14 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 		return
 	}
 
-	__Vk16 := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
-	__Vdc2, __Vok2 := ___Vlc.ucCmd.M[__Vk16] // _Tdecode , bool
-	if false == __Vok2 {
-		_FpfN(" 838381 04 : error : no recorde, ignore. %s ", ___Vdecode.String())
-		return
-	}
+	//__Vk16 := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
+	//__Vdc2, __Vok2 := ___Vlc.ulCmd.M[__Vk16] // _Tdecode , bool
+	//	if false == __Vok2 {
+	//		_FpfN(" 838381 04 : error : no recorde<%x>, ignore. %s ", __Vk16[:8], ___Vdecode.String())
+	//		return
+	//	}
 
-	if false == bytes.Equal(___Vdecode.Dlogin.MeIdx128, __Vdc2.Dlogin.MeIdx128) || // the Dn's id
-		false == bytes.Equal(___Vdecode.Dlogin.MeSeq128, __Vdc2.Dlogin.MeSeq128) || // the Dn's seq
+	if false == bytes.Equal(___Vdecode.Dlogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
 		false == bytes.Equal(___Vdecode.Dlogin.ToIdx128, _VC.MyId128) ||
 		false == bytes.Equal(___Vdecode.Dlogin.ToSeq128, _VS.MySeq128) {
 		_FpfN(" 838381 05 : error : no equal, ignore. %s ", ___Vdecode.String())
@@ -41,7 +40,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_file03send
 	//_FpfNdb(" 838381 08 : key is <%x> ", __Vk16)
 	___Vdecode.Dlogin.TokenR = _FgenRand_nByte__(16)
 
-	___Vlc.ucCmd.M[__Vk16] = *___Vdecode
+	//___Vlc.ulCmd.M[__Vk16] = *___Vdecode
 
 	//_FpfNdb(" 838381 08 : [decode:<%s>]", ___Vdecode.String())
 
@@ -65,7 +64,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA(___Vdecode *_Tdec
 	}
 
 	_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
-	if nil == ___Vlc.ucCHSendLO {
+	if nil == ___Vlc.ulCHSendLO {
 		_FpfN(" 838382 02 , why output-Chan nil ? ")
 	} else {
 		_FpfN(" 838382 03 , fake Chan ")
@@ -75,6 +74,6 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA(___Vdecode *_Tdec
 			K256:    ___Vdecode.remotePortKey, // []byte
 		}
 		_FpfNdb(" 838382 04 [pre-unSend:<%s>]{%s}", __VunSend.String(), __Vreq.String())
-		(*___Vlc.ucCHSendLO) <- __VunSend // _TudpNodeDataSend
+		(*___Vlc.ulCHSendLO) <- __VunSend // _TudpNodeDataSend
 	}
 }

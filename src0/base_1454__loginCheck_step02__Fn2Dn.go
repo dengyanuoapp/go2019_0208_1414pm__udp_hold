@@ -10,7 +10,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 
 	////_FpfNdb(" 838393 05 : ...... ")
 	//_FpfNdb(" 838393 04 : %s", ___Vdecode.String()) // 15540463611554046361
-	////___Vlc.ucCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
+	////___Vlc.ulCmd.M        map[[16]byte]_TconnInfo // _TloginReq MeIdx128
 
 	__VlenArr := ___Vdecode.Count128()
 	if false == reflect.DeepEqual(__VlenArr, __Vstep02_LoginLenArr) {
@@ -20,14 +20,14 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 
 	__Vk := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
 
-	if len(___Vlc.ucCmd.M) > 300 {
-		_FdeleteOld_cmdStack(&___Vlc.ucCmd.M)
+	if len(___Vlc.ulCmd.M) > 300 {
+		_FdeleteOld_cmdStack(&___Vlc.ulCmd.M)
 	}
 
 	//_FpfNdb(" 838393 08 : key is <%x> ", __Vk)
 	___Vdecode.Dlogin.TokenR = _FgenRand_nByte__(16)
 
-	___Vlc.ucCmd.M[__Vk] = *___Vdecode
+	___Vlc.ulCmd.M[__Vk] = *___Vdecode
 
 	//_FpfNdb(" 838393 09 : [decode:<%s>]", ___Vdecode.String())
 
@@ -51,7 +51,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 	}
 
 	_FpfNdb(" 838394 01 start [req:<%s>]", __Vreq.String())
-	if nil == ___Vlc.ucCHSendLO {
+	if nil == ___Vlc.ulCHSendLO {
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
 		_FpfN(" 838394 03 , fake Chan ")
@@ -64,7 +64,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		_FpfNdb(" 838394 04 (%d)[pre-unSend:<%s>]{%s}", __VrandCnt, __VunSend.String(), __Vreq.String())
 		for __VrandCnt > 0 {
 			__VrandCnt--
-			(*___Vlc.ucCHSendLO) <- __VunSend // _TudpNodeDataSend
+			(*___Vlc.ulCHSendLO) <- __VunSend // _TudpNodeDataSend
 		}
 	}
 }
