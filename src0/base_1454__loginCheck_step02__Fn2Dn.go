@@ -14,7 +14,9 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 
 	__VlenArr := ___Vdecode.Count128()
 	if false == reflect.DeepEqual(__VlenArr, __Vstep02_LoginLenArr) {
-		_FpfNdb(" 838393 05 len error , ignore %d ", __VlenArr)
+		_FpfN(" 838393 05 _TloginCheck :%s", ___Vlc.String())
+		_FpfN(" 838393 06 _Tdecode :%s", ___Vdecode.String())
+		_FpfNdb(" 838393 07 len error , ignore %d ", __VlenArr)
 		return
 	}
 
