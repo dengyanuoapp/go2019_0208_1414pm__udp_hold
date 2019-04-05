@@ -41,9 +41,28 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 
 func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___VoldConnParr *[]_TudpConnPort) []_TudpConnPort {
 	if nil == ___VoldConnParr || 0 == len(*___VoldConnParr) {
+		_FpfN(" 839194 01 : nil , use old connPort Arr ")
 		return []_TudpConnPort{*___VnewConnP}
 	}
+
 	__Vlen := len(*___VoldConnParr)
 	__Vncp := make([]_TudpConnPort, __Vlen+1)
+	__Vstr1 := ___VnewConnP.DstAddr.String()
+
+	__Vi := 0
+	for __Vi < __Vlen {
+		__Vcp := (*___VoldConnParr)[__Vi]
+		__Vstr2 := __Vcp.DstAddr.String()
+		if __Vstr1 == __Vstr2 {
+			_FpfN(" 839194 03 : already exist , use old connPort Arr ")
+			return (*___VoldConnParr)
+		}
+		__Vncp[__Vi] = __Vcp
+		__Vi++
+	}
+
+	_FpfN(" 839194 05 : insert 1 into connPort Arr ")
+	__Vncp[__Vlen] = (*___VnewConnP)
+
 	return __Vncp
 }
