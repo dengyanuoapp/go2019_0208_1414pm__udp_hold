@@ -21,7 +21,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 				dmmConnPortArr: []_TudpConnPort{___VinsID.diConnPort},
 			}
 		} else {
-			_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
+			//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
 			___Vdm.dmMconn[__Vk] = _TdataMachinEconnMap{
 				dmmID:          *___VinsID,
 				dmmLastAccTime: _FtimeInt(),
@@ -36,7 +36,10 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 		}
 	}
 	___Vdm.dmMconNmux.Unlock()
-	_FpfN(" 839193 09 : dmMconn len(%d,%d)", len(___Vdm.dmMconn), len(___Vdm.dmMconn[__Vk].dmmConnPortArr))
+	_FpfN(" 839193 08 : dmMconn len(%d,%d) ", len(___Vdm.dmMconn), len(___Vdm.dmMconn[__Vk].dmmConnPortArr))
+	if 3 == len(___Vdm.dmMconn[__Vk].dmmConnPortArr) {
+		_FpfN(" 839193 09 : dmMconn {%v}", ___Vdm.dmMconn[__Vk].dmmConnPortArr)
+	}
 }
 
 func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___VoldConnParr *[]_TudpConnPort) []_TudpConnPort {
@@ -61,7 +64,7 @@ func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___V
 		__Vi++
 	}
 
-	_FpfN(" 839194 05 : insert 1 into connPort Arr ")
+	//_FpfN(" 839194 05 : insert 1 into connPort Arr ")
 	__Vncp[__Vlen] = (*___VnewConnP)
 
 	return __Vncp
