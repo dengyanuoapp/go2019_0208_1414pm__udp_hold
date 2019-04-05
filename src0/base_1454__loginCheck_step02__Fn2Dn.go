@@ -52,11 +52,11 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 	}
 
-	_FpfNdb(" 838394 01 start [req:<%s>]", __Vreq.String())
+	//_FpfNdb(" 838394 01 start [req:<%s>]", __Vreq.String())
 	if nil == ___Vlc.ulCHSendLO {
 		_FpfN(" 838394 02 , why output-Chan nil ? ")
 	} else {
-		_FpfN(" 838394 03 , fake Chan ")
+		// _FpfN(" 838394 03 , fake Chan {%s}", __Vreq.String())
 		__Vreq._FdataPack__100__loginReq(Cmd__loginS02genReplyTokenB, &__VunSend.usOutBuf)
 		__VunSend.usToAddr = _TudpConnPort{
 			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
