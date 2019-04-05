@@ -8,7 +8,7 @@ import (
 type _TacceptTCP struct {
 	enabled   bool
 	idx       int
-	serverTCP *_TserviceTCP
+	serverTCP *_TtcpNodE
 	connTCP   *net.TCPConn
 	err       error
 
@@ -35,7 +35,7 @@ type _TacceptTCP struct {
 	Clog  *chan string
 } // _TacceptTCP
 
-type _TserviceTCP struct {
+type _TtcpNodE struct {
 	name        string
 	hostPortStr string
 	cAmount     int
@@ -49,17 +49,17 @@ type _TserviceTCP struct {
 	clientMux  sync.Mutex
 	clientCnt  int
 
-	TcallbackSvrDataChan func(*_TserviceTCP) // _FuserCallback__service_dataChan__Log_Fn
-	TcallbackAccDataRece func(*_TacceptTCP)  // _FuserCallback__Accept_dataReceive__Log_Fn
-	TcallbackAccDataChan func(*_TacceptTCP)  // _FuserCallback__accept_dataChan__Log_Fn
+	TcallbackSvrDataChan func(*_TtcpNodE)   // _FuserCallback__service_dataChan__Log_Fn
+	TcallbackAccDataRece func(*_TacceptTCP) // _FuserCallback__Accept_dataReceive__Log_Fn
+	TcallbackAccDataChan func(*_TacceptTCP) // _FuserCallback__accept_dataChan__Log_Fn
 
-	TsrvGoCallback200101 func(*_TserviceTCP)
+	TsrvGoCallback200101 func(*_TtcpNodE)
 
 	Cexit *chan string
 	Clog  *chan string
-} // _TserviceTCP
+} // _TtcpNodE
 
-func (___Vsvr *_TserviceTCP) _FtryListenToTCP01() {
+func (___Vsvr *_TtcpNodE) _FtryListenToTCP01() {
 	// func ResolveTCPAddr(network, address string) (*TCPAddr, error)
 	___Vsvr.tcpAddr, ___Vsvr.err = net.ResolveTCPAddr("tcp4", ___Vsvr.hostPortStr)
 	if ___Vsvr.err != nil {

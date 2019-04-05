@@ -1,11 +1,11 @@
-// _TserviceTCP
+// _TtcpNodE
 package main
 
 import (
 //"time"
 )
 
-func _Fhandle_tcpAccept01(___VserviceTcp *_TserviceTCP) {
+func _Fhandle_tcpAccept01(___VserviceTcp *_TtcpNodE) {
 
 	for __Vi := 0; __Vi < ___VserviceTcp.cAmount; __Vi++ {
 		___VserviceTcp.acceptTCPs[__Vi].Vbuf = make([]byte, 2048) // silice : with var len
@@ -34,7 +34,7 @@ func _Fhandle_tcpAccept01(___VserviceTcp *_TserviceTCP) {
 
 } // _Fhandle_tcpAccept01
 
-func _FtcpAccept01_loop(___VserviceTcp *_TserviceTCP) {
+func _FtcpAccept01_loop(___VserviceTcp *_TtcpNodE) {
 
 	// func (l *TCPListener) AcceptTCP() (*TCPConn, error)
 	__Vconn, __Verr := ___VserviceTcp.tcpListener.AcceptTCP()
@@ -71,7 +71,7 @@ func _FtcpAccept01_loop(___VserviceTcp *_TserviceTCP) {
 
 				__VacceptTcp.Cstart <- " 183191 start: " + _FtimeNow()
 				//__VacceptTcp.Cstart              = _FtimeNow()
-				// _TserviceTCP
+				// _TtcpNodE
 				break
 			}
 		}

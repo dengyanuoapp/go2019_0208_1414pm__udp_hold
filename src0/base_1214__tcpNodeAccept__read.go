@@ -1,5 +1,5 @@
 // _TacceptTCP
-// _TserviceTCP
+// _TtcpNodE
 // _Fhandle_tcpAccept01
 package main
 

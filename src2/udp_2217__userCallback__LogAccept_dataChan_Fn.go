@@ -1,5 +1,5 @@
 // _TacceptTCP
-// _TserviceTCP
+// _TtcpNodE
 package main
 
 import "io"

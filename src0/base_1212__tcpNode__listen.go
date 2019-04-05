@@ -1,11 +1,11 @@
-// _TserviceTCP
+// _TtcpNodE
 package main
 
 import (
 //"time"
 )
 
-func (___VsrvT *_TserviceTCP) IRun(___Vidx int) {
+func (___VsrvT *_TtcpNodE) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 200101:
 		if nil == ___VsrvT.TsrvGoCallback200101 {
@@ -18,7 +18,7 @@ func (___VsrvT *_TserviceTCP) IRun(___Vidx int) {
 	} // switch ___Vidx
 }
 
-func (___VserviceTcp *_TserviceTCP) _FserviceTcp__200101x__init_default() {
+func (___VserviceTcp *_TtcpNodE) _FserviceTcp__200101x__init_default() {
 
 	___VserviceTcp._FtryListenToTCP01()
 

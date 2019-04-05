@@ -1,9 +1,9 @@
 // _TacceptTCP
-// _TserviceTCP
+// _TtcpNodE
 package main
 
 // note : all debug log begin pushed into Clog will try to redirect to TCP debug monitorS.
-func _FuserCallback__service_dataChan__Log_Fn(___VserviceTcp *_TserviceTCP) {
+func _FuserCallback__service_dataChan__Log_Fn(___VserviceTcp *_TtcpNodE) {
 	//_Fpf( "283822 service" ); _Pn( )
 	__VprStr := <-*___VserviceTcp.Clog
 	//_FpfN( "283823 service:%s" , __VprStr )

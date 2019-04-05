@@ -5,7 +5,7 @@ import (
 )
 
 var (
-	_VserviceTcp_Dn     _TserviceTCP
+	_VserviceTcp_Dn     _TtcpNodE
 	_VudpGroup_Dn       _TudpGroupSt
 	_VudpDecode_Dn      _TuDecode
 	_VloginGenerator_Dn _TloginGenerator
@@ -31,7 +31,7 @@ func _Finit__2301() {
 
 	_FPargs()
 
-	_VserviceTcp_Dn = _TserviceTCP{
+	_VserviceTcp_Dn = _TtcpNodE{
 		name:        "TcpService__DebugLog__Md",
 		hostPortStr: "127.0.0.1:50003",
 		Cexit:       &_Cexit,
