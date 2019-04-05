@@ -21,11 +21,12 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		//_Fsleep_100s()
 		select {
 		case __Vdecode := <-___Vlc.ulDecodeI: // _Tdecode
-			//_FpfNdb(" 838392 05 : %s", __Vdecode.String()) // 15540463611554046361
+			//_FpfNdb(" 838392 03 : %s", __Vdecode.String()) // 15540463611554046361
 			if true == __Vdecode.ok {
 				switch __Vdecode.Type {
 				case Cmd__loginS01genReplyTokenA:
 					// ============================ step 02 : Fn gen tokenB, to Dn, cmd fill 02 ====================
+					_FpfN(" 838392 04 : %s", __Vdecode.String())
 					___Vlc.
 						_FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn(&__Vdecode)
 				case Cmd__loginS02genReplyTokenB:

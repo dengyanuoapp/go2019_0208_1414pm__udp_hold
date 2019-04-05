@@ -18,7 +18,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 					___Vun._FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() // if gap is not set , default
 					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()    // if gap set , use this
 				} else {
-					_FpfN(" 831818 08 custom receive")
+					_FpfN(" 831818 08 custom_receive 01 all start") // _FudpNode__540211z__receiveCallBack_withTimeGap
 					___Vun.unCBrece(___Vun)
 				}
 			}
@@ -68,7 +68,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		//_FpfN(" 439192 03 rece buf: %v ", ___VbufIn)
 		_FpfNhex(___VbufIn, 68, " 439192 04 rece Null or error : %d ,%11d %v %x. error:%v ",
 			___Vun.unRlen, _FtimeI64(), ___Vun.unRemoteAddr, ___Vun.unRkeyX.Bkey, __Verr2)
-		_Fex1(" 439192 05 ")
+		_Fex1(" 439192 05 : data_error , maybe re-run is needed")
 		return
 	}
 
@@ -89,7 +89,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 	if nil == ___Vun.unCHreceLO {
 		_FpfN(" 439196 08 udpNodeDataRece can NOT output , for outChan is null : %s", __Vunr.String())
 	} else {
-		//_FpfN(" 439196 09 udpNodeDataRece : %s", __Vunr.String())
+		_FpfN(" 439196 09 udpNodeDataRece : %s", __Vunr.String())
 		(*___Vun.unCHreceLO) <- __Vunr
 	}
 }

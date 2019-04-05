@@ -67,7 +67,7 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	__Vnow, __VokN := ___Vun.unRmap.unrMapNow[__VrKey]
 	if __VokN {
 		__Vnow.cnt++ // alreay exist ... so , skip
-		_FpfN(" 848232 01 ")
+		_FpfN(" 848237 01 ")
 	} else {
 		___Vun.unRmap.unrMapNow[__VrKey] = _TuNodeDataRcnt{
 			cnt: 1,
@@ -77,35 +77,36 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 		if __VokL { // map[string]_TuNodeDataRcnt
 			if 1 == __Vlast.cnt {
 				__Vreply = true
-				//_FpfN(" 848232 03 ")
+				//_FpfN(" 848237 03 ")
 			} else {
-				_FpfN(" 848232 04 ")
+				_FpfN(" 848237 04 ")
 			}
 		} else {
 			__Vlas2, __Vok2 := ___Vun.unRmap.unrMapLas2[__VrKey]
 			if __Vok2 { // map[string]_TuNodeDataRcnt
 				if 1 == __Vlas2.cnt {
-					//_FpfN(" 848232 06 ")
+					//_FpfN(" 848237 06 ")
 					__Vreply = true
 				} else {
-					_FpfN(" 848232 07 ")
+					_FpfN(" 848237 07 ")
 				}
 			} else {
-				//_FpfN(" 848232 09 ")
+				//_FpfN(" 848237 09 ")
 			}
 		}
-		//_FpfN(" 848235 01 las2 %v", ___Vun.unRmap.unrMapLas2)
-		//_FpfN(" 848235 02 last %v", ___Vun.unRmap.unrMapLast)
-		//_FpfN(" 848235 03 now  %v", ___Vun.unRmap.unrMapNow)
+		//_FpfN(" 848238 01 las2 %v", ___Vun.unRmap.unrMapLas2)
+		//_FpfN(" 848238 02 last %v", ___Vun.unRmap.unrMapLast)
+		//_FpfN(" 848238 03 now  %v", ___Vun.unRmap.unrMapNow)
 	}
 
 	___Vun.unRmap.unrMux.Unlock()
 
-	//_FpfN(" 848235 06 :  __Vreply %t", __Vreply)
+	//_FpfN(" 848238 06 :  __Vreply %t", __Vreply)
 
 	if __Vreply {
 		//(*___Vun.unCHreceLO) <- __Vrece
-		_FpfN(" 848235 09 custom receive")
-		___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
+		_FpfN(" 848238 09 custom_receive 02 checkok,start to loginIn")
+		___Vun.
+			_FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
 	}
 }
