@@ -18,7 +18,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 					___Vun._FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() // if gap is not set , default
 					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()    // if gap set , use this
 				} else {
-					_FpfN(" 831818 08 custom_receive 01 all start") // _FudpNode__540211z__receiveCallBack_withTimeGap
+					_FpfN(" 831818 08 custom_receive 01 all start, len(%d)", ___Vun.unRlen) // _FudpNode__540211z__receiveCallBack_withTimeGap
 					___Vun.unCBrece(___Vun)
 				}
 			}

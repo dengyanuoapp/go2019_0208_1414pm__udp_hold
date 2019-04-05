@@ -10,12 +10,13 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 	var __Vdecode _Tdecode
 	for {
 		//_Fsleep_100s()
-		__VunRece = _TudpNodeDataRece{}
-		__Vdecode = _Tdecode{}
+		//__VunRece = _TudpNodeDataRece{}
+		//__Vdecode = _Tdecode{}
 		select {
 		case __VunRece = <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataRece
 			//_FpfNhex(&__VunRece.urrBuf, 38, " 388195 02 : %T , decode len <%d>: %11d", __VunRece.urrBuf, __VunRece.urrLen, _FtimeI64())
-			__VunRece._FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _Tdecode
+			__VunRece.
+				_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _Tdecode
 			__Vdecode.remoteAddr = __VunRece.urrRemoteAddr
 			//__Vdecode.receiveTime = _FtimeInt()
 			_FpfNdb(" 388195 03 : decoder out:{%s} ", __Vdecode.String())

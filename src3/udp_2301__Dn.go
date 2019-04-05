@@ -84,7 +84,7 @@ func main() {
 
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
-	// _FudpGroup__600201__CHin_select_send__default
+	// _FudpGroup__600201__CHin_selecT_send__default
 	// _FdataPack__101__udpConnPort
 
 	// _FudpDecode__700201x__receive__default

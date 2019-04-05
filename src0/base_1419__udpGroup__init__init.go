@@ -10,7 +10,7 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 		}
 	case 600201:
 		if nil == ___Vug.ugCBchInSend {
-			_FudpGroup__600201__CHin_select_send__default(___Vug)
+			_FudpGroup__600201__CHin_selecT_send__default(___Vug)
 		} else {
 			___Vug.ugCBchInSend(___Vug)
 		}
@@ -60,7 +60,7 @@ func _FudpGroup__600101__main_init__default(___Vug *_TudpGroupSt) {
 
 	_Fsleep(_T1s)
 
-	go _Frun(___Vug, 600201) // _FudpGroup__600201__CHin_select_send__default
+	go _Frun(___Vug, 600201) // _FudpGroup__600201__CHin_selecT_send__default
 
 	//_FpfN(" 834811 97 : exit.[%#v]", ___Vug)
 	//_FpfNex(" 834811 98 : exit. ")

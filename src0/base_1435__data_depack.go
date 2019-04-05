@@ -13,8 +13,9 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 	if nil == ___Vdecode {
 		return
 	}
-	___Vdecode.ok = false
-	___Vdecode.Type = 0
+	//___Vdecode.ok = false
+	//___Vdecode.Type = 0
+	(*___Vdecode) = _Tdecode{}
 
 	if ___Vlen < (1 + 4 + 32 + 32) {
 		_FpfNdb(" 387192 02 : data decode start ")
@@ -35,6 +36,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		__Vbuf2 := ___Vbuf[37:]
+		//___Vdecode.Dlogin = _TloginReq{}
 		__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &___Vdecode.Dlogin)
 		if nil != __Verr2 {
 			_FpfNdb(" 387193 03 :error :%v", __Verr2)

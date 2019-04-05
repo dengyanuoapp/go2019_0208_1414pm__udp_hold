@@ -2,7 +2,7 @@ package main
 
 // _TudpGroupSt
 // _TudpNodeSt
-func _FudpGroup__600201__CHin_select_send__default(___Vug *_TudpGroupSt) {
+func _FudpGroup__600201__CHin_selecT_send__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
 	//__Vlen := len(___Vug. ugCHuConnPortI)
 	//_FpfNdb(" 838111 01 len : %d", __Vlen)
@@ -25,7 +25,8 @@ func _FudpGroup__600201__CHin_select_send__default(___Vug *_TudpGroupSt) {
 		case __VusData = <-___Vug.ugCHSendI: // _TudpNodeDataSend
 			__Vidx = ___Vug._FudpGroup__600201www__send_genIdx()
 		}
-		___Vug._FudpGroup__600201zzz__send_byteOnly(&__VusData, __Vidx)
+		___Vug.
+			_FudpGroup__600201zzz__send_byteOnly(&__VusData, __Vidx)
 	}
 }
 
