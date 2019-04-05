@@ -1,7 +1,7 @@
 package main
 
 import (
-	"sync"
+//"sync"
 )
 
 type _TdataMachinEid struct {
@@ -28,8 +28,10 @@ type _TdataMachinEconnMap struct {
 }
 
 type _TdataMachineConnSt struct {
-	mux sync.Mutex
-	M   map[[16]byte]_TdataMachinEconnMap
+	//mux sync.Mutex
+	M        map[[16]byte]_TdataMachinEconnMap
+	LockNow  map[[16]byte]int
+	LockLast map[[16]byte]int
 }
 
 type _TdataMachine struct {

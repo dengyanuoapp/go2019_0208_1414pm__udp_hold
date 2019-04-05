@@ -7,7 +7,7 @@ import (
 func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsID *_TdataMachinEid) {
 
 	__Vk := _FgenB16(&___VinsID.diIdx128)
-	___Vdm.dmMconn.mux.Lock()
+	//___Vdm.dmMconn.mux.Lock()
 	__Vold, __Vok := ___Vdm.dmMconn.M[__Vk] // map[[16]byte]_TdataMachinEconnMap
 	if __Vok {
 		if //
@@ -35,7 +35,15 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 			dmmConnPortArr: []_TudpConnPort{___VinsID.diConnPort},
 		}
 	}
-	___Vdm.dmMconn.mux.Unlock()
+
+	__Vl2, __Vok2 := ___Vdm.dmMconn.LockNow[__Vk]
+	if __Vok2 {
+		___Vdm.dmMconn.LockNow[__Vk] = __Vl2 + 1
+	} else {
+		___Vdm.dmMconn.LockNow[__Vk] = 1
+	}
+
+	//___Vdm.dmMconn.mux.Unlock()
 	_FpfN(" 839193 08 : dmMconn.M len(%d,%d) ", len(___Vdm.dmMconn.M), len(___Vdm.dmMconn.M[__Vk].dmmConnPortArr))
 	if 3 == len(___Vdm.dmMconn.M[__Vk].dmmConnPortArr) {
 		//_FpfN(" 839193 09 : dmMconn.M {%v}", ___Vdm.dmMconn.M[__Vk].dmmConnPortArr)
