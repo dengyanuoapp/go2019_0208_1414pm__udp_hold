@@ -6,33 +6,38 @@ import (
 )
 
 const (
-	Cmd__NULL                   = iota // 0
-	Cmd__idle                          // 1
-	Cmd__loginS01genReplyTokenA        // 2
-
-	Cmd__loginS02genReplyTokenB  // 3
-	Cmd__loginS03acceptWithToken // 4
-
-	Cmd__data // 5
-	Cmd__end  // 6
+	Cmd__NULL                    = iota // 0
+	Cmd__loginS01genReplyTokenA         // 1
+	Cmd__loginS02genReplyTokenB         // 2
+	Cmd__loginS03acceptWithToken        // 3
+	Cmd__loginEnd                       // 4
+	Cmd__data_01_idle                   // 5
+	Cmd__data_11_chan_new_req           // 6
+	Cmd__dataEnd                        // 7
 )
 
 func _FcmdType(___Vc byte) string {
 	switch ___Vc {
 	case Cmd__NULL:
 		return "Cmd__NULL"
-	case Cmd__idle:
-		return "Cmd__idle"
-	case Cmd__data:
-		return "Cmd__data"
+
 	case Cmd__loginS01genReplyTokenA:
 		return "Cmd__loginS01genReplyTokenA"
 	case Cmd__loginS02genReplyTokenB:
 		return "Cmd__loginS02genReplyTokenB"
 	case Cmd__loginS03acceptWithToken:
 		return "Cmd__loginS03acceptWithToken"
-	//case Cmd__loginS04acceptWithToken:
-	//	return "Cmd__loginS04acceptWithToken"
+
+	case Cmd__loginEnd:
+		return "Cmd__loginEnd"
+
+	case Cmd__data_01_idle:
+		return "Cmd__data_01_idle"
+	case Cmd__data_11_chan_new_req:
+		return "Cmd__data_11_chan_new_req"
+
+	case Cmd__dataEnd:
+		return "Cmd__dataEnd"
 	default:
 		return "Cmd__unknown"
 	}

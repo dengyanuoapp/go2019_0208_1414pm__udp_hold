@@ -32,7 +32,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 					//_FpfN(" 388195 09 real outChain : %s", __Vdecode.String())
 					(*___Vutm.uTmDecodeCmdLO) <- __Vdecode // 15540463611554046361
 				}
-			case Cmd__data:
+			case Cmd__data_01_idle:
 				_FpfN(" 388197 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 				if nil == ___Vutm.uTmDecodeDataLO {
 					_FpfN(" 388197 03 : outChan null , ignore ")

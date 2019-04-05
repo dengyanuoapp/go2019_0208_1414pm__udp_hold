@@ -27,7 +27,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 		return
 	}
 
-	if ___Vbuf[0] >= Cmd__end {
+	if ___Vbuf[0] >= Cmd__loginEnd {
 		_FpfNdb(" 387192 04 : unknown type ")
 		return
 	}

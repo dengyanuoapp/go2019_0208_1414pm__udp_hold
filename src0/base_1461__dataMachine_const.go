@@ -7,12 +7,6 @@ type _TdataMachinEid struct {
 	diToken    []byte
 }
 
-type _TdataMachine struct {
-	dmCHdataMachineIdI chan _TdataMachinEid
-	dmCBinit           func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
-	dmCBrece           func(*_TdataMachine) //
-}
-
 func (___Vdi *_TdataMachinEid) String() string {
 	return _Pspf(
 		" to{%s} id:%x,%x tk:%x",
@@ -21,4 +15,17 @@ func (___Vdi *_TdataMachinEid) String() string {
 		String5(&___Vdi.diSeq128),
 		String5(&___Vdi.diToken),
 	)
+}
+
+type _TdataMachinEconnMap struct {
+	id          _TdataMachinEid
+	connPort    []_TudpConnPort
+	lastAccTime int
+}
+
+type _TdataMachine struct {
+	dmCHdataMachineIdI chan _TdataMachinEid
+	dmCBinit           func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
+	dmCBrece           func(*_TdataMachine) //
+	dmMconn            map[[16]byte]_TdataMachinEconnMap
 }
