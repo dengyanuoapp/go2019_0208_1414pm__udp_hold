@@ -67,8 +67,11 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 	if nil != __Verr2 {
 		//_FpfN(" 439192 03 rece buf: %v ", ___VbufIn)
 		_FpfNhex(___VbufIn, 68, " 439192 04 rece Null or AES-decode error : len:%d ti:%11d remote:%s local:%s ReceKey:%x. error:%v ",
-			___Vun.unRlen, _FtimeI64(), ___Vun.unRemoteAddr.String(), ___Vun.unAddr.String(), String5(&___Vun.unRkeyX.Bkey), __Verr2)
-		//_Fex1(" 439192 05 : data_error , maybe re-run is needed")
+			___Vun.unRlen, _FtimeI64(), ___Vun.unRemoteAddr.String(), ___Vun.unLocalAddr.String(), String5(&___Vun.unRkeyX.Bkey), __Verr2)
+		_FpfN(" 439192 05 udpNodeInfo:{%s}", ___Vun.String())
+		__Vr := ___Vun.unRbuf[:___Vun.unRlen]
+		_FpfN(" 439192 06 len(%d/%d):md5sum{%x}", ___Vun.unRlen, len(___Vun.unRbuf), _FgenMd5__5(&__Vr))
+		//_Fex1(" 439192 07 : data_error , maybe re-run is needed")
 		return
 	}
 

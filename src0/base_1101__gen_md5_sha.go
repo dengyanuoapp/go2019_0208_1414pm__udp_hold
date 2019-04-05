@@ -61,6 +61,21 @@ func (___Vmd5 *_Tb128) _Fbase_1101__gen_md5T(___Vmd5Input *[]byte) {
 
 var _VgenMd5_last16 [16]byte
 
+func _FgenMd5__5(___VbIn *[]byte) []byte {
+	__Vo := _FgenMd5___(___VbIn)
+	return __Vo[:5]
+}
+
+func _FgenMd5___(___VbIn *[]byte) [16]byte {
+	return md5.Sum(*___VbIn)
+}
+func _FgenMd5__(___VbIn *[]byte) []byte {
+	__Vb16 := md5.Sum(*___VbIn)
+	__Vo16 := make([]byte, 16)
+	copy(__Vo16, __Vb16[:16])
+	return __Vo16
+}
+
 func _FgenMd5_byString__(___Vstr string) []byte {
 	_VgenMd5_last16 := md5.Sum([]byte(___Vstr))
 	__VtimeMd5 := make([]byte, 16)
