@@ -1,5 +1,9 @@
 package main
 
+import (
+	"sync"
+)
+
 type _TdataMachinEid struct {
 	diConnPort _TudpConnPort
 	diIdx128   []byte
@@ -18,9 +22,9 @@ func (___Vdi *_TdataMachinEid) String() string {
 }
 
 type _TdataMachinEconnMap struct {
-	id          _TdataMachinEid
-	connPort    []_TudpConnPort
-	lastAccTime int
+	dmmID          _TdataMachinEid
+	dmmConnPortArr []_TudpConnPort
+	dmmLastAccTime int
 }
 
 type _TdataMachine struct {
@@ -28,4 +32,5 @@ type _TdataMachine struct {
 	dmCBinit           func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
 	dmCBrece           func(*_TdataMachine) //
 	dmMconn            map[[16]byte]_TdataMachinEconnMap
+	dmMconNmux         sync.Mutex
 }
