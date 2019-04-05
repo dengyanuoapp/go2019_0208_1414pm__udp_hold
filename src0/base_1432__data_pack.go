@@ -17,7 +17,9 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[
 		_FpfNex(" 138185 01 : why len is not ZERO ?")
 	}
 	_FpfN(" 138185 03 : gen loginReq , trying to package to bytes {%s}", __Vreq.String())
-	__Vreq._FdataPack__100__loginReq(Cmd__loginS01genReplyTokenA, ___VoutBuf)
+	__Vreq.
+		_FdataPack__100__loginReq(Cmd__loginS01genReplyTokenA, ___VoutBuf)
+	_FpfN(" 138185 04 : gen (origin:%d) byte to buf", len(*___VoutBuf))
 	//return &__Vreq
 }
 
