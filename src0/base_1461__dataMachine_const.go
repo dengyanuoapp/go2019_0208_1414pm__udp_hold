@@ -31,6 +31,6 @@ type _TdataMachine struct {
 	dmCHdataMachineIdI chan _TdataMachinEid
 	dmCBinit           func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
 	dmCBrece           func(*_TdataMachine) //
-	dmMconn            map[[16]byte]_TdataMachinEconnMap
 	dmMconNmux         sync.Mutex
+	dmMconn            map[[16]byte]_TdataMachinEconnMap
 }

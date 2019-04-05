@@ -22,6 +22,7 @@ func (___Vdm *_TdataMachine) IRun(___Vidx int) {
 func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
 	___Vdm.dmCHdataMachineIdI = make(chan _TdataMachinEid)
+	___Vdm.dmMconn = make(map[[16]byte]_TdataMachinEconnMap)
 
 	_Fsleep(_T1s)
 
