@@ -36,6 +36,29 @@ func _FpfNhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...i
 	_Ppf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
 
 } // _FpfNhex
+func _CpfNhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
+	var __Vs string
+	__Vl := len(*___VbyteIn)
+
+	__Vs += _Sph()
+	__Vs += _Spf(___Vfmt, ___Vobj...)
+	__Vs += _Spf(" (%d,%d)", __Vl, ___VmaxPrLen)
+
+	if __Vl < ___VmaxPrLen {
+		___VmaxPrLen = __Vl
+	}
+
+	//_Ppf(" (%d) %x\n", __Vl, (*___VbyteIn)[0:___VmaxPrLen])
+	__Vst := 0
+	for (16 + __Vst) < ___VmaxPrLen {
+		__Vs += _Spf(" %x", (*___VbyteIn)[__Vst:__Vst+16])
+		__Vst += 16
+	}
+	__Vs += _Spf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
+
+	//_Clog <- __Vs
+
+} // _CpfNhex
 
 func _FpfhexlastN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	__Vl := len(*___VbyteIn)

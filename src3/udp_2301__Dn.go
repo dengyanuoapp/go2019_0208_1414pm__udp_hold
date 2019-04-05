@@ -80,7 +80,7 @@ func main() {
 
 	_Finit__2301()
 
-	go _Frun(&_VserviceTcp_Dn, 200101)
+	go _Frun(&_VserviceTcp_Dn, 200101) // _FserviceTcp__200101x__init_default() {
 
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default

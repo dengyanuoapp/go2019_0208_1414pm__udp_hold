@@ -9,7 +9,7 @@ func (___VsrvT *_TserviceTCP) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 200101:
 		if nil == ___VsrvT.TsrvGoCallback200101 {
-			___VsrvT._Fhandle_udpListen_Tcp__main_top()
+			___VsrvT._FserviceTcp__200101x__init_default()
 		} else {
 			___VsrvT.TsrvGoCallback200101(___VsrvT)
 		}
@@ -18,7 +18,7 @@ func (___VsrvT *_TserviceTCP) IRun(___Vidx int) {
 	} // switch ___Vidx
 }
 
-func (___VserviceTcp *_TserviceTCP) _Fhandle_udpListen_Tcp__main_top() {
+func (___VserviceTcp *_TserviceTCP) _FserviceTcp__200101x__init_default() {
 
 	___VserviceTcp._FtryListenToTCP01()
 
@@ -38,4 +38,4 @@ func (___VserviceTcp *_TserviceTCP) _Fhandle_udpListen_Tcp__main_top() {
 
 	}
 	*___VserviceTcp.Cexit <- "Error 183818: (" + ___VserviceTcp.hostPortStr + ")"
-} // _Fhandle_udpListen_Tcp__main_top
+} // _FserviceTcp__200101x__init_default

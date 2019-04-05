@@ -77,7 +77,7 @@ func main() {
 	_Finit_2201()
 
 	// ------------------- tcp for debug monitor log --- begin
-	// IRun _Fhandle_udpListen_Tcp__main_top()
+	// IRun _FserviceTcp__200101x__init_default()
 	go _Frun(&_VserviceTcp_Fn, 200101)
 	// ------------------- tcp for debug monitor log --- end
 

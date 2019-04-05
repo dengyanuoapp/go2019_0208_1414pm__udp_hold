@@ -42,6 +42,9 @@ func _Fpf(___Vfmt string, ___Vpara ...interface{}) (int, error) {
 	_Fph()
 	return _Ppf(___Vfmt, ___Vpara...)
 } // _Fpf
+func _Spf(___Vfmt string, ___Vpara ...interface{}) string {
+	return _Pspf(___Vfmt, ___Vpara...)
+} // _Spf
 
 func _Pspf(___Vfmt string, ___Vpara ...interface{}) string {
 	return fmt.Sprintf(___Vfmt, ___Vpara...)
@@ -51,6 +54,9 @@ func _Fpt(___Vpara ...interface{}) (int, error) {
 	_Fph()
 	return _Ppt(___Vpara...)
 } // _Fpt
+func _Spt(___Vpara ...interface{}) string {
+	return _Sph() + fmt.Sprint(___Vpara...)
+} // _Spt
 
 //func log.Fatal(v ...interface{})
 //func log.Fatalf(format string, v ...interface{})
@@ -73,6 +79,11 @@ func _FpfN(___Vfmt string, ___Vpara ...interface{}) (int, error) {
 	_Pn()
 	return __Vn, __Verr
 } // _FpfN
+func _CpfN(___Vfmt string, ___Vpara ...interface{}) {
+	__Vs := _Sph()
+	__Vs += _Spf(___Vfmt+"\n", ___Vpara...)
+	//_Clog <- __Vs
+} // _CpfN
 
 func _FpfNex(___Vfmt string, ___Vpara ...interface{}) {
 	_Fph()
@@ -84,6 +95,12 @@ func _Fph() {
 	if "" != _Vself.ProjName {
 		_Ppf("%s:", _Vself.ProjName)
 	}
+} // _Fph
+func _Sph() string {
+	if "" != _Vself.ProjName {
+		return _Pspf("%s:", _Vself.ProjName)
+	}
+	return ""
 } // _Fph
 
 //flag.PrintDefaults()
