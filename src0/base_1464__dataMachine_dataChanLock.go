@@ -4,7 +4,7 @@ func _FdataMachin__1000501x__time_gap_dataChanLock(___Vdm *_TdataMachine) {
 	var __Vcnt int
 
 	for {
-		_Fsleep(5)
+		_Fsleep(_T5s)
 		___Vdm.dmMlock.mux.Lock()
 
 		for __Vk2, __Vv2 := range ___Vdm.dmMlock.LockNow {
