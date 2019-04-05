@@ -33,7 +33,7 @@ func _Finit__2301() {
 
 	_VserviceTcp_Dn = _TserviceTCP{
 		name:        "TcpService__DebugLog__Md",
-		hostPortStr: "127.0.0.1:56782",
+		hostPortStr: "127.0.0.1:50003",
 		Cexit:       &_Cexit,
 		Clog:        &_Clog,
 		cAmount:     10,

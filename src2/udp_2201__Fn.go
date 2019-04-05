@@ -30,7 +30,7 @@ func _Finit_2201() {
 
 	_VserviceTcp_Fn = _TserviceTCP{
 		name:                 "servicePortDebugLog",
-		hostPortStr:          "127.0.0.1:56781",
+		hostPortStr:          "127.0.0.1:50002",
 		TcallbackSvrDataChan: _FuserCallback__service_dataChan__Log_Fn,
 		TcallbackAccDataRece: _FuserCallback__Accept_dataReceive__Log_Fn,
 		TcallbackAccDataChan: _FuserCallback__accept_dataChan__Log_Fn, // _FhandleTcp__accept_dataChan__main_top
