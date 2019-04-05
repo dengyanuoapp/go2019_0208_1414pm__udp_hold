@@ -108,7 +108,8 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//_FtrueExit(" 392393 ", __Vb3 > __Vlen)
 
 	if __Vb3+16 > __Vlen {
-		return nil, fmt.Errorf(" 392392 04: len error , this is NOT the data for me(using my key). Vb3:%d , Vlen:%d", __Vb3, __Vlen)
+		return nil, fmt.Errorf(" 392392 04: len error , this is NOT the data for me(using my key). Vb3:%d , Vlen:%d vb0,1:%x,%x",
+			__Vb3, __Vlen, __VdeO[0], __VdeO[1])
 	}
 
 	__Vmd5InPack := __VdeO[__Vb3 : __Vb3+16]

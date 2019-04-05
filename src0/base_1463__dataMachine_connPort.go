@@ -67,7 +67,7 @@ func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___V
 		__Vcp := (*___VoldConnParr)[__Vi]
 		__Vstr2 := __Vcp.DstAddr.String()
 		if __Vstr1 == __Vstr2 {
-			_FpfN(" 839194 03 : already exist , use old connPort Arr ")
+			//_FpfN(" 839194 03 : already exist , use old connPort Arr ")
 			return (*___VoldConnParr)
 		}
 		__Vncp[__Vi] = __Vcp
