@@ -27,10 +27,14 @@ type _TdataMachinEconnMap struct {
 	dmmLastAccTime int
 }
 
+type _TdataMachineConnSt struct {
+	mux sync.Mutex
+	M   map[[16]byte]_TdataMachinEconnMap
+}
+
 type _TdataMachine struct {
 	dmCHdataMachineIdI chan _TdataMachinEid
 	dmCBinit           func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
 	dmCBrece           func(*_TdataMachine) //
-	dmMconNmux         sync.Mutex
-	dmMconn            map[[16]byte]_TdataMachinEconnMap
+	dmMconn            _TdataMachineConnSt
 }
