@@ -14,6 +14,14 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 		false == bytes.Equal(__Vold.dmmID.diIdx128, ___VinsID.diIdx128) ||
 			false == bytes.Equal(__Vold.dmmID.diSeq128, ___VinsID.diSeq128) ||
 			false == bytes.Equal(__Vold.dmmID.diToken, ___VinsID.diToken) {
+			_FpfN(" 839193 03 : delete-old, gen New connPort Map hash.")
+			___Vdm.dmMconn[__Vk] = _TdataMachinEconnMap{
+				dmmID:          *___VinsID,
+				dmmLastAccTime: _FtimeInt(),
+				dmmConnPortArr: []_TudpConnPort{___VinsID.diConnPort},
+			}
+		} else {
+			_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
 			___Vdm.dmMconn[__Vk] = _TdataMachinEconnMap{
 				dmmID:          *___VinsID,
 				dmmLastAccTime: _FtimeInt(),
