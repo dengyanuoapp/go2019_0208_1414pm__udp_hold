@@ -197,7 +197,15 @@ func _FgenRand_uint32__() uint32 {
 }
 
 func _FgenB16(___VbIn *[]byte) [16]byte {
+	if nil == ___VbIn {
+		return [16]byte{11, 22, 33, 44, 0xff, 0xff, 0xff, 0xff, 0xee, 0xee, 0xee, 0xee, 55, 66, 77, 88}
+	}
+
 	var __Vb16 [16]byte
-	copy(__Vb16[:], (*___VbIn)[:16])
+	if len(*___VbIn) < 16 {
+		copy(__Vb16[:], (*___VbIn))
+	} else {
+		copy(__Vb16[:], (*___VbIn)[:16])
+	}
 	return __Vb16
 }
