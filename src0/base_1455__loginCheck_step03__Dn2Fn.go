@@ -68,7 +68,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.remotePortKey, // []byte
 		}
-		_FpfNdb(" 838382 04 [pre-unSend:<%s>]{%s}", __VunSend.String(), __Vreq.String())
+		//_FpfNdb(" 838382 04 [pre-unSend:<%s>]{%s}", __VunSend.String(), __Vreq.String())
 		(*___Vlc.ulCHSendLO) <- __VunSend // _TudpNodeDataSend
 	}
 
@@ -83,7 +83,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 			diSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
 			diToken:  ___Vdecode.Dlogin.TokenL,   // []byte
 		}
-		_FpfNdb(" 838382 07 [reset-dataMachineID:<%s>]", __Vid.String())
+		//_FpfNdb(" 838382 07 [reset-dataMachineID:<%s>]", __Vid.String())
 		(*___Vlc.ulCHdataMachineIdLO) <- __Vid
 	}
 }
