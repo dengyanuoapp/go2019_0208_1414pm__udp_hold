@@ -38,7 +38,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 	___Vdm.dmMconNmux.Unlock()
 	_FpfN(" 839193 08 : dmMconn len(%d,%d) ", len(___Vdm.dmMconn), len(___Vdm.dmMconn[__Vk].dmmConnPortArr))
 	if 3 == len(___Vdm.dmMconn[__Vk].dmmConnPortArr) {
-		_FpfN(" 839193 09 : dmMconn {%v}", ___Vdm.dmMconn[__Vk].dmmConnPortArr)
+		//_FpfN(" 839193 09 : dmMconn {%v}", ___Vdm.dmMconn[__Vk].dmmConnPortArr)
 	}
 }
 
