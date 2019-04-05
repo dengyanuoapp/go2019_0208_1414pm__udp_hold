@@ -72,24 +72,24 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		return
 	}
 
-	__Vunr := _TudpNodeDataRece{
+	__VuRece := _TudpNodeDataRece{
 		urrRemoteAddr: ___Vun.unRemoteAddr,
 		urrLen:        len(__Vtmp2),
 		urrBuf:        __Vtmp2,
 	}
 
-	if __Vunr.urrLen < 400 && __Vunr.urrLen > 32 {
-		//_FpfN(" 439196 01 rece : %d ,%11d %v : %s", __Vunr.urrLen, _FtimeI64(), __Vunr.urrRemoteAddr, __Vunr.urrBuf)
+	if __VuRece.urrLen < 400 && __VuRece.urrLen > 32 {
+		//_FpfN(" 439196 01 rece : %d ,%11d %v : %s", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr, __VuRece.urrBuf)
 		//_FpfNhex(___VbufIn, 48, " 439196 02 origin len %d :", ___Vun.unRlen)
-		//_FpfNhex(&__Vunr.urrBuf, 33, " 439196 03 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __Vunr.urrRemoteAddr)
+		//_FpfNhex(&__VuRece.urrBuf, 33, " 439196 03 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __VuRece.urrRemoteAddr)
 	} else {
-		_FpfNhex(&__Vunr.urrBuf, 38, " 439196 05 rece : %d ,%11d %v ", __Vunr.urrLen, _FtimeI64(), __Vunr.urrRemoteAddr)
+		_FpfNhex(&__VuRece.urrBuf, 38, " 439196 05 rece : %d ,%11d %v ", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr)
 	}
 
 	if nil == ___Vun.unCHreceLO {
-		_FpfN(" 439196 08 udpNodeDataRece can NOT output , for outChan is null : %s", __Vunr.String())
+		_FpfN(" 439196 08 udpNodeDataRece can NOT output , for outChan is null : %s", __VuRece.String())
 	} else {
-		_FpfN(" 439196 09 udpNodeDataRece : %s", __Vunr.String())
-		(*___Vun.unCHreceLO) <- __Vunr
+		//_FpfN(" 439196 09 udpNodeDataRece : %s", __VuRece.String())
+		(*___Vun.unCHreceLO) <- __VuRece
 	}
 }
