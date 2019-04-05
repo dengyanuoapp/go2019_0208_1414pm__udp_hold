@@ -36,12 +36,14 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 		}
 	}
 
-	__Vl2, __Vok2 := ___Vdm.dmMconn.LockNow[__Vk]
+	___Vdm.dmMlock.mux.Lock()
+	__Vl2, __Vok2 := ___Vdm.dmMlock.LockNow[__Vk]
 	if __Vok2 {
-		___Vdm.dmMconn.LockNow[__Vk] = __Vl2 + 1
+		___Vdm.dmMlock.LockNow[__Vk] = __Vl2 + 1
 	} else {
-		___Vdm.dmMconn.LockNow[__Vk] = 1
+		___Vdm.dmMlock.LockNow[__Vk] = 1
 	}
+	___Vdm.dmMlock.mux.Unlock()
 
 	//___Vdm.dmMconn.mux.Unlock()
 	_FpfN(" 839193 08 : dmMconn.M len(%d,%d) ", len(___Vdm.dmMconn.M), len(___Vdm.dmMconn.M[__Vk].dmmConnPortArr))

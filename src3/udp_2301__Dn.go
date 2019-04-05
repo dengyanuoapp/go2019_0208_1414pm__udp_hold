@@ -96,6 +96,7 @@ func main() {
 
 	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
 
+	// _FdataMachin__1000501x__time_gap_dataChanLock
 	go _Frun(&_VdataMachine_Dn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
 	_Fex(" the reason exit : "+<-_Cexit, nil)
