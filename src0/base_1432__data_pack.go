@@ -3,6 +3,7 @@ package main
 // _TloginReq
 func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[]byte, ___VoutBuf *[]byte) {
 	__Vreq := _TloginReq{
+		MeRand5:  _FgenRand_nByte__(5),
 		MeTime:   _FtimeInt(),
 		ReqStr:   " loginS01genReplyTokenA ",
 		MeName:   _VC.Name,

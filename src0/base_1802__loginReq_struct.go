@@ -1,6 +1,7 @@
 package main
 
 type _TloginReq struct {
+	MeRand5  []byte
 	MeTime   int
 	ReqStr   string
 	MeName   string
@@ -22,7 +23,8 @@ func _Fbyte2str(___Vb *[]byte) string {
 func (___Vlr *_TloginReq) String() string {
 	__Vo := _Pspf(
 		//" %d %s %s me:%x %x to:%x %x tokenAB: %s,%s ",
-		" %d %s %s me:%x,%x to:%x,%x tokenAB: %x,%x ",
+		" rand5:%x %d %s %s me:%x,%x to:%x,%x tokenAB: %x,%x ",
+		___Vlr.MeRand5,
 		___Vlr.MeTime,
 		___Vlr.ReqStr,
 		___Vlr.MeName,
@@ -31,7 +33,6 @@ func (___Vlr *_TloginReq) String() string {
 		String5(&___Vlr.MeSeq128),
 		String5(&___Vlr.ToIdx128),
 		String5(&___Vlr.ToSeq128),
-
 		String5(&___Vlr.TokenL),
 		String5(&___Vlr.TokenR))
 	return __Vo
