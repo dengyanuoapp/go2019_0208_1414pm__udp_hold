@@ -53,7 +53,7 @@ type _TtcpNodE struct {
 	TcallbackAccDataChan func(*_TacceptTCP) // _FuserCallback__accept_dataChan__Log_Fn
 
 	TcallbackSvrDataChan func(*_TtcpNodE) // _FuserCallback__service_dataChan__Log_Fn
-	tnCBinit             func(*_TtcpNodE) // _FserviceTcp__200101x__init_default
+	tnCBinit             func(*_TtcpNodE) // _FtcpNode__200101x__init_default
 
 	Cexit *chan string
 	Clog  *chan string
