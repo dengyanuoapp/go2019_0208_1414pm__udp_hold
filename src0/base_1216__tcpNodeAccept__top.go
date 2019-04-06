@@ -47,7 +47,7 @@ func _FtcpNode__200401x1_accept_loop__default(___Vtn3 *_TtcpNodE) {
 		for __Vi := 0; __Vi < ___Vtn3.tnAmount; __Vi++ {
 			__VaccTcp := &(___Vtn3.tnAcceptTCPs[__Vi])
 			if __VaccTcp.taEnabled == false {
-				__VaccTcp.taIdx128 = _FgenRand_nByte__(16)
+				__VaccTcp.taChanId128 = _FgenRand_nByte__(16)
 
 				// func (c *TCPConn) LocalAddr() Addr
 				// func (c *TCPConn) RemoteAddr() Addr

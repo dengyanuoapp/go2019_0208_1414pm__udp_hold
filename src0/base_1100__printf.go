@@ -166,7 +166,7 @@ func _FpfNonce(___Vfmt string, ___Vpara ...interface{}) {
 
 	if __Vi3 == 1 {
 		//_FpfN(___Vfmt+" : %s", ___Vpara, _FgetFuncName3())
-		_Fpf("prONCE :"+___Vfmt, ___Vpara...)
+		_FpfN("prONCE :"+___Vfmt, ___Vpara...)
 		//_Ppf("%11d:%2d: %s_%d\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2, __Vline)
 		//_Ppf("%11d:%2d: %s(%d)\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2, __Vi3)
 	}

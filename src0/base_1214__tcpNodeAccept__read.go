@@ -64,11 +64,12 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 
 	___VtAcc3.taRdata.tnrRemoteAddr = ___VtAcc3.taRemoteAddr
 	___VtAcc3.taRdata.tnrLen = ___VtAcc3.taLen
+	___VtAcc3.taRdata.tnrChanId128 = ___VtAcc3.taChanId128
 	_FcopyByte(&(___VtAcc3.taRdata.tnrBuf), &(___VtAcc3.taBuf), ___VtAcc3.taLen)
 	//___VtAcc3.taBuf2 = make([]byte , ___VtAcc3.taLen ); copy( ___VtAcc3.taBuf2 , ___VtAcc3.taBuf )
 
 	if nil == ___VtAcc3.tnCHreceLO {
-		_FpfNdb(" 183813 07 : rece , but out chan NULL. ignore ")
+		_FpfNonce(" 183813 07 : rece , but out chan NULL. ignore:%s", ___VtAcc3.taRdata.String()) // _TtcpNodeDataRece
 	} else {
 		(*___VtAcc3.tnCHreceLO) <- ___VtAcc3.taRdata
 	}
