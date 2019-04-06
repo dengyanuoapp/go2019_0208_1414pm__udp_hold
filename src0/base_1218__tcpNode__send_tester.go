@@ -8,7 +8,7 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200801x_send__tester() {
 		__Vts := _TtcpNodeDataSend{
 			//tnsId128: _FgenRand_nByte__(16),
 			//tnsK256:  _FgenRand_nByte__(32),
-			tnsBuf: []byte(" 838188 02 : testing "),
+			tnsBuf: []byte(_Spf(" 838188 02 : testing %d\n", _FtimeInt())),
 		}
 
 		__Vts.tnsLen = len(__Vts.tnsBuf)
