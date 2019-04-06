@@ -12,6 +12,7 @@ var (
 	_VudpGroup_Fn          _TudpGroupSt
 	_VdataMachine_Fn       _TdataMachine
 
+	_CHexit  chan string = make(chan string, 10)
 	_Vself   _Tself
 	_Vconfig _Tconfig
 )
@@ -90,4 +91,5 @@ func main() {
 
 	go _Frun(&_VdataMachine_Fn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
+	<-_CHexit
 } // main

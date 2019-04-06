@@ -13,6 +13,9 @@ var (
 
 	_VloginCheck_Dn _TloginCheck
 
+	_CHexit chan string  = make(chan string, 10)
+	_CHpr   *chan string = &_VtcpDebugLog__Dn.tnCHsendToAllClientI
+
 	_Vself   _Tself
 	_Vconfig _Tconfig
 )
@@ -98,4 +101,5 @@ func main() {
 	// _FdataMachin__1000501x__time_gap_dataChanLock
 	go _Frun(&_VdataMachine_Dn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
+	<-_CHexit
 } // main

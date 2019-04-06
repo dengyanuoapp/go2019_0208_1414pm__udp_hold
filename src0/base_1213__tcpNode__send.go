@@ -4,7 +4,7 @@ import "bytes"
 
 // note : all debug log begin pushed into tnClog will try to redirect to TCP debug monitorS.
 func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
-	_FpfN("283822 01 send start")
+	//_FpfN("283822 01 send start")
 	for {
 		select {
 		case __Vds := <-___VtcpNode4.tnCHsendToAllClientI: // _TtcpNodeDataSend
