@@ -23,6 +23,7 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 	if ___Vtn3.cAmount > 100 {
 		___Vtn3.cAmount = 100
 	}
+
 	___Vtn3.acceptTCPs = make([]_TacceptTCP, ___Vtn3.cAmount)
 	go _Fhandle_tcpAccept01(___Vtn3)
 
