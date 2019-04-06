@@ -28,8 +28,6 @@ func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP) bool {
-	if 4 == 2 {
-	}
 
 	___VtAcc3.taR.try++
 
@@ -37,7 +35,6 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		___VtAcc3.taErr =
 		___VtAcc3.taConnTCP.Read(___VtAcc3.taBuf)
 
-	// _FtcpNode__200401x_accept_default
 	if ___VtAcc3.taErr == io.EOF { // lost the connect.
 		___VtAcc3.taR.eofErr++
 		// acceptTcpINC / acceptTcpDEC : begin
@@ -65,14 +62,18 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	   _PpdN( ___VtAcc3.taLen , &(___VtAcc3.taBuf) )
 	*/
 
-	_FcopyByte(&(___VtAcc3.taBuf2), &(___VtAcc3.taBuf), ___VtAcc3.taLen)
+	___VtAcc3.taRdata.tnrRemoteAddr = ___VtAcc3.taRemoteAddr
+	___VtAcc3.taRdata.tnrLen = ___VtAcc3.taLen
+	_FcopyByte(&(___VtAcc3.taRdata.tnrBuf), &(___VtAcc3.taBuf), ___VtAcc3.taLen)
 	//___VtAcc3.taBuf2 = make([]byte , ___VtAcc3.taLen ); copy( ___VtAcc3.taBuf2 , ___VtAcc3.taBuf )
 
-	// _FcallbackForDebugLog_accept
-	_FnotNullRunTcp02_accept(___VtAcc3.taServerTCP.tnCBaccDataRece, ___VtAcc3)
-
+	if nil == ___VtAcc3.tnCHreceLO {
+		_FpfNdb(" 183813 07 : rece , but out chan NULL. ignore ")
+	} else {
+		(*___VtAcc3.tnCHreceLO) <- ___VtAcc3.taRdata
+	}
 	return true
-} // _FtcpNodeAccept__200401x5__dataReceiveMsg01_default
+} //
 
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc4 *_TacceptTCP) {
 

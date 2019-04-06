@@ -52,7 +52,6 @@ func _FtcpNode__200401x1_accept_loop__default(___Vtn3 *_TtcpNodE) {
 				// func (c *TCPConn) LocalAddr() Addr
 				// func (c *TCPConn) RemoteAddr() Addr
 				__VaccTcp.taLocalAddr = __Vconn.LocalAddr()
-				__VaccTcp.taLocalAddr = __Vconn.LocalAddr()
 				__VaccTcp.taRemoteAddr = __Vconn.RemoteAddr()
 				//_FpfN( "381818 l:%s r:%s"     , __VaccTcp.taLocalAddr , __VaccTcp.taRemoteAddr )
 

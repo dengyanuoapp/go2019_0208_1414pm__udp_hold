@@ -5,6 +5,12 @@ import (
 	"sync"
 )
 
+type _TtcpNodeDataRece struct {
+	tnrRemoteAddr net.Addr
+	tnrLen        int
+	tnrBuf        []byte
+}
+
 type _TacceptTCP struct {
 	taIdx128      []byte
 	taEnabled     bool
@@ -13,10 +19,11 @@ type _TacceptTCP struct {
 	taConnTCP     *net.TCPConn
 	taErr         error
 	tnCHsendI     chan []byte
+	tnCHreceLO    *chan _TtcpNodeDataRece
 	taR           _Tcount
 	taW           _Tcount
 	taBuf         []byte
-	taBuf2        []byte
+	taRdata       _TtcpNodeDataRece
 	taLen         int
 	taErr2        error
 	taRemoteAddr  net.Addr
@@ -39,7 +46,6 @@ type _TtcpNodE struct {
 	tnAcceptTCPs         []_TacceptTCP
 	tnClientMux          sync.Mutex
 	tnClientCnt          int
-	tnCBaccDataRece      func(*_TacceptTCP) // _FuserCallback__Accept_dataReceive__Log_Fn
 	tnCBaccDataChan      func(*_TacceptTCP) // _FuserCallback__accept_dataChan__Log_Fn
 	tnCBsvrDataChan      func(*_TtcpNodE)   // _FuserCallback__service_dataChan__Log_Fn
 } // _TtcpNodE

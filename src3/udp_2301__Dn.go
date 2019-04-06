@@ -79,6 +79,7 @@ func main() {
 	_Finit__2301()
 
 	// _TtcpNodE
+	// _FtcpNodeAccept__200401x5__dataReceiveMsg01_default
 	go _Frun(&_VtcpDebugLog__Dn, 200101) // _FtcpNode__200101x__init_default
 
 	// _TudpNodeSt _TudpGroupSt
