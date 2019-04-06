@@ -29,14 +29,14 @@ func _Finit_2201() {
 	_FPargs()
 
 	_VtcpDebugLog__Fn = _TtcpNodE{
-		name:                 "servicePortDebugLog",
-		hostPortStr:          "127.0.0.1:50002",
-		TcallbackSvrDataChan: _FuserCallback__service_dataChan__Log_Fn,
-		TcallbackAccDataRece: _FuserCallback__Accept_dataReceive__Log_Fn,
-		TcallbackAccDataChan: _FuserCallback__accept_dataChan__Log_Fn, // _FhandleTcp__accept_dataChan__main_top
-		Cexit:                &_Cexit,
-		Clog:                 &_Clog,
-		cAmount:              10,
+		name:            "servicePortDebugLog",
+		hostPortStr:     "127.0.0.1:50002",
+		tnCBsvrDataChan: _FuserCallback__service_dataChan__Log_Fn,
+		tnCBaccDataRece: _FuserCallback__Accept_dataReceive__Log_Fn,
+		tnCBaccDataChan: _FuserCallback__accept_dataChan__Log_Fn, // _FhandleTcp__accept_dataChan__main_top
+		Cexit:           &_Cexit,
+		Clog:            &_Clog,
+		cAmount:         10,
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{

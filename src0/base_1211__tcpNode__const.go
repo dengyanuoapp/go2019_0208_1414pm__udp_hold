@@ -51,11 +51,10 @@ type _TtcpNodE struct {
 	clientMux  sync.Mutex
 	clientCnt  int
 
-	TcallbackAccDataRece func(*_TacceptTCP) // _FuserCallback__Accept_dataReceive__Log_Fn
-	TcallbackAccDataChan func(*_TacceptTCP) // _FuserCallback__accept_dataChan__Log_Fn
-
-	TcallbackSvrDataChan func(*_TtcpNodE) // _FuserCallback__service_dataChan__Log_Fn
-	tnCBinit             func(*_TtcpNodE) // _FtcpNode__200101x__init_default
+	tnCBaccDataRece func(*_TacceptTCP) // _FuserCallback__Accept_dataReceive__Log_Fn
+	tnCBaccDataChan func(*_TacceptTCP) // _FuserCallback__accept_dataChan__Log_Fn
+	tnCBsvrDataChan func(*_TtcpNodE)   // _FuserCallback__service_dataChan__Log_Fn
+	tnCBinit        func(*_TtcpNodE)   // _FtcpNode__200101x__init_default
 
 	Cexit *chan string
 	Clog  *chan string
