@@ -49,13 +49,13 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VtAcc3 *_TacceptTCP) bool {
 	if ___VtAcc3.Verr == io.EOF { // lost the connect.
 		___VtAcc3.cR.eofErr++
 		// acceptTcpINC / acceptTcpDEC : begin
-		___VtAcc3.serverTCP.clientMux.Lock()
+		___VtAcc3.serverTCP.tnClientMux.Lock()
 
-		___VtAcc3.serverTCP.clientCnt--
+		___VtAcc3.serverTCP.tnClientCnt--
 		___VtAcc3.enabled = false
 		___VtAcc3.connTCP.Close()
 
-		___VtAcc3.serverTCP.clientMux.Unlock()
+		___VtAcc3.serverTCP.tnClientMux.Unlock()
 		// acceptTcpINC / acceptTcpDEC : end
 
 		___VtAcc3.CreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.idx)
@@ -92,7 +92,7 @@ func _FhandleTcp_accept_dataReceiveMsg01__debug(___VtAcc4 *_TacceptTCP) {
 
 		_Ppf(" 183893 : ")
 		for __Vi := 0; __Vi < ___VtAcc4.serverTCP.tnAmount; __Vi++ {
-			__VacceptTcp := &(___VtAcc4.serverTCP.acceptTCPs[__Vi])
+			__VacceptTcp := &(___VtAcc4.serverTCP.tnAcceptTCPs[__Vi])
 			_Ppf(" %d,%d,%d,%d", __Vi, __VacceptTcp.idx, __VacceptTcp.cR.try, __VacceptTcp.cR.ok)
 		}
 		_Ppn()

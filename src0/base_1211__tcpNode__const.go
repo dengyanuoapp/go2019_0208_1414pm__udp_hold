@@ -42,20 +42,20 @@ type _TtcpNodE struct {
 	tnHostPortStr string
 	tnAmount      int
 
-	tcpAddr     *net.TCPAddr
-	tcpListener *net.TCPListener
-	tcpLisnAddr net.Addr
-	err         error
+	tnAddr     *net.TCPAddr
+	tnListener *net.TCPListener
+	tnLisnAddr net.Addr
+	tnErr      error
 
-	acceptTCPs []_TacceptTCP
-	clientMux  sync.Mutex
-	clientCnt  int
+	tnAcceptTCPs []_TacceptTCP
+	tnClientMux  sync.Mutex
+	tnClientCnt  int
 
 	tnCBaccDataRece func(*_TacceptTCP) // _FuserCallback__Accept_dataReceive__Log_Fn
 	tnCBaccDataChan func(*_TacceptTCP) // _FuserCallback__accept_dataChan__Log_Fn
 	tnCBsvrDataChan func(*_TtcpNodE)   // _FuserCallback__service_dataChan__Log_Fn
 	tnCBinit        func(*_TtcpNodE)   // _FtcpNode__200101x__init_default
 
-	Cexit *chan string
-	Clog  *chan string
+	tnCexit *chan string
+	tnClog  *chan string
 } // _TtcpNodE
