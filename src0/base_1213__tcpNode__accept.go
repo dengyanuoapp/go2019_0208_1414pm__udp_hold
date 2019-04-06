@@ -7,7 +7,7 @@ import (
 
 func _Fhandle_tcpAccept01(___Vtn2 *_TtcpNodE) {
 
-	for __Vi := 0; __Vi < ___Vtn2.cAmount; __Vi++ {
+	for __Vi := 0; __Vi < ___Vtn2.tnAmount; __Vi++ {
 		___Vtn2.acceptTCPs[__Vi].Vbuf = make([]byte, 2048) // silice : with var len
 		___Vtn2.acceptTCPs[__Vi].idx = __Vi
 		___Vtn2.acceptTCPs[__Vi].enabled = false
@@ -30,7 +30,7 @@ func _Fhandle_tcpAccept01(___Vtn2 *_TtcpNodE) {
 		_Fsleep_1ms()
 		_FtcpAccept01_loop(___Vtn2)
 	}
-	(*___Vtn2.Cexit) <- "Error 381911: (" + ___Vtn2.hostPortStr + ")"
+	(*___Vtn2.Cexit) <- "Error 381911: (" + ___Vtn2.tnHostPortStr + ")"
 
 } // _Fhandle_tcpAccept01
 
@@ -45,10 +45,10 @@ func _FtcpAccept01_loop(___Vtn3 *_TtcpNodE) {
 	__Vconn.Write([]byte(_Pspf("%x\n", _Vself.progSha)))
 	//_FpfN( "381814 accepting 2 :%s\n" , _Vself.progSha )
 
-	//_FpfN( "381816 accepting : max %d , now %d" , ___Vtn3.cAmount , ___Vtn3.clientCnt )
-	if ___Vtn3.cAmount > ___Vtn3.clientCnt {
+	//_FpfN( "381816 accepting : max %d , now %d" , ___Vtn3.tnAmount , ___Vtn3.clientCnt )
+	if ___Vtn3.tnAmount > ___Vtn3.clientCnt {
 		__Vcnt := ___Vtn3.clientCnt
-		for __Vi := 0; __Vi < ___Vtn3.cAmount; __Vi++ {
+		for __Vi := 0; __Vi < ___Vtn3.tnAmount; __Vi++ {
 			__VacceptTcp := &(___Vtn3.acceptTCPs[__Vi])
 			if __VacceptTcp.enabled == false {
 				// func (c *TCPConn) LocalAddr() Addr
@@ -81,6 +81,6 @@ func _FtcpAccept01_loop(___Vtn3 *_TtcpNodE) {
 
 	} else {
 		__Vconn.Close()
-		_FpfN("38181b refuse accept : max reach %d , now %d", ___Vtn3.cAmount, ___Vtn3.clientCnt)
+		_FpfN("38181b refuse accept : max reach %d , now %d", ___Vtn3.tnAmount, ___Vtn3.clientCnt)
 	}
 } // _FtcpAccept01_loop

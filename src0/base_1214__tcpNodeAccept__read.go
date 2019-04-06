@@ -91,7 +91,7 @@ func _FhandleTcp_accept_dataReceiveMsg01__debug(___VtAcc4 *_TacceptTCP) {
 	} else {
 
 		_Ppf(" 183893 : ")
-		for __Vi := 0; __Vi < ___VtAcc4.serverTCP.cAmount; __Vi++ {
+		for __Vi := 0; __Vi < ___VtAcc4.serverTCP.tnAmount; __Vi++ {
 			__VacceptTcp := &(___VtAcc4.serverTCP.acceptTCPs[__Vi])
 			_Ppf(" %d,%d,%d,%d", __Vi, __VacceptTcp.idx, __VacceptTcp.cR.try, __VacceptTcp.cR.ok)
 		}

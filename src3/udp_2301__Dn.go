@@ -32,11 +32,11 @@ func _Finit__2301() {
 	_FPargs()
 
 	_VtcpDebugLog__Dn = _TtcpNodE{
-		name:        "TcpService__DebugLog__Md",
-		hostPortStr: "127.0.0.1:50003",
-		Cexit:       &_Cexit,
-		Clog:        &_Clog,
-		cAmount:     10,
+		tnName:        "TcpService__DebugLog__Md",
+		tnHostPortStr: "127.0.0.1:50003",
+		Cexit:         &_Cexit,
+		Clog:          &_Clog,
+		tnAmount:      10,
 	}
 
 	_VudpDecode_Dn = _TuDecode{

@@ -38,9 +38,9 @@ type _TacceptTCP struct {
 } // _TacceptTCP
 
 type _TtcpNodE struct {
-	name        string
-	hostPortStr string
-	cAmount     int
+	tnName        string
+	tnHostPortStr string
+	tnAmount      int
 
 	tcpAddr     *net.TCPAddr
 	tcpListener *net.TCPListener

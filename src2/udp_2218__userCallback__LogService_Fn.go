@@ -8,7 +8,7 @@ func _FuserCallback__service_dataChan__Log_Fn(___VtcpNode4 *_TtcpNodE) {
 	__VprStr := <-*___VtcpNode4.Clog
 	//_FpfN( "283823 service:%s" , __VprStr )
 
-	for __Vi := 0; __Vi < ___VtcpNode4.cAmount; __Vi++ {
+	for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
 		if ___VtcpNode4.acceptTCPs[__Vi].enabled {
 			// the Clog -> CchanMsg
 			___VtcpNode4.clientMux.Lock()
