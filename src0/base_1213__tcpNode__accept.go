@@ -13,8 +13,6 @@ func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 		___Vtn2.tnAcceptTCPs[__Vi].taEnabled = false
 		___Vtn2.tnAcceptTCPs[__Vi].taServerTCP = ___Vtn2
 
-		___Vtn2.tnAcceptTCPs[__Vi].taClog = ___Vtn2.tnClog
-
 		___Vtn2.tnAcceptTCPs[__Vi].taCstart = make(chan string, 1)
 		___Vtn2.tnAcceptTCPs[__Vi].taCreceiveMsg = make(chan []byte, 10)
 		___Vtn2.tnAcceptTCPs[__Vi].taCchanMsg = make(chan []byte, 10)
