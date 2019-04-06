@@ -5,7 +5,7 @@ import (
 )
 
 var (
-	_VserviceTcp_Dn     _TtcpNodE
+	_VtcpDebugLog__Dn   _TtcpNodE
 	_VudpGroup_Dn       _TudpGroupSt
 	_VudpDecode_Dn      _TuDecode
 	_VloginGenerator_Dn _TloginGenerator
@@ -31,7 +31,7 @@ func _Finit__2301() {
 
 	_FPargs()
 
-	_VserviceTcp_Dn = _TtcpNodE{
+	_VtcpDebugLog__Dn = _TtcpNodE{
 		name:        "TcpService__DebugLog__Md",
 		hostPortStr: "127.0.0.1:50003",
 		Cexit:       &_Cexit,
@@ -80,7 +80,8 @@ func main() {
 
 	_Finit__2301()
 
-	go _Frun(&_VserviceTcp_Dn, 200101) // _FserviceTcp__200101x__init_default() {
+	// _TtcpNodE
+	go _Frun(&_VtcpDebugLog__Dn, 200101) // _FserviceTcp__200101x__init_default
 
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
