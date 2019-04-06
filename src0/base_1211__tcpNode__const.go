@@ -12,12 +12,14 @@ type _TacceptTCP struct {
 	connTCP   *net.TCPConn
 	err       error
 
-	r64try int64
-	r64ok  int64
-	r64eof int64
-	w64try int64
-	w64ok  int64
-	w64eof int64
+	//	r64try int64
+	//	r64ok  int64
+	//	r64eof int64
+	//	w64try int64
+	//	w64ok  int64
+	//	w64eof int64
+	cR _Tcount
+	cW _Tcount
 
 	Vbuf        []byte
 	Vbuf2       []byte

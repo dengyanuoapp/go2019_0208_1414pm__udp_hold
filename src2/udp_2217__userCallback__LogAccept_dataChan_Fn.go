@@ -18,14 +18,14 @@ func _FuserCallback__accept_dataChan__Log_Fn(___VacceptTcp *_TacceptTCP) {
 	case __Vbyte = <-___VacceptTcp.CchanMsg:
 		//_FpfN( " %d : 181185 accept_dataChan chanMsg : %d %d , %s"  , ___VacceptTcp.idx , len(__Vbyte) , cap(__Vbyte) , __Vbyte )
 		if true == ___VacceptTcp.enabled {
-			___VacceptTcp.w64try++
+			___VacceptTcp.cW.try++
 			//  func (c *TCPConn) Write(b []byte) (int, error)
 			_, __Verr := ___VacceptTcp.connTCP.Write(__Vbyte)
 			if __Verr == nil {
-				___VacceptTcp.w64ok++
+				___VacceptTcp.cW.ok++
 			} else {
 				if __Verr == io.EOF {
-					___VacceptTcp.w64eof++
+					___VacceptTcp.cW.eofErr++
 				}
 			}
 		}

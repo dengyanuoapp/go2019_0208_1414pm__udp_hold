@@ -42,14 +42,15 @@ func _Fpf(___Vfmt string, ___Vpara ...interface{}) (int, error) {
 	_Fph()
 	return _Ppf(___Vfmt, ___Vpara...)
 } // _Fpf
+
 func _Spf(___Vfmt string, ___Vpara ...interface{}) string {
-	return _Pspf(___Vfmt, ___Vpara...)
+	//return _Pspf(___Vfmt, ___Vpara...)
+	return fmt.Sprintf(___Vfmt, ___Vpara...)
 } // _Spf
 
 func _Pspf(___Vfmt string, ___Vpara ...interface{}) string {
 	return fmt.Sprintf(___Vfmt, ___Vpara...)
 } // _Pspf
-
 func _Fpt(___Vpara ...interface{}) (int, error) {
 	_Fph()
 	return _Ppt(___Vpara...)
