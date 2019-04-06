@@ -1,36 +1,36 @@
 package main
 
-func (___VtcpNode0 *_TtcpNodE) IRun(___Vidx int) {
+func (___Vtn0 *_TtcpNodE) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 200101:
-		if nil == ___VtcpNode0.tnCBinit {
-			___VtcpNode0._FtcpNode__200101x__init_default()
+		if nil == ___Vtn0.tnCBinit {
+			___Vtn0._FtcpNode__200101x__init_default()
 		} else {
-			___VtcpNode0.tnCBinit(___VtcpNode0)
+			___Vtn0.tnCBinit(___Vtn0)
 		}
 	default:
 		_FpfNex(" 739181 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
 }
 
-func (___VtcpNode3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
+func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 
-	___VtcpNode3._FtcpNode__tryListen01()
+	___Vtn3._FtcpNode__tryListen01()
 
-	if ___VtcpNode3.cAmount < 1 {
-		___VtcpNode3.cAmount = 1
+	if ___Vtn3.cAmount < 1 {
+		___Vtn3.cAmount = 1
 	}
-	if ___VtcpNode3.cAmount > 100 {
-		___VtcpNode3.cAmount = 100
+	if ___Vtn3.cAmount > 100 {
+		___Vtn3.cAmount = 100
 	}
-	___VtcpNode3.acceptTCPs = make([]_TacceptTCP, ___VtcpNode3.cAmount)
-	go _Fhandle_tcpAccept01(___VtcpNode3)
+	___Vtn3.acceptTCPs = make([]_TacceptTCP, ___Vtn3.cAmount)
+	go _Fhandle_tcpAccept01(___Vtn3)
 
 	for {
 		_Fsleep_1ms()
 
-		_FnotNullRun011_tcp_service_chan(___VtcpNode3.TcallbackSvrDataChan, ___VtcpNode3)
+		_FnotNullRun011_tcp_service_chan(___Vtn3.TcallbackSvrDataChan, ___Vtn3)
 
 	}
-	*___VtcpNode3.Cexit <- "Error 183818: (" + ___VtcpNode3.hostPortStr + ")"
+	*___Vtn3.Cexit <- "Error 183818: (" + ___Vtn3.hostPortStr + ")"
 } // _FtcpNode__200101x__init_default
