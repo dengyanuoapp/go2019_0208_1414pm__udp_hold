@@ -1,6 +1,6 @@
 // _TacceptTCP
 // _TtcpNodE
-// _Fhandle_tcpAccept01
+// _FtcpNode__200401x_accept_default
 package main
 
 import (
@@ -45,7 +45,7 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VtAcc3 *_TacceptTCP) bool {
 		___VtAcc3.taErr =
 		___VtAcc3.taConnTCP.Read(___VtAcc3.taBuf)
 
-	// _Fhandle_tcpAccept01
+	// _FtcpNode__200401x_accept_default
 	if ___VtAcc3.taErr == io.EOF { // lost the connect.
 		___VtAcc3.taR.eofErr++
 		// acceptTcpINC / acceptTcpDEC : begin

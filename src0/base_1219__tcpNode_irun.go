@@ -4,10 +4,14 @@ func (___Vtn0 *_TtcpNodE) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 200101:
 		if nil == ___Vtn0.tnCBinit {
-			___Vtn0._FtcpNode__200101x__init_default()
+			___Vtn0.
+				_FtcpNode__200101x__init_default()
 		} else {
 			___Vtn0.tnCBinit(___Vtn0)
 		}
+	case 200401:
+		go ___Vtn0.
+			_FtcpNode__200401x_accept_default()
 	default:
 		_FpfNex(" 739181 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
@@ -25,7 +29,7 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 	}
 
 	___Vtn3.tnAcceptTCPs = make([]_TacceptTCP, ___Vtn3.tnAmount)
-	go _Fhandle_tcpAccept01(___Vtn3)
+	go _Frun(___Vtn3, 200401)
 
 	for {
 		_Fsleep_1ms()

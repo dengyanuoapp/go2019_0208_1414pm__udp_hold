@@ -5,7 +5,7 @@ import (
 //"time"
 )
 
-func _Fhandle_tcpAccept01(___Vtn2 *_TtcpNodE) {
+func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 
 	for __Vi := 0; __Vi < ___Vtn2.tnAmount; __Vi++ {
 		___Vtn2.tnAcceptTCPs[__Vi].taBuf = make([]byte, 2048) // silice : with var len
@@ -32,7 +32,7 @@ func _Fhandle_tcpAccept01(___Vtn2 *_TtcpNodE) {
 	}
 	(*___Vtn2.tnCexit) <- "Error 381911: (" + ___Vtn2.tnHostPortStr + ")"
 
-} // _Fhandle_tcpAccept01
+} // _FtcpNode__200401x_accept_default
 
 func _FtcpAccept01_loop(___Vtn3 *_TtcpNodE) {
 
