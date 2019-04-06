@@ -29,14 +29,14 @@ func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
 // _TacceptTCP
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP) bool {
 
-	___VtAcc3.taR.try++
+	___VtAcc3.taRcnt.try++
 
 	___VtAcc3.taLen,
 		___VtAcc3.taErr =
 		___VtAcc3.taConnTCP.Read(___VtAcc3.taBuf)
 
 	if ___VtAcc3.taErr == io.EOF { // lost the connect.
-		___VtAcc3.taR.eofErr++
+		___VtAcc3.taRcnt.eofErr++
 		// acceptTcpINC / acceptTcpDEC : begin
 		___VtAcc3.taServerTCP.tnClientMux.Lock()
 
@@ -47,7 +47,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		___VtAcc3.taServerTCP.tnClientMux.Unlock()
 		// acceptTcpINC / acceptTcpDEC : end
 
-		___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
+		//___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
 		return false
 	}
 
@@ -55,16 +55,16 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 
 	_FnullExit(" 183813 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.taRemoteAddr)
 
-	___VtAcc3.taR.ok++
+	___VtAcc3.taRcnt.ok++
 
 	/*
 	   _Fpf( " 183814 | l:%s | r:%s | " , ___VtAcc3.VlocalAddr , ___VtAcc3.taRemoteAddr )
 	   _PpdN( ___VtAcc3.taLen , &(___VtAcc3.taBuf) )
 	*/
 
-	___VtAcc3.taRdata.tnrRemoteAddr = ___VtAcc3.taRemoteAddr
+	___VtAcc3.taRdata.tnrAddr = ___VtAcc3.taRemoteAddr
 	___VtAcc3.taRdata.tnrLen = ___VtAcc3.taLen
-	___VtAcc3.taRdata.tnrChanId128 = ___VtAcc3.taChanId128
+	___VtAcc3.taRdata.tnrId128 = ___VtAcc3.taId128
 	_FcopyByte(&(___VtAcc3.taRdata.tnrBuf), &(___VtAcc3.taBuf), ___VtAcc3.taLen)
 	//___VtAcc3.taBuf2 = make([]byte , ___VtAcc3.taLen ); copy( ___VtAcc3.taBuf2 , ___VtAcc3.taBuf )
 
@@ -78,7 +78,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc4 *_TacceptTCP) {
 
-	_Ppn(" 183891 : under constructing ", ___VtAcc4.taR.try, ___VtAcc4.taR.ok)
+	_Ppn(" 183891 : under constructing ", ___VtAcc4.taRcnt.try, ___VtAcc4.taRcnt.ok)
 
 	if nil == ___VtAcc4.taServerTCP {
 		_Ppn(" 183892 : ___VtAcc4.taServerTCP == nil ")
@@ -87,7 +87,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc4 *_TacceptTCP) {
 		_Ppf(" 183893 : ")
 		for __Vi := 0; __Vi < ___VtAcc4.taServerTCP.tnAmount; __Vi++ {
 			__VacceptTcp := &(___VtAcc4.taServerTCP.tnAcceptTCPs[__Vi])
-			_Ppf(" %d,%d,%d,%d", __Vi, __VacceptTcp.taIdx, __VacceptTcp.taR.try, __VacceptTcp.taR.ok)
+			_Ppf(" %d,%d,%d,%d", __Vi, __VacceptTcp.taIdx, __VacceptTcp.taRcnt.try, __VacceptTcp.taRcnt.ok)
 		}
 		_Ppn()
 	}

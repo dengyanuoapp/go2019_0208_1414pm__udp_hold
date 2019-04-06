@@ -13,9 +13,9 @@ func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 		___Vtn2.tnAcceptTCPs[__Vi].taEnabled = false
 		___Vtn2.tnAcceptTCPs[__Vi].taServerTCP = ___Vtn2
 
-		___Vtn2.tnAcceptTCPs[__Vi].taCreceiveMsg = make(chan []byte, 10)
-		___Vtn2.tnAcceptTCPs[__Vi].taCchanMsg = make(chan []byte, 10)
-		___Vtn2.tnAcceptTCPs[__Vi].taCreceiveErr = make(chan string, 1)
+		//___Vtn2.tnAcceptTCPs[__Vi].taCreceiveMsg = make(chan []byte, 10)
+		//___Vtn2.tnAcceptTCPs[__Vi].taCchanMsg = make(chan []byte, 10)
+		//___Vtn2.tnAcceptTCPs[__Vi].taCreceiveErr = make(chan string, 1)
 	}
 
 	for __Vi := 0; __Vi < ___Vtn2.tnAmount; __Vi++ {
@@ -47,7 +47,7 @@ func _FtcpNode__200401x1_accept_loop__default(___Vtn3 *_TtcpNodE) {
 		for __Vi := 0; __Vi < ___Vtn3.tnAmount; __Vi++ {
 			__VaccTcp := &(___Vtn3.tnAcceptTCPs[__Vi])
 			if __VaccTcp.taEnabled == false {
-				__VaccTcp.taChanId128 = _FgenRand_nByte__(16)
+				__VaccTcp.taId128 = _FgenRand_nByte__(16)
 
 				// func (c *TCPConn) LocalAddr() Addr
 				// func (c *TCPConn) RemoteAddr() Addr

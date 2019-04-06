@@ -80,6 +80,7 @@ func main() {
 
 	// _TtcpNodE
 	// _FtcpNodeAccept__200401x5__dataReceiveMsg01_default
+	// _FtcpNode__200301x_send__default
 	go _Frun(&_VtcpDebugLog__Dn, 200101) // _FtcpNode__200101x__init_default
 
 	// _TudpNodeSt _TudpGroupSt
