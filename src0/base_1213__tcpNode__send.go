@@ -8,7 +8,7 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 	for {
 		select {
 		case __Vds := <-___VtcpNode4.tnCHsendToAllClientI: // _TtcpNodeDataSend
-			_FpfN("283822 02 send chain:%s", __Vds.String)
+			_FpfN("283822 02 send chain:%s", __Vds.String())
 
 			if 0 == len(__Vds.tnsId128) {
 				for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {

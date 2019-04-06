@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"runtime"
 	"strings"
+	"sync"
 )
 
 var (
@@ -139,7 +140,8 @@ func _FgetFuncName3() string {
 
 var __VfpndbI641 int64
 var __VfpndbI642 int64
-var __VpfNdbMap map[string]int
+var __VpfNdbMap map[string]int = make(map[string]int)
+var __VpfNdbMaPmux sync.Mutex
 
 func _FpfNonce(___Vfmt string, ___Vpara ...interface{}) {
 	__Vstr1 := _FgetFrame(1).Function
@@ -152,17 +154,15 @@ func _FpfNonce(___Vfmt string, ___Vpara ...interface{}) {
 	_, _, __Vline, _ := runtime.Caller(1)
 	__Vstr3 := _Pspf("%s_%d", __Vstr2, __Vline)
 
-	if nil == __VpfNdbMap {
-		__VpfNdbMap = make(map[string]int)
-	}
+	__VpfNdbMaPmux.Lock()
 	__Vi3, __Vok3 := __VpfNdbMap[__Vstr3]
 	if true == __Vok3 {
 		__Vi3 += 1
 	} else {
 		__Vi3 = 1
 	}
-
 	__VpfNdbMap[__Vstr3] = __Vi3
+	__VpfNdbMaPmux.Unlock()
 
 	if __Vi3 == 1 {
 		//_FpfN(___Vfmt+" : %s", ___Vpara, _FgetFuncName3())
@@ -182,17 +182,15 @@ func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	_, _, __Vline, _ := runtime.Caller(1)
 	__Vstr3 := _Pspf("%s_%d", __Vstr2, __Vline)
 
-	if nil == __VpfNdbMap {
-		__VpfNdbMap = make(map[string]int)
-	}
+	__VpfNdbMaPmux.Lock()
 	__Vi3, __Vok3 := __VpfNdbMap[__Vstr3]
 	if true == __Vok3 {
 		__Vi3 += 1
 	} else {
 		__Vi3 = 1
 	}
-
 	__VpfNdbMap[__Vstr3] = __Vi3
+	__VpfNdbMaPmux.Unlock()
 
 	//_FpfN(___Vfmt+" : %s", ___Vpara, _FgetFuncName3())
 	_Fpf(___Vfmt, ___Vpara...)
