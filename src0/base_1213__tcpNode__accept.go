@@ -21,20 +21,20 @@ func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 		___Vtn2.tnAcceptTCPs[__Vi].taCchanMsg = make(chan []byte, 10)
 		___Vtn2.tnAcceptTCPs[__Vi].taCreceiveErr = make(chan string, 1)
 
-		go ___Vtn2.tnAcceptTCPs[__Vi]._FhandleTcp_accept_dataReceiveMsg01()
+		go ___Vtn2.tnAcceptTCPs[__Vi]._FtcpNodeAccept__200401x4__dataReceiveMsg01()
 		go ___Vtn2.tnAcceptTCPs[__Vi]._FhandleTcp__accept_dataChan__main_top()
 	}
 
 	defer ___Vtn2.tnListener.Close() //_FtcpNode__tryListen01
 	for {
 		_Fsleep_1ms()
-		_FtcpAccept01_loop(___Vtn2)
+		_FtcpNode__200401x1_accept_loop__default(___Vtn2)
 	}
 	(*___Vtn2.tnCexit) <- "Error 381911: (" + ___Vtn2.tnHostPortStr + ")"
 
 } // _FtcpNode__200401x_accept_default
 
-func _FtcpAccept01_loop(___Vtn3 *_TtcpNodE) {
+func _FtcpNode__200401x1_accept_loop__default(___Vtn3 *_TtcpNodE) {
 
 	// func (l *TCPListener) AcceptTCP() (*TCPConn, error)
 	__Vconn, __Verr := ___Vtn3.tnListener.AcceptTCP()
@@ -83,4 +83,4 @@ func _FtcpAccept01_loop(___Vtn3 *_TtcpNodE) {
 		__Vconn.Close()
 		_FpfN("38181b refuse accept : max reach %d , now %d", ___Vtn3.tnAmount, ___Vtn3.tnClientCnt)
 	}
-} // _FtcpAccept01_loop
+} // _FtcpNode__200401x1_accept_loop__default

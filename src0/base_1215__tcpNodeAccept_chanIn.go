@@ -4,7 +4,7 @@ package main
 
 //import "io"
 
-// _FhandleTcp_accept_dataReceiveMsg01
+// _FtcpNodeAccept__200401x4__dataReceiveMsg01
 func (___VacceptTcp *_TacceptTCP) _FhandleTcp__accept_dataChan__main_top() {
 
 	for {

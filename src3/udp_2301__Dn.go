@@ -34,9 +34,9 @@ func _Finit__2301() {
 	_VtcpDebugLog__Dn = _TtcpNodE{
 		tnName:        "TcpService__DebugLog__Md",
 		tnHostPortStr: "127.0.0.1:50003",
+		tnAmount:      10,
 		tnCexit:       &_Cexit,
 		tnClog:        &_Clog,
-		tnAmount:      10,
 	}
 
 	_VudpDecode_Dn = _TuDecode{

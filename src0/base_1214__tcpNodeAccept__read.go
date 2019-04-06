@@ -7,7 +7,7 @@ import (
 	"io"
 )
 
-func (___VtAcc2 *_TacceptTCP) _FhandleTcp_accept_dataReceiveMsg01() {
+func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
 	//var __VcanReceiveMsg bool = true
 	for {
 		if 3 == 2 {
@@ -30,7 +30,7 @@ func (___VtAcc2 *_TacceptTCP) _FhandleTcp_accept_dataReceiveMsg01() {
 		}
 	}
 
-} // _FhandleTcp_accept_dataReceiveMsg01
+} // _FtcpNodeAccept__200401x4__dataReceiveMsg01
 
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP

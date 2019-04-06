@@ -29,7 +29,7 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 	}
 
 	___Vtn3.tnAcceptTCPs = make([]_TacceptTCP, ___Vtn3.tnAmount)
-	go _Frun(___Vtn3, 200401)
+	go _Frun(___Vtn3, 200401) // _FtcpNode__200401x_accept_default
 
 	for {
 		_Fsleep_1ms()
