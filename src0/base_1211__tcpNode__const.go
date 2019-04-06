@@ -6,6 +6,7 @@ import (
 )
 
 type _TacceptTCP struct {
+	taIdx128      []byte
 	taEnabled     bool
 	taIdx         int
 	taServerTCP   *_TtcpNodE
@@ -20,7 +21,6 @@ type _TacceptTCP struct {
 	taErr2        error
 	taRemoteAddr  net.Addr
 	taLocalAddr   net.Addr
-	taCstart      chan string
 	taCreceiveMsg chan []byte
 	taCchanMsg    chan []byte
 	taCreceiveErr chan string

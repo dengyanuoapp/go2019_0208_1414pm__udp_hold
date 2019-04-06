@@ -11,7 +11,7 @@ func (___VacceptTcp *_TacceptTCP) _FhandleTcp__accept_dataChan__main_top() {
 		_Fsleep_1ms()
 		___VacceptTcp._FhandleTcp__accept_dataChan__loop()
 
-		//_FhandleTcp_accept_dataReceiveMsg01__loop( ___VacceptTCP )
+		//_FtcpNodeAccept__200401x5__dataReceiveMsg01_default( ___VacceptTCP )
 	}
 
 } // _FhandleTcp__accept_dataChan__main_top

@@ -10,33 +10,25 @@ import (
 func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
 	//var __VcanReceiveMsg bool = true
 	for {
-		if 3 == 2 {
-			<-___VtAcc2.taCstart
+		//_Fsleep_1ms()
+
+		//__VcanReceiveMsg = ___VtAcc2.taEnabled
+		if false == ___VtAcc2.taEnabled {
+			_Fsleep(_T1s)
 		} else {
-			_FpfN(" 188118 rece run start at " + <-___VtAcc2.taCstart)
-		}
-
-		//if ( false == ___VtAcc2.taEnabled ) { continue }
-
-		for {
-			_Fsleep_1ms()
-
-			//__VcanReceiveMsg = ___VtAcc2.taEnabled
-			if false == ___VtAcc2.taEnabled {
-				break
+			if 2 == 2 {
+				_FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc2) // default when inpu
+			} else {
+				_FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc2) // if try debug when input
 			}
-
-			_FhandleTcp_accept_dataReceiveMsg01__loop(___VtAcc2)
 		}
 	}
-
-} // _FtcpNodeAccept__200401x4__dataReceiveMsg01
+} //
 
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP
-func _FhandleTcp_accept_dataReceiveMsg01__loop(___VtAcc3 *_TacceptTCP) bool {
+func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP) bool {
 	if 4 == 2 {
-		_FhandleTcp_accept_dataReceiveMsg01__debug(___VtAcc3)
 	}
 
 	___VtAcc3.taR.try++
@@ -80,9 +72,9 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VtAcc3 *_TacceptTCP) bool {
 	_FnotNullRunTcp02_accept(___VtAcc3.taServerTCP.tnCBaccDataRece, ___VtAcc3)
 
 	return true
-} // _FhandleTcp_accept_dataReceiveMsg01__loop
+} // _FtcpNodeAccept__200401x5__dataReceiveMsg01_default
 
-func _FhandleTcp_accept_dataReceiveMsg01__debug(___VtAcc4 *_TacceptTCP) {
+func _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc4 *_TacceptTCP) {
 
 	_Ppn(" 183891 : under constructing ", ___VtAcc4.taR.try, ___VtAcc4.taR.ok)
 
@@ -97,4 +89,4 @@ func _FhandleTcp_accept_dataReceiveMsg01__debug(___VtAcc4 *_TacceptTCP) {
 		}
 		_Ppn()
 	}
-} // _FhandleTcp_accept_dataReceiveMsg01__debug
+} // _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug
