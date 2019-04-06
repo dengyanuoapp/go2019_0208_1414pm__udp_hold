@@ -33,8 +33,7 @@ type _TacceptTCP struct {
 	taCchanMsg    chan []byte
 	taCreceiveErr chan string
 
-	taCexit *chan string
-	taClog  *chan string
+	taClog *chan string
 } // _TacceptTCP
 
 type _TtcpNodE struct {
@@ -56,6 +55,5 @@ type _TtcpNodE struct {
 	tnCBsvrDataChan func(*_TtcpNodE)   // _FuserCallback__service_dataChan__Log_Fn
 	tnCBinit        func(*_TtcpNodE)   // _FtcpNode__200101x__init_default
 
-	tnCexit *chan string
-	tnClog  *chan string
+	tnClog *chan string
 } // _TtcpNodE

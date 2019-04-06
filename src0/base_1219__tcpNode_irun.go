@@ -37,5 +37,5 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 		_FnotNullRun011_tcp_service_chan(___Vtn3.tnCBsvrDataChan, ___Vtn3)
 
 	}
-	*___Vtn3.tnCexit <- "Error 183818: (" + ___Vtn3.tnHostPortStr + ")"
+	_Fex1("Error 183818: (" + ___Vtn3.tnHostPortStr + ")")
 } // _FtcpNode__200101x__init_default

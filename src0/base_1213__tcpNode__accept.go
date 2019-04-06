@@ -14,7 +14,6 @@ func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 		___Vtn2.tnAcceptTCPs[__Vi].taServerTCP = ___Vtn2
 
 		___Vtn2.tnAcceptTCPs[__Vi].taClog = ___Vtn2.tnClog
-		___Vtn2.tnAcceptTCPs[__Vi].taCexit = ___Vtn2.tnCexit
 
 		___Vtn2.tnAcceptTCPs[__Vi].taCstart = make(chan string, 1)
 		___Vtn2.tnAcceptTCPs[__Vi].taCreceiveMsg = make(chan []byte, 10)
@@ -30,7 +29,7 @@ func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 		_Fsleep_1ms()
 		_FtcpNode__200401x1_accept_loop__default(___Vtn2)
 	}
-	(*___Vtn2.tnCexit) <- "Error 381911: (" + ___Vtn2.tnHostPortStr + ")"
+	_Fex1("Error 381911: (" + ___Vtn2.tnHostPortStr + ")")
 
 } // _FtcpNode__200401x_accept_default
 

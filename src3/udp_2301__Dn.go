@@ -35,7 +35,6 @@ func _Finit__2301() {
 		tnName:        "TcpService__DebugLog__Md",
 		tnHostPortStr: "127.0.0.1:50003",
 		tnAmount:      10,
-		tnCexit:       &_Cexit,
 		tnClog:        &_Clog,
 	}
 
