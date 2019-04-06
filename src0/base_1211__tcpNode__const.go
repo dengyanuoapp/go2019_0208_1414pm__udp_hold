@@ -58,23 +58,3 @@ type _TtcpNodE struct {
 	Cexit *chan string
 	Clog  *chan string
 } // _TtcpNodE
-
-func (___Vsvr *_TtcpNodE) _FtryListenToTCP01() {
-	// func ResolveTCPAddr(network, address string) (*TCPAddr, error)
-	___Vsvr.tcpAddr, ___Vsvr.err = net.ResolveTCPAddr("tcp4", ___Vsvr.hostPortStr)
-	if ___Vsvr.err != nil {
-		_Fex("err13815", ___Vsvr.err)
-	}
-
-	// func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
-	___Vsvr.tcpListener, ___Vsvr.err = net.ListenTCP("tcp4", ___Vsvr.tcpAddr)
-	if ___Vsvr.err != nil {
-		_Fex("err13816", ___Vsvr.err)
-	}
-
-	// func (l *TCPListener) Addr() Addr ;
-	//type Addr interface { Network() string (for example, "tcp", "udp") ; String() string  (for example, "192.0.2.1:25", "[2001:db8::1]:80") }
-	___Vsvr.tcpLisnAddr = ___Vsvr.tcpListener.Addr()
-	_Fpf("ok13817 : tcp listen on: %28v , %28s , %28s \n", ___Vsvr.tcpLisnAddr, _FgetFuncName3(), ___Vsvr.name)
-
-} // _FtryListenToTCP01

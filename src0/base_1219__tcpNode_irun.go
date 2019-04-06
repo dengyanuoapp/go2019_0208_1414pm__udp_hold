@@ -15,7 +15,7 @@ func (___VtcpNode0 *_TtcpNodE) IRun(___Vidx int) {
 
 func (___VtcpNode3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 
-	___VtcpNode3._FtryListenToTCP01()
+	___VtcpNode3._FtcpNode__tryListen01()
 
 	if ___VtcpNode3.cAmount < 1 {
 		___VtcpNode3.cAmount = 1
