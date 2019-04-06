@@ -9,6 +9,9 @@ func (___Vtn0 *_TtcpNodE) IRun(___Vidx int) {
 		} else {
 			___Vtn0.tnCBinit(___Vtn0)
 		}
+	case 200301:
+		go ___Vtn0.
+			_FtcpNode__200301x_send__default()
 	case 200401:
 		go ___Vtn0.
 			_FtcpNode__200401x_accept_default()
@@ -31,5 +34,9 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 
 	___Vtn3.tnAcceptTCPs = make([]_TacceptTCP, ___Vtn3.tnAmount)
 	go _Frun(___Vtn3, 200401) // _FtcpNode__200401x_accept_default
+
+	_Fsleep(_T1s)
+
+	go _Frun(___Vtn3, 200301) // _FtcpNode__200301x_send__default
 
 } // _FtcpNode__200101x__init_default
