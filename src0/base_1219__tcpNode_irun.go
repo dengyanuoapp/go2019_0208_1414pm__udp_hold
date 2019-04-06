@@ -40,5 +40,6 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 	_Fsleep(_T1s)
 
 	go _Frun(___Vtn3, 200301) // _FtcpNode__200301x_send__default
+	go _Frun(___Vtn3, 200801) // _FtcpNode__200801x_send__tester
 
 } // _FtcpNode__200101x__init_default
