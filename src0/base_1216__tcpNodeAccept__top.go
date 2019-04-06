@@ -20,7 +20,6 @@ func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 
 	for __Vi := 0; __Vi < ___Vtn2.tnAmount; __Vi++ {
 		go ___Vtn2.tnAcceptTCPs[__Vi]._FtcpNodeAccept__200401x4__dataReceiveMsg01()
-		go ___Vtn2.tnAcceptTCPs[__Vi]._FhandleTcp__accept_dataChan__main_top()
 	}
 
 	defer ___Vtn2.tnListener.Close() //_FtcpNode__tryListen01

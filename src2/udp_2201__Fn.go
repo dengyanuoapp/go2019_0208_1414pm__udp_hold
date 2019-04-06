@@ -31,9 +31,7 @@ func _Finit_2201() {
 	_VtcpDebugLog__Fn = _TtcpNodE{
 		tnName:        "servicePortDebugLog",
 		tnHostPortStr: "127.0.0.1:50002",
-		//tnCBsvrDataChan: _FuserCallback__service_dataChan__Log_Fn,
-		//tnCBaccDataChan: _FuserCallback__accept_dataChan__Log_Fn, // _FhandleTcp__accept_dataChan__main_top
-		tnAmount: 10,
+		tnAmount:      10,
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{

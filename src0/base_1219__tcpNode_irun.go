@@ -13,7 +13,6 @@ func (___Vtn0 *_TtcpNodE) IRun(___Vidx int) {
 		go ___Vtn0.
 			_FtcpNode__200401x_accept_default()
 		// each acc : _FtcpNodeAccept__200401x4__dataReceiveMsg01
-		// each acc : _FhandleTcp__accept_dataChan__main_top
 	default:
 		_FpfNex(" 739181 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
@@ -33,11 +32,4 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 	___Vtn3.tnAcceptTCPs = make([]_TacceptTCP, ___Vtn3.tnAmount)
 	go _Frun(___Vtn3, 200401) // _FtcpNode__200401x_accept_default
 
-	for {
-		_Fsleep_1ms()
-
-		_FnotNullRun011_tcp_service_chan(___Vtn3.tnCBsvrDataChan, ___Vtn3)
-
-	}
-	_Fex1("Error 183818: (" + ___Vtn3.tnHostPortStr + ")")
 } // _FtcpNode__200101x__init_default
