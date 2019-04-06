@@ -13,12 +13,14 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 			if 0 == len(__Vds.tnsId128) {
 				for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
 					if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled {
+						_FpfN("283822 03 get from send-chain :{%s}", __Vds.String())
 						___VtcpNode4.tnAcceptTCPs[__Vi]._FtcpNodeAccept_send(&__Vds)
 					}
 				}
 			} else {
 				for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
 					if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled && (bytes.Equal(__Vds.tnsId128, ___VtcpNode4.tnAcceptTCPs[__Vi].taId128)) {
+						_FpfN("283822 05 get from send-chain :{%s}", __Vds.String())
 						___VtcpNode4.tnAcceptTCPs[__Vi]._FtcpNodeAccept_send(&__Vds)
 					}
 				}
