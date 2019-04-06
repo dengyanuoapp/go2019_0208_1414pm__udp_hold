@@ -78,10 +78,12 @@ func main() {
 
 	_Finit__2301()
 
+	// _TtcpNodeDataSend
 	// _TtcpNodE
 	// _FtcpNodeAccept__200401x5__dataReceiveMsg01_default
 	// _FtcpNode__200301x_send__default
 	go _Frun(&_VtcpDebugLog__Dn, 200101) // _FtcpNode__200101x__init_default
+	go _Frun(&_VtcpDebugLog__Dn, 200801) // _FtcpNode__200801x_send__tester
 
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default

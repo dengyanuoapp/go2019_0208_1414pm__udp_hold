@@ -17,7 +17,7 @@ func (___Vtn0 *_TtcpNodE) IRun(___Vidx int) {
 			_FtcpNode__200401x_accept_default() // each acc : _FtcpNodeAccept__200401x4__dataReceiveMsg01
 	case 200801:
 		go ___Vtn0.
-			_FtcpNode__200303x_send__default()
+			_FtcpNode__200801x_send__tester()
 	default:
 		_FpfNex(" 739181 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx

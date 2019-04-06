@@ -32,14 +32,22 @@ type _TtcpNodeDataSend struct {
 }
 
 func (__Vtndr *_TtcpNodeDataSend) String() string {
-	return _Spf(
-		"addr:%s id:%s k:%s (%d/%d)%s",
-		__Vtndr.tnsToAddr.String(),
-		String5(&__Vtndr.tnsId128),
-		String5(&__Vtndr.tnsK256),
-		__Vtndr.tnsLen,
-		len(__Vtndr.tnsBuf),
-		String5(&__Vtndr.tnsBuf),
-	)
+	//_FpfNex(" ttttt [%t] ", __Vtndr == nil)
+	//	_FpfNex(" ttttt [%v] ", __Vtndr)
+	__Vso := _Spf(
+		//"addr:%s ", // id:%s k:%s (%d/%d)%s",
+		//__Vtndr.tnsToAddr.String(),
+		"addr:[%v] ", // id:%s k:%s (%d/%d)%s",
+		__Vtndr.tnsToAddr)
+	//	return _Spf(
+	//		"addr:%s id:%s k:%s (%d/%d)%s",
+	//		__Vtndr.tnsToAddr.String(),
+	//		String5(&__Vtndr.tnsId128),
+	//		String5(&__Vtndr.tnsK256),
+	//		__Vtndr.tnsLen,
+	//		len(__Vtndr.tnsBuf),
+	//		String5(&__Vtndr.tnsBuf),
+	//	)
 
+	return __Vso
 }

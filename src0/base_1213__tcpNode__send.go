@@ -41,6 +41,3 @@ func (___Vacc *_TacceptTCP) _FtcpNodeAccept_send(___Vs *_TtcpNodeDataSend) {
 
 	_FpfN(" 838187 02 : sending %s", ___Vacc.String())
 }
-
-func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200303x_send__default() {
-}
