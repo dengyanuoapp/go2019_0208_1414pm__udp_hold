@@ -12,7 +12,8 @@ var (
 	_VudpGroup_Fn          _TudpGroupSt
 	_VdataMachine_Fn       _TdataMachine
 
-	_CHexit  chan string = make(chan string, 10)
+	_CHexit  chan string             = make(chan string, 10)
+	_CHpr    *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
 	_Vself   _Tself
 	_Vconfig _Tconfig
 )
@@ -29,7 +30,7 @@ func _Finit_2201() {
 	_FPargs()
 
 	_VtcpDebugLog__Fn = _TtcpNodE{
-		tnName:        "servicePortDebugLog",
+		tnName:        " tcp_debug_Fn ",
 		tnHostPortStr: "127.0.0.1:50002",
 		tnAmount:      10,
 	}

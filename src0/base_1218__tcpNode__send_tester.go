@@ -1,6 +1,6 @@
 package main
 
-func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200801x_send__tester() {
+func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200801x_send__tester01() {
 	for {
 		_Fsleep(_T10s)
 		//_FpfN(" 838188 01 ")
@@ -18,3 +18,5 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200801x_send__tester() {
 		___VtcpNode4.tnCHsendToAllClientI <- __Vts
 	}
 }
+
+//	_CHpr   *chan string = &_VtcpDebugLog__Dn.tnCHsendToAllClientI

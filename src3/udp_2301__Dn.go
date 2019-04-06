@@ -13,8 +13,8 @@ var (
 
 	_VloginCheck_Dn _TloginCheck
 
-	_CHexit chan string  = make(chan string, 10)
-	_CHpr   *chan string = &_VtcpDebugLog__Dn.tnCHsendToAllClientI
+	_CHexit chan string             = make(chan string, 10)
+	_CHpr   *chan _TtcpNodeDataSend = &_VtcpDebugLog__Dn.tnCHsendToAllClientI
 
 	_Vself   _Tself
 	_Vconfig _Tconfig
@@ -33,7 +33,7 @@ func _Finit__2301() {
 	_FPargs()
 
 	_VtcpDebugLog__Dn = _TtcpNodE{
-		tnName:        "TcpService__DebugLog__Md",
+		tnName:        " tcp_debug_Dn ",
 		tnHostPortStr: "127.0.0.1:50003",
 		tnAmount:      10,
 	}
@@ -81,8 +81,7 @@ func main() {
 	// _FtcpNodeAccept__200401x5__dataReceiveMsg01_default
 	// _FtcpNode__200301x_send__default
 	go _Frun(&_VtcpDebugLog__Dn, 200101) // _FtcpNode__200101x__init_default
-	go _Frun(&_VtcpDebugLog__Dn, 200801) // _FtcpNode__200801x_send__tester
-	//go _FtcpNode__200801x_send__tester( &_VtcpDebugLog__Dn )
+	go _Frun(&_VtcpDebugLog__Dn, 200801) // _FtcpNode__200801x_send__tester01
 
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
