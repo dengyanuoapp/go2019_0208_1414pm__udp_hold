@@ -11,18 +11,18 @@ func (___VtAcc2 *_TacceptTCP) _FhandleTcp_accept_dataReceiveMsg01() {
 	//var __VcanReceiveMsg bool = true
 	for {
 		if 3 == 2 {
-			<-___VtAcc2.Cstart
+			<-___VtAcc2.taCstart
 		} else {
-			_FpfN(" 188118 rece run start at " + <-___VtAcc2.Cstart)
+			_FpfN(" 188118 rece run start at " + <-___VtAcc2.taCstart)
 		}
 
-		//if ( false == ___VtAcc2.enabled ) { continue }
+		//if ( false == ___VtAcc2.taEnabled ) { continue }
 
 		for {
 			_Fsleep_1ms()
 
-			//__VcanReceiveMsg = ___VtAcc2.enabled
-			if false == ___VtAcc2.enabled {
+			//__VcanReceiveMsg = ___VtAcc2.taEnabled
+			if false == ___VtAcc2.taEnabled {
 				break
 			}
 
@@ -39,61 +39,61 @@ func _FhandleTcp_accept_dataReceiveMsg01__loop(___VtAcc3 *_TacceptTCP) bool {
 		_FhandleTcp_accept_dataReceiveMsg01__debug(___VtAcc3)
 	}
 
-	___VtAcc3.cR.try++
+	___VtAcc3.taR.try++
 
-	___VtAcc3.Vlen,
-		___VtAcc3.Verr =
-		___VtAcc3.connTCP.Read(___VtAcc3.Vbuf)
+	___VtAcc3.taLen,
+		___VtAcc3.taErr =
+		___VtAcc3.taConnTCP.Read(___VtAcc3.taBuf)
 
 	// _Fhandle_tcpAccept01
-	if ___VtAcc3.Verr == io.EOF { // lost the connect.
-		___VtAcc3.cR.eofErr++
+	if ___VtAcc3.taErr == io.EOF { // lost the connect.
+		___VtAcc3.taR.eofErr++
 		// acceptTcpINC / acceptTcpDEC : begin
-		___VtAcc3.serverTCP.tnClientMux.Lock()
+		___VtAcc3.taServerTCP.tnClientMux.Lock()
 
-		___VtAcc3.serverTCP.tnClientCnt--
-		___VtAcc3.enabled = false
-		___VtAcc3.connTCP.Close()
+		___VtAcc3.taServerTCP.tnClientCnt--
+		___VtAcc3.taEnabled = false
+		___VtAcc3.taConnTCP.Close()
 
-		___VtAcc3.serverTCP.tnClientMux.Unlock()
+		___VtAcc3.taServerTCP.tnClientMux.Unlock()
 		// acceptTcpINC / acceptTcpDEC : end
 
-		___VtAcc3.CreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.idx)
+		___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
 		return false
 	}
 
-	_FerrExit(" reading from tcp 831911 ", ___VtAcc3.Verr)
+	_FerrExit(" reading from tcp 831911 ", ___VtAcc3.taErr)
 
-	_FnullExit(" 183813 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.VremoteAddr)
+	_FnullExit(" 183813 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.taRemoteAddr)
 
-	___VtAcc3.cR.ok++
+	___VtAcc3.taR.ok++
 
 	/*
-	   _Fpf( " 183814 | l:%s | r:%s | " , ___VtAcc3.VlocalAddr , ___VtAcc3.VremoteAddr )
-	   _PpdN( ___VtAcc3.Vlen , &(___VtAcc3.Vbuf) )
+	   _Fpf( " 183814 | l:%s | r:%s | " , ___VtAcc3.VlocalAddr , ___VtAcc3.taRemoteAddr )
+	   _PpdN( ___VtAcc3.taLen , &(___VtAcc3.taBuf) )
 	*/
 
-	_FcopyByte(&(___VtAcc3.Vbuf2), &(___VtAcc3.Vbuf), ___VtAcc3.Vlen)
-	//___VtAcc3.Vbuf2 = make([]byte , ___VtAcc3.Vlen ); copy( ___VtAcc3.Vbuf2 , ___VtAcc3.Vbuf )
+	_FcopyByte(&(___VtAcc3.taBuf2), &(___VtAcc3.taBuf), ___VtAcc3.taLen)
+	//___VtAcc3.taBuf2 = make([]byte , ___VtAcc3.taLen ); copy( ___VtAcc3.taBuf2 , ___VtAcc3.taBuf )
 
 	// _FcallbackForDebugLog_accept
-	_FnotNullRunTcp02_accept(___VtAcc3.serverTCP.tnCBaccDataRece, ___VtAcc3)
+	_FnotNullRunTcp02_accept(___VtAcc3.taServerTCP.tnCBaccDataRece, ___VtAcc3)
 
 	return true
 } // _FhandleTcp_accept_dataReceiveMsg01__loop
 
 func _FhandleTcp_accept_dataReceiveMsg01__debug(___VtAcc4 *_TacceptTCP) {
 
-	_Ppn(" 183891 : under constructing ", ___VtAcc4.cR.try, ___VtAcc4.cR.ok)
+	_Ppn(" 183891 : under constructing ", ___VtAcc4.taR.try, ___VtAcc4.taR.ok)
 
-	if nil == ___VtAcc4.serverTCP {
-		_Ppn(" 183892 : ___VtAcc4.serverTCP == nil ")
+	if nil == ___VtAcc4.taServerTCP {
+		_Ppn(" 183892 : ___VtAcc4.taServerTCP == nil ")
 	} else {
 
 		_Ppf(" 183893 : ")
-		for __Vi := 0; __Vi < ___VtAcc4.serverTCP.tnAmount; __Vi++ {
-			__VacceptTcp := &(___VtAcc4.serverTCP.tnAcceptTCPs[__Vi])
-			_Ppf(" %d,%d,%d,%d", __Vi, __VacceptTcp.idx, __VacceptTcp.cR.try, __VacceptTcp.cR.ok)
+		for __Vi := 0; __Vi < ___VtAcc4.taServerTCP.tnAmount; __Vi++ {
+			__VacceptTcp := &(___VtAcc4.taServerTCP.tnAcceptTCPs[__Vi])
+			_Ppf(" %d,%d,%d,%d", __Vi, __VacceptTcp.taIdx, __VacceptTcp.taR.try, __VacceptTcp.taR.ok)
 		}
 		_Ppn()
 	}

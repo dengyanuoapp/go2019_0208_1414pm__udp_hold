@@ -17,5 +17,5 @@ func (___VacceptTcp *_TacceptTCP) _FhandleTcp__accept_dataChan__main_top() {
 } // _FhandleTcp__accept_dataChan__main_top
 
 func (___VacceptTcp *_TacceptTCP) _FhandleTcp__accept_dataChan__loop() {
-	_FnotNullRunTcp02_accept(___VacceptTcp.serverTCP.tnCBaccDataChan, ___VacceptTcp)
+	_FnotNullRunTcp02_accept(___VacceptTcp.taServerTCP.tnCBaccDataChan, ___VacceptTcp)
 } // _FhandleTcp__accept_dataChan__loop

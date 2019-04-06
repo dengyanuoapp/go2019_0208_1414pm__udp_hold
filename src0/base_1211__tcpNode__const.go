@@ -6,11 +6,11 @@ import (
 )
 
 type _TacceptTCP struct {
-	enabled   bool
-	idx       int
-	serverTCP *_TtcpNodE
-	connTCP   *net.TCPConn
-	err       error
+	taEnabled   bool
+	taIdx       int
+	taServerTCP *_TtcpNodE
+	taConnTCP   *net.TCPConn
+	taErr       error
 
 	//	r64try int64
 	//	r64ok  int64
@@ -18,23 +18,23 @@ type _TacceptTCP struct {
 	//	w64try int64
 	//	w64ok  int64
 	//	w64eof int64
-	cR _Tcount
-	cW _Tcount
+	taR _Tcount
+	taW _Tcount
 
-	Vbuf        []byte
-	Vbuf2       []byte
-	Vlen        int
-	Verr        error
-	VremoteAddr net.Addr
-	VlocalAddr  net.Addr
+	taBuf        []byte
+	taBuf2       []byte
+	taLen        int
+	taErr2       error
+	taRemoteAddr net.Addr
+	taLocalAddr  net.Addr
 
-	Cstart      chan string
-	CreceiveMsg chan []byte
-	CchanMsg    chan []byte
-	CreceiveErr chan string
+	taCstart      chan string
+	taCreceiveMsg chan []byte
+	taCchanMsg    chan []byte
+	taCreceiveErr chan string
 
-	Cexit *chan string
-	Clog  *chan string
+	taCexit *chan string
+	taClog  *chan string
 } // _TacceptTCP
 
 type _TtcpNodE struct {

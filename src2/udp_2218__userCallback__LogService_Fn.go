@@ -9,12 +9,12 @@ func _FuserCallback__service_dataChan__Log_Fn(___VtcpNode4 *_TtcpNodE) {
 	//_FpfN( "283823 service:%s" , __VprStr )
 
 	for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
-		if ___VtcpNode4.tnAcceptTCPs[__Vi].enabled {
-			// the tnClog -> CchanMsg
+		if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled {
+			// the tnClog -> taCchanMsg
 			___VtcpNode4.tnClientMux.Lock()
 
-			if ___VtcpNode4.tnAcceptTCPs[__Vi].enabled {
-				___VtcpNode4.tnAcceptTCPs[__Vi].CchanMsg <- []byte(__VprStr)
+			if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled {
+				___VtcpNode4.tnAcceptTCPs[__Vi].taCchanMsg <- []byte(__VprStr)
 			}
 
 			___VtcpNode4.tnClientMux.Unlock()
