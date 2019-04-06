@@ -11,10 +11,9 @@ var (
 	_VloginCheck_FnWaitDun _TloginCheck
 	_VudpGroup_Fn          _TudpGroupSt
 	_VdataMachine_Fn       _TdataMachine
-	_Cexit                 chan string
-	_Clog                  chan string
-	_Vself                 _Tself
-	_Vconfig               _Tconfig
+
+	_Vself   _Tself
+	_Vconfig _Tconfig
 )
 
 func _Finit_2201() {
@@ -63,9 +62,6 @@ func _Finit_2201() {
 	flag.Parse()
 
 	// _FdebugPrintTest()
-
-	_Cexit = make(chan string, 3)
-	_Clog = make(chan string, 100)
 }
 
 func main() {
@@ -94,5 +90,4 @@ func main() {
 
 	go _Frun(&_VdataMachine_Fn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
-	_Fex(" 893189 99 : the reason exit : "+<-_Cexit, nil)
 } // main

@@ -13,8 +13,6 @@ var (
 
 	_VloginCheck_Dn _TloginCheck
 
-	_Cexit   chan string
-	_Clog    chan string
 	_Vself   _Tself
 	_Vconfig _Tconfig
 )
@@ -69,9 +67,6 @@ func _Finit__2301() {
 
 	// _FdebugPrintTest()
 
-	_Cexit = make(chan string, 3)
-	_Clog = make(chan string, 100)
-
 }
 
 func main() {
@@ -103,5 +98,4 @@ func main() {
 	// _FdataMachin__1000501x__time_gap_dataChanLock
 	go _Frun(&_VdataMachine_Dn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
-	_Fex(" the reason exit : "+<-_Cexit, nil)
 } // main

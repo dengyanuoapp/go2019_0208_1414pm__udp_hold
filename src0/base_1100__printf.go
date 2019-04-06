@@ -84,7 +84,6 @@ func _FpfN(___Vfmt string, ___Vpara ...interface{}) (int, error) {
 func _CpfN(___Vfmt string, ___Vpara ...interface{}) {
 	__Vs := _Sph()
 	__Vs += _Spf(___Vfmt+"\n", ___Vpara...)
-	//_Clog <- __Vs
 } // _CpfN
 
 func _FpfNex(___Vfmt string, ___Vpara ...interface{}) {

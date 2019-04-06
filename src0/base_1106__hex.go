@@ -56,8 +56,6 @@ func _CpfNhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...i
 	}
 	__Vs += _Spf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
 
-	//_Clog <- __Vs
-
 } // _CpfNhex
 
 func _FpfhexlastN(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
