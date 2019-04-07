@@ -19,13 +19,14 @@ note :
 */
 
 type _TloginCheck struct {
-	ulDecodeI           chan _Tdecode
-	ulCHconnPortI       chan _TudpConnPort      // all data need to be sent by nodeS send here , then  will distribute to one of node
-	ulCHSendLO          *chan _TudpNodeDataSend // ugCHSendI
-	ulCHdataMachineIdLO *chan _TdataMachinEid
-	ulCB900101init      func(*_TloginCheck) // if nil , use the default init procedure
-	ulCB900201stCheck   func(*_TloginCheck) // if nil , use the default receive
-	ulCmd               _TcmdMap
+	ulDecodeI               chan _Tdecode
+	ulCHconnPortI           chan _TudpConnPort      // all data need to be sent by nodeS send here , then  will distribute to one of node
+	ulCHSendLO              *chan _TudpNodeDataSend // ugCHSendI
+	ulCHdataMachineIdLO     *chan _TdataMachinEid
+	ulCHloginGenMachineIdLO *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI,
+	ulCB900101init          func(*_TloginCheck)   // if nil , use the default init procedure
+	ulCB900201stCheck       func(*_TloginCheck)   // if nil , use the default receive
+	ulCmd                   _TcmdMap
 	//ulData              _TdataMap
 	ulTokenA  []byte
 	ulGenTime int
