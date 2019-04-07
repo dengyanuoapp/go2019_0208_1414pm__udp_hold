@@ -1,22 +1,6 @@
 package main
 
 // dump hex
-func _PpdL(___VmaxPrLen int, ___Vbuf *[]byte) {
-	__Xlen := len(*___Vbuf)
-	if __Xlen > ___VmaxPrLen {
-		__Xlen = ___VmaxPrLen
-	}
-	_Ppf("(%d)", __Xlen)
-	__Xlen--
-	for __Vi := 0; __Vi <= __Xlen; __Vi++ {
-		if __Vi == __Xlen {
-			_Ppf("%02x", (*___Vbuf)[__Vi])
-		} else {
-			_Ppf("%02x ", (*___Vbuf)[__Vi])
-		}
-	}
-} // _PpdL
-
 func _FpfNhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	__Vl := len(*___VbyteIn)
 
@@ -89,19 +73,6 @@ func _FcopyByte(___dst *[]byte, ___src *[]byte, ___len int) {
 	(*___dst) = make([]byte, ___len)
 	copy((*___dst), (*___src))
 } // _FcopyByte
-
-func _PpdLN(___VmaxPrLen int, ___Vbuf *[]byte) {
-	_PpdL(___VmaxPrLen, ___Vbuf)
-	_Fn()
-} // _PpdLN
-func _Fpd(___VmaxPrLen int, ___Vbuf *[]byte) {
-	_Fph()
-	_PpdL(___VmaxPrLen, ___Vbuf)
-} // _Fpd
-func _FpdN(___VmaxPrLen int, ___Vbuf *[]byte) {
-	_Fpd(___VmaxPrLen, ___Vbuf)
-	_Fn()
-} // _FpdN
 
 func _FmakeByte(___VbyteSlice []byte) []byte {
 	__Vlen := len(___VbyteSlice)
