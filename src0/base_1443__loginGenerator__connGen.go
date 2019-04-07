@@ -28,11 +28,10 @@ func _FudpDecode__800301x__connGen__default(___Vlg *_TloginGenerator) {
 				if nil == ___Vlg.lgCHuConnPortLO {
 					_FpfNdb(" 138181 07: Error ! tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 				} else {
-					if 2 == 3 {
-						_Fn()
-						_FpfNdb(
-							" 138181 08: tryToLogin, push port address to connPort-Chan , tryCnt %d , skipCnt %d",
-							__VnewSession.tryCnt, __VnewSession.skipCnt)
+					if 2 == 2 {
+						_CpfN(
+							" 138181 08: tryToLogin, push port address to connPort-Chan , %11d, tryCnt %d , skipCnt %d",
+							_FtimeInt(), __VnewSession.tryCnt, __VnewSession.skipCnt)
 					}
 					(*___Vlg.lgCHuConnPortLO) <- (*__VucPort)
 
