@@ -108,6 +108,7 @@ type _Tencode struct {
 	enType   byte
 	enLogin  _TloginReq
 	enData   _TdataTran
+	enDelay  int // a delay resend if not zero
 }
 
 func (___Ven *_Tencode) String() string {
@@ -121,9 +122,9 @@ func (___Ven *_Tencode) String() string {
 	switch ___Ven.enType {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-		__Vso += _Spf("{%s}", ___Ven.enLogin.String())
+		__Vso += _Spf(" cmd:{%s}", ___Ven.enLogin.String()) // _TloginReq
 	case Cmd__data_01_idle, Cmd__data_11_chan_new_req:
-		__Vso += _Spf("{%s}", ___Ven.enData.String())
+		__Vso += _Spf(" data:{%s}", ___Ven.enData.String()) // _TdataTran
 	default:
 		__Vso += "===839818918unknown==="
 	}

@@ -13,7 +13,7 @@ type _TdataTran struct {
 
 func (___Vlr *_TdataTran) String() string {
 	__Vo := _Spf(
-		" me:%x,%x to:%x,%x tokenD: %x cmd %d offset 0x%x,%x",
+		" mid:%x,%x tid:%x,%x tkD:%x cmd:%d off:%x B:%s",
 
 		___Vlr.meIdx128[:5],
 		___Vlr.MySeq128[:5],
@@ -24,6 +24,6 @@ func (___Vlr *_TdataTran) String() string {
 
 		___Vlr.Dcmd,
 		___Vlr.Doffset,
-		___Vlr.Dbuf[:10])
+		String5(&___Vlr.Dbuf))
 	return __Vo
 }

@@ -9,6 +9,8 @@ func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 			_FpfNdb(" 849192 01 : try Encode CMD {%s}", __Vue.String())
 			//___Vuen.
 			//	_FdataMachin__1000201x11__connMap_insertId(&__Vue)
+		case __Vue = <-___Vuen.enCHencodeDataI: // chan _Tencode
+			_FpfNdb(" 849192 05 : try Encode Data{%s}", __Vue.String())
 
 		}
 	}

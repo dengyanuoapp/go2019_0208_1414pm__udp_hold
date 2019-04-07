@@ -1,7 +1,7 @@
 package main
 
 type _TloginReq struct {
-	MeRand5  []byte
+	MeRand5  []byte // rand , 5 byte , not for verify / recgonize , but for debug only
 	MeTime   int
 	ReqStr   string
 	MeName   string
@@ -23,7 +23,7 @@ func _Fbyte2str(___Vb *[]byte) string {
 func (___Vlr *_TloginReq) String() string {
 	__Vo := _Spf(
 		//" %d %s %s me:%x %x to:%x %x tokenAB: %s,%s ",
-		" rand5:%x %d %s %s me:%x,%x to:%x,%x tokenAB: %x,%x ",
+		" rand5:%x ti:%d req:%s me:%s mid:%x,%x tid:%x,%x tokenAB: %x,%x ",
 		___Vlr.MeRand5,
 		___Vlr.MeTime,
 		___Vlr.ReqStr,
