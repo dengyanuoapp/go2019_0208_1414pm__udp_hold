@@ -13,7 +13,7 @@ type _TdataMachinEid struct {
 
 func (___Vdi *_TdataMachinEid) String() string {
 	return _Spf(
-		" to{%s} id:%x,%x tk:%x",
+		"to:{%s} id:%x,%x tk:%x",
 		___Vdi.diConnPort.String(),
 		String5(&___Vdi.diIdx128),
 		String5(&___Vdi.diSeq128),

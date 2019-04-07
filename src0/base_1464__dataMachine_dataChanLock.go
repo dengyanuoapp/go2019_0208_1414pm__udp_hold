@@ -18,9 +18,9 @@ func _FdataMachin__1000501x__time_gap_dataChanLock(___Vdm *_TdataMachine) {
 				//_FpfN(" 839196 03 connected succeed : %d : %d", __Vcnt, _FtimeInt())
 
 				if nil == ___Vdm.dmCHloginGenMachineIdLO {
-					_FpfN(" 839196 08 connected succeed, but why loginGen NULL ?")
+					_FpfNonce(" 839196 08 connected succeed, but why loginGen NULL ?")
 				} else {
-					_FpfN(" 839196 09 connected succeed, then told loginGen to stop ( push chan)")
+					//_FpfN(" 839196 09 connected succeed, then told loginGen to stop ( push chan)")
 					(*___Vdm.dmCHloginGenMachineIdLO) <- ___Vdm.dmMconn.M[__Vk2].dmmID
 				}
 
