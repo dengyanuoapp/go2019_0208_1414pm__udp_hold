@@ -36,11 +36,12 @@ func _Finit__2301() {
 	}
 
 	_VudpDecode_Dn = _TuDecode{
-		uTmCHdecodeCmdLO: &_VloginCheck_Dn.ulDecodeI, // _TloginCheck _Tdecode
+		uTmCHdecodeCmdLO:  &_VloginCheck_Dn.ulDecodeI,        // _TloginCheck _TdecodeX
+		uTmCHdecodeDataLO: &_VdataMachine_Dn.dmCHdecodeDataI, // dmCHdecodeDataI _TdecodeX
 	}
 
 	_VloginCheck_Dn = _TloginCheck{
-		ulCHSendLO:          &_VudpGroup_Dn.ugCHSendI,             // _TudpGroupSt _TudpNodeDataSend
+		ulCHSendLO:          &_VudpGroup_Dn.ugCHSendI,             // _TudpGroupSt _TudpNodeDataSendX
 		ulCHdataMachineIdLO: &_VdataMachine_Dn.dmCHdataMachineIdI, // *chan _TdataMachinEid
 	}
 

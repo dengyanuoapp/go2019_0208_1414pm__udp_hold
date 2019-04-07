@@ -59,6 +59,8 @@ type _TdataPack_991 struct {
 }
 */
 
+type _TdecodeX struct {
+}
 type _Tdecode struct {
 	ok            bool
 	receiveTime   int
@@ -96,4 +98,14 @@ func (___Vd *_Tdecode) Count128() []int {
 		len(___Vd.Dlogin.MeSeq128),
 		len(___Vd.Dlogin.TokenL),
 		len(___Vd.Dlogin.TokenR)}
+}
+
+type _TencodeX struct {
+}
+type _Tencode struct {
+	enToAddr net.UDPAddr
+	enToKey  []byte
+	enType   byte
+	enLogin  _TloginReq
+	enData   _TdataTran
 }

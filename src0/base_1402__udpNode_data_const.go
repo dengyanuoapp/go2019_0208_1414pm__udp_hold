@@ -18,6 +18,8 @@ func (___Vr *_TudpNodeDataRece) String() string {
 		___Vr.urrBuf[:40])
 }
 
+type _TudpNodeDataSendX struct {
+}
 type _TudpNodeDataSend struct {
 	usToAddr _TudpConnPort
 	usOutBuf []byte

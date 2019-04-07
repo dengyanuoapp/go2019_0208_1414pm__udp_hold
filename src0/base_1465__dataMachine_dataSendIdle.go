@@ -15,6 +15,7 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 			} else {
 				if __Vnow2-__Vv2.dmmLastReadTime > 7 {
 					_FpfN(" 381921 01 : %11d : try send idle %x ", _FtimeInt(), __Vk2)
+					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
 				} else {
 					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. ", _FtimeInt(), __Vk2)
 				}
