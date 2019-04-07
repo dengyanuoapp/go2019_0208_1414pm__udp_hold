@@ -28,4 +28,5 @@ type _TsrvDownInfo struct {
 	updateUri    string
 	updatePasswd []byte
 	srvInfo      _TsrvInfo
+	lastDownTime int
 }
