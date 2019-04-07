@@ -13,3 +13,10 @@ func _FsleepRand_10_to_15s() {
 	__Vi += 10 // ok , 10 to 14s
 	_Fsleep_1sX(int(__Vi))
 } //
+
+func _FsleepRand_8_to_12s() {
+	__Vi := _FgenRand_uint32()
+	__Vi %= 5 // gen 0,1,2,3,4
+	__Vi += 8 // ok , 10 to 14s
+	_Fsleep_1sX(int(__Vi))
+} //
