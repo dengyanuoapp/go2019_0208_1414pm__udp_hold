@@ -22,9 +22,11 @@ func (___Vdi *_TdataMachinEid) String() string {
 }
 
 type _TdataMachinEconnMap struct {
-	dmmID          _TdataMachinEid
-	dmmConnPortArr []_TudpConnPort
-	dmmLastAccTime int
+	dmmID             _TdataMachinEid
+	dmmConnPortArr    []_TudpConnPort
+	dmmConnPortAmount int
+	dmmLastReadTime   int
+	dmmLastWriteTime  int
 }
 
 type _TdataMachineConnSt struct {

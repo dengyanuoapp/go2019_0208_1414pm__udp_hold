@@ -20,25 +20,29 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 			false == bytes.Equal(__Vold.dmmID.diToken, ___VinsID.diToken) {
 			//_FpfN(" 839193 03 : delete-old, gen New connPort Map hash.")
 			___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
-				dmmID:          *___VinsID,
-				dmmLastAccTime: _FtimeInt(),
-				dmmConnPortArr: []_TudpConnPort{___VinsID.diConnPort},
+				dmmID:             *___VinsID,
+				dmmLastReadTime:   _FtimeInt(),
+				dmmConnPortArr:    []_TudpConnPort{___VinsID.diConnPort},
+				dmmConnPortAmount: 1,
 			}
 			___Vdm.dmMconn.LockNow[__Vk] = 1
 		} else {
 			//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
+			__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr)
 			___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
-				dmmID:          *___VinsID,
-				dmmLastAccTime: _FtimeInt(),
-				dmmConnPortArr: ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr),
+				dmmID:             *___VinsID,
+				dmmLastReadTime:   _FtimeInt(),
+				dmmConnPortArr:    __VcpArr,
+				dmmConnPortAmount: len(__VcpArr),
 			}
 			___Vdm.dmMconn.LockNow[__Vk] = ___Vdm.dmMconn.LockNow[__Vk] + 1
 		}
 	} else {
 		___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
-			dmmID:          *___VinsID,
-			dmmLastAccTime: _FtimeInt(),
-			dmmConnPortArr: []_TudpConnPort{___VinsID.diConnPort},
+			dmmID:             *___VinsID,
+			dmmLastReadTime:   _FtimeInt(),
+			dmmConnPortArr:    []_TudpConnPort{___VinsID.diConnPort},
+			dmmConnPortAmount: 1,
 		}
 		___Vdm.dmMconn.LockNow[__Vk] = 1
 	}
