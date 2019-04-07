@@ -61,7 +61,7 @@ func (___Vacc *_TacceptTCP) _FtcpNodeAccept_send(___Vs *_TtcpNodeDataSend) {
 		return
 	}
 
-	_FpfN(" 838187 06 : <%v>sending %s", ___Vacc.taConnTCP, ___Vacc.String())
+	//_FpfN(" 838187 06 : <%v>sending %s", ___Vacc.taConnTCP, ___Vacc.String())
 
 	//func (c *TCPConn) Write(b []byte) (int, error)
 	___Vacc.taConnTCP.Write(___Vs.tnsBuf)
