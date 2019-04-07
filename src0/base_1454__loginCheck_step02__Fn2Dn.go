@@ -63,7 +63,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step102y__sReply_tokenB(___Vdecode *_Td
 			K256:    ___Vdecode.remotePortKey, // []byte
 		}
 		__VrandCnt := 4 + (_FgenRand_int() % 7) // gen 0 -- 6 , + 4 : so total 5 - 10
-		_FpfNdb(" 838394 04 (%d)[pre-unSend:<%s>]{%s}", __VrandCnt, __VunSend.String(), __Vreq.String())
+		//_FpfNdb(" 838394 04 (%d)[pre-unSend:<%s>]{%s}", __VrandCnt, __VunSend.String(), __Vreq.String())
+		_CpfN(" 838394 05 (%d)[pre-unSend:<%s>]{%s}", __VrandCnt, __VunSend.String(), __Vreq.String())
 		for __VrandCnt > 0 {
 			__VrandCnt--
 			(*___Vlc.ulCHSendLO) <- __VunSend // _TudpNodeDataSend
