@@ -109,3 +109,24 @@ type _Tencode struct {
 	enLogin  _TloginReq
 	enData   _TdataTran
 }
+
+func (___Ven *_Tencode) String() string {
+	if nil == ___Ven {
+		return ""
+	}
+
+	var __Vso string
+	__Vso = _Spf("to<%s> k:%s T:%d", ___Ven.enToAddr.String(), String5(&___Ven.enToKey), ___Ven.enType)
+
+	switch ___Ven.enType {
+	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
+		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
+		__Vso += _Spf("{%s}", ___Ven.enLogin.String())
+	case Cmd__data_01_idle, Cmd__data_11_chan_new_req:
+		__Vso += _Spf("{%s}", ___Ven.enData.String())
+	default:
+		__Vso += "===839818918unknown==="
+	}
+
+	return __Vso
+}
