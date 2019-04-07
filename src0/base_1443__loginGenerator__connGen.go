@@ -7,10 +7,10 @@ func _FudpDecode__800301x__connGen__default(___Vlg *_TloginGenerator) {
 	for {
 		//_Fsleep(__Vgap) // mini Gap , at least
 		_FsleepRand_12_to_14s()
-		if true == __VnewSession.connected {
+		if true == ___Vlg.lgConnected {
 			__VnewSession.tryCnt = 0
 			__VnewSession.skipCnt = 6 // set timeout to 60s , not try re-connect
-		} else { // true != __VnewSession.connected
+		} else { // false == ___Vlg.lgConnected
 			// tryCnt , skipCnt
 			if 0 != __VnewSession.skipCnt {
 				__VnewSession.skipCnt-- // wait only , do nothing.

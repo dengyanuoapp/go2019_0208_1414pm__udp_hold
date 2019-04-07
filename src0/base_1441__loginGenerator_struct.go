@@ -7,4 +7,5 @@ type _TloginGenerator struct {
 	lgCB850301ConnGen  func(*_TloginGenerator) // if nil , use the default receive // _FudpDecode__800301x__connGen__default
 	lgCHuConnPortLO    *chan _TudpConnPort     // all data need to be sent by nodeS send here , then  will distribute to one of node
 	lgCHdataMachineIdI chan _TdataMachinEid    // lgCHconnectSuccI   chan bool  // connect/login succeed true/false
+	lgConnected        bool
 }
