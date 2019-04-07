@@ -82,8 +82,9 @@ func main() {
 	// _FtcpNode__200301x_send__default
 	go _Frun(&_VtcpDebugLog__Dn, 200101) // _FtcpNode__200101x__init_default
 	//go _Frun(&_VtcpDebugLog__Dn, 200801) // _FtcpNode__200801x_send__tester01
-	go _Frun(&_VtcpDebugLog__Dn, 200802) // _FtcpNode__200802x_send__tester02
+	//go _Frun(&_VtcpDebugLog__Dn, 200802) // _FtcpNode__200802x_send__tester02
 
+	// _FudpNode__500101__main_init__default
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
 	// _FudpGroup__600201__CHin_selecT_send__default

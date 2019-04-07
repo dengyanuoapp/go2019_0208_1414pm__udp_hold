@@ -17,7 +17,7 @@ func _CpfS(___Vstr *string) {
 
 	__Vts.tnsLen = len(__Vts.tnsBuf)
 
-	_FpfN(" 839181 03 : %d : testing : push into send-chan:{%s}", _FtimeInt(), __Vts.String())
+	//_FpfN(" 839181 03 : %d : testing : push into send-chan:{%s}", _FtimeInt(), __Vts.String())
 
 	(*_CHpr) <- __Vts
 }

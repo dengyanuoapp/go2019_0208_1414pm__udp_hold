@@ -50,9 +50,22 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 			}
 			_, __Verr2 = ___Vun.unConn.WriteToUDP(__Vbuf, &___Vus.usToAddr.DstAddr)
 			if 3 == 3 {
+				if 2 == 2 {
+					_CpfN(
+						" 839119 04 udp-send-rand %11d olen:%d: dst<%s> to-key<%x> local<%s> md5{%x}, EN-len(%d) md5{%x}",
+						_FtimeI64(),
+						len(___Vus.usOutBuf),
+						___Vus.usToAddr.DstAddr.String(),
+						___Vus.usToAddr.K256[:8],
+						___Vun.unLocalAddr.String(),
+						_FgenMd5__5(&___Vus.usOutBuf),
+						len(__Vbuf),
+						_FgenMd5__5(&__Vbuf),
+					)
+				}
 				if 2 == 3 {
 					_FpfNhex(&__Vbuf, 28,
-						" 839119 04 udp send-rand %11d len:%d: dst<%s> to-key<%x> local<%s> md5{%x}",
+						" 839119 05 udp send-rand %11d len:%d: dst<%s> to-key<%x> local<%s> md5{%x}",
 						_FtimeI64(), len(___Vus.usOutBuf),
 						___Vus.usToAddr.DstAddr.String(),
 						___Vus.usToAddr.K256[:8],
@@ -60,7 +73,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 						_FgenMd5__5(&___Vus.usOutBuf))
 				}
 				if 2 == 3 {
-					_FpfNhex(&__Vbuf, 16, " 839119 05 send: %s", ___Vun.String())
+					_FpfNhex(&__Vbuf, 16, " 839119 06 send: %s", ___Vun.String())
 				}
 			}
 			if 3 == 2 {

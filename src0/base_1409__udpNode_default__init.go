@@ -37,9 +37,11 @@ func _FudpNode__500101__main_init__default(___Vun *_TudpNodeSt) {
 
 	_Fsleep(_T50ms)
 
-	go ___Vun._FudpNode__500101y__receive()
+	go ___Vun.
+		_FudpNode__500101y__receive()
 
-	go ___Vun._FudpNode__500101z__send()
+	go ___Vun.
+		_FudpNode__500101z__send()
 
 	//_Fex1(" 918381 09 ")
 }
