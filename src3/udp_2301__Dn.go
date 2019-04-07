@@ -10,14 +10,11 @@ var (
 	_VudpDecode_Dn      _TuDecode
 	_VloginGenerator_Dn _TloginGenerator
 	_VdataMachine_Dn    _TdataMachine
-
-	_VloginCheck_Dn _TloginCheck
-
-	_CHexit chan string             = make(chan string, 10)
-	_CHpr   *chan _TtcpNodeDataSend = &_VtcpDebugLog__Dn.tnCHsendToAllClientI
-
-	_Vself   _Tself
-	_Vconfig _Tconfig
+	_VloginCheck_Dn     _TloginCheck
+	_CHexit             chan string             = make(chan string, 10)
+	_CHpr               *chan _TtcpNodeDataSend = &_VtcpDebugLog__Dn.tnCHsendToAllClientI
+	_Vself              _Tself
+	_Vconfig            _Tconfig
 )
 
 func _Finit__2301() {
