@@ -7,7 +7,11 @@ import (
 func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 800101:
-		_FudpDecode__800101x__init__tryUdpLogin__default(___Vlg)
+		if nil == ___Vlg.lgCB850101init {
+			_FudpDecode__800101x__init__tryUdpLogin__default(___Vlg)
+		} else {
+			___Vlg.lgCB850101init(___Vlg)
+		}
 	default:
 		_FpfNex(" 739182 99 unknow :idx %d", ___Vidx)
 	}

@@ -89,6 +89,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 		if nil == ___Vlc.ulCHloginGenMachineIdLO {
 			_FpfN(" 838382 08 why loginGen NULL ?")
 		} else {
+			_FpfN(" 838382 09 told loginGen to stop ")
 			(*___Vlc.ulCHloginGenMachineIdLO) <- __Vid
 		}
 	}
