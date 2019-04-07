@@ -16,9 +16,6 @@ var (
 	_Ppf      func(___Vfmt string, ___Vpara ...interface{}) (int, error) = fmt.Printf
 	_Ppt      func(___Vpara ...interface{}) (int, error)                 = fmt.Print
 	_Ppln     func(___Vpara ...interface{}) (int, error)                 = fmt.Println
-	_Spf      func(___Vfmt string, ___Vpara ...interface{}) string       = fmt.Sprintf
-	_Spt      func(___Vpara ...interface{}) string                       = fmt.Sprint
-	_Spln     func(___Vpara ...interface{}) string                       = fmt.Sprintln
 	_Pdefault func()                                                     = flag.PrintDefaults
 )
 
@@ -33,12 +30,6 @@ func _FPargs() {
 	_Pdefault()
 } // _FPargs
 
-func _Sph() string {
-	if "" != _Vself.ProjName {
-		return _Spf("%s:", _Vself.ProjName)
-	}
-	return ""
-} // _Sph
 func _Fph() {
 	if "" != _Vself.ProjName {
 		_Ppf("%s:", _Vself.ProjName)
