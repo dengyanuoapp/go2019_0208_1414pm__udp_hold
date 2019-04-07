@@ -12,6 +12,7 @@ const (
 	_T20s   = 20 * time.Second
 	_T25s   = 25 * time.Second
 	_T50s   = 50 * time.Second
+	_T60s   = 60 * time.Second
 	_T80s   = 80 * time.Second
 	_T100s  = 100 * time.Second
 	_T110s  = 110 * time.Second
