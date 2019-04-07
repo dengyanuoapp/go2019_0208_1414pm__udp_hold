@@ -42,7 +42,7 @@ type _TdataMachine struct {
 	dmCBinit                func(*_TdataMachine)  // _FdataMachin__1000101__main_init__default
 	dmCBrece                func(*_TdataMachine)  //
 	dmMconn                 _TdataMachineConnSt
-	dmCHdecodeDataI         chan _Tdecode // from uTmDecodeDataLO  *chan _Tdecode of decoder
+	dmCHdecodeDataI         chan _Tdecode // from uTmCHdecodeDataLO  *chan _Tdecode of decoder
 	//dmCH  unCHreceLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	//dmCH  unCHsendI     chan _TudpNodeDataSend  // try get data from chan, then send it out.
 }

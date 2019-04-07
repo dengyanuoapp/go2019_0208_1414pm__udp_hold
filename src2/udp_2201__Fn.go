@@ -43,7 +43,7 @@ func _Finit_2201() {
 	}
 
 	_VudpDecode_Fn = _TuDecode{
-		uTmDecodeCmdLO: &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
+		uTmCHdecodeCmdLO: &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
 	}
 
 	_VloginCheck_FnWaitDun = _TloginCheck{

@@ -36,7 +36,7 @@ func _Finit__2301() {
 	}
 
 	_VudpDecode_Dn = _TuDecode{
-		uTmDecodeCmdLO: &_VloginCheck_Dn.ulDecodeI, // _TloginCheck _Tdecode
+		uTmCHdecodeCmdLO: &_VloginCheck_Dn.ulDecodeI, // _TloginCheck _Tdecode
 	}
 
 	_VloginCheck_Dn = _TloginCheck{
