@@ -17,12 +17,12 @@ func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 // _TsrvInfo
 // _TuDecode
 // _TloginGenerator
-// ulSrvDownInfoLX *_TsrvDownInfo
+// lgSrvDownInfoLX *_TsrvDownInfo
 func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
-	__VnewSession := ___Vlg.ulSrvDownInfoLX
-	_FpfNdb(" 138181 01 %#v ", ___Vlg.ulSrvDownInfoLX)
+	__VnewSession := ___Vlg.lgSrvDownInfoLX
+	_FpfNdb(" 138181 01 %#v ", ___Vlg.lgSrvDownInfoLX)
 
-	// ___Vlg.ulSrvDownInfoLX
+	// ___Vlg.lgSrvDownInfoLX
 
 	for {
 		//_Fsleep(__Vgap) // mini Gap , at least
@@ -55,7 +55,7 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 					if nil == __VucPort {
 						_FpfNdb(" 138181 09: why nil ?")
 					} else {
-						if nil == ___Vlg.ulCHuConnPortLO {
+						if nil == ___Vlg.lgCHuConnPortLO {
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
 							if 2 == 2 {
@@ -64,7 +64,7 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 									" 138181 08: tryToLogin, push port address to connPort-Chan , tryCnt %d , skipCnt %d",
 									__VnewSession.tryCnt, __VnewSession.skipCnt)
 							}
-							(*___Vlg.ulCHuConnPortLO) <- (*__VucPort)
+							(*___Vlg.lgCHuConnPortLO) <- (*__VucPort)
 						}
 						__VnewSession.tryCnt--
 						__VnewSession.skipCnt = 2
