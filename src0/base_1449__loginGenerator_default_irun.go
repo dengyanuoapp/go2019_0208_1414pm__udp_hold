@@ -22,6 +22,8 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 	__VnewSession := ___Vlg.lgSrvDownInfoLX
 	_FpfNdb(" 138181 01 %#v ", ___Vlg.lgSrvDownInfoLX)
 
+	___Vlg.lgCHdataMachineIdI = make(chan _TdataMachinEid, 10)
+
 	// ___Vlg.lgSrvDownInfoLX
 
 	for {
