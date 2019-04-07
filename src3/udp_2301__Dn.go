@@ -101,6 +101,7 @@ func main() {
 	// _FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn
 	go _Frun(&_VloginCheck_Dn, 900101) // _FloginCheck__900101x__init__default
 
+	// _TloginGenerator
 	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
 
 	// _FdataMachin__1000501x__time_gap_dataChanLock

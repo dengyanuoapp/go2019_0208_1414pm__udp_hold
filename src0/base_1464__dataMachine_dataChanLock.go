@@ -15,12 +15,12 @@ func _FdataMachin__1000501x__time_gap_dataChanLock(___Vdm *_TdataMachine) {
 				__Vcnt = __Vv2
 			}
 			if __Vcnt >= 3 { // one connect must have the amount of connect-portS large then 2
-				_FpfN(" 839196 03 connected succeed : %d : %d", __Vcnt, _FtimeInt())
+				//_FpfN(" 839196 03 connected succeed : %d : %d", __Vcnt, _FtimeInt())
 
 				if nil == ___Vdm.dmCHloginGenMachineIdLO {
-					_FpfN(" 839196 08 why loginGen NULL ?")
+					_FpfN(" 839196 08 connected succeed, but why loginGen NULL ?")
 				} else {
-					_FpfN(" 839196 09 told loginGen to stop ")
+					_FpfN(" 839196 09 connected succeed, then told loginGen to stop ( push chan)")
 					(*___Vdm.dmCHloginGenMachineIdLO) <- ___Vdm.dmMconn.M[__Vk2].dmmID
 				}
 
