@@ -10,13 +10,13 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101x__listen() {
 	//_FtryListenToUDP01()
 	___Vun.unAddr, ___Vun.unErr = net.ResolveUDPAddr("udp4", ___Vun.unHostPortStr)
 	if ___Vun.unErr != nil {
-		_Fex("918381 03", ___Vun.unErr)
+		_Fex1("918381 03", ___Vun.unErr)
 	}
 
 	// func ListenUDP(network string, laddr *UDPAddr) (*UDPConn, error)
 	___Vun.unConn, ___Vun.unErr = net.ListenUDP("udp4", ___Vun.unAddr)
 	if ___Vun.unErr != nil {
-		_Fex("918381 05", ___Vun.unErr)
+		_Fex1("918381 05", ___Vun.unErr)
 	}
 
 	//    //func (c *UDPConn) LocalAddr() Addr

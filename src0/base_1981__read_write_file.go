@@ -27,8 +27,7 @@ func _FwriteFileExit(___VerrMsg, ___Vfname string, ___Vcontent *[]byte) {
 		}
 		return
 	}
-	_FpfN(" 388199 file write error : "+___VerrMsg+"\n %v", __Verr)
-	_Fex1("")
+	_Fex1(" 388199 file write error : "+___VerrMsg+"\n %v", __Verr)
 } // _FwriteFileExit
 
 //    _VjsonConfig_bytes, __Verr := ioutil.ReadFile( __Vfname )
@@ -42,7 +41,6 @@ func _FreadFileExit(___VerrMsg, ___Vfname string) []byte {
 	if nil == __Verr {
 		return __Vcontent
 	}
-	_FpfN(" 823181 file read error : "+___VerrMsg+"\n %v", __Verr)
-	_Fex1("")
+	_Fex1(" 823181 file read error : "+___VerrMsg+"\n %v", __Verr)
 	return nil
 } // _FreadFileExit

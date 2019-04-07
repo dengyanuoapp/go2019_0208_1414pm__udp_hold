@@ -56,7 +56,7 @@ func _Fbase_1203__gen_self_md5_sha() {
 	_VS.progMd5._Fbase_1101__gen_md5T(&__Vcontent)
 	_FpfN(" 838191 _Fbase_1101b__gen_md5Only return : [%x] (%x %x)", _VS.progMd5.b128, _VS.progMd5.A1, _VS.progMd5.A2)
 
-	_Ppn("from:", _VS.progPath)
+	_FpfN("from:%s", _VS.progPath)
 	_FpfN(" 8381191 File md5: [ %x ]", _VS.progMd5.b128)
 	_FpfN(" 8381192 File sha: [ %x ] %x %x %x %x ", _VS.progSha.b256, _VS.progSha.A1, _VS.progSha.A2, _VS.progSha.A3, _VS.progSha.A4)
 
@@ -64,7 +64,7 @@ func _Fbase_1203__gen_self_md5_sha() {
 
 func _Fbase_1203__gen_rand_seed() {
 	_VS.startTime = time.Now()
-	__Vb := []byte(_Pspf("%x", _VS.startTime))
+	__Vb := []byte(_Spf("%x", _VS.startTime))
 	_VS.startTimEsha._Fbase_1101__gen_shaT(&__Vb)
 	_VS.MySeq128 = _FgenRand_nByte__(16)
 } // _Fbase_1203__gen_rand_seed()

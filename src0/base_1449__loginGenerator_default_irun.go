@@ -59,7 +59,7 @@ func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) 
 							_FpfNdb(" 138181 07: tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 						} else {
 							if 2 == 2 {
-								_Pn()
+								_Fn()
 								_FpfNdb(
 									" 138181 08: tryToLogin, push port address to connPort-Chan , tryCnt %d , skipCnt %d",
 									__VnewSession.tryCnt, __VnewSession.skipCnt)
@@ -122,7 +122,7 @@ func (___VnewSession *_TsrvDownInfo) _FudpDecode__750102y__tryGetSrvInfoFromUri(
 	// _Fconnect_to_server_01y__req_new_sessionID__main_top
 	for {
 		_Fsleep(_T1s) // mini Gap , at least
-		__nowUri3 = _Pspf("%s.%x", __Vsi2.refreshUri, _VC.MyId128)
+		__nowUri3 = _Spf("%s.%x", __Vsi2.refreshUri, _VC.MyId128)
 
 		//_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
 		__VtmpSi2 = _TsrvInfo{}

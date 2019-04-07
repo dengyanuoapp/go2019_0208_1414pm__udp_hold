@@ -10,13 +10,13 @@ func (___Vtn2 *_TtcpNodE) _FtcpNode__tryListen01() {
 	// func ResolveTCPAddr(network, address string) (*TCPAddr, error)
 	___Vtn2.tnAddr, ___Vtn2.tnErr = net.ResolveTCPAddr("tcp4", ___Vtn2.tnHostPortStr)
 	if ___Vtn2.tnErr != nil {
-		_Fex("err13815", ___Vtn2.tnErr)
+		_Fex1("err13815", ___Vtn2.tnErr)
 	}
 
 	// func ListenTCP(network string, laddr *TCPAddr) (*TCPListener, error)
 	___Vtn2.tnListener, ___Vtn2.tnErr = net.ListenTCP("tcp4", ___Vtn2.tnAddr)
 	if ___Vtn2.tnErr != nil {
-		_Fex("err13816", ___Vtn2.tnErr)
+		_Fex1("err13816", ___Vtn2.tnErr)
 	}
 
 	// func (l *TCPListener) Addr() Addr ;

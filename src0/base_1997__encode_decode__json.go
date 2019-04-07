@@ -31,7 +31,7 @@ func _FencJson___(___V interface{}) ([]byte, error) {
 	_FinterfaceObjIsPointerOrExit("819181 01", ___V)
 	__VbByte, __Verr := json.Marshal(___V)
 	if __Verr != nil {
-		_Perr(__Verr, "819181 05 : gob.NewDecoder failed:")
+		_FpfN("819181 05 : gob.NewDecoder failed:%v", __Verr)
 		return nil, __Verr
 	}
 	return __VbByte, __Verr
@@ -119,7 +119,7 @@ func _FtestER__write_json_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfn
 	if 3 == 3 {
 		var __Vobj3 _TsrvInfo
 		_Fread_json_rand_only_Exit(___VeMsg+" 381916 13 ", ___Vkey, ___Vfname+".rand", &__Vobj3)
-		__VbufText3 := []byte(_Pspf("%#v", __Vobj3))
+		__VbufText3 := []byte(_Spf("%#v", __Vobj3))
 		_FwriteFileExit(___VeMsg+" 381916 15 ", ___Vfname+".rand.ex.printf.txt", &__VbufText3)
 		//_FpfN("381916 14 : %x , %#v", ___Vkey, __Vobj3)
 	}

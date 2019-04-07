@@ -18,8 +18,8 @@ func _FencGob__only(___V interface{}) ([]byte, error) {
 	__Venc := gob.NewEncoder(&__VbBuf) // Will write to __VbBuf.
 	__Verr := __Venc.Encode(___V)
 	if __Verr != nil {
-		_Perr(__Verr, "1831915 02: gob.NewEncoder failed:")
-		return nil, __Verr
+		return nil,
+			fmt.Errorf("1831915 02: gob.NewEncoder failed:%v", __Verr)
 	}
 	return __VbBuf.Bytes(), nil
 } // _FencGob__only
@@ -29,7 +29,7 @@ func _FdecGob__only(___Vbyte *[]byte, ___Vout interface{}) {
 	__Vdec := gob.NewDecoder(bytes.NewReader(*___Vbyte)) // Will write to __VbBuf.
 	__Verr := __Vdec.Decode(___Vout)
 	if __Verr != nil {
-		_Perr(__Verr, "1831915 04: gob.NewDecoder failed:")
+		_FpfN("1831915 04: gob.NewDecoder failed:%v", __Verr)
 	}
 } // _FdecGob__only
 
@@ -90,7 +90,7 @@ func _FtestER__write_gob_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfna
 	if 3 == 3 {
 		var __Vobj3 _TsrvInfo
 		_Fread_gob_rand_only_Exit(___VeMsg+" 1831911 13 ", ___Vkey, ___Vfname+".rand", &__Vobj3)
-		__VbufText3 := []byte(_Pspf("%#v", __Vobj3))
+		__VbufText3 := []byte(_Spf("%#v", __Vobj3))
 		_FwriteFileExit(___VeMsg+" 1831911 14 ", ___Vfname+".rand.ex.printf.txt", &__VbufText3)
 	}
 

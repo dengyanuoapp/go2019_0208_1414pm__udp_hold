@@ -5,11 +5,11 @@ package main
 func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 	_Fsleep(_T1s)
 	if nil == ___Vlc.ulCHSendLO {
-		_Pn()
-		_Pn()
+		_Fn()
+		_Fn()
 		_FpfNdb(" 138182 01 why no Chan output ? exit loop")
-		_Pn()
-		_Pn()
+		_Fn()
+		_Fn()
 		return
 	}
 

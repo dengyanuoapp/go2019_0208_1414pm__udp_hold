@@ -12,7 +12,7 @@ type _TdataTran struct {
 }
 
 func (___Vlr *_TdataTran) String() string {
-	__Vo := _Pspf(
+	__Vo := _Spf(
 		" me:%x,%x to:%x,%x tokenD: %x cmd %d offset 0x%x,%x",
 
 		___Vlr.meIdx128[:5],

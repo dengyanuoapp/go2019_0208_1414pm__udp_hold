@@ -31,8 +31,8 @@ func _FtestLen01() {
 	__Vtl01.I01 = _FgenRand_int64()
 	__Vtl01.I02 = _FgenRand_int64()
 
-	__Vtl01.S01 = _Pspf("%x", _FgenRand_nByte__(10))
-	__Vtl01.S02 = _Pspf("%x", _FgenRand_nByte__(5))
+	__Vtl01.S01 = _Spf("%x", _FgenRand_nByte__(10))
+	__Vtl01.S02 = _Spf("%x", _FgenRand_nByte__(5))
 
 	__Vtl01.B01 = _FgenRand_nByte__(16)
 	__Vtl01.B02 = _FgenRand_nByte__(32)

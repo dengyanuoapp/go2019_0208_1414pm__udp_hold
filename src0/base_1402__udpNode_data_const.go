@@ -11,7 +11,7 @@ type _TudpNodeDataRece struct {
 }
 
 func (___Vr *_TudpNodeDataRece) String() string {
-	return _Pspf("[%s](%d len:%d %x)",
+	return _Spf("[%s](%d len:%d %x)",
 		___Vr.urrRemoteAddr.String(),
 		___Vr.urrLen,
 		len(___Vr.urrBuf),
@@ -24,7 +24,7 @@ type _TudpNodeDataSend struct {
 }
 
 func (___Vs *_TudpNodeDataSend) String() string {
-	return _Pspf("{%s}(%d %x)",
+	return _Spf("{%s}(%d %x)",
 		___Vs.usToAddr.String(),
 		len(___Vs.usOutBuf),
 		___Vs.usOutBuf[:7])

@@ -17,7 +17,7 @@ func (___Vcm *_TcmdMap) String() string {
 	var __VstrO string
 
 	for ___Vk := range (*___Vcm).M {
-		__VstrO += _Pspf("%x ", ___Vk[:5])
+		__VstrO += _Spf("%x ", ___Vk[:5])
 	}
 	return __VstrO
 }
@@ -27,7 +27,7 @@ func String5(___Vb *[]byte) string {
 		return ""
 	}
 	if len(*___Vb) < 5 {
-		return _Pspf("%x", *___Vb)
+		return _Spf("%x", *___Vb)
 	}
-	return _Pspf("%x", (*___Vb)[:5])
+	return _Spf("%x", (*___Vb)[:5])
 }

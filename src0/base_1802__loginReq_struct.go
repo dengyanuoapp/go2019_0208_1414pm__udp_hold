@@ -17,11 +17,11 @@ func _Fbyte2str(___Vb *[]byte) string {
 	if (nil == ___Vb) || (0 == len(*___Vb)) {
 		return ""
 	}
-	return _Pspf("%x", *___Vb)
+	return _Spf("%x", *___Vb)
 }
 
 func (___Vlr *_TloginReq) String() string {
-	__Vo := _Pspf(
+	__Vo := _Spf(
 		//" %d %s %s me:%x %x to:%x %x tokenAB: %s,%s ",
 		" rand5:%x %d %s %s me:%x,%x to:%x,%x tokenAB: %x,%x ",
 		___Vlr.MeRand5,

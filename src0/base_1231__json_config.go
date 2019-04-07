@@ -21,7 +21,7 @@ func _Fbase_104c__try_to_get_env_id128() {
 		if 16 != len(_VC.MyId128) { // old id error -> I don't know what happens. exit.
 			_FpfN(" 823813 03 read env id128 is NULL or too short, and the json.config file id128 error: \n (%d)[%0x] \n",
 				len(_VC.MyId128), _VC.MyId128)
-			_Fex1(" 823813 05 : Exit now ")
+			_Fex(" 823813 05 : Exit now ")
 		}
 		_FpfN(" 823813 07 env id128 is NULL , and so old id128 saved in config file ok: \n (%d)[%0x] \n",
 			len(_VC.MyId128), _VC.MyId128)
@@ -38,12 +38,12 @@ func _Fbase_104c__try_to_get_env_id128() {
 	if nil != __Verr {
 		_FpfN(" 823815 01 read env id128 is error , check what happens : \n (%d)[%s] \n %v\n",
 			len(__Vbyte), string(__Vbyte), __Verr)
-		_Fex1(" Exit now ")
+		_Fex(" Exit now ")
 	}
 	if 16 != len(__Vbyte) {
 		_FpfN(" 823815 02 read env id128 is len error , check what happens \n (%d)[%0x] \n",
 			len(__Vbyte), string(__Vbyte))
-		_Fex1(" Exit now ")
+		_Fex(" Exit now ")
 	}
 
 	if bytes.Equal(__Vbyte, _VC.MyId128) {
@@ -92,7 +92,7 @@ func _Fbase_104d__try_to_save_json_config_to_file() {
 		_FpfN("823818 05 jsonconf writing succeed :<%s>", __Vbyte2)
 		return
 	}
-	_Fex1(" 823818 08 : I don't know what happens.")
+	_Fex(" 823818 08 : I don't know what happens.")
 
 } // _Fbase_104d__try_to_save_json_config_to_file
 
@@ -113,5 +113,5 @@ func _Fbase_104z__try_to_read_json_config_top() {
 	//_Vself.progMd5.b128 = _VC.MyId128
 	//_Vself.ProjName = _VC.Name
 
-	//_Fex1( " 381919 :Debug Stop here. " )
+	//_Fex( " 381919 :Debug Stop here. " )
 } // _Fbase_104z__try_to_read_json_config_top

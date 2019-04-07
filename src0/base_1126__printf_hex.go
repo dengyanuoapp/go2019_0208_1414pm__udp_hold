@@ -36,6 +36,7 @@ func _FpfNhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...i
 	_Ppf(" %x\n", (*___VbyteIn)[__Vst:___VmaxPrLen])
 
 } // _FpfNhex
+
 func _CpfNhex(___VbyteIn *[]byte, ___VmaxPrLen int, ___Vfmt string, ___Vobj ...interface{}) {
 	var __Vs string
 	__Vl := len(*___VbyteIn)
@@ -91,7 +92,7 @@ func _FcopyByte(___dst *[]byte, ___src *[]byte, ___len int) {
 
 func _PpdLN(___VmaxPrLen int, ___Vbuf *[]byte) {
 	_PpdL(___VmaxPrLen, ___Vbuf)
-	_Pn()
+	_Fn()
 } // _PpdLN
 func _Fpd(___VmaxPrLen int, ___Vbuf *[]byte) {
 	_Fph()
@@ -99,7 +100,7 @@ func _Fpd(___VmaxPrLen int, ___Vbuf *[]byte) {
 } // _Fpd
 func _FpdN(___VmaxPrLen int, ___Vbuf *[]byte) {
 	_Fpd(___VmaxPrLen, ___Vbuf)
-	_Pn()
+	_Fn()
 } // _FpdN
 
 func _FmakeByte(___VbyteSlice []byte) []byte {

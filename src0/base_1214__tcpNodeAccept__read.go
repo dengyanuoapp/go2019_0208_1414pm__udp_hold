@@ -78,10 +78,10 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc4 *_TacceptTCP) {
 
-	_Ppn(" 183891 : under constructing ", ___VtAcc4.taRcnt.try, ___VtAcc4.taRcnt.ok)
+	_Ppln(" 183891 : under constructing ", ___VtAcc4.taRcnt.try, ___VtAcc4.taRcnt.ok)
 
 	if nil == ___VtAcc4.taServerTCP {
-		_Ppn(" 183892 : ___VtAcc4.taServerTCP == nil ")
+		_Ppln(" 183892 : ___VtAcc4.taServerTCP == nil ")
 	} else {
 
 		_Ppf(" 183893 : ")
@@ -89,6 +89,6 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc4 *_TacceptTCP) {
 			__VacceptTcp := &(___VtAcc4.taServerTCP.tnAcceptTCPs[__Vi])
 			_Ppf(" %d,%d,%d,%d", __Vi, __VacceptTcp.taIdx, __VacceptTcp.taRcnt.try, __VacceptTcp.taRcnt.ok)
 		}
-		_Ppn()
+		_Ppln()
 	}
 } // _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug
