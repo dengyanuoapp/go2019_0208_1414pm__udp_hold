@@ -51,7 +51,7 @@ func _Fn() {
 
 func _Fpf(___Vfmt string, ___Vpara ...interface{}) {
 	_Fph()
-	_Fpf(___Vfmt, ___Vpara...)
+	_Ppf(___Vfmt, ___Vpara...)
 } // _Fpf
 
 func _Fpt(___Vpara ...interface{}) {
