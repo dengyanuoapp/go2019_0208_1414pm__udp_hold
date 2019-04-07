@@ -68,9 +68,8 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				*___Vlc.ulCHSendLO <- __VusData // 15540362231554036223
 			} else {
 				__Ven := _Tencode{
-					enToAddr: __VuConnPort.DstAddr, // _TudpConnPort
-					enToKey:  __VuConnPort.K256,    // _TudpConnPort
-					enType:   Cmd__loginS01genReplyTokenA,
+					enToConnPort: __VuConnPort, // _TudpConnPort
+					enType:       Cmd__loginS01genReplyTokenA,
 					enLogin: _TloginReq{
 						MeRand5:  _FgenRand_nByte__(5),
 						MeTime:   _FtimeInt(),

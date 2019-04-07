@@ -103,12 +103,14 @@ func (___Vd *_Tdecode) Count128() []int {
 type _TencodeX struct {
 }
 type _Tencode struct {
-	enToAddr net.UDPAddr
-	enToKey  []byte
-	enType   byte
-	enLogin  _TloginReq
-	enData   _TdataTran
-	enDelay  int // a delay resend if not zero
+	enToId128    []byte        // one of to addr : use enToConnPort if zero , or use this as to addess
+	enToConnPort _TudpConnPort // another of to addr
+	enType       byte
+	enLogin      _TloginReq
+	enData       _TdataTran
+	enDelay      int // a delay resend if not zero
+	//enToAddr net.UDPAddr
+	//enToKey  []byte
 }
 
 func (___Ven *_Tencode) String() string {
@@ -117,7 +119,7 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("to<%s> k:%s T:%d", ___Ven.enToAddr.String(), String5(&___Ven.enToKey), ___Ven.enType)
+	__Vso = _Spf("to<%s/%s> k:%s T:%d", ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enToConnPort.String(), ___Ven.enType)
 
 	switch ___Ven.enType {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
