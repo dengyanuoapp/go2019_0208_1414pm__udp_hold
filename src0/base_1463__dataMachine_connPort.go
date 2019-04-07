@@ -9,6 +9,10 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 	__Vk := _FgenB16(&___VinsID.diIdx128)
 	//___Vdm.dmMconn.mux.Lock()
 	__Vold, __Vok := ___Vdm.dmMconn.M[__Vk] // map[[16]byte]_TdataMachinEconnMap
+
+	defer ___Vdm.dmMconn.mux.Unlock()
+	___Vdm.dmMconn.mux.Lock()
+
 	if __Vok {
 		if //
 		false == bytes.Equal(__Vold.dmmID.diIdx128, ___VinsID.diIdx128) ||
@@ -20,6 +24,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 				dmmLastAccTime: _FtimeInt(),
 				dmmConnPortArr: []_TudpConnPort{___VinsID.diConnPort},
 			}
+			___Vdm.dmMconn.LockNow[__Vk] = 1
 		} else {
 			//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
 			___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
@@ -27,6 +32,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 				dmmLastAccTime: _FtimeInt(),
 				dmmConnPortArr: ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr),
 			}
+			___Vdm.dmMconn.LockNow[__Vk] = ___Vdm.dmMconn.LockNow[__Vk] + 1
 		}
 	} else {
 		___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
@@ -34,21 +40,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 			dmmLastAccTime: _FtimeInt(),
 			dmmConnPortArr: []_TudpConnPort{___VinsID.diConnPort},
 		}
-	}
-
-	___Vdm.dmMlock.mux.Lock()
-	__Vl2, __Vok2 := ___Vdm.dmMlock.LockNow[__Vk]
-	if __Vok2 {
-		___Vdm.dmMlock.LockNow[__Vk] = __Vl2 + 1
-	} else {
-		___Vdm.dmMlock.LockNow[__Vk] = 1
-	}
-	___Vdm.dmMlock.mux.Unlock()
-
-	//___Vdm.dmMconn.mux.Unlock()
-	//_FpfN(" 839193 08 : dmMconn.M len(%d,%d) ", len(___Vdm.dmMconn.M), len(___Vdm.dmMconn.M[__Vk].dmmConnPortArr))
-	if 3 == len(___Vdm.dmMconn.M[__Vk].dmmConnPortArr) {
-		//_FpfN(" 839193 09 : dmMconn.M {%v}", ___Vdm.dmMconn.M[__Vk].dmmConnPortArr)
+		___Vdm.dmMconn.LockNow[__Vk] = 1
 	}
 }
 

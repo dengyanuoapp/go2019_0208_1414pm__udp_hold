@@ -43,9 +43,12 @@ func _Finit__2301() {
 	}
 
 	_VloginCheck_Dn = _TloginCheck{
-		ulCHSendLO:              &_VudpGroup_Dn.ugCHSendI,             // _TudpGroupSt _TudpNodeDataSend
-		ulCHdataMachineIdLO:     &_VdataMachine_Dn.dmCHdataMachineIdI, // *chan _TdataMachinEid
-		ulCHloginGenMachineIdLO: &_VloginGenerator_Dn.lgCHdataMachineIdI,
+		ulCHSendLO:          &_VudpGroup_Dn.ugCHSendI,             // _TudpGroupSt _TudpNodeDataSend
+		ulCHdataMachineIdLO: &_VdataMachine_Dn.dmCHdataMachineIdI, // *chan _TdataMachinEid
+	}
+
+	_VdataMachine_Dn = _TdataMachine{
+		dmCHloginGenMachineIdLO: &_VloginGenerator_Dn.lgCHdataMachineIdI,
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{

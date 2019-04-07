@@ -30,8 +30,8 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 	___Vdm.dmCHdataMachineIdI = make(chan _TdataMachinEid)
 
 	___Vdm.dmMconn.M = make(map[[16]byte]_TdataMachinEconnMap)
-	___Vdm.dmMlock.LockNow = make(map[[16]byte]int)
-	___Vdm.dmMlock.LockLast = make(map[[16]byte]int)
+	___Vdm.dmMconn.LockNow = make(map[[16]byte]int)
+	___Vdm.dmMconn.LockLast = make(map[[16]byte]int)
 
 	_Fsleep(_T1s)
 

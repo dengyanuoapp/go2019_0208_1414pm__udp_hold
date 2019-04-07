@@ -28,21 +28,17 @@ type _TdataMachinEconnMap struct {
 }
 
 type _TdataMachineConnSt struct {
-	//mux sync.Mutex
-	M map[[16]byte]_TdataMachinEconnMap
-	//LockLast map[[16]byte]int
-}
-
-type _TdataMachineLockSt struct {
+	M        map[[16]byte]_TdataMachinEconnMap
 	LockLast map[[16]byte]int
 	LockNow  map[[16]byte]int
 	mux      sync.Mutex
 }
 
 type _TdataMachine struct {
-	dmCHdataMachineIdI chan _TdataMachinEid
-	dmCBinit           func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
-	dmCBrece           func(*_TdataMachine) //
-	dmMconn            _TdataMachineConnSt
-	dmMlock            _TdataMachineLockSt
+	dmCHdataMachineIdI      chan _TdataMachinEid
+	dmCHloginGenMachineIdLO *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI,
+	//dmCHloginGenMachineIdLO *chan [16]byte       // _VloginGenerator_Dn.lgCHdataMachineIdI,
+	dmCBinit func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
+	dmCBrece func(*_TdataMachine) //
+	dmMconn  _TdataMachineConnSt
 }
