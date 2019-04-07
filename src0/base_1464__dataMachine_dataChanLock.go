@@ -15,7 +15,7 @@ func _FdataMachin__1000501x__time_gap_dataChanLock(___Vdm *_TdataMachine) {
 				__Vcnt = __Vv2
 			}
 			if __Vcnt >= 3 { // one connect must have the amount of connect-portS large then 2
-				_FpfN(" 839196 03 connected succeed : %d ", __Vcnt)
+				_FpfN(" 839196 03 connected succeed : %d : %d", __Vcnt, _FtimeInt())
 			}
 		}
 
