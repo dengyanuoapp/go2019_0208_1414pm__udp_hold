@@ -14,6 +14,8 @@ func (___Vug *_TudpGroupSt) IRun(___Vidx int) {
 		} else {
 			___Vug.ugCBchInSend(___Vug)
 		}
+	case 600901:
+		___Vug._FprKey()
 	default:
 		_FpfNex(" 838911 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx

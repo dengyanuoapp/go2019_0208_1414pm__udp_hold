@@ -53,6 +53,7 @@ func _Finit__2301() {
 
 	_VdataMachine_Dn = _TdataMachine{
 		dmCHloginGenMachineIdLO: &_VloginGenerator_Dn.lgCHdataMachineIdI,
+		dmCBprKey:               _FdmCBprKey__Dn,
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{
@@ -77,6 +78,10 @@ func _Finit__2301() {
 
 	// _FdebugPrintTest()
 
+}
+
+func _FdmCBprKey__Dn(___Vdm *_TdataMachine) {
+	_VudpGroup_Dn._FprKey()
 }
 
 func main() {
