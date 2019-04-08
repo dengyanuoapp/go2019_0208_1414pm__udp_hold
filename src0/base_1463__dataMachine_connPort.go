@@ -13,6 +13,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 	defer ___Vdm.dmMconn.mux.Unlock()
 	___Vdm.dmMconn.mux.Lock()
 
+	__VsetLastReadTime := _FtimeInt() - _Vgap_skip_idle_send
 	if __Vok {
 		if //
 		false == bytes.Equal(__Vold.dmmID.diIdx128, ___VinsID.diIdx128) ||
@@ -21,7 +22,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 			//_FpfN(" 839193 03 : delete-old, gen New connPort Map hash.")
 			___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
 				dmmID:             *___VinsID,
-				dmmLastReadTime:   _FtimeInt(),
+				dmmLastReadTime:   __VsetLastReadTime,
 				dmmConnPortArr:    []_TudpConnPort{___VinsID.diConnPort},
 				dmmConnPortAmount: 1,
 			}
@@ -31,7 +32,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 			__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr)
 			___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
 				dmmID:             *___VinsID,
-				dmmLastReadTime:   _FtimeInt(),
+				dmmLastReadTime:   __VsetLastReadTime,
 				dmmConnPortArr:    __VcpArr,
 				dmmConnPortAmount: len(__VcpArr),
 			}
@@ -40,7 +41,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 	} else {
 		___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
 			dmmID:             *___VinsID,
-			dmmLastReadTime:   _FtimeInt(),
+			dmmLastReadTime:   __VsetLastReadTime,
 			dmmConnPortArr:    []_TudpConnPort{___VinsID.diConnPort},
 			dmmConnPortAmount: 1,
 		}

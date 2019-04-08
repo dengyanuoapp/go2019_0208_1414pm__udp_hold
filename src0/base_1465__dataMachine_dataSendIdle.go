@@ -1,5 +1,10 @@
 package main
 
+var (
+	_Vgap_nothingToLost  = 39 // 3*(12+1) == 39
+	_Vgap_skip_idle_send = 7
+)
+
 func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 
 	for {
@@ -10,14 +15,15 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 
 		___Vdm.dmMconn.mux.Lock()
 		for __Vk2, __Vv2 := range ___Vdm.dmMconn.M {
-			if __Vnow2-__Vv2.dmmLastReadTime > 39 { // 3*(12+1) == 39
+			if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_nothingToLost {
 				__VkDelArr = append(__VkDelArr, __Vk2)
 			} else {
-				if __Vnow2-__Vv2.dmmLastReadTime > 7 {
+				if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_skip_idle_send {
 					_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
 				} else {
-					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
+					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
+						_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 				}
 			}
 		}
