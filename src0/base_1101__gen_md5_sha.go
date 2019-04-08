@@ -62,6 +62,9 @@ func (___Vmd5 *_Tb128) _Fbase_1101__gen_md5T(___Vmd5Input *[]byte) {
 var _VgenMd5_last16 [16]byte
 
 func _FgenMd5__5(___VbIn *[]byte) []byte {
+	if nil == ___VbIn {
+		return []byte("12345")
+	}
 	__Vo := _FgenMd5___(___VbIn)
 	return __Vo[:5]
 }
