@@ -2,7 +2,7 @@ package main
 
 // _TsrvDownInfo _TsrvInfo
 func (___VnewSession *_TsrvDownInfo) _FudpDecode__800501x__tryGetSrvInfoFromUri() {
-	_FpfNdb("238191 01 : %v", ___VnewSession)
+	_FpfNonce("238191 01 : %v t:%d", ___VnewSession, _FtimeInt())
 
 	___VnewSession.srvInfo.ok = false
 
