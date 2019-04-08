@@ -67,6 +67,9 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				_FsleepRand_12_to_14s()
 				*___Vlc.ulCHSendLO <- __VusData // 15540362231554036223
 			} else {
+				___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
+				___Vlc.ulGenTime = _FtimeInt()
+
 				__Ven := _Tencode{
 					enToConnPort: __VuConnPort, // _TudpConnPort
 					enType:       Cmd__loginS01genReplyTokenA,
@@ -77,7 +80,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 						MeName:   _VC.Name,
 						MeIdx128: _VC.MyId128,
 						MeSeq128: _VS.MySeq128,
-						TokenL:   _FgenRand_nByte__(16), // tokenA / Lo
+						TokenL:   ___Vlc.ulTokenA,
 					},
 					enDelay: (12 + (_FtimeInt() % 3)), // 12 + (0--2) == 12--14
 				}
