@@ -20,7 +20,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 	if false == bytes.Equal(___Vdecode.Dlogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
 		false == bytes.Equal(___Vdecode.Dlogin.ToIdx128, _VC.MyId128) ||
 		false == bytes.Equal(___Vdecode.Dlogin.ToSeq128, _VS.MySeq128) {
-		_FpfN(" 838381 05 : error : no equal, ignore. %s ", ___Vdecode.String())
+		_FpfN(" 838381 05 : error : no equal, ignore. %s : ulTokenA:%s MyId128:%s MySeq128:%s ",
+			___Vdecode.String(), String5(&___Vlc.ulTokenA), String5(&_VC.MyId128), String5(&_VS.MySeq128))
 		return
 	}
 
