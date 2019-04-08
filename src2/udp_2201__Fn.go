@@ -5,17 +5,17 @@ import (
 )
 
 var (
-	_VudpNode_FunWaitDun   _TudpNodeSt
 	_VtcpDebugLog__Fn      _TtcpNodE
-	_VudpDecode_Fn         _TuDecode
-	_VloginCheck_FnWaitDun _TloginCheck
 	_VudpGroup_Fn          _TudpGroupSt
+	_VudpDecode_Fn         _TuDecode
+	_VudpEncode_Fn         _TuEncode
 	_VdataMachine_Fn       _TdataMachine
-
-	_CHexit  chan string             = make(chan string, 10)
-	_CHpr    *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
-	_Vself   _Tself
-	_Vconfig _Tconfig
+	_VloginCheck_FnWaitDun _TloginCheck
+	_CHexit                chan string             = make(chan string, 10)
+	_CHpr                  *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
+	_Vself                 _Tself
+	_Vconfig               _Tconfig
+	_VudpNode_FunWaitDun   _TudpNodeSt
 )
 
 func _Finit_2201() {
@@ -43,12 +43,20 @@ func _Finit_2201() {
 	}
 
 	_VudpDecode_Fn = _TuDecode{
-		uTmCHdecodeCmdLO: &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
+		uTmCHdecodeCmdLO:  &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
+		uTmCHdecodeDataLO: &_VdataMachine_Fn.dmCHdecodeDataI, // dmCHdecodeDataI _TdecodeX
+
+	}
+
+	_VudpEncode_Fn = _TuEncode{
+		enCHuDataSendLO: &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSendX
 	}
 
 	_VloginCheck_FnWaitDun = _TloginCheck{
 		ulCHSendLO:          &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSend
 		ulCHdataMachineIdLO: &_VdataMachine_Fn.dmCHdataMachineIdI,
+		ulCHencodeCmdLO:     &_VudpEncode_Fn.enCHencodeCmdI, // *chan _Tencode
+
 	}
 
 	_VudpGroup_Fn = _TudpGroupSt{
@@ -90,7 +98,11 @@ func main() {
 	// _FudpGroup__600201__CHin_selecT_send__default
 	// _FdataPack__101__udpConnPort
 
+	// _FdataMachin__1000501x__time_gap_dataChanLock
 	go _Frun(&_VdataMachine_Fn, 1000101) // IRun _FdataMachin__1000101__main_init__default
+
+	// _FuEncode__1100201x__packSend__default
+	go _Frun(&_VudpEncode_Fn, 1100101) // _FuEncode__1100101__main_init__default
 
 	<-_CHexit
 } // main
