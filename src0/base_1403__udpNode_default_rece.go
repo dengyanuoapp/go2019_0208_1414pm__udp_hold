@@ -77,7 +77,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		return
 	}
 
-	__VuRece := _TudpNodeDataRece{
+	__VuRece := _TudpNodeDataRece{ // _TudpNodeDataReceX
 		urrRemoteAddr: ___Vun.unRemoteAddr,
 		urrLen:        len(__Vtmp2),
 		urrBuf:        __Vtmp2,
@@ -94,8 +94,9 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 	if nil == ___Vun.unCHreceLO {
 		_FpfN(" 439196 07 udpNodeDataRece can NOT output , for outChan is null : %s", __VuRece.String())
 	} else {
-		_CpfN(" 439196 08 udpNodeDataRece %11d oL:%d m5{%x} nL:%d m5{%x}: %s",
+		_CpfN(" 439196 08 udpNodeDataRece %11d la:%v bufL:%d bufM5{%x} dL:%d dM5{%x}: %s",
 			_FtimeInt(),
+			___Vun.unLocalAddr,
 			len(*___VbufIn),
 			_FgenMd5__5(___VbufIn),
 			len(__Vtmp2),

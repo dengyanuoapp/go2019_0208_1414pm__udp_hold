@@ -52,11 +52,11 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 			if 3 == 3 {
 				if 2 == 2 {
 					_CpfN(
-						" 839119 04 udp-send-rand %11d olen:%d: dst<%s> to-key<%x> local<%s> md5{%x}, EN-len(%d) md5{%x}",
+						" 839119 04 udp-send-rand %11d bufL:%d: toK<%x> to<%s> la<%s> plantM5{%x}, EN-len(%d) randM5{%x}",
 						_FtimeI64(),
 						len(___Vus.usOutBuf),
-						___Vus.usToAddr.DstAddr.String(),
 						___Vus.usToAddr.K256[:8],
+						___Vus.usToAddr.DstAddr.String(),
 						___Vun.unLocalAddr.String(),
 						_FgenMd5__5(&___Vus.usOutBuf),
 						len(__Vbuf),
