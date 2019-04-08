@@ -21,7 +21,7 @@ type _TsrvInfo struct {
 } // _TsrvInfo
 
 func (___Vucp *_TudpConnPort) String() string {
-	return _Spf("%s k:%x",
+	return _Spf("%s k:%s",
 		___Vucp.DstAddr.String(),
 		String5(&___Vucp.K256))
 }
