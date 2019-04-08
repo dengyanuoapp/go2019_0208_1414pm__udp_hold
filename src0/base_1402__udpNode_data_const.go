@@ -4,6 +4,8 @@ import (
 	"net"
 )
 
+type _TudpNodeDataReceX struct {
+}
 type _TudpNodeDataRece struct {
 	urrRemoteAddr net.UDPAddr
 	urrLen        int
