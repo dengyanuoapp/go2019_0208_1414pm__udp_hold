@@ -35,7 +35,7 @@ func (___Vsi *_TsrvInfo) String() string {
 		}
 	}
 
-	__Vos += _Spf("] k[", ___Vsi.ok)
+	__Vos += "] k["
 	for __Vidx3, __Vuri3 := range ___Vsi.K256 {
 		if 0 == __Vidx3 {
 			__Vos += String5(&__Vuri3)

@@ -2,7 +2,8 @@ package main
 
 func _FudpDecode__800301x__connGen__default(___Vlg *_TloginGenerator) {
 	__VnewSession := ___Vlg.lgSrvDownInfoLX // *_TsrvDownInfo
-	_FpfNdb(" 138181 01 %#v ", ___Vlg.lgSrvDownInfoLX)
+	//_FpfNdb(" 138181 01 %#v ", ___Vlg.lgSrvDownInfoLX)
+	_FpfNdb(" 138181 02 %s ", ___Vlg.lgSrvDownInfoLX.String())
 
 	for {
 		//_Fsleep(__Vgap) // mini Gap , at least
