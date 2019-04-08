@@ -12,3 +12,4 @@
 /mobile/*.apk
 
 ?.txt
+/[0-9]/*.txt

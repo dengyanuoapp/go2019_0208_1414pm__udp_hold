@@ -26,7 +26,8 @@ type _TdataMachinEconnMap struct {
 	dmmConnPortArr    []_TudpConnPort
 	dmmConnPortAmount int
 	dmmLastReadTime   int
-	dmmLastWriteTime  int
+	dmmLastSendTime   int
+	dmmLastPrTime     int
 }
 
 type _TdataMachineConnSt struct {
