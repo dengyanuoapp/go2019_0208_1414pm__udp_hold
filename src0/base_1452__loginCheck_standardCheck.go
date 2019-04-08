@@ -48,52 +48,32 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		case __VuConnPort := <-___Vlc.ulCHconnPortI: // _TudpConnPort
 			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
 			_FpfNdb(" 138182 03 : connPort-Chan pop {%s}", __VuConnPort.String())
-			if 2 == 3 {
-				___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
-				___Vlc.ulGenTime = _FtimeInt()
+			___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
+			___Vlc.ulGenTime = _FtimeInt()
 
-				var __VusData _TudpNodeDataSend // _TudpConnPort
-				__VuConnPort._FdataPack__101__udpConnPort(&___Vlc.ulTokenA, &__VusData.usOutBuf)
-
-				//___Vlc.ulCmd.mux.Lock()
-				//___Vlc.ulCmd.M[___VinitLoginIdx01] = *__VloginReq // unknow the srv's id128 , so ,use fixed _TcmdMap
-				//___Vlc.ulCmd.mux.Unlock()
-
-				//__Vk16 := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
-				//___Vlc.ulCmd.M[__Vk16] = *___Vdecode
-
-				__VusData.usToAddr = __VuConnPort // _TudpConnPort
-				*___Vlc.ulCHSendLO <- __VusData   //
-				_FsleepRand_12_to_14s()
-				*___Vlc.ulCHSendLO <- __VusData // 15540362231554036223
+			__Ven := _Tencode{
+				enToConnPort: __VuConnPort, // _TudpConnPort
+				enType:       Cmd__loginS01genReplyTokenA,
+				enLogin: _TloginReq{
+					MeRand5:  _FgenRand_nByte__(5),
+					MeTime:   _FtimeInt(),
+					ReqStr:   " loginS01genReplyTokenA ",
+					MeName:   _VC.Name,
+					MeIdx128: _VC.MyId128,
+					MeSeq128: _VS.MySeq128,
+					TokenL:   ___Vlc.ulTokenA,
+				},
+				enDelay: (12 + (_FtimeInt() % 3)), // 12 + (0--2) == 12--14
+			}
+			if nil == ___Vlc.ulCHencodeCmdLO { //     *chan _Tencode
+				_FpfNonce(" 138182 04 : why CMD-en not Chan ? {%s}", __Ven.String())
 			} else {
-				___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
-				___Vlc.ulGenTime = _FtimeInt()
-
-				__Ven := _Tencode{
-					enToConnPort: __VuConnPort, // _TudpConnPort
-					enType:       Cmd__loginS01genReplyTokenA,
-					enLogin: _TloginReq{
-						MeRand5:  _FgenRand_nByte__(5),
-						MeTime:   _FtimeInt(),
-						ReqStr:   " loginS01genReplyTokenA ",
-						MeName:   _VC.Name,
-						MeIdx128: _VC.MyId128,
-						MeSeq128: _VS.MySeq128,
-						TokenL:   ___Vlc.ulTokenA,
-					},
-					enDelay: (12 + (_FtimeInt() % 3)), // 12 + (0--2) == 12--14
-				}
-				if nil == ___Vlc.ulCHencodeCmdLO { //     *chan _Tencode
-					_FpfNonce(" 138182 04 : why CMD-en not Chan ? {%s}", __Ven.String())
-				} else {
-					_FpfN(" 138182 05 CMD-en-chan push {%s}", __Ven.String())
-					(*___Vlc.ulCHencodeCmdLO) <- __Ven // _Tencode
-					_FpfNonce(" 138182 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Ven.enLogin.TokenL %s",
-						String5(&_VC.MyId128),
-						String5(&_VS.MySeq128),
-						String5(&__Ven.enLogin.TokenL))
-				}
+				_FpfN(" 138182 05 CMD-en-chan push {%s}", __Ven.String())
+				(*___Vlc.ulCHencodeCmdLO) <- __Ven // _Tencode
+				_FpfNonce(" 138182 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Ven.enLogin.TokenL %s",
+					String5(&_VC.MyId128),
+					String5(&_VS.MySeq128),
+					String5(&__Ven.enLogin.TokenL))
 			}
 		}
 	}
