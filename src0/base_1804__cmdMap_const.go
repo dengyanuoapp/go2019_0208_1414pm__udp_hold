@@ -29,5 +29,6 @@ func String5(___Vb *[]byte) string {
 	if len(*___Vb) < 5 {
 		return _Spf("%x", *___Vb)
 	}
-	return _Spf("%x", (*___Vb)[:5])
+	__Vt := *___Vb
+	return _Spf("%x", __Vt[:5])
 }

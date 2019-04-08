@@ -86,6 +86,10 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				} else {
 					_FpfN(" 138182 05 CMD-en-chan push {%s}", __Ven.String())
 					(*___Vlc.ulCHencodeCmdLO) <- __Ven // _Tencode
+					_FpfNonce(" 138182 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Ven.enLogin.TokenL %s",
+						String5(&_VC.MyId128),
+						String5(&_VS.MySeq128),
+						String5(&__Ven.enLogin.TokenL))
 				}
 			}
 		}
