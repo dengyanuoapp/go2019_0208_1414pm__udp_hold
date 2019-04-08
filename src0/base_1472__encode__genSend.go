@@ -59,7 +59,7 @@ func _FudpNodeDataSend__delaySend(___Vdelay int, ___Vus _TudpNodeDataSend, ___Vc
 
 	_Fsleep_1sX(___Vdelay)
 
-	_FpfN("849193 08 delay send {%s}", ___Vus.String())
+	_FpfNonce("849193 08 delay send (%d) {%s}", ___Vdelay, ___Vus.String())
 
 	(*___Vch) <- ___Vus
 }
