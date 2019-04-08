@@ -18,15 +18,22 @@ func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 			_FpfNdb(" 849192 06 : under constructing ")
 
 		}
-		___Vuen._FuEncode__1100201x2__fillAddr_sending(&__Vus)
+		___Vuen._FuEncode__1100201x2__fillAddr_sending(&__Vus, &__Vue)
 	}
 }
-func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus *_TudpNodeDataSend) { // _TudpNodeDataSendX
-	if nil == ___Vus {
-		_Fex(" 849193 01 : why NULL ?")
+func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus *_TudpNodeDataSend, ___Vue *_Tencode) { // _TudpNodeDataSendX
+	if nil == ___Vus || nil == ___Vue {
+		_FpfNex(" 849193 01 : why NULL ? %v:%v", ___Vus, ___Vue)
 	}
 	if 0 == len(___Vus.usOutBuf) {
 		_FpfN(" 849193 02 : len ZERO, ignore ")
+	}
+
+	if 0 == len(___Vue.enToId128) {
+		___Vus.usToAddr = ___Vue.enToConnPort
+	} else {
+		_FpfN(" 849193 03 : under constructing addr :%s", ___Vue.String())
+		return
 	}
 
 	_FpfN(" 849193 04 : try filling addr :%s", ___Vus.String())
