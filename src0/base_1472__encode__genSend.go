@@ -22,6 +22,11 @@ func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 	}
 }
 func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus *_TudpNodeDataSend, ___Vue *_Tencode) { // _TudpNodeDataSendX
+	if nil == ___Vuen.enCHuDataSendLO { // *chan _TudpNodeDataSend // _TudpNodeDataSendX
+		_FpfN(" 849193 01 : why NULL chan out? ignore :%v:%v", ___Vus, ___Vue)
+		return
+	}
+
 	if nil == ___Vus || nil == ___Vue {
 		_FpfNex(" 849193 01 : why NULL ? %v:%v", ___Vus, ___Vue)
 	}
@@ -36,5 +41,25 @@ func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus *_TudpNo
 		return
 	}
 
-	_FpfN(" 849193 04 : try filling addr :%s", ___Vus.String())
+	_FpfN(" 849193 04 : filling addr ok:%s", ___Vus.String())
+	(*___Vuen.enCHuDataSendLO) <- (*___Vus)
+
+	if 0 != ___Vue.enDelay {
+		go _FudpNodeDataSend__delaySend(___Vue.enDelay, *___Vus, ___Vuen.enCHuDataSendLO)
+	}
+}
+
+func _FudpNodeDataSend__delaySend(___Vdelay int, ___Vus _TudpNodeDataSend, ___Vch *chan _TudpNodeDataSend) { // _TudpNodeDataSendX
+	if 0 == ___Vdelay {
+		return
+	}
+	if nil == ___Vch {
+		return
+	}
+
+	_Fsleep_1sX(___Vdelay)
+
+	_FpfN("849193 08 delay send {%s}", ___Vus.String())
+
+	(*___Vch) <- ___Vus
 }
