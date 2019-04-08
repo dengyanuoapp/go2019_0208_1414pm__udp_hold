@@ -30,3 +30,16 @@ type _TsrvDownInfo struct {
 	srvInfo      _TsrvInfo
 	lastDownTime int
 }
+
+func (___Vsi *_TsrvDownInfo) String() string {
+	return _Spf("n:%s cOK:%t try:%d skip:%d uUri:%s uPwd:%s srv{%s} last:%d",
+		___Vsi.name,
+		___Vsi.connected,
+		___Vsi.tryCnt,
+		___Vsi.skipCnt,
+		___Vsi.updateUri,
+		String5(&___Vsi.updatePasswd),
+		___Vsi.srvInfo.String(),
+		___Vsi.lastDownTime,
+	)
+}
