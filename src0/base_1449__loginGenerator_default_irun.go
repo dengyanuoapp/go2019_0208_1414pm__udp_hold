@@ -32,7 +32,7 @@ func (___Vlg *_TloginGenerator) IRun(___Vidx int) {
 // lgSrvDownInfoLX *_TsrvDownInfo
 func _FudpDecode__800101x__init__tryUdpLogin__default(___Vlg *_TloginGenerator) {
 
-	___Vlg.lgCHdataMachineIdI = make(chan _TdataMachinEid, 10)
+	___Vlg.lgCHdataMachineIdI = make(chan _TdataMachinEid, 50)
 
 	// ___Vlg.lgSrvDownInfoLX
 	go _Frun(___Vlg, 800301) // _FudpDecode__800301x__connGen__default

@@ -38,7 +38,7 @@ func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
 	}
 
 	___Vtn3.tnAcceptTCPs = make([]_TacceptTCP, ___Vtn3.tnAmount)
-	___Vtn3.tnCHsendToAllClientI = make(chan _TtcpNodeDataSend, 10)
+	___Vtn3.tnCHsendToAllClientI = make(chan _TtcpNodeDataSend, 100)
 	go _Frun(___Vtn3, 200401) // _FtcpNode__200401x_accept_default
 
 	_Fsleep(_T1s)
