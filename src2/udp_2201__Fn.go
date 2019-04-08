@@ -48,6 +48,10 @@ func _Finit_2201() {
 
 	}
 
+	_VdataMachine_Fn = _TdataMachine{
+		dmCBprReceKey: _FdmCBprReceKey__Fn,
+	}
+
 	_VudpEncode_Fn = _TuEncode{
 		enCHuDataSendLO: &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSendX
 	}
@@ -72,6 +76,10 @@ func _Finit_2201() {
 	flag.Parse()
 
 	// _FdebugPrintTest()
+}
+
+func _FdmCBprReceKey__Fn(___Vdm *_TdataMachine) {
+	_VudpGroup_Fn._FprKey()
 }
 
 func main() {

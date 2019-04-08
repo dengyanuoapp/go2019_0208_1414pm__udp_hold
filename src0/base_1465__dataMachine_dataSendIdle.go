@@ -31,7 +31,7 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 				// _TdataMachinEconnMap
 				if __Vnow2-__Vcm.dmmLastPrTime > 20 {
 					for __Vidx, __Vconn := range __Vcm.dmmConnPortArr {
-						_CpfN(" 381921 03 : %x : %2d : to [%s]",
+						_CpfN(" 381921 03 sendingKeyArray: %x : %2d : to [%s]",
 							__Vconn.K256, // []byte
 							__Vidx,
 							__Vconn.DstAddr.String(), // net.UDPAddr
