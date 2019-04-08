@@ -33,7 +33,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				case Cmd__loginS02genReplyTokenB:
 					// ============================ step 03 : Dn check tokenA,id128,seq128 ,ACCEPT --> cmd fill 03 ====================
 					___Vlc.
-						_FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(&__Vdecode)
+						_FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(&__Vdecode, &__Venc)
 				case Cmd__loginS03acceptWithToken:
 					// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 					___Vlc.
@@ -71,12 +71,16 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		if nil == ___Vlc.ulCHencodeCmdLO { //     *chan _Tencode
 			_FpfNonce(" 138184 04 : why CMD-en not Chan ? {%s}", __Venc.String())
 		} else {
-			_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
-			(*___Vlc.ulCHencodeCmdLO) <- __Venc // _Tencode
-			_FpfNonce(" 138184 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
-				String5(&_VC.MyId128),
-				String5(&_VS.MySeq128),
-				String5(&__Venc.enLogin.TokenL))
+			//_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
+			if 0 == __Venc.enType {
+				//_FpfN(" 138184 06 zero Type , nothing need to send. ")
+			} else {
+				(*___Vlc.ulCHencodeCmdLO) <- __Venc // _Tencode
+				_FpfNonce(" 138184 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
+					String5(&_VC.MyId128),
+					String5(&_VS.MySeq128),
+					String5(&__Venc.enLogin.TokenL))
+			}
 		}
 	} // end for
 } // end func

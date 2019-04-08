@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(___Vdecode *_Tdecode) {
+func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(___Vdecode *_Tdecode, ___Venc *_Tencode) {
 	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyTokenB) {
 		_FpfNdb(" 838381 01 type error , ignore ")
 		return
@@ -36,43 +36,31 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 	}
 
 	//_FpfNex(" 838381 08 %s ", ___Vdecode.String())
+	*___Venc = _Tencode{
+		enToConnPort: _TudpConnPort{
+			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
+			K256:    ___Vdecode.remotePortKey, // []byte
+		},
+		enType: Cmd__loginS03acceptWithToken,
+		enLogin: _TloginReq{
+			MeRand5:  _FgenRand_nByte__(5),
+			MeTime:   _FtimeInt(),
+			ReqStr:   " step03__accept_tokenA ",
+			MeName:   _VC.Name,
+			MeIdx128: _VC.MyId128,
+			MeSeq128: _VS.MySeq128,
+			ToIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
+			ToSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
+			TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
+			TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
+		},
+	}
 
 	___Vlc._FloginCheck_step03__accept_tokenA_Dn(___Vdecode)
 }
 
 // _TloginReq _Tdecode
 func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_Tdecode) {
-	var __VunSend _TudpNodeDataSend
-
-	__Vreq := _TloginReq{
-		MeTime:   _FtimeInt(),               // int64
-		ReqStr:   " step03__accept_tokenA ", // string
-		MeName:   _VC.Name,
-		MeIdx128: _VC.MyId128,
-		MeSeq128: _VS.MySeq128,
-		ToIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
-		ToSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
-		TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
-		TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
-	}
-
-	//_FpfN("   838382 10 %s ", ___Vdecode.String())
-	//_FpfNex(" 838382 11 %s ", __Vreq.String())
-
-	//_FpfNdb(" 838382 01 start [req:<%s>]", __Vreq.String())
-	if nil == ___Vlc.ulCHSendLO {
-		_FpfN(" 838382 02 , why output-Chan nil ? ulCHSendLO")
-	} else {
-		//_FpfN(" 838382 03 , fake Chan ")
-		__Vreq._FdataPack__100__loginReq(Cmd__loginS03acceptWithToken, &__VunSend.usOutBuf)
-		__VunSend.usToAddr = _TudpConnPort{
-			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
-			K256:    ___Vdecode.remotePortKey, // []byte
-		}
-		//_FpfNdb(" 838382 04 [pre-unSend:<%s>]{%s}", __VunSend.String(), __Vreq.String())
-		(*___Vlc.ulCHSendLO) <- __VunSend // _TudpNodeDataSend
-	}
-
 	if nil == ___Vlc.ulCHdataMachineIdLO {
 		_FpfN(" 838382 06 , why output-Chan nil ? ulCHdataMachineIdLO")
 	} else {

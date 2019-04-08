@@ -74,7 +74,6 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 
 // _TloginReq _Tdecode
 func (___Vlc *_TloginCheck) _FloginCheck_step04__accept_tokenB_Fn(___Vdecode *_Tdecode) {
-
 	if nil == ___Vlc.ulCHdataMachineIdLO {
 		_FpfN(" 838387 06 , why output-Chan nil ? ulCHdataMachineIdLO")
 	} else {
