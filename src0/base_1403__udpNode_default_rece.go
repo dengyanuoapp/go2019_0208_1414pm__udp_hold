@@ -65,14 +65,22 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		return
 	}
 
-	__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unRkeyX.Bkey, ___VbufIn)
+	if len(*___VbufIn) < ___Vun.unRlen {
+		_Fex("439192 03 why len error ?")
+	}
+
+	__Vtmp := (*___VbufIn)[:___Vun.unRlen]
+
+	//__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unRkeyX.Bkey, ___VbufIn)
+	__Vtmp2, __Verr2 := _FdecAesRand__only(&___Vun.unRkeyX.Bkey, &__Vtmp)
 	if nil != __Verr2 {
 		//_FpfN(" 439192 03 rece buf: %v ", ___VbufIn)
 		_FpfNhex(___VbufIn, 68,
-			" 439192 04 rece Null or AES-decode error : rL:%d-bufL:%d receM:%x ti:%11d remote:%s local:%s ReceKey:%x. error:%v ",
+			" 439192 04 rece Null or AES-decode error : rL:%d-bufL:%d/%d receM:%x ti:%11d remote:%s local:%s ReceKey:%s. error:%v ",
 			___Vun.unRlen,
 			len(*___VbufIn),
-			_FgenMd5__5(___VbufIn),
+			len(__Vtmp),
+			_FgenMd5__5(&__Vtmp),
 			_FtimeI64(),
 			___Vun.unRemoteAddr.String(),
 			___Vun.unLocalAddr.String(),
