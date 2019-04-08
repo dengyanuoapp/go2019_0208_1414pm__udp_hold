@@ -41,7 +41,8 @@ type _TdataMachine struct {
 	dmCHloginGenMachineIdLO *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI, fill this chan to told the loginGen to stop
 	dmCBinit                func(*_TdataMachine)  // _FdataMachin__1000101__main_init__default
 	dmCBrece                func(*_TdataMachine)  //
-	dmCBprKey               func(*_TdataMachine)  //
+	dmCBprReceKey           func(*_TdataMachine)  //
+	dmCBprSendKey           func(*_TdataMachine)  //
 	dmMconn                 _TdataMachineConnSt
 	dmCHdecodeDataI         chan _Tdecode // from uTmCHdecodeDataLO  *chan _Tdecode of decoder
 	//dmCH  unCHreceLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan

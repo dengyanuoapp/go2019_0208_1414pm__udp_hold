@@ -53,7 +53,8 @@ func _Finit__2301() {
 
 	_VdataMachine_Dn = _TdataMachine{
 		dmCHloginGenMachineIdLO: &_VloginGenerator_Dn.lgCHdataMachineIdI,
-		dmCBprKey:               _FdmCBprKey__Dn,
+		dmCBprReceKey:           _FdmCBprReceKey__Dn,
+		dmCBprSendKey:           _FdmCBprSendKey__Dn,
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{
@@ -80,8 +81,10 @@ func _Finit__2301() {
 
 }
 
-func _FdmCBprKey__Dn(___Vdm *_TdataMachine) {
+func _FdmCBprReceKey__Dn(___Vdm *_TdataMachine) {
 	_VudpGroup_Dn._FprKey()
+}
+func _FdmCBprSendKey__Dn(___Vdm *_TdataMachine) {
 }
 
 func main() {
