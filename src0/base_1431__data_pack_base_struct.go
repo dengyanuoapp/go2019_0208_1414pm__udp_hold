@@ -109,6 +109,7 @@ type _Tencode struct {
 	enLogin      _TloginReq
 	enData       _TdataTran
 	enDelay      int // a delay resend if not zero
+	enMultiSend  int // send multi timeS if not zero
 	//enToAddr net.UDPAddr
 	//enToKey  []byte
 }

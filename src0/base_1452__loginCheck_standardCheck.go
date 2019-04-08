@@ -19,6 +19,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 	//var __VuConnPort _TudpConnPort
 	for {
 		//_Fsleep_100s()
+		__Venc := _Tencode{}
 		select {
 		case __Vdecode := <-___Vlc.ulDecodeI: // _Tdecode
 			//_FpfNdb(" 138183 03 : %s", __Vdecode.String()) // 15540463611554046361
@@ -28,7 +29,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 					// ============================ step 02 : Fn gen tokenB, to Dn, cmd fill 02 ====================
 					//_FpfN(" 138183 04 : %s", __Vdecode.String())
 					___Vlc.
-						_FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn(&__Vdecode)
+						_FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn(&__Vdecode, &__Venc)
 				case Cmd__loginS02genReplyTokenB:
 					// ============================ step 03 : Dn check tokenA,id128,seq128 ,ACCEPT --> cmd fill 03 ====================
 					___Vlc.
@@ -37,21 +38,21 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 					// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 					___Vlc.
 						_FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(&__Vdecode)
-					//					//_FpfNdb(" 138183 06 : %x", __Vdecode.Dlogin.TokenL)
-					//					//_FpfNdb(" 138183 07 : %s", __Vdecode.String()) // 15540463611554046361
 				default:
 					_FpfNdb(" 138183 08 : unknow how to deal with : type %d,", __Vdecode.Type)
+					continue // next select
 				}
 			} else {
 				_FpfNdb(" 138183 09 : why not ok ?")
+				continue // next select
 			}
 		case __VuConnPort := <-___Vlc.ulCHconnPortI: // _TudpConnPort
 			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
-			_FpfNdb(" 138182 03 : connPort-Chan pop {%s}", __VuConnPort.String())
+			_FpfNdb(" 138184 03 : connPort-Chan pop {%s}", __VuConnPort.String())
 			___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
 			___Vlc.ulGenTime = _FtimeInt()
 
-			__Ven := _Tencode{
+			__Venc = _Tencode{
 				enToConnPort: __VuConnPort, // _TudpConnPort
 				enType:       Cmd__loginS01genReplyTokenA,
 				enLogin: _TloginReq{
@@ -65,16 +66,17 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				},
 				enDelay: (12 + (_FtimeInt() % 3)), // 12 + (0--2) == 12--14
 			}
-			if nil == ___Vlc.ulCHencodeCmdLO { //     *chan _Tencode
-				_FpfNonce(" 138182 04 : why CMD-en not Chan ? {%s}", __Ven.String())
-			} else {
-				_FpfN(" 138182 05 CMD-en-chan push {%s}", __Ven.String())
-				(*___Vlc.ulCHencodeCmdLO) <- __Ven // _Tencode
-				_FpfNonce(" 138182 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Ven.enLogin.TokenL %s",
-					String5(&_VC.MyId128),
-					String5(&_VS.MySeq128),
-					String5(&__Ven.enLogin.TokenL))
-			}
+		} // end select
+
+		if nil == ___Vlc.ulCHencodeCmdLO { //     *chan _Tencode
+			_FpfNonce(" 138184 04 : why CMD-en not Chan ? {%s}", __Venc.String())
+		} else {
+			_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
+			(*___Vlc.ulCHencodeCmdLO) <- __Venc // _Tencode
+			_FpfNonce(" 138184 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
+				String5(&_VC.MyId128),
+				String5(&_VS.MySeq128),
+				String5(&__Venc.enLogin.TokenL))
 		}
-	}
-}
+	} // end for
+} // end func

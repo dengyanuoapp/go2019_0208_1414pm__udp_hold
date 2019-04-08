@@ -47,6 +47,12 @@ func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus *_TudpNo
 	if 0 != ___Vue.enDelay {
 		go _FudpNodeDataSend__delaySend(___Vue.enDelay, *___Vus, ___Vuen.enCHuDataSendLO)
 	}
+
+	__Vi := ___Vue.enMultiSend
+	for __Vi != 0 {
+		(*___Vuen.enCHuDataSendLO) <- (*___Vus)
+		__Vi--
+	}
 }
 
 func _FudpNodeDataSend__delaySend(___Vdelay int, ___Vus _TudpNodeDataSend, ___Vch *chan _TudpNodeDataSend) { // _TudpNodeDataSendX
