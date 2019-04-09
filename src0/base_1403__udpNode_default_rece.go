@@ -47,11 +47,10 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy3__receiveCallBack_default__randDe
 
 	if ___Vun.unRkeyX.disable {
 		var __Vrece _TudpNodeDataRece
-		__Vrece = _TudpNodeDataRece{
+		__Vrece = _TudpNodeDataRece{ // _TudpNodeDataReceX
 			urrRemoteAddr: ___Vun.unRemoteAddr,
-			urrLen:        ___Vun.unRlen,
 			urrBuf:        ___Vun.unRbuf[:___Vun.unRlen],
-			//urrBuf:        make([]byte,___Vun.unRlen)
+			urrReceiveKey: ___Vun.unRkeyX,
 		}
 		//copy(__Vrece.urrBuf,        ___Vun.unRbuf[:___Vun.unRlen])
 		(*___Vun.unCHreceLO) <- __Vrece
@@ -106,7 +105,6 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 
 	__VuRece := _TudpNodeDataRece{ // _TudpNodeDataReceX
 		urrRemoteAddr: ___Vun.unRemoteAddr,
-		urrLen:        len(__Vtmp3),
 		urrBuf:        __Vtmp3,
 	}
 	if 3 == 3 {
@@ -123,14 +121,6 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 			_FgenMd5__5(&__Vtmp3),
 		)
 		//_CpfN("439195 03 me:%s : before AES:<%x> after:<%x>", ___Vun.unLocalAddr.String(), __Vtmp2, __Vtmp3)
-	}
-
-	if __VuRece.urrLen < 400 && __VuRece.urrLen > 32 {
-		//_FpfN(" 439196 03 rece : %d ,%11d %v : %s", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr, __VuRece.urrBuf)
-		//_FpfNhex(___VbufIn, 48, " 439196 04 origin len %d :", ___Vun.unRlen)
-		//_FpfNhex(&__VuRece.urrBuf, 33, " 439196 05 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __VuRece.urrRemoteAddr)
-	} else {
-		_FpfNhex(&__VuRece.urrBuf, 38, " 439196 06 rece : %d ,%11d %v ", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr)
 	}
 
 	if nil == ___Vun.unCHreceLO {

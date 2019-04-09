@@ -17,7 +17,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	//___Vdecode.Type = 0
 	(*___Vdecode) = _Tdecode{}
 
-    __Vlen := len(___Vbuf)
+	__Vlen := len(___Vbuf)
 	if __Vlen < (1 + 4 + 32 + 32) {
 		_FpfNdb(" 387192 02 : data decode start ")
 		return

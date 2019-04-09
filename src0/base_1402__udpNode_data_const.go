@@ -8,18 +8,18 @@ type _TudpNodeDataReceX struct {
 }
 type _TudpNodeDataRece struct {
 	urrRemoteAddr net.UDPAddr
-	urrLen        int
 	urrBuf        []byte
-    urrReceKey      _Tkey256 // _Tkey256
+	urrReceiveKey _Tkey256
 }
 
 func (___Vr *_TudpNodeDataRece) String() string {
-	return _Spf("rm:%s rL:%d (%d){%x}%s",
+	return _Spf("rm:%s (%d){%x} buf[%s] k[%s]",
 		___Vr.urrRemoteAddr.String(),
-		___Vr.urrLen,
 		len(___Vr.urrBuf),
 		_FgenMd5__5(&___Vr.urrBuf),
-		String9(&___Vr.urrBuf))
+		String9(&___Vr.urrBuf),
+		___Vr.urrReceiveKey.String(),
+	)
 }
 
 type _TudpNodeDataSendX struct {

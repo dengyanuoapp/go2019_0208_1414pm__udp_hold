@@ -46,7 +46,6 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 
 	__Vrece := _TudpNodeDataRece{
 		urrRemoteAddr: ___Vun.unRemoteAddr,
-		urrLen:        ___Vun.unRlen,
 		urrBuf:        ___Vun.unRbuf[:___Vun.unRlen],
 	}
 	__VrKey := __Vrece.urrRemoteAddr.IP.String()

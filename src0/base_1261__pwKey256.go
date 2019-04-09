@@ -8,6 +8,14 @@ type _Tkey256 struct {
 	disable bool
 }
 
+func (___Vk *_Tkey256) String() string {
+	return _Spf("k1:%s k2:%x dis:%t",
+		String5(&___Vk.Bkey),
+		___Vk.B32[:5],
+		___Vk.disable,
+	)
+}
+
 func (___Vkey *_Tkey256) initKey(___VinBlp *[]byte) {
 	if nil == ___VinBlp {
 		_FpfN(" 893818 02 using key : %x (new gen random) ", ___VinBlp)
