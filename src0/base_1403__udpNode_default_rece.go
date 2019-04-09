@@ -9,9 +9,19 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 		___Vun.unRlen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
 		___Vun.unRemoteAddr = *__VuAddr
+
+		__Vtmp := ___Vun.unRbuf[:___Vun.unRlen]
+		_CpfN(" 831818 01 rece origin: %11d : me:%s ,remote %s, len:%d/%d , md5{%x}",
+			_FtimeI64(),
+			___Vun.unLocalAddr.String(),
+			(*__VuAddr).String(),
+			___Vun.unRlen,
+			len(__Vtmp),
+			_FgenMd5__5(&__Vtmp),
+		)
 		if nil == ___Vun.unRerr {
 			if nil == ___Vun.unCHreceLO {
-				_FpfNhex(&___Vun.unRbuf, 40, " 831818 01 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
+				_FpfNhex(&___Vun.unRbuf, 40, " 831818 02 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
 				if nil == ___Vun.unCBrece {
 					//_FpfN(" 831818 03 default receive:{%s}", ___Vun.String())
@@ -97,13 +107,21 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		urrLen:        len(__Vtmp2),
 		urrBuf:        __Vtmp2,
 	}
+	_CpfN("439196 01:after AES: %11d : me:%s ,remote:%s, len:%d/%d , md5{%x}",
+		_FtimeI64(),
+		___Vun.unLocalAddr.String(),
+		___Vun.unRemoteAddr.String(),
+		___Vun.unRlen,
+		len(__Vtmp2),
+		_FgenMd5__5(&__Vtmp2),
+	)
 
 	if __VuRece.urrLen < 400 && __VuRece.urrLen > 32 {
-		//_FpfN(" 439196 01 rece : %d ,%11d %v : %s", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr, __VuRece.urrBuf)
-		//_FpfNhex(___VbufIn, 48, " 439196 02 origin len %d :", ___Vun.unRlen)
-		//_FpfNhex(&__VuRece.urrBuf, 33, " 439196 03 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __VuRece.urrRemoteAddr)
+		//_FpfN(" 439196 03 rece : %d ,%11d %v : %s", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr, __VuRece.urrBuf)
+		//_FpfNhex(___VbufIn, 48, " 439196 04 origin len %d :", ___Vun.unRlen)
+		//_FpfNhex(&__VuRece.urrBuf, 33, " 439196 05 oldLen %d %11d from %v", ___Vun.unRlen, _FtimeI64(), __VuRece.urrRemoteAddr)
 	} else {
-		_FpfNhex(&__VuRece.urrBuf, 38, " 439196 05 rece : %d ,%11d %v ", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr)
+		_FpfNhex(&__VuRece.urrBuf, 38, " 439196 06 rece : %d ,%11d %v ", __VuRece.urrLen, _FtimeI64(), __VuRece.urrRemoteAddr)
 	}
 
 	if nil == ___Vun.unCHreceLO {
