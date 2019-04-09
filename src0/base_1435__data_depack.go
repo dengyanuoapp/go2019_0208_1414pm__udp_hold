@@ -6,10 +6,10 @@ import (
 )
 
 func (__Vundr *_TudpNodeDataRece) _FdataPack__decode_from_udpNodeDataRece(___Vdecode *_Tdecode) {
-	_FdataPack__dataDecode_common(___Vdecode, __Vundr.urrLen, __Vundr.urrBuf)
+	_FdataPack__dataDecode_common(___Vdecode, __Vundr.urrBuf)
 }
 
-func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []byte) {
+func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	if nil == ___Vdecode {
 		return
 	}
@@ -17,7 +17,8 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vlen int, ___Vbuf []
 	//___Vdecode.Type = 0
 	(*___Vdecode) = _Tdecode{}
 
-	if ___Vlen < (1 + 4 + 32 + 32) {
+    __Vlen := len(___Vbuf)
+	if __Vlen < (1 + 4 + 32 + 32) {
 		_FpfNdb(" 387192 02 : data decode start ")
 		return
 	}
