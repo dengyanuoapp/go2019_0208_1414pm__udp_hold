@@ -32,3 +32,13 @@ func String5(___Vb *[]byte) string {
 	__Vt := *___Vb
 	return _Spf("%x", __Vt[:5])
 }
+func String9(___Vb *[]byte) string {
+	if (nil == ___Vb) || (0 == len(*___Vb)) {
+		return ""
+	}
+	if len(*___Vb) < 9 {
+		return _Spf("%x", *___Vb)
+	}
+	__Vt := *___Vb
+	return _Spf("%x", __Vt[:9])
+}

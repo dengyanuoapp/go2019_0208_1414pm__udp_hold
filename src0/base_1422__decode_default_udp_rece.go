@@ -19,7 +19,8 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 				_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 			__Vdecode.remoteAddr = __VunRece.urrRemoteAddr
 			//__Vdecode.receiveTime = _FtimeInt()
-			_CpfN(" 388195 03 : after decoder :{%s} ", __Vdecode.String())
+			_CpfN(" 388195 03 : before decoder : __VunRece {%s} ", __VunRece.String())
+			_CpfN(" 388195 04 : after decoder  : __Vdecode {%s} ", __Vdecode.String())
 
 			switch __Vdecode.Type {
 			case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,

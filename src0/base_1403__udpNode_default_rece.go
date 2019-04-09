@@ -107,10 +107,13 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		urrLen:        len(__Vtmp2),
 		urrBuf:        __Vtmp2,
 	}
-	_CpfN("439196 01:after AES: %11d : me:%s ,remote:%s, len:%d/%d , md5{%x}",
+	_CpfN("439196 01:after AES: %11d : me:%s ,remote:%s, before(%d/%d){%x} , after:%d/%d{%x} ",
 		_FtimeI64(),
 		___Vun.unLocalAddr.String(),
 		___Vun.unRemoteAddr.String(),
+		___Vun.unRlen,
+		len(__Vtmp),
+		_FgenMd5__5(&__Vtmp),
 		___Vun.unRlen,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
@@ -127,14 +130,14 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 	if nil == ___Vun.unCHreceLO {
 		_FpfN(" 439196 07 udpNodeDataRece can NOT output , for outChan is null : %s", __VuRece.String())
 	} else {
-		_CpfN(" 439196 08 udpNodeDataRece %11d la:%v bufL:%d bufM5{%x} dL:%d dM5{%x}: %s",
+		_CpfN(" 439196 08 udpNodeDataRece %11d la:%v allBuf:(%d){%x} lenBuf(%d){%x}: [%s]",
 			_FtimeInt(),
 			___Vun.unLocalAddr,
 			len(*___VbufIn),
 			_FgenMd5__5(___VbufIn),
 			len(__Vtmp2),
 			_FgenMd5__5(&__Vtmp2),
-			__VuRece.String())
+			__VuRece.String()) // _TudpNodeDataReceX
 		//_FpfN(" 439196 09 udpNodeDataRece : %s", __VuRece.String())
 		(*___Vun.unCHreceLO) <- __VuRece
 	}

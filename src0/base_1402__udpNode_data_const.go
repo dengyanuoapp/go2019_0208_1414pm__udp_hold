@@ -13,11 +13,12 @@ type _TudpNodeDataRece struct {
 }
 
 func (___Vr *_TudpNodeDataRece) String() string {
-	return _Spf("rm:%s rL:%d bufL:%d %x)",
+	return _Spf("rm:%s rL:%d (%d){%x}%s",
 		___Vr.urrRemoteAddr.String(),
 		___Vr.urrLen,
 		len(___Vr.urrBuf),
-		___Vr.urrBuf[:30])
+		_FgenMd5__5(&___Vr.urrBuf),
+		String9(&___Vr.urrBuf))
 }
 
 type _TudpNodeDataSendX struct {
