@@ -3,38 +3,17 @@ package main
 import "net"
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
-func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
+func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 	var __VuAddr *net.UDPAddr
 	for {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 		___Vun.unRlen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
 		___Vun.unRemoteAddr = *__VuAddr
 
-		if 2 == 3 {
-			__Vtmp2 := ___Vun.unRbuf[:___Vun.unRlen]
-			_CpfN(" 831818 01 rece origin: %11d : me:%s ,remote %s, len:%d/%d , md5{%x}",
-				_FtimeI64(),
-				___Vun.unLocalAddr.String(),
-				(*__VuAddr).String(),
-				___Vun.unRlen,
-				len(__Vtmp2),
-				_FgenMd5__5(&__Vtmp2),
-			)
-		}
 		if nil == ___Vun.unRerr {
 			if nil == ___Vun.unCHreceLO {
 				_FpfNhex(&___Vun.unRbuf, 40, " 831818 02 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
 			} else {
-				if nil == ___Vun.unCBrece {
-					//_FpfN(" 831818 03 default receive:{%s}", ___Vun.String())
-					___Vun.
-						_FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() // if gap is not set , default
-					//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()    // if gap set , use this
-				} else {
-					//_FpfN(" 831818 08 custom_receive 01 all start, len(%d)", ___Vun.unRlen)
-					// _FudpNode__540211z__receiveCallBack_withTimeGap
-					___Vun.unCBrece(___Vun)
-				}
 			}
 		} else {
 			_FpfN(" 831818 09 rece error : [%v] ", ___Vun.unRerr)

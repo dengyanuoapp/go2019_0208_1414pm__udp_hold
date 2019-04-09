@@ -16,6 +16,7 @@ var (
 	_Vself              _Tself
 	_Vconfig            _Tconfig
 	_VloginGenerator_Dn _TloginGenerator
+	//_TudpNodeSt
 )
 
 func _Finit__2301() {
@@ -98,6 +99,7 @@ func main() {
 	//go _Frun(&_VtcpDebugLog__Dn, 200801) // _FtcpNode__200801x_send__tester01
 	//go _Frun(&_VtcpDebugLog__Dn, 200802) // _FtcpNode__200802x_send__tester02
 
+	// _FudpNode__500201y__receive__default()
 	// _FudpNode__500101__main_init__default
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
