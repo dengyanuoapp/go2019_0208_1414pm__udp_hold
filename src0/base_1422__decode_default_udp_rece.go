@@ -40,9 +40,9 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 			switch __Vdecode.Type {
 			case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 				Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-				//_FpfN(" 388195 05 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+				//_FpfN(" 388195 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 				if nil == ___Vutm.uTmCHdecodeCmdLO {
-					_FpfN(" 388195 06 : outChan null , ignore:%s", __Vdecode.String())
+					_FpfN(" 388195 07 : outChan null , ignore:%s", __Vdecode.String())
 				} else {
 					//_FpfN(" 388195 08 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 					//_FpfN(" 388195 09 real outChain : %s", __Vdecode.String())
