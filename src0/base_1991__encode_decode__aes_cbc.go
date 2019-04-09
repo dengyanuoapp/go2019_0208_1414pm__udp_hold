@@ -7,10 +7,10 @@ import (
 
 // block is 128 bit , 16 byte
 // key   is 256 bit , 32 byte : fixed use 256 aes , not 128 , 196
-type _Taes struct {
-	name string
-	key  []byte
-} // _Taes
+//type _Taes struct {
+//	name string
+//	key  []byte
+//} // _Taes
 
 // https://golang.org/pkg/crypto/cipher/#example_NewCBCEncrypter
 func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
@@ -72,8 +72,9 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		__Vout []byte
 	)
 
+	__Vout = []byte{}
 	if 32 != len(*___Vkey) {
-		//_FpfNhex(___Vkey, 32, " 838181 key len error ")
+		_FpfNonce(" 838181 key len error (not equals to 32): %d:%s", len(*___Vkey), String5(___Vkey))
 		return __Vout, nil
 	}
 
