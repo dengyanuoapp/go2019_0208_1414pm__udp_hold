@@ -1,5 +1,6 @@
 package main
 
+type _Tkey256X struct{}
 type _Tkey256 struct {
 	// the input password , all data try AES decode, if faild , then drop it.
 	// if nil , then ignore(no filter , directly receive)
