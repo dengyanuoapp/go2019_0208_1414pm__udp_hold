@@ -32,8 +32,8 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 
 			if 3 == 3 {
 				_CpfN(" 388195 04 : after decoder  : __Vdecode {%s} (from %d:%x)",
-					__Vdecode.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf))
-				_CpfN(" 388195 05 : after decoder  : __VunRece {%s} (from %d:%x)",
+					__Vdecode.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf)) // _TdecodeX
+				_CpfN(" 388195 05 : after decoder  : __VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
 					__VunRece.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf))
 			}
 

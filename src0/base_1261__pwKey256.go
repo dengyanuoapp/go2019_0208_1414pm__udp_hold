@@ -10,10 +10,14 @@ type _Tkey256 struct {
 }
 
 func (___Vk *_Tkey256) String() string {
-	return _Spf("k1:%s k2:%x dis:%t",
+	__Vfmt := "k1:%s k2:%x dis:F"
+	if ___Vk.disable {
+		__Vfmt = "k1:%s k2:%x dis:T"
+	}
+
+	return _Spf(__Vfmt,
 		String5(&___Vk.Bkey),
 		___Vk.B32[:5],
-		___Vk.disable,
 	)
 }
 

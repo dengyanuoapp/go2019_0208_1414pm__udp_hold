@@ -33,7 +33,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 			continue
 		}
 
-		__Vrece := _TudpNodeDataRece{
+		__Vrece := _TudpNodeDataRece{ // _TudpNodeDataReceX
+			urrLocalPort:  ___Vun.unLocalPort,            // _TudpNodeSt
 			urrRemoteAddr: (*__VuAddr),                   // net.UDPAddr
 			urrBuf:        ___Vun.unRbuf[:___Vun.unRlen], // []byte
 			urrReceiveKey: ___Vun.unRkeyX,                // _Tkey256

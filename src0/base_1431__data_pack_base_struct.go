@@ -80,7 +80,7 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.Type)
 	}
 	__Vrs := _Spf(
-		"ok:%T addr:%s key:%x type:%s {%s} t:%d ",
+		"ok:%T rm:%s rmk:%x type:%s {%s} t:%d ",
 		___Vd.ok,
 		___Vd.remoteAddr.String(),
 		___Vd.remotePortKey[:8],
@@ -120,7 +120,7 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("to<%s/%s> k:%s T:%d", ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enToConnPort.String(), ___Ven.enType)
+	__Vso = _Spf("to:%s toId:%s T:%d", ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enType)
 
 	switch ___Ven.enType {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,

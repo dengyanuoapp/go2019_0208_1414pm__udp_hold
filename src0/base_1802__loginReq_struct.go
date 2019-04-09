@@ -23,7 +23,7 @@ func _Fbyte2str(___Vb *[]byte) string {
 func (___Vlr *_TloginReq) String() string {
 	__Vo := _Spf(
 		//" %d %s %s me:%x %x to:%x %x tkAB: %s,%s ",
-		" rand5:%x ti:%d req:%s me:%s mid:%s,%s tid:%s,%s tkAB: %s,%s",
+		"rand5:%x ti:%d req:%s mn:%s mid:%s,%s tid:%s,%s tkAB:%s,%s",
 		___Vlr.MeRand5,
 		___Vlr.MeTime,
 		___Vlr.ReqStr,
