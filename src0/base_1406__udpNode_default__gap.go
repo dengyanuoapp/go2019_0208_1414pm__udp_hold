@@ -1,5 +1,6 @@
 package main
 
+/*
 func (___Vun *_TudpNodeSt) _FudpNode__540211x__gap() {
 	if 0 == ___Vun.unLoopGap {
 		return
@@ -23,6 +24,7 @@ func _FudpNode__540211y__gap_default(___Vun *_TudpNodeSt) {
 
 func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	//_FpfNdb(" 848231 01 ")
+	defer ___Vun.unRmap.unrMux.Unlock()
 	___Vun.unRmap.unrMux.Lock()
 
 	//_FpfN(" 848231 03 las2 %v", ___Vun.unRmap.unrMapLas2)
@@ -37,7 +39,6 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 	//_FpfN(" 848231 07 last %v", ___Vun.unRmap.unrMapLast)
 	//_FpfN(" 848231 08 now  %v", ___Vun.unRmap.unrMapNow)
 
-	___Vun.unRmap.unrMux.Unlock()
 }
 
 // replace the _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
@@ -109,3 +110,4 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 			_FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.urrBuf)
 	}
 }
+*/

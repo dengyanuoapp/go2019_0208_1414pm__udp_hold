@@ -10,8 +10,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101y__receive() {
 		___Vun.unRlen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
 		___Vun.unRemoteAddr = *__VuAddr
 
-		__Vtmp2 := ___Vun.unRbuf[:___Vun.unRlen]
 		if 2 == 3 {
+			__Vtmp2 := ___Vun.unRbuf[:___Vun.unRlen]
 			_CpfN(" 831818 01 rece origin: %11d : me:%s ,remote %s, len:%d/%d , md5{%x}",
 				_FtimeI64(),
 				___Vun.unLocalAddr.String(),
