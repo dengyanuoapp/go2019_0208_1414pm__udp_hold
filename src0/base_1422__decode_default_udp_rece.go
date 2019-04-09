@@ -15,12 +15,12 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 		select {
 		case __VunRece = <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
 			//_FpfNhex(&__VunRece.urrBuf, 38, " 388195 02 : %T , decode len <%d>: %11d", __VunRece.urrBuf, __VunRece.urrLen, _FtimeI64())
+			_CpfN(" 388195 03 : before decoder : __VunRece {%s} ", __VunRece.String()) // _TudpNodeDataReceX
 			__VunRece.
 				_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 			__Vdecode.remoteAddr = __VunRece.urrRemoteAddr
-			//__Vdecode.receiveTime = _FtimeInt()
-			_CpfN(" 388195 03 : before decoder : __VunRece {%s} ", __VunRece.String())
-			_CpfN(" 388195 04 : after decoder  : __Vdecode {%s} ", __Vdecode.String())
+			_CpfN(" 388195 04 : after decoder  : __Vdecode {%s} (from %d:%x)",
+				__Vdecode.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf))
 
 			switch __Vdecode.Type {
 			case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,

@@ -80,13 +80,13 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.Type)
 	}
 	__Vrs := _Spf(
-		"ok:%T rece:%d addr:%s key:%x type:%s {%s}",
+		"ok:%T addr:%s key:%x type:%s {%s} t:%d ",
 		___Vd.ok,
-		___Vd.receiveTime,
 		___Vd.remoteAddr.String(),
 		___Vd.remotePortKey[:8],
 		_FcmdType(___Vd.Type),
-		__Vcontent)
+		__Vcontent,
+		___Vd.receiveTime)
 	return __Vrs
 }
 

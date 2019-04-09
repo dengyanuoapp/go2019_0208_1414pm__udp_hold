@@ -3,7 +3,7 @@ package main
 func (___Vun *_TudpNodeSt) _FudpNode__500101z__send() {
 	for {
 		select {
-		case __VchSend := <-___Vun.unCHsendI: // _TudpNodeDataSend
+		case __VchSend := <-___Vun.unCHsendI: // _TudpNodeDataSendX
 			//_FpfN(" 839118 01 send ") // usToAddr
 
 			__VchSend._FudpNode__500101zz__try_Rand_buf_before_send()
@@ -52,20 +52,21 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 			if 3 == 3 {
 				if 2 == 2 {
 					_CpfN(
-						" 839119 04 udp-send-rand %11d bufL:%d: toK<%s> to<%s> la<%s> plantM5{%x}, EN-len(%d) randM5{%x}",
+						" 839119 04 udp-send-rand %11d me<%s> to<%s> toK<%s> before:%d{%x}, rand:%d{%x} [%s]",
 						_FtimeI64(),
-						len(___Vus.usOutBuf),
-						String5(&___Vus.usToAddr.K256),
-						___Vus.usToAddr.DstAddr.String(),
 						___Vun.unLocalAddr.String(),
+						___Vus.usToAddr.DstAddr.String(),
+						String5(&___Vus.usToAddr.K256),
+						len(___Vus.usOutBuf),
 						_FgenMd5__5(&___Vus.usOutBuf),
 						len(__Vbuf),
 						_FgenMd5__5(&__Vbuf),
+						___Vus.String(),
 					)
 				}
 				if 2 == 3 {
 					_FpfNhex(&__Vbuf, 28,
-						" 839119 05 udp send-rand %11d len:%d: dst<%s> to-key<%x> local<%s> md5{%x}",
+						" 839119 06 udp send-rand %11d len:%d: dst<%s> to-key<%x> local<%s> md5{%x}",
 						_FtimeI64(), len(___Vus.usOutBuf),
 						___Vus.usToAddr.DstAddr.String(),
 						___Vus.usToAddr.K256[:8],
@@ -73,7 +74,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 						_FgenMd5__5(&___Vus.usOutBuf))
 				}
 				if 2 == 3 {
-					_FpfNhex(&__Vbuf, 16, " 839119 06 send: %s", ___Vun.String())
+					_FpfNhex(&__Vbuf, 16, " 839119 07 send: %s", ___Vun.String())
 				}
 			}
 			if 3 == 2 {
