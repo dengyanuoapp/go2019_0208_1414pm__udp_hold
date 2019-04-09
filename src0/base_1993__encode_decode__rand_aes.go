@@ -7,15 +7,15 @@ import (
 	"fmt"
 )
 
-var (
-	//_VencAesRand_iv128__now  []byte = make([]byte, 16)
-	_VencAesRand_iv128__last []byte = make([]byte, 16)
-)
-
-// func _FencAesRand__gen_iv__by_timeMd5() {
-// 	_VencAesRand_iv128__now := _FgenMd5_nowB___(&_VencAesRand_iv128__last)
-// 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
-// } // _FencAesRand__gen_iv__by_timeMd5
+//var (
+//	//_VencAesRand_iv128__now  []byte = make([]byte, 16)
+//	_VencAesRand_iv128__last []byte = make([]byte, 16)
+//)
+//
+//// func _FencAesRand__gen_iv__by_timeMd5() {
+//// 	_VencAesRand_iv128__now := _FgenMd5_nowB___(&_VencAesRand_iv128__last)
+//// 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
+//// } // _FencAesRand__gen_iv__by_timeMd5
 
 func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	var (
