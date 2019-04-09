@@ -15,9 +15,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 		select {
 		case __VunRece = <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
 			//_FpfNhex(&__VunRece.urrBuf, 38, " 388195 02 : %T , decode len <%d>: %11d", __VunRece.urrBuf, __VunRece.urrLen, _FtimeI64())
-			if 2 == 3 {
-				_CpfN(" 388195 02 : before decoder : __VunRece {%s} ", __VunRece.String()) // _TudpNodeDataReceX
-			}
+			_CpfN(" 388195 02 : before decoder : __VunRece {%s} ", __VunRece.String()) // _TudpNodeDataReceX
 
 			if 0 != len(__VunRece.urrReceiveKey.Bkey) { // _Tkey256X
 				__Vtmp3, __Verr2 := _FdecAesRand__only(&__VunRece.urrReceiveKey.Bkey, &__VunRece.urrBuf)
@@ -32,9 +30,11 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 				_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 			__Vdecode.remoteAddr = __VunRece.urrRemoteAddr
 
-			if 2 == 3 {
+			if 3 == 3 {
 				_CpfN(" 388195 04 : after decoder  : __Vdecode {%s} (from %d:%x)",
 					__Vdecode.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf))
+				_CpfN(" 388195 05 : after decoder  : __VunRece {%s} (from %d:%x)",
+					__VunRece.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf))
 			}
 
 			switch __Vdecode.Type {
