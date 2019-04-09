@@ -4,20 +4,46 @@ import "net"
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
 func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
-	var __VuAddr *net.UDPAddr
 	for {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
+		//___Vun.unRlen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
+		var __VuAddr *net.UDPAddr = nil
 		___Vun.unRlen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)
 		___Vun.unRemoteAddr = *__VuAddr
 
-		if nil == ___Vun.unRerr {
-			if nil == ___Vun.unCHreceLO {
-				_FpfNhex(&___Vun.unRbuf, 40, " 831818 02 rece: %5d,%11d,noOutCH drop,", ___Vun.unLocalPort, _FtimeI64())
-			} else {
-			}
-		} else {
-			_FpfN(" 831818 09 rece error : [%v] ", ___Vun.unRerr)
+		if nil != ___Vun.unRerr {
+			_FpfN(
+				" 831818 02 rece error : [%v] ",
+				___Vun.unRerr)
+			continue
 		}
+
+		if 1500 != len(___Vun.unRbuf) {
+			_FpfN(
+				" 831818 06 buf len error :{%s}",
+				___Vun.String())
+			continue
+		}
+
+		if nil == ___Vun.unCHreceLO { // *chan _TudpNodeDataReceX
+			_FpfNonce(
+				" 831818 07 rece: port:%5d: outChan Null , so drop the data package only. %11d ",
+				___Vun.unLocalPort,
+				_FtimeI64())
+			continue
+		}
+
+		__Vrece := _TudpNodeDataRece{
+			urrRemoteAddr: (*__VuAddr),                   // net.UDPAddr
+			urrBuf:        ___Vun.unRbuf[:___Vun.unRlen], // []byte
+			urrReceiveKey: ___Vun.unRkeyX,                // _Tkey256
+		}
+
+		_CpfN(" 831818 09 receOrigin: {%s} t:%11d ", __Vrece.String(), _FtimeI64())
+
+		// *chan _TudpNodeDataReceX
+		(*___Vun.unCHreceLO) <- __Vrece
+
 		//_Fsleep_1s()
 	}
 }
