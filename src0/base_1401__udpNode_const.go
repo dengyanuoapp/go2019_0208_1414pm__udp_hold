@@ -42,7 +42,7 @@ type _TudpNodeSt struct {
 	unCBinit      func(*_TudpNodeSt)      //
 	unCBrece      func(*_TudpNodeSt)      // if nil , use the default procedure to deal with receive
 	unCBsend      func(*_TudpNodeSt)      // if nil , use the default procedure to deal with send
-	unCBgap       func(*_TudpNodeSt)      // if unLoopGap is not ZERO , call this.
+	//unCBgap       func(*_TudpNodeSt)      // if unLoopGap is not ZERO , call this.
 }
 
 func (___Vun _TudpNodeSt) String() string {
