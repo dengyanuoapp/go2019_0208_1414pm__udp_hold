@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/aes"
 	"crypto/cipher"
+	"sync"
 )
 
 // block is 128 bit , 16 byte
@@ -67,10 +68,15 @@ func _FencAesCbcExit(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) []byte
 	return __Vbyte
 } // _FencAesCbcExit
 
+var ___VsyncAESdec sync.Mutex
+
 func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	var (
 		__Vout []byte
 	)
+
+	defer ___VsyncAESdec.Unlock()
+	___VsyncAESdec.Lock()
 
 	__Vout = []byte{}
 	if 32 != len(*___Vkey) {
