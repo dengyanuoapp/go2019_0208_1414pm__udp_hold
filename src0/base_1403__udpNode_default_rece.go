@@ -122,7 +122,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 			len(__Vtmp3),
 			_FgenMd5__5(&__Vtmp3),
 		)
-		_CpfN("439195 03 me:%s : before AES:<%x> after:<%x>", ___Vun.unLocalAddr.String(), __Vtmp2, __Vtmp3)
+		//_CpfN("439195 03 me:%s : before AES:<%x> after:<%x>", ___Vun.unLocalAddr.String(), __Vtmp2, __Vtmp3)
 	}
 
 	if __VuRece.urrLen < 400 && __VuRece.urrLen > 32 {
