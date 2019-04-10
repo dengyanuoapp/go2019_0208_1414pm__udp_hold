@@ -16,50 +16,62 @@ import (
 // https://golang.org/pkg/crypto/cipher/#example_NewCBCEncrypter
 func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	var (
-		__VlenIn, __VoLen, __VtLen, __VlenAdd, __Vi int
-		__Vtmp, __Vout                              []byte
-		__VneedPat                                  bool
+		__VoLen int
 	)
-
+	__VtLen := 0
 	//_FpfN(" 132811 _FencAesCbc__only___ : len In (%d) , key %x , iv %x", len(*___VbyteIn), *___Vkey, *___Viv)
 
-	__VlenIn = len(*___VbyteIn)
-	_FnotEqExit(" 132812 ", 32, len(*___Vkey))
-	_FnotEqExit(" 132813 ", 16, len(*___Viv))
+	__VlenInTmp2 := len(*___VbyteIn)
+	_FnotEqExit(" 132819 01 ", 32, len(*___Vkey))
+	_FnotEqExit(" 132819 02 ", 16, len(*___Viv))
 
-	__Vi = __VlenIn & 0xF
-	__VneedPat = (0 != __Vi)
+	__Vkey2 := (*___Vkey)
+	__Viv2 := *___Viv
+
+	__Vremain := __VlenInTmp2 & 0xF
+	__VneedPat := (0 != __Vremain)
+	var __VtBufEN []byte
 	if __VneedPat {
-		__VlenAdd = 16 - __Vi
-		__VtLen = __VlenIn + __VlenAdd
-		__Vtmp = make([]byte, __VtLen)
+		__VlenAdd := 16 - __Vremain
+		__VtLen = __VlenInTmp2 + __VlenAdd
+		if 0 != (__VtLen % 0xF) {
+			_Fex(" 132819 04 : why not ZERO ?")
+		}
+
+		__VtBufEN = make([]byte, __VtLen)
+
 		__Vpat := _FgenRand_nByte__(uint16(__VlenAdd))
-		copy(__Vtmp[__VlenIn:], __Vpat)
-		copy(__Vtmp, *___VbyteIn)
+		copy(__VtBufEN[__VlenInTmp2:], __Vpat)
+		copy(__VtBufEN, *___VbyteIn)
 		__VoLen = __VtLen + 16
 
 		//_FpfN(" 132815 : add pat %d", __VlenAdd)
 	} else {
-		__VoLen = __VlenIn + 16
+		__VtBufEN = *___VbyteIn
+		__VoLen = __VlenInTmp2 + 16 // origin Len + iv(16)
 	}
 
-	__Vout = make([]byte, __VoLen)
+	__Vout4 := make([]byte, __VoLen-16)
+	__Vout5 := make([]byte, __VoLen)
 
-	copy(__Vout[0:16], (*___Viv))
+	__VblockEN, __Verr := aes.NewCipher(__Vkey2)
+	_FerrExit(" 132819 03 ", __Verr)
 
-	__Vblock, __Verr := aes.NewCipher(*___Vkey)
-	_FerrExit(" 132813 ", __Verr)
+	__VmodeEN := cipher.NewCBCEncrypter(__VblockEN, __Viv2)
+	__VmodeEN.CryptBlocks(__Vout4, __VtBufEN)
 
-	__Vmode := cipher.NewCBCEncrypter(__Vblock, *___Viv)
-	if __VneedPat {
-		__Vmode.CryptBlocks(__Vout[16:], __Vtmp)
-	} else {
-		__Vmode.CryptBlocks(__Vout[16:], (*___VbyteIn))
-	}
+	copy(__Vout5[0:16], __Viv2)
+	copy(__Vout5[16:], __Vout4)
 
-	//_FpfNhex(&__Vout, 32, " 132819 _FencAesCbc__only___ : lenIn %d , dataOut: ", __VlenIn)
+	__VblockEN = nil
+	__VmodeEN = nil
 
-	return __Vout, nil
+	//_FpfNhex(&__Vout5, 32, " 132819 08 _FencAesCbc__only___ : lenIn %d , dataOut: ", __VlenInTmp2)
+	//	_CpfN(" 132819 09 aesENC inM5{%x} outM5{%x} INfirst20<%x> in<%x> out:<%x>",
+	//		_FgenMd5__5(___VbyteIn), _FgenMd5__5(&__Vout5),
+	//		__VtBufEN[:20], __VtBufEN, __Vout5)
+
+	return __Vout5, nil
 } // _FencAesCbc__only___
 
 func _FencAesCbcExit(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) []byte {
@@ -93,7 +105,7 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	__Viv := (*___VbyteIn)[:16]
 	__VcipherText := (*___VbyteIn)[16:__VdataEnd]
 
-	__Vblock, __Verr := aes.NewCipher(*___Vkey) // func NewCipher(key []byte) (cipher.Block, error) // import "crypto/aes"
+	__VblockDE, __Verr := aes.NewCipher(*___Vkey) // func NewCipher(key []byte) (cipher.Block, error) // import "crypto/aes"
 	_FerrExit(" 838182 ", __Verr)
 
 	if 2 == 3 {
@@ -101,14 +113,14 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		_FpfNhex(&__VcipherText, 82, " 838184 cipherText ")
 	}
 
-	__Vmode := cipher.NewCBCDecrypter(__Vblock, __Viv)
-	_FnullExit(" 838186 ", __Vmode)
+	__VmodeDE := cipher.NewCBCDecrypter(__VblockDE, __Viv)
+	_FnullExit(" 838186 ", __VmodeDE)
 
 	// CryptBlocks(dst, src []byte)
-	__Vmode.CryptBlocks(__Vout2, __VcipherText)
+	__VmodeDE.CryptBlocks(__Vout2, __VcipherText)
 	//_FpfNhex(&__Vout2, 82, " 838189 out ")
 
-	__Vblock = nil
-	__Vmode = nil
+	__VblockDE = nil
+	__VmodeDE = nil
 	return __Vout2, nil
 } // _FdecAesCbc__only___
