@@ -17,7 +17,7 @@ import (
 //// 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
 //// } // _FencAesRand__gen_iv__by_timeMd5
 
-func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceInt int) ([]byte, error) {
 	var (
 		__Vout, __Vtmp []byte
 	)
@@ -58,7 +58,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	}
 
 	__Vtmp2, __Verr :=
-		_FencAesCbc__only___(___Vkey, &__Viv, &__Vtmp)
+		_FencAesCbc__only___(___Vkey, &__Viv, &__Vtmp, ___VtraceInt)
 	_FerrExit(" 192395 01:", __Verr)
 
 	//_FpfhexlastN(&__Vtmp2, 40, " 192395 03 Vtmp : ")
@@ -67,7 +67,8 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	__VhereSeeKey1 := __Vtmp[23:55]
 	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
-	_CpfN(" 192395 07 aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] seeKeyIs<%x> ",
+	_CpfN(" 192395 07  tI:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] seeKeyIs<%x> ",
+		___VtraceInt,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
 		__Vtmp2,
@@ -155,15 +156,15 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 } // _FdecAesRand__only
 
 func _FencAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
-	__Vb, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn)
+	__Vb, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn, 0)
 	_FerrExit(___VeMsg+" 292391 ", __Verr)
 	return __Vb
 } // _FencAesRandExit
 
 func _FencAesRandExit2(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, []byte) {
-	__Vb1, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn)
+	__Vb1, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn, 0)
 	_FerrExit(___VeMsg+" 292392 01", __Verr)
-	__Vb2, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn)
+	__Vb2, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn, 0)
 	_FerrExit(___VeMsg+" 292392 02", __Verr)
 	return __Vb1, __Vb2
 } // _FencAesRandExit
