@@ -36,7 +36,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		return
 	}
 
-	__VtraceInt := _FtimeInt()
+	__VtraceInt := _FgenRand_int()
 
 	var __Verr2 error
 	__VkLen := len(__VmyUs.usToAddr.K256) //
