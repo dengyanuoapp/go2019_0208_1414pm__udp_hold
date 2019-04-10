@@ -81,7 +81,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceInt int) (
 	return __Vout, __Verr
 } // _FencAesRand__only
 
-func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceIntDE int) ([]byte, error) {
 	var (
 		__Vb0, __Vb1, __Vb2, __Vb3, __Vlen int
 	)
@@ -99,10 +99,11 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		return nil, fmt.Errorf(" 392391 04 : why input len zero ? ")
 	}
 
-	_CpfN("392391 05 : AESdec input key:%x , (%d){%x}", *___Vkey, len(*___VbyteIn), _FgenMd5__5(___VbyteIn))
+	_CpfN("392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
+		*___Vkey, len(*___VbyteIn), _FgenMd5__5(___VbyteIn))
 
 	//_FpfNhex(___VbyteIn, 20, " 392391 06 : %x : ", ___Vkey)
-	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
+	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn, ___VtraceIntDE)
 	_FerrExit(" 392391 07", __Verr)
 
 	__Vlen = len(__VdeO)
@@ -140,8 +141,8 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	__Vtmp3 := __VdeO[:__Vb3]
 	__VrecoveryKey := __VdeO[7:39]
-	_CpfN("392392 09 : AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
-		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", String5(___Vkey),
+	_CpfN("392392 09 : tI:%d AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
+		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", ___VtraceIntDE, String5(___Vkey),
 		len(*___VbyteIn), _FgenMd5__5(___VbyteIn),
 		len(__VdeO), _FgenMd5__5(&__VdeO), String9(&__VdeO),
 		len(__Vout2), _FgenMd5__5(&__Vout2),
@@ -170,7 +171,7 @@ func _FencAesRandExit2(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) ([]
 } // _FencAesRandExit
 
 func _FdecAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
-	__Vb, __Verr := _FdecAesRand__only(___Vkey, ___VbyteIn)
+	__Vb, __Verr := _FdecAesRand__only(___Vkey, ___VbyteIn, 0)
 	_FerrExit(___VeMsg+" 292395 ", __Verr)
 	return __Vb
 } // _FdecAesRandExit

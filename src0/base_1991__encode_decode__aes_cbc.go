@@ -92,7 +92,7 @@ func _FencAesCbcExit(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) []byte
 
 var ___VsyncAESdec sync.Mutex
 
-func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
+func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceIntDE int) ([]byte, error) {
 
 	defer ___VsyncAESdec.Unlock()
 	___VsyncAESdec.Lock()

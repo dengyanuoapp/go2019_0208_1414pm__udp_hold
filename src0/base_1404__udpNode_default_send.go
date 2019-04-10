@@ -45,12 +45,12 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		if 32 == __VkLen {
 			//_FpfN(" 839119 03 key %x %x", ___Vun.unRkeyX.B32, ___Vun.unRkeyX.Bkey)
 			//copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], __VmyUs.usToAddr.K256)
-			_CpfN(" 839119 03 : tN:%d before <%s>", __VtraceInt, __VmyUs.String())
+			_CpfN(" 839119 04 : tN:%d before <%v> %x", __VtraceInt, __VmyUs.usToAddr, __VmyUs.usOutBuf)
 			copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], ___Vun.unRkeyX.Bkey)
-			_CpfN(" 839119 04 : tN:%d after <%s>", __VtraceInt, __VmyUs.String())
+			_CpfN(" 839119 05 : tN:%d after <%v> %x", __VtraceInt, __VmyUs.usToAddr, __VmyUs.usOutBuf)
 			__Vbuf, __Verr := _FencAesRand__only(&__VmyUs.usToAddr.K256, &__VmyUs.usOutBuf, __VtraceInt)
 			if nil != __Verr {
-				_FpfN(" 839119 05 : why error ? %v", __Verr)
+				_FpfN(" 839119 07 : why error ? %v", __Verr)
 				return
 			}
 			_, __Verr2 = ___Vun.unConn.WriteToUDP(__Vbuf, &__VmyUs.usToAddr.DstAddr)
