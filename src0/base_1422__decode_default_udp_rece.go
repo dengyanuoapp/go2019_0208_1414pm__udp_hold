@@ -1,5 +1,9 @@
 package main
 
+import "sync"
+
+var ___VudpDecodeMux sync.Mutex
+
 func _FudpDecode__700201x__receive__default(___Vutm *_TuDecode) {
 	go _FudpDecode__700201x10__receive__default(___Vutm)
 }
@@ -27,14 +31,17 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 				__VunRece.String())
 
 			if 0 != len(__VunRece.UrrReceiveKey.Bkey) { // _Tkey256X
-				__Vtmp3, __Verr2 :=
-					_FdecAesRand__only(&__VunRece.UrrReceiveKey.Bkey, &__VunRece.UrrBuf)
+				__Vtmp3in := __VunRece.UrrBuf
+				___VudpDecodeMux.Lock()
+				__Vtmp3out, __Verr2 :=
+					_FdecAesRand__only(&__VunRece.UrrReceiveKey.Bkey, &__Vtmp3in)
+				___VudpDecodeMux.Unlock()
 				if nil != __Verr2 {
 					_CpfN(" 388195 08 AesDec error {%v} {%s}", __Verr2, __VunRece.String())
 					_FpfN(" 388195 09 AesDec error {%v} {%s}", __Verr2, __VunRece.String())
 					continue
 				}
-				__VunRece.UrrBuf = __Vtmp3
+				__VunRece.UrrBuf = __Vtmp3out
 			}
 
 			__VunRece.
