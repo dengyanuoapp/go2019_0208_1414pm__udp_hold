@@ -36,6 +36,7 @@ type _TudpNodeSt struct {
 	unName        string
 	unHostPortStr string
 	unIdx         int
+	unGroup       *_TudpGroupSt
 	unRmap        _TuNodeDataRmap
 	unCHreceLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	unCHsendI     chan _TudpNodeDataSend  // try get data from chan, then send it out.

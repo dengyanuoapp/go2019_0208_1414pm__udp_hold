@@ -44,6 +44,7 @@ func _FudpGroup__600101__main_init__default(___Vug *_TudpGroupSt) {
 	for __Vi := 0; __Vi < ___Vug.ugAmount; __Vi++ {
 		__Vun := &(___Vug.ugNodeS[__Vi])
 		__Vun.unIdx = __Vi
+		__Vun.unGroup = ___Vug
 		__Vun.unName = _Spf("%s__%02d", ___Vug.ugName, __Vi)
 		if __Vi >= __VunPortLen {
 			__Vun.unHostPortStr = ":0"
@@ -55,7 +56,7 @@ func _FudpGroup__600101__main_init__default(___Vug *_TudpGroupSt) {
 			__Vun.unRKeyLP = &__Vb
 		} else {
 			__Vun.unRKeyLP = ___Vug.ugRkeyLP[__Vi]
-		}
+		} // _TudpNodeSt
 		__Vun.unCHreceLO = ___Vug.ugCHreceLO
 		___Vug.ugChTmpSendLI[__Vi] = &(__Vun.unCHsendI)
 		_Frun(__Vun, 500101) // IRun // _FudpNode__500101__main_init__default
