@@ -44,18 +44,23 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 			UrrReceiveKey: ___Vun.unRkeyX,                // _Tkey256
 		}
 
-		_CpfN(" 831818 07 receOrigin: {%s} t:%11d ", __Vrece.String(), _FtimeI64())
+		//_CpfN(" 831818 07 receOrigin: {%s} t:%11d ", __Vrece.String(), _FtimeI64())
 
 		__VreceB, __Verr3 := _FencGob__only(&__Vrece) // _TudpNodeDataReceX
 		if nil != __Verr3 {
-			_FpfN(" 831818 08 gobEnc error: {%v} t:%11d ", __Verr3, _FtimeI64())
+			_FpfN(" 831818 08 gobEnc error: {%v} t:%11d \n{%s}",
+				__Verr3, _FtimeI64(),
+				__Vrece.String(),
+			)
 			continue
 		}
-		_CpfN(" 831818 09 receOriginByte: (%d){%x}[%s] t:%11d ",
+		_CpfN(" 831818 09 receOriginByte: (%d){%x}[%s] t:%11d \n{%s}",
 			len(__VreceB),
 			_FgenMd5__5(&__VreceB),
 			String9(&__VreceB),
-			_FtimeI64())
+			_FtimeI64(),
+			__Vrece.String(),
+		)
 
 		___lock001.Lock()
 		// *chan _TudpNodeDataReceX
