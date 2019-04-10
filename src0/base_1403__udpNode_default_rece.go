@@ -48,13 +48,13 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 
 		__VreceB, __Verr3 := _FencGob__only(&__Vrece) // _TudpNodeDataReceX
 		if nil != __Verr3 {
-			_FpfN(" 831818 08 gobEnc error: {%v} t:%11d \n{%s}",
+			_FpfN(" 831818 08 gobEnc error: {%v} t:%11d {%s}",
 				__Verr3, _FtimeI64(),
 				__Vrece.String(),
 			)
 			continue
 		}
-		_CpfN(" 831818 09 receOriginByte: (%d){%x}[%s] t:%11d \n{%s}",
+		_CpfN(" 831818 09 receOriginByte: (%d){%x}[%s] t:%11d {%s}",
 			len(__VreceB),
 			_FgenMd5__5(&__VreceB),
 			String9(&__VreceB),
