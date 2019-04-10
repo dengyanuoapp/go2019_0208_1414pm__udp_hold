@@ -40,7 +40,8 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			}
 		case __VuConnPort := <-___Vlc.ulCHconnPortI: // _TudpConnPort
 			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
-			_FpfNdb(" 138184 03 : connPort-Chan pop {%s}", __VuConnPort.String())
+			_FpfNdb(" 138184 02 : connPort-Chan pop {%s}", __VuConnPort.String())
+			_CpfN("   138184 03 : connPort-Chan pop {%s}", __VuConnPort.String())
 			___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
 			___Vlc.ulGenTime = _FtimeInt()
 
@@ -65,10 +66,10 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		} else {
 			//_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
 			if 0 == __Venc.enType {
-				//_FpfN(" 138184 06 zero Type , nothing need to send. ")
+				_FpfN(" 138184 06 zero Type , nothing need to send. ")
 			} else {
 				(*___Vlc.ulCHencodeCmdLO) <- __Venc // _Tencode
-				_FpfNonce(" 138184 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
+				_CpfN(" 138184 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
 					String5(&_VC.MyId128),
 					String5(&_VS.MySeq128),
 					String5(&__Venc.enLogin.TokenL))

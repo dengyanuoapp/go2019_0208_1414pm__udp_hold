@@ -13,11 +13,12 @@ func _FudpDecode__800301x__connGen__default(___Vlg *_TloginGenerator) {
 			__VnewSession.
 				_FudpDecode__800501x__tryGetSrvInfoFromUri()
 			if false == __VnewSession.srvInfo.ok { // _TsrvInfo
-				_FpfN(" 138181 04 : download failed. ")
+				_FpfN(" 138181 03 : download failed. ")
 				_Fsleep(_T60s)
 			} else {
 				_Fsleep(_T5s)
-				_FpfN(" 138181 05 : download ok. %s", __VnewSession.String())
+				_FpfN(" 138181 04 : download ok. %s", __VnewSession.String())
+				_CpfN(" 138181 05 : download ok. %s", __VnewSession.String())
 				__VnewSession.lastDownTime = _FtimeInt()
 			}
 		} else { // xTry,0skip

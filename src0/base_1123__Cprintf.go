@@ -9,6 +9,10 @@ func _CpfS(___Vstr *string) {
 		return
 	}
 
+	if 0 == len(*_CHpr) {
+		return
+	}
+
 	__Vts := _TtcpNodeDataSend{
 		//tnsId128: _FgenRand_nByte__(16),
 		//tnsK256:  _FgenRand_nByte__(32),
