@@ -7,6 +7,7 @@ var ___lock001 sync.Mutex
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
 func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
+	// _FpfNdb(" 831818 00 rece start ")
 	for {
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
 		//___Vun.unRlen, __VuAddr, ___Vun.unRerr = ___Vun.unConn.ReadFromUDP(___Vun.unRbuf)

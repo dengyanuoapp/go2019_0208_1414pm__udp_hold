@@ -69,7 +69,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	//___VtAcc3.taBuf2 = make([]byte , ___VtAcc3.taLen ); copy( ___VtAcc3.taBuf2 , ___VtAcc3.taBuf )
 
 	if nil == ___VtAcc3.tnCHreceLO {
-		_FpfNonce(" 183813 07 : rece , but out chan NULL. ignore:%s", ___VtAcc3.taRdata.String()) // _TtcpNodeDataRece
+		_FpfNonce(" 183813 07 : tcp rece , but tcp out chan NULL. ignore:%s", ___VtAcc3.taRdata.String()) // _TtcpNodeDataRece
 	} else {
 		(*___VtAcc3.tnCHreceLO) <- ___VtAcc3.taRdata
 	}
