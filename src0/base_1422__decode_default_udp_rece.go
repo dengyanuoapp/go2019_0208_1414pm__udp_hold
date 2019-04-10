@@ -14,7 +14,6 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 		//__Vdecode = _Tdecode{}
 		select {
 		case __VunRece = <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
-			//_FpfNhex(&__VunRece.urrBuf, 38, " 388195 02 : %T , decode len <%d>: %11d", __VunRece.urrBuf, __VunRece.urrLen, _FtimeI64())
 			_CpfN(" 388195 02 : before decoder : __VunRece {%s} ", __VunRece.String()) // _TudpNodeDataReceX
 
 			if 0 != len(__VunRece.urrReceiveKey.Bkey) { // _Tkey256X

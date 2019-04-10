@@ -1,6 +1,9 @@
 package main
 
 import "net"
+import "sync"
+
+var ___lock001 sync.Mutex
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
 func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
@@ -42,12 +45,16 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 
 		_CpfN(" 831818 09 receOrigin: {%s} t:%11d ", __Vrece.String(), _FtimeI64())
 
+		___lock001.Lock()
 		// *chan _TudpNodeDataReceX
 		(*___Vun.unCHreceLO) <- __Vrece
+		___lock001.Unlock()
 
 		//_Fsleep_1s()
 	}
 }
+
+/*
 
 func (___Vun *_TudpNodeSt) _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() {
 
@@ -146,3 +153,4 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101yy4__receiveCallBack_default__randDe
 		(*___Vun.unCHreceLO) <- __VuRece
 	}
 }
+*/
