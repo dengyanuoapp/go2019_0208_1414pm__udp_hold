@@ -20,6 +20,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 				__Vtmp3, __Verr2 := _FdecAesRand__only(&__VunRece.urrReceiveKey.Bkey, &__VunRece.urrBuf)
 				if nil != __Verr2 {
 					_CpfN(" 388195 03 AesDec error {%v}", __Verr2)
+					_FpfN(" 388195 03 AesDec error {%v}", __Verr2)
 					continue
 				}
 				__VunRece.urrBuf = __Vtmp3
