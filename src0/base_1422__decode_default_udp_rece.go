@@ -13,14 +13,21 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 		//__VunRece = _TudpNodeDataRece{}
 		//__Vdecode = _Tdecode{}
 		select {
-		case __VunRece = <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
-			_CpfN(" 388195 02 : before decoder : __VunRece {%s} ", __VunRece.String()) // _TudpNodeDataReceX
+		case __VunReceB := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
+			__VunRece = _TudpNodeDataRece{}
+			__Verr0 := _FdecGob___(" 388195 02 err ", &__VunReceB, &__VunRece)
+			if nil != __Verr0 {
+				_FpfN(" 388195 03 , decGob error :%v ", __Verr0)
+				continue
+			}
+			_CpfN(" 388195 04 : before decoder : __VunReceB (%d){%x}[%s} ", len(__VunReceB), _FgenMd5__5(&__VunReceB), String9(&__VunReceB))
+			_CpfN(" 388195 05 : before decoder : __VunRece {%s} ", __VunRece.String()) // _TudpNodeDataReceX
 
 			if 0 != len(__VunRece.urrReceiveKey.Bkey) { // _Tkey256X
 				__Vtmp3, __Verr2 := _FdecAesRand__only(&__VunRece.urrReceiveKey.Bkey, &__VunRece.urrBuf)
 				if nil != __Verr2 {
-					_CpfN(" 388195 03 AesDec error {%v}", __Verr2)
-					_FpfN(" 388195 03 AesDec error {%v}", __Verr2)
+					_CpfN(" 388195 08 AesDec error {%v}", __Verr2)
+					_FpfN(" 388195 09 AesDec error {%v}", __Verr2)
 					continue
 				}
 				__VunRece.urrBuf = __Vtmp3
@@ -31,21 +38,21 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 			__Vdecode.remoteAddr = __VunRece.urrRemoteAddr
 
 			if 3 == 3 {
-				_CpfN(" 388195 04 : after decoder  : __Vdecode {%s} (from %d:%x)",
+				_CpfN(" 388196 04 : after decoder  : __Vdecode {%s} (from %d:%x)",
 					__Vdecode.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf)) // _TdecodeX
-				_CpfN(" 388195 05 : after decoder  : __VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
+				_CpfN(" 388196 05 : after decoder  : __VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
 					__VunRece.String(), len(__VunRece.urrBuf), _FgenMd5__5(&__VunRece.urrBuf))
 			}
 
 			switch __Vdecode.Type {
 			case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 				Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-				//_FpfN(" 388195 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+				//_FpfN(" 388196 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 				if nil == ___Vutm.uTmCHdecodeCmdLO {
-					_FpfN(" 388195 07 : outChan null , ignore:%s", __Vdecode.String())
+					_FpfN(" 388196 07 : outChan null , ignore:%s", __Vdecode.String())
 				} else {
-					//_FpfN(" 388195 08 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
-					//_FpfN(" 388195 09 real outChain : %s", __Vdecode.String())
+					//_FpfN(" 388196 08 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+					//_FpfN(" 388196 09 real outChain : %s", __Vdecode.String())
 					(*___Vutm.uTmCHdecodeCmdLO) <- __Vdecode // 15540463611554046361
 				}
 			case Cmd__data_01_idle:

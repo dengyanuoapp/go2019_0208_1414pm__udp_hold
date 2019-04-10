@@ -1,7 +1,9 @@
 package main
 
+// _TudpNodeSt
 type _TudpGroupSt struct {
-	ugCHreceLO    *chan _TudpNodeDataRece       // unCHreceLO    *chan _TudpNodeDataRece // interal used
+	//ugCHreceLO    *chan _TudpNodeDataRece       // unCHreceLO    *chan _TudpNodeDataRece // interal used
+	ugCHreceLO    *chan []byte                  // unCHreceLO    *chan _TudpNodeDataRece // interal used
 	ugCHSendI     chan _TudpNodeDataSend        // all data need to be sent by nodeS send here , then  will distribute to one of node
 	ugChTmpSendLI [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  // interal used
 	ugLastSendIdx int

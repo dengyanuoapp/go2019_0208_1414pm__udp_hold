@@ -11,12 +11,12 @@ import (
 	//"math"
 )
 
-func _FencGob__only(___V interface{}) ([]byte, error) {
-	_FinterfaceObjIsPointerOrExit("1831915 01", ___V)
+func _FencGob__only(___VobjIn interface{}) ([]byte, error) {
+	_FinterfaceObjIsPointerOrExit("1831915 01", ___VobjIn)
 	//__VbBuf := new(bytes.Buffer)
 	var __VbBuf bytes.Buffer
 	__Venc := gob.NewEncoder(&__VbBuf) // Will write to __VbBuf.
-	__Verr := __Venc.Encode(___V)
+	__Verr := __Venc.Encode(___VobjIn)
 	if __Verr != nil {
 		return nil,
 			fmt.Errorf("1831915 02: gob.NewEncoder failed:%v", __Verr)
@@ -24,19 +24,19 @@ func _FencGob__only(___V interface{}) ([]byte, error) {
 	return __VbBuf.Bytes(), nil
 } // _FencGob__only
 
-func _FdecGob__only(___Vbyte *[]byte, ___Vout interface{}) {
-	_FinterfaceObjIsPointerOrExit("1831915 03", ___Vout)
-	__Vdec := gob.NewDecoder(bytes.NewReader(*___Vbyte)) // Will write to __VbBuf.
-	__Verr := __Vdec.Decode(___Vout)
+func _FdecGob__only(___VbyteIn *[]byte, ___VoutObj interface{}) {
+	_FinterfaceObjIsPointerOrExit("1831915 03", ___VoutObj)
+	__Vdec := gob.NewDecoder(bytes.NewReader(*___VbyteIn)) // Will write to __VbBuf.
+	__Verr := __Vdec.Decode(___VoutObj)
 	if __Verr != nil {
 		_FpfN("1831915 04: gob.NewDecoder failed:%v", __Verr)
 	}
 } // _FdecGob__only
 
-func _FdecGob___(___VeMsg string, ___Vbyte *[]byte, ___Vout interface{}) error {
-	_FinterfaceObjIsPointerOrExit("1831915 05", ___Vout)
-	__Vdec := gob.NewDecoder(bytes.NewReader(*___Vbyte)) // Will write to __VbBuf.
-	__Verr := __Vdec.Decode(___Vout)
+func _FdecGob___(___VeMsg string, ___VbyteIn *[]byte, ___VoutObj interface{}) error {
+	_FinterfaceObjIsPointerOrExit("1831915 05", ___VoutObj)
+	__Vdec := gob.NewDecoder(bytes.NewReader(*___VbyteIn)) // Will write to __VbBuf.
+	__Verr := __Vdec.Decode(___VoutObj)
 	if __Verr != nil {
 		return fmt.Errorf(___VeMsg+"1831915 06 : gob.NewDecoder failed: %v", __Verr)
 	}

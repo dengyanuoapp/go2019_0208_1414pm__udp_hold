@@ -23,14 +23,14 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 
 		if 1500 != len(___Vun.unRbuf) {
 			_FpfN(
-				" 831818 06 buf len error :{%s}",
+				" 831818 03 buf len error :{%s}",
 				___Vun.String())
 			continue
 		}
 
 		if nil == ___Vun.unCHreceLO { // *chan _TudpNodeDataReceX
 			_FpfNonce(
-				" 831818 07 rece: port:%5d: outChan Null , so drop the data package only. %11d ",
+				" 831818 05 rece: port:%5d: outChan Null , so drop the data package only. %11d ",
 				___Vun.unLocalPort,
 				_FtimeI64())
 			continue
@@ -43,11 +43,22 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 			urrReceiveKey: ___Vun.unRkeyX,                // _Tkey256
 		}
 
-		_CpfN(" 831818 09 receOrigin: {%s} t:%11d ", __Vrece.String(), _FtimeI64())
+		_CpfN(" 831818 07 receOrigin: {%s} t:%11d ", __Vrece.String(), _FtimeI64())
+
+		__VreceB, __Verr3 := _FencGob__only(&__Vrece)
+		if nil != __Verr3 {
+			_FpfN(" 831818 08 gobEnc error: {%v} t:%11d ", __Verr3, _FtimeI64())
+		}
+		_CpfN(" 831818 09 receOriginByte: (%d){%x}[%s] t:%11d ",
+			len(__VreceB),
+			_FgenMd5__5(&__VreceB),
+			String9(&__VreceB),
+			_FtimeI64())
 
 		___lock001.Lock()
 		// *chan _TudpNodeDataReceX
-		(*___Vun.unCHreceLO) <- __Vrece
+		//(*___Vun.unCHreceLO) <- __Vrece
+		(*___Vun.unCHreceLO) <- __VreceB
 		___lock001.Unlock()
 
 		//_Fsleep_1s()
