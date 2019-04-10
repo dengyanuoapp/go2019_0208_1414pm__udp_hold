@@ -71,32 +71,29 @@ func _FencAesCbcExit(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) []byte
 var ___VsyncAESdec sync.Mutex
 
 func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
-	var (
-		__Vout []byte
-	)
 
 	defer ___VsyncAESdec.Unlock()
 	___VsyncAESdec.Lock()
 
-	__Vout = []byte{}
+	__VoutNull := []byte{}
 	if 32 != len(*___Vkey) {
 		_FpfNonce(" 838181 key len error (not equals to 32): %d:%s", len(*___Vkey), String5(___Vkey))
-		return __Vout, nil
+		return __VoutNull, nil
 	}
 
 	__VlenIn := len(*___VbyteIn)
 	if __VlenIn < 32 {
-		return __Vout, nil
+		return __VoutNull, nil
 	}
 	__VdataEnd := (__VlenIn & 0xFFFFFFF0)
 	//_FpfN(" 838180 __VlenIn %d , __VdataEnd %d ", __VlenIn, __VdataEnd)
-	__Vout = make([]byte, __VdataEnd-16)
+	__Vout2 := make([]byte, __VdataEnd-16)
 	//_FpfNhex(___VbyteIn, 82, " 838181 dataIn ")
 
 	__Viv := (*___VbyteIn)[:16]
 	__VcipherText := (*___VbyteIn)[16:__VdataEnd]
 
-	__Vblock, __Verr := aes.NewCipher(*___Vkey)
+	__Vblock, __Verr := aes.NewCipher(*___Vkey) // func NewCipher(key []byte) (cipher.Block, error) // import "crypto/aes"
 	_FerrExit(" 838182 ", __Verr)
 
 	if 2 == 3 {
@@ -108,8 +105,10 @@ func _FdecAesCbc__only___(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	_FnullExit(" 838186 ", __Vmode)
 
 	// CryptBlocks(dst, src []byte)
-	__Vmode.CryptBlocks(__Vout, __VcipherText)
-	//_FpfNhex(&__Vout, 82, " 838189 out ")
+	__Vmode.CryptBlocks(__Vout2, __VcipherText)
+	//_FpfNhex(&__Vout2, 82, " 838189 out ")
 
-	return __Vout, nil
+	__Vblock = nil
+	__Vmode = nil
+	return __Vout2, nil
 } // _FdecAesCbc__only___

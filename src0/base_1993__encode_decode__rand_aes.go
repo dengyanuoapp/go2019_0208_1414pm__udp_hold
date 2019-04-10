@@ -87,7 +87,7 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		return nil, fmt.Errorf(" 392391 04 : why input len zero ? ")
 	}
 
-	_CpfN("392391 05 : AESdec input key:%s , (%d){%x}", String5(___Vkey), len(*___VbyteIn), _FgenMd5__5(___VbyteIn))
+	_CpfN("392391 05 : AESdec input key:%x , (%d){%x}", ___Vkey, len(*___VbyteIn), _FgenMd5__5(___VbyteIn))
 
 	//_FpfNhex(___VbyteIn, 20, " 392391 06 : %x : ", ___Vkey)
 	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn)
@@ -127,11 +127,14 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	copy(__Vout2, __VdeO[2:__Vb3])
 
 	__Vtmp3 := __VdeO[:__Vb3]
-	_CpfN("392392 09 : AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} dec-with-2byteLen(%d){%x} ", String5(___Vkey),
+	_CpfN("392392 09 : AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
+		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x}", String5(___Vkey),
 		len(*___VbyteIn), _FgenMd5__5(___VbyteIn),
 		len(__VdeO), _FgenMd5__5(&__VdeO), String9(&__VdeO),
 		len(__Vout2), _FgenMd5__5(&__Vout2),
 		len(__Vtmp3), _FgenMd5__5(&__Vtmp3),
+		len(*___VbyteIn), *___VbyteIn,
+		len(__VdeO), __VdeO,
 	)
 
 	//_FpfhexlastN(&__Vout2, 40, " 392399 Vout : ")
