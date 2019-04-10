@@ -127,7 +127,7 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	copy(__Vout2, __VdeO[2:__Vb3])
 
 	__Vtmp3 := __VdeO[:__Vb3]
-	_CpfN("392392 09 : AESdec out key:%s , (%d){%x} (%d){%x} (%d){%x} ", String5(___Vkey),
+	_CpfN("392392 09 : AESdec out using-dec-key:%s , inputBuf(%d){%x} dec-without-2byteLen(%d){%x} dec-with-2byteLen(origin)(%d){%x} ", String5(___Vkey),
 		len(__VdeO), _FgenMd5__5(&__VdeO),
 		len(__Vout2), _FgenMd5__5(&__Vout2),
 		len(__Vtmp3), _FgenMd5__5(&__Vtmp3),
