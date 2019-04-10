@@ -9,7 +9,8 @@ func _CpfS(___Vstr *string) {
 		return
 	}
 
-	if 0 == len(*_CHpr) {
+	if 0 == cap(*_CHpr) {
+		_FpfN(" 839181 01 why len ZERO ? len %d, cap %d", len(*_CHpr), cap(*_CHpr))
 		return
 	}
 

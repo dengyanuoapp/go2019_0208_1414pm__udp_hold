@@ -30,6 +30,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 					// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 					___Vlc.
 						_FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(&__Vdecode)
+					__Venc.enType = Cmd__loginEnd // no use , but told the following debug disable only
 				default:
 					_FpfNdb(" 138183 08 : unknow how to deal with : type %d,", __Vdecode.Type)
 					continue // next select
@@ -65,11 +66,14 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			_FpfNonce(" 138184 04 : why CMD-en not Chan ? {%s}", __Venc.String())
 		} else {
 			//_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
-			if 0 == __Venc.enType {
-				_FpfN(" 138184 06 zero Type , nothing need to send. ")
-			} else {
+			switch __Venc.enType {
+			case 0:
+				_FpfN(" 138184 06 zero Type , nothing need to send. %s ", __Venc.String()) // _TencodeX
+			case Cmd__loginEnd:
+				// no use , but told the debug disable only
+			default:
 				(*___Vlc.ulCHencodeCmdLO) <- __Venc // _Tencode
-				_CpfN(" 138184 06 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
+				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
 					String5(&_VC.MyId128),
 					String5(&_VS.MySeq128),
 					String5(&__Venc.enLogin.TokenL))
