@@ -66,7 +66,14 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	__Vout = _FappendRandPAT0_15(&__Vtmp2)
 
 	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
-	_CpfN(" 192395 07 aesENC addPat : from (%d){%x} to (%d){%x} ")
+	_CpfN(" 192395 07 aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
+		len(__Vtmp2),
+		_FgenMd5__5(&__Vtmp2),
+		__Vtmp2,
+		len(__Vout),
+		_FgenMd5__5(&__Vout),
+		__Vout,
+	)
 
 	return __Vout, __Verr
 } // _FencAesRand__only
@@ -129,14 +136,16 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	copy(__Vout2, __VdeO[2:__Vb3])
 
 	__Vtmp3 := __VdeO[:__Vb3]
+	__VrecoveryKey := __VdeO[7:39]
 	_CpfN("392392 09 : AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
-		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x}", String5(___Vkey),
+		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", String5(___Vkey),
 		len(*___VbyteIn), _FgenMd5__5(___VbyteIn),
 		len(__VdeO), _FgenMd5__5(&__VdeO), String9(&__VdeO),
 		len(__Vout2), _FgenMd5__5(&__Vout2),
 		len(__Vtmp3), _FgenMd5__5(&__Vtmp3),
 		len(*___VbyteIn), *___VbyteIn,
 		len(__VdeO), __VdeO,
+		__VrecoveryKey,
 	)
 
 	//_FpfhexlastN(&__Vout2, 40, " 392399 Vout : ")
