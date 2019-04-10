@@ -48,7 +48,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 			_CpfN(" 839119 04 : tN:%d before me:%d <%v> %x", __VtraceInt, ___Vun.unLocalPort, __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
 			copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], ___Vun.unRkeyX.Bkey)
 			_CpfN(" 839119 05 : tN:%d after me:%d <%v> %x", __VtraceInt, ___Vun.unLocalPort, __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
-			_CpfN(" 839119 06 : tN:%d udpNode: {%#v}", __VtraceInt, *___Vun)
+			_CpfN(" 839119 06 : tN:%d udpNode: {%#v}", __VtraceInt, ___Vun.String())
 			__Vbuf, __Verr := _FencAesRand__only(&__VmyUs.usToAddr.K256, &__VmyUs.usOutBuf, __VtraceInt)
 			if nil != __Verr {
 				_FpfN(" 839119 07 : why error ? %v", __Verr)
