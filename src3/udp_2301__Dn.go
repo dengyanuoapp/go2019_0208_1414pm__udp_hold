@@ -101,6 +101,7 @@ func main() {
 
 	// _FudpNode__500201y__receive__default()
 	// _FudpNode__500101__main_init__default
+	// _FudpNode__500101z__send__default
 	// _TudpNodeSt _TudpGroupSt
 	go _Frun(&_VudpGroup_Dn, 600101) // IRun _FudpGroup__600101__main_init__default
 	// _FudpGroup__600201__CHin_selecT_send__default

@@ -52,7 +52,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus *_TudpNode
 			if 3 == 3 {
 				if 2 == 2 {
 					_CpfN(
-						" 839119 04 udp-send-rand %11d me<:%d> mrK:<%s> to<%s> toK<%s> before:%d{%x}, rand:%d{%x} [%s]",
+						" 839119 04 udp-send-rand %11d me<:%d> mreceK:<%s> to<%s> toK<%s> before:%d{%x}, rand:%d{%x} [%s]",
 						_FtimeI64(),
 						___Vun.unLocalPort,
 						String5(&___Vun.unRkeyX.Bkey),

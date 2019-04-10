@@ -65,14 +65,16 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 
 	__Vout = _FappendRandPAT0_15(&__Vtmp2)
 
+	__VhereSeeKey1 := __Vtmp[23:55]
 	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
-	_CpfN(" 192395 07 aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
+	_CpfN(" 192395 07 aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] seeKeyIs<%x> ",
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
 		__Vtmp2,
 		len(__Vout),
 		_FgenMd5__5(&__Vout),
 		__Vout,
+		__VhereSeeKey1,
 	)
 
 	return __Vout, __Verr
