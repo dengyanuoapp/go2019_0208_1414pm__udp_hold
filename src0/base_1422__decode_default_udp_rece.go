@@ -48,10 +48,9 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 				_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 			__Vdecode.remoteAddr = __VunRece.UrrRemoteAddr
 
-			if 3 == 2 {
-				_CpfN(" 388196 04 : after decoder  : __Vdecode {%s} (from %d:%x)",
-					__Vdecode.String(), len(__VunRece.UrrBuf), _FgenMd5__5(&__VunRece.UrrBuf)) // _TdecodeX
-				_CpfN(" 388196 05 : after decoder  : __VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
+			if 3 == 3 {
+				_CpfN(" 388196 04 : after decoder  : __Vdecode {%s} (from %d:%x) ::: __VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
+					__Vdecode.String(), len(__VunRece.UrrBuf), _FgenMd5__5(&__VunRece.UrrBuf), // _TdecodeX
 					__VunRece.String(), len(__VunRece.UrrBuf), _FgenMd5__5(&__VunRece.UrrBuf))
 			}
 
