@@ -30,7 +30,7 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 
 	__Vremain := __VlenInTmp2 & 0xF
 	__VneedPat := (0 != __Vremain)
-	var __VtBufEN []byte
+	__VtBufEN := []byte{}
 	if __VneedPat {
 		__VlenAdd := 16 - __Vremain
 		__VtLen = __VlenInTmp2 + __VlenAdd
@@ -69,12 +69,15 @@ func _FencAesCbc__only___(___Vkey *[]byte, ___Viv *[]byte, ___VbyteIn *[]byte) (
 
 	//_FpfNhex(&__Vout5, 32, " 132819 08 _FencAesCbc__only___ : lenIn %d , dataOut: ", __VlenInTmp2)
 	if 2 == 2 {
-		_CpfN(" 132819 09 aesENC inM5{%x} outM5{%x} INfirst20<%x> in<%x> out:<%x>",
+		__VinSideKey := __VtBufEN[7:39]
+		_CpfN(" 132819 09 aesENC(noRandPat) inM5{%x} outM5{%x} INfirst20<%x> in<%x> out:<%x> insideKey is <%x> ",
 			_FgenMd5__5(___VbyteIn),
 			_FgenMd5__5(&__Vout5),
 			__VtBufEN[:20],
 			__VtBufEN,
-			__Vout5)
+			__Vout5,
+			__VinSideKey,
+		)
 	}
 
 	return __Vout5, nil

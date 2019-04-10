@@ -23,13 +23,13 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	)
 
 	if 32 != len(*___Vkey) {
-		_FpfNhex(___Vkey, 32, " 192390 key error len")
+		_FpfNhex(___Vkey, 32, " 192390 01 key error len")
 		return __Vout, nil
 	}
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(*___VbyteIn)
-	//_FpfNhex(___VbyteIn, 40, " 192391 iv %x , byteIn ", __Viv)
+	//_FpfNhex(___VbyteIn, 40, " 192390 03 iv %x , byteIn ", __Viv)
 
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
 
@@ -39,10 +39,10 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
 	copy(__Vtmp[2:], *___VbyteIn)
-	//_FpfNhex(&__Vtmp, 48, " 192392 Vtmp : ")
+	//_FpfNhex(&__Vtmp, 48, " 192390 05 Vtmp : ")
 	//copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
 	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(__Vtmp[:2+__VlenIn])))
-	//_FpfNhex(&__Vtmp, 48, " 192393 Vtmp : ")
+	//_FpfNhex(&__Vtmp, 48, " 192390 07 Vtmp : ")
 
 	if 2 == 3 {
 		_FpfNhex(&__Vtmp, 48, " 192394 pre  : ")
@@ -61,11 +61,12 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, error) {
 		_FencAesCbc__only___(___Vkey, &__Viv, &__Vtmp)
 	_FerrExit(" 192395 01:", __Verr)
 
-	//_FpfhexlastN(&__Vtmp2, 40, " 192396 Vtmp : ")
+	//_FpfhexlastN(&__Vtmp2, 40, " 192395 03 Vtmp : ")
 
 	__Vout = _FappendRandPAT0_15(&__Vtmp2)
 
-	//_FpfhexlastN(&__Vout, 40, " 192397 Vtmp : ")
+	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
+	_CpfN(" 192395 07 aesENC addPat : from (%d){%x} to (%d){%x} ")
 
 	return __Vout, __Verr
 } // _FencAesRand__only

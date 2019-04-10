@@ -11,7 +11,7 @@ func _FudpGroup__600201__CHin_selecT_send__default(___Vug *_TudpGroupSt) {
 	)
 	for {
 		select {
-		case __VusData = <-___Vug.ugCHSendI: // _TudpNodeDataSend
+		case __VusData = <-___Vug.ugCHSendI: // _TudpNodeDataSendX
 			__Vidx = ___Vug._FudpGroup__600201www__send_genIdx()
 		}
 		___Vug.
