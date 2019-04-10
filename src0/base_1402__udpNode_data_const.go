@@ -7,20 +7,20 @@ import (
 type _TudpNodeDataReceX struct {
 }
 type _TudpNodeDataRece struct {
-	urrLocalPort  int
-	urrRemoteAddr net.UDPAddr
-	urrBuf        []byte
-	urrReceiveKey _Tkey256
+	UrrLocalPort  int
+	UrrRemoteAddr net.UDPAddr
+	UrrBuf        []byte
+	UrrReceiveKey _Tkey256
 }
 
 func (___Vr *_TudpNodeDataRece) String() string {
 	return _Spf("mp:%d ra:%s buf(%d){%x}[%s] k[%s]",
-		___Vr.urrLocalPort,
-		___Vr.urrRemoteAddr.String(),
-		len(___Vr.urrBuf),
-		_FgenMd5__5(&___Vr.urrBuf),
-		String9(&___Vr.urrBuf),
-		___Vr.urrReceiveKey.String(), // urrReceiveKey _Tkey256X
+		___Vr.UrrLocalPort,
+		___Vr.UrrRemoteAddr.String(),
+		len(___Vr.UrrBuf),
+		_FgenMd5__5(&___Vr.UrrBuf),
+		String9(&___Vr.UrrBuf),
+		___Vr.UrrReceiveKey.String(), // UrrReceiveKey _Tkey256X
 	)
 }
 

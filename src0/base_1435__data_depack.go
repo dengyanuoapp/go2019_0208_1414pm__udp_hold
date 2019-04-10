@@ -6,7 +6,7 @@ import (
 )
 
 func (__Vundr *_TudpNodeDataRece) _FdataPack__decode_from_udpNodeDataRece(___Vdecode *_Tdecode) {
-	_FdataPack__dataDecode_common(___Vdecode, __Vundr.urrBuf)
+	_FdataPack__dataDecode_common(___Vdecode, __Vundr.UrrBuf)
 }
 
 func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {

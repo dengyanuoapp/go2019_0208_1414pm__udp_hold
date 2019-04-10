@@ -18,13 +18,13 @@ func (___Vun *_TudpNodeSt) IRun(___Vidx int) {
 		if nil == ___Vun.unCBrece {
 			go ___Vun.
 				_FudpNode__500201y__receive__default()
-			//_FpfN(" 831818 03 default receive:{%s}", ___Vun.String())
+			//_FpfN(" 831828 03 default receive:{%s}", ___Vun.String())
 			//___Vun.
 			//	_FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect() // if gap is not set , default
 			//___Vun._FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode()    // if gap set , use this
 		} else {
 			go ___Vun.unCBrece(___Vun)
-			//_FpfN(" 831818 08 custom_receive 01 all start, len(%d)", ___Vun.unRlen)
+			//_FpfN(" 831828 08 custom_receive 01 all start, len(%d)", ___Vun.unRlen)
 			// _FudpNode__540211z__receiveCallBack_withTimeGap
 		}
 	case 500301:
