@@ -117,5 +117,7 @@ func main() {
 	// _FuEncode__1100201x__packSend__default
 	go _Frun(&_VudpEncode_Fn, 1100101) // _FuEncode__1100101__main_init__default
 
+	go _Frun(&_VgapFilter__Dn, 1200101) // IRun _FudpNode__500101__main_init__default
+
 	<-_CHexit
 } // main

@@ -38,12 +38,12 @@ type _TudpNodeSt struct {
 	unIdx         int
 	unGroup       *_TudpGroupSt
 	unRmap        _TuNodeDataRmap
+	unCHsendI     chan _TudpNodeDataSend // try get data from chan, then send it out.
+	unCBinit      func(*_TudpNodeSt)     //
+	unCBrece      func(*_TudpNodeSt)     // if nil , use the default procedure to deal with receive
+	unCBsend      func(*_TudpNodeSt)     // if nil , use the default procedure to deal with send
+	unCHreceLO    *chan []byte           // if nil , drop it ; not-nil , put the received data into this chan
 	//unCHreceLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
-	unCHreceLO *chan []byte           // if nil , drop it ; not-nil , put the received data into this chan
-	unCHsendI  chan _TudpNodeDataSend // try get data from chan, then send it out.
-	unCBinit   func(*_TudpNodeSt)     //
-	unCBrece   func(*_TudpNodeSt)     // if nil , use the default procedure to deal with receive
-	unCBsend   func(*_TudpNodeSt)     // if nil , use the default procedure to deal with send
 	//unCBgap       func(*_TudpNodeSt)      // if unLoopGap is not ZERO , call this.
 }
 
