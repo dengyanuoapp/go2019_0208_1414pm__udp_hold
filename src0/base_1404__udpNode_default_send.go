@@ -52,7 +52,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		_FpfNhex(&__VmyUs.usOutBuf, 40, " 839116 07 : %s : udp send direct :", ___Vun.unName)
 	}
 
-	if 32 == __VkLen {
+	if 32 != __VkLen {
 		_FpfN(" 839116 06 : why key len error (%d) ?", __VkLen)
 		return
 	}
