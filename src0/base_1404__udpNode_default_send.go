@@ -6,8 +6,12 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101z__send__default() {
 		case __VchSend := <-___Vun.unCHsendI: // _TudpNodeDataSendX
 			//_FpfN(" 839118 01 send ") // usToAddr
 
+			___Vun.unMux.Lock()
+
 			__VchSend._FudpNode__500101zz__try_Rand_buf_before_send()
 			___Vun._FudpNode__500101zzz__send_buf_real(__VchSend)
+
+			___Vun.unMux.Unlock()
 		}
 		//_Fsleep_1s()
 	}
@@ -35,9 +39,6 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		_FpfN(" 839116 02 : why buf NIL ?")
 		return
 	}
-
-	defer ___Vun.unMux.Unlock()
-	___Vun.unMux.Lock()
 
 	//__VtraceInt := ___Vus.Ti
 	__VtraceInt := _FgenRand_int()
