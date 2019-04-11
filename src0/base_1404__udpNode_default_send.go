@@ -59,10 +59,15 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 
 	//_FpfN(" 839119 01 key %x %x", ___Vun.unRkeyX.B32, ___Vun.unRkeyX.Bkey)
 	//copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], __VmyUs.usToAddr.K256)
-	_CpfN(" 839119 03 : tN:%d before me:%d <%v> %x", __VtraceInt, ___Vun.unLocalPort, __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
+	_CpfN(" 839119 03 : tN:%d before Mp:%d Mrk:%s to<%v> buf[%x]", __VtraceInt, ___Vun.unLocalPort,
+		String5(&___Vun.unRkeyX.Bkey), __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
+
 	copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], ___Vun.unRkeyX.Bkey)
+
 	_CpfN(" 839119 05 : tN:%d after me:%d <%v> %x", __VtraceInt, ___Vun.unLocalPort, __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
+
 	_CpfN(" 839119 06 : tN:%d udpNode: {%#v}", __VtraceInt, ___Vun.String())
+
 	__Vbuf, __Verr := _FencAesRand__only(__VmyUs.usToAddr.K256, __VmyUs.usOutBuf, __VtraceInt)
 
 	if nil != __Verr {
