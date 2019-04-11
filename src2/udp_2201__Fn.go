@@ -16,6 +16,7 @@ var (
 	_Vself                 _Tself
 	_Vconfig               _Tconfig
 	_VudpNode_FunWaitDun   _TudpNodeSt
+	_VgapFilter__Dn        _TgapFilter //_TgapFilterX
 )
 
 func _Finit_2201() {
@@ -60,6 +61,9 @@ func _Finit_2201() {
 		ulCHdataMachineIdLO: &_VdataMachine_Fn.dmCHdataMachineIdI,
 		ulCHencodeCmdLO:     &_VudpEncode_Fn.enCHencodeCmdI, // *chan _Tencode
 
+	}
+
+	_VgapFilter__Dn = _TgapFilter{ //_TgapFilterX
 	}
 
 	_VudpGroup_Fn = _TudpGroupSt{
