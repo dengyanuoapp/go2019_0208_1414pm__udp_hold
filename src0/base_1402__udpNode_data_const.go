@@ -7,6 +7,7 @@ import (
 type _TudpNodeDataReceX struct {
 }
 type _TudpNodeDataRece struct {
+	Ti            int
 	UrrLocalPort  int
 	UrrRemoteAddr net.UDPAddr
 	UrrBuf        []byte
@@ -14,7 +15,8 @@ type _TudpNodeDataRece struct {
 }
 
 func (___Vr *_TudpNodeDataRece) String() string {
-	return _Spf("mp:%d ra:%s buf(%d){%x}[%s] k[%s]",
+	return _Spf("Ti:%d mp:%d ra:%s buf(%d){%x}[%s] k[%s]",
+		___Vr.Ti,
 		___Vr.UrrLocalPort,
 		___Vr.UrrRemoteAddr.String(),
 		len(___Vr.UrrBuf),
@@ -27,12 +29,13 @@ func (___Vr *_TudpNodeDataRece) String() string {
 type _TudpNodeDataSendX struct {
 }
 type _TudpNodeDataSend struct {
+	Ti       int
 	usToAddr _TudpConnPort
 	usOutBuf []byte
 }
 
 func (___Vs *_TudpNodeDataSend) String() string {
-	return _Spf("send<%s>(%d){%x}",
+	return _Spf("Ti:%d send<%s>(%d){%x}",
 		___Vs.usToAddr.String(),
 		len(___Vs.usOutBuf),
 		_FgenMd5__5(&___Vs.usOutBuf))

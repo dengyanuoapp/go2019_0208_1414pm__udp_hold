@@ -67,7 +67,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 
 	__VhereSeeKey1 := __Vtmp[23:55]
 	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
-	_CpfN(" 192395 07  tI:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] seeKeyIs<%x> ",
+	_CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] seeKeyIs<%x> ",
 		___VtraceInt,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),

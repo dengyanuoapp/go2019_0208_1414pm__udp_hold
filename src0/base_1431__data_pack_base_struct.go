@@ -62,6 +62,7 @@ type _TdataPack_991 struct {
 type _TdecodeX struct {
 }
 type _Tdecode struct {
+	Ti            int // traceInfo
 	ok            bool
 	receiveTime   int
 	remoteAddr    net.UDPAddr
@@ -80,7 +81,8 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.Type)
 	}
 	__Vrs := _Spf(
-		"ok:%T rm:%s rmk:%x type:%s {%s} t:%d ",
+		"Ti:%d ok:%T rm:%s rmk:%x type:%s {%s} t:%d ",
+		___Vd.Ti,
 		___Vd.ok,
 		___Vd.remoteAddr.String(),
 		___Vd.remotePortKey[:8],
@@ -103,6 +105,7 @@ func (___Vd *_Tdecode) Count128() []int {
 type _TencodeX struct {
 }
 type _Tencode struct {
+	Ti           int
 	enToId128    []byte        // one of to addr : use enToConnPort if zero , or use this as to addess
 	enToConnPort _TudpConnPort // another of to addr
 	enType       byte
@@ -120,7 +123,7 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("to:%s toId:%s T:%d", ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enType)
+	__Vso = _Spf("Ti:%d to:%s toId:%s T:%d", ___Ven.Ti, ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enType)
 
 	switch ___Ven.enType {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,

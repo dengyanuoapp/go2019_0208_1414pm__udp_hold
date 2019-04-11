@@ -7,31 +7,36 @@ func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 	for {
 		__Vus = _TudpNodeDataSend{}
 		select {
-		case __Vue = <-___Vuen.enCHencodeCmdI: // chan _Tencode
+		case __Vue = <-___Vuen.enCHencodeCmdI: // chan _TencodeX
 			_FpfNonce(" 849192 01 : try Encode CMD {%s}", __Vue.String())
 			//___Vuen.
 			//	_FdataMachin__1000201x11__connMap_insertId(&__Vue)
 			__Vue.enLogin.
 				_FdataPack__100__loginReq(__Vue.enType, &__Vus.usOutBuf)
-		case __Vue = <-___Vuen.enCHencodeDataI: // chan _Tencode
+		case __Vue = <-___Vuen.enCHencodeDataI: // chan _TencodeX
 			_FpfNdb(" 849192 05 : try Encode Data{%s}", __Vue.String())
 			_FpfNdb(" 849192 06 : under constructing ")
 
 		}
-		___Vuen._FuEncode__1100201x2__fillAddr_sending(&__Vus, &__Vue)
+		if 0 == __Vue.Ti {
+			__Vue.Ti = _FgenRand_int()
+		}
+		___Vuen._FuEncode__1100201x2__fillAddr_sending(__Vus, __Vue)
+
 	}
 }
-func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus *_TudpNodeDataSend, ___Vue *_Tencode) { // _TudpNodeDataSendX
+func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus _TudpNodeDataSend, ___Vue _Tencode) { // _TudpNodeDataSendX _TencodeX
 	if nil == ___Vuen.enCHuDataSendLO { // *chan _TudpNodeDataSend // _TudpNodeDataSendX
 		_FpfN(" 849193 01 : why NULL chan out? ignore :%v:%v", ___Vus, ___Vue)
 		return
 	}
 
-	if nil == ___Vus || nil == ___Vue {
-		_FpfNex(" 849193 01 : why NULL ? %v:%v", ___Vus, ___Vue)
-	}
+	//	if nil == ___Vus || nil == ___Vue {
+	//		_FpfNex(" 849193 01 : why NULL ? %v:%v", ___Vus, ___Vue)
+	//	}
 	if 0 == len(___Vus.usOutBuf) {
 		_FpfN(" 849193 02 : len ZERO, ignore ")
+		return
 	}
 
 	if 0 == len(___Vue.enToId128) {
@@ -41,16 +46,18 @@ func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus *_TudpNo
 		return
 	}
 
+	___Vus.Ti = ___Vue.Ti
+
 	_FpfNonce(" 849193 04 : filling addr ok:%s", ___Vus.String())
-	(*___Vuen.enCHuDataSendLO) <- (*___Vus)
+	(*___Vuen.enCHuDataSendLO) <- ___Vus
 
 	if 0 != ___Vue.enDelay {
-		go _FudpNodeDataSend__delaySend(___Vue.enDelay, *___Vus, ___Vuen.enCHuDataSendLO)
+		go _FudpNodeDataSend__delaySend(___Vue.enDelay, ___Vus, ___Vuen.enCHuDataSendLO)
 	}
 
 	__Vi := ___Vue.enMultiSend
 	for __Vi != 0 {
-		(*___Vuen.enCHuDataSendLO) <- (*___Vus)
+		(*___Vuen.enCHuDataSendLO) <- ___Vus
 		__Vi--
 	}
 }

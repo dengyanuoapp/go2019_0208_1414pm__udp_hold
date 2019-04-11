@@ -10,8 +10,8 @@ import (
 // _TudpNodeSt
 type _TuDecode struct {
 	//uTmCHunDataReceI  chan _TudpNodeDataRece // an udpNode pointer , if not nil , read from it's unCHreceLO
-	uTmCHunDataReceI  chan []byte // an udpNode pointer , if not nil , read from it's unCHreceLO
-	uTmCHdecodeCmdLO  *chan _Tdecode
+	uTmCHunDataReceI  chan []byte    // an udpNode pointer , if not nil , read from it's unCHreceLO
+	uTmCHdecodeCmdLO  *chan _Tdecode //_TdecodeX
 	uTmCHdecodeDataLO *chan _Tdecode
 	uTmCB700101init   func(*_TuDecode) // if nil , use the default init procedure // _FudpDecode__700101x__init__default
 	uTmCB700201rece2  func(*_TuDecode) // if nil , use the default receive        // _FudpDecode__700201x__receive__default
