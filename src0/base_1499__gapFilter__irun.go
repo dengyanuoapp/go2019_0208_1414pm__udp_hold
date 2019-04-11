@@ -38,7 +38,8 @@ func (___Vgf *_TgapFilter) IRun(___Vidx int) {
 func (___Vgf *_TgapFilter) _FgapFilter__1200101x__init_default() {
 
 	if 0 == ___Vgf.gfGap {
-		_Fex(" 839171 01 : why Gap ZERO ? ")
+		//_Fex(" 839171 01 : why Gap ZERO ? ")
+		___Vgf.gfGap = _T10s
 	}
 
 	___Vgf.gfCHudpNodeDataReceI = make(chan _TudpNodeDataRece, 50)
@@ -62,9 +63,7 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200101x__init_default() {
 
 	go _Frun(___Vgf, 1200201) // _FgapFilter__1200201x__gapLoop_delay_timeOut__generator
 
-	if nil != ___Vgf.gfCHudpNodeDataReceLO {
-		go _Frun(___Vgf, 1200301) // _FgapFilter__1200301x__Chan_rece
-	}
+	go _Frun(___Vgf, 1200301) // _FgapFilter__1200301x__Chan_rece
 }
 
 func (___Vgf *_TgapFilter) _FgapFilter__1200201x__gapLoop_delay_timeOut__generator() {
