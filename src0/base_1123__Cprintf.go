@@ -32,3 +32,6 @@ func _CpfN(___Vfmt string, ___Vpara ...interface{}) {
 	__Vs += _Spf(___Vfmt+"\n", ___Vpara...)
 	_CpfS(&__Vs)
 } // _CpfN
+
+func ___CpfN(___Vfmt string, ___Vpara ...interface{}) {
+}

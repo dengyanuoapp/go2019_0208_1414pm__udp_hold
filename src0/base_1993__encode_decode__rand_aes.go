@@ -44,30 +44,34 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(__Vtmp[:2+__VlenIn])))
 	//_FpfNhex(&__Vtmp, 48, " 192390 07 Vtmp : ")
 
-	if 2 == 3 {
-		_FpfNhex(&__Vtmp, 48, " 192394 pre  : ")
-		_FpfNhex(&__Vtmp, 28, " 192394 pre  : ")
-		_FpfNhex(&__Vtmp, 30, " 192394 pre  : ")
-		_FpfNhex(&__Vtmp, 32, " 192394 pre  : ")
-		_FpfNhex(&__Vtmp, 33, " 192394 pre  : ")
-		_FpfNhex(&__Vtmp, 34, " 192394 pre  : ")
-		_FpfhexlastN(&__Vtmp, 28, " 192394 post : ")
-		_FpfhexlastN(&__Vtmp, 30, " 192394 post : ")
-		_FpfhexlastN(&__Vtmp, 33, " 192394 post : ")
-		_FpfhexlastN(&__Vtmp, 34, " 192394 post : ")
-	}
+	__VhereSeeKey1 := __Vtmp[23:55]
+
+	_CpfN(" 192395 01  Ti:%d before cbc : (%d){%x}[%x] seeKeyIs<%x> ",
+		___VtraceInt,
+		len(__Vtmp),
+		_FgenMd5__5(&__Vtmp),
+		__Vtmp,
+		__VhereSeeKey1,
+	)
 
 	__Vtmp2, __Verr :=
 		_FencAesCbc__only___(___Vkey, __Viv, __Vtmp, ___VtraceInt)
-	_FerrExit(" 192395 01:", __Verr)
+	_FerrExit(" 192395 02:", __Verr)
 
-	//_FpfhexlastN(&__Vtmp2, 40, " 192395 03 Vtmp : ")
+	_CpfN(" 192395 03  Ti:%d after cbc output: (%d){%x}[%x] , cbc input is k<%x> iv<%x>[%x]",
+		___VtraceInt,
+		len(__Vtmp2),
+		_FgenMd5__5(&__Vtmp2),
+		__Vtmp2,
+		___Vkey,
+		__Viv,
+		__Vtmp,
+	)
 
 	__Vout = _FappendRandPAT0_15(&__Vtmp2)
 
-	__VhereSeeKey1 := __Vtmp[23:55]
 	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
-	_CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] seeKeyIs<%x> ",
+	_CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
 		___VtraceInt,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
@@ -75,7 +79,6 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		len(__Vout),
 		_FgenMd5__5(&__Vout),
 		__Vout,
-		__VhereSeeKey1,
 	)
 
 	return __Vout, __Verr
