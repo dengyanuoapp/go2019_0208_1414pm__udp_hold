@@ -27,31 +27,34 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		return __Vout, nil
 	}
 
+	_CpfN(" 192390 02 Ti:%d cbc In:[%x]", ___VtraceInt, ___VbyteIn)
+
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(___VbyteIn)
-	//_FpfNhex(___VbyteIn, 40, " 192390 03 iv %x , byteIn ", __Viv)
 
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
 
 	__Vtmp[1] = byte(__VlenIn & 0xFF)        // byte 1 : low byte of the uint16
 	__Vtmp[0] = byte((__VlenIn >> 8) & 0xFF) // byte 0 : high byte of the uint16
 
-	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
-	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
 	copy(__Vtmp[2:], ___VbyteIn)
-	//_FpfNhex(&__Vtmp, 48, " 192390 05 Vtmp : ")
-	//copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
-	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(__Vtmp[:2+__VlenIn])))
-	//_FpfNhex(&__Vtmp, 48, " 192390 07 Vtmp : ")
 
-	__VhereSeeKey1 := __Vtmp[23:55]
+	__Vmd5WithLen := _FmakeByte16(md5.Sum(__Vtmp[:2+__VlenIn]))
+	copy(__Vtmp[2+__VlenIn:], __Vmd5WithLen)
 
-	_CpfN(" 192395 01  Ti:%d before cbc : (%d){%x}[%x] seeKeyIs<%x> ",
+	__VhereSeeKey1 := ___VbyteIn[5:37]
+	__VhereSeeKey2 := __Vtmp[7:39]
+
+	_CpfN(" 192395 01  Ti:%d before cbc : (%d){%x}[%x] Content-md5<%x> seeKey1<%x> seeKey2<%x> ",
 		___VtraceInt,
+
 		len(__Vtmp),
 		_FgenMd5__5(&__Vtmp),
 		__Vtmp,
+
+		__Vmd5WithLen,
 		__VhereSeeKey1,
+		__VhereSeeKey2,
 	)
 
 	__Vtmp2, __Verr :=
