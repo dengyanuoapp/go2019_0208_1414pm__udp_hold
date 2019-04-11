@@ -1,17 +1,23 @@
 package main
 
+import "sync"
+
+var ___VunSync sync.Mutex
+
 func (___Vun *_TudpNodeSt) _FudpNode__500101z__send__default() {
 	for {
 		select {
 		case __VchSend := <-___Vun.unCHsendI: // _TudpNodeDataSendX
 			//_FpfN(" 839118 01 send ") // usToAddr
 
-			___Vun.unMux.Lock()
+			//___Vun.unMux.Lock()
+			___VunSync.Lock()
 
 			__VchSend._FudpNode__500101zz__try_Rand_buf_before_send()
 			___Vun._FudpNode__500101zzz__send_buf_real(__VchSend)
 
-			___Vun.unMux.Unlock()
+			//___Vun.unMux.Unlock()
+			___VunSync.Unlock()
 		}
 		//_Fsleep_1s()
 	}
