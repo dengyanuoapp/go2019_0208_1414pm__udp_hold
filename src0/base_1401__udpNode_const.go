@@ -20,6 +20,7 @@ type _TuNodeDataRmap struct {
 // _TserviceUDP
 // a udp node: input accept AES256 rand only , can output anything
 type _TudpNodeSt struct {
+	unMux         sync.Mutex
 	unRKeyLP      *[]byte
 	unRkeyX       _Tkey256
 	unAddr        *net.UDPAddr
