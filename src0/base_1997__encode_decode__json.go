@@ -80,19 +80,19 @@ func _Fwrite_json_only_Exit(___VeMsg string, ___Vfname string, ___Vobj interface
 	return __Vb
 } // _Fwrite_json_only_Exit
 
-func _Fwrite_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string, ___Vobj interface{}) {
+func _Fwrite_json_rand_only_Exit(___VeMsg string, ___Vkey []byte, ___Vfname string, ___Vobj interface{}) {
 	var __VbufTmp1, __VbufTmp2 []byte
 	//_FpfN("819184 01 : %T , %x , %#v", ___Vobj, ___Vkey, ___Vobj)
 	__VbufTmp1 = _FencJsonExit(___VeMsg+" 819184 03", ___Vobj)
-	__VbufTmp2 = _FencAesRandExit(___VeMsg+" 819184 05", ___Vkey, &__VbufTmp1)
+	__VbufTmp2 = _FencAesRandExit(___VeMsg+" 819184 05", ___Vkey, __VbufTmp1)
 	_FwriteFileExit(___VeMsg+" 819184 07", ___Vfname, &__VbufTmp2)
 } // _Fwrite_json_rand_only_Exit
 
-func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string, ___Vobj interface{}) []byte {
+func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey []byte, ___Vfname string, ___Vobj interface{}) []byte {
 	var __VbufTmp1, __VbufTmp2 []byte
 	//_FpfN("819183 01 : %T , %x , %#v", ___Vobj, ___Vkey, ___Vobj)
 	__VbufTmp1 = _FreadFileExit(___VeMsg+" 819183 03 ", ___Vfname)
-	__VbufTmp2 = _FdecAesRandExit(___VeMsg+" 819183 05", ___Vkey, &__VbufTmp1)
+	__VbufTmp2 = _FdecAesRandExit(___VeMsg+" 819183 05", ___Vkey, __VbufTmp1)
 	//_FpfNhex(&__VbufTmp2, 80, " 819183 07")
 	if nil == ___Vobj {
 		_FpfNex(" 819183 11 : why nil")
@@ -104,7 +104,7 @@ func _Fread_json_rand_only_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname stri
 	return __VbufTmp2
 } // _Fread_json_rand_only_Exit
 
-func _FtestER__write_json_and_rand_Exit(___VeMsg string, ___Vkey *[]byte, ___Vfname string, ___Vobj interface{}) {
+func _FtestER__write_json_and_rand_Exit(___VeMsg string, ___Vkey []byte, ___Vfname string, ___Vobj interface{}) {
 	__VbufText1 := _Fwrite_json_only_Exit(___VeMsg+" 381916 01 ", ___Vfname, ___Vobj)
 
 	//_FpfN("381916 11 : %T , %x , %#v", ___Vobj, ___Vkey, ___Vobj)

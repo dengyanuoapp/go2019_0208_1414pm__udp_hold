@@ -17,18 +17,18 @@ import (
 //// 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
 //// } // _FencAesRand__gen_iv__by_timeMd5
 
-func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceInt int) ([]byte, error) {
+func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]byte, error) {
 	var (
 		__Vout, __Vtmp []byte
 	)
 
-	if 32 != len(*___Vkey) {
-		_FpfNhex(___Vkey, 32, " 192390 01 key error len")
+	if 32 != len(___Vkey) {
+		_FpfNhex(&___Vkey, 32, " 192390 01 key error len")
 		return __Vout, nil
 	}
 
 	__Viv := _FgenRand_nByte__(16)
-	__VlenIn := len(*___VbyteIn)
+	__VlenIn := len(___VbyteIn)
 	//_FpfNhex(___VbyteIn, 40, " 192390 03 iv %x , byteIn ", __Viv)
 
 	__Vtmp = make([]byte, 2+__VlenIn+16) // 2 byte len , data , 16byteMd5
@@ -38,7 +38,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceInt int) (
 
 	//__Vtmp = append(__Vtmp, (*___VbyteIn)...)
 	//__Vtmp = append(__Vtmp, _FmakeByte16(md5.Sum(*___VbyteIn))...)
-	copy(__Vtmp[2:], *___VbyteIn)
+	copy(__Vtmp[2:], ___VbyteIn)
 	//_FpfNhex(&__Vtmp, 48, " 192390 05 Vtmp : ")
 	//copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(*___VbyteIn)))
 	copy(__Vtmp[2+__VlenIn:], _FmakeByte16(md5.Sum(__Vtmp[:2+__VlenIn])))
@@ -58,7 +58,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceInt int) (
 	}
 
 	__Vtmp2, __Verr :=
-		_FencAesCbc__only___(___Vkey, &__Viv, &__Vtmp, ___VtraceInt)
+		_FencAesCbc__only___(___Vkey, __Viv, __Vtmp, ___VtraceInt)
 	_FerrExit(" 192395 01:", __Verr)
 
 	//_FpfhexlastN(&__Vtmp2, 40, " 192395 03 Vtmp : ")
@@ -81,7 +81,7 @@ func _FencAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceInt int) (
 	return __Vout, __Verr
 } // _FencAesRand__only
 
-func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceIntDE int) ([]byte, error) {
+func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) ([]byte, error) {
 	var (
 		__Vb0, __Vb1, __Vb2, __Vb3, __Vlen int
 	)
@@ -92,15 +92,15 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceIntDE int)
 	if nil == ___VbyteIn {
 		return nil, fmt.Errorf(" 392391 02 : why input len error nil ? ")
 	}
-	if 0 == len(*___Vkey) {
+	if 0 == len(___Vkey) {
 		return nil, fmt.Errorf(" 392391 03 : why key len zero ? ")
 	}
-	if 0 == len(*___VbyteIn) {
+	if 0 == len(___VbyteIn) {
 		return nil, fmt.Errorf(" 392391 04 : why input len zero ? ")
 	}
 
 	_CpfN("392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
-		*___Vkey, len(*___VbyteIn), _FgenMd5__5(___VbyteIn))
+		___Vkey, len(___VbyteIn), _FgenMd5__5(&___VbyteIn))
 
 	//_FpfNhex(___VbyteIn, 20, " 392391 06 : %x : ", ___Vkey)
 	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn, ___VtraceIntDE)
@@ -142,12 +142,12 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceIntDE int)
 	__Vtmp3 := __VdeO[:__Vb3]
 	__VrecoveryKey := __VdeO[7:39]
 	_CpfN("392392 09 : tI:%d AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
-		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", ___VtraceIntDE, String5(___Vkey),
-		len(*___VbyteIn), _FgenMd5__5(___VbyteIn),
+		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", ___VtraceIntDE, String5(&___Vkey),
+		len(___VbyteIn), _FgenMd5__5(&___VbyteIn),
 		len(__VdeO), _FgenMd5__5(&__VdeO), String9(&__VdeO),
 		len(__Vout2), _FgenMd5__5(&__Vout2),
 		len(__Vtmp3), _FgenMd5__5(&__Vtmp3),
-		len(*___VbyteIn), *___VbyteIn,
+		len(___VbyteIn), ___VbyteIn,
 		len(__VdeO), __VdeO,
 		__VrecoveryKey,
 	)
@@ -156,13 +156,13 @@ func _FdecAesRand__only(___Vkey *[]byte, ___VbyteIn *[]byte, ___VtraceIntDE int)
 	return __Vout2, __Verr
 } // _FdecAesRand__only
 
-func _FencAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
+func _FencAesRandExit(___VeMsg string, ___Vkey []byte, ___VbyteIn []byte) []byte {
 	__Vb, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn, 0)
 	_FerrExit(___VeMsg+" 292391 ", __Verr)
 	return __Vb
 } // _FencAesRandExit
 
-func _FencAesRandExit2(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) ([]byte, []byte) {
+func _FencAesRandExit2(___VeMsg string, ___Vkey []byte, ___VbyteIn []byte) ([]byte, []byte) {
 	__Vb1, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn, 0)
 	_FerrExit(___VeMsg+" 292392 01", __Verr)
 	__Vb2, __Verr := _FencAesRand__only(___Vkey, ___VbyteIn, 0)
@@ -170,17 +170,17 @@ func _FencAesRandExit2(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) ([]
 	return __Vb1, __Vb2
 } // _FencAesRandExit
 
-func _FdecAesRandExit(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
+func _FdecAesRandExit(___VeMsg string, ___Vkey []byte, ___VbyteIn []byte) []byte {
 	__Vb, __Verr := _FdecAesRand__only(___Vkey, ___VbyteIn, 0)
 	_FerrExit(___VeMsg+" 292395 ", __Verr)
 	return __Vb
 } // _FdecAesRandExit
 
-func _FaesRand_test__encode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
+func _FaesRand_test__encode(___VeMsg string, ___Vkey []byte, ___VbyteIn []byte) []byte {
 	return _FencAesRandExit(___VeMsg+" 481911 ", ___Vkey, ___VbyteIn)
 } // _FaesRand_test__encode
 
-func _FaesRand_test__decode(___VeMsg string, ___Vkey *[]byte, ___VbyteIn *[]byte) []byte {
+func _FaesRand_test__decode(___VeMsg string, ___Vkey []byte, ___VbyteIn []byte) []byte {
 	return _FdecAesRandExit(___VeMsg+" 481913 ", ___Vkey, ___VbyteIn)
 } // _FaesRand_test__decode
 
@@ -191,14 +191,14 @@ func _FaesRand_test__en_de_Exit(___VstrIn string, ___VloopAmount int) {
 		//_FpfNhex(&__Vkey, 40, " 738191 : using key ")
 
 		__VbI := []byte(___VstrIn)
-		__Vt1 := _FaesRand_test__encode(" 182812 ", &__Vkey, &__VbI)
+		__Vt1 := _FaesRand_test__encode(" 182812 ", __Vkey, __VbI)
 		// len(2) + string(27) + md5(16) == 2+27+16 == 45 ///// origin_text(45)  --> encAES
 		// // text(45) + padadd(3) == 48 == 3 * 16 as aes_data_load(48)
 		// // iv(16) + aes_data_load(48) == 16 + 48 == 64(aesENtext)
 		// // 64(aesENtext) + random(0-15 byte) == 64 + N byte == 64 + 8(for example) --> 72 byte( aes_ran_gen_Crypt_text(72) )
 
 		//_FpfNhex(&__Vt1, 48, " 738194 : genRandSecText ")
-		__VbyteO := _FaesRand_test__decode(" 182814 ", &__Vkey, &__Vt1)
+		__VbyteO := _FaesRand_test__decode(" 182814 ", __Vkey, __Vt1)
 		//_FpfNhex(&__VbyteO, 48, " 738195 : plain_text ")
 		__VstrO := string(__VbyteO)
 

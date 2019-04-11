@@ -26,13 +26,13 @@ func (___VnewSession *_TsrvDownInfo) _FudpDecode__800501x__tryGetSrvInfoFromUri(
 
 		//_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
 		__VtmpSi2 = _TsrvInfo{}
-		_, __Verr2 = _Ftry_download_rand_gob01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
+		_, __Verr2 = _Ftry_download_rand_gob01(__nowUri3, __Vsi2.refreshPwd, &__VtmpSi2)
 		if nil != __Verr2 {
 			//_FpfN(" 311913 02 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
 			__nowUri3 = __Vsi2.refreshUri
 			__VtmpSi2 = _TsrvInfo{}
 			//_, __Verr2 = _Ftry_download_rand_json01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
-			_, __Verr2 = _Ftry_download_rand_gob01(__nowUri3, &__Vsi2.refreshPwd, &__VtmpSi2)
+			_, __Verr2 = _Ftry_download_rand_gob01(__nowUri3, __Vsi2.refreshPwd, &__VtmpSi2)
 			if nil != __Verr2 {
 				_FpfN(" 311913 03 : Error : update Uri slice failed.: %s , %v ", __nowUri3, __Verr2)
 				return

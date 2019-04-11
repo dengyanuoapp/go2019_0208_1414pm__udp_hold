@@ -19,7 +19,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 		select {
 		case __VunReceB := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
 			__VunRece = _TudpNodeDataRece{}
-			__Verr0 := _FdecGob___(" 388195 02 err ", &__VunReceB, &__VunRece)
+			__Verr0 := _FdecGob___(" 388195 02 err ", __VunReceB, &__VunRece)
 			___VtraceIntDE := _FgenRand_int()
 			if nil != __Verr0 {
 				_FpfN(" 388195 03 , decGob error :%v ", __Verr0)
@@ -36,7 +36,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 				__Vtmp3in := __VunRece.UrrBuf
 				___VudpDecodeMux.Lock()
 				__Vtmp3out, __Verr2 :=
-					_FdecAesRand__only(&__VunRece.UrrReceiveKey.Bkey, &__Vtmp3in, ___VtraceIntDE)
+					_FdecAesRand__only(__VunRece.UrrReceiveKey.Bkey, __Vtmp3in, ___VtraceIntDE)
 				___VudpDecodeMux.Unlock()
 				if nil != __Verr2 {
 					_CpfN(" 388195 08 tI:%d AesDec error {%v} {%s}", ___VtraceIntDE, __Verr2, __VunRece.String())

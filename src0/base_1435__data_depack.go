@@ -38,7 +38,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		__Vbuf2 := ___Vbuf[37:]
 		//___Vdecode.Dlogin = _TloginReq{}
-		__Verr2 := _FdecGob___(" 387193 01 ", &__Vbuf2, &___Vdecode.Dlogin)
+		__Verr2 := _FdecGob___(" 387193 01 ", __Vbuf2, &___Vdecode.Dlogin)
 		if nil != __Verr2 {
 			_FpfNdb(" 387193 03 :error :%v", __Verr2)
 			return

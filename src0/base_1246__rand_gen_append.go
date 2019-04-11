@@ -33,7 +33,7 @@ func _FreGenRandBuf___() {
 	_Fsleep_1ms()
 	__Viv := _FgenMd5_nowB___(&__Vk)
 
-	__Vtmp, __Verr := _FencAesCbc__only___(&__Vk, &__Viv, &(_VgenRand.buf), 0)
+	__Vtmp, __Verr := _FencAesCbc__only___(__Vk, __Viv, (_VgenRand.buf), 0)
 	_FerrExit(" 371913 ", __Verr)
 	if 2 == 3 {
 		_FpfN(" 371915 _FreGenRandBuf___ : len ( %d ) : %x %x %x ", len(__Vtmp), __Vtmp[:16], __Vtmp[16:32], __Vtmp[32:48])
