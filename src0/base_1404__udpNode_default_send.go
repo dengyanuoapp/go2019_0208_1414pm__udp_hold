@@ -59,16 +59,17 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 				if 2 == 2 {
 					_CpfN(
 						" 839119 08 udp-send-rand %11d me<:%d> mreceK:<%s> to<%s> toK<%s> before:%d{%x}, rand:%d{%x} [%s]",
-						_FtimeI64(),
-						___Vun.unLocalPort,
-						String5(&___Vun.unRkeyX.Bkey),
-						__VmyUs.usToAddr.DstAddr.String(),
-						String5(&__VmyUs.usToAddr.K256),
-						len(__VmyUs.usOutBuf),
-						_FgenMd5__5(&__VmyUs.usOutBuf),
-						len(__Vbuf),
-						_FgenMd5__5(&__Vbuf),
-						__VmyUs.String(),
+						//                          1      2            3     4       5          6   7        8   9   10
+						_FtimeI64(),                       // 1
+						___Vun.unLocalPort,                // 2
+						String5(&___Vun.unRkeyX.Bkey),     // 3
+						__VmyUs.usToAddr.DstAddr.String(), // 4
+						String5(&__VmyUs.usToAddr.K256),   // 5
+						len(__VmyUs.usOutBuf),             // 6
+						_FgenMd5__5(&__VmyUs.usOutBuf),    // 7
+						len(__Vbuf),                       // 8
+						_FgenMd5__5(&__Vbuf),              // 9
+						__VmyUs.String(),                  // 10 _TudpNodeDataSendX
 					)
 				}
 				if 2 == 3 {

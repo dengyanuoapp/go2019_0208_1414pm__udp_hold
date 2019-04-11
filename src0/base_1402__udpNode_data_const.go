@@ -36,6 +36,7 @@ type _TudpNodeDataSend struct {
 
 func (___Vs *_TudpNodeDataSend) String() string {
 	return _Spf("Ti:%d send<%s>(%d){%x}",
+		___Vs.Ti,
 		___Vs.usToAddr.String(),
 		len(___Vs.usOutBuf),
 		_FgenMd5__5(&___Vs.usOutBuf))
