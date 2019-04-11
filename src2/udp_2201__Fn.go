@@ -16,7 +16,7 @@ var (
 	_Vself                 _Tself
 	_Vconfig               _Tconfig
 	_VudpNode_FunWaitDun   _TudpNodeSt
-	_VgapFilter__Dn        _TgapFilter //_TgapFilterX
+	//_VgapFilter__Dn        _TgapFilter //_TgapFilterX
 )
 
 func _Finit_2201() {
@@ -37,16 +37,16 @@ func _Finit_2201() {
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
-		unName:    "_VudpNode_FunWaitDun",
-		unRKeyLP:  &_Vpasswd_udp_Fn_waitForCliens01,
-		unLoopGap: _T10s,
-		//unCHreceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
-		unCHreceLO: &_VgapFilter__Dn.gfCHbyteI,
+		unName:     "_VudpNode_FunWaitDun",
+		unRKeyLP:   &_Vpasswd_udp_Fn_waitForCliens01,
+		unLoopGap:  _T10s,
+		unCHreceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+		//unCHreceLO: &_VgapFilter__Dn.gfCHbyteI,
 	}
 
-	_VgapFilter__Dn = _TgapFilter{ //_TgapFilterX
-		gfCHbyteLO: &_VudpDecode_Fn.uTmCHunDataReceI,
-	}
+	//	_VgapFilter__Dn = _TgapFilter{ //_TgapFilterX
+	//		gfCHbyteLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+	//	}
 
 	_VudpDecode_Fn = _TuDecode{
 		uTmCHdecodeCmdLO:  &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
@@ -117,8 +117,8 @@ func main() {
 	// _FuEncode__1100201x__packSend__default
 	go _Frun(&_VudpEncode_Fn, 1100101) // _FuEncode__1100101__main_init__default
 
-	// _FgapFilter__1200301x__Chan_rece()
-	go _Frun(&_VgapFilter__Dn, 1200101) // _FgapFilter__1200101x__init_default
+	// _FgapFilter__1200301x__Chan_rece
+	//go _Frun(&_VgapFilter__Dn, 1200101) // _FgapFilter__1200101x__init_default
 
 	<-_CHexit
 } // main

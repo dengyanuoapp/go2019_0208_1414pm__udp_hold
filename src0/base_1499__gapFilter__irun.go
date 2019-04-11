@@ -70,6 +70,6 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200201x__gapLoop_delay_timeOut__generat
 	for {
 		_Fsleep(___Vgf.gfGap)
 		___Vgf.gfCHdelay <- 1
-		_FpfN(" 839171 05 len(%d) cap(%d) ", len(___Vgf.gfCHdelay), cap(___Vgf.gfCHdelay))
+		//_FpfN(" 839171 05 len(%d) cap(%d) ", len(___Vgf.gfCHdelay), cap(___Vgf.gfCHdelay))
 	}
 }
