@@ -27,7 +27,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		return __Vout, nil
 	}
 
-	_CpfN(" 192390 02 Ti:%d cbc In:[%x]", ___VtraceInt, ___VbyteIn)
+	___CpfN(" 192390 02 Ti:%d cbc In:[%x]", ___VtraceInt, ___VbyteIn)
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(___VbyteIn)
@@ -45,7 +45,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 	__VhereSeeKey1 := ___VbyteIn[5:37]
 	__VhereSeeKey2 := __Vtmp[7:39]
 
-	_CpfN(" 192395 01  Ti:%d before cbc : (%d){%x}[%x] Content-md5<%x> seeKey1<%x> seeKey2<%x> ",
+	___CpfN(" 192395 01  Ti:%d before cbc : (%d){%x}[%x] Content-md5<%x> seeKey1<%x> seeKey2<%x> ",
 		___VtraceInt,
 
 		len(__Vtmp),
@@ -61,7 +61,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		_FencAesCbc__only___(___Vkey, __Viv, __Vtmp, ___VtraceInt)
 	_FerrExit(" 192395 02:", __Verr)
 
-	_CpfN(" 192395 03  Ti:%d after cbc output: (%d){%x}[%x] , cbc input is k<%x> iv<%x>[%x]",
+	___CpfN(" 192395 03  Ti:%d after cbc output: (%d){%x}[%x] , cbc input is k<%x> iv<%x>[%x]",
 		___VtraceInt,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
@@ -74,7 +74,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 	__Vout = _FappendRandPAT0_15(&__Vtmp2)
 
 	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
-	_CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
+	___CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
 		___VtraceInt,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
@@ -105,7 +105,7 @@ func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) (
 		return nil, fmt.Errorf(" 392391 04 : why input len zero ? ")
 	}
 
-	_CpfN("392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
+	___CpfN(" 392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
 		___Vkey, len(___VbyteIn), _FgenMd5__5(&___VbyteIn))
 
 	//_FpfNhex(___VbyteIn, 20, " 392391 06 : %x : ", ___Vkey)
@@ -147,7 +147,7 @@ func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) (
 
 	__Vtmp3 := __VdeO[:__Vb3]
 	__VrecoveryKey := __VdeO[7:39]
-	_CpfN("392392 09 : tI:%d AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
+	___CpfN(" 392392 09 : tI:%d AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
 		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", ___VtraceIntDE, String5(&___Vkey),
 		len(___VbyteIn), _FgenMd5__5(&___VbyteIn),
 		len(__VdeO), _FgenMd5__5(&__VdeO), String9(&__VdeO),

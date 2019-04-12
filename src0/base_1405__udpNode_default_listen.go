@@ -23,13 +23,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101x__listen() {
 	___Vun.unLocalAddr = ___Vun.unConn.LocalAddr()
 	___Vun.unLocalPort = ___Vun.unLocalAddr.(*net.UDPAddr).Port
 
-	//_FpfN(" 918381 061 %v", ___Vun)
-	//_FpfN(" 918381 062 %+v", ___Vun)
-	//_FpfN(" 918381 063 %#v", ___Vun)
-	//_FpfN(" 918381 065 ___Vun.unConn       %v", ___Vun.unConn)
-	//_FpfN(" 918381 066 ___Vun.unAddr       %v", ___Vun.unAddr)
-	_FpfN(" 918381 067 listen on : %s, %s , key %x", ___Vun.unLocalAddr.String(), ___Vun.unName, ___Vun.unRkeyX.B32)
-	_CpfN(" 918381 068 listen on : %s, %s , key %x", ___Vun.unLocalAddr.String(), ___Vun.unName, ___Vun.unRkeyX.B32)
-	//_FpfN(" 918381 069 ___Vun.unRemoteAddr %v", ___Vun.unRemoteAddr)
+	_FpfN(" 918381 07 listen on : %s, %s , key %x", ___Vun.unLocalAddr.String(), ___Vun.unName, ___Vun.unRkeyX.B32)
+	_CpfN(" 918381 08 listen on : %s, %s , key %x", ___Vun.unLocalAddr.String(), ___Vun.unName, ___Vun.unRkeyX.B32)
 
 }
