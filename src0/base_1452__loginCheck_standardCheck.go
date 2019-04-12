@@ -42,8 +42,8 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		case __VuConnPort := <-___Vlc.ulCHconnPortI: // _TudpConnPort
 			// ============================ step 01 : Dn gen tokenA, to anyhost, cmd fill 01 ====================
 			_FpfNdb(" 138184 02 : connPort-Chan pop {%s}", __VuConnPort.String())
-			_CpfN("   138184 03 : connPort-Chan pop {%s}", __VuConnPort.String())
-			___Vlc.ulTokenA = _FgenRand_nByte__(16) // tokenA / Lo
+			_CpfN("   138184 03 : connPort-Chan pop {%s}", __VuConnPort.String()) // check-important
+			___Vlc.ulTokenA = _FgenRand_nByte__(16)                               // tokenA / Lo
 			___Vlc.ulGenTime = _FtimeInt()
 
 			__Venc = _Tencode{
