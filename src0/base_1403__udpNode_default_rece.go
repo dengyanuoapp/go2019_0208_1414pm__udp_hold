@@ -7,7 +7,7 @@ var ___VudpNode__500201y__mux sync.Mutex
 
 // _Fhandle_u01y__udpListen_Udp__read_main_loop
 func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
-	// _FpfNdb(" 831818 00 rece start ")
+	// _FpfNdb(" 331818 00 rece start ")
 	for {
 		var __VuAddr *net.UDPAddr
 		// func (c *UDPConn) ReadFromUDP(b []byte) (int, *UDPAddr, error)
@@ -17,13 +17,21 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 
 		___Vun.unRemoteAddr = *__VuAddr
 
+		_CpfN(" 331818 01 Origin rece: me<%d> ra:<%s> (%d/%d)<%x>",
+			___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
+			___Vun.unRlen, len(___Vun.unRbuf), ___Vun.unRbuf[:___Vun.unRlen])
+
 		___Vun._FudpNode__500201y01__receive__default()
 
 		___VudpNode__500201y__mux.Unlock()
 	}
 }
 
+var ___VudpNode__500201y01__receive__default__mux sync.Mutex
+
 func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
+	defer ___VudpNode__500201y01__receive__default__mux.Unlock()
+	___VudpNode__500201y01__receive__default__mux.Lock()
 
 	if nil != ___Vun.unRerr {
 		_FpfN(
@@ -54,6 +62,10 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		UrrBuf:        ___Vun.unRbuf[:___Vun.unRlen], // []byte
 		UrrReceiveKey: ___Vun.unRkeyX,                // _Tkey256
 	}
+
+	_CpfN(" 831818 07 Origin rece: me<%d> ra:<%s> (%d/%d){%x}<%x>",
+		___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
+		___Vun.unRlen, len(__Vrece.UrrBuf), _FgenMd5__5(&__Vrece.UrrBuf), __Vrece.UrrBuf)
 
 	(*___Vun.unCHreceLO) <- __Vrece
 

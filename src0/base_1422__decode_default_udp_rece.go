@@ -16,7 +16,8 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 		case __VunRece := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
 
 			___VudpDecodeMux.Lock()
-			___Vutm._FudpDecode__700201x11__receive__default(&__VunRece)
+			___Vutm.
+				_FudpDecode__700201x11__receive__default(&__VunRece)
 		} // end Select
 		___VudpDecodeMux.Unlock()
 	} // end For

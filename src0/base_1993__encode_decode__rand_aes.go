@@ -31,7 +31,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		return __Vout, nil
 	}
 
-	_CpfN(" 192390 02 Ti:%d cbc In:[%x] key<%x>", ___VtraceInt, ___VbyteIn, ___Vkey)
+	_CpfN(" 192390 02 Ti:%d cbc In:[%x] enKey<%x>", ___VtraceInt, ___VbyteIn, ___Vkey)
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(___VbyteIn)
