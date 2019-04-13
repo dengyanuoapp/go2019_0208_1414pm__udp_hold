@@ -43,22 +43,30 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x1__uDataSwap() {
 	_CpfN(" 381917 03 : ___Vgf.gfR.last {%#v} ", ___Vgf.gfR.last)
 	_CpfN(" 381917 04 : ___Vgf.gfR.las2 {%#v} ", ___Vgf.gfR.las2)
 
+	_FpfN(" 381917 05 ")
 	for __Vk, __Vv := range ___Vgf.gfR.now_ { // _TgapFilter_ReceCntX
+		_FpfN(" 381917 06 ")
 		if 1 == __Vv.cnt {
+			_FpfN(" 381917 07 ")
 			__Vcnt := 0
 			__Vv2, __Vok2 := ___Vgf.gfR.last[__Vk]
 			__Vv3, __Vok3 := ___Vgf.gfR.last[__Vk]
 			if __Vok2 {
+				_FpfN(" 381917 07 ")
 				__Vcnt = __Vv2.cnt
 			}
 			if __Vok3 {
+				_FpfN(" 381917 08 ")
 				__Vcnt += __Vv3.cnt
 			}
 			if 1 == __Vcnt {
+				_FpfN(" 381917 09 ")
 				(*___Vgf.gfCHudpNodeDataReceLO) <- __Vv.unr
 			}
 		}
 	}
+
+	_FpfN(" 381917 10 ")
 
 	___Vgf.gfR.las2 = ___Vgf.gfR.last
 	___Vgf.gfR.last = ___Vgf.gfR.now_
