@@ -68,7 +68,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC1__standardCheck(___Vdecode *_
 		___Venc.enType = Cmd__loginEnd // no use , but told the following debug disable only
 	default:
 		_FpfNdb(" 138183 08 : unknow how to deal with : type %d,", ___Vdecode.Type)
-		//continue // next select
+		//continue // next Select
 	}
 }
 func (___Vlc *_TloginCheck) _FloginCheck__900201xC2__standardCheck(___Venc *_Tencode, ___VuConnPort *_TudpConnPort) {
