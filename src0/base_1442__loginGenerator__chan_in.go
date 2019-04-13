@@ -4,7 +4,7 @@ import "sync"
 
 var ___VudpDecode__800201x__mux sync.Mutex
 
-func _FudpDecode__800201x__chan_in__default(___Vlg *_TloginGenerator) {
+func _Flogin__800201x__chan_in__default(___Vlg *_TloginGenerator) {
 	for {
 		select {
 		case __Vdmid := <-___Vlg.lgCHdataMachineIdI: // _TdataMachinEid
