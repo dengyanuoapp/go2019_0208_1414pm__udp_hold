@@ -52,4 +52,10 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeD
 
 func (___Vgf *_TgapFilter) _FgapFilter__1200301x3__Byte_rece(__Vbyte *[]byte) {
 	_FpfN(" 381917 23 : gfCHbyteI :[%x]", __Vbyte)
+
+	for __Vk, __Vv := range ___Vgf.gfR.now_ {
+	}
+
+	___Vgf.gfR.las2 = ___Vgf.gfR.last
+	___Vgf.gfR.last = ___Vgf.gfR.now_
 }
