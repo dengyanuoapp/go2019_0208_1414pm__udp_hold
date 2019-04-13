@@ -14,10 +14,14 @@ import (
 //} // _Taes
 
 // https://golang.org/pkg/crypto/cipher/#example_NewCBCEncrypter
+var ___VencAesCbc__only__mux sync.Mutex
+
 func _FencAesCbc__only___(___Vkey []byte, ___Viv []byte, ___VbyteIn []byte, ___VtraceInt int) ([]byte, error) {
-	var (
-		__VoLen int
-	)
+
+	defer ___VencAesCbc__only__mux.Unlock()
+	___VencAesCbc__only__mux.Lock()
+
+	var __VoLen int
 	__VtLen := 0
 	//_FpfN(" 132811 _FencAesCbc__only___ : len In (%d) , key %x , iv %x", len(*___VbyteIn), *___Vkey, *___Viv)
 
@@ -88,12 +92,12 @@ func _FencAesCbcExit(___Vkey []byte, ___Viv []byte, ___VbyteIn []byte) []byte {
 	return __Vbyte
 } // _FencAesCbcExit
 
-var ___VsyncAESdec sync.Mutex
+var ___V_FdecAesCbc__only___mux sync.Mutex
 
 func _FdecAesCbc__only___(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) ([]byte, error) {
 
-	defer ___VsyncAESdec.Unlock()
-	___VsyncAESdec.Lock()
+	defer ___V_FdecAesCbc__only___mux.Unlock()
+	___V_FdecAesCbc__only___mux.Lock()
 
 	__VoutNull := []byte{}
 	if 32 != len(___Vkey) {

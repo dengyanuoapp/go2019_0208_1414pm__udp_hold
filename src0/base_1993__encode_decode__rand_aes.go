@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"crypto/md5"
 	"fmt"
+	"sync"
 )
 
 //var (
@@ -17,17 +18,20 @@ import (
 //// 	_VencAesRand_iv128__last = _VencAesRand_iv128__now
 //// } // _FencAesRand__gen_iv__by_timeMd5
 
+var ___VencAesRand__only__mux sync.Mutex
+
 func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]byte, error) {
-	var (
-		__Vout, __Vtmp []byte
-	)
+	defer ___VencAesRand__only__mux.Unlock()
+	___VencAesRand__only__mux.Lock()
+
+	var __Vout, __Vtmp []byte
 
 	if 32 != len(___Vkey) {
 		_FpfNhex(&___Vkey, 32, " 192390 01 key error len")
 		return __Vout, nil
 	}
 
-	_CpfN(" 192390 02 Ti:%d cbc In:[%x]", ___VtraceInt, ___VbyteIn)
+	_CpfN(" 192390 02 Ti:%d cbc In:[%x] key<%x>", ___VtraceInt, ___VbyteIn, ___Vkey)
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(___VbyteIn)
@@ -87,10 +91,14 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 	return __Vout, __Verr
 } // _FencAesRand__only
 
+var ___V_FdecAesRand__only__mux sync.Mutex
+
 func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) ([]byte, error) {
-	var (
-		__Vb0, __Vb1, __Vb2, __Vb3, __Vlen int
-	)
+
+	defer ___V_FdecAesRand__only__mux.Unlock()
+	___V_FdecAesRand__only__mux.Lock()
+
+	var __Vb0, __Vb1, __Vb2, __Vb3, __Vlen int
 
 	if nil == ___Vkey {
 		return nil, fmt.Errorf(" 392391 01 : why key len error nil ? ")
