@@ -1,6 +1,9 @@
 package main
 
 import "bytes"
+import "sync"
+
+var ___tcpNode__200301x_Mux sync.Mutex
 
 // note : all debug log begin pushed into tnClog will try to redirect to TCP debug monitorS.
 func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
@@ -9,26 +12,30 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 		select {
 		case __Vds := <-___VtcpNode4.tnCHsendToAllClientI: // _TtcpNodeDataSend
 			//_FpfN("283822 02 get from send-chain :{%s}", __Vds.String())
-
-			if 0 == len(__Vds.tnsId128) {
-				for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
-					if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled {
-						//_FpfN("283822 03 get from send-chain :{%s}", __Vds.String())
-						___VtcpNode4.tnAcceptTCPs[__Vi]._FtcpNodeAccept_send(&__Vds)
-					}
-				}
-			} else {
-				for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
-					if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled && (bytes.Equal(__Vds.tnsId128, ___VtcpNode4.tnAcceptTCPs[__Vi].taId128)) {
-						_FpfN("283822 05 get from send-chain :{%s}", __Vds.String())
-						___VtcpNode4.tnAcceptTCPs[__Vi]._FtcpNodeAccept_send(&__Vds)
-					}
-				}
-			}
-
+			___tcpNode__200301x_Mux.Lock()
+			___VtcpNode4._FtcpNode__200301x2_send__default(&__Vds)
+			___tcpNode__200301x_Mux.Unlock()
 		} // end select
 	} // end for
 } //
+
+func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x2_send__default(___Vds *_TtcpNodeDataSend) {
+	if 0 == len(___Vds.tnsId128) {
+		for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
+			if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled {
+				//_FpfN("283822 03 get from send-chain :{%s}", ___Vds.String())
+				___VtcpNode4.tnAcceptTCPs[__Vi]._FtcpNodeAccept_send(___Vds)
+			}
+		}
+	} else {
+		for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
+			if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled && (bytes.Equal(___Vds.tnsId128, ___VtcpNode4.tnAcceptTCPs[__Vi].taId128)) {
+				_FpfN("283822 05 get from send-chain :{%s}", ___Vds.String())
+				___VtcpNode4.tnAcceptTCPs[__Vi]._FtcpNodeAccept_send(___Vds)
+			}
+		}
+	}
+}
 
 // _TacceptTCP
 // _TtcpNodE

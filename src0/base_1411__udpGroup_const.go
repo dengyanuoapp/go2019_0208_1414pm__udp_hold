@@ -2,8 +2,6 @@ package main
 
 // _TudpNodeSt
 type _TudpGroupSt struct {
-	//ugCHreceLO    *chan _TudpNodeDataRece       // unCHreceLO    *chan _TudpNodeDataRece // interal used
-	ugCHreceLO    *chan []byte                  // unCHreceLO    *chan _TudpNodeDataRece // interal used
 	ugCHSendI     chan _TudpNodeDataSend        // all data need to be sent by nodeS send here , then  will distribute to one of node
 	ugChTmpSendLI [](*(chan _TudpNodeDataSend)) // unCHsendI     chan _TudpNodeDataSend  // interal used
 	ugLastSendIdx int
@@ -12,6 +10,8 @@ type _TudpGroupSt struct {
 	ugAmount      int
 	ugRkeyLP      [](*[]byte)
 	ugNodeS       []_TudpNodeSt
-	ugCBinit      func(*_TudpGroupSt) //
-	ugCBchInSend  func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
+	ugCBinit      func(*_TudpGroupSt)     //
+	ugCBchInSend  func(*_TudpGroupSt)     // if nil , use the default procedure to deal with send
+	ugCHreceLO    *chan _TudpNodeDataRece // unCHreceLO    *chan _TudpNodeDataRece // interal used
+	//ugCHreceLO    *chan []byte                  // unCHreceLO    *chan _TudpNodeDataRece // interal used
 }
