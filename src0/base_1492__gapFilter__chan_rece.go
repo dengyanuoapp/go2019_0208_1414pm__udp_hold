@@ -39,6 +39,10 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x1__uDataSwap() {
 		return
 	}
 
+	_CpfN(" 381917 02 : ___Vgf.gfR.now_ {%#v} ", ___Vgf.gfR.now_)
+	_CpfN(" 381917 03 : ___Vgf.gfR.last {%#v} ", ___Vgf.gfR.last)
+	_CpfN(" 381917 04 : ___Vgf.gfR.las2 {%#v} ", ___Vgf.gfR.las2)
+
 	for __Vk, __Vv := range ___Vgf.gfR.now_ { // _TgapFilter_ReceCntX
 		if 1 == __Vv.cnt {
 			__Vcnt := 0
@@ -58,4 +62,5 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x1__uDataSwap() {
 
 	___Vgf.gfR.las2 = ___Vgf.gfR.last
 	___Vgf.gfR.last = ___Vgf.gfR.now_
+	___Vgf.gfR.now_ = make(map[string]_TgapFilter_ReceCnt)
 }
