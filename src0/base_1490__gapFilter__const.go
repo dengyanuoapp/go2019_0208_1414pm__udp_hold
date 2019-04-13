@@ -26,8 +26,8 @@ type _TgapFilter struct {
 	gfMux                 sync.Mutex
 	gfGap                 time.Duration           // default _T10s
 	gfCHudpNodeDataReceLO *chan _TudpNodeDataRece // _TudpNodeDataReceX
-	gfCHbyteLO            *chan []byte
 	gfCHudpNodeDataReceI  chan _TudpNodeDataRece
+	gfCHbyteLO            *chan []byte
 	gfCHbyteI             chan []byte
 	gfCHdelay             chan byte
 	gfCBinit              func(*_TgapFilter) // _FgapFilter__1200101x__init_default

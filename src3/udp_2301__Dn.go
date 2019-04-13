@@ -59,10 +59,10 @@ func _Finit__2301() {
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{
-		ugName:        "udpGroup_Dn",
-		ugAmount:      10,
-		ugHostPortStr: []string{":0"},
-		ugCHreceLO:    &_VudpDecode_Dn.uTmCHunDataReceI, // *chan _TudpNodeDataReceX
+		ugName:         "udpGroup_Dn",
+		ugAmount:       10,
+		ugHostPortStr:  []string{":0"},
+		ugCHreceByteLO: &_VudpDecode_Dn.uTmCHreceByteI, // *chan _TudpNodeDataReceX
 	}
 
 	flag.StringVar(&_VudpGroup_Dn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn.ugName)

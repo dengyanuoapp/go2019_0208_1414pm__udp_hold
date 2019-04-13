@@ -104,7 +104,7 @@ func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
 	//_FpfN(" 848238 06 :  __Vreply %t", __Vreply)
 
 	if __Vreply {
-		//(*___Vun.unCHreceLO) <- __Vrece
+		//(*___Vun.unCHreceByteLO) <- __Vrece
 		//_FpfN(" 848238 09 custom_receive 02 checkok,start to loginIn")
 		___Vun.
 			_FudpNode__500101yy4__receiveCallBack_default__randDecodeOut_mustDecode(&__Vrece.UrrBuf)

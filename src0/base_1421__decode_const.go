@@ -15,9 +15,8 @@ type _TuDecode struct {
 	uTmCB700201rece2  func(*_TuDecode) // if nil , use the default receive        // _FudpDecode__700201x__receive__default
 	uTmCB700301gap2   func(*_TuDecode) // if nil , use the default gap loop       // _FudpDecode__700301x__loop__default
 	uTmGapX           time.Duration
-	uTmCHunDataReceI  chan []byte // an udpNode pointer , if not nil , read from it's unCHreceLO
-	//uTmCHunDataReceI chan _TudpNodeDataRece // an udpNode pointer , if not nil , read from it's unCHreceLO
-	//uTmCHunDataReceLI *_TudpNodeSt // an udpNode pointer , if not nil , read from it's unCHreceLO
+	uTmCHreceByteI    chan []byte            // an udpNode pointer , if not nil , read from it's unCHreceByteLO
+	uTmCHreceStructI  chan _TudpNodeDataRece // an udpNode pointer , if not nil , read from it's unCHreceByteLO
 }
 
 //_TUreqNewSession

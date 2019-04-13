@@ -37,18 +37,18 @@ func _Finit_2201() {
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
-		unName:     "_VudpNode_FunWaitDun",
-		unRKeyLP:   &_Vpasswd_udp_Fn_waitForCliens01,
-		unLoopGap:  _T10s,
-		unCHreceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+		unName:         "_VudpNode_FunWaitDun",
+		unRKeyLP:       &_Vpasswd_udp_Fn_waitForCliens01,
+		unLoopGap:      _T10s,
+		unCHreceByteLO: &_VudpDecode_Fn.uTmCHreceByteI,
 		//unCHreceLO: &_VgapFilter__Dn.gfCHudpNodeDataReceI,
 		//unCHreceLO: &_VgapFilter__Dn.gfCHbyteI,
 	}
 
 	/*
 		_VgapFilter__Dn = _TgapFilter{ //_TgapFilterX
-			//gfCHbyteLO: &_VudpDecode_Fn.uTmCHunDataReceI,
-			gfCHudpNodeDataReceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+			//gfCHbyteLO: &_VudpDecode_Fn.uTmCHreceByteI,
+			gfCHudpNodeDataReceLO: &_VudpDecode_Fn.uTmCHreceByteI,
 		}
 	*/
 
@@ -73,10 +73,10 @@ func _Finit_2201() {
 	}
 
 	_VudpGroup_Fn = _TudpGroupSt{
-		ugName:        "udpGroup_Fn",
-		ugAmount:      20,
-		ugHostPortStr: []string{":0"},
-		ugCHreceLO:    &_VudpDecode_Fn.uTmCHunDataReceI, // *chan _TudpNodeDataRece
+		ugName:         "udpGroup_Fn",
+		ugAmount:       20,
+		ugHostPortStr:  []string{":0"},
+		ugCHreceByteLO: &_VudpDecode_Fn.uTmCHreceByteI, // *chan _TudpNodeDataRece
 	}
 	flag.StringVar(&_VudpGroup_Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Fn.ugName)
 

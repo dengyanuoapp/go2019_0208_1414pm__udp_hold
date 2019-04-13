@@ -13,7 +13,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 	//var __VunRece _TudpNodeDataRece
 	for {
 		select {
-		case __VunReceB := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
+		case __VunReceB := <-___Vutm.uTmCHreceByteI: // _TudpNodeDataReceX
 
 			___VudpDecodeMux.Lock()
 

@@ -47,7 +47,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		return
 	}
 
-	if nil == ___Vun.unCHreceLO { // *chan _TudpNodeDataReceX
+	if nil == ___Vun.unCHreceByteLO { // *chan _TudpNodeDataReceX
 		_FpfNonce(
 			" 831818 05 rece: port:%5d: outChan Null , so drop the data package only. %11d ",
 			___Vun.unLocalPort,
@@ -67,7 +67,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
 		___Vun.unRlen, len(__Vrece.UrrBuf), _FgenMd5__5(&__Vrece.UrrBuf), __Vrece.UrrBuf)
 
-	//(*___Vun.unCHreceLO) <- __Vrece
+	//(*___Vun.unCHreceByteLO) <- __Vrece
 	__VreceB, __Verr3 := _FencGob__only(&__Vrece)
 
 	if nil != __Verr3 {
@@ -75,6 +75,6 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		return
 	}
 
-	(*___Vun.unCHreceLO) <- __VreceB
+	(*___Vun.unCHreceByteLO) <- __VreceB
 
 }
