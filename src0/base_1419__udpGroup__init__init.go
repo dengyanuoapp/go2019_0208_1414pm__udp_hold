@@ -57,7 +57,9 @@ func _FudpGroup__600101__main_init__default(___Vug *_TudpGroupSt) {
 		} else {
 			__Vun.unRKeyLP = ___Vug.ugRkeyLP[__Vi]
 		} // _TudpNodeSt
+
 		__Vun.unCHreceLO = ___Vug.ugCHreceLO
+
 		___Vug.ugChTmpSendLI[__Vi] = &(__Vun.unCHsendI)
 		_Frun(__Vun, 500101) // IRun // _FudpNode__500101__main_init__default
 	}

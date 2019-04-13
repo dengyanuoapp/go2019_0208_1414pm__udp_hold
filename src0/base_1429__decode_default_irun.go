@@ -30,8 +30,8 @@ func _FudpDecode__700101x__init__default(___Vgtm *_TuDecode) {
 	_FpfN(" 838918 01 : udpTimer 700101 ")
 
 	//___Vgtm.uTmCHunDataReceI = make(chan _TudpNodeDataRece, 1)
-	//___Vgtm.uTmCHunDataReceI = make(chan []byte, 50)
-	___Vgtm.uTmCHunDataReceI = make(chan _TudpNodeDataRece, 50)
+	//___Vgtm.uTmCHunDataReceI = make(chan _TudpNodeDataRece, 50)
+	___Vgtm.uTmCHunDataReceI = make(chan []byte, 50)
 
 	_Fsleep(_T1s)
 

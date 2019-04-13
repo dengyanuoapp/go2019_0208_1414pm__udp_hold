@@ -13,11 +13,19 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 	//var __VunRece _TudpNodeDataRece
 	for {
 		select {
-		case __VunRece := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
+		case __VunReceB := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
 
 			___VudpDecodeMux.Lock()
-			___Vutm.
-				_FudpDecode__700201x11__receive__default(&__VunRece)
+
+			//func _FdecGob___(___VeMsg string, ___VbyteIn []byte, ___VoutObjLp interface{}) error {
+			__VunRece := _TudpNodeDataRece{}
+			__Verr4 := _FdecGob___(" 388195 02 ", __VunReceB, &__VunRece)
+			if nil != __Verr4 {
+				_FpfN(" 388195 03 err : <%v>", __Verr4)
+			} else {
+				___Vutm.
+					_FudpDecode__700201x11__receive__default(&__VunRece)
+			}
 		} // end Select
 		___VudpDecodeMux.Unlock()
 	} // end For

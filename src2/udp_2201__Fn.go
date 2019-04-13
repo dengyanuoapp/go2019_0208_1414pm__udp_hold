@@ -37,18 +37,20 @@ func _Finit_2201() {
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
-		unName:    "_VudpNode_FunWaitDun",
-		unRKeyLP:  &_Vpasswd_udp_Fn_waitForCliens01,
-		unLoopGap: _T10s,
-		//unCHreceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+		unName:     "_VudpNode_FunWaitDun",
+		unRKeyLP:   &_Vpasswd_udp_Fn_waitForCliens01,
+		unLoopGap:  _T10s,
+		unCHreceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+		//unCHreceLO: &_VgapFilter__Dn.gfCHudpNodeDataReceI,
 		//unCHreceLO: &_VgapFilter__Dn.gfCHbyteI,
-		unCHreceLO: &_VgapFilter__Dn.gfCHudpNodeDataReceI,
 	}
 
-	_VgapFilter__Dn = _TgapFilter{ //_TgapFilterX
-		//gfCHbyteLO: &_VudpDecode_Fn.uTmCHunDataReceI,
-		gfCHudpNodeDataReceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
-	}
+	/*
+		_VgapFilter__Dn = _TgapFilter{ //_TgapFilterX
+			//gfCHbyteLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+			gfCHudpNodeDataReceLO: &_VudpDecode_Fn.uTmCHunDataReceI,
+		}
+	*/
 
 	_VudpDecode_Fn = _TuDecode{
 		uTmCHdecodeCmdLO:  &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
@@ -124,7 +126,7 @@ func main() {
 
 	// _FgapFilter__1200301x2__uData_rece
 	// _FgapFilter__1200301x__Chan_rece
-	go _Frun(&_VgapFilter__Dn, 1200101) // _FgapFilter__1200101x__init_default
+	//go _Frun(&_VgapFilter__Dn, 1200101) // _FgapFilter__1200101x__init_default
 
 	<-_CHexit
 } // main

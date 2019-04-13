@@ -10,8 +10,8 @@ type _TudpGroupSt struct {
 	ugAmount      int
 	ugRkeyLP      [](*[]byte)
 	ugNodeS       []_TudpNodeSt
-	ugCBinit      func(*_TudpGroupSt)     //
-	ugCBchInSend  func(*_TudpGroupSt)     // if nil , use the default procedure to deal with send
-	ugCHreceLO    *chan _TudpNodeDataRece // unCHreceLO    *chan _TudpNodeDataRece // interal used
-	//ugCHreceLO    *chan []byte                  // unCHreceLO    *chan _TudpNodeDataRece // interal used
+	ugCBinit      func(*_TudpGroupSt) //
+	ugCBchInSend  func(*_TudpGroupSt) // if nil , use the default procedure to deal with send
+	ugCHreceLO    *chan []byte        // unCHreceLO    *chan _TudpNodeDataRece // interal used
+	//ugCHreceLO    *chan _TudpNodeDataRece // unCHreceLO    *chan _TudpNodeDataRece // interal used
 }

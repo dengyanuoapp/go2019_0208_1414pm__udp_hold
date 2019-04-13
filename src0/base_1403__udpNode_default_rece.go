@@ -67,6 +67,14 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
 		___Vun.unRlen, len(__Vrece.UrrBuf), _FgenMd5__5(&__Vrece.UrrBuf), __Vrece.UrrBuf)
 
-	(*___Vun.unCHreceLO) <- __Vrece
+	//(*___Vun.unCHreceLO) <- __Vrece
+	__VreceB, __Verr3 := _FencGob__only(&__Vrece)
+
+	if nil != __Verr3 {
+		_FpfN(" 831818 08 gob En error <%v>", __Verr3)
+		return
+	}
+
+	(*___Vun.unCHreceLO) <- __VreceB
 
 }
