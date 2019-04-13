@@ -2,7 +2,8 @@ package main
 
 import "sync"
 
-var ___VuEncode__1100201x__mux sync.Mutex
+var ___VuEncode__1100201x__chanIn_mux sync.Mutex
+var ___VuEncode__1100201x__send_mux sync.Mutex
 
 func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 
@@ -12,14 +13,14 @@ func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 		__Vus = _TudpNodeDataSend{}
 		select {
 		case __Vue = <-___Vuen.enCHencodeCmdI: // chan _TencodeX
-			___VuEncode__1100201x__mux.Lock()
+			___VuEncode__1100201x__chanIn_mux.Lock()
 			_FpfNonce(" 849192 01 : try Encode CMD {%s}", __Vue.String())
 			//___Vuen.
 			//	_FdataMachin__1000201x11__connMap_insertId(&__Vue)
 			__Vue.enLogin.
 				_FdataPack__100__loginReq(__Vue.enType, &__Vus.usOutBuf)
 		case __Vue = <-___Vuen.enCHencodeDataI: // chan _TencodeX
-			___VuEncode__1100201x__mux.Lock()
+			___VuEncode__1100201x__chanIn_mux.Lock()
 			_FpfNdb(" 849192 05 : try Encode Data{%s}", __Vue.String())
 			_FpfNdb(" 849192 06 : under constructing ")
 
@@ -29,7 +30,7 @@ func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 		}
 		___Vuen._FuEncode__1100201x2__fillAddr_sending(__Vus, __Vue)
 
-		___VuEncode__1100201x__mux.Unlock()
+		___VuEncode__1100201x__chanIn_mux.Unlock()
 	}
 }
 
@@ -65,16 +66,18 @@ func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus _TudpNod
 
 	__Vi := ___Vue.enMultiSend
 	for __Vi != 0 {
+		___VuEncode__1100201x__send_mux.Lock()
 		(*___Vuen.enCHuDataSendLO) <- ___Vus
+		___VuEncode__1100201x__send_mux.Unlock()
 		__Vi--
 	}
 }
 
-func _FudpNodeDataSend__delaySend(___Vdelay int, ___Vus _TudpNodeDataSend, ___Vch *chan _TudpNodeDataSend) { // _TudpNodeDataSendX
+func _FudpNodeDataSend__delaySend(___Vdelay int, ___Vus _TudpNodeDataSend, ___VchUnds *chan _TudpNodeDataSend) { // _TudpNodeDataSendX
 	if 0 == ___Vdelay {
 		return
 	}
-	if nil == ___Vch {
+	if nil == ___VchUnds {
 		return
 	}
 
@@ -82,5 +85,7 @@ func _FudpNodeDataSend__delaySend(___Vdelay int, ___Vus _TudpNodeDataSend, ___Vc
 
 	_CpfN("849193 08 delay_send (%d) {%s}", ___Vdelay, ___Vus.String()) // check-important
 
-	(*___Vch) <- ___Vus
+	___VuEncode__1100201x__send_mux.Lock()
+	(*___VchUnds) <- ___Vus
+	___VuEncode__1100201x__send_mux.Unlock()
 }

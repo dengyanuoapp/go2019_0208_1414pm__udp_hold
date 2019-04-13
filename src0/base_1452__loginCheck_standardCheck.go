@@ -18,14 +18,18 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		__Venc := _Tencode{}
 		select {
 		case __Vdecode := <-___Vlc.ulDecodeI: // _Tdecode
+
 			___VloginCheck__900201x__mux.Lock()
+
 			___Vlc._FloginCheck__900201xC1__standardCheck(&__Vdecode, &__Venc)
 			if false == __Vdecode.ok {
 				___VloginCheck__900201x__mux.Unlock()
 				continue
 			}
 		case __VuConnPort := <-___Vlc.ulCHconnPortI: // _TudpConnPort
+
 			___VloginCheck__900201x__mux.Lock()
+
 			___Vlc._FloginCheck__900201xC2__standardCheck(&__Venc, &__VuConnPort)
 		} // end select
 
