@@ -16,6 +16,7 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeD
 			cnt: 1,
 			unr: (*___Vur), // _TudpNodeDataReceX
 		}
+		_FpfN(" 381927 15 : first")
 		return
 	}
 
@@ -23,4 +24,5 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeD
 		cnt: __Vv.cnt + 1,
 		unr: (*___Vur), // _TudpNodeDataReceX
 	}
+	_FpfN(" 381927 17 : cnt %d", ___Vgf.gfR.now_[__Vk].cnt)
 }
