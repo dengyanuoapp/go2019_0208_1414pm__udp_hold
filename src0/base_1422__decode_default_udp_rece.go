@@ -26,7 +26,7 @@ func (___Vutm *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	var __Vdecode _Tdecode
 	___VtraceIntDE := ___VunRece.Ti
 
-	___CpfN(" 388195 04 Ti:%d : before decoder : ___VunRece{%s} ",
+	_CpfN(" 388195 04 Ti:%d : before decoder : ___VunRece{%s} ",
 		___VtraceIntDE,
 		___VunRece.String())
 
@@ -46,7 +46,7 @@ func (___Vutm *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 		_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 	__Vdecode.remoteAddr = ___VunRece.UrrRemoteAddr
 
-	___CpfN(" 388196 04 Ti:%d : after decoder  : __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
+	_CpfN(" 388196 04 Ti:%d : after decoder  : __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
 		___VtraceIntDE,
 		__Vdecode.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf), // _TdecodeX
 		___VunRece.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf))

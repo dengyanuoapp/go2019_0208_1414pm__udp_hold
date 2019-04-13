@@ -27,7 +27,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		return __Vout, nil
 	}
 
-	___CpfN(" 192390 02 Ti:%d cbc In:[%x]", ___VtraceInt, ___VbyteIn)
+	_CpfN(" 192390 02 Ti:%d cbc In:[%x]", ___VtraceInt, ___VbyteIn)
 
 	__Viv := _FgenRand_nByte__(16)
 	__VlenIn := len(___VbyteIn)
@@ -61,7 +61,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		_FencAesCbc__only___(___Vkey, __Viv, __Vtmp, ___VtraceInt)
 	_FerrExit(" 192395 02:", __Verr)
 
-	___CpfN(" 192395 03  Ti:%d after cbc output: (%d){%x}[%x] , cbc input is k<%x> iv<%x>[%x]",
+	_CpfN(" 192395 03  Ti:%d after cbc output: (%d){%x}[%x] , cbc input is k<%x> iv<%x>[%x]",
 		___VtraceInt,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
@@ -74,7 +74,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 	__Vout = _FappendRandPAT0_15(&__Vtmp2)
 
 	//_FpfhexlastN(&__Vout, 40, " 192395 05 Vtmp : ")
-	___CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
+	_CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
 		___VtraceInt,
 		len(__Vtmp2),
 		_FgenMd5__5(&__Vtmp2),
@@ -105,7 +105,7 @@ func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) (
 		return nil, fmt.Errorf(" 392391 04 : why input len zero ? ")
 	}
 
-	___CpfN(" 392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
+	_CpfN(" 392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
 		___Vkey, len(___VbyteIn), _FgenMd5__5(&___VbyteIn))
 
 	//_FpfNhex(___VbyteIn, 20, " 392391 06 : %x : ", ___Vkey)

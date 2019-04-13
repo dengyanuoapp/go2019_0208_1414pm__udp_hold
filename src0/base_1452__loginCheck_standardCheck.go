@@ -44,7 +44,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				// no use , but told the debug disable only
 			default:
 				(*___Vlc.ulCHencodeCmdLO) <- __Venc // _Tencode
-				___CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
+				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
 					String5(&_VC.MyId128),
 					String5(&_VS.MySeq128),
 					String5(&__Venc.enLogin.TokenL))

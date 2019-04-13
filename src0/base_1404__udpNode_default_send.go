@@ -64,14 +64,14 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 
 	//_FpfN(" 839119 01 key %x %x", ___Vun.unRkeyX.B32, ___Vun.unRkeyX.Bkey)
 	//copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], __VmyUs.usToAddr.K256)
-	___CpfN(" 839119 03 : tN:%d before copy-key Mp:%d Mrk:%s to<%v> buf[%x]", __VtraceInt, ___Vun.unLocalPort,
+	_CpfN(" 839119 03 : tN:%d before copy-key Mp:%d Mrk:%s to<%v> buf[%x]", __VtraceInt, ___Vun.unLocalPort, // keykey
 		String5(&___Vun.unRkeyX.Bkey), __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
 
 	copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], ___Vun.unRkeyX.Bkey)
 
-	___CpfN(" 839119 05 : tN:%d after copy-key me:%d <%v> %x", __VtraceInt, ___Vun.unLocalPort, __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
+	_CpfN(" 839119 05 : tN:%d after copy-key me:%d <%v> %x", __VtraceInt, ___Vun.unLocalPort, __VmyUs.usToAddr.String(), __VmyUs.usOutBuf) //keykey
 
-	___CpfN(" 839119 06 : tN:%d udpNode: {%s}", __VtraceInt, ___Vun.String()) // _TudpNodeSt
+	_CpfN(" 839119 06 : tN:%d udpNode: {%s}", __VtraceInt, ___Vun.String()) // _TudpNodeSt //keykey
 
 	__Vbuf, __Verr := _FencAesRand__only(__VmyUs.usToAddr.K256, __VmyUs.usOutBuf, __VtraceInt)
 
@@ -87,7 +87,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		return
 	}
 
-	___CpfN(
+	_CpfN( //keykey
 		" 839119 09 udp-send-rand %11d me<:%d> mreceK:<%s> to<%s> toK<%s> before:%d{%x}, rand:%d{%x} [%s]",
 		//                          1      2            3     4       5          6   7        8   9   10
 		_FtimeI64(),                       // 1

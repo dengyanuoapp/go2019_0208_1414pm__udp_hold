@@ -57,28 +57,4 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 
 	(*___Vun.unCHreceLO) <- __Vrece
 
-	//		//_CpfN(" 831818 07 receOrigin: {%s} t:%11d ", __Vrece.String(), _FtimeI64())
-	//
-	//		__VreceB, __Verr3 := _FencGob__only(&__Vrece) // _TudpNodeDataReceX
-	//		if nil != __Verr3 {
-	//			_FpfN(" 831818 08 gobEnc error: {%v} t:%11d {%s}",
-	//				__Verr3, _FtimeI64(),
-	//				__Vrece.String(),
-	//			)
-	//			continue
-	//		}
-	//		___CpfN(" 831818 09 receOriginByte: (%d){%x}[%s] t:%11d {%s}",
-	//			len(__VreceB),
-	//			_FgenMd5__5(&__VreceB),
-	//			String9(&__VreceB),
-	//			_FtimeI64(),
-	//			__Vrece.String(),
-	//		)
-	//
-	//		___VudpNode__500201y__mux.Lock()
-	//		// *chan _TudpNodeDataReceX
-	//		(*___Vun.unCHreceLO) <- __VreceB
-	//		___VudpNode__500201y__mux.Unlock()
-
-	//_Fsleep_1s()
 }
