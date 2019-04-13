@@ -3,7 +3,7 @@ package main
 import "bytes"
 import "sync"
 
-var ___tcpNode__200301x_Mux sync.Mutex
+var ___VtcpNode__200301x_Mux sync.Mutex
 
 // note : all debug log begin pushed into tnClog will try to redirect to TCP debug monitorS.
 func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
@@ -12,10 +12,10 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 		select {
 		case __Vds := <-___VtcpNode4.tnCHsendToAllClientI: // _TtcpNodeDataSend
 			//_FpfN("283822 02 get from send-chain :{%s}", __Vds.String())
-			___tcpNode__200301x_Mux.Lock()
+			___VtcpNode__200301x_Mux.Lock()
 			___VtcpNode4._FtcpNode__200301x2_send__default(&__Vds)
-			___tcpNode__200301x_Mux.Unlock()
-		} // end select
+		} // end Select
+		___VtcpNode__200301x_Mux.Unlock()
 	} // end for
 } //
 

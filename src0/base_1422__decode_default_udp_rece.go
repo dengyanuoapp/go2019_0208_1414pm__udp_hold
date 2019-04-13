@@ -12,34 +12,14 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 	//_FpfNdb(" 388195 01 : filte received start ")
 	//var __VunRece _TudpNodeDataRece
 	for {
-		//_Fsleep_100s()
-		//__VunRece = _TudpNodeDataRece{}
-		//__Vdecode = _Tdecode{}
-		//select {
-		//      case __VunRece := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
-		//		case __VunReceB := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
-		//			__VunRece = _TudpNodeDataRece{}
-		//			__Verr0 := _FdecGob___(" 388195 02 err ", __VunReceB, &__VunRece)
-		//			___VtraceIntDE := __VunRece.Ti
-		//			if nil != __Verr0 {
-		//				_FpfN(" 388195 03 , decGob error :%v ", __Verr0)
-		//				continue
-		//			}
-		//			___CpfN(" 388195 04 Ti:%d : before decoder : __VunReceB (%d){%x}[%s} __VunRece{%s} ",
-		//				___VtraceIntDE,
-		//				len(__VunReceB),
-		//				_FgenMd5__5(&__VunReceB),
-		//				String9(&__VunReceB),
-		//				__VunRece.String())
-
 		select {
 		case __VunRece := <-___Vutm.uTmCHunDataReceI: // _TudpNodeDataReceX
 
 			___VudpDecodeMux.Lock()
 			___Vutm._FudpDecode__700201x11__receive__default(&__VunRece)
-			___VudpDecodeMux.Unlock()
-		} // end select
-	} // end for
+		} // end Select
+		___VudpDecodeMux.Unlock()
+	} // end For
 }
 
 func (___Vutm *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_TudpNodeDataRece) {

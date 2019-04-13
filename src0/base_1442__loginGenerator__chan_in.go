@@ -1,11 +1,16 @@
 package main
 
+import "sync"
+
+var ___VudpDecode__800201x__mux sync.Mutex
+
 func _FudpDecode__800201x__chan_in__default(___Vlg *_TloginGenerator) {
 	for {
 		select {
 		case __Vdmid := <-___Vlg.lgCHdataMachineIdI: // _TdataMachinEid
 			//_FpfN(" 388192 01 ")
 			//_FpfN(" 388192 02 : logGen received {%s}", __Vdmid.String())
+			___VudpDecode__800201x__mux.Lock()
 			__Vlen2 := len(__Vdmid.diSeq128)
 			switch __Vlen2 {
 			case 0:
@@ -18,5 +23,6 @@ func _FudpDecode__800201x__chan_in__default(___Vlg *_TloginGenerator) {
 				_FpfN(" 388192 05 : why len %d ? t:%11d ", __Vlen2)
 			}
 		}
+		___VudpDecode__800201x__mux.Unlock()
 	}
 }
