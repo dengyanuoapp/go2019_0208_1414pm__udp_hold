@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+type _TgapFilter_ReceCntX struct {
+}
 type _TgapFilter_ReceCnt struct {
 	cnt int
 	unr _TudpNodeDataRece

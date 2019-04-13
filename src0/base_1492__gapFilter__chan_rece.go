@@ -33,8 +33,27 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x3__Byte_rece(__Vbyte *[]byte) {
 }
 
 func (___Vgf *_TgapFilter) _FgapFilter__1200301x1__uDataSwap() {
-	// _FpfN(" 381917 01 : gfCHdelay ")
-	for __Vk, __Vv := range ___Vgf.gfR.now_ {
+
+	if nil == ___Vgf.gfCHudpNodeDataReceLO {
+		_FpfNonce(" 381917 01 : gfCHdelay ")
+		return
+	}
+
+	for __Vk, __Vv := range ___Vgf.gfR.now_ { // _TgapFilter_ReceCntX
+		if 1 == __Vv.cnt {
+			__Vcnt := 0
+			__Vv2, __Vok2 := ___Vgf.gfR.last[__Vk]
+			__Vv3, __Vok3 := ___Vgf.gfR.last[__Vk]
+			if __Vok2 {
+				__Vcnt = __Vv2.cnt
+			}
+			if __Vok3 {
+				__Vcnt += __Vv3.cnt
+			}
+			if 1 == __Vcnt {
+				(*___Vgf.gfCHudpNodeDataReceLO) <- __Vv.unr
+			}
+		}
 	}
 
 	___Vgf.gfR.las2 = ___Vgf.gfR.last
