@@ -2,12 +2,13 @@ package main
 
 // _TudpNodeDataReceX
 func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeDataRece) {
-	_FpfN(" 381927 12 : gfCHudpNodeDataReceI : {%s}", ___Vur.String())
+	//_FpfN(" 381927 12 : gfCHudpNodeDataReceI : {%s}", ___Vur.String())
 
-	__Vk := ___Vur.UrrRemoteAddr.String()
+	//__Vk := ___Vur.UrrRemoteAddr.String()
+	__Vk := ___Vur.UrrRemoteAddr.IP.String()
 
 	if "" == __Vk {
-		_FpfN(" 381927 13 : why blank string ?")
+		//_FpfN(" 381927 13 : why blank string ?")
 	}
 
 	__Vv, __Vok := ___Vgf.gfR.now_[__Vk]
@@ -16,7 +17,7 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeD
 			cnt: 1,
 			unr: (*___Vur), // _TudpNodeDataReceX
 		}
-		_FpfN(" 381927 15 : first")
+		//_FpfN(" 381927 15 : first")
 		return
 	}
 
@@ -24,5 +25,5 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeD
 		cnt: __Vv.cnt + 1,
 		unr: (*___Vur), // _TudpNodeDataReceX
 	}
-	_FpfN(" 381927 17 : cnt %d", ___Vgf.gfR.now_[__Vk].cnt)
+	//_FpfN(" 381927 17 : cnt %d", ___Vgf.gfR.now_[__Vk].cnt)
 }
