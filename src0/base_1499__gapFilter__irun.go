@@ -46,9 +46,9 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200101x__init_default() {
 	___Vgf.gfCHbyteI = make(chan []byte, 50)
 	___Vgf.gfCHdelay = make(chan byte, 50)
 
-	___Vgf.gfR.now_ = make(map[string]_TudpNodeDataRece)
-	___Vgf.gfR.last = make(map[string]_TudpNodeDataRece)
-	___Vgf.gfR.las2 = make(map[string]_TudpNodeDataRece)
+	___Vgf.gfR.now_ = make(map[string]_TgapFilter_ReceCnt)
+	___Vgf.gfR.last = make(map[string]_TgapFilter_ReceCnt)
+	___Vgf.gfR.las2 = make(map[string]_TgapFilter_ReceCnt)
 
 	__VfCnt := 0
 

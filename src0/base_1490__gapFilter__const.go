@@ -5,10 +5,17 @@ import (
 	"time"
 )
 
-type _TgapFilter_ReceST struct { // _TudpNodeDataReceX
-	now_ map[string]_TudpNodeDataRece
-	last map[string]_TudpNodeDataRece
-	las2 map[string]_TudpNodeDataRece
+type _TgapFilter_ReceCnt struct {
+	cnt int
+	unr _TudpNodeDataRece
+}
+
+type _TgapFilter_ReceStX struct {
+}
+type _TgapFilter_ReceSt struct { // _TudpNodeDataReceX
+	now_ map[string]_TgapFilter_ReceCnt
+	last map[string]_TgapFilter_ReceCnt
+	las2 map[string]_TgapFilter_ReceCnt
 }
 
 type _TgapFilterX struct {
@@ -25,5 +32,5 @@ type _TgapFilter struct {
 	gfCBdelay             func(*_TgapFilter)
 	gfCBudpNodeDataRece   func(*_TgapFilter)
 	gfCBbyte              func(*_TgapFilter)
-	gfR                   _TgapFilter_ReceST
+	gfR                   _TgapFilter_ReceSt
 }

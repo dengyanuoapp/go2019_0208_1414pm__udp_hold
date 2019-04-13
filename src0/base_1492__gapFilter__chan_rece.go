@@ -25,10 +25,31 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x__Chan_rece() {
 	} // end For
 } // _TgapFilter
 
-func _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeDataRece) {
-	_FpfN(" 381917 12 : gfCHudpNodeDataReceI : {%s}", __Vur.String())
+// _TudpNodeDataReceX
+func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeDataRece) {
+	_FpfN(" 381917 12 : gfCHudpNodeDataReceI : {%s}", ___Vur.String())
+
+	__Vk := ___Vur.UrrRemoteAddr.String()
+
+	if "" == __Vk {
+		_FpfN(" 381917 13 : why blank string ?")
+	}
+
+	__Vv, __Vok := ___Vgf.gfR.now_[__Vk]
+	if false == __Vok {
+		___Vgf.gfR.now_[__Vk] = _TgapFilter_ReceCnt{ // _TgapFilter_ReceStX
+			cnt: 1,
+			unr: (*___Vur), // _TudpNodeDataReceX
+		}
+		return
+	}
+
+	___Vgf.gfR.now_[__Vk] = _TgapFilter_ReceCnt{ // _TgapFilter_ReceStX
+		cnt: __Vv.cnt + 1,
+		unr: (*___Vur), // _TudpNodeDataReceX
+	}
 }
 
-func _FgapFilter__1200301x3__Byte_rece(__Vbyte []byte) {
+func (___Vgf *_TgapFilter) _FgapFilter__1200301x3__Byte_rece(__Vbyte *[]byte) {
 	_FpfN(" 381917 23 : gfCHbyteI :[%x]", __Vbyte)
 }
