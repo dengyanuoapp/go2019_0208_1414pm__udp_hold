@@ -33,8 +33,7 @@ func _FloginGen__800301x__connGen__default(___Vlg *_TloginGenerator) {
 				if nil == ___Vlg.lgCHuConnPortLO {
 					_FpfNdb(" 138181 07: Error ! tryCnt %d , skipCnt %d, %v", __VnewSession.tryCnt, __VnewSession.skipCnt, __VucPort)
 				} else {
-					_CpfN(
-						" 138181 08: tryToLogin, push port address to connPort-Chan , %11d, tryCnt %d , skipCnt %d", // check-important
+					_CpfN(" 138181 08: tryToLogin, push port address to connPort-Chan , %11d, tryCnt %d , skipCnt %d", // check-important keykey
 						_FtimeInt(), __VnewSession.tryCnt, __VnewSession.skipCnt)
 					(*___Vlg.lgCHuConnPortLO) <- (*__VucPort)
 

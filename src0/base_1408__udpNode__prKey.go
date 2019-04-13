@@ -2,7 +2,7 @@ package main
 
 // _TudpNodeSt
 func (___Vun *_TudpNodeSt) _FprKey() {
-	___CpfN(" 813819 01 : FprKey receive-keyArr : %d : %11d : %t : key %x : %v", // check-important
+	_CpfN(" 813819 01 : FprKey receive-keyArr : %d : %11d : %t : key %x : %v", // check-important keykey
 		___Vun.unIdx,
 		_FtimeInt(),
 		___Vun.unRkeyX.disable,

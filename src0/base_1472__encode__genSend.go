@@ -83,7 +83,7 @@ func _FudpNodeDataSend__delaySend(___Vdelay int, ___Vus _TudpNodeDataSend, ___Vc
 
 	_Fsleep_1sX(___Vdelay)
 
-	_CpfN("849193 08 delay_send (%d) {%s}", ___Vdelay, ___Vus.String()) // check-important
+	_CpfN("849193 08 delay_send (%d) {%s}", ___Vdelay, ___Vus.String()) // keykey
 
 	___VuEncode__1100201x__send_mux.Lock()
 	(*___VchUnds) <- ___Vus
