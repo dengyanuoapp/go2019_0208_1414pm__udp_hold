@@ -88,6 +88,9 @@ func _FdmCBprReceKey__Fn(___Vdm *_TdataMachine) {
 }
 
 func main() {
+
+	_Fsleep(_T1s)
+
 	_Finit_2201()
 
 	// ------------------- tcp for debug monitor log --- begin

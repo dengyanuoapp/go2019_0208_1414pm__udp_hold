@@ -9,18 +9,21 @@ var __VudpGroup__600201__mux sync.Mutex
 func _FudpGroup__600201__CHin_selecT_send__default(___Vug *_TudpGroupSt) {
 	//_Fsleep(_T1s)
 	//_FpfNdb(" 838111 01 len : %d", __Vlen)
-	var (
-		__VusData _TudpNodeDataSend
-		__Vidx    int
-	)
+	var __Vunds _TudpNodeDataSend
+	var __Vidx int
 	for {
 		select {
-		case __VusData = <-___Vug.ugCHSendI: // _TudpNodeDataSendX
+		case __Vunds = <-___Vug.ugCHSendI: // _TudpNodeDataSendX
 			__VudpGroup__600201__mux.Lock()
-			__Vidx = ___Vug._FudpGroup__600201www__send_genIdx()
+
 		}
+
+		__Vidx = ___Vug.
+			_FudpGroup__600201www__send_genIdx()
+
 		___Vug.
-			_FudpGroup__600201zzz__send_byteOnly(&__VusData, __Vidx)
+			_FudpGroup__600201zzz__send_byteOnly(&__Vunds, __Vidx)
+
 		__VudpGroup__600201__mux.Unlock()
 	}
 }

@@ -90,6 +90,8 @@ func _FdmCBprSendKey__Dn(___Vdm *_TdataMachine) {
 
 func main() {
 
+	_Fsleep(_T1s)
+
 	_Finit__2301()
 
 	// _TtcpNodeDataSend
