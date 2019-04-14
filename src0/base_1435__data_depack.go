@@ -13,8 +13,6 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	if nil == ___Vdecode {
 		return
 	}
-	//___Vdecode.ok = false
-	//___Vdecode.Type = 0
 	(*___Vdecode) = _Tdecode{}
 
 	__Vlen := len(___Vbuf)
@@ -28,24 +26,28 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 		return
 	}
 
-	if ___Vbuf[0] >= Cmd__loginEnd {
-		_FpfNdb(" 387192 04 : unknown type ")
-		return
-	}
+	var __Verr2 error
+	__Vbuf2 := ___Vbuf[37:]
 
 	switch ___Vbuf[0] {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
-		__Vbuf2 := ___Vbuf[37:]
 		//___Vdecode.Dlogin = _TloginReq{}
-		__Verr2 := _FdecGob___(" 387193 01 ", __Vbuf2, &___Vdecode.Dlogin)
-		if nil != __Verr2 {
-			_FpfNdb(" 387193 03 :error :%v", __Verr2)
-			return
-		}
+		__Verr2 =
+			_FdecGob___(" 387193 01 ", __Vbuf2, &___Vdecode.Dlogin)
+	case Cmd__data_01_idle, // 5
+		Cmd__data_11_chan_new_req: // 6
+		__Verr2 =
+			_FdecGob___(" 387193 02 ", __Vbuf2, &___Vdecode.Ddata) // _Tdecode
 
 	default:
 		_FpfNhex(&___Vbuf, 500, " 387193 05 : under constructing : type %d ,", ___Vbuf[0])
+		return
+	}
+
+	if nil != __Verr2 {
+		_FpfNdb(" 387193 03 :error :%v", __Verr2)
+		return
 	}
 
 	___Vdecode.remotePortKey = ___Vbuf[5:37]
