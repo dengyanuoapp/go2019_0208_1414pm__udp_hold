@@ -23,16 +23,14 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 					_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 
 					___Vdm.
-						_FdataMachin__1000502x2__time_gap_dataSendIdle(__Vk2[:], __Vv2)
+						_FdataMachin__1000502x2__time_gap_dataSendIdle(__Vv2)
 
 				} else {
 					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
 						_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 				}
-				//if nil != ___Vdm.dmCBprSendKey {
-				//	___Vdm.dmCBprSendKey(___Vdm)
-				//}
-				// _TdataMachinEconnMap
+
+				// for debug only : print the keyS
 				if __Vnow2-__Vv2.dmmLastPrTime > 20 {
 					for __Vidx, __Vconn := range __Vv2.dmmConnPortArr {
 						_CpfN(" 381921 03 sendingKeyArray: %x : %2d : to [%s]", // check-important keykey
@@ -71,7 +69,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 	}
 }
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___Vid []byte, ___Vdmem _TdataMachinEconnMap) {
+func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___Vdmem _TdataMachinEconnMap) {
 	__Vlen := len(___Vdmem.dmmConnPortArr) // _TdataMachinEconnMap
 
 	if __Vlen < 1 {
@@ -96,11 +94,11 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___V
 		},
 	}
 
-	_FpfN(" 381922 02 {%#v} ", ___Vdmem) // _TdataMachinEconnMap
-	_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
-	_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
+	//_FpfN(" 381922 02 {%#v} ", ___Vdmem) // _TdataMachinEconnMap
+	//_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
+	//_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
 	_FpfN(" 381922 05 {%s}", __Venc.String()) // _TencodeX
-	_Fex("381922 06")
+	//_Fex("381922 06")
 
 	___Vdm.
 		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
