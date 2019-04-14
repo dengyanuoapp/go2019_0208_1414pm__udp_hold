@@ -19,15 +19,17 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 				__VkDelArr = append(__VkDelArr, __Vk2)
 			} else {
 				if __Vnow2-__Vcm.dmmLastReadTime > _Vgap_skip_idle_send {
-					_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vcm.dmmLastReadTime)
 					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
+					//_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vcm.dmmLastReadTime)
+					___Vdm.
+						_FdataMachin__1000502x2__time_gap_dataSendIdle()
 				} else {
 					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
 						_FtimeInt(), __Vk2, __Vnow2, __Vcm.dmmLastReadTime)
 				}
-				//				if nil != ___Vdm.dmCBprSendKey {
-				//					___Vdm.dmCBprSendKey(___Vdm)
-				//				}
+				//if nil != ___Vdm.dmCBprSendKey {
+				//	___Vdm.dmCBprSendKey(___Vdm)
+				//}
 				// _TdataMachinEconnMap
 				if __Vnow2-__Vcm.dmmLastPrTime > 20 {
 					for __Vidx, __Vconn := range __Vcm.dmmConnPortArr {
@@ -65,4 +67,8 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 		}
 		___Vdm.dmMconn.mux.Unlock()
 	}
+}
+
+func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle() {
+	_FpfN(" 381922 01 : %11d : try send idle ", _FtimeInt())
 }

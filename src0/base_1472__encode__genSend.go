@@ -28,7 +28,8 @@ func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
 		if 0 == __Vue.Ti {
 			__Vue.Ti = _FgenRand_int()
 		}
-		___Vuen._FuEncode__1100201x2__fillAddr_sending(__Vus, __Vue)
+		___Vuen.
+			_FuEncode__1100201x2__fillAddr_sending(__Vus, __Vue)
 
 		___VuEncode__1100201x__chanIn_mux.Unlock()
 	}
