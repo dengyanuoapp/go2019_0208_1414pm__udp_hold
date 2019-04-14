@@ -28,6 +28,7 @@ type _TdataMachinEconnMap struct {
 	dmmLastReadTime   int
 	dmmLastSendTime   int
 	dmmLastPrTime     int
+	dmmLastSendIdx    int
 }
 
 func (___Vdmem *_TdataMachinEconnMap) String() string {

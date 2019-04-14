@@ -77,7 +77,12 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___V
 		return
 	}
 
-	__Vidx := _FtimeInt() % __Vlen
+	__Vidx := _FgenRand_int() % __Vlen
+	if ___Vdmem.dmmLastSendIdx == __Vidx {
+		__Vidx = _FgenRand_int() % __Vlen
+	}
+	___Vdmem.dmmLastSendIdx = __Vidx
+
 	__Vconn := ___Vdmem.dmmConnPortArr[__Vidx]
 
 	__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
@@ -99,6 +104,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___V
 	//_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
 	_FpfN(" 381922 05 {%s}", __Venc.String()) // _TencodeX
 	//_Fex("381922 06")
+
+	___Vdmem.dmmLastSendTime = _FtimeInt() // _TdataMachinEconnMap
 
 	___Vdm.
 		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
