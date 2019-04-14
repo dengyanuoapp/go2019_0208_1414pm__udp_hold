@@ -30,6 +30,24 @@ type _TdataMachinEconnMap struct {
 	dmmLastPrTime     int
 }
 
+func (___Vdmem *_TdataMachinEconnMap) String() string {
+	__Vlen := len(___Vdmem.dmmConnPortArr)
+	__Vs := _Spf("eid:{%s} (%d)[", ___Vdmem.dmmID.String(), __Vlen)
+	for __Vi := 0; __Vi < __Vlen; __Vi++ {
+		if 0 == __Vi {
+			__Vs += _Spf("%s", ___Vdmem.dmmConnPortArr[__Vi].String())
+		} else {
+			__Vs += _Spf(" | %s", ___Vdmem.dmmConnPortArr[__Vi].String())
+		}
+	}
+	__Vs += _Spf("] amount:%d lastRead:%d lastSend:%d lastPr:%d",
+		___Vdmem.dmmConnPortAmount,
+		___Vdmem.dmmLastReadTime,
+		___Vdmem.dmmLastSendTime,
+		___Vdmem.dmmLastPrTime)
+	return __Vs
+}
+
 type _TdataMachineConnSt struct {
 	M        map[[16]byte]_TdataMachinEconnMap
 	LockLast map[[16]byte]int

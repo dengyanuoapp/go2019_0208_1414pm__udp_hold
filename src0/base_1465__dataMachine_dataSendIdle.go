@@ -22,15 +22,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
 					_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 
-					__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
-						Ti:        _FtimeInt(),
-						enType:    Cmd__data_01_idle,
-						enToId128: __Vk2[:],
-						// enToConnPort : _TudpConnPort // only one of addr is need
-						//enData: _TdataTran{},
-					}
 					___Vdm.
-						_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
+						_FdataMachin__1000502x2__time_gap_dataSendIdle(__Vk2[:], __Vv2)
 
 				} else {
 					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
@@ -76,4 +69,21 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 		}
 		___Vdm.dmMconn.mux.Unlock()
 	}
+}
+
+func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___Vid []byte, ___Vdmem _TdataMachinEconnMap) {
+	__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
+		Ti:        _FtimeInt(),
+		enType:    Cmd__data_01_idle,
+		enToId128: ___Vid,
+		// enData: _TdataTran{},
+	}
+
+	_FpfN(" 381922 02 {%#v} ", ___Vdmem)
+	_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
+	_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
+	_Fex("381922 05")
+
+	___Vdm.
+		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
 }
