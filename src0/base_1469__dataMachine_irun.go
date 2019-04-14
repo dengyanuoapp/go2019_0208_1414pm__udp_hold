@@ -35,8 +35,8 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
 	_Fsleep(_T1s)
 
-	go _Frun(___Vdm, 1000201) // _FdataMachin__1000201x__receive__default
-	go _Frun(___Vdm, 1000501) // _FdataMachin__1000501x__time_gap_dataChanLock
-	go _Frun(___Vdm, 1000502) // _FdataMachin__1000502x__time_gap_dataSendIdle
+	go _Frun(___Vdm, 1000201) // _FdataMachin__1000201x__receive__default // <-___Vdm.dmCHdataMachineIdI
+	go _Frun(___Vdm, 1000501) // _FdataMachin__1000501x__time_gap_dataChanLock // (*___Vdm.dmCHloginGenMachineIdLO)<-
+	go _Frun(___Vdm, 1000502) // _FdataMachin__1000502x__time_gap_dataSendIdle // (*___Vdm.dmCHloginGenMachineIdLO) <-
 	go _Frun(___Vdm, 1000503) // _FdataMachin__1000503x__time_gap_dataResend
 }

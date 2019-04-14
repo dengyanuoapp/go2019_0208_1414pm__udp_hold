@@ -1,5 +1,9 @@
 package main
 
+import "sync"
+
+var ___Vout__dmCHloginGenMachineIdLO__mux sync.Mutex
+
 func _FdataMachin__1000501x__time_gap_dataChanLock(___Vdm *_TdataMachine) {
 	var __Vcnt int
 
@@ -26,7 +30,9 @@ func _FdataMachin__1000501x__time_gap_dataChanLock(___Vdm *_TdataMachine) {
 					_FpfNonce(" 839196 08 connected succeed, but why loginGen NULL ?")
 				} else {
 					//_FpfN(" 839196 09 connected succeed, then told loginGen to stop ( push chan)")
+					___Vout__dmCHloginGenMachineIdLO__mux.Lock()
 					(*___Vdm.dmCHloginGenMachineIdLO) <- ___Vdm.dmMconn.M[__Vk2].dmmID
+					___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
 				}
 
 			}

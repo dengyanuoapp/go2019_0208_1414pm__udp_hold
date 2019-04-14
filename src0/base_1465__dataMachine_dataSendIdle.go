@@ -38,7 +38,6 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 						)
 					}
 					__Vcm.dmmLastPrTime = __Vnow2
-
 				}
 			}
 		}
@@ -50,9 +49,14 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 				_FpfNonce(" 381921 07 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain", _FtimeInt(), __Vk3)
 			} else {
 				_FpfNonce(" 381921 08 : %11d : try to stop lost connect %x in loginGen, ok ", _FtimeInt(), __Vk3)
+
+				___Vout__dmCHloginGenMachineIdLO__mux.Lock()
+
 				(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
 					diIdx128: ___Vdm.dmMconn.M[__Vk3].dmmID.diIdx128,
 				}
+
+				___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
 			}
 
 			delete(___Vdm.dmMconn.M, __Vk3)
