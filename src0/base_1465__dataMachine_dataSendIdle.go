@@ -72,8 +72,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle() {
 	_FpfN(" 381922 01 : %11d : try send idle ", _FtimeInt())
 
-	//dmCHencodeLO            chan _Tencode // _TencodeX
+	__Venc := _Tencode{ // _TencodeX
+	}
 
-}
-func (___Vdm *_TdataMachine) _FdataMachin__1000601x__encodeData_sendMux() {
+	___Vdm.
+		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
 }

@@ -45,8 +45,8 @@ type _TdataMachine struct {
 	dmCBprReceKey           func(*_TdataMachine)  //
 	dmCBprSendKey           func(*_TdataMachine)  //
 	dmMconn                 _TdataMachineConnSt
-	dmCHdecodeDataI         chan _Tdecode // from uTmCHdecodeDataLO  *chan _Tdecode of decoder
-	dmCHencodeLO            chan _Tencode // _TencodeX
+	dmCHdecodeDataI         chan _Tdecode  // from uTmCHdecodeDataLO  *chan _Tdecode of decoder
+	dmCHencodeLO            *chan _Tencode // _TencodeX
 	//dmCH  unCHreceByteLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	//dmCH  unCHsendI     chan _TudpNodeDataSend  // try get data from chan, then send it out.
 }

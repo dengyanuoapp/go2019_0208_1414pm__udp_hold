@@ -23,9 +23,9 @@ func (___Vdm *_TdataMachine) IRun(___Vidx int) {
 	case 1000503:
 		___Vdm.
 			_FdataMachin__1000503x__time_gap_dataResend()
-	case 1000601:
-		___Vdm.
-			_FdataMachin__1000601x__encodeData_sendMux()
+	//case 1000601:
+	//	___Vdm.
+	//		_FdataMachin__1000601x__encodeData_sendMux()
 	default:
 		_FpfNex(" 839191 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
