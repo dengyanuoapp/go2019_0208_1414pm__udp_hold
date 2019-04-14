@@ -2,8 +2,8 @@ package main
 
 func (___Vgf *_TgapFilter) _FgapFilter__1200301x1__uDataSwap() {
 
-	if nil == ___Vgf.gfCHudpNodeDataReceLO {
-		_FpfNonce(" 381917 01 : gfCHdelay ")
+	if nil == ___Vgf.gfCHudpNodeDataReceLO && nil == ___Vgf.gfCHbyteLO {
+		_FpfNonce(" 381917 01 : gfCHdelay out-chan NULL")
 		return
 	}
 
@@ -35,10 +35,22 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x1__uDataSwap() {
 			if 1 <= __Vcnt && 3 >= __Vcnt {
 				//_FpfN(" 381926 05 %d , %d, %d", __Vcnt, __Vv2.cnt, __Vv3.cnt)
 				//_CpfN(" 381926 06 %d , %d, %d", __Vcnt, __Vv2.cnt, __Vv3.cnt)
-				(*___Vgf.gfCHudpNodeDataReceLO) <- __Vv.unr
+				if nil != ___Vgf.gfCHudpNodeDataReceLO {
+					if 0 == len(__Vv.unb) {
+						(*___Vgf.gfCHudpNodeDataReceLO) <- __Vv.unr
+					} else {
+						_FpfNonce(" 381926 07 error input / out : type error ")
+					}
+				} else {
+					if 0 == len(__Vv.unb) {
+						_FpfNonce(" 381926 08 error input / out : type error ")
+					} else {
+						(*___Vgf.gfCHbyteLO) <- __Vv.unb
+					}
+				}
 			} else {
-				//_FpfN(" 381926 07 %d , %d, %d", __Vcnt, __Vv2.cnt, __Vv3.cnt)
-				//_CpfN(" 381926 08 %d , %d, %d", __Vcnt, __Vv2.cnt, __Vv3.cnt)
+				//_FpfN(" 381926 09 %d , %d, %d", __Vcnt, __Vv2.cnt, __Vv3.cnt)
+				//_CpfN(" 381926 10 %d , %d, %d", __Vcnt, __Vv2.cnt, __Vv3.cnt)
 			}
 		}
 	}
