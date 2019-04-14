@@ -11,18 +11,24 @@ func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 	var __Vus _TudpNodeDataSend // _TudpNodeDataSendX
 	for {
 		__Vus = _TudpNodeDataSend{}
+		__Vue = _Tencode{}
 		select {
 		case __Vue = <-___Vuen.enCHencodeCmdI: // chan _TencodeX
 			___VuEncode__1100201x__chanIn_mux.Lock()
 			_FpfNonce(" 849192 01 : try Encode CMD {%s}", __Vue.String())
 			//___Vuen.
 			//	_FdataMachin__1000201x11__connMap_insertId(&__Vue)
-			__Vue.enLogin.
+			//__Vue.enLogin.
+			__Vue.
 				_FdataPack__100__loginReq(__Vue.enType, &__Vus.usOutBuf)
 		case __Vue = <-___Vuen.enCHencodeDataI: // chan _TencodeX
 			___VuEncode__1100201x__chanIn_mux.Lock()
 			_FpfNdb(" 849192 05 : try Encode Data{%s}", __Vue.String())
 			_FpfNdb(" 849192 06 : under constructing ")
+
+			//__Vue.enData.
+			__Vue.
+				_FdataPack__100__loginReq(__Vue.enType, &__Vus.usOutBuf)
 
 		}
 		if 0 == __Vue.Ti {
