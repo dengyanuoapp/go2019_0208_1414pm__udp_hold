@@ -31,7 +31,8 @@ type _TudpNodeSt struct {
 	unErr            error
 	unRerr           error
 	unSerr           error
-	unRbuf           []byte // receive-buf
+	unRbuf1500       []byte // receive-buf
+	unRbufTmp        []byte // receive-buf
 	unRlen           int
 	unRemoteAddr     net.UDPAddr
 	unName           string
@@ -55,7 +56,7 @@ func (___Vun _TudpNodeSt) String() string {
 		___Vun.unLoopGap,
 		___Vun.unLocalAddr,
 		___Vun.unRlen,
-		___Vun.unRbuf[:20],
+		___Vun.unRbuf1500[:20],
 		___Vun.unRemoteAddr.String(),
 		___Vun.unName,
 		___Vun.unHostPortStr,

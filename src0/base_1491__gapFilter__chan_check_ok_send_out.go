@@ -43,15 +43,15 @@ func (___Vun *_TudpNodeSt) _FudpNode__540211yy__gap_default() {
 
 // replace the _FudpNode__500101yy3__receiveCallBack_default__randDecodeOut_noKeyWillDirect
 func _FudpNode__540211z__receiveCallBack_withTimeGap(___Vun *_TudpNodeSt) {
-	//_FpfNhex(&___Vun.unRbuf, 30, " 848236 01 rece %d", ___Vun.unRlen)
+	//_FpfNhex(&___Vun.unRbuf1500, 30, " 848236 01 rece %d", ___Vun.unRlen)
 
 	__Vrece := _TudpNodeDataRece{
 		UrrRemoteAddr: ___Vun.unRemoteAddr,
-		UrrBuf:        ___Vun.unRbuf[:___Vun.unRlen],
+		UrrBuf:        ___Vun.unRbuf1500[:___Vun.unRlen],
 	}
 	__VrKey := __Vrece.UrrRemoteAddr.IP.String()
 
-	//_FpfNhex(&___Vun.unRbuf, 30, " 848236 02 <%s>", __VrKey)
+	//_FpfNhex(&___Vun.unRbuf1500, 30, " 848236 02 <%s>", __VrKey)
 	//_FpfNhex(&__Vrece.UrrBuf, 30, " 848236 03 ")
 
 	if "" == __VrKey || "<nil>" == __VrKey {
