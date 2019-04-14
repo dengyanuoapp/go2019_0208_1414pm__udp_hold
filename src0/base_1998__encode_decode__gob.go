@@ -9,9 +9,15 @@ import (
 	//"log"
 	"fmt"
 	//"math"
+	"sync"
 )
 
+var ___V_FencGob__only__mux sync.Mutex
+
 func _FencGob__only(___VobjIn interface{}) ([]byte, error) {
+	defer ___V_FencGob__only__mux.Unlock()
+	___V_FencGob__only__mux.Lock()
+
 	_FinterfaceObjIsPointerOrExit("1831915 01", ___VobjIn)
 	//__VbBuf := new(bytes.Buffer)
 	var __VbBuf bytes.Buffer
@@ -33,7 +39,12 @@ func _FdecGob__only(___VbyteIn []byte, ___VoutObjLp interface{}) {
 	}
 } // _FdecGob__only
 
+var ___V_FdecGob___Mux sync.Mutex
+
 func _FdecGob___(___VeMsg string, ___VbyteIn []byte, ___VoutObjLp interface{}) error {
+	defer ___V_FdecGob___Mux.Unlock()
+	___V_FdecGob___Mux.Lock()
+
 	_FinterfaceObjIsPointerOrExit("1831915 05", ___VoutObjLp)
 	__Vdec := gob.NewDecoder(bytes.NewReader(___VbyteIn)) // Will write to __VbBuf.
 	__Verr := __Vdec.Decode(___VoutObjLp)
