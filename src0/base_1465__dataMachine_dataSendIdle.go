@@ -93,9 +93,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___V
 			toIdx128: ___Vdmem.dmmID.diIdx128,
 			toSeq128: ___Vdmem.dmmID.diSeq128,
 			Dcmd:     Cmd__data_01_idle,
-			tokenD:   []byte{},
-			Doffset:  0,
-			Dbuf:     []byte{},
 		},
 	}
 
