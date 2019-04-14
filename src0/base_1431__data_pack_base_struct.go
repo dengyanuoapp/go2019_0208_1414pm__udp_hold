@@ -121,7 +121,7 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("Ti:%d to:%s toId:%s T:%d", ___Ven.Ti, ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enType)
+	__Vso = _Spf("Ti:%d to:<%s> toId:%s T:%d", ___Ven.Ti, ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enType)
 
 	switch ___Ven.enType {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
@@ -132,6 +132,7 @@ func (___Ven *_Tencode) String() string {
 	default:
 		__Vso += "===839818918unknown==="
 	}
+	__Vso += _Spf(" delay:%d multi:%d", ___Ven.enDelay, ___Ven.enMultiSend)
 
 	return __Vso
 }

@@ -72,17 +72,38 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___Vid []byte, ___Vdmem _TdataMachinEconnMap) {
-	__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
-		Ti:        _FtimeInt(),
-		enType:    Cmd__data_01_idle,
-		enToId128: ___Vid,
-		// enData: _TdataTran{},
+	__Vlen := len(___Vdmem.dmmConnPortArr) // _TdataMachinEconnMap
+
+	if __Vlen < 1 {
+		_FpfN(" 381922 01 len error :%d ", __Vlen)
+		return
 	}
 
-	_FpfN(" 381922 02 {%#v} ", ___Vdmem)
+	__Vidx := _FtimeInt() % __Vlen
+	__Vconn := ___Vdmem.dmmConnPortArr[__Vidx]
+
+	__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
+		Ti:           _FtimeInt(),
+		enType:       Cmd__data_01_idle,
+		enToId128:    ___Vdmem.dmmID.diIdx128, // _TdataMachinEid
+		enToConnPort: __Vconn,                 // _TudpConnPort
+		enData: _TdataTran{
+			meIdx128: _VC.MyId128,
+			MySeq128: _VS.MySeq128,
+			toIdx128: ___Vdmem.dmmID.diIdx128,
+			toSeq128: ___Vdmem.dmmID.diSeq128,
+			Dcmd:     Cmd__data_01_idle,
+			tokenD:   []byte{},
+			Doffset:  0,
+			Dbuf:     []byte{},
+		},
+	}
+
+	_FpfN(" 381922 02 {%#v} ", ___Vdmem) // _TdataMachinEconnMap
 	_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
 	_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
-	_Fex("381922 05")
+	_FpfN(" 381922 05 {%s}", __Venc.String()) // _TencodeX
+	_Fex("381922 06")
 
 	___Vdm.
 		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
