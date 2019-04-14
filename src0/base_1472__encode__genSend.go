@@ -5,7 +5,7 @@ import "sync"
 var ___VuEncode__1100201x__chanIn_mux sync.Mutex
 var ___VuEncode__1100201x__send_mux sync.Mutex
 
-func _FuEncode__1100201x__packSend__default(___Vuen *_TuEncode) {
+func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 
 	var __Vue _Tencode
 	var __Vus _TudpNodeDataSend // _TudpNodeDataSendX
