@@ -46,7 +46,12 @@ func (___Vencode *_Tencode) _FdataPack__100__loginReq(___Vtype byte, ___VoutBuf 
 	case Cmd__loginS01genReplyTokenA,
 		Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken:
-		__Vb2, __Verr2 = _FencGob__only(&___Vencode.enLogin)
+		__Vb2, __Verr2 =
+			_FencGob__only(&___Vencode.enLogin)
+	case Cmd__data_01_idle, // 5
+		Cmd__data_11_chan_new_req: // 6
+		__Vb2, __Verr2 =
+			_FencGob__only(&___Vencode.enData)
 	default:
 		_FpfN(" 138186 02 : encode error ?")
 		*___VoutBuf = []byte{}

@@ -24,7 +24,7 @@ func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 		case __Vue = <-___Vuen.enCHencodeDataI: // chan _TencodeX
 			___VuEncode__1100201x__chanIn_mux.Lock()
 			_FpfNdb(" 849192 05 : try Encode Data{%s}", __Vue.String())
-			_FpfNdb(" 849192 06 : under constructing ")
+			//_FpfNdb(" 849192 06 : under constructing ")
 
 			//__Vue.enData.
 			__Vue.
