@@ -15,11 +15,17 @@ func (___Vdm *_TdataMachine) IRun(___Vidx int) {
 			___Vdm.dmCBrece(___Vdm)
 		}
 	case 1000501:
-		_FdataMachin__1000501x__time_gap_dataChanLock(___Vdm)
+		___Vdm.
+			_FdataMachin__1000501x__time_gap_dataChanLock()
 	case 1000502:
-		_FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm)
+		___Vdm.
+			_FdataMachin__1000502x__time_gap_dataSendIdle()
 	case 1000503:
-		_FdataMachin__1000503x__time_gap_dataResend(___Vdm)
+		___Vdm.
+			_FdataMachin__1000503x__time_gap_dataResend()
+	case 1000601:
+		___Vdm.
+			_FdataMachin__1000601x__encodeData_sendMux()
 	default:
 		_FpfNex(" 839191 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx

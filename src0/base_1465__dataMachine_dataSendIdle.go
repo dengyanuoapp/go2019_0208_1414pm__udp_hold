@@ -5,7 +5,7 @@ var (
 	_Vgap_skip_idle_send = 7
 )
 
-func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
+func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 
 	for {
 		_FsleepRand_8_to_12s()
@@ -71,4 +71,9 @@ func _FdataMachin__1000502x__time_gap_dataSendIdle(___Vdm *_TdataMachine) {
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle() {
 	_FpfN(" 381922 01 : %11d : try send idle ", _FtimeInt())
+
+	//dmCHencodeLO            chan _Tencode // _TencodeX
+
+}
+func (___Vdm *_TdataMachine) _FdataMachin__1000601x__encodeData_sendMux() {
 }

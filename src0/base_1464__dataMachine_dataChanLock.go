@@ -4,7 +4,7 @@ import "sync"
 
 var ___Vout__dmCHloginGenMachineIdLO__mux sync.Mutex
 
-func _FdataMachin__1000501x__time_gap_dataChanLock(___Vdm *_TdataMachine) {
+func (___Vdm *_TdataMachine) _FdataMachin__1000501x__time_gap_dataChanLock() {
 	var __Vcnt int
 
 	for {
