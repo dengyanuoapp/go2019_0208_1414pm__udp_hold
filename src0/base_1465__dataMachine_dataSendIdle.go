@@ -14,32 +14,41 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 		__Vnow2 := _FtimeInt()
 
 		___Vdm.dmMconn.mux.Lock()
-		for __Vk2, __Vcm := range ___Vdm.dmMconn.M { // M map[[16]byte]_TdataMachinEconnMap
-			if __Vnow2-__Vcm.dmmLastReadTime > _Vgap_nothingToLost {
+		for __Vk2, __Vv2 := range ___Vdm.dmMconn.M { // M map[[16]byte]_TdataMachinEconnMap
+			if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_nothingToLost {
 				__VkDelArr = append(__VkDelArr, __Vk2)
 			} else {
-				if __Vnow2-__Vcm.dmmLastReadTime > _Vgap_skip_idle_send {
+				if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_skip_idle_send {
 					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
-					//_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vcm.dmmLastReadTime)
+					_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
+
+					__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
+						Ti:        _FtimeInt(),
+						enType:    Cmd__data_01_idle,
+						enToId128: __Vk2[:],
+						// enToConnPort : _TudpConnPort // only one of addr is need
+						//enData: _TdataTran{},
+					}
 					___Vdm.
-						_FdataMachin__1000502x2__time_gap_dataSendIdle()
+						_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
+
 				} else {
 					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
-						_FtimeInt(), __Vk2, __Vnow2, __Vcm.dmmLastReadTime)
+						_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 				}
 				//if nil != ___Vdm.dmCBprSendKey {
 				//	___Vdm.dmCBprSendKey(___Vdm)
 				//}
 				// _TdataMachinEconnMap
-				if __Vnow2-__Vcm.dmmLastPrTime > 20 {
-					for __Vidx, __Vconn := range __Vcm.dmmConnPortArr {
+				if __Vnow2-__Vv2.dmmLastPrTime > 20 {
+					for __Vidx, __Vconn := range __Vv2.dmmConnPortArr {
 						_CpfN(" 381921 03 sendingKeyArray: %x : %2d : to [%s]", // check-important keykey
 							__Vconn.K256, // []byte
 							__Vidx,
 							__Vconn.DstAddr.String(), // net.UDPAddr
 						)
 					}
-					__Vcm.dmmLastPrTime = __Vnow2
+					__Vv2.dmmLastPrTime = __Vnow2
 				}
 			}
 		}
@@ -67,14 +76,4 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 		}
 		___Vdm.dmMconn.mux.Unlock()
 	}
-}
-
-func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle() {
-	_FpfN(" 381922 01 : %11d : try send idle ", _FtimeInt())
-
-	__Venc := _Tencode{ // _TencodeX
-	}
-
-	___Vdm.
-		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
 }

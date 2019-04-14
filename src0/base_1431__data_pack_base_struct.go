@@ -113,8 +113,6 @@ type _Tencode struct {
 	enData       _TdataTran
 	enDelay      int // a delay resend if not zero
 	enMultiSend  int // send multi timeS if not zero
-	//enToAddr net.UDPAddr
-	//enToKey  []byte
 }
 
 func (___Ven *_Tencode) String() string {

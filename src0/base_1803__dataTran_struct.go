@@ -15,13 +15,11 @@ func (___Vlr *_TdataTran) String() string {
 	__Vo := _Spf(
 		"mid:%x,%x tid:%x,%x tkD:%x cmd:%d off:%x B:%s",
 
-		___Vlr.meIdx128[:5],
-		___Vlr.MySeq128[:5],
-		___Vlr.toIdx128[:5],
-		___Vlr.toSeq128[:5],
-
-		___Vlr.tokenD[:5],
-
+		_FgenMd5__5(&___Vlr.meIdx128),
+		_FgenMd5__5(&___Vlr.MySeq128),
+		_FgenMd5__5(&___Vlr.toIdx128),
+		_FgenMd5__5(&___Vlr.toSeq128),
+		_FgenMd5__5(&___Vlr.tokenD),
 		___Vlr.Dcmd,
 		___Vlr.Doffset,
 		String9(&___Vlr.Dbuf))
