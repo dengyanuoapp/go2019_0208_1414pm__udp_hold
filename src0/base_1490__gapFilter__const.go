@@ -10,6 +10,7 @@ type _TgapFilter_ReceCntX struct {
 type _TgapFilter_ReceCnt struct {
 	cnt int
 	unr _TudpNodeDataRece
+	unb []byte
 }
 
 type _TgapFilter_ReceStX struct {

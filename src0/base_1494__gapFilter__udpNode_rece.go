@@ -27,3 +27,8 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeD
 	}
 	//_FpfN(" 381927 17 : cnt %d", ___Vgf.gfR.now_[__Vk].cnt)
 }
+
+func (___Vgf *_TgapFilter) _FgapFilter__1200301x3__Byte_rece(__Vbyte *[]byte) {
+	_FpfN(" 381917 23 : gfCHbyteI :[%x]", __Vbyte)
+
+}
