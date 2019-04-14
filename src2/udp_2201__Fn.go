@@ -57,6 +57,7 @@ func _Finit_2201() {
 
 	_VdataMachine_Fn = _TdataMachine{
 		dmCBprReceKey: _FdmCBprReceKey__Fn,
+		dmCHencodeLO:  &_VudpEncode_Fn.enCHencodeDataI, // *chan _Tencode
 	}
 
 	_VudpEncode_Fn = _TuEncode{
