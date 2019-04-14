@@ -55,8 +55,8 @@ func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus _TudpNod
 		return
 	}
 
-	if 0 == len(___Vue.enToId128) {
-		___Vus.usToAddr = ___Vue.enToConnPort
+	if ((0 == len(___Vue.enToId128)) || (16 == len(___Vue.enToId128))) && 32 == len(___Vue.enToConnPort.K256) {
+		___Vus.usToAddr = ___Vue.enToConnPort // _TudpConnPort
 	} else {
 		_FpfN(" 849193 03 : under constructing addr :%s", ___Vue.String())
 		return
