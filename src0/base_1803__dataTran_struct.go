@@ -2,13 +2,13 @@ package main
 
 type _TdataTran struct {
 	MEidx128 []byte
-	MySeq128 []byte
-	toIdx128 []byte
-	toSeq128 []byte
-	tokenD   []byte
-	Dcmd     byte
-	Doffset  uint64
-	Dbuf     []byte
+	MYseq128 []byte
+	TOidx128 []byte
+	TOseq128 []byte
+	TTokenD  []byte
+	DDcmd    byte
+	DDoffset uint64
+	DDbuf    []byte
 }
 
 func (___Vlr *_TdataTran) String() string {
@@ -16,12 +16,12 @@ func (___Vlr *_TdataTran) String() string {
 		"mid:%s,%s tid:%s,%s tkD:%s cmd:%d off:%d B:%s",
 
 		String5(&___Vlr.MEidx128),
-		String5(&___Vlr.MySeq128),
-		String5(&___Vlr.toIdx128),
-		String5(&___Vlr.toSeq128),
-		String5(&___Vlr.tokenD),
-		___Vlr.Dcmd,
-		___Vlr.Doffset,
-		String9(&___Vlr.Dbuf))
+		String5(&___Vlr.MYseq128),
+		String5(&___Vlr.TOidx128),
+		String5(&___Vlr.TOseq128),
+		String5(&___Vlr.TTokenD),
+		___Vlr.DDcmd,
+		___Vlr.DDoffset,
+		String9(&___Vlr.DDbuf))
 	return __Vo
 }

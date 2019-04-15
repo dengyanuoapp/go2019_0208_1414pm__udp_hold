@@ -93,10 +93,10 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___V
 		enToConnPort: __Vconn,                 // _TudpConnPort
 		enData: _TdataTran{
 			MEidx128: _VC.MyId128,
-			MySeq128: _VS.MySeq128,
-			toIdx128: ___Vdmem.dmmID.diIdx128,
-			toSeq128: ___Vdmem.dmmID.diSeq128,
-			Dcmd:     Cmd__data_01_idle,
+			MYseq128: _VS.MySeq128,
+			TOidx128: ___Vdmem.dmmID.diIdx128,
+			TOseq128: ___Vdmem.dmmID.diSeq128,
+			DDcmd:    Cmd__data_01_idle,
 		},
 	}
 
@@ -104,8 +104,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___V
 	//_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
 	//_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
 
-	_FpfN(" 381922 05 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
-	_CpfN(" 381922 06 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
+	//_FpfN(" 381922 05 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
+	//_CpfN(" 381922 06 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
 
 	//_Fex("381922 07")
 
