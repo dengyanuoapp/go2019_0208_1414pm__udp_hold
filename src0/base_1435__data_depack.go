@@ -50,10 +50,10 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 		return
 	}
 
-	___Vdecode.remotePortKey = ___Vbuf[5:37]
-	___Vdecode.ok = true
+	___Vdecode.RemotePortKey = ___Vbuf[5:37]
+	___Vdecode.Ok = true
 	___Vdecode.Type = ___Vbuf[0]
-	___Vdecode.receiveTime = _FtimeInt()
+	___Vdecode.ReceiveTime = _FtimeInt()
 
 	_CpfN(" 387193 07 : uDecode decode reult (%s)", ___Vdecode.String()) // _Tdecode _TdataTran
 	//_FpfNdb(" 387193 08 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])

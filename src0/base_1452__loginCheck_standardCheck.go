@@ -22,7 +22,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			___VloginCheck__900201x__mux.Lock()
 
 			___Vlc._FloginCheck__900201xC1__standardCheck(&__Vdecode, &__Venc)
-			if false == __Vdecode.ok {
+			if false == __Vdecode.Ok {
 				___VloginCheck__900201x__mux.Unlock()
 				continue
 			}

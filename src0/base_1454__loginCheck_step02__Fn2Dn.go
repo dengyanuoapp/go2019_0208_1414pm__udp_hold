@@ -28,8 +28,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 
 	*___Venc = _Tencode{
 		enToConnPort: _TudpConnPort{
-			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
-			K256:    ___Vdecode.remotePortKey, // []byte
+			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
+			K256:    ___Vdecode.RemotePortKey, // []byte
 		},
 		enType: Cmd__loginS02genReplyTokenB,
 		enLogin: _TloginReq{

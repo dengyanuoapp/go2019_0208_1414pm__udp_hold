@@ -17,7 +17,7 @@ func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 			___VuEncode__1100201x__chanIn_mux.Lock()
 			_FpfNonce(" 849192 01 : try Encode CMD {%s}", __Vue.String())
 			//___Vuen.
-			//	_FdataMachin__1000201x11__connMap_insertId(&__Vue)
+			//	_FdataMachin__1000201x11__checkConnMap_insertId(&__Vue)
 			//__Vue.enLogin.
 		case __Vue = <-___Vuen.enCHencodeDataI: // chan _TencodeX
 			___VuEncode__1100201x__chanIn_mux.Lock()

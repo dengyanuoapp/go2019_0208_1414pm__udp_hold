@@ -8,7 +8,7 @@ func _FdeleteOld_cmdStack(___Vm *map[[16]byte]_Tdecode) {
 	var __Vdel [][16]byte
 	__Vnow := _FtimeInt()
 	for __k, __v := range *___Vm {
-		if __Vnow-__v.receiveTime > __VmaxCmdPerid {
+		if __Vnow-__v.ReceiveTime > __VmaxCmdPerid {
 			__Vdel = append(__Vdel, __k)
 		}
 	}

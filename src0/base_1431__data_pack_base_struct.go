@@ -63,10 +63,10 @@ type _TdecodeX struct {
 }
 type _Tdecode struct {
 	Ti            int // traceInfo
-	ok            bool
-	receiveTime   int
-	remoteAddr    net.UDPAddr
-	remotePortKey []byte
+	Ok            bool
+	ReceiveTime   int
+	RemoteAddr    net.UDPAddr
+	RemotePortKey []byte
 	Type          byte
 	Dlogin        _TloginReq
 	Ddata         _TdataTran
@@ -85,12 +85,12 @@ func (___Vd *_Tdecode) String() string {
 	__Vrs := _Spf(
 		"Ti:%d ok:%T rm:%s rmk:%s type:%s {%s} t:%d ",
 		___Vd.Ti,
-		___Vd.ok,
-		___Vd.remoteAddr.String(),
-		String5(&___Vd.remotePortKey),
+		___Vd.Ok,
+		___Vd.RemoteAddr.String(),
+		String5(&___Vd.RemotePortKey),
 		_FcmdType(___Vd.Type),
 		__Vcontent,
-		___Vd.receiveTime)
+		___Vd.ReceiveTime)
 	return __Vrs
 }
 

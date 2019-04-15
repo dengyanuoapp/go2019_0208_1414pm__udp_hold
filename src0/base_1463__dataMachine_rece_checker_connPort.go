@@ -4,7 +4,7 @@ import (
 	"bytes"
 )
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsID *_TdataMachinEid) {
+func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__checkConnMap_insertId(___VinsID *_TdataMachinEid) {
 
 	__Vk := _FgenB16(&___VinsID.diIdx128)
 	//___Vdm.dmMconn.mux.Lock()

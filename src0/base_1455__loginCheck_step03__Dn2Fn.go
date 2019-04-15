@@ -25,7 +25,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 		return
 	}
 
-	if (_FtimeInt() - ___Vdecode.receiveTime) > __VmaxCmdPerid {
+	if (_FtimeInt() - ___Vdecode.ReceiveTime) > __VmaxCmdPerid {
 		_FpfN(" 838381 06 : error : timeOut. %s ", ___Vdecode.String())
 		return
 	}
@@ -38,8 +38,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 	//_FpfNex(" 838381 08 %s ", ___Vdecode.String())
 	*___Venc = _Tencode{
 		enToConnPort: _TudpConnPort{
-			DstAddr: ___Vdecode.remoteAddr,    // net.UDPAddr
-			K256:    ___Vdecode.remotePortKey, // []byte
+			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
+			K256:    ___Vdecode.RemotePortKey, // []byte
 		},
 		enType: Cmd__loginS03acceptWithToken,
 		enLogin: _TloginReq{
@@ -66,8 +66,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 	} else {
 		__Vid := _TdataMachinEid{
 			diConnPort: _TudpConnPort{
-				___Vdecode.remoteAddr,     // net.UDPAddr
-				___Vdecode.remotePortKey}, // []byte
+				___Vdecode.RemoteAddr,     // net.UDPAddr
+				___Vdecode.RemotePortKey}, // []byte
 			diIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
 			diSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
 			diToken:  ___Vdecode.Dlogin.TokenL,   // []byte
