@@ -38,7 +38,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	case Cmd__data_01_idle, // 5
 		Cmd__data_11_chan_new_req: // 6
 		__Verr2 =
-			_FdecGob___(" 387193 02 ", __Vbuf2, &___Vdecode.Ddata) // _Tdecode
+			_FdecGob___(" 387193 02 ", __Vbuf2, &___Vdecode.Ddata) // _Tdecode _TdataTran
 
 	default:
 		_FpfNhex(&___Vbuf, 500, " 387193 05 : under constructing : type %d ,", ___Vbuf[0])
@@ -46,7 +46,7 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	}
 
 	if nil != __Verr2 {
-		_FpfNdb(" 387193 03 :error :%v", __Verr2)
+		_FpfNdb(" 387193 06 :error :%v", __Verr2)
 		return
 	}
 
@@ -55,5 +55,6 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	___Vdecode.Type = ___Vbuf[0]
 	___Vdecode.receiveTime = _FtimeInt()
 
-	//_FpfNdb(" 387193 07 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])
+	_CpfN(" 387193 07 : uDecode decode reult (%s)", ___Vdecode.String()) // _Tdecode _TdataTran
+	//_FpfNdb(" 387193 08 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])
 }

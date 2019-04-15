@@ -21,19 +21,20 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 				if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_skip_idle_send {
 					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
 					_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
+					_CpfN(" 381921 02 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 
 					___Vdm.
 						_FdataMachin__1000502x2__time_gap_dataSendIdle(__Vv2)
 
 				} else {
-					_FpfN(" 381921 02 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
+					_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
 						_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 				}
 
 				// for debug only : print the keyS
 				if __Vnow2-__Vv2.dmmLastPrTime > 20 {
 					for __Vidx, __Vconn := range __Vv2.dmmConnPortArr {
-						_CpfN(" 381921 03 sendingKeyArray: %x : %2d : to [%s]", // check-important keykey
+						_CpfN(" 381921 04 sendingKeyArray: %x : %2d : to [%s]", // check-important keykey
 							__Vconn.K256, // []byte
 							__Vidx,
 							__Vconn.DstAddr.String(), // net.UDPAddr

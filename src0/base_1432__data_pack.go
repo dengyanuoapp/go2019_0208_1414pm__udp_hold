@@ -52,14 +52,16 @@ func (___Vencode *_Tencode) _FdataPack__100__loginReq(___Vtype byte, ___VoutBuf 
 		Cmd__data_11_chan_new_req: // 6
 		__Vb2, __Verr2 =
 			_FencGob__only(&___Vencode.enData)
+		_CpfN(" 138186 02 : _Tencode encode (%s) .", ___Vencode.enData.String())
+		_FpfN(" 138186 03 : _Tencode encode (%s) .", ___Vencode.enData.String())
 	default:
-		_FpfN(" 138186 02 : encode error ?")
+		_FpfN(" 138186 04 : encode error ?")
 		*___VoutBuf = []byte{}
 		return
 	}
 
 	if nil != __Verr2 {
-		_FpfN(" 138186 04 : %v", __Verr2)
+		_FpfN(" 138186 05 : %v", __Verr2)
 		*___VoutBuf = []byte{}
 		return
 	}
