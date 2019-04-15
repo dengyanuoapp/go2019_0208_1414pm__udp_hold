@@ -61,6 +61,8 @@ func _Fex1(___Vstr string, ___Vobj interface{}) {
 	os.Exit(1)
 } // _Fex1
 
+func ___FpfN(___Vfmt string, ___Vpara ...interface{}) {
+}
 func _FpfN(___Vfmt string, ___Vpara ...interface{}) {
 	_Fph()
 	_Ppf(___Vfmt+"\n", ___Vpara...)
