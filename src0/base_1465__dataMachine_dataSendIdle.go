@@ -18,7 +18,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 			if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_nothingToLost {
 				__VkDelArr = append(__VkDelArr, __Vk2)
 			} else {
-				if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_skip_idle_send {
+				if __Vnow2-__Vv2.dmmLastSendTime > _Vgap_skip_idle_send {
 					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
 					_FpfN(" 381921 01 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
 					_CpfN(" 381921 02 : %11d : try send idle %x %d,%d", _FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
