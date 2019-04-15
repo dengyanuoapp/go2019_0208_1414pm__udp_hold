@@ -22,8 +22,8 @@ func _FudpDecode__700201x10__receive__default(___Vude *_TuDecode) {
 
 		} // end Select
 
-		_FpfN(" 388195 01 udpDecode rece : (%d)<%s>", __VunReceB, String9(&__VunReceB))
-		_CpfN(" 388195 02 udpDecode rece : (%d)<%s>", __VunReceB, String9(&__VunReceB))
+		_FpfN(" 388195 02 udpDecode rece : <%s>", String9(&__VunReceB))
+		_CpfN(" 388195 03 udpDecode rece : <%s>", String9(&__VunReceB))
 
 		//func _FdecGob___(___VeMsg string, ___VbyteIn []byte, ___VoutObjLp interface{}) error {
 		__VunRece := _TudpNodeDataRece{}
@@ -87,7 +87,7 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 			_CpfN(" 388199 03 : outChan null , ignore ")
 		} else {
 			_CpfN(" 388199 05 outChain exist , push into chan: _TuDecode receive : type %d", __Vdecode.Type)
-			(*___Vude.uDeCHdecodeDataLO) <- __Vdecode //
+			(*___Vude.uDeCHdecodeDataLO) <- __Vdecode // to &_VdataMachine_Fn.dmCHdecodeDataI,     // dmCHdecodeDataI _TdecodeX
 		}
 	default:
 		_CpfN(" 388199 09 : type %d : unknow how to deal with.", __Vdecode.Type)

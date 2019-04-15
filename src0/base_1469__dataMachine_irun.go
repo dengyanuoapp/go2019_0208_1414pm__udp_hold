@@ -33,7 +33,8 @@ func (___Vdm *_TdataMachine) IRun(___Vidx int) {
 
 func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
-	___Vdm.dmCHdataMachineIdI = make(chan _TdataMachinEid)
+	___Vdm.dmCHdataMachineIdI = make(chan _TdataMachinEid, 50)
+	___Vdm.dmCHdecodeDataI = make(chan _Tdecode, 50)
 
 	___Vdm.dmMconn.M = make(map[[16]byte]_TdataMachinEconnMap)
 	___Vdm.dmMconn.LockNow = make(map[[16]byte]int)
@@ -41,7 +42,7 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
 	_Fsleep(_T1s)
 
-	go _Frun(___Vdm, 1000201) // _FdataMachin__1000201x__receive__default // <-___Vdm.dmCHdataMachineIdI
+	go _Frun(___Vdm, 1000201) // _FdataMachin__1000201x__receive__default // <-___Vdm.dmCHdataMachineIdI // <-___Vdm.dmCHdecodeDataI
 	go _Frun(___Vdm, 1000501) // _FdataMachin__1000501x__time_gap_dataChanLock // (*___Vdm.dmCHloginGenMachineIdLO)<-
 	go _Frun(___Vdm, 1000502) // _FdataMachin__1000502x__time_gap_dataSendIdle // (*___Vdm.dmCHloginGenMachineIdLO) <-
 	go _Frun(___Vdm, 1000503) // _FdataMachin__1000503x__time_gap_dataResend
