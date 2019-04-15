@@ -27,11 +27,11 @@ func _FudpDecode__700201x10__receive__default(___Vude *_TuDecode) {
 
 		//func _FdecGob___(___VeMsg string, ___VbyteIn []byte, ___VoutObjLp interface{}) error {
 		__VunRece := _TudpNodeDataRece{}
-		__Verr4 := _FdecGob___(" 388195 02 ", __VunReceB, &__VunRece)
+		__Verr4 := _FdecGob___(" 388195 05 ", __VunReceB, &__VunRece)
 		if nil != __Verr4 {
-			_FpfN(" 388195 03 err : <%v>", __Verr4)
+			_FpfN(" 388195 08 err : <%v>", __Verr4)
 		} else {
-			_FpfN(" 388195 04 udpDecoder receive: <%s>", __VunRece.String()) // _TudpNodeDataReceX
+			_FpfN(" 388195 09 udpDecoder receive: <%s>", __VunRece.String()) // _TudpNodeDataReceX
 			___Vude.
 				_FudpDecode__700201x11__receive__default(&__VunRece)
 		}
@@ -44,7 +44,7 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	var __Vdecode _Tdecode
 	___VtraceIntDE := ___VunRece.Ti
 
-	_CpfN(" 388195 04 Ti:%d : before decoder : ___VunRece{%s} ",
+	_CpfN(" 388196 04 Ti:%d : before decoder : ___VunRece{%s} ",
 		___VtraceIntDE,
 		___VunRece.String())
 
@@ -53,8 +53,8 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 		__Vtmp3out, __Verr2 :=
 			_FdecAesRand__only(___VunRece.UrrReceiveKey.Bkey, __Vtmp3in, ___VtraceIntDE)
 		if nil != __Verr2 {
-			_CpfN(" 388195 08 Ti:%d AesDec error {%v} {%s}", ___VtraceIntDE, __Verr2, ___VunRece.String()) // keykey
-			_FpfN(" 388195 09 Ti:%d AesDec error {%v} {%s}", ___VtraceIntDE, __Verr2, ___VunRece.String())
+			_CpfN(" 388196 08 Ti:%d AesDec error {%v} {%s}", ___VtraceIntDE, __Verr2, ___VunRece.String()) // keykey
+			_FpfN(" 388196 09 Ti:%d AesDec error {%v} {%s}", ___VtraceIntDE, __Verr2, ___VunRece.String())
 			return
 		}
 		___VunRece.UrrBuf = __Vtmp3out
@@ -64,7 +64,7 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 		_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 	__Vdecode.remoteAddr = ___VunRece.UrrRemoteAddr
 
-	_CpfN(" 388196 04 Ti:%d : after decoder  : __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
+	_CpfN(" 388197 04 Ti:%d : after decoder  : __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
 		___VtraceIntDE,
 		__Vdecode.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf), // _TdecodeX
 		___VunRece.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf))
@@ -72,23 +72,23 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	switch __Vdecode.Type {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-		//_FpfN(" 388196 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+		//_FpfN(" 388197 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 		if nil == ___Vude.uDeCHdecodeCkLO {
-			_FpfN(" 388196 07 : outChan null , ignore:%s", __Vdecode.String())
+			_FpfN(" 388197 07 : outChan null , ignore:%s", __Vdecode.String())
 		} else {
-			//_FpfN(" 388196 08 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
-			//_FpfN(" 388196 09 real outChain : %s", __Vdecode.String())
+			//_FpfN(" 388197 08 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+			//_FpfN(" 388197 09 real outChain : %s", __Vdecode.String())
 			(*___Vude.uDeCHdecodeCkLO) <- __Vdecode // 15540463611554046361
 		}
 	case Cmd__data_01_idle:
-		_FpfN(" 388197 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+		_FpfN(" 388199 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 		if nil == ___Vude.uDeCHdecodeDataLO {
-			_FpfN(" 388197 03 : outChan null , ignore ")
+			_FpfN(" 388199 03 : outChan null , ignore ")
 		} else {
-			_FpfN(" 388197 05 outChain exist , push into chan: _TuDecode receive : type %d", __Vdecode.Type)
+			_FpfN(" 388199 05 outChain exist , push into chan: _TuDecode receive : type %d", __Vdecode.Type)
 			(*___Vude.uDeCHdecodeDataLO) <- __Vdecode //
 		}
 	default:
-		_FpfN(" 388197 09 : type %d : unknow how to deal with.", __Vdecode.Type)
+		_FpfN(" 388199 09 : type %d : unknow how to deal with.", __Vdecode.Type)
 	}
 }
