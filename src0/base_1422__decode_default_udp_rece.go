@@ -76,7 +76,7 @@ func (___Vutm *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 		if nil == ___Vutm.uTmCHdecodeDataLO {
 			_FpfN(" 388197 03 : outChan null , ignore ")
 		} else {
-			_FpfN(" 388197 05 real outChain : type %d", __Vdecode.Type)
+			_FpfN(" 388197 05 outChain exist , push into chan: _TuDecode receive : type %d", __Vdecode.Type)
 			(*___Vutm.uTmCHdecodeDataLO) <- __Vdecode //
 		}
 	default:

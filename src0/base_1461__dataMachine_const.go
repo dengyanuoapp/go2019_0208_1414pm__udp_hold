@@ -57,15 +57,15 @@ type _TdataMachineConnSt struct {
 }
 
 type _TdataMachine struct {
+	dmCBinit                func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
+	dmCBrece                func(*_TdataMachine) //
+	dmCBprReceKey           func(*_TdataMachine) //
+	dmCBprSendKey           func(*_TdataMachine) //
+	dmMconn                 _TdataMachineConnSt
 	dmCHdataMachineIdI      chan _TdataMachinEid  // loginChecker will fill this chan when check-token ok.
 	dmCHloginGenMachineIdLO *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI, fill this chan to told the loginGen to stop
-	dmCBinit                func(*_TdataMachine)  // _FdataMachin__1000101__main_init__default
-	dmCBrece                func(*_TdataMachine)  //
-	dmCBprReceKey           func(*_TdataMachine)  //
-	dmCBprSendKey           func(*_TdataMachine)  //
-	dmMconn                 _TdataMachineConnSt
-	dmCHdecodeDataI         chan _Tdecode  // from uTmCHdecodeDataLO  *chan _Tdecode of decoder
-	dmCHencodeLO            *chan _Tencode // _TencodeX
+	dmCHdecodeDataI         chan _Tdecode         // from uTmCHdecodeDataLO  *chan _Tdecode of decoder
+	dmCHencodeLO            *chan _Tencode        // _TencodeX
 	//dmCH  unCHreceByteLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	//dmCH  unCHsendI     chan _TudpNodeDataSend  // try get data from chan, then send it out.
 }
