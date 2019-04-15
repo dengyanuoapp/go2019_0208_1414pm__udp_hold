@@ -77,6 +77,8 @@ func (___Vd *_Tdecode) String() string {
 	switch ___Vd.Type {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB, Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		__Vcontent = "Dlogin:" + ___Vd.Dlogin.String()
+	case Cmd__data_01_idle, Cmd__data_11_chan_new_req: //
+		__Vcontent = "Ddata:" + ___Vd.Ddata.String()
 	default:
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.Type)
 	}
