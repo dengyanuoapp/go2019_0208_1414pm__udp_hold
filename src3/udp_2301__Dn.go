@@ -53,9 +53,10 @@ func _Finit__2301() {
 	}
 
 	_VdataMachine_Dn = _TdataMachine{
-		dmCHloginGenMachineIdLO: &_VloginGenerator_Dn.lgCHdataMachineIdI,
 		dmCBprReceKey:           _FdmCBprReceKey__Dn,
 		dmCBprSendKey:           _FdmCBprSendKey__Dn,
+		dmCHloginGenMachineIdLO: &_VloginGenerator_Dn.lgCHdataMachineIdI,
+		dmCHencodeLO:            &_VudpEncode_Dn.enCHencodeDataI, // *chan _Tencode
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{

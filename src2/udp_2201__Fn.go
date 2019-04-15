@@ -37,11 +37,11 @@ func _Finit_2201() {
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
-		unName:    "_VudpNode_FunWaitDun",
-		unRKeyLP:  &_Vpasswd_udp_Fn_waitForCliens01,
-		unLoopGap: _T10s,
-		//unCHreceByteLO: &_VudpDecode_Fn.uTmCHreceByteI,
+		unName:         "_VudpNode_FunWaitDun",
+		unLoopGap:      _T10s,
 		unCHreceByteLO: &_VgapFilter__Fn.gfCHbyteI,
+		unRKeyLP:       &_Vpasswd_udp_Fn_waitForCliens01,
+		//unCHreceByteLO: &_VudpDecode_Fn.uTmCHreceByteI,
 	}
 
 	_VgapFilter__Fn = _TgapFilter{ //_TgapFilterX
@@ -55,11 +55,6 @@ func _Finit_2201() {
 
 	}
 
-	_VdataMachine_Fn = _TdataMachine{
-		dmCBprReceKey: _FdmCBprReceKey__Fn,
-		dmCHencodeLO:  &_VudpEncode_Fn.enCHencodeDataI, // *chan _Tencode
-	}
-
 	_VudpEncode_Fn = _TuEncode{
 		enCHuDataSendLO: &_VudpGroup_Fn.ugCHSendI, // _TudpGroupSt _TudpNodeDataSendX
 	}
@@ -68,6 +63,12 @@ func _Finit_2201() {
 		ulCHdataMachineIdLO: &_VdataMachine_Fn.dmCHdataMachineIdI,
 		ulCHencodeCmdLO:     &_VudpEncode_Fn.enCHencodeCmdI, // *chan _Tencode
 
+	}
+
+	_VdataMachine_Fn = _TdataMachine{
+		dmCBprReceKey: _FdmCBprReceKey__Fn,
+		//dmCHloginGenMachineIdLO: &_VloginGenerator_Fn.lgCHdataMachineIdI,
+		dmCHencodeLO: &_VudpEncode_Fn.enCHencodeDataI, // *chan _Tencode
 	}
 
 	_VudpGroup_Fn = _TudpGroupSt{
