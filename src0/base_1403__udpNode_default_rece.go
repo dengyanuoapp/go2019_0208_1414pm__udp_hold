@@ -72,24 +72,28 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		UrrReceiveKey: ___Vun.unRkeyX,                    // _Tkey256
 	}
 
-	_CpfN(" 831818 06 Origin rece: me<%d> ra:<%s> (%d/%d){%x}<%x>",
+	_FpfN(" 831819 01 Origin rece: me<%d> ra:<%s> ", ___Vun.unLocalPort, ___Vun.unRemoteAddr.String())
+	_CpfN(" 831819 02 Origin rece: me<%d> ra:<%s> (%d/%d){%x}<%x>",
 		___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
 		___Vun.unRlen, len(__Vrece.UrrBuf), _FgenMd5__5(&__Vrece.UrrBuf), __Vrece.UrrBuf)
 
 	if nil != ___Vun.unCHreceStructLO {
+		_FpfN(" 831819 03 Origin rece direct sent.")
+		_CpfN(" 831819 04 Origin rece direct sent.")
 		(*___Vun.unCHreceStructLO) <- __Vrece
-		_FpfNonce(" 831818 07 Origin rece direct sent.")
 
 	} else {
 		//(*___Vun.unCHreceByteLO) <- __Vrece
 		__VreceB, __Verr3 := _FencGob__only(&__Vrece)
 
 		if nil != __Verr3 {
-			_FpfN(" 831818 08 gob En error <%v>", __Verr3)
+			_FpfN(" 831819 05 gob En error <%v>", __Verr3)
+			_CpfN(" 831819 06 gob En error <%v>", __Verr3)
 			return
 		}
 
-		_CpfN(" 831818 09 push to Byte-chan : <%x>", __VreceB)
+		_FpfN(" 831819 07 push to Byte-chan : <%x>", __VreceB)
+		_CpfN(" 831819 08 push to Byte-chan : <%x>", __VreceB)
 
 		(*___Vun.unCHreceByteLO) <- __VreceB
 	}
