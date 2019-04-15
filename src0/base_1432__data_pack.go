@@ -47,11 +47,11 @@ func (___Vencode *_Tencode) _FdataPack__100__loginReq(___Vtype byte, ___VoutBuf 
 		Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken:
 		__Vb2, __Verr2 =
-			_FencGob__only(&___Vencode.enLogin)
+			_FencGob__only(&___Vencode.enLogin) // _TloginReq
 	case Cmd__data_01_idle, // 5
 		Cmd__data_11_chan_new_req: // 6
 		__Vb2, __Verr2 =
-			_FencGob__only(&___Vencode.enData)
+			_FencGob__only(&___Vencode.enData) // _TdataTran
 		_CpfN(" 138186 02 : _Tencode encode (%s) .", ___Vencode.enData.String())
 		_FpfN(" 138186 03 : _Tencode encode (%s) .", ___Vencode.enData.String())
 	default:
