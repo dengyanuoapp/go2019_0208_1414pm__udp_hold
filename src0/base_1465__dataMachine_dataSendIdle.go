@@ -27,8 +27,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
 						_FdataMachin__1000502x2__time_gap_dataSendIdle(__Vv2)
 
 				} else {
-					_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. %d,%d",
-						_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime)
+					_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. now:%d lastRead:%d lastSend:%d",
+						_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
 				}
 
 				// for debug only : print the keyS
