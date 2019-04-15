@@ -13,7 +13,7 @@ func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 		__Vus = _TudpNodeDataSend{}
 		__Vue = _Tencode{}
 		select {
-		case __Vue = <-___Vuen.enCHencodeCmdI: // chan _TencodeX
+		case __Vue = <-___Vuen.enCHencodeCkI: // chan _TencodeX
 			___VuEncode__1100201x__chanIn_mux.Lock()
 			_FpfNonce(" 849192 01 : try Encode CMD {%s}", __Vue.String())
 			//___Vuen.

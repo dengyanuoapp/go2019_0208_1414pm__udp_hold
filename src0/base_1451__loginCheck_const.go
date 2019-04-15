@@ -19,8 +19,8 @@ note :
 */
 
 type _TloginCheck struct {
-	ulCHdecodeI         chan _Tdecode
-	ulCHencodeCmdLO     *chan _Tencode
+	ulCHdecodeCkI       chan _Tdecode
+	ulCHencodeCkLO      *chan _Tencode
 	ulCHconnPortI       chan _TudpConnPort // all data need to be sent by nodeS send here , then  will distribute to one of node
 	ulCHdataMachineIdLO *chan _TdataMachinEid
 	ulCB900101init      func(*_TloginCheck) // if nil , use the default init procedure

@@ -41,17 +41,15 @@ func _Finit_2201() {
 		unLoopGap:      _T10s,
 		unRKeyLP:       &_Vpasswd_udp_Fn_waitForCliens01,
 		unCHreceByteLO: &_VgapFilter__Fn.gfCHbyteI,
-		//unCHreceByteLO: &_VudpDecode_Fn.uTmCHreceByteI,
 	}
 
 	_VgapFilter__Fn = _TgapFilter{ //_TgapFilterX
-		//gfCHudpNodeDataReceLO: &_VudpDecode_Fn.uTmCHreceByteI,
-		gfCHbyteLO: &_VudpDecode_Fn.uTmCHreceByteI,
+		gfCHbyteLO: &_VudpDecode_Fn.uTmCHreceUgByteI,
 	}
 
 	_VudpDecode_Fn = _TuDecode{
-		uTmCHdecodeCmdLO:  &_VloginCheck_FnWaitDun.ulCHdecodeI, // _TloginCheck _Tdecode
-		uTmCHdecodeDataLO: &_VdataMachine_Fn.dmCHdecodeDataI,   // dmCHdecodeDataI _TdecodeX
+		uTmCHdecodeCkLO:   &_VloginCheck_FnWaitDun.ulCHdecodeCkI, // _TloginCheck _Tdecode
+		uTmCHdecodeDataLO: &_VdataMachine_Fn.dmCHdecodeDataI,     // dmCHdecodeDataI _TdecodeX
 
 	}
 
@@ -61,7 +59,7 @@ func _Finit_2201() {
 
 	_VloginCheck_FnWaitDun = _TloginCheck{
 		ulCHdataMachineIdLO: &_VdataMachine_Fn.dmCHdataMachineIdI,
-		ulCHencodeCmdLO:     &_VudpEncode_Fn.enCHencodeCmdI, // *chan _Tencode
+		ulCHencodeCkLO:      &_VudpEncode_Fn.enCHencodeCkI, // *chan _Tencode
 
 	}
 
@@ -75,7 +73,7 @@ func _Finit_2201() {
 		ugName:         "udpGroup_Fn",
 		ugAmount:       20,
 		ugHostPortStr:  []string{":0"},
-		ugCHreceByteLO: &_VudpDecode_Fn.uTmCHreceByteI, // *chan _TudpNodeDataRece
+		ugCHreceByteLO: &_VudpDecode_Fn.uTmCHreceUgByteI, // *chan _TudpNodeDataRece
 	}
 	flag.StringVar(&_VudpGroup_Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Fn.ugName)
 

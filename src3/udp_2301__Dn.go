@@ -39,7 +39,7 @@ func _Finit__2301() {
 	}
 
 	_VudpDecode_Dn = _TuDecode{
-		uTmCHdecodeCmdLO:  &_VloginCheck_Dn.ulCHdecodeI,      // _TloginCheck _TdecodeX
+		uTmCHdecodeCkLO:   &_VloginCheck_Dn.ulCHdecodeCkI,    // _TloginCheck _TdecodeX
 		uTmCHdecodeDataLO: &_VdataMachine_Dn.dmCHdecodeDataI, // dmCHdecodeDataI _TdecodeX
 	}
 
@@ -49,7 +49,7 @@ func _Finit__2301() {
 
 	_VloginCheck_Dn = _TloginCheck{
 		ulCHdataMachineIdLO: &_VdataMachine_Dn.dmCHdataMachineIdI, // *chan _TdataMachinEid
-		ulCHencodeCmdLO:     &_VudpEncode_Dn.enCHencodeCmdI,       // *chan _Tencode
+		ulCHencodeCkLO:      &_VudpEncode_Dn.enCHencodeCkI,        // *chan _Tencode
 	}
 
 	_VdataMachine_Dn = _TdataMachine{
@@ -63,7 +63,7 @@ func _Finit__2301() {
 		ugName:         "udpGroup_Dn",
 		ugAmount:       10,
 		ugHostPortStr:  []string{":0"},
-		ugCHreceByteLO: &_VudpDecode_Dn.uTmCHreceByteI, // *chan _TudpNodeDataReceX
+		ugCHreceByteLO: &_VudpDecode_Dn.uTmCHreceUgByteI, // *chan _TudpNodeDataReceX
 	}
 
 	flag.StringVar(&_VudpGroup_Dn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn.ugName)

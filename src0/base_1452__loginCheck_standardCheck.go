@@ -17,7 +17,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		//_Fsleep_100s()
 		__Venc := _Tencode{}
 		select {
-		case __Vdecode := <-___Vlc.ulCHdecodeI: // _Tdecode
+		case __Vdecode := <-___Vlc.ulCHdecodeCkI: // _Tdecode
 
 			___VloginCheck__900201x__mux.Lock()
 
@@ -33,7 +33,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			___Vlc._FloginCheck__900201xC2__standardCheck(&__Venc, &__VuConnPort)
 		} // end select
 
-		if nil == ___Vlc.ulCHencodeCmdLO { //     *chan _Tencode
+		if nil == ___Vlc.ulCHencodeCkLO { //     *chan _Tencode
 			_FpfNonce(" 138184 04 : why CMD-en not Chan ? {%s}", __Venc.String())
 		} else {
 			//_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
@@ -43,7 +43,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			case Cmd__loginEnd:
 				// no use , but told the debug disable only
 			default:
-				(*___Vlc.ulCHencodeCmdLO) <- __Venc // _Tencode
+				(*___Vlc.ulCHencodeCkLO) <- __Venc // _Tencode
 				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
 					String5(&_VC.MyId128),
 					String5(&_VS.MySeq128),

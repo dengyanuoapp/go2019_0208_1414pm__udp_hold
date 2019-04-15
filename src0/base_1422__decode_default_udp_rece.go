@@ -13,7 +13,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 	//var __VunRece _TudpNodeDataRece
 	for {
 		select {
-		case __VunReceB := <-___Vutm.uTmCHreceByteI: // _TudpNodeDataReceX
+		case __VunReceB := <-___Vutm.uTmCHreceUgByteI: // _TudpNodeDataReceX
 
 			___VudpDecodeMux.Lock()
 
@@ -64,12 +64,12 @@ func (___Vutm *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
 		//_FpfN(" 388196 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
-		if nil == ___Vutm.uTmCHdecodeCmdLO {
+		if nil == ___Vutm.uTmCHdecodeCkLO {
 			_FpfN(" 388196 07 : outChan null , ignore:%s", __Vdecode.String())
 		} else {
 			//_FpfN(" 388196 08 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 			//_FpfN(" 388196 09 real outChain : %s", __Vdecode.String())
-			(*___Vutm.uTmCHdecodeCmdLO) <- __Vdecode // 15540463611554046361
+			(*___Vutm.uTmCHdecodeCkLO) <- __Vdecode // 15540463611554046361
 		}
 	case Cmd__data_01_idle:
 		_FpfN(" 388197 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
