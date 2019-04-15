@@ -14,8 +14,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 	___Vdm.dmMconn.mux.Lock()
 
 	__VsetLastReadTime := _FtimeInt() - _Vgap_skip_idle_send
-	if __Vok {
-		if //
+	if __Vok { // if exist
+		if // if exist , but  token / sequence not match , replace the old one
 		false == bytes.Equal(__Vold.dmmID.diIdx128, ___VinsID.diIdx128) ||
 			false == bytes.Equal(__Vold.dmmID.diSeq128, ___VinsID.diSeq128) ||
 			false == bytes.Equal(__Vold.dmmID.diToken, ___VinsID.diToken) {
@@ -27,7 +27,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__connMap_insertId(___VinsI
 				dmmConnPortAmount: 1,
 			}
 			___Vdm.dmMconn.LockNow[__Vk] = 1
-		} else {
+		} else { // if exist , and  token / sequence match , update the last time and inc the lock cnt
 			//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
 			__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr)
 			___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{
