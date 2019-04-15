@@ -87,7 +87,7 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 		if nil == ___Vude.uDeCHdecodeDataLO {
 			_CpfN(" 388199 03 : outChan null , ignore ")
 		} else {
-			_CpfN(" 388199 05 outChain exist , push into chan: _TuDecode receive : type %d", __Vdecode.Type)
+			_CpfN(" 388199 05 outChain exist , push into chan: _TuDecode receive : type %d :<%s>", __Vdecode.Type, __Vdecode.String())
 			(*___Vude.uDeCHdecodeDataLO) <- __Vdecode // to &_VdataMachine_Fn.dmCHdecodeDataI,     // dmCHdecodeDataI _TdecodeX
 		}
 	default:
