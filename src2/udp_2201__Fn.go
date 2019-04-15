@@ -39,8 +39,8 @@ func _Finit_2201() {
 	_VudpNode_FunWaitDun = _TudpNodeSt{
 		unName:         "_VudpNode_FunWaitDun",
 		unLoopGap:      _T10s,
-		unCHreceByteLO: &_VgapFilter__Fn.gfCHbyteI,
 		unRKeyLP:       &_Vpasswd_udp_Fn_waitForCliens01,
+		unCHreceByteLO: &_VgapFilter__Fn.gfCHbyteI,
 		//unCHreceByteLO: &_VudpDecode_Fn.uTmCHreceByteI,
 	}
 
@@ -50,8 +50,8 @@ func _Finit_2201() {
 	}
 
 	_VudpDecode_Fn = _TuDecode{
-		uTmCHdecodeCmdLO:  &_VloginCheck_FnWaitDun.ulDecodeI, // _TloginCheck _Tdecode
-		uTmCHdecodeDataLO: &_VdataMachine_Fn.dmCHdecodeDataI, // dmCHdecodeDataI _TdecodeX
+		uTmCHdecodeCmdLO:  &_VloginCheck_FnWaitDun.ulCHdecodeI, // _TloginCheck _Tdecode
+		uTmCHdecodeDataLO: &_VdataMachine_Fn.dmCHdecodeDataI,   // dmCHdecodeDataI _TdecodeX
 
 	}
 

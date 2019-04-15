@@ -17,7 +17,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		//_Fsleep_100s()
 		__Venc := _Tencode{}
 		select {
-		case __Vdecode := <-___Vlc.ulDecodeI: // _Tdecode
+		case __Vdecode := <-___Vlc.ulCHdecodeI: // _Tdecode
 
 			___VloginCheck__900201x__mux.Lock()
 

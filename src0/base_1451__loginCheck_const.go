@@ -19,7 +19,7 @@ note :
 */
 
 type _TloginCheck struct {
-	ulDecodeI           chan _Tdecode
+	ulCHdecodeI         chan _Tdecode
 	ulCHencodeCmdLO     *chan _Tencode
 	ulCHconnPortI       chan _TudpConnPort // all data need to be sent by nodeS send here , then  will distribute to one of node
 	ulCHdataMachineIdLO *chan _TdataMachinEid
