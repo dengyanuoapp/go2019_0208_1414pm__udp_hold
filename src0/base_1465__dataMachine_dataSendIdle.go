@@ -102,7 +102,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___V
 	//_FpfN(" 381922 02 {%#v} ", ___Vdmem) // _TdataMachinEconnMap
 	//_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
 	//_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
-	_FpfN(" 381922 05 {%s}", __Venc.String()) // _TencodeX
+
+	//_FpfN(" 381922 05 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
+
 	//_Fex("381922 06")
 
 	___Vdmem.dmmLastSendTime = _FtimeInt() // _TdataMachinEconnMap

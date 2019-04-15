@@ -22,8 +22,8 @@ func _FudpDecode__700201x10__receive__default(___Vude *_TuDecode) {
 
 		} // end Select
 
-		_FpfN(" 388195 02 udpDecode rece : <%s>", String9(&__VunReceB))
-		_CpfN(" 388195 03 udpDecode rece : <%s>", String9(&__VunReceB))
+		_FpfNonce(" 388195 02 udpDecode rece : <%s>", String9(&__VunReceB))
+		___CpfN(" 388195 03 udpDecode rece : <%s>", String9(&__VunReceB))
 
 		//func _FdecGob___(___VeMsg string, ___VbyteIn []byte, ___VoutObjLp interface{}) error {
 		__VunRece := _TudpNodeDataRece{}
@@ -32,8 +32,9 @@ func _FudpDecode__700201x10__receive__default(___Vude *_TuDecode) {
 			_CpfN(" 388195 06 udpDecode err : <%v>", __Verr4)
 			_FpfN(" 388195 07 udpDecode err : <%v>", __Verr4)
 		} else {
-			_CpfN(" 388195 08 udpDecode receive: <%s>", __VunRece.String()) // _TudpNodeDataReceX
-			_FpfN(" 388195 09 udpDecode receive: <%s>", __VunRece.String()) // _TudpNodeDataReceX
+			___CpfN(" 388195 08 udpDecode receive: <%s>", __VunRece.String())   // _TudpNodeDataReceX
+			_FpfNonce(" 388195 09 udpDecode receive: <%s>", __VunRece.String()) // _TudpNodeDataReceX
+
 			___Vude.
 				_FudpDecode__700201x11__receive__default(&__VunRece)
 		}
@@ -46,8 +47,8 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	var __Vdecode _Tdecode
 	___VtraceIntDE := ___VunRece.Ti
 
-	_FpfN(" 388196 01 Ti:%d : before decoder : ___VunRece{%s} ", ___VtraceIntDE, ___VunRece.String())
-	_CpfN(" 388196 04 Ti:%d : before decoder : ___VunRece{%s} ", ___VtraceIntDE, ___VunRece.String())
+	_FpfNonce(" 388196 01 Ti:%d : before decoder : ___VunRece{%s} ", ___VtraceIntDE, ___VunRece.String())
+	//_CpfN(" 388196 04 Ti:%d : before decoder : ___VunRece{%s} ", ___VtraceIntDE, ___VunRece.String())
 
 	if 0 != len(___VunRece.UrrReceiveKey.Bkey) { // _Tkey256X
 		__Vtmp3in := ___VunRece.UrrBuf

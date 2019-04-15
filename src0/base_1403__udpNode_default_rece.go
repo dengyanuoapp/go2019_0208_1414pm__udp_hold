@@ -25,8 +25,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 		___Vun.unRemoteAddr = *__VuAddr
 		___Vun.unRbufTmp = ___Vun.unRbuf1500[:___Vun.unRlen]
 
-		_FpfN(" 331818 02 Origin rece: me<%d> ra:<%s>", ___Vun.unLocalPort, ___Vun.unRemoteAddr.String())
-		_CpfN(" 331818 03 Origin rece: me<%d> ra:<%s> (%d/%d)<%x>",
+		_FpfNonce(" 331818 02 Origin rece: me<%d> ra:<%s>", ___Vun.unLocalPort, ___Vun.unRemoteAddr.String())
+		___CpfN(" 331818 03 Origin rece: me<%d> ra:<%s> (%d/%d)<%x>",
 			___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
 			___Vun.unRlen, len(___Vun.unRbufTmp), ___Vun.unRbufTmp)
 
@@ -72,8 +72,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		UrrReceiveKey: ___Vun.unRkeyX,                    // _Tkey256
 	}
 
-	_FpfN(" 831819 01 Origin rece: me<%d> ra:<%s> ", ___Vun.unLocalPort, ___Vun.unRemoteAddr.String())
-	_CpfN(" 831819 02 Origin rece: me<%d> ra:<%s> (%d/%d){%x}<%x>",
+	_FpfNonce(" 831819 01 Origin rece: me<%d> ra:<%s> ", ___Vun.unLocalPort, ___Vun.unRemoteAddr.String())
+	___CpfN(" 831819 02 Origin rece: me<%d> ra:<%s> (%d/%d){%x}<%x>",
 		___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
 		___Vun.unRlen, len(__Vrece.UrrBuf), _FgenMd5__5(&__Vrece.UrrBuf), __Vrece.UrrBuf)
 
@@ -92,8 +92,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 			return
 		}
 
-		_FpfN(" 831819 07 udpNode : push to Byte-chan : <%s>", String9(&__VreceB))
-		_CpfN(" 831819 08 udpNode : push to Byte-chan : <%s>", String9(&__VreceB))
+		_FpfNonce(" 831819 07 udpNode : push to Byte-chan : <%s>", String9(&__VreceB))
+		___CpfN(" 831819 08 udpNode : push to Byte-chan : <%s>", String9(&__VreceB))
 
 		(*___Vun.unCHreceByteLO) <- __VreceB
 	}
