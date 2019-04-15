@@ -101,6 +101,7 @@ func main() {
 
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
 	// _FdataPack__decode_from_udpNodeDataRece
+	// _FudpNode__500201y__receive__default
 	go _Frun(&_VudpNode_FunWaitDun, 500101) // IRun _FudpNode__500101__main_init__default
 
 	// _FudpDecode__700201x__receive__default

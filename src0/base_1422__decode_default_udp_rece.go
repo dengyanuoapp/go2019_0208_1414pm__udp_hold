@@ -28,6 +28,7 @@ func _FudpDecode__700201x10__receive__default(___Vutm *_TuDecode) {
 		if nil != __Verr4 {
 			_FpfN(" 388195 03 err : <%v>", __Verr4)
 		} else {
+			_FpfN(" 388195 04 udpDecoder receive: <%s>", __VunRece.String()) // _TudpNodeDataReceX
 			___Vutm.
 				_FudpDecode__700201x11__receive__default(&__VunRece)
 		}

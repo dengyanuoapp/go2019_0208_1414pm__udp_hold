@@ -25,7 +25,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 		___Vun.unRemoteAddr = *__VuAddr
 		___Vun.unRbufTmp = ___Vun.unRbuf1500[:___Vun.unRlen]
 
-		_CpfN(" 331818 02 Origin rece: me<%d> ra:<%s> (%d/%d)<%x>",
+		_FpfN(" 331818 02 Origin rece: me<%d> ra:<%s>", ___Vun.unLocalPort, ___Vun.unRemoteAddr.String())
+		_CpfN(" 331818 03 Origin rece: me<%d> ra:<%s> (%d/%d)<%x>",
 			___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
 			___Vun.unRlen, len(___Vun.unRbufTmp), ___Vun.unRbufTmp)
 
