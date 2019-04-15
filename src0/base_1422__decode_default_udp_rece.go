@@ -15,9 +15,9 @@ func _FudpDecode__700201x10__receive__default(___Vude *_TuDecode) {
 		//__VunRece := _TudpNodeDataRece{}
 		__VunReceB := []byte{}
 		select {
-		case __VunReceB = <-___Vude.uTmCHreceUgByteI: // _TudpNodeDataReceX
+		case __VunReceB = <-___Vude.uDeCHreceUgByteI: // _TudpNodeDataReceX
 			___VudpDecodeMux.Lock()
-		case __VunReceB = <-___Vude.uTmCHreceUnByteI: // _TudpNodeDataReceX
+		case __VunReceB = <-___Vude.uDeCHreceUnByteI: // _TudpNodeDataReceX
 			___VudpDecodeMux.Lock()
 
 		} // end Select
@@ -73,20 +73,20 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
 		//_FpfN(" 388196 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
-		if nil == ___Vude.uTmCHdecodeCkLO {
+		if nil == ___Vude.uDeCHdecodeCkLO {
 			_FpfN(" 388196 07 : outChan null , ignore:%s", __Vdecode.String())
 		} else {
 			//_FpfN(" 388196 08 real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 			//_FpfN(" 388196 09 real outChain : %s", __Vdecode.String())
-			(*___Vude.uTmCHdecodeCkLO) <- __Vdecode // 15540463611554046361
+			(*___Vude.uDeCHdecodeCkLO) <- __Vdecode // 15540463611554046361
 		}
 	case Cmd__data_01_idle:
 		_FpfN(" 388197 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
-		if nil == ___Vude.uTmCHdecodeDataLO {
+		if nil == ___Vude.uDeCHdecodeDataLO {
 			_FpfN(" 388197 03 : outChan null , ignore ")
 		} else {
 			_FpfN(" 388197 05 outChain exist , push into chan: _TuDecode receive : type %d", __Vdecode.Type)
-			(*___Vude.uTmCHdecodeDataLO) <- __Vdecode //
+			(*___Vude.uDeCHdecodeDataLO) <- __Vdecode //
 		}
 	default:
 		_FpfN(" 388197 09 : type %d : unknow how to deal with.", __Vdecode.Type)

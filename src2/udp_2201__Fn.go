@@ -44,12 +44,12 @@ func _Finit_2201() {
 	}
 
 	_VgapFilter__Fn = _TgapFilter{ //_TgapFilterX
-		gfCHbyteLO: &_VudpDecode_Fn.uTmCHreceUnByteI,
+		gfCHbyteLO: &_VudpDecode_Fn.uDeCHreceUnByteI,
 	}
 
 	_VudpDecode_Fn = _TuDecode{
-		uTmCHdecodeCkLO:   &_VloginCheck_FnWaitDun.ulCHdecodeCkI, // _TloginCheck _Tdecode
-		uTmCHdecodeDataLO: &_VdataMachine_Fn.dmCHdecodeDataI,     // dmCHdecodeDataI _TdecodeX
+		uDeCHdecodeCkLO:   &_VloginCheck_FnWaitDun.ulCHdecodeCkI, // _TloginCheck _Tdecode
+		uDeCHdecodeDataLO: &_VdataMachine_Fn.dmCHdecodeDataI,     // dmCHdecodeDataI _TdecodeX
 
 	}
 
@@ -73,7 +73,7 @@ func _Finit_2201() {
 		ugName:         "udpGroup_Fn",
 		ugAmount:       20,
 		ugHostPortStr:  []string{":0"},
-		ugCHreceByteLO: &_VudpDecode_Fn.uTmCHreceUgByteI, // *chan _TudpNodeDataRece
+		ugCHreceByteLO: &_VudpDecode_Fn.uDeCHreceUgByteI, // *chan _TudpNodeDataRece
 	}
 	flag.StringVar(&_VudpGroup_Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Fn.ugName)
 

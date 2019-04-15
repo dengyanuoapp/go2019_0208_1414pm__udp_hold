@@ -39,8 +39,8 @@ func _Finit__2301() {
 	}
 
 	_VudpDecode_Dn = _TuDecode{
-		uTmCHdecodeCkLO:   &_VloginCheck_Dn.ulCHdecodeCkI,    // _TloginCheck _TdecodeX
-		uTmCHdecodeDataLO: &_VdataMachine_Dn.dmCHdecodeDataI, // dmCHdecodeDataI _TdecodeX
+		uDeCHdecodeCkLO:   &_VloginCheck_Dn.ulCHdecodeCkI,    // _TloginCheck _TdecodeX
+		uDeCHdecodeDataLO: &_VdataMachine_Dn.dmCHdecodeDataI, // dmCHdecodeDataI _TdecodeX
 	}
 
 	_VudpEncode_Dn = _TuEncode{
@@ -63,7 +63,7 @@ func _Finit__2301() {
 		ugName:         "udpGroup_Dn",
 		ugAmount:       10,
 		ugHostPortStr:  []string{":0"},
-		ugCHreceByteLO: &_VudpDecode_Dn.uTmCHreceUgByteI, // *chan _TudpNodeDataReceX
+		ugCHreceByteLO: &_VudpDecode_Dn.uDeCHreceUgByteI, // *chan _TudpNodeDataReceX
 	}
 
 	flag.StringVar(&_VudpGroup_Dn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Dn.ugName)

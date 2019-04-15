@@ -9,15 +9,15 @@ import (
 
 // _TudpNodeSt
 type _TuDecode struct {
-	uTmCHdecodeCkLO   *chan _Tdecode //_TdecodeX
-	uTmCHdecodeDataLO *chan _Tdecode
-	uTmCB700101init   func(*_TuDecode) // if nil , use the default init procedure // _FudpDecode__700101x__init__default
-	uTmCB700201rece2  func(*_TuDecode) // if nil , use the default receive        // _FudpDecode__700201x__receive__default
-	uTmCB700301gap2   func(*_TuDecode) // if nil , use the default gap loop       // _FudpDecode__700301x__loop__default
-	uTmGapX           time.Duration
-	uTmCHreceUgByteI  chan []byte            // an udpNode pointer , if not nil , read from it's unCHreceByteLO of udpGroup
-	uTmCHreceUnByteI  chan []byte            // an udpNode pointer , if not nil , read from it's unCHreceByteLO of udpNode
-	uTmCHreceStructI  chan _TudpNodeDataRece // an udpNode pointer , if not nil , read from it's unCHreceByteLO
+	uDeCHdecodeCkLO   *chan _Tdecode //_TdecodeX
+	uDeCHdecodeDataLO *chan _Tdecode
+	uDeCB700101init   func(*_TuDecode) // if nil , use the default init procedure // _FudpDecode__700101x__init__default
+	uDeCB700201rece2  func(*_TuDecode) // if nil , use the default receive        // _FudpDecode__700201x__receive__default
+	uDeCB700301gap2   func(*_TuDecode) // if nil , use the default gap loop       // _FudpDecode__700301x__loop__default
+	uDeGapX           time.Duration
+	uDeCHreceUgByteI  chan []byte            // an udpNode pointer , if not nil , read from it's unCHreceByteLO of udpGroup
+	uDeCHreceUnByteI  chan []byte            // an udpNode pointer , if not nil , read from it's unCHreceByteLO of udpNode
+	uDeCHreceStructI  chan _TudpNodeDataRece // an udpNode pointer , if not nil , read from it's unCHreceByteLO
 }
 
 //_TUreqNewSession
