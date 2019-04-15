@@ -31,6 +31,7 @@ func _FudpDecode__700101x__init__default(___Vgtm *_TuDecode) {
 
 	___Vgtm.uTmCHreceStructI = make(chan _TudpNodeDataRece, 50)
 	___Vgtm.uTmCHreceUgByteI = make(chan []byte, 50)
+	___Vgtm.uTmCHreceUnByteI = make(chan []byte, 50)
 
 	_Fsleep(_T1s)
 

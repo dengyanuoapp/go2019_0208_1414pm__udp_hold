@@ -44,7 +44,7 @@ func _Finit_2201() {
 	}
 
 	_VgapFilter__Fn = _TgapFilter{ //_TgapFilterX
-		gfCHbyteLO: &_VudpDecode_Fn.uTmCHreceUgByteI,
+		gfCHbyteLO: &_VudpDecode_Fn.uTmCHreceUnByteI,
 	}
 
 	_VudpDecode_Fn = _TuDecode{
