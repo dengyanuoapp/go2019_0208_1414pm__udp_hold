@@ -5,74 +5,78 @@ var (
 	_Vgap_skip_idle_send = 7
 )
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000502x__time_gap_dataSendIdle() {
+func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap() {
 
 	for {
 		_FsleepRand_8_to_12s()
-		//dmmLastReadTime
-		__VkDelArr := [][16]byte{}
-		__Vnow2 := _FtimeInt()
-
-		___Vdm.dmMconn.mux.Lock()
-		for __Vk2, __Vv2 := range ___Vdm.dmMconn.M { // M map[[16]byte]_TdataMachinEconnMap
-			if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_nothingToLost {
-				__VkDelArr = append(__VkDelArr, __Vk2)
-			} else {
-				if __Vnow2-__Vv2.dmmLastSendTime > _Vgap_skip_idle_send {
-					// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
-					_FpfN(" 381921 01 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
-						_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
-					_CpfN(" 381921 02 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
-						_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
-
-					___Vdm.
-						_FdataMachin__1000502x2__time_gap_dataSendIdle(__Vv2)
-
-				} else {
-					_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. now:%d lastRead:%d lastSend:%d",
-						_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
-				}
-
-				// for debug only : print the keyS
-				if __Vnow2-__Vv2.dmmLastPrTime > 20 {
-					for __Vidx, __Vconn := range __Vv2.dmmConnPortArr {
-						_CpfN(" 381921 04 sendingKeyArray: %x : %2d : to [%s]", // check-important keykey
-							__Vconn.K256, // []byte
-							__Vidx,
-							__Vconn.DstAddr.String(), // net.UDPAddr
-						)
-					}
-					__Vv2.dmmLastPrTime = __Vnow2
-				}
-			}
-		}
-
-		for _, __Vk3 := range __VkDelArr {
-			_FpfN(" 381921 05 : %11d : try delete lost connect %x in dataMachine", _FtimeInt(), __Vk3)
-
-			if nil == ___Vdm.dmCHloginGenMachineIdLO {
-				_FpfNonce(" 381921 07 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain", _FtimeInt(), __Vk3)
-			} else {
-				_FpfNonce(" 381921 08 : %11d : try to stop lost connect %x in loginGen, ok ", _FtimeInt(), __Vk3)
-
-				___Vout__dmCHloginGenMachineIdLO__mux.Lock()
-
-				(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
-					diIdx128: ___Vdm.dmMconn.M[__Vk3].dmmID.diIdx128,
-				}
-
-				___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
-			}
-
-			delete(___Vdm.dmMconn.M, __Vk3)
-			delete(___Vdm.dmMconn.LockLast, __Vk3)
-			delete(___Vdm.dmMconn.LockNow, __Vk3)
-		}
-		___Vdm.dmMconn.mux.Unlock()
+		___Vdm.dmChSendIdleNoteInternalUSE <- 1
 	}
 }
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000502x2__time_gap_dataSendIdle(___Vdmem _TdataMachinEconnMap) {
+func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAll() {
+	//dmmLastReadTime
+	__VkDelArr := [][16]byte{}
+	__Vnow2 := _FtimeInt()
+
+	defer ___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
+	defer ___Vdm.dmMconn.mux.Unlock()
+	___Vout__dmCHloginGenMachineIdLO__mux.Lock()
+	___Vdm.dmMconn.mux.Lock()
+
+	for __Vk2, __Vv2 := range ___Vdm.dmMconn.M { // M map[[16]byte]_TdataMachinEconnMap
+		if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_nothingToLost {
+			__VkDelArr = append(__VkDelArr, __Vk2)
+		} else {
+			if __Vnow2-__Vv2.dmmLastSendTime > _Vgap_skip_idle_send {
+				// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
+				_FpfN(" 381921 01 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
+					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
+				_CpfN(" 381921 02 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
+					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
+
+				___Vdm.
+					_FdataMachin__1000502z__dataSendIdle__packAndSendEach(__Vv2)
+
+			} else {
+				_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. now:%d lastRead:%d lastSend:%d",
+					_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
+			}
+
+			// for debug only : print the keyS
+			if __Vnow2-__Vv2.dmmLastPrTime > 20 {
+				for __Vidx, __Vconn := range __Vv2.dmmConnPortArr {
+					_CpfN(" 381921 04 sendingKeyArray: %x : %2d : to [%s]", // check-important keykey
+						__Vconn.K256, // []byte
+						__Vidx,
+						__Vconn.DstAddr.String(), // net.UDPAddr
+					)
+				}
+				__Vv2.dmmLastPrTime = __Vnow2
+			}
+		}
+	}
+
+	for _, __Vk3 := range __VkDelArr {
+		_FpfN(" 381921 05 : %11d : try delete lost connect %x in dataMachine", _FtimeInt(), __Vk3)
+
+		if nil == ___Vdm.dmCHloginGenMachineIdLO {
+			_FpfNonce(" 381921 07 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain", _FtimeInt(), __Vk3)
+		} else {
+			_FpfNonce(" 381921 08 : %11d : try to stop lost connect %x in loginGen, ok ", _FtimeInt(), __Vk3)
+
+			(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
+				diIdx128: ___Vdm.dmMconn.M[__Vk3].dmmID.diIdx128,
+			}
+
+		}
+
+		delete(___Vdm.dmMconn.M, __Vk3)
+		delete(___Vdm.dmMconn.LockLast, __Vk3)
+		delete(___Vdm.dmMconn.LockNow, __Vk3)
+	}
+}
+
+func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendEach(___Vdmem _TdataMachinEconnMap) {
 	__Vlen := len(___Vdmem.dmmConnPortArr) // _TdataMachinEconnMap
 
 	if __Vlen < 1 {
