@@ -116,7 +116,7 @@ func main() {
 	// _FudpGroup__600201__CHin_selecT_send__default
 	// _FdataPack__101__udpConnPort
 
-	// _FdataMachin__1000501x__time_gap_dataChanLock
+	// _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen
 	go _Frun(&_VdataMachine_Fn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
 	// _FuEncode__1100201x__chanRece__default

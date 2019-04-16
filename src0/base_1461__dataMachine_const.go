@@ -57,12 +57,13 @@ type _TdataMachineConnSt struct {
 }
 
 type _TdataMachine struct {
+	dmChSendIdleNoteInternalUSE chan byte            // a random timer , send idle note to main receive loop. internal use only.
+	dmChSwapLoginCkInfoForLock  chan byte            // a 5s timer , send swap note to main receive loop. internal use only.
 	dmCBinit                    func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
 	dmCBrece                    func(*_TdataMachine) //
 	dmCBprReceKey               func(*_TdataMachine) //
 	dmCBprSendKey               func(*_TdataMachine) //
 	dmMconn                     _TdataMachineConnSt
-	dmChSendIdleNoteInternalUSE chan byte             // a random timer , send idle note to main receive loop. internal use only.
 	dmCHdataMachineIdI          chan _TdataMachinEid  // loginChecker will fill this chan when check-token ok.
 	dmCHloginGenMachineIdLO     *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI, fill this chan to told the loginGen to stop
 	dmCHdecodeDataI             chan _Tdecode         // from uDeCHdecodeDataLO  *chan _Tdecode of decoder
