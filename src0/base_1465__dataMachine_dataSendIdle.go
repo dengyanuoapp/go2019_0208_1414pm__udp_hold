@@ -14,7 +14,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap(
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAll() {
-	//dmmLastReadTime
+	//dmmLastReceTime
 	__VkDelArr := [][16]byte{}
 	__Vnow2 := _FtimeInt()
 
@@ -23,23 +23,23 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAl
 	___Vout__dmCHloginGenMachineIdLO__mux.Lock()
 	___Vdm.dmMconn.mux.Lock()
 
-	for __Vk2, __Vv2 := range ___Vdm.dmMconn.M { // M map[[16]byte]_TdataMachinEconnMap
-		if __Vnow2-__Vv2.dmmLastReadTime > _Vgap_nothingToLost {
+	for __Vk2, __Vv2 := range ___Vdm.dmMconn.M { // M map[[16]byte]_TdataMachinEconnectClient
+		if __Vnow2-__Vv2.dmmLastReceTime > _Vgap_nothingToLost {
 			__VkDelArr = append(__VkDelArr, __Vk2)
 		} else {
 			if __Vnow2-__Vv2.dmmLastSendTime > _Vgap_skip_idle_send {
 				// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
 				_FpfN(" 381921 01 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
-					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
+					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReceTime, __Vv2.dmmLastSendTime)
 				_CpfN(" 381921 02 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
-					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
+					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReceTime, __Vv2.dmmLastSendTime)
 
 				___Vdm.
 					_FdataMachin__1000502z__dataSendIdle__packAndSendEach(__Vv2)
 
 			} else {
 				_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. now:%d lastRead:%d lastSend:%d",
-					_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReadTime, __Vv2.dmmLastSendTime)
+					_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReceTime, __Vv2.dmmLastSendTime)
 			}
 
 			// for debug only : print the keyS
@@ -76,8 +76,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAl
 	}
 }
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendEach(___Vdmem _TdataMachinEconnMap) {
-	__Vlen := len(___Vdmem.dmmConnPortArr) // _TdataMachinEconnMap
+func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendEach(___Vdmem _TdataMachinEconnectClient) {
+	__Vlen := len(___Vdmem.dmmConnPortArr) // _TdataMachinEconnectClient
 
 	if __Vlen < 1 {
 		_FpfN(" 381922 01 len error :%d ", __Vlen)
@@ -106,7 +106,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendEa
 		},
 	}
 
-	//_FpfN(" 381922 02 {%#v} ", ___Vdmem) // _TdataMachinEconnMap
+	//_FpfN(" 381922 02 {%#v} ", ___Vdmem) // _TdataMachinEconnectClient
 	//_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
 	//_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
 
@@ -115,7 +115,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendEa
 
 	//_Fex("381922 07")
 
-	___Vdmem.dmmLastSendTime = _FtimeInt() // _TdataMachinEconnMap
+	___Vdmem.dmmLastSendTime = _FtimeInt() // _TdataMachinEconnectClient
 
 	___Vdm.
 		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)

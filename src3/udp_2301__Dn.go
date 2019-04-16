@@ -123,6 +123,8 @@ func main() {
 
 	// _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen
 	// _FdataMachin__1000201x__receive__default
+	// _FdataMachin__1000201x11__rece_machineId_check_and_insert
+	// _FdataMachin__search_avaiable__TdataMachinEconnectClient
 	go _Frun(&_VdataMachine_Dn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
 	// _FuEncode__1100201x__chanRece__default

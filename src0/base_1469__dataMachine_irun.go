@@ -38,9 +38,14 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 	___Vdm.dmChSendIdleNoteInternalUSE = make(chan byte, 1) // a random timer , send idle note to main receive loop. internal use only.
 	___Vdm.dmChSwapLoginCkInfoForLock = make(chan byte, 1)  // a 5s timer , send swap note to main receive loop. internal use only.
 
-	___Vdm.dmMconn.M = make(map[[16]byte]_TdataMachinEconnMap)
-	___Vdm.dmMconn.LockNow = make(map[[16]byte]int)
-	___Vdm.dmMconn.LockLast = make(map[[16]byte]int)
+	___Vdm.dmMconn.ddcMidx = make(map[[16]byte]int)
+	___Vdm.dmMdata.ddsMidx = make(map[[16]byte]int)
+	for __Vi := 0; __Vi < _VallowClientMax; __Vi++ {
+		___Vdm.dmMconn.ddcM[__Vi].dmmConnPortStrMap = make(map[string]byte) // _TdataMachinEconnectClient
+		___Vdm.dmMdata.ddsM[__Vi].dmdConnPortStrMap = make(map[string]byte) // _TdataMachinEdataClient
+	}
+	___Vdm.dmMconn.ddcMfreeAmount = _VallowClientMax
+	___Vdm.dmMdata.ddsMfreeAmount = _VallowClientMax
 
 	_Fsleep(_T1s)
 

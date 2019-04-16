@@ -15,7 +15,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			_FpfNonce(" 839192 01 : reset-MachineID : _TdataMachine receive data {%s}", __VdmID.String())
 
 			___Vdm.
-				_FdataMachin__1000201x11__checkConnMap_insertId(&__VdmID)
+				_FdataMachin__1000201x11__rece_machineId_check_and_insert(&__VdmID)
 
 		case __Vdec := <-___Vdm.dmCHdecodeDataI: // from uDeCHdecodeDataLO  // _TdecodeX
 
@@ -38,6 +38,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			___Vdm.
 				_FdataMachin__1000501y__swapLoginCkInfoForLock__swap()
 		}
+
 		___V_FdataMachin__1000201x__receive__default__mux.Unlock()
 	}
 }

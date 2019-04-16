@@ -33,12 +33,12 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 		return
 	}
 
-	defer ___Vdm.dmMconn.mux.Unlock() // _TdataMachineConnSt
-	___Vdm.dmMconn.mux.Lock()         // _TdataMachineConnSt
+	defer ___Vdm.dmMconn.mux.Unlock() // _TdataMachinEconnectSt
+	___Vdm.dmMconn.mux.Lock()         // _TdataMachinEconnectSt
 
 	__Vk := _FgenB16(&___Vdec.Ddata.MEidx128)
 	//___Vdm.dmMconn.mux.Lock()
-	__Vold, __Vok := ___Vdm.dmMconn.M[__Vk] // map[[16]byte]_TdataMachinEconnMap
+	__Vold, __Vok := ___Vdm.dmMconn.M[__Vk] // map[[16]byte]_TdataMachinEconnectClient
 
 	if false == __Vok { // if not exist ,
 		_CpfN(" 839195 03 : _TdataMachine : no such id exist . {%s}", ___Vdec.String())
@@ -57,11 +57,11 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 		K256:    ___Vdec.RemotePortKey,
 	} // []byte
 
-	// _TdataMachineConnSt
+	// _TdataMachinEconnectSt
 	__VcpArr := __VconnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr)
-	___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnMap{ // _TdataMachinEconnMap
+	___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnectClient{ // _TdataMachinEconnectClient
 		dmmID:             __Vold.dmmID,
-		dmmLastReadTime:   _FtimeInt(),
+		dmmLastReceTime:   _FtimeInt(),
 		dmmConnPortArr:    __VcpArr,
 		dmmConnPortAmount: len(__VcpArr),
 	}
