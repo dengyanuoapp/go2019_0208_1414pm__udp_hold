@@ -122,6 +122,7 @@ func main() {
 	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
 
 	// _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen
+	// _FdataMachin__1000201x__receive__default
 	go _Frun(&_VdataMachine_Dn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
 	// _FuEncode__1100201x__chanRece__default
