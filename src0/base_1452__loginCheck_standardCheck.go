@@ -21,7 +21,8 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 
 			___VloginCheck__900201x__mux.Lock()
 
-			___Vlc._FloginCheck__900201xC1__standardCheck(&__Vdecode, &__Venc)
+			___Vlc.
+				_FloginCheck__900201xC1__standardCheck(&__Vdecode, &__Venc)
 			if false == __Vdecode.Ok {
 				___VloginCheck__900201x__mux.Unlock()
 				continue
@@ -30,7 +31,8 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 
 			___VloginCheck__900201x__mux.Lock()
 
-			___Vlc._FloginCheck__900201xC2__standardCheck(&__Venc, &__VuConnPort)
+			___Vlc.
+				_FloginCheck__900201xC2__standardCheck(&__Venc, &__VuConnPort)
 		} // end select
 
 		if nil == ___Vlc.ulCHencodeCkLO { //     *chan _Tencode
