@@ -33,47 +33,37 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsM[__Vidx].dccLastReceTime = _FtimeInt()
 		___Vdm.dmMconn.dcsM[__Vidx].dccLockCntNow = 1
 
-		/*
-				dccConnPortArr    []_TudpConnPort
-				dccConnPortStrMap map[string]byte
-				dccConnPortAmount int
-				dccLastReceTime   int
-				dccLastSendIdx    int
-				dccLastSendTime   int
-			        M[__Vk] = _TdataMachinEconnectClient{
-						dmmID:             *___VinsID,
-						dmmLastReceTime:   __VsetLastReadTime,
-						dmmConnPortArr:    []_TudpConnPort{___VinsID.diConnPort},
-						dmmConnPortAmount: 1,
-					}
-					___Vdm.dmMconn.LockNow[__Vk] = 1
-		*/
 		return
 	}
 
 	if // if exist , but  token / sequence not match , replace the old one
-	false == bytes.Equal(__Vold.dmmID.diIdx128, ___VinsID.diIdx128) ||
-		false == bytes.Equal(__Vold.dmmID.diSeq128, ___VinsID.diSeq128) ||
-		false == bytes.Equal(__Vold.dmmID.diToken, ___VinsID.diToken) {
+	false == bytes.Equal(___Vdm.dmMconn.dcsM[__Vidx].dccID.diIdx128, ___VinsID.diIdx128) ||
+		false == bytes.Equal(___Vdm.dmMconn.dcsM[__Vidx].dccID.diSeq128, ___VinsID.diSeq128) ||
+		false == bytes.Equal(___Vdm.dmMconn.dcsM[__Vidx].dccID.diToken, ___VinsID.diToken) {
 		//_FpfN(" 839193 03 : delete-old, gen New connPort Map hash.")
-		___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnectClient{
-			dmmID:             *___VinsID,
-			dmmLastReceTime:   __VsetLastReadTime,
-			dmmConnPortArr:    []_TudpConnPort{___VinsID.diConnPort},
-			dmmConnPortAmount: 1,
-		}
-		___Vdm.dmMconn.LockNow[__Vk] = 1
-	} else { // if exist , and  token / sequence match , update the last time and inc the lock cnt
-		//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
-		__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr)
-		___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnectClient{
-			dmmID:             *___VinsID,
-			dmmLastReceTime:   __VsetLastReadTime,
-			dmmConnPortArr:    __VcpArr,
-			dmmConnPortAmount: len(__VcpArr),
-		}
-		___Vdm.dmMconn.LockNow[__Vk] = ___Vdm.dmMconn.LockNow[__Vk] + 1
+		___Vdm.dmMconn.dcsM[__Vidx].
+			_FdataMachin__clear__TdataMachinEconnectClient()
+
+		___Vdm.dmMconn.dcsM[__Vidx].dccID = *___VinsID
+		___Vdm.dmMconn.dcsM[__Vidx].dccConnPortArr = []_TudpConnPort{___VinsID.diConnPort}
+		___Vdm.dmMconn.dcsM[__Vidx].dccConnPortStrMap[___VinsID.diConnPort.DstAddr.String()] = 1
+		___Vdm.dmMconn.dcsM[__Vidx].dccConnPortAmount = 1
+		___Vdm.dmMconn.dcsM[__Vidx].dccLastReceTime = _FtimeInt()
+		___Vdm.dmMconn.dcsM[__Vidx].dccLockCntNow = 1
+
+		return
 	}
+
+	// if exist , and  token / sequence match , update the last time and inc the lock cnt
+	//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
+	__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr)
+	___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnectClient{
+		dmmID:             *___VinsID,
+		dmmLastReceTime:   __VsetLastReadTime,
+		dmmConnPortArr:    __VcpArr,
+		dmmConnPortAmount: len(__VcpArr),
+	}
+	___Vdm.dmMconn.LockNow[__Vk] = ___Vdm.dmMconn.LockNow[__Vk] + 1
 }
 
 func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___VoldConnParr *[]_TudpConnPort) []_TudpConnPort {
