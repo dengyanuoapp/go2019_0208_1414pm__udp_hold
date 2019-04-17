@@ -68,18 +68,18 @@ const _VallowTunnelPerClientMax = 150
 
 type _TdataMachinEconnectSt struct {
 	dcsMidx        map[[16]byte]int
-	dcsM           [_VallowClientMax]_TdataMachinEconnectClient
+	dcsMm          [_VallowClientMax]_TdataMachinEconnectClient
 	dcsMusedAmount int
 	dcsMfreeAmount int
 	dcsMlastInsIdx int // the last insert place , the next insert can be start here
 	dcsMux         sync.Mutex
 }
 type _TdataMachinEdataSt struct {
-	ddsM           [_VallowClientMax]_TdataMachinEdataClient
+	ddsMidx        map[[16]byte]int
+	ddsMm          [_VallowClientMax]_TdataMachinEdataClient
 	ddsMusedAmount int
 	ddsMfreeAmount int
 	ddsMlastInsIdx int // the last insert place , the next insert can be start here
-	ddsMidx        map[[16]byte]int
 	ddsMux         sync.Mutex
 }
 

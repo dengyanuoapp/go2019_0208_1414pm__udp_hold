@@ -13,26 +13,17 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501x__swapLoginCkInfoForLock__tim
 	}
 }
 
+// _FdataMachin__1000201x11__rece_machineId_check_and_insert
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swap() {
-	defer ___Vdm.dmMconn.mux.Unlock()
-	___Vdm.dmMconn.mux.Lock()
+	defer ___Vdm.dmMconn.dcsMux.Unlock() // _TdataMachinEconnectSt
+	___Vdm.dmMconn.dcsMux.Lock()         // _TdataMachinEconnectClient
 
-	var __Vcnt int
-	for __Vk2, __Vv2 := range ___Vdm.dmMconn.LockNow {
-		__Vv3, __Vok3 := ___Vdm.dmMconn.LockLast[__Vk2]
-		if __Vok3 {
-			__Vcnt = __Vv2 + __Vv3
-		} else {
-			__Vcnt = __Vv2
-		}
+	var __Vcnt int // _TdataMachinEconnectSt
+	for __Vkey2, __Vidx2 := range ___Vdm.dmMconn.dcsMidx {
+		__Vc := ___Vdm.dmMconn.dcsM[__Vidx2] // _TdataMachinEconnectClient
+		__Vcnt = __Vc.dccLockCntLast + __Vc.dccLockCntNow
+
 		if __Vcnt >= 3 { // one connect must have the amount of connect-portS large then 2
-			//_FpfN(" 839196 03 connected succeed : %d : %d", __Vcnt, _FtimeInt())
-
-			if nil != ___Vdm.dmCBprReceKey {
-				___Vdm.dmCBprReceKey(___Vdm)
-				//___Vlg.FprKey()
-			}
-
 			if nil == ___Vdm.dmCHloginGenMachineIdLO {
 				_FpfNonce(" 839196 08 connected succeed, but why loginGen NULL ?")
 			} else {
@@ -41,7 +32,10 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 				(*___Vdm.dmCHloginGenMachineIdLO) <- ___Vdm.dmMconn.M[__Vk2].dmmID
 				___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
 			}
+			__Vc.dccLockCntLast = 0 // clear the counter , forbit being next used
+			__Vc.dccLockCntNow = 0  // clear the counter , forbit being next used
 
+			__VdIdx4, __VdOk4 := ___Vdm.dmMdata.dcsMidx[__Vkey2] // _TdataMachinEdataSt _TdataMachinEdataClient
 		}
 	}
 

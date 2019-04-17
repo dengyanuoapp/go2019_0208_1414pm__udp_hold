@@ -8,15 +8,15 @@ func (___VdmcT *_TdataMachinEconnectSt) _FdataMachin__search_avaiable__TdataMach
 		return -1
 	}
 	for __Vi := ___VdmcT.dcsMlastInsIdx; __Vi < _VallowClientMax; __Vi++ {
-		if 0 == ___VdmcT.dcsM[__Vi].dccLastReceTime { // _TdataMachinEconnectClient
-			___VdmcT.dcsM[__Vi].
+		if 0 == ___VdmcT.dcsMm[__Vi].dccLastReceTime { // _TdataMachinEconnectClient
+			___VdmcT.dcsMm[__Vi].
 				_FdataMachin__clear__TdataMachinEconnectClient()
 			return __Vi
 		}
 	}
 	for __Vi := 0; __Vi < ___VdmcT.dcsMlastInsIdx; __Vi++ {
-		if 0 == ___VdmcT.dcsM[__Vi].dccLastReceTime { // _TdataMachinEconnectClient
-			___VdmcT.dcsM[__Vi].
+		if 0 == ___VdmcT.dcsMm[__Vi].dccLastReceTime { // _TdataMachinEconnectClient
+			___VdmcT.dcsMm[__Vi].
 				_FdataMachin__clear__TdataMachinEconnectClient()
 			return __Vi
 		}
