@@ -16,7 +16,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 	__Vk := _FgenB16(&___VinsID.diIdx128)         // _TdataMachinEconnectClient
 	__Vidx, __Vok := ___Vdm.dmMconn.dcsMidx[__Vk] // _TdataMachinEconnectSt
 
-	__VsetLastReadTime := _FtimeInt() // - _Vgap_skip_idle_send
+	//__VsetLastReadTime := _FtimeInt() // - _Vgap_skip_idle_send
 
 	if false == __Vok { // if not exist
 		__Vidx = ___Vdm.dmMconn.
@@ -56,8 +56,10 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 
 	// if exist , and  token / sequence match , update the last time and inc the lock cnt
 	//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
-	__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr)
-	__VipStr := ___VinsID.diConnPort.DstAddr.String()
+
+	//__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr)
+	//__VipStr := ___VinsID.diConnPort.DstAddr.String()
+
 	_, __Vok3 := ___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortStrMap[___VinsID.diConnPort.DstAddr.String()]
 
 	if false == __Vok3 {

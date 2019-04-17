@@ -1,10 +1,5 @@
 package main
 
-var (
-	_Vgap_nothingToLost  = 39 // 3*(12+1) == 39
-	_Vgap_skip_idle_send = 7
-)
-
 func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap() {
 
 	for {
@@ -15,99 +10,64 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap(
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAll() {
 	//dmmLastReceTime
-	__VkDelArr := [][16]byte{}
+	//__VkDelArr := [][16]byte{}
 	__Vnow2 := _FtimeInt()
 
 	defer ___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
-	defer ___Vdm.dmMconn.mux.Unlock()
+	defer ___Vdm.dmMconn.dcsMux.Unlock()
+
 	___Vout__dmCHloginGenMachineIdLO__mux.Lock()
-	___Vdm.dmMconn.mux.Lock()
+	___Vdm.dmMconn.dcsMux.Lock()
 
-	for __Vk2, __Vv2 := range ___Vdm.dmMconn.M { // M map[[16]byte]_TdataMachinEconnectClient
-		if __Vnow2-__Vv2.dmmLastReceTime > _Vgap_nothingToLost {
-			__VkDelArr = append(__VkDelArr, __Vk2)
+	for __Vkey6, __Vidx6 := range ___Vdm.dmMdata.ddsMidx { // _TdataMachinEdataClient _TdataMachinEdataSt
+		if __Vnow2-___Vdm.dmMdata.ddsMm[__Vidx6].ddcLastSendTime > _Vgap_skip_idle_send {
+			// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
+			_FpfN(" 381921 01 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
+			_CpfN(" 381921 02 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
+
+			___Vdm.
+				_FdataMachin__1000502z__dataSendIdle__packAndSendToOneID(&(___Vdm.dmMdata.ddsMm[__Vidx6]))
+
 		} else {
-			if __Vnow2-__Vv2.dmmLastSendTime > _Vgap_skip_idle_send {
-				// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
-				_FpfN(" 381921 01 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
-					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReceTime, __Vv2.dmmLastSendTime)
-				_CpfN(" 381921 02 : %11d : try send idle %x %x now:%d lastRead:%d lastSend:%d",
-					_FtimeInt(), __Vk2, __Vv2.dmmID.diToken, __Vnow2, __Vv2.dmmLastReceTime, __Vv2.dmmLastSendTime)
-
-				___Vdm.
-					_FdataMachin__1000502z__dataSendIdle__packAndSendEach(__Vv2)
-
-			} else {
-				_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. now:%d lastRead:%d lastSend:%d",
-					_FtimeInt(), __Vk2, __Vnow2, __Vv2.dmmLastReceTime, __Vv2.dmmLastSendTime)
-			}
-
-			// for debug only : print the keyS
-			if __Vnow2-__Vv2.dmmLastPrTime > 20 {
-				for __Vidx, __Vconn := range __Vv2.dmmConnPortArr {
-					_CpfN(" 381921 04 sendingKeyArray: %x : %2d : to [%s]", // check-important keykey
-						__Vconn.K256, // []byte
-						__Vidx,
-						__Vconn.DstAddr.String(), // net.UDPAddr
-					)
-				}
-				__Vv2.dmmLastPrTime = __Vnow2
-			}
+			_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. {%s}",
+				_FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
 		}
-	}
-
-	for _, __Vk3 := range __VkDelArr {
-		_FpfN(" 381921 05 : %11d : try delete lost connect %x in dataMachine", _FtimeInt(), __Vk3)
-
-		if nil == ___Vdm.dmCHloginGenMachineIdLO {
-			_FpfNonce(" 381921 07 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain", _FtimeInt(), __Vk3)
-		} else {
-			_FpfNonce(" 381921 08 : %11d : try to stop lost connect %x in loginGen, ok ", _FtimeInt(), __Vk3)
-
-			(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
-				diIdx128: ___Vdm.dmMconn.M[__Vk3].dmmID.diIdx128,
-			}
-
-		}
-
-		delete(___Vdm.dmMconn.M, __Vk3)
-		delete(___Vdm.dmMconn.LockLast, __Vk3)
-		delete(___Vdm.dmMconn.LockNow, __Vk3)
 	}
 }
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendEach(___Vdmem _TdataMachinEconnectClient) {
-	__Vlen := len(___Vdmem.dmmConnPortArr) // _TdataMachinEconnectClient
+func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendToOneID(___Vdmdc *_TdataMachinEdataClient) {
+	__VtoAddrAmount := len(___Vdmdc.ddcConnPortArr) // _TdataMachinEdataClient
 
-	if __Vlen < 1 {
-		_FpfN(" 381922 01 len error :%d ", __Vlen)
+	if __VtoAddrAmount < 1 {
+		_FpfN(" 381922 01 len error :%d ", __VtoAddrAmount)
 		return
 	}
 
-	__Vidx := _FgenRand_int() % __Vlen
-	if ___Vdmem.dmmLastSendIdx == __Vidx {
-		__Vidx = _FgenRand_int() % __Vlen
+	__Vidx := _FgenRand_int() % __VtoAddrAmount
+	if ___Vdmdc.ddcLastSendIdx == __Vidx {
+		__Vidx = _FgenRand_int() % __VtoAddrAmount
 	}
-	___Vdmem.dmmLastSendIdx = __Vidx
+	___Vdmdc.ddcLastSendIdx = __Vidx
 
-	__Vconn := ___Vdmem.dmmConnPortArr[__Vidx]
+	// _TdataMachinEdataClient
+	__Vconn := ___Vdmdc.ddcConnPortArr[__Vidx]
 
 	__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
 		Ti:           _FtimeInt(),
 		enType:       Cmd__data_01_idle,
-		enToId128:    ___Vdmem.dmmID.diIdx128, // _TdataMachinEid
+		enToId128:    ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
 		enToConnPort: __Vconn,                 // _TudpConnPort
 		enData: _TdataTran{
 			MEidx128: _VC.MyId128,
 			MYseq128: _VS.MySeq128,
-			TOidx128: ___Vdmem.dmmID.diIdx128,
-			TOseq128: ___Vdmem.dmmID.diSeq128,
+			TOidx128: ___Vdmdc.ddcID.diIdx128,
+			TOseq128: ___Vdmdc.ddcID.diSeq128,
 			DDcmd:    Cmd__data_01_idle,
 		},
 	}
 
-	//_FpfN(" 381922 02 {%#v} ", ___Vdmem) // _TdataMachinEconnectClient
-	//_FpfN(" 381922 03 {%s} ", ___Vdmem.String())
+	//_FpfN(" 381922 02 {%#v} ", ___Vdmdc) // _TdataMachinEconnectClient
+	//_FpfN(" 381922 03 {%s} ", ___Vdmdc.String())
 	//_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
 
 	//_FpfN(" 381922 05 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
@@ -115,7 +75,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendEa
 
 	//_Fex("381922 07")
 
-	___Vdmem.dmmLastSendTime = _FtimeInt() // _TdataMachinEconnectClient
+	___Vdmdc.ddcLastSendTime = _FtimeInt() // _TdataMachinEconnectClient
 
 	___Vdm.
 		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)

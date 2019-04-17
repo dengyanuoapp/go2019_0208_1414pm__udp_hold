@@ -33,21 +33,22 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 		return
 	}
 
-	defer ___Vdm.dmMconn.mux.Unlock() // _TdataMachinEconnectSt
-	___Vdm.dmMconn.mux.Lock()         // _TdataMachinEconnectSt
+	defer ___Vdm.dmMdata.ddsMux.Unlock() // _TdataMachinEdataSt
+	___Vdm.dmMdata.ddsMux.Lock()         // _TdataMachinEdataSt
 
 	__Vk := _FgenB16(&___Vdec.Ddata.MEidx128)
-	//___Vdm.dmMconn.mux.Lock()
-	__Vold, __Vok := ___Vdm.dmMconn.M[__Vk] // map[[16]byte]_TdataMachinEconnectClient
+	//___Vdm.dmMdata.ddsMux.Lock()
+	__Vidx4, __Vok4 := ___Vdm.dmMdata.ddsMidx[__Vk] // map[[16]byte]_TdataMachinEdataClient
 
-	if false == __Vok { // if not exist ,
+	if false == __Vok4 { // if not exist ,
 		_CpfN(" 839195 03 : _TdataMachine : no such id exist . {%s}", ___Vdec.String())
 		return
 	}
 
-	if                                                                     // if exist , but  token / sequence not match , replace the old one
-	false == bytes.Equal(__Vold.dmmID.diIdx128, ___Vdec.Ddata.MEidx128) || // _TdataTran
-		false == bytes.Equal(__Vold.dmmID.diSeq128, ___Vdec.Ddata.MYseq128) {
+	// if exist , but  token / sequence not match , replace the old one
+	if                                                                                            // _TdataMachinEdataSt
+	false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diIdx128, ___Vdec.Ddata.MEidx128) || // _Tdecode _TdataTran
+		false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diSeq128, ___Vdec.Ddata.MYseq128) { // _TdataMachinEdataClient
 		_CpfN(" 839195 05 : _TdataMachine : error id/seq . {%s}", ___Vdec.String())
 		return
 	}
@@ -57,12 +58,12 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 		K256:    ___Vdec.RemotePortKey,
 	} // []byte
 
-	// _TdataMachinEconnectSt
-	__VcpArr := __VconnPort._FdataMachin__1000201x12__appendConnPort(&__Vold.dmmConnPortArr)
-	___Vdm.dmMconn.M[__Vk] = _TdataMachinEconnectClient{ // _TdataMachinEconnectClient
-		dmmID:             __Vold.dmmID,
-		dmmLastReceTime:   _FtimeInt(),
-		dmmConnPortArr:    __VcpArr,
-		dmmConnPortAmount: len(__VcpArr),
-	}
+	_CpfN(" 839195 07 : _TdataMachine : rece{%s}", ___Vdec.String())
+
+	// _TdataMachinEdataSt
+	__VcpArr := __VconnPort._FdataMachin__1000201x12__appendConnPort(&(___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortArr))
+	// ddcID:             ___Vdec.Ddata.ddsMm[__Vidx4].ddcID, // _TdataTran
+	___Vdm.dmMdata.ddsMm[__Vidx4].ddcLastReceTime = _FtimeInt() // _Tdecode
+	___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortArr = __VcpArr     // _TdataMachinEdataClient
+	___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortAmount = len(__VcpArr)
 }

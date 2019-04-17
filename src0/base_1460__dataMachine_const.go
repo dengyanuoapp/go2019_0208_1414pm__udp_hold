@@ -4,6 +4,11 @@ import (
 	"sync"
 )
 
+var (
+	_Vgap_nothingToLost  = 39 // 3*(12+1) == 39
+	_Vgap_skip_idle_send = 7
+)
+
 type _TdataMachinEid struct {
 	diConnPort _TudpConnPort
 	diIdx128   []byte
@@ -21,6 +26,54 @@ func (___Vdi *_TdataMachinEid) String() string {
 	)
 }
 
+func (___Vdmcc *_TdataMachinEconnectClient) String() string {
+	__Vlen := len(___Vdmcc.dccConnPortArr)
+	__Vs := _Spf("eid:{%s} (%d)[", ___Vdmcc.dccID.String(), __Vlen)
+	for __Vi := 0; __Vi < __Vlen; __Vi++ {
+		if 0 == __Vi {
+			__Vs += _Spf("%s", ___Vdmcc.dccConnPortArr[__Vi].String())
+		} else {
+			__Vs += _Spf(" | %s", ___Vdmcc.dccConnPortArr[__Vi].String())
+		}
+	}
+	__Vs += _Spf("] amount:%d lastRead:%d lastPr:%d cntLast:%d cntNow:%d lastSendIdx:%d ",
+		___Vdmcc.dccConnPortAmount,
+		___Vdmcc.dccLastReceTime,
+		___Vdmcc.dccLastPrTime,
+		___Vdmcc.dccLockCntLast,
+		___Vdmcc.dccLockCntLast,
+		___Vdmcc.dccLastSendIdx,
+	)
+	return __Vs
+}
+func (___Vdmdc *_TdataMachinEdataClient) String() string {
+	__Vlen := len(___Vdmdc.ddcConnPortArr)
+	__Vs := _Spf("eid:{%s} (%d)[", ___Vdmdc.ddcID.String(), __Vlen)
+	for __Vi := 0; __Vi < __Vlen; __Vi++ {
+		if 0 == __Vi {
+			__Vs += _Spf("%s", ___Vdmdc.ddcConnPortArr[__Vi].String())
+		} else {
+			__Vs += _Spf(" | %s", ___Vdmdc.ddcConnPortArr[__Vi].String())
+		}
+	}
+	__Vs += _Spf("] amount:%d lastRead:%d lastSend:%d lastSendIdx:%d ",
+		___Vdmdc.ddcConnPortAmount,
+		___Vdmdc.ddcLastReceTime,
+		___Vdmdc.ddcLastSendTime,
+		___Vdmdc.ddcLastSendIdx,
+	)
+	return __Vs
+}
+
+func (___Vdmdc *_TdataMachinEdataClient) Clear() {
+	(*___Vdmdc) = _TdataMachinEdataClient{}
+	___Vdmdc.ddcConnPortStrMap = make(map[string]byte)
+}
+func (___Vdmcc *_TdataMachinEconnectClient) Clear() {
+	(*___Vdmcc) = _TdataMachinEconnectClient{}
+	___Vdmcc.dccConnPortStrMap = make(map[string]byte)
+}
+
 type _TdataMachinEconnectClient struct {
 	dccID             _TdataMachinEid
 	dccConnPortArr    []_TudpConnPort
@@ -28,39 +81,18 @@ type _TdataMachinEconnectClient struct {
 	dccConnPortAmount int
 	dccLastReceTime   int
 	dccLastPrTime     int
-	dccLastSendIdx    int
 	dccLockCntLast    int
 	dccLockCntNow     int
+	dccLastSendIdx    int
 }
-
-func (___Vdmem *_TdataMachinEconnectClient) String() string {
-	__Vlen := len(___Vdmem.dccConnPortArr)
-	__Vs := _Spf("eid:{%s} (%d)[", ___Vdmem.dccID.String(), __Vlen)
-	for __Vi := 0; __Vi < __Vlen; __Vi++ {
-		if 0 == __Vi {
-			__Vs += _Spf("%s", ___Vdmem.dccConnPortArr[__Vi].String())
-		} else {
-			__Vs += _Spf(" | %s", ___Vdmem.dccConnPortArr[__Vi].String())
-		}
-	}
-	__Vs += _Spf("] amount:%d lastRead:%d lastPr:%d cntLast:%d cntNow:%d",
-		___Vdmem.dccConnPortAmount,
-		___Vdmem.dccLastReceTime,
-		___Vdmem.dccLastPrTime,
-		___Vdmem.dccLockCntLast,
-		___Vdmem.dccLockCntLast,
-	)
-	return __Vs
-}
-
 type _TdataMachinEdataClient struct {
 	ddcID             _TdataMachinEid
 	ddcConnPortArr    []_TudpConnPort
 	ddcConnPortStrMap map[string]byte
 	ddcConnPortAmount int
 	ddcLastReceTime   int
-	ddcLastSendIdx    int
 	ddcLastSendTime   int
+	ddcLastSendIdx    int
 }
 
 const _VallowClientMax = 1000
