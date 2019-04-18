@@ -1,9 +1,9 @@
 package main
 
-var (
-	_Vgap_nothingToLost  = 39 // 3*(12+1) == 39
-	_Vgap_skip_idle_send = 7
-)
+const _VallowClientMax = 1000
+const _VallowTunnelPerClientMax = 150
+const _Vgap_nothingToLost  = 39 // 3*(12+1) == 39
+const _Vgap_skip_idle_send = 7
 
 type _TdataMachinEid struct {
 	diConnPort _TudpConnPort
@@ -21,9 +21,6 @@ func (___Vdi *_TdataMachinEid) String() string {
 		String5(&___Vdi.diToken),
 	)
 }
-
-const _VallowClientMax = 1000
-const _VallowTunnelPerClientMax = 150
 
 type _TdataMachine struct {
 	dmChSendIdleNoteInternalUSE chan byte            // a random timer , send idle note to main receive loop. internal use only.
