@@ -10,14 +10,14 @@ func (___VdmcT *_TdataMachinEconnectSt) _FdataMachin__search_avaiable__TdataMach
 	for __Vi := ___VdmcT.dcsMlastInsIdx; __Vi < _VallowClientMax; __Vi++ {
 		if 0 == ___VdmcT.dcsMm[__Vi].dccLastReceTime { // _TdataMachinEconnectClient
 			___VdmcT.dcsMm[__Vi].
-				_FdataMachin__clear__TdataMachinEconnectClient()
+				Clear()
 			return __Vi
 		}
 	}
 	for __Vi := 0; __Vi < ___VdmcT.dcsMlastInsIdx; __Vi++ {
 		if 0 == ___VdmcT.dcsMm[__Vi].dccLastReceTime { // _TdataMachinEconnectClient
 			___VdmcT.dcsMm[__Vi].
-				_FdataMachin__clear__TdataMachinEconnectClient()
+				Clear()
 			return __Vi
 		}
 	}
@@ -29,8 +29,10 @@ func (___VdmcT *_TdataMachinEconnectSt) _FdataMachin__search_avaiable__TdataMach
 	return -1
 }
 
+/*
 func (___Vdmcc *_TdataMachinEconnectClient) _FdataMachin__clear__TdataMachinEconnectClient() {
 	(*___Vdmcc) = _TdataMachinEconnectClient{}
 	___Vdmcc.dccLastReceTime = _FtimeInt()
 	___Vdmcc.dccConnPortStrMap = make(map[string]byte)
 }
+*/

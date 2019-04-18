@@ -42,7 +42,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		false == bytes.Equal(___Vdm.dmMconn.dcsMm[__Vidx].dccID.diToken, ___VinsID.diToken) {
 		//_FpfN(" 839193 03 : delete-old, gen New connPort Map hash.")
 		___Vdm.dmMconn.dcsMm[__Vidx].
-			_FdataMachin__clear__TdataMachinEconnectClient()
+			Clear()
 
 		___Vdm.dmMconn.dcsMm[__Vidx].dccID = *___VinsID
 		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr = []_TudpConnPort{___VinsID.diConnPort}

@@ -1,9 +1,5 @@
 package main
 
-import (
-	"sync"
-)
-
 var (
 	_Vgap_nothingToLost  = 39 // 3*(12+1) == 39
 	_Vgap_skip_idle_send = 7
@@ -26,94 +22,8 @@ func (___Vdi *_TdataMachinEid) String() string {
 	)
 }
 
-func (___Vdmcc *_TdataMachinEconnectClient) String() string {
-	__Vlen := len(___Vdmcc.dccConnPortArr)
-	__Vs := _Spf("eid:{%s} (%d)[", ___Vdmcc.dccID.String(), __Vlen)
-	for __Vi := 0; __Vi < __Vlen; __Vi++ {
-		if 0 == __Vi {
-			__Vs += _Spf("%s", ___Vdmcc.dccConnPortArr[__Vi].String())
-		} else {
-			__Vs += _Spf(" | %s", ___Vdmcc.dccConnPortArr[__Vi].String())
-		}
-	}
-	__Vs += _Spf("] amount:%d lastRead:%d lastPr:%d cntLast:%d cntNow:%d lastSendIdx:%d ",
-		___Vdmcc.dccConnPortAmount,
-		___Vdmcc.dccLastReceTime,
-		___Vdmcc.dccLastPrTime,
-		___Vdmcc.dccLockCntLast,
-		___Vdmcc.dccLockCntLast,
-		___Vdmcc.dccLastSendIdx,
-	)
-	return __Vs
-}
-func (___Vdmdc *_TdataMachinEdataClient) String() string {
-	__Vlen := len(___Vdmdc.ddcConnPortArr)
-	__Vs := _Spf("eid:{%s} (%d)[", ___Vdmdc.ddcID.String(), __Vlen)
-	for __Vi := 0; __Vi < __Vlen; __Vi++ {
-		if 0 == __Vi {
-			__Vs += _Spf("%s", ___Vdmdc.ddcConnPortArr[__Vi].String())
-		} else {
-			__Vs += _Spf(" | %s", ___Vdmdc.ddcConnPortArr[__Vi].String())
-		}
-	}
-	__Vs += _Spf("] amount:%d lastRead:%d lastSend:%d lastSendIdx:%d ",
-		___Vdmdc.ddcConnPortAmount,
-		___Vdmdc.ddcLastReceTime,
-		___Vdmdc.ddcLastSendTime,
-		___Vdmdc.ddcLastSendIdx,
-	)
-	return __Vs
-}
-
-func (___Vdmdc *_TdataMachinEdataClient) Clear() {
-	(*___Vdmdc) = _TdataMachinEdataClient{}
-	___Vdmdc.ddcConnPortStrMap = make(map[string]byte)
-}
-func (___Vdmcc *_TdataMachinEconnectClient) Clear() {
-	(*___Vdmcc) = _TdataMachinEconnectClient{}
-	___Vdmcc.dccConnPortStrMap = make(map[string]byte)
-}
-
-type _TdataMachinEconnectClient struct {
-	dccID             _TdataMachinEid
-	dccConnPortArr    []_TudpConnPort
-	dccConnPortStrMap map[string]byte
-	dccConnPortAmount int
-	dccLastReceTime   int
-	dccLastPrTime     int
-	dccLockCntLast    int
-	dccLockCntNow     int
-	dccLastSendIdx    int
-}
-type _TdataMachinEdataClient struct {
-	ddcID             _TdataMachinEid
-	ddcConnPortArr    []_TudpConnPort
-	ddcConnPortStrMap map[string]byte
-	ddcConnPortAmount int
-	ddcLastReceTime   int
-	ddcLastSendTime   int
-	ddcLastSendIdx    int
-}
-
 const _VallowClientMax = 1000
 const _VallowTunnelPerClientMax = 150
-
-type _TdataMachinEconnectSt struct {
-	dcsMidx        map[[16]byte]int
-	dcsMm          [_VallowClientMax]_TdataMachinEconnectClient
-	dcsMusedAmount int
-	dcsMfreeAmount int
-	dcsMlastInsIdx int // the last insert place , the next insert can be start here
-	dcsMux         sync.Mutex
-}
-type _TdataMachinEdataSt struct {
-	ddsMidx        map[[16]byte]int
-	ddsMm          [_VallowClientMax]_TdataMachinEdataClient
-	ddsMusedAmount int
-	ddsMfreeAmount int
-	ddsMlastInsIdx int // the last insert place , the next insert can be start here
-	ddsMux         sync.Mutex
-}
 
 type _TdataMachine struct {
 	dmChSendIdleNoteInternalUSE chan byte            // a random timer , send idle note to main receive loop. internal use only.
