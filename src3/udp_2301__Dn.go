@@ -121,15 +121,17 @@ func main() {
 	// _TloginGenerator
 	go _Frun(&_VloginGenerator_Dn, 800101) // IRun _FudpDecode__800101x__init__tryUdpLogin__default
 
-	// _TdataMachinEconnectSt                                     // 0
-	// _FdataMachin__search_avaiable__TdataMachinEconnectClient   // 1
-	// _FdataMachin__1000201x__receive__default                   // 2
-	// _FdataMachin__1000201x11__rece_machineId_check_and_insert  // 3
-	// _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen // 4
+	// _TdataMachinEconnectSt                                     // 1
+	// _TdataMachinEdataClient                                    // 2
+	// _FdataMachin__search_avaiable__TdataMachinEconnectClient   // 3
+	// _FdataMachin__1000501y__swapLoginCkInfoForLock__swap       // 4
 	// _FdataMachin__1000502y__dataSendIdle__packAndSendAll       // 5
 	// _FdataMachin__1000503x__time_gap_dataResend                // 6
 	// _FdataMachin__1000601x__encodeData_sendMux                 // 7
 	// _FdataMachin__1000201x21__rece_encodeData                  // 8
+	// _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen // 9
+	// _FdataMachin__1000201x__receive__default                   // a
+	// _FdataMachin__1000201x11__rece_machineId_check_and_insert  // b
 	go _Frun(&_VdataMachine_Dn, 1000101) // IRun _FdataMachin__1000101__main_init__default
 
 	// _FuEncode__1100201x__chanRece__default

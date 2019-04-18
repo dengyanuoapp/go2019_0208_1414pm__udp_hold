@@ -2,7 +2,7 @@ package main
 
 const _VallowClientMax = 1000
 const _VallowTunnelPerClientMax = 150
-const _Vgap_nothingToLost  = 39 // 3*(12+1) == 39
+const _Vgap_nothingToLost = 39 // 3*(12+1) == 39
 const _Vgap_skip_idle_send = 7
 
 type _TdataMachinEid struct {

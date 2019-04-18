@@ -37,4 +37,3 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__clean_timeoutObj() {
 		delete(___Vdm.dmMdata.ddsMidx, __Vkey6)
 	}
 }
-
