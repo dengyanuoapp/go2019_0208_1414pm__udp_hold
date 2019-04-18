@@ -1,13 +1,5 @@
 package main
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap() {
-
-	for {
-		_FsleepRand_8_to_12s()
-		___Vdm.dmChSendIdleNoteInternalUSE <- 1
-	}
-}
-
 func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAll() {
 	//dmmLastReceTime
 	//__VkDelArr := [][16]byte{}

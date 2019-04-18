@@ -23,6 +23,9 @@ func (___Vdm *_TdataMachine) IRun(___Vidx int) {
 	case 1000503:
 		___Vdm.
 			_FdataMachin__1000503x__time_gap_dataResend()
+	case 1000504:
+		___Vdm.
+			_FdataMachin__1000504x__checkTimeOutDieClient()
 	//case 1000601:
 	//	___Vdm.
 	//		_FdataMachin__1000601x__encodeData_sendMux()
@@ -35,8 +38,10 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
 	___Vdm.dmCHdataMachineIdI = make(chan _TdataMachinEid, 50)
 	___Vdm.dmCHdecodeDataI = make(chan _Tdecode, 50)
+
 	___Vdm.dmChSendIdleNoteInternalUSE = make(chan byte, 1) // a random timer , send idle note to main receive loop. internal use only.
 	___Vdm.dmChSwapLoginCkInfoForLock = make(chan byte, 1)  // a 5s timer , send swap note to main receive loop. internal use only.
+	___Vdm.dmChCheckTimeOutDieClient = make(chan byte, 1)   // a 80s timer , send swap note to main receive loop. internal use only.
 
 	___Vdm.dmMconn.dcsMidx = make(map[[16]byte]int)
 	___Vdm.dmMdata.ddsMidx = make(map[[16]byte]int)
@@ -53,4 +58,26 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 	go _Frun(___Vdm, 1000501) // _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen // (*___Vdm.dmCHloginGenMachineIdLO)<-
 	go _Frun(___Vdm, 1000502) // _FdataMachin__1000502x__dataSendIdle__gen_time_gap // (*___Vdm.dmCHloginGenMachineIdLO) <-
 	go _Frun(___Vdm, 1000503) // _FdataMachin__1000503x__time_gap_dataResend
+}
+
+func (___Vdm *_TdataMachine) _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen() {
+	for {
+		_Fsleep(_T5s)
+		___Vdm.
+			dmChSwapLoginCkInfoForLock <- 1 // a 5s timer , send swap note to main receive loop. internal use only.
+	}
+}
+func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap() {
+
+	for {
+		_FsleepRand_8_to_12s()
+		___Vdm.dmChSendIdleNoteInternalUSE <- 1
+	}
+}
+func (___Vdm *_TdataMachine) _FdataMachin__1000504x__checkTimeOutDieClient() {
+	for {
+		_Fsleep(_T80s)
+		___Vdm.
+			dmChCheckTimeOutDieClient <- 1 // a 5s timer , send swap note to main receive loop. internal use only.
+	}
 }

@@ -4,15 +4,6 @@ import "sync"
 
 var ___Vout__dmCHloginGenMachineIdLO__mux sync.Mutex
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen() {
-
-	for {
-		_Fsleep(_T5s)
-		___Vdm.
-			dmChSwapLoginCkInfoForLock <- 1 // a 5s timer , send swap note to main receive loop. internal use only.
-	}
-}
-
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y__clean_timeoutObj() {
 	__Vnow2 := _FtimeInt()
 
@@ -55,9 +46,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__clean_timeoutObj() {
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swap() {
 	defer ___Vdm.dmMconn.dcsMux.Unlock() // _TdataMachinEconnectSt
 	___Vdm.dmMconn.dcsMux.Lock()         // _TdataMachinEconnectClient
-
-	___Vdm.
-		_FdataMachin__1000501y__clean_timeoutObj()
 
 	var __Vcnt int // _TdataMachinEconnectSt
 	for __Vkey2, __Vidx2 := range ___Vdm.dmMconn.dcsMidx {

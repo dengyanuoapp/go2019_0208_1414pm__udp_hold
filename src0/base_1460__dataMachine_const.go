@@ -118,6 +118,7 @@ type _TdataMachinEdataSt struct {
 type _TdataMachine struct {
 	dmChSendIdleNoteInternalUSE chan byte            // a random timer , send idle note to main receive loop. internal use only.
 	dmChSwapLoginCkInfoForLock  chan byte            // a 5s timer , send swap note to main receive loop. internal use only.
+	dmChCheckTimeOutDieClient   chan byte            // a 5s timer , send swap note to main receive loop. internal use only.
 	dmCBinit                    func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
 	dmCBrece                    func(*_TdataMachine) //
 	dmCBprReceKey               func(*_TdataMachine) //
