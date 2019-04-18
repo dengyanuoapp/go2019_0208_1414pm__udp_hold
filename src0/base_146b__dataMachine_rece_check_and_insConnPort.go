@@ -22,6 +22,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		__Vidx = ___Vdm.dmMconn.
 			_FdataMachin__search_avaiable__TdataMachinEconnectClient() // _TdataMachinEconnectClient _TdataMachinEconnectSt
 		if __Vidx < 0 {
+			_FpfN(" 839193 02 : no conn sock avaiable <%s>", ___VinsID.String())
+			_CpfN(" 839193 03 : new conn insered <%s>", ___Vdm.dmMconn.String())
 			return
 		}
 
@@ -33,6 +35,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow = 1
 
+		_FpfN(" 839193 04 : new conn insered <%s>", ___VinsID.String())
+		_CpfN(" 839193 05 : new conn insered <%s>", ___Vdm.dmMconn.String())
 		return
 	}
 
@@ -51,6 +55,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow = 1
 
+		_FpfN(" 839193 06 : new conn overide old one <%s>", ___VinsID.String())
+		_CpfN(" 839193 07 : new conn overide old one <%s>", ___Vdm.dmMconn.String())
 		return
 	}
 
@@ -70,6 +76,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 
 	___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
 	___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow++
+
+	_FpfN(" 839193 08 : the same conn multi-port <%s>", ___VinsID.String())
+	_CpfN(" 839193 09 : the same conn multi-port <%s>", ___Vdm.dmMconn.String())
 }
 
 func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___VoldConnParr *[]_TudpConnPort) []_TudpConnPort {

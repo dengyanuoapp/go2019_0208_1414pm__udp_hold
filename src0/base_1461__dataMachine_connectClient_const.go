@@ -46,3 +46,22 @@ type _TdataMachinEconnectSt struct {
 	dcsMlastInsIdx int // the last insert place , the next insert can be start here
 	dcsMux         sync.Mutex
 }
+
+func (___Vdmes *_TdataMachinEconnectSt) String() string {
+	__Vs := _Spf("idxArr(%d)[", len(___Vdmes.dcsMidx))
+	for __Vk2, __Vv2 := range ___Vdmes.dcsMidx {
+		__Vs += _Spf(" %x,%d", __Vk2, __Vv2)
+	}
+
+	__Vs += _Spf("] used:%d free:%d lastIdx:%d (",
+		___Vdmes.dcsMusedAmount,
+		___Vdmes.dcsMfreeAmount,
+		___Vdmes.dcsMlastInsIdx)
+
+	for _, __Vv2 := range ___Vdmes.dcsMidx {
+		__Vs += _Spf(" <%s>", ___Vdmes.dcsMm[__Vv2].String())
+	}
+
+	__Vs += ")"
+	return __Vs
+}
