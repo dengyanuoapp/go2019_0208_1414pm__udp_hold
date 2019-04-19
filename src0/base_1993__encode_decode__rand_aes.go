@@ -113,7 +113,7 @@ func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) (
 		return nil, fmt.Errorf(" 392391 04 : why input len zero ? ")
 	}
 
-	_CpfN(" 392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
+	___CpfN(" 392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
 		___Vkey, len(___VbyteIn), _FgenMd5__5(&___VbyteIn))
 
 	//_FpfNhex(___VbyteIn, 20, " 392391 06 : %x : ", ___Vkey)
@@ -155,7 +155,7 @@ func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) (
 
 	__Vtmp3 := __VdeO[:__Vb3]
 	__VrecoveryKey := __VdeO[7:39]
-	_CpfN(" 392392 09 : tI:%d AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
+	___CpfN(" 392392 09 : tI:%d AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
 		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", ___VtraceIntDE, String5(&___Vkey), // keykey
 		len(___VbyteIn), _FgenMd5__5(&___VbyteIn),
 		len(__VdeO), _FgenMd5__5(&__VdeO), String9(&__VdeO),

@@ -66,7 +66,7 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 		_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 	__Vdecode.RemoteAddr = ___VunRece.UrrRemoteAddr
 
-	_CpfN(" 388197 04 Ti:%d : after decoder  : Type:%d __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
+	___CpfN(" 388197 04 Ti:%d : after decoder  : Type:%d __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
 		___VtraceIntDE, __Vdecode.Type,
 		__Vdecode.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf), // _TdecodeX
 		___VunRece.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf))
@@ -74,12 +74,12 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	switch __Vdecode.Type {
 	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
 		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-		_CpfN(" 388197 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+		___CpfN(" 388197 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 		if nil == ___Vude.uDeCHdecodeCkLO {
 			_CpfN(" 388197 07 : uDecode outChan null , ignore:%s", __Vdecode.String())
 		} else {
-			_CpfN(" 388197 08 uDecode real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
-			_CpfN(" 388197 09 uDecode real outChain : %s", __Vdecode.String())
+			___CpfN(" 388197 08 uDecode real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+			___CpfN(" 388197 09 uDecode real outChain : %s", __Vdecode.String())
 			(*___Vude.uDeCHdecodeCkLO) <- __Vdecode // 15540463611554046361
 		}
 	case Cmd__data_01_idle:
