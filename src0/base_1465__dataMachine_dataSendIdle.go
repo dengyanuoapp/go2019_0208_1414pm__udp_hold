@@ -1,6 +1,11 @@
 package main
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAll() {
+
+	if 0 == len(___Vdm.dmMdata.ddsMidx) {
+		return
+	}
+
 	//dmmLastReceTime
 	//__VkDelArr := [][16]byte{}
 	__Vnow2 := _FtimeInt()

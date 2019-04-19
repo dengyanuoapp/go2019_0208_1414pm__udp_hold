@@ -59,7 +59,7 @@ func (___Vdmes *_TdataMachinEconnectSt) String() string {
 		___Vdmes.dcsMlastInsIdx)
 
 	for _, __Vv2 := range ___Vdmes.dcsMidx {
-		__Vs += _Spf(" <%s>", ___Vdmes.dcsMm[__Vv2].String())
+		__Vs += _Spf(" (%d)<%s>", __Vv2, ___Vdmes.dcsMm[__Vv2].String())
 	}
 
 	__Vs += ")"

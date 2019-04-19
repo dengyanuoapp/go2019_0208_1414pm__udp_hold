@@ -6,6 +6,11 @@ var ___Vout__dmCHloginGenMachineIdLO__mux sync.Mutex
 
 // _FdataMachin__1000201x11__rece_machineId_check_and_insert
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swap() {
+
+	if 0 == len(___Vdm.dmMdata.ddsMidx) {
+		return
+	}
+
 	defer ___Vdm.dmMconn.dcsMux.Unlock() // _TdataMachinEconnectSt
 	___Vdm.dmMconn.dcsMux.Lock()         // _TdataMachinEconnectClient
 

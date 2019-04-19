@@ -35,10 +35,13 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow = 1
 
-		___Vdm.dmMconn.dcsMidx[__Vk] = 1 // _TdataMachinEconnectSt
+		___Vdm.dmMconn.dcsMusedAmount++
+		___Vdm.dmMconn.dcsMfreeAmount--
+		___Vdm.dmMconn.dcsMidx[__Vk] = __Vidx // _TdataMachinEconnectSt
+		___Vdm.dmMconn.dcsMlastInsIdx = __Vidx
 
-		_FpfN(" 839193 04 : new conn insered <%s>", ___VinsID.String())
-		_CpfN(" 839193 05 : new conn insered <%s>", ___Vdm.dmMconn.String())
+		_FpfN(" 839193 04 : new conn insered <%s>", ___VinsID.String()) // _TdataMachinEconnectSt
+		_CpfN(" 839193 05 : new conn insered (%d)<%s> <%s>", __Vidx, ___Vdm.dmMconn.String(), ___VinsID.String())
 		return
 	}
 
