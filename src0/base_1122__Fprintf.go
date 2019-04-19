@@ -63,6 +63,11 @@ func _Fex1(___Vstr string, ___Vobj interface{}) {
 
 func ___FpfN(___Vfmt string, ___Vpara ...interface{}) {
 }
+func _FpfNt(___Vfmt string, ___Vpara ...interface{}) {
+	_Fph()
+	_Ppf("%d ", _FtimeInt())
+	_Ppf(___Vfmt+"\n", ___Vpara...)
+}
 func _FpfN(___Vfmt string, ___Vpara ...interface{}) {
 	_Fph()
 	_Ppf(___Vfmt+"\n", ___Vpara...)

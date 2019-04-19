@@ -35,6 +35,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow = 1
 
+		___Vdm.dmMconn.dcsMidx[__Vk] = 1 // _TdataMachinEconnectSt
+
 		_FpfN(" 839193 04 : new conn insered <%s>", ___VinsID.String())
 		_CpfN(" 839193 05 : new conn insered <%s>", ___Vdm.dmMconn.String())
 		return
@@ -44,7 +46,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 	false == bytes.Equal(___Vdm.dmMconn.dcsMm[__Vidx].dccID.diIdx128, ___VinsID.diIdx128) ||
 		false == bytes.Equal(___Vdm.dmMconn.dcsMm[__Vidx].dccID.diSeq128, ___VinsID.diSeq128) ||
 		false == bytes.Equal(___Vdm.dmMconn.dcsMm[__Vidx].dccID.diToken, ___VinsID.diToken) {
-		//_FpfN(" 839193 03 : delete-old, gen New connPort Map hash.")
+		//_FpfN(" 839193 06 : delete-old, gen New connPort Map hash.")
 		___Vdm.dmMconn.dcsMm[__Vidx].
 			Clear()
 
@@ -61,7 +63,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 	}
 
 	// if exist , and  token / sequence match , update the last time and inc the lock cnt
-	//_FpfN(" 839193 05 : with the same token, so , try append to connPort Map hash.")
+	//_FpfN(" 839193 11 : with the same token, so , try append to connPort Map hash.")
 
 	//__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr)
 	//__VipStr := ___VinsID.diConnPort.DstAddr.String()
@@ -77,8 +79,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 	___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
 	___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow++
 
-	_FpfN(" 839193 08 : the same conn multi-port <%s>", ___VinsID.String())
-	_CpfN(" 839193 09 : the same conn multi-port <%s>", ___Vdm.dmMconn.String())
+	_FpfN(" 839193 13 : the same conn multi-port <%s>", ___VinsID.String())
+	_CpfN(" 839193 15 : the same conn multi-port <%s>", ___Vdm.dmMconn.String())
 }
 
 func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___VoldConnParr *[]_TudpConnPort) []_TudpConnPort {
