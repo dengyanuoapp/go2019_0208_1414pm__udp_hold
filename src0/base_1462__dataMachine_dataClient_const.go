@@ -42,3 +42,22 @@ type _TdataMachinEdataSt struct {
 	ddsMlastInsIdx int // the last insert place , the next insert can be start here
 	ddsMux         sync.Mutex
 }
+
+func (___Vdmds *_TdataMachinEdataSt) String() string {
+	__Vs := _Spf("idxArr(%d)[", len(___Vdmds.ddsMidx))
+	for __Vk2, __Vv2 := range ___Vdmds.ddsMidx {
+		__Vs += _Spf(" %x,%d", __Vk2, __Vv2)
+	}
+
+	__Vs += _Spf("] used:%d free:%d lastIdx:%d (",
+		___Vdmds.ddsMusedAmount,
+		___Vdmds.ddsMfreeAmount,
+		___Vdmds.ddsMlastInsIdx)
+
+	for _, __Vv2 := range ___Vdmds.ddsMidx {
+		__Vs += _Spf(" (%d)<%s>", __Vv2, ___Vdmds.ddsMm[__Vv2].String())
+	}
+
+	__Vs += ")"
+	return __Vs
+}

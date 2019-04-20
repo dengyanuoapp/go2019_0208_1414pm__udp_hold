@@ -22,6 +22,10 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 
 		__Vc.dccLockCntLast = __Vc.dccLockCntNow
 		if __Vcnt >= 3 { // one connect must have the amount of connect-portS large then 2
+
+			___Vdm.
+				_FdataMachin__1000501z__swapLoginCkInfoForLock__createNewDataClient(&__Vkey2, __Vidx2)
+
 			if nil == ___Vdm.dmCHloginGenMachineIdLO {
 				switch _VS.ProjName {
 				case "Fn":
@@ -41,9 +45,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 
 				__Vc.dccLockCntLast = 0 // clear the counter , forbit being next used
 			}
-
-			___Vdm.
-				_FdataMachin__1000501z__swapLoginCkInfoForLock__createNewDataClient(&__Vkey2, __Vidx2)
 		} else {
 			//_FpfN(" 839196 07 no-enough, swap only , no update . (%d)[%x]{%s}" , __Vidx2 , __Vkey2 , ___Vdm.dmMconn.String())
 			_CpfN(" 839196 08 no-enough, swap only , no update . (%d)[%x]{%s}", __Vidx2, __Vkey2, ___Vdm.dmMconn.String())
@@ -59,13 +60,13 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 	// ___Vdm.dmMconn.dcsMm[__Vidx2].
 	_, __VdOk4 := ___Vdm.dmMdata.ddsMidx[*___Vkey] // _TdataMachinEdataSt _TdataMachinEdataClient
 	if __VdOk4 {
-		_CpfN(" 183818 01 : re-create client of {%s} ", ___Vdm.dmMconn.dcsMm[___VcIdx].dccID.String()) // _TdataMachinEdataSt _TdataMachinEdataClient
-		_CpfN(" 183818 02 : re-create client of {%s} ", ___Vdm.dmMdata.ddsMm[___VcIdx].ddcID.String()) // _TdataMachinEdataSt _TdataMachinEdataClient
+		_CpfN(" 183818 01 : re-create client of {%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
+		_CpfN(" 183818 02 : re-create client of {%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
 		_CpfN(" 183818 03 : under-constructing")
 		_FpfN(" 183818 04 : under-constructing")
 	} else {
-		_CpfN(" 183818 05 : create new client of {%s} ", ___Vdm.dmMconn.dcsMm[___VcIdx].dccID.String()) // _TdataMachinEdataSt _TdataMachinEdataClient
-		_CpfN(" 183818 06 : create new client of {%s} ", ___Vdm.dmMdata.ddsMm[___VcIdx].ddcID.String()) // _TdataMachinEdataSt _TdataMachinEdataClient
+		_CpfN(" 183818 05 : create new client of {%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
+		_CpfN(" 183818 06 : create new client of {%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
 		_CpfN(" 183818 07 : under-constructing")
 		_FpfN(" 183818 08 : under-constructing")
 	}
