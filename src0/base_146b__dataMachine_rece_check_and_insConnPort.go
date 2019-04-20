@@ -61,29 +61,31 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow = 1
 
 		_FpfN(" 839193 06 : new conn overide old one <%s>", ___VinsID.String())
-		_CpfN(" 839193 07 : new conn overide old one <%s>", ___Vdm.dmMconn.String())
+		_CpfN(" 839193 07 : new conn insered (%d)<%s> <%s>", __Vidx, ___Vdm.dmMconn.String(), ___VinsID.String())
 		return
 	}
 
 	// if exist , and  token / sequence match , update the last time and inc the lock cnt
 	//_FpfN(" 839193 11 : with the same token, so , try append to connPort Map hash.")
 
-	//__VcpArr := ___VinsID.diConnPort._FdataMachin__1000201x12__appendConnPort(&___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr)
+	__VcpArr := ___VinsID.diConnPort.
+		_FdataMachin__1000201x12__appendConnPort(&___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr)
 	//__VipStr := ___VinsID.diConnPort.DstAddr.String()
 
 	_, __Vok3 := ___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortStrMap[___VinsID.diConnPort.DstAddr.String()]
 
 	if false == __Vok3 {
-		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr = []_TudpConnPort{___VinsID.diConnPort}
+		//___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr = []_TudpConnPort{___VinsID.diConnPort}
+		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr = __VcpArr
 		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortStrMap[___VinsID.diConnPort.DstAddr.String()] = 1
 		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortAmount++
 	}
 
 	___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
-	___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow++
+	___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow++ // _TdataMachinEconnectSt
 
 	_FpfN(" 839193 13 : the same conn multi-port <%s>", ___VinsID.String())
-	_CpfN(" 839193 15 : the same conn multi-port <%s>", ___Vdm.dmMconn.String())
+	_CpfN(" 839193 14 : new conn insered (%d)<%s> <%s>", __Vidx, ___Vdm.dmMconn.String(), ___VinsID.String())
 }
 
 func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___VoldConnParr *[]_TudpConnPort) []_TudpConnPort {

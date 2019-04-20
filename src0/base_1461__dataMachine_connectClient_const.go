@@ -34,8 +34,8 @@ type _TdataMachinEconnectClient struct {
 	dccConnPortAmount int
 	dccLastReceTime   int
 	dccLastPrTime     int
-	dccLockCntLast    int
-	dccLockCntNow     int
+	dccLockCntLast    int // cnt in last period
+	dccLockCntNow     int // cnt in this period
 	dccLastSendIdx    int
 }
 type _TdataMachinEconnectSt struct {
