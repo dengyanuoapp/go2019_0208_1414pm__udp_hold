@@ -21,7 +21,7 @@ func (___Vdmcc *_TdataMachinEconnectClient) String() string {
 		___Vdmcc.dccLastReceTime,
 		___Vdmcc.dccLastPrTime,
 		___Vdmcc.dccLockCntLast,
-		___Vdmcc.dccLockCntLast,
+		___Vdmcc.dccLockCntNow,
 		___Vdmcc.dccLastSendIdx,
 	)
 	return __Vs
