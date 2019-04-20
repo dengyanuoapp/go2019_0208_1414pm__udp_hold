@@ -56,27 +56,31 @@ func (___Vug *_TudpGroupSt) _FudpGroup__600201zzz__send_byteOnly(___Vs *_TudpNod
 
 func (___Vug *_TudpGroupSt) _FudpGroup__600201www__send_genIdx() int {
 	__Vlen := len(___Vug.ugChTmpSendLI)
-	if 0 == __Vlen {
+	if 0 >= __Vlen {
 		_FpfNex(" 838117 02 : why NULL ?")
+		return 0
+	}
+	if 1 == __Vlen {
+		_FpfN(" 838117 03 : only one send-dst port. ")
+		_CpfN(" 838117 04 : only one send-dst port. ")
+		___Vug.ugLastSendIdx = 0
 		return 0
 	}
 
 	__Vidx := 0
-	//_FpfN(" 838117 03 : idx 0 now. len %d", __Vlen)
+	//_CpfN(" 838117 05 : idx 0 now. len %d", __Vlen)
 
-	if 1 != __Vlen {
-		for {
-			__Vidx = _FgenRand_int()
-			//_FpfN(" 838117 04 : idx %0x", __Vidx)
+	for {
+		__Vidx = _FgenRand_int()
+		//_FpfN(" 838117 04 : idx %0x", __Vidx)
 
-			__Vidx = __Vidx % __Vlen
-			//_FpfN(" 838117 05 : idx %0x , %d ", __Vidx, __Vidx)
+		__Vidx = __Vidx % __Vlen
+		//_FpfN(" 838117 05 : idx %0x , %d ", __Vidx, __Vidx)
 
-			if ___Vug.ugLastSendIdx != __Vidx {
-				___Vug.ugLastSendIdx = __Vidx
-				break
-			}
+		if ___Vug.ugLastSendIdx != __Vidx {
+			___Vug.ugLastSendIdx = __Vidx
+			return __Vidx
 		}
 	}
-	return __Vidx
+	//return 0
 }
