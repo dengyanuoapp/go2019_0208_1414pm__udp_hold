@@ -38,7 +38,8 @@ func _Finit__2301() {
 		tnHostPortStr: "127.0.0.1:50003",
 		tnAmount:      10,
 		//taCHreceLO :
-		tnCHdebugInfoLO: &_VbyteNoteBuf__Dn.bnbCHinI,
+		tnCHdebugInfoLO: &_VdataMachine_Dn.dmCHdebugInfoI,
+		//tnCHdebugInfoLO: &_VbyteNoteBuf__Dn.bnbCHinI,
 	}
 	_VbyteNoteBuf__Dn = _TbyteNoteBuf{
 		bnbCHoutLO1: &_VdataMachine_Dn.dmCHdebugInfoI,
