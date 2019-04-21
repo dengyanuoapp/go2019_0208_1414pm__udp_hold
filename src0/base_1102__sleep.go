@@ -16,6 +16,7 @@ const (
 	_T40s   = 40 * time.Second
 	_T45s   = 45 * time.Second
 	_T50s   = 50 * time.Second
+	_T55s   = 55 * time.Second
 	_T60s   = 60 * time.Second
 	_T80s   = 80 * time.Second
 	_T100s  = 100 * time.Second
