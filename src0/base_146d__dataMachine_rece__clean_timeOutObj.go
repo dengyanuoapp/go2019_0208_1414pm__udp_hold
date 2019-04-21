@@ -18,8 +18,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y1__clean_timeoutConn() {
 	for _, __Vkey8 := range __VkDelArr {
 		delete(___Vdm.dmMconn.dcsMidx, __Vkey8)
 	}
-	_FpfN(" 381932 01 : %11d : Checking timeOutObj, conn{%s}", _FtimeInt(), ___Vdm.dmMconn.String())
-	_CpfN(" 381932 02 : %11d : Checking timeOutObj, conn{%s}", _FtimeInt(), ___Vdm.dmMconn.String())
+	//_CFpfN(" 381932 01 : %11d : Checking timeOutObj, conn{%s}", _FtimeInt(), ___Vdm.dmMconn.String())
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
@@ -38,17 +37,14 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 	}
 	for _, __Vkey9 := range __VkDelArr {
 		if nil == ___Vdm.dmCHloginGenMachineIdLO {
-			_FpfN(" 381932 04 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain(%s)", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
-			_CpfN(" 381932 05 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain(%s)", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
+			_CFpfN(" 381932 04 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain(%s)", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
 		} else {
-			_FpfN(" 381932 06 : %11d : try to stop lost connect %x in loginGen, ok {%s}", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
-			_CpfN(" 381932 07 : %11d : try to stop lost connect %x in loginGen, ok {%s}", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
+			_CFpfN(" 381932 06 : %11d : try to stop lost connect %x in loginGen, ok {%s}", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
 
 			(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
 				diIdx128: __Vkey9[:],
 			}
 		}
 	}
-	_FpfN(" 381932 08 : %11d : Checking timeOutObj, data{%s}", _FtimeInt(), ___Vdm.dmMdata.String())
-	_CpfN(" 381932 09 : %11d : Checking timeOutObj, data{%s}", _FtimeInt(), ___Vdm.dmMdata.String())
+	//_CFpfN(" 381932 08 : %11d : Checking timeOutObj, data{%s}", _FtimeInt(), ___Vdm.dmMdata.String())
 }

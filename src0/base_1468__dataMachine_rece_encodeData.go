@@ -65,6 +65,5 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 	___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortArr = __VcpArr     // _TdataMachinEdataClient
 	___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortAmount = len(__VcpArr)
 
-	_FpfN(" 839195 08 : _TdataMachine : rece{%s}---{%s}", ___Vdec.String(), ___Vdm.dmMdata.String())
-	_CpfN(" 839195 09 : _TdataMachine : rece{%s}---{%s}", ___Vdec.String(), ___Vdm.dmMdata.String())
+	//_CFpfN(" 839195 08 : _TdataMachine : rece{%s}---{%s}", ___Vdec.String(), ___Vdm.dmMdata.String())
 }

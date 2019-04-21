@@ -21,8 +21,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAl
 	for __Vkey6, __Vidx6 := range ___Vdm.dmMdata.ddsMidx { // _TdataMachinEdataClient _TdataMachinEdataSt
 		if __Vnow2-___Vdm.dmMdata.ddsMm[__Vidx6].ddcLastSendTime > _Vgap_skip_idle_send {
 			// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
-			_FpfN(" 381921 04 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
-			_CpfN(" 381921 05 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
+			//_CFpfN(" 381921 04 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
 
 			___Vdm.
 				_FdataMachin__1000502z__dataSendIdle__packAndSendToOneID(&(___Vdm.dmMdata.ddsMm[__Vidx6]))
