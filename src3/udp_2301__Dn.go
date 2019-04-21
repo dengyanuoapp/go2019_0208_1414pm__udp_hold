@@ -138,6 +138,7 @@ func main() {
 	// _FdataMachin__1000601x__encodeData_sendMux                 // 7
 	// _FdataMachin__1000201x21__rece_encodeData                  // 8
 	// _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen // 9
+	// _FdataMachin__1000504x__checkTimeOutDieClient              // 9
 	// _FdataMachin__1000201x__receive__default                   // a
 	// _FdataMachin__1000201x11__rece_machineId_check_and_insert  // b
 	go _Frun(&_VdataMachine_Dn, 1000101) // IRun _FdataMachin__1000101__main_init__default

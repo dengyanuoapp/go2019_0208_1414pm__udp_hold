@@ -2,7 +2,10 @@ package main
 
 const _VallowClientMax = 1000
 const _VallowTunnelPerClientMax = 150
-const _Vgap_nothingToLost = 39 // 3*(12+1) == 39
+
+// send idle == 8-12, so , check == 12*3==36 == every 39 second check per time , if 2 check lost , connect lost (45)
+const _Vgap_connectLostTimeOut = 39 // 3*(12+1) == 39
+const _Vgap_connectLostCheckDealy = _T45s
 const _Vgap_skip_idle_send = 7
 
 type _TdataMachinEid struct {

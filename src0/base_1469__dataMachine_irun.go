@@ -74,13 +74,13 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501x__swapLoginCkInfoForLock__tim
 func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap() {
 
 	for {
-		_FsleepRand_8_to_12s()
+		_FsleepRand_8_to_12s() // _Vgap_connectLostTimeOut
 		___Vdm.dmChSendIdleNoteInternalUSE <- 1
 	}
 }
 func (___Vdm *_TdataMachine) _FdataMachin__1000504x__checkTimeOutDieClient() {
 	for {
-		_Fsleep(_T25s)
+		_Fsleep(_Vgap_connectLostCheckDealy) // _Vgap_connectLostTimeOut
 		___Vdm.
 			dmChCheckTimeOutDieClient <- 1 // a 5s timer , send swap note to main receive loop. internal use only.
 	}
