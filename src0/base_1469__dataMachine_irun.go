@@ -60,6 +60,7 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 	go _Frun(___Vdm, 1000501) // _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen // (*___Vdm.dmCHloginGenMachineIdLO)<-
 	go _Frun(___Vdm, 1000502) // _FdataMachin__1000502x__dataSendIdle__gen_time_gap // (*___Vdm.dmCHloginGenMachineIdLO) <-
 	go _Frun(___Vdm, 1000503) // _FdataMachin__1000503x__time_gap_dataResend
+	go _Frun(___Vdm, 1000504) // _FdataMachin__1000504x__checkTimeOutDieClient
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen() {
@@ -78,7 +79,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap(
 }
 func (___Vdm *_TdataMachine) _FdataMachin__1000504x__checkTimeOutDieClient() {
 	for {
-		_Fsleep(_T80s)
+		_Fsleep(_T25s)
 		___Vdm.
 			dmChCheckTimeOutDieClient <- 1 // a 5s timer , send swap note to main receive loop. internal use only.
 	}

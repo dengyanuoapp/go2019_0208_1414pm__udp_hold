@@ -27,6 +27,12 @@ func _CpfS(___Vstr *string) {
 	(*_CHpr) <- __Vts
 }
 
+func _CpfNt(___Vfmt string, ___Vpara ...interface{}) {
+	__Vs := _Sph()
+	__Vs += _Spf("%d:", _FtimeInt())
+	__Vs += _Spf(___Vfmt+"\n", ___Vpara...)
+	_CpfS(&__Vs)
+}
 func _CpfN(___Vfmt string, ___Vpara ...interface{}) {
 	__Vs := _Sph()
 	__Vs += _Spf(___Vfmt+"\n", ___Vpara...)
