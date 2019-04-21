@@ -2,15 +2,14 @@ package main
 
 func _FloginGen__800301x__connGen__default(___Vlg *_TloginGenerator) {
 	__VnewSession := ___Vlg.lgSrvDownInfoLX // *_TsrvDownInfo
-	//_FpfNdb(" 138171 01 %#v ", ___Vlg.lgSrvDownInfoLX)
-	_FpfNdb(" 138171 02 %s ", ___Vlg.lgSrvDownInfoLX.String())
+	//_CFpfN(" 138171 01 %s ", ___Vlg.lgSrvDownInfoLX.String())
 
 	for {
 		//_Fsleep(__Vgap) // mini Gap , at least
 		_FsleepRand_12_to_14s()
 
 		if true == ___Vlg.lgConnected {
-			_CFpfN(" 138171 02 : don't need to connect server ")
+			//_CFpfN(" 138171 02 : don't need to connect server ")
 		} else {
 			if _FtimeInt()-__VnewSession.lastDownTime > 3600 { // 0,0 : re-download
 				_CFpfN(" 138171 03 : trying to update server info. ")

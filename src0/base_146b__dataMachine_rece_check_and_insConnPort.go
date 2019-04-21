@@ -84,8 +84,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 	___Vdm.dmMconn.dcsMm[__Vidx].dccLastReceTime = _FtimeInt()
 	___Vdm.dmMconn.dcsMm[__Vidx].dccLockCntNow++ // _TdataMachinEconnectSt
 
-	_FpfN(" 839193 13 : the same conn multi-port <%s>", ___VinsID.String())
-	_CpfN(" 839193 14 : new conn insered (%d)<%s> <%s>", __Vidx, ___Vdm.dmMconn.String(), ___VinsID.String())
+	//_CFpfN(" 839193 14 : new conn insered (%d)<%s> <%s>", __Vidx, ___Vdm.dmMconn.String(), ___VinsID.String())
 }
 
 func (___VnewConnP *_TudpConnPort) _FdataMachin__1000201x12__appendConnPort(___VoldConnParr *[]_TudpConnPort) []_TudpConnPort {
