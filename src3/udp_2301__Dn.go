@@ -44,8 +44,6 @@ func _Finit__2301() {
 		bnbCHoutLO1: &_VdataMachine_Dn.dmCHdebugInfoI,
 	}
 
-	_VbyteNoteBuf__Dn = _TbyteNoteBuf{}
-
 	_VudpDecode_Dn = _TuDecode{
 		uDeCHdecodeCkLO:   &_VloginCheck_Dn.ulCHdecodeCkI,    // _TloginCheck _TdecodeX
 		uDeCHdecodeDataLO: &_VdataMachine_Dn.dmCHdecodeDataI, // dmCHdecodeDataI _TdecodeX

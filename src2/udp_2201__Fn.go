@@ -41,8 +41,6 @@ func _Finit_2201() {
 		bnbCHoutLO1: &_VdataMachine_Fn.dmCHdebugInfoI,
 	}
 
-	_VbyteNoteBuf__Fn = _TbyteNoteBuf{}
-
 	_VudpNode_FunWaitDun = _TudpNodeSt{
 		unName:         "_VudpNode_FunWaitDun",
 		unLoopGap:      _T10s,
@@ -105,6 +103,9 @@ func main() {
 	// IRun _FtcpNode__200101x__init_default()
 	go _Frun(&_VtcpDebugLog__Fn, 200101)
 	// ------------------- tcp for debug monitor log --- end
+
+	// _FbyteNoteBuf__1300201x__chan_rece__default
+	go _Frun(&_VbyteNoteBuf__Fn, 1300101) // _FbyteNoteBuf__1300101x__init
 
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
 	// _FdataPack__decode_from_udpNodeDataRece
