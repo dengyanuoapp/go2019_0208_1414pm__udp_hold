@@ -6,6 +6,7 @@ import (
 
 var (
 	_VtcpDebugLog__Fn      _TtcpNodE
+	_VbyteNoteBuf__Fn      _TbyteNoteBuf
 	_VudpGroup_Fn          _TudpGroupSt
 	_VudpDecode_Fn         _TuDecode
 	_VudpEncode_Fn         _TuEncode
@@ -34,8 +35,13 @@ func _Finit_2201() {
 		tnName:          " tcp_debug_Fn ",
 		tnHostPortStr:   "127.0.0.1:50002",
 		tnAmount:        10,
-		tnCHdebugInfoLO: &_VdataMachine_Fn.dmCHdebugInfoI,
+		tnCHdebugInfoLO: &_VbyteNoteBuf__Fn.bnbCHinI,
 	}
+	_VbyteNoteBuf__Fn = _TbyteNoteBuf{
+		bnbCHoutLO1: &_VdataMachine_Fn.dmCHdebugInfoI,
+	}
+
+	_VbyteNoteBuf__Fn = _TbyteNoteBuf{}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{
 		unName:         "_VudpNode_FunWaitDun",

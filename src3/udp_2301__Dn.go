@@ -6,6 +6,7 @@ import (
 
 var (
 	_VtcpDebugLog__Dn   _TtcpNodE
+	_VbyteNoteBuf__Dn   _TbyteNoteBuf
 	_VudpGroup_Dn       _TudpGroupSt
 	_VudpDecode_Dn      _TuDecode
 	_VudpEncode_Dn      _TuEncode
@@ -37,8 +38,13 @@ func _Finit__2301() {
 		tnHostPortStr: "127.0.0.1:50003",
 		tnAmount:      10,
 		//taCHreceLO :
-		tnCHdebugInfoLO: &_VdataMachine_Dn.dmCHdebugInfoI,
+		tnCHdebugInfoLO: &_VbyteNoteBuf__Dn.bnbCHinI,
 	}
+	_VbyteNoteBuf__Dn = _TbyteNoteBuf{
+		bnbCHoutLO1: &_VdataMachine_Dn.dmCHdebugInfoI,
+	}
+
+	_VbyteNoteBuf__Dn = _TbyteNoteBuf{}
 
 	_VudpDecode_Dn = _TuDecode{
 		uDeCHdecodeCkLO:   &_VloginCheck_Dn.ulCHdecodeCkI,    // _TloginCheck _TdecodeX
@@ -104,6 +110,9 @@ func main() {
 	go _Frun(&_VtcpDebugLog__Dn, 200101) // _FtcpNode__200101x__init_default
 	//go _Frun(&_VtcpDebugLog__Dn, 200801) // _FtcpNode__200801x_send__tester01
 	//go _Frun(&_VtcpDebugLog__Dn, 200802) // _FtcpNode__200802x_send__tester02
+
+	// _FbyteNoteBuf__1300201x__chan_rece__default
+	go _Frun(&_VbyteNoteBuf__Dn, 1300101) // _FbyteNoteBuf__1300101x__init
 
 	// _FudpNode__500201y__receive__default()
 	// _FudpNode__500101__main_init__default
