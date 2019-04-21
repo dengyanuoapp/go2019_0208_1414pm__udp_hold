@@ -71,17 +71,18 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 	//__Vc := &(___Vdm.dmMconn.dcsMm[___VcIdx])
 	__Vidx4, __VdOk4 := ___Vdm.dmMdata.ddsMidx[*___Vkey] // _TdataMachinEdataSt _TdataMachinEdataClient
 	if __VdOk4 {
-		_CpfN(" 839197 01 : re-create client of {%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
-		_CpfN(" 839197 02 : re-create client of {%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
+		_CpfN(" 839197 01 : re-create client of  conn{%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
+		_CpfN(" 839197 02 : re-create client of  data{%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
 	} else {
-		_CpfN(" 839197 05 : create new client of {%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
-		_CpfN(" 839197 06 : create new client of {%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
+		_CpfN(" 839197 03 : create new client of conn{%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
+		_CpfN(" 839197 04 : create new client of data{%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
 		__Vidx4 = ___Vdm.dmMdata.
 			_FdataMachin__search_avaiable__TdataMachinEdataClient() // _TdataMachinEdataClient _TdataMachinEdataSt
 		if __Vidx4 < 0 {
 			_CpfN(" 839197 07 : new conn-data insered <%s>", ___Vdm.dmMdata.String())
 			return
 		}
+		___Vdm.dmMdata.ddsMidx[*___Vkey] = __Vidx4
 	}
 	__Vd := &(___Vdm.dmMdata.ddsMm[__Vidx4])    // _TdataMachinEdataClient
 	__Vd.Clear()                                // _TdataMachinEdataSt
@@ -94,7 +95,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 	//__Vd .  ddcLastReceTime   int
 	//__Vd .  ddcLastSendTime   int
 	//__Vd .  ddcLastSendIdx    int
-	_CpfN(" 839197 09 {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+	_CpfN(" 839197 08 : after create         conn{%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
+	_CpfN(" 839197 09 : after create         data{%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__tryUpdateAddressArrIfSame(___Vkey *[16]byte, ___Vc *_TdataMachinEconnectClient) {
