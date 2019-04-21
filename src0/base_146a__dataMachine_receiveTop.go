@@ -66,6 +66,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000508__printDebugInfo() {
 	if __Vt-___VdmInfoLastTime < 3 {
 		return // ignore repeat print
 	}
+
+	___VdmInfoLastTime = __Vt
+
 	_NpfN(" 348181 01 : tcp rece ")
 	_CFpfN(" 348181 02 : _TdataMachine conn{%s} --- data{%s} \n",
 		___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
