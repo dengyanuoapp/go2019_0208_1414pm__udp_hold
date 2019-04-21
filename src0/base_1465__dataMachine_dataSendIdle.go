@@ -3,6 +3,8 @@ package main
 func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAll() {
 
 	if 0 == len(___Vdm.dmMdata.ddsMidx) {
+		_FpfN(" 381921 01 : %11d : try send idle , but why no client ? {%s} --- {%s} ", _FtimeInt(), ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+		_CpfN(" 381921 02 : %11d : try send idle , but why no client ? {%s} --- {%s} ", _FtimeInt(), ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 		return
 	}
 
@@ -19,14 +21,14 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAl
 	for __Vkey6, __Vidx6 := range ___Vdm.dmMdata.ddsMidx { // _TdataMachinEdataClient _TdataMachinEdataSt
 		if __Vnow2-___Vdm.dmMdata.ddsMm[__Vidx6].ddcLastSendTime > _Vgap_skip_idle_send {
 			// pack as _TdataTran -->  _TdecodeX .  Ddata // _TencodeX
-			_FpfN(" 381921 01 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
-			_CpfN(" 381921 02 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
+			_FpfN(" 381921 04 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
+			_CpfN(" 381921 05 : %11d : try send idle %x {%s}", _FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
 
 			___Vdm.
 				_FdataMachin__1000502z__dataSendIdle__packAndSendToOneID(&(___Vdm.dmMdata.ddsMm[__Vidx6]))
 
 		} else {
-			_FpfN(" 381921 03 : %11d : try send idle %x , but in 10s sent already. Skip. {%s}",
+			_FpfN(" 381921 07 : %11d : try send idle %x , but in 10s sent already. Skip. {%s}",
 				_FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
 		}
 	}
