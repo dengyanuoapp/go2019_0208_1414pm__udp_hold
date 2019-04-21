@@ -62,7 +62,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 		__Vc.dccLockCntLast = 0 // clear the counter , forbit being next used
 		__Vc.dccLockCntNow = 0  // _TdataMachinEconnectSt
 	}
-	_CpfN(" 839196 09 after swap {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+	_CpfN(" 839196 09 after swap {%s} ======######====== {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 }
 
 // _FdataMachin__1000201x11__rece_machineId_check_and_insert
@@ -100,11 +100,11 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__tryUpdateAddressArrIfSame(___Vkey *[16]byte, ___Vc *_TdataMachinEconnectClient) {
-	_CpfN(" 839198 01 {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+	_CpfN(" 839198 01 {%s} ======######====== {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 
 	__Vidx4, __VdOk4 := ___Vdm.dmMdata.ddsMidx[*___Vkey] // _TdataMachinEdataSt _TdataMachinEdataClient
 	if false == __VdOk4 {
-		_CpfN(" 839198 02 {%s} --- {%s} not exist, do nothing.", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+		_CpfN(" 839198 02 {%s} ======######====== {%s} not exist, do nothing.", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 		return
 	}
 
@@ -120,7 +120,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__try
 				__Vd.ddcConnPortAmount++
 			}
 		}
-		_CpfN(" 839198 07 {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+		_CpfN(" 839198 07 {%s} ======######====== {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 		return
 	}
 
@@ -131,6 +131,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__try
 		__Vd.ddcConnPortStrMap[__Vv5.DstAddr.String()] = 1
 	}
 	__Vd.ddcConnPortAmount = ___Vc.dccConnPortAmount //  int
-	_CpfN(" 839198 09 {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+	_CpfN(" 839198 09 {%s} ======######====== {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 
 }

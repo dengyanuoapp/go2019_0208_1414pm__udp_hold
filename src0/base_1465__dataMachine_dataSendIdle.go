@@ -3,7 +3,7 @@ package main
 func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAll() {
 
 	if 0 == len(___Vdm.dmMdata.ddsMidx) {
-		//_CFpfN(" 381921 01 : %11d : try send idle , but why no client ? {%s} --- {%s} ", _FtimeInt(), ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+		//_CFpfN(" 381921 01 : %11d : try send idle , but why no client ? {%s} ======######====== {%s} ", _FtimeInt(), ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 		return
 	}
 
