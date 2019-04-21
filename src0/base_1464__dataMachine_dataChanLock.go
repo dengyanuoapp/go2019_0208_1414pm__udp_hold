@@ -89,6 +89,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 	//__Vd .  ddcLastSendIdx    int
 	_CpfN(" 183818 09 {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 }
+
 func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__tryUpdateAddressArrIfSame(___Vkey *[16]byte, ___VcIdx int) {
 	_FpfNex(" 183819 01 {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 }
