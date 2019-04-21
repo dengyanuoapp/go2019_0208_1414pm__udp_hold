@@ -58,12 +58,13 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 		K256:    ___Vdec.RemotePortKey,
 	} // []byte
 
-	_CpfN(" 839195 07 : _TdataMachine : rece{%s}", ___Vdec.String())
-
 	// _TdataMachinEdataSt
 	__VcpArr := __VconnPort._FdataMachin__1000201x12__appendConnPort(&(___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortArr))
 	// ddcID:             ___Vdec.Ddata.ddsMm[__Vidx4].ddcID, // _TdataTran
 	___Vdm.dmMdata.ddsMm[__Vidx4].ddcLastReceTime = _FtimeInt() // _Tdecode
 	___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortArr = __VcpArr     // _TdataMachinEdataClient
 	___Vdm.dmMdata.ddsMm[__Vidx4].ddcConnPortAmount = len(__VcpArr)
+
+	_FpfN(" 839195 08 : _TdataMachine : rece{%s}---{%s}", ___Vdec.String(), ___Vdm.dmMdata.String())
+	_CpfN(" 839195 09 : _TdataMachine : rece{%s}---{%s}", ___Vdec.String(), ___Vdm.dmMdata.String())
 }
