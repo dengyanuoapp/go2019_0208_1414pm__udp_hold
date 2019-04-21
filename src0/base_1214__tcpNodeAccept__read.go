@@ -73,6 +73,10 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	} else {
 		(*___VtAcc3.taCHreceLO) <- ___VtAcc3.taRdata
 	}
+
+	if nil != ___VtAcc3.taServerTCP.tnCHdebugInfoLO {
+		(*(___VtAcc3.taServerTCP.tnCHdebugInfoLO)) <- 1
+	}
 	return true
 } //
 

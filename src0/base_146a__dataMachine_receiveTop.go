@@ -48,8 +48,17 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 
 			___Vdm.
 				_FdataMachin__1000501y__clean_timeoutObj()
+		case <-___Vdm.dmCHdebugInfoI:
+			___V_FdataMachin__1000201x__receive__default__mux.Lock()
+
+			___Vdm.
+				_FdataMachin__1000508__printDebugInfo()
 		}
 
 		___V_FdataMachin__1000201x__receive__default__mux.Unlock()
 	}
+}
+
+func (___Vdm *_TdataMachine) _FdataMachin__1000508__printDebugInfo() {
+	_CFpfN(" 348181 01 : tcp rece ")
 }
