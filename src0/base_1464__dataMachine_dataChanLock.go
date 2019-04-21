@@ -23,9 +23,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 		__Vc.dccLockCntLast = __Vc.dccLockCntNow
 		if __Vcnt >= 3 { // one connect must have the amount of connect-portS large then 2
 
-			___Vdm.
-				_FdataMachin__1000501z__swapLoginCkInfoForLock__createNewDataClient(&__Vkey2, __Vidx2)
-
 			if nil == ___Vdm.dmCHloginGenMachineIdLO {
 				switch _VS.ProjName {
 				case "Fn":
@@ -43,31 +40,54 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 				(*___Vdm.dmCHloginGenMachineIdLO) <- ___Vdm.dmMconn.dcsMm[__Vidx2].dccID
 				___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
 
-				__Vc.dccLockCntLast = 0 // clear the counter , forbit being next used
 			}
+
+			___Vdm.
+				_FdataMachin__1000501z__swapLoginCkInfoForLock__createNewDataClient(&__Vkey2, __Vidx2)
+			__Vc.dccLockCntLast = 0 // clear the counter , forbit being next used
+
 		} else {
 			//_FpfN(" 839196 07 no-enough, swap only , no update . (%d)[%x]{%s}" , __Vidx2 , __Vkey2 , ___Vdm.dmMconn.String())
-			_CpfN(" 839196 08 no-enough, swap only , no update . (%d)[%x]{%s}", __Vidx2, __Vkey2, ___Vdm.dmMconn.String())
-
+			_CpfN(" 839196 08 no-enough, swap only , update if possible. (%d)[%x]{%s}", __Vidx2, __Vkey2, ___Vdm.dmMconn.String())
+			//__Vc.dccLockCntLast = 0 // clear the counter , forbit being next used
+			___Vdm.
+				_FdataMachin__1000501z__swapLoginCkInfoForLock__tryUpdateAddressArrIfSame(&__Vkey2, __Vidx2)
 		}
-		__Vc.dccLockCntNow = 0
+		__Vc.dccLockCntNow = 0 // _TdataMachinEconnectSt
 	}
-	_CpfN(" 839196 09 after swap {%s}", ___Vdm.dmMconn.String())
+	_CpfN(" 839196 09 after swap {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 }
 
 // _FdataMachin__1000201x11__rece_machineId_check_and_insert
 func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__createNewDataClient(___Vkey *[16]byte, ___VcIdx int) {
 	// ___Vdm.dmMconn.dcsMm[__Vidx2].
-	_, __VdOk4 := ___Vdm.dmMdata.ddsMidx[*___Vkey] // _TdataMachinEdataSt _TdataMachinEdataClient
+	__Vc := &(___Vdm.dmMconn.dcsMm[___VcIdx])
+	__Vidx4, __VdOk4 := ___Vdm.dmMdata.ddsMidx[*___Vkey] // _TdataMachinEdataSt _TdataMachinEdataClient
 	if __VdOk4 {
 		_CpfN(" 183818 01 : re-create client of {%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
 		_CpfN(" 183818 02 : re-create client of {%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
-		_CpfN(" 183818 03 : under-constructing")
-		_FpfN(" 183818 04 : under-constructing")
 	} else {
 		_CpfN(" 183818 05 : create new client of {%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
 		_CpfN(" 183818 06 : create new client of {%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
-		_CpfN(" 183818 07 : under-constructing")
-		_FpfN(" 183818 08 : under-constructing")
+		__Vidx4 = ___Vdm.dmMdata.
+			_FdataMachin__search_avaiable__TdataMachinEdataClient() // _TdataMachinEdataClient _TdataMachinEdataSt
+		if __Vidx4 < 0 {
+			_CpfN(" 183818 07 : new conn-data insered <%s>", ___Vdm.dmMdata.String())
+			return
+		}
 	}
+	__Vd := &(___Vdm.dmMdata.ddsMm[__Vidx4])    // _TdataMachinEdataClient
+	__Vd.Clear()                                // _TdataMachinEdataSt
+	__Vd.ddcID = __Vc.dccID                     // _TdataMachinEid
+	__Vd.ddcConnPortArr = __Vc.dccConnPortArr   // []_TudpConnPort
+	for _, __Vv5 := range __Vd.ddcConnPortArr { // _TudpConnPort
+		__Vd.ddcConnPortStrMap[__Vv5.DstAddr.String()] = 1
+	}
+	__Vd.ddcConnPortAmount = __Vc.dccConnPortAmount //  int
+	//__Vd .  ddcLastReceTime   int
+	//__Vd .  ddcLastSendTime   int
+	//__Vd .  ddcLastSendIdx    int
+}
+func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__tryUpdateAddressArrIfSame(___Vkey *[16]byte, ___VcIdx int) {
+	_FpfNex(" 183819 01 {%s} --- {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 }

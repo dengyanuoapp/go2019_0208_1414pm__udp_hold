@@ -45,10 +45,12 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
 	___Vdm.dmMconn.dcsMidx = make(map[[16]byte]int)
 	___Vdm.dmMdata.ddsMidx = make(map[[16]byte]int)
+
 	for __Vi := 0; __Vi < _VallowClientMax; __Vi++ {
 		___Vdm.dmMconn.dcsMm[__Vi].dccConnPortStrMap = make(map[string]byte) // _TdataMachinEconnectClient
 		___Vdm.dmMdata.ddsMm[__Vi].ddcConnPortStrMap = make(map[string]byte) // _TdataMachinEdataClient
 	}
+
 	___Vdm.dmMconn.dcsMfreeAmount = _VallowClientMax // _TdataMachinEconnectSt
 	___Vdm.dmMdata.ddsMfreeAmount = _VallowClientMax // _TdataMachinEdataSt
 
