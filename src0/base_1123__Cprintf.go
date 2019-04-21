@@ -41,3 +41,5 @@ func _CpfN(___Vfmt string, ___Vpara ...interface{}) {
 
 func ___CpfN(___Vfmt string, ___Vpara ...interface{}) {
 }
+func _NpfN(___Vfmt string, ___Vpara ...interface{}) {
+}

@@ -12,7 +12,7 @@ type _TacceptTCP struct {
 	taServerTCP  *_TtcpNodE
 	taConnTCP    *net.TCPConn
 	taErr        error
-	tnCHreceLO   *chan _TtcpNodeDataRece
+	taCHreceLO   *chan _TtcpNodeDataRece
 	taRcnt       _Tcount
 	taWcnt       _Tcount
 	taBuf        []byte
@@ -48,6 +48,7 @@ type _TtcpNodE struct {
 	tnErr                error
 	tnCBinit             func(*_TtcpNodE) // _FtcpNode__200101x__init_default
 	tnCHsendToAllClientI chan _TtcpNodeDataSend
+	tnCHdebugInfoLO      *chan byte // if not-null , when receiving , send one byte into this byte to info the other monitorInfoByteChan
 	tnAcceptTCPs         []_TacceptTCP
 	tnClientMux          sync.Mutex
 	tnClientCnt          int

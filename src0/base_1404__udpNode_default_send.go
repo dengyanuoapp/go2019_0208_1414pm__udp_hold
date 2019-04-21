@@ -87,7 +87,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		return
 	}
 
-	_CpfN( //keykey
+	_NpfN( //keykey
 		" 839119 09 udp-send-rand %11d me<:%d> mreceK:<%s> to<%s> toK<%s> before:%d{%x}, rand:%d{%x} [%s]",
 		//                          1      2            3     4       5          6   7        8   9   10
 		_FtimeI64(),                       // 1

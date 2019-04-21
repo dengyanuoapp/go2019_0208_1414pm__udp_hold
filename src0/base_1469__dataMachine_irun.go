@@ -38,6 +38,7 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 
 	___Vdm.dmCHdataMachineIdI = make(chan _TdataMachinEid, 50)
 	___Vdm.dmCHdecodeDataI = make(chan _Tdecode, 50)
+	___Vdm.dmCHdebugInfoI = make(chan byte, 50)
 
 	___Vdm.dmChSendIdleNoteInternalUSE = make(chan byte, 1) // a random timer , send idle note to main receive loop. internal use only.
 	___Vdm.dmChSwapLoginCkInfoForLock = make(chan byte, 1)  // a 5s timer , send swap note to main receive loop. internal use only.

@@ -31,9 +31,10 @@ func _Finit_2201() {
 	_FPargs()
 
 	_VtcpDebugLog__Fn = _TtcpNodE{
-		tnName:        " tcp_debug_Fn ",
-		tnHostPortStr: "127.0.0.1:50002",
-		tnAmount:      10,
+		tnName:          " tcp_debug_Fn ",
+		tnHostPortStr:   "127.0.0.1:50002",
+		tnAmount:        10,
+		tnCHdebugInfoLO: &_VdataMachine_Fn.dmCHdebugInfoI,
 	}
 
 	_VudpNode_FunWaitDun = _TudpNodeSt{

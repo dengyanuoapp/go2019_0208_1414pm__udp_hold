@@ -36,6 +36,8 @@ func _Finit__2301() {
 		tnName:        " tcp_debug_Dn ",
 		tnHostPortStr: "127.0.0.1:50003",
 		tnAmount:      10,
+		//taCHreceLO :
+		tnCHdebugInfoLO: &_VdataMachine_Dn.dmCHdebugInfoI,
 	}
 
 	_VudpDecode_Dn = _TuDecode{
