@@ -12,7 +12,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 	___Vdm.dmMconn.dcsMux.Lock()         // _TdataMachinEconnectClient
 
 	if 0 == len(___Vdm.dmMconn.dcsMidx) {
-		_CpfN(" 839196 00 zero-len conn-Arr , nothing need to swap.")
+		//_CFpfN(" 839196 00 zero-len conn-Arr , nothing need to swap.")
 		return
 	}
 
