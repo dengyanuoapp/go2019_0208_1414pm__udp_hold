@@ -5,21 +5,22 @@ import (
 )
 
 var (
-	_VtcpDebugLog__Fn      _TtcpNodE
-	_VbyteNoteBuf__Fn      _TbyteNoteBuf
-	_VudpGroup_Fn          _TudpGroupSt
-	_VudpDecode_Fn         _TuDecode
-	_VudpEncode_Fn         _TuEncode
-	_VdataMachine_Fn       _TdataMachine
-	_VloginCheck_FnWaitDun _TloginCheck
-	_CHexit                chan string             = make(chan string, 10)
-	_CHpr                  *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
-	_Vself                 _Tself
-	_Vconfig               _Tconfig
-	_VudpNode__FnWdn       _TudpNodeSt
-	_VgapFilter__FnWdn     _TgapFilter //_TgapFilterX
-	_VudpNode__FnWcn       _TudpNodeSt
-	_VgapFilter__FnWcn     _TgapFilter //_TgapFilterX
+	_VtcpDebugLog__Fn          _TtcpNodE
+	_VbyteNoteBuf__Fn          _TbyteNoteBuf
+	_VudpGroup_Fn              _TudpGroupSt
+	_VudpDecode_Fn             _TuDecode
+	_VudpEncode_Fn             _TuEncode
+	_VdataMachine_Fn           _TdataMachine
+	_VloginCheck_FnWaitDun     _TloginCheck
+	_CHexit                    chan string             = make(chan string, 10)
+	_CHpr                      *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
+	_Vself                     _Tself
+	_Vconfig                   _Tconfig
+	_VudpNode__FnWdn           _TudpNodeSt
+	_VgapFilter__FnWdn         _TgapFilter //_TgapFilterX
+	_VudpNode__FnWcn           _TudpNodeSt
+	_VgapFilter__FnWcn         _TgapFilter //_TgapFilterX
+	_VrecePackThenEncodeAsLoad _TrecePackThenEncodeAsLoad
 )
 
 func _Finit_2201() {
@@ -64,6 +65,8 @@ func _Finit_2201() {
 	_VgapFilter__FnWcn = _TgapFilter{ //_TgapFilterX
 		//gfCHbyteLO: &_VudpDecode_Fn.uDeCHreceUnByteI,
 	}
+
+	_VrecePackThenEncodeAsLoad = _TrecePackThenEncodeAsLoad{}
 
 	_VudpDecode_Fn = _TuDecode{
 		uDeCHdecodeCkLO:   &_VloginCheck_FnWaitDun.ulCHdecodeCkI, // _TloginCheck _Tdecode
@@ -152,6 +155,9 @@ func main() {
 	// _FgapFilter__1200301x__Chan_rece
 	go _Frun(&_VgapFilter__FnWdn, 1200101) // _FgapFilter__1200101x__init_default
 	go _Frun(&_VgapFilter__FnWcn, 1200101) // _FgapFilter__1200101x__init_default
+
+	// _FrecePackThenEncodeAsLoad__1400201x__chan_rece__default
+	go _Frun(&_VrecePackThenEncodeAsLoad, 1400101) // _FrecePackThenEncodeAsLoad__1400101x__init
 
 	<-_CHexit
 } // main
