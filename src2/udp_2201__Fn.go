@@ -16,8 +16,10 @@ var (
 	_CHpr                  *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
 	_Vself                 _Tself
 	_Vconfig               _Tconfig
-	_VudpNode_FunWaitDun   _TudpNodeSt
-	_VgapFilter__Fn        _TgapFilter //_TgapFilterX
+	_VudpNode__FnWaitDn    _TudpNodeSt
+	_VgapFilter__FnWaitDn  _TgapFilter //_TgapFilterX
+	_VudpNode__FnWaitCn    _TudpNodeSt
+	_VgapFilter__FnWaitCn  _TgapFilter //_TgapFilterX
 )
 
 func _Finit_2201() {
@@ -41,14 +43,14 @@ func _Finit_2201() {
 		bnbCHoutLO1: &_VdataMachine_Fn.dmCHdebugInfoI,
 	}
 
-	_VudpNode_FunWaitDun = _TudpNodeSt{
-		unName:         "_VudpNode_FunWaitDun",
+	_VudpNode__FnWaitDn = _TudpNodeSt{
+		unName:         "_VudpNode__FnWaitDn",
 		unLoopGap:      _T10s,
 		unRKeyLP:       &_Vpasswd_udp_Fn_waitForCliens01,
-		unCHreceByteLO: &_VgapFilter__Fn.gfCHbyteI,
+		unCHreceByteLO: &_VgapFilter__FnWaitDn.gfCHbyteI,
 	}
 
-	_VgapFilter__Fn = _TgapFilter{ //_TgapFilterX
+	_VgapFilter__FnWaitDn = _TgapFilter{ //_TgapFilterX
 		gfCHbyteLO: &_VudpDecode_Fn.uDeCHreceUnByteI,
 	}
 
@@ -82,7 +84,7 @@ func _Finit_2201() {
 	}
 	flag.StringVar(&_VudpGroup_Fn.ugHostPortStr[0], "cn", ":0", _VudpGroup_Fn.ugName)
 
-	flag.StringVar(&_VudpNode_FunWaitDun.unHostPortStr, "FunWdun", ":32001", _VudpNode_FunWaitDun.unName)
+	flag.StringVar(&_VudpNode__FnWaitDn.unHostPortStr, "FunWdun", ":32001", _VudpNode__FnWaitDn.unName)
 
 	flag.Parse()
 
@@ -110,7 +112,7 @@ func main() {
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
 	// _FdataPack__decode_from_udpNodeDataRece
 	// _FudpNode__500201y__receive__default
-	go _Frun(&_VudpNode_FunWaitDun, 500101) // IRun _FudpNode__500101__main_init__default
+	go _Frun(&_VudpNode__FnWaitDn, 500101) // IRun _FudpNode__500101__main_init__default
 
 	// _FudpDecode__700201x__receive__default
 	go _Frun(&_VudpDecode_Fn, 700101) // IRun _FudpDecode__700101x__init__default
@@ -135,7 +137,7 @@ func main() {
 	// _FgapFilter__1200301x1__uDataSwap
 	// _FgapFilter__1200301x2__uData_rece
 	// _FgapFilter__1200301x__Chan_rece
-	go _Frun(&_VgapFilter__Fn, 1200101) // _FgapFilter__1200101x__init_default
+	go _Frun(&_VgapFilter__FnWaitDn, 1200101) // _FgapFilter__1200101x__init_default
 
 	<-_CHexit
 } // main
