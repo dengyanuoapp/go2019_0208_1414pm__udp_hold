@@ -5,7 +5,8 @@ const _VallowTunnelPerClientMax = 150
 
 // send idle == 8-12, so , check == 12*4==36 == every 39 second check per time , if 2 check lost , connect lost (25)
 //const _Vgap_connectLostTimeOut = 39 // 3*(12+1) == 39
-const _Vgap_connectLostTimeOut = 52 // 4*(12+1) == 52
+//const _Vgap_connectLostTimeOut = 52 // 4*(12+1) == 52
+const _Vgap_connectLostTimeOut = 78 // 4*(12+1) == 52
 const _Vgap_connectLostCheckDealy = _T25s
 const _Vgap_skip_idle_send = 7
 
@@ -43,6 +44,8 @@ type _TdataMachine struct {
 	dmCHencodeIdleLO            *chan _Tencode        // _TencodeX , send IDLE
 	dmCHencodeDataFnDnLO        *chan _Tencode        // _TencodeX , used for Fn-Dn
 	dmCHencodeData9999LO        *chan _Tencode        // _TencodeX , used for normal data tunnel
+	dmCHencodeDataFnDnI         chan _Tencode         // _TencodeX , used for Fn-Dn
+	dmCHencodeData9999I         chan _Tencode         // _TencodeX , used for normal data tunnel
 	dmCHdebugInfoI              chan byte             // when received , output the debug info
 	//dmCH  unCHreceByteLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	//dmCH  unCHsendI     chan _TudpNodeDataSend  // try get data from chan, then send it out.
