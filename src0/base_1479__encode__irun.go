@@ -22,9 +22,7 @@ func (___Vuen *_TuEncode) IRun(___Vidx int) {
 func _FuEncode__1100101__main_init__default(___Vuen *_TuEncode) {
 
 	___Vuen.enCHencodeCkI = make(chan _Tencode, 50)
-	___Vuen.enCHencodeDataIdleI = make(chan _Tencode, 50)
-	___Vuen.enCHencodeDataFnDnI = make(chan _Tencode, 50)
-	___Vuen.enCHencodeData9999I = make(chan _Tencode, 50)
+	___Vuen.enCHencodeDataCommI = make(chan _Tencode, 50)
 
 	_Fsleep(_T1s)
 

@@ -19,15 +19,9 @@ func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 			//___Vuen.
 			//	_FdataMachin__1000201x11__rece_machineId_check_and_insert(&__Vue)
 			//__Vue.enLogin.
-		case __Vue = <-___Vuen.enCHencodeDataIdleI: // chan _TencodeX
+		case __Vue = <-___Vuen.enCHencodeDataCommI: // chan _TencodeX
 			___VuEncode__1100201x__chanIn_mux.Lock()
 			//_CFpfN(" 849192 05 : try Encode idle Data{%s}", __Vue.String())
-		case __Vue = <-___Vuen.enCHencodeDataFnDnI: // chan _TencodeX
-			___VuEncode__1100201x__chanIn_mux.Lock()
-			_CFpfN(" 849192 06 : try Encode FnDn Data{%s}", __Vue.String())
-		case __Vue = <-___Vuen.enCHencodeData9999I: // chan _TencodeX
-			___VuEncode__1100201x__chanIn_mux.Lock()
-			_CFpfN(" 849192 07 : try Encode 9999 Data{%s}", __Vue.String())
 		}
 		__Vue.
 			_FdataPack__100__loginReq(__Vue.enType, &__Vus.usOutBuf)
