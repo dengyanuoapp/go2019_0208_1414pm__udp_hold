@@ -49,9 +49,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendTo
 	// _TdataMachinEdataClient
 	__Vconn := ___Vdmdc.ddcConnPortArr[__Vidx]
 
-	__Venc := _Tencode{ // _TencodeX // Cmd__loginS01genReplyTokenA
+	__Venc := _Tencode{ // _TencodeX // LoadT__loginS01genReplyTokenA
 		Ti:           _FtimeInt(),
-		enType:       Cmd__data_01_idle,
+		enType:       LoadT__data_01_idle,
 		enToId128:    ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
 		enToConnPort: __Vconn,                 // _TudpConnPort
 		enData: _TdataTran{
@@ -59,7 +59,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendTo
 			MYseq128: _VS.MySeq128,
 			TOidx128: ___Vdmdc.ddcID.diIdx128,
 			TOseq128: ___Vdmdc.ddcID.diSeq128,
-			DDcmd:    Cmd__data_01_idle,
+			DDcmd:    LoadT__data_01_idle,
 		},
 	}
 

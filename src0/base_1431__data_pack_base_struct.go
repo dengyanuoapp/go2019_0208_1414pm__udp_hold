@@ -6,38 +6,38 @@ import (
 )
 
 const (
-	Cmd__NULL                    = iota // 0
-	Cmd__loginS01genReplyTokenA         // 1
-	Cmd__loginS02genReplyTokenB         // 2
-	Cmd__loginS03acceptWithToken        // 3
-	Cmd__loginEnd                       // 4
-	Cmd__data_01_idle                   // 5
-	Cmd__data_11_chan_new_req           // 6
-	Cmd__dataEnd                        // 7
+	LoadT__NULL                    = iota // 0
+	LoadT__loginS01genReplyTokenA         // 1
+	LoadT__loginS02genReplyTokenB         // 2
+	LoadT__loginS03acceptWithToken        // 3
+	LoadT__loginEnd                       // 4
+	LoadT__data_01_idle                   // 5
+	LoadT__data_11_chan_new_req           // 6
+	LoadT__dataEnd                        // 7
 )
 
 func _FcmdType(___Vc byte) string {
 	switch ___Vc {
-	case Cmd__NULL:
-		return "Cmd__NULL"
+	case LoadT__NULL:
+		return "LoadT__NULL"
 
-	case Cmd__loginS01genReplyTokenA:
-		return "Cmd__loginS01genReplyTokenA"
-	case Cmd__loginS02genReplyTokenB:
-		return "Cmd__loginS02genReplyTokenB"
-	case Cmd__loginS03acceptWithToken:
-		return "Cmd__loginS03acceptWithToken"
+	case LoadT__loginS01genReplyTokenA:
+		return "LoadT__loginS01genReplyTokenA"
+	case LoadT__loginS02genReplyTokenB:
+		return "LoadT__loginS02genReplyTokenB"
+	case LoadT__loginS03acceptWithToken:
+		return "LoadT__loginS03acceptWithToken"
 
-	case Cmd__loginEnd:
-		return "Cmd__loginEnd"
+	case LoadT__loginEnd:
+		return "LoadT__loginEnd"
 
-	case Cmd__data_01_idle:
-		return "Cmd__data_01_idle"
-	case Cmd__data_11_chan_new_req:
-		return "Cmd__data_11_chan_new_req"
+	case LoadT__data_01_idle:
+		return "LoadT__data_01_idle"
+	case LoadT__data_11_chan_new_req:
+		return "LoadT__data_11_chan_new_req"
 
-	case Cmd__dataEnd:
-		return "Cmd__dataEnd"
+	case LoadT__dataEnd:
+		return "LoadT__dataEnd"
 	default:
 		return "Cmd__unknown"
 	}
@@ -75,9 +75,9 @@ type _Tdecode struct {
 func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
 	switch ___Vd.Type {
-	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB, Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
+	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB, LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		__Vcontent = "Dlogin:" + ___Vd.Dlogin.String()
-	case Cmd__data_01_idle, Cmd__data_11_chan_new_req: //
+	case LoadT__data_01_idle, LoadT__data_11_chan_new_req: //
 		__Vcontent = "Ddata:" + ___Vd.Ddata.String()
 	default:
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.Type)
@@ -126,10 +126,10 @@ func (___Ven *_Tencode) String() string {
 	__Vso = _Spf("Ti:%d to:<%s> toId:%s T:%d", ___Ven.Ti, ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enType)
 
 	switch ___Ven.enType {
-	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
-		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
+	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
+		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
 		__Vso += _Spf(" cmd:{%s}", ___Ven.enLogin.String()) // _TloginReq
-	case Cmd__data_01_idle, Cmd__data_11_chan_new_req:
+	case LoadT__data_01_idle, LoadT__data_11_chan_new_req:
 		__Vso += _Spf(" data:{%s}", ___Ven.enData.String()) // _TdataTran
 	default:
 		__Vso += "===839818918unknown==="

@@ -26,7 +26,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 	}
 
 	switch ___Vdec.Type {
-	case Cmd__data_01_idle:
+	case LoadT__data_01_idle:
 		// do continue
 	default:
 		_FpfN(" 839195 02 : _TdataMachine : unknown type :{%s}", ___Vdec.String())

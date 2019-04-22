@@ -23,7 +23,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[
 		enLogin: __Vreq,
 	}
 	__Vencode.
-		_FdataPack__100__loginReq(Cmd__loginS01genReplyTokenA, ___VoutBuf)
+		_FdataPack__100__loginReq(LoadT__loginS01genReplyTokenA, ___VoutBuf)
 
 	//_FpfN(" 138185 04 : gen (origin:%d) byte to buf:{%s}", len(*___VoutBuf), __Vreq.String())
 
@@ -43,13 +43,13 @@ func (___Vencode *_Tencode) _FdataPack__100__loginReq(___Vtype byte, ___VoutBuf 
 	)
 
 	switch ___Vtype { // _TloginReq
-	case Cmd__loginS01genReplyTokenA,
-		Cmd__loginS02genReplyTokenB,
-		Cmd__loginS03acceptWithToken:
+	case LoadT__loginS01genReplyTokenA,
+		LoadT__loginS02genReplyTokenB,
+		LoadT__loginS03acceptWithToken:
 		__Vb2, __Verr2 =
 			_FencGob__only(&___Vencode.enLogin) // _TloginReq
-	case Cmd__data_01_idle, // 5
-		Cmd__data_11_chan_new_req: // 6
+	case LoadT__data_01_idle, // 5
+		LoadT__data_11_chan_new_req: // 6
 		__Vb2, __Verr2 =
 			_FencGob__only(&___Vencode.enData) // _TdataTran
 		//_CpfN(" 138186 02 : _Tencode encode (%s) .", ___Vencode.enData.String())

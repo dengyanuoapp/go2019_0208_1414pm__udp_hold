@@ -6,7 +6,7 @@ import (
 )
 
 func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(___Vdecode *_Tdecode, ___Venc *_Tencode) {
-	if _FcheckDecodeType(___Vdecode, Cmd__loginS02genReplyTokenB) {
+	if _FcheckDecodeType(___Vdecode, LoadT__loginS02genReplyTokenB) {
 		_FpfNdb(" 838381 01 type error , ignore ")
 		return
 	}
@@ -41,7 +41,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.RemotePortKey, // []byte
 		},
-		enType: Cmd__loginS03acceptWithToken,
+		enType: LoadT__loginS03acceptWithToken,
 		enLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),

@@ -30,13 +30,13 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	__Vbuf2 := ___Vbuf[37:]
 
 	switch ___Vbuf[0] {
-	case Cmd__loginS01genReplyTokenA, Cmd__loginS02genReplyTokenB,
-		Cmd__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
+	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
+		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		//___Vdecode.Dlogin = _TloginReq{}
 		__Verr2 =
 			_FdecGob___(" 387193 01 ", __Vbuf2, &___Vdecode.Dlogin)
-	case Cmd__data_01_idle, // 5
-		Cmd__data_11_chan_new_req: // 6
+	case LoadT__data_01_idle, // 5
+		LoadT__data_11_chan_new_req: // 6
 		__Verr2 =
 			_FdecGob___(" 387193 02 ", __Vbuf2, &___Vdecode.Ddata) // _Tdecode _TdataTran
 

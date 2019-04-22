@@ -42,7 +42,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			switch __Venc.enType {
 			case 0:
 				_FpfN(" 138184 06 zero Type , nothing need to send. %s ", __Venc.String()) // _TencodeX
-			case Cmd__loginEnd:
+			case LoadT__loginEnd:
 				// no use , but told the debug disable only
 			default:
 				(*___Vlc.ulCHencodeCkLO) <- __Venc // _Tencode
@@ -58,20 +58,20 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 func (___Vlc *_TloginCheck) _FloginCheck__900201xC1__standardCheck(___Vdecode *_Tdecode, ___Venc *_Tencode) {
 	//_FpfNdb(" 138183 03 : %s", ___Vdecode.String()) // 15540463611554046361
 	switch ___Vdecode.Type {
-	case Cmd__loginS01genReplyTokenA:
+	case LoadT__loginS01genReplyTokenA:
 		// ============================ step 02 : Fn gen tokenB, to Dn, cmd fill 02 ====================
 		//_FpfN(" 138183 04 : %s", ___Vdecode.String())
 		___Vlc.
 			_FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn(___Vdecode, ___Venc)
-	case Cmd__loginS02genReplyTokenB:
+	case LoadT__loginS02genReplyTokenB:
 		// ============================ step 03 : Dn check tokenA,id128,seq128 ,ACCEPT --> cmd fill 03 ====================
 		___Vlc.
 			_FloginCheck_step900201y__s3accept_tokenA_fill03send_Dn(___Vdecode, ___Venc)
-	case Cmd__loginS03acceptWithToken:
+	case LoadT__loginS03acceptWithToken:
 		// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 		___Vlc.
 			_FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(___Vdecode)
-		___Venc.enType = Cmd__loginEnd // no use , but told the following debug disable only
+		___Venc.enType = LoadT__loginEnd // no use , but told the following debug disable only
 	default:
 		_CFpfN(" 138183 08 : unknow how to deal with : type %d,", ___Vdecode.Type)
 		//continue // next Select
@@ -85,7 +85,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC2__standardCheck(___Venc *_Ten
 
 	*___Venc = _Tencode{
 		enToConnPort: *___VuConnPort, // _TudpConnPort
-		enType:       Cmd__loginS01genReplyTokenA,
+		enType:       LoadT__loginS01genReplyTokenA,
 		enLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),

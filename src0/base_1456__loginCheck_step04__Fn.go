@@ -6,7 +6,7 @@ import (
 )
 
 func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(___Vdecode *_Tdecode) {
-	if _FcheckDecodeType(___Vdecode, Cmd__loginS03acceptWithToken) {
+	if _FcheckDecodeType(___Vdecode, LoadT__loginS03acceptWithToken) {
 		_FpfNdb(" 838383 01 type error , ignore ")
 		return
 	}

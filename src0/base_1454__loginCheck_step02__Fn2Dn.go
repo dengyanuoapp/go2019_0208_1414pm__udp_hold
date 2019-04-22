@@ -3,7 +3,7 @@ package main
 import "reflect"
 
 func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_Fn(___Vdecode *_Tdecode, ___Venc *_Tencode) {
-	if _FcheckDecodeType(___Vdecode, Cmd__loginS01genReplyTokenA) {
+	if _FcheckDecodeType(___Vdecode, LoadT__loginS01genReplyTokenA) {
 		_FpfNdb(" 838393 01 type error , ignore ")
 		return
 	}
@@ -31,7 +31,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.RemotePortKey, // []byte
 		},
-		enType: Cmd__loginS02genReplyTokenB,
+		enType: LoadT__loginS02genReplyTokenB,
 		enLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),
