@@ -82,7 +82,7 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 			___CpfN(" 388197 09 uDecode real outChain : %s", __Vdecode.String())
 			(*___Vude.uDeCHdecodeCkLO) <- __Vdecode // 15540463611554046361
 		}
-	case LoadT__data_01_idle:
+	case LoadT__data_01_special:
 		_NpfN(" 388199 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
 		if nil == ___Vude.uDeCHdecodeDataLO {
 			_CpfN(" 388199 03 : outChan null , ignore ")

@@ -35,8 +35,8 @@ func _FdataPack__dataDecode_common(___Vdecode *_Tdecode, ___Vbuf []byte) {
 		//___Vdecode.Dlogin = _TloginReq{}
 		__Verr2 =
 			_FdecGob___(" 387193 01 ", __Vbuf2, &___Vdecode.Dlogin)
-	case LoadT__data_01_idle, // 5
-		LoadT__data_11_chan_new_req: // 6
+	case LoadT__data_01_special, // 5
+		LoadT__data_99_normal: // 6
 		__Verr2 =
 			_FdecGob___(" 387193 02 ", __Vbuf2, &___Vdecode.Ddata) // _Tdecode _TdataTran
 

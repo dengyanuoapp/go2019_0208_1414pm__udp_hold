@@ -26,10 +26,11 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 	}
 
 	switch ___Vdec.Type {
-	case LoadT__data_01_idle:
+	case LoadT__data_01_special:
 		// do continue
+		_CpfN(" 839195 03 : _TdataMachine : LoadT__data_01_special :{%s}", ___Vdec.String())
 	default:
-		_FpfN(" 839195 02 : _TdataMachine : unknown type :{%s}", ___Vdec.String())
+		_FpfN(" 839195 05 : _TdataMachine : unknown type :{%s}", ___Vdec.String())
 		return
 	}
 
@@ -41,7 +42,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 	__Vidx4, __Vok4 := ___Vdm.dmMdata.ddsMidx[__Vk] // map[[16]byte]_TdataMachinEdataClient
 
 	if false == __Vok4 { // if not exist ,
-		_CpfN(" 839195 03 : _TdataMachine : no such id exist . {%s}", ___Vdec.String())
+		_CpfN(" 839195 06 : _TdataMachine : no such id exist . {%s}", ___Vdec.String())
 		return
 	}
 
@@ -49,7 +50,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_encodeData(___Vdec *
 	if                                                                                            // _TdataMachinEdataSt
 	false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diIdx128, ___Vdec.Ddata.MEidx128) || // _Tdecode _TdataTran
 		false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diSeq128, ___Vdec.Ddata.MYseq128) { // _TdataMachinEdataClient
-		_CpfN(" 839195 05 : _TdataMachine : error id/seq . {%s}", ___Vdec.String())
+		_CpfN(" 839195 07 : _TdataMachine : error id/seq . {%s}", ___Vdec.String())
 		return
 	}
 

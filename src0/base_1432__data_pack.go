@@ -48,8 +48,8 @@ func (___Vencode *_Tencode) _FdataPack__100__loginReq(___Vtype byte, ___VoutBuf 
 		LoadT__loginS03acceptWithToken:
 		__Vb2, __Verr2 =
 			_FencGob__only(&___Vencode.enLogin) // _TloginReq
-	case LoadT__data_01_idle, // 5
-		LoadT__data_11_chan_new_req: // 6
+	case LoadT__data_01_special, // 5
+		LoadT__data_99_normal: // 6
 		__Vb2, __Verr2 =
 			_FencGob__only(&___Vencode.enData) // _TdataTran
 		//_CpfN(" 138186 02 : _Tencode encode (%s) .", ___Vencode.enData.String())

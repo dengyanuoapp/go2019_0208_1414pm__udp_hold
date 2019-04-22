@@ -11,8 +11,8 @@ const (
 	LoadT__loginS02genReplyTokenB         // 2
 	LoadT__loginS03acceptWithToken        // 3
 	LoadT__loginEnd                       // 4
-	LoadT__data_01_idle                   // 5
-	LoadT__data_11_chan_new_req           // 6
+	LoadT__data_01_special                // 5
+	LoadT__data_99_normal                 // 6
 	LoadT__dataEnd                        // 7
 )
 
@@ -31,10 +31,10 @@ func _FcmdType(___Vc byte) string {
 	case LoadT__loginEnd:
 		return "LoadT__loginEnd"
 
-	case LoadT__data_01_idle:
-		return "LoadT__data_01_idle"
-	case LoadT__data_11_chan_new_req:
-		return "LoadT__data_11_chan_new_req"
+	case LoadT__data_01_special:
+		return "LoadT__data_01_special"
+	case LoadT__data_99_normal:
+		return "LoadT__data_99_normal"
 
 	case LoadT__dataEnd:
 		return "LoadT__dataEnd"
@@ -77,7 +77,7 @@ func (___Vd *_Tdecode) String() string {
 	switch ___Vd.Type {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB, LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
 		__Vcontent = "Dlogin:" + ___Vd.Dlogin.String()
-	case LoadT__data_01_idle, LoadT__data_11_chan_new_req: //
+	case LoadT__data_01_special, LoadT__data_99_normal: //
 		__Vcontent = "Ddata:" + ___Vd.Ddata.String()
 	default:
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.Type)
@@ -129,7 +129,7 @@ func (___Ven *_Tencode) String() string {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
 		__Vso += _Spf(" cmd:{%s}", ___Ven.enLogin.String()) // _TloginReq
-	case LoadT__data_01_idle, LoadT__data_11_chan_new_req:
+	case LoadT__data_01_special, LoadT__data_99_normal:
 		__Vso += _Spf(" data:{%s}", ___Ven.enData.String()) // _TdataTran
 	default:
 		__Vso += "===839818918unknown==="
