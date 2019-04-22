@@ -95,6 +95,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 	//__Vd .  ddcLastReceTime   int
 	//__Vd .  ddcLastSendTime   int
 	//__Vd .  ddcLastSendIdx    int
+	___Vdm.dmMdata.ddsMusedAmount++
+	___Vdm.dmMdata.ddsMfreeAmount--
 	_CpfN(" 839197 08 : after create         conn{%s} ", ___Vdm.dmMconn.String()) // _TdataMachinEconnectSt _TdataMachinEconnectClient
 	_CpfN(" 839197 09 : after create         data{%s} ", ___Vdm.dmMdata.String()) // _TdataMachinEdataSt    _TdataMachinEdataClient
 }

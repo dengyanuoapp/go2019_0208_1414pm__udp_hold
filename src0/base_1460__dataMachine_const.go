@@ -4,6 +4,7 @@ const _VallowClientMax = 1000
 const _VallowTunnelPerClientMax = 150
 
 // send idle == 8-12, so , check == 12*4==36 == every 39 second check per time , if 2 check lost , connect lost (25)
+//const _Vgap_connectLostTimeOut = 39 // 3*(12+1) == 39
 const _Vgap_connectLostTimeOut = 52 // 4*(12+1) == 52
 const _Vgap_connectLostCheckDealy = _T25s
 const _Vgap_skip_idle_send = 7
