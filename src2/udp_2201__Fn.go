@@ -63,10 +63,13 @@ func _Finit_2201() {
 	}
 
 	_VgapFilter__FnWcn = _TgapFilter{ //_TgapFilterX
-		//gfCHbyteLO: &_VudpDecode_Fn.uDeCHreceUnByteI,
+		gfCHbyteLO: &_VrecePackThenEncodeAsLoad.pelCHudpNodeDataReceBI,
 	}
 
-	_VrecePackThenEncodeAsLoad = _TrecePackThenEncodeAsLoad{}
+	_VrecePackThenEncodeAsLoad = _TrecePackThenEncodeAsLoad{
+		//pelCHudpNodeDataReceBI
+		// pelCHencodeBLO
+	}
 
 	_VudpDecode_Fn = _TuDecode{
 		uDeCHdecodeCkLO:   &_VloginCheck_FnWaitDun.ulCHdecodeCkI, // _TloginCheck _Tdecode
