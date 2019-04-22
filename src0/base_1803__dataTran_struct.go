@@ -1,12 +1,12 @@
 package main
 
 const (
-	DDType__NULL = iota // 0
-	DDType__idle        // 1
-	DDType__fndn        // 2
-	DDType__s2c         // 3
-	DDType__c2s         // 4
-	DDType__End         // 5
+	DDType__NULL = 121
+	DDType__idle = 122
+	DDType__fndn = 123
+	DDType__s2c  = 124
+	DDType__c2s  = 125
+	DDType__End  = 126
 )
 
 type _TdataTran struct {
