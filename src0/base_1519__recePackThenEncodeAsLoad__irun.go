@@ -21,7 +21,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) IRun(___Vidx int) {
 }
 
 func _FrecePackThenEncodeAsLoad__1400101x__init(___Vpel *_TrecePackThenEncodeAsLoad) {
-	___Vpel.pelCHudpNodeDataReceBI = make(chan _TdataTran, 50)
+	___Vpel.pelCHudpNodeDataReceBI = make(chan []byte, 50) // _TdataTran, 50)
 
 	_Fsleep(_T1s)
 

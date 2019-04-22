@@ -5,7 +5,6 @@ import "sync"
 var _VrecePackThenEncodeAsLoad__1400201x__mux sync.Mutex
 
 func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201x__chan_rece__default() {
-	var __VbOut []byte
 	for {
 
 		select {
@@ -13,9 +12,9 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201x_
 		case __VpB := <-___Vpel.pelCHudpNodeDataReceBI:
 			_VrecePackThenEncodeAsLoad__1400201x__mux.Lock()
 
-			_CFpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%2}", String9(__VpB))
-			___Vgf.
-				_FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(&__VpB, &__VbOut)
+			_CFpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%2}", String9(&__VpB))
+			___Vpel.
+				_FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(&__VpB)
 
 			//			if nil != ___Vpel.pelCHoutLO {
 			//				(*___Vpel.pelCHoutLO) <- __Vp
@@ -30,12 +29,12 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201x_
 
 //_FgapFilter__1200301x3__Byte_rece
 // _FudpDecode__700201x11__receive__default
-func (___Vgf *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(___VbyteIn *[]byte, ___VbyteOut *[]byte) {
-	(*___VbyteOut) = []byte{}
-	//_FpfN(" 381917 23 : gfCHbyteI :[%x]", __VbyteIn)
+func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(___VbyteIn *[]byte) {
+	//(*___VbyteOut) = []byte{}
+	//_FpfN(" 381917 23 : gfCHbyteI :[%x]", ___VbyteIn)
 
 	__VunRece := _TudpNodeDataRece{}
-	__Verr4 := _FdecGob___(" 638196 02 ", *__VbyteIn, &__VunRece)
+	__Verr4 := _FdecGob___(" 638196 02 ", *___VbyteIn, &__VunRece)
 	if nil != __Verr4 {
 		_CFpfN(" 638196 02 : why error <%v> ?", __Verr4)
 		return
@@ -56,16 +55,18 @@ func (___Vgf *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y__
 	}
 
 	__Vdecode := _Tdecode{} // _TdecodeX
-	__VunRece.
-		_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
+	//__VunRece.
+	//	_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
+
+	_FdataPack__dataDecode_common(&__Vdecode, __Vtmp3out)
 	if __Vdecode.Type != LoadT__loginS01genReplyTokenA {
 		_CFpfN(" 638196 0r Ti:%d decode error {%v} error , get type %d  , want type %d ",
 			__VtraceIntDE, __Verr2, __Vdecode.Type, LoadT__loginS01genReplyTokenA)
 		return
 	}
 
-	__Venc := _Tencode{ // _TencodeX
-	}
+	//__Venc := _Tencode{ // _TencodeX
+	//}
 
 	//(*___VbyteOut), __Verr := _FencGob__only(___V)
 
