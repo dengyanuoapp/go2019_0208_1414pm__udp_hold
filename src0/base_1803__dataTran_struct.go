@@ -15,7 +15,7 @@ type _TdataTran struct {
 	TOidx128 []byte
 	TOseq128 []byte
 	TTokenD  []byte
-	DDcmd    byte
+	DDcmd    byte // DDType__idle
 	DDoffset uint64
 	DDbuf    []byte
 }

@@ -12,7 +12,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201x_
 		case __VpB := <-___Vpel.pelCHudpNodeDataReceBI:
 			_VrecePackThenEncodeAsLoad__1400201x__mux.Lock()
 
-			_CFpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%s}", String9(&__VpB))
+			__FpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%s}", String9(&__VpB))
 			___Vpel.
 				_FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(&__VpB)
 
@@ -30,8 +30,15 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201x_
 //_FgapFilter__1200301x3__Byte_rece
 // _FudpDecode__700201x11__receive__default
 func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(___VbyteIn *[]byte) {
-	//(*___VbyteOut) = []byte{}
-	//_FpfN(" 381917 23 : gfCHbyteI :[%x]", ___VbyteIn)
+	if nil == ___VbyteIn {
+		_FpfNex(" 638196 00 : _TrecePackThenEncodeAsLoad : why input byte Chan null ?")
+		return
+	}
+
+	if nil == ___Vpel.pelCHencodeBLO {
+		_CFpfN(" 638196 01 : _TrecePackThenEncodeAsLoad : why out-Chan null <%s> ?", String9(___VbyteIn))
+		return
+	}
 
 	__VunRece := _TudpNodeDataRece{}
 	__Verr4 := _FdecGob___(" 638196 02 ", *___VbyteIn, &__VunRece)
@@ -47,7 +54,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	__VtraceIntDE := __VunRece.Ti
 	__Vtmp3in := __VunRece.UrrBuf
-	__Vtmp3out, __Verr2 :=
+	__Vtmp3out, __Verr2 := // byte of _Tdecode
 		_FdecAesRand__only(__VunRece.UrrReceiveKey.Bkey, __Vtmp3in, __VtraceIntDE)
 	if nil != __Verr2 {
 		_CFpfN(" 638196 04 Ti:%d AesDec error {%v} {%s}", __VtraceIntDE, __Verr2, __VunRece.String()) // keykey
@@ -65,7 +72,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
-	_CFpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
+	__FpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
 	/*
 
 		    Fn:1556005752  638191 x1 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{(656){fb5a3b0ccc}[68ff81030101115f54]}
@@ -82,11 +89,31 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	*/
 
+	__Vc2s := _Trepack__c2s{
+		C2sDe:   __Vdecode,               // _Tdecode
+		C2sAddr: __VunRece.UrrRemoteAddr, // net.UDPAddr _TudpNodeDataReceX
+	}
+
+	__VoutC2s, __Verr3 := _FencGob__only(&__Vc2s)
+	if nil != __Verr3 {
+		_CFpfN(" 638196 07 why encGob error ? <%v> , {%s} ", __Verr3, __Vc2s.String())
+		return
+	}
+
 	__Venc := _Tencode{ // _TencodeX
-		Ti:         __Vdecode.Ti,              // _TdecodeX
+		Ti:         __VunRece.Ti,              // _TdecodeX
 		enToId128:  __Vdecode.Dlogin.MeIdx128, // _TloginReq
 		enLoadType: LoadT__data_01_special,    //byte
-		enData:     _TdataTran{},
+		enData: _TdataTran{
+			DDcmd: DDType__c2s, // byte
+			DDbuf: __VoutC2s,   // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
+			// MEidx128 []byte
+			// MYseq128 []byte
+			// TOidx128 []byte
+			// TOseq128 []byte
+			// TTokenD  []byte
+			// DDoffset uint64
+		},
 		//enToConnPort _TudpConnPort // another of to addr
 		//enLogin      _TloginReq
 		//enDelay      int // a delay resend if not zero
@@ -95,6 +122,11 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	_CFpfN(" 638196 08 _TrecePackThenEncodeAsLoad: encOut{%s}", __Venc.String())
 
-	//(*___VbyteOut), __Verr := _FencGob__only(___V)
+	__VoutC2sB, __Verr4 := _FencGob__only(&__Venc)
+	if nil != __Verr4 {
+		_CFpfN(" 638196 09 why encGob error ? <%v> , {%s} ", __Verr4, __Venc.String())
+		return
+	}
 
+	(*(___Vpel.pelCHencodeBLO)) <- __VoutC2sB
 }
