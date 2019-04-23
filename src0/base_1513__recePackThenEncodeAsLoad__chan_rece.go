@@ -60,10 +60,12 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	_FdataPack__dataDecode_common(&__Vdecode, __Vtmp3out)
 	if __Vdecode.Type != LoadT__loginS01genReplyTokenA {
-		_CFpfN(" 638196 0r Ti:%d decode error {%v} error , get type %d  , want type %d ",
+		_CFpfN(" 638196 05 Ti:%d decode error {%v} error , get type %d  , want type %d ",
 			__VtraceIntDE, __Verr2, __Vdecode.Type, LoadT__loginS01genReplyTokenA)
 		return
 	}
+
+	_CFpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
 
 	//__Venc := _Tencode{ // _TencodeX
 	//}
