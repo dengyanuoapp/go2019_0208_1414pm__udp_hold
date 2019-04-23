@@ -35,7 +35,7 @@ func _Finit__2301() {
 
 	_VtcpDebugLog__Cn = _TtcpNodE{
 		tnName:          " tcp_debug_Cn ",
-		tnHostPortStr:   "127.0.0.1:50003",
+		tnHostPortStr:   "127.0.0.1:50005",
 		tnAmount:        10,
 		tnCHdebugInfoLO: &_VbyteNoteBuf__Cn.bnbCHinI,
 	}
