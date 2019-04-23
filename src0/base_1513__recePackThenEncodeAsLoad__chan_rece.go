@@ -66,6 +66,21 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	}
 
 	_CFpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
+	/*
+
+		    Fn:1556005752  638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{(656){fb5a3b0ccc}[68ff81030101115f54]}
+
+		    Fn:1556005752  638196 06 _TrecePackThenEncodeAsLoad: dec{Ti:0 ok:bool rm::0 rmk:e3a10d3210 type:LoadT__loginS01genReplyTokenA
+		    {Dlogin:rand5:eecf0ef53d ti:1556005735 req: loginS01genReplyTokenA  mn:Cn mid:ff11afd83a,fc0495fdda tid:, tkAB:504387d547,}
+		    t:1556005752 } ====####==== unRece{Ti:57349055 mp:48881 ra:127.0.0.1:42228 buf(321){a96049b0a9}[(321){a96049b0a9}[2f7a54b6c9f136dd50]]
+		    k[k1:321893a732 k2:321893a732 dis:F]}
+
+		    this package is set from the Cn's  port ra:127.0.0.1:42228 , the 42228's receKey is rmk:e3a10d3210, Cn's id is mid:ff11afd83a,fc0495fdda
+
+		    _TencodeX
+			_TdataTran
+
+	*/
 
 	//__Venc := _Tencode{ // _TencodeX
 	//}
