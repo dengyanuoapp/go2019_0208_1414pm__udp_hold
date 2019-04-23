@@ -12,7 +12,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201x_
 		case __VpB := <-___Vpel.pelCHudpNodeDataReceBI:
 			_VrecePackThenEncodeAsLoad__1400201x__mux.Lock()
 
-			_CFpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%2}", String9(&__VpB))
+			_CFpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%s}", String9(&__VpB))
 			___Vpel.
 				_FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(&__VpB)
 
