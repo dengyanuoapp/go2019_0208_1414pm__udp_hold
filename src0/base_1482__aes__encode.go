@@ -1,11 +1,12 @@
 package main
 
-func (___Vaes *_Taes) _FcbcEncode() {
+/*
+func (___Vaes *_Taes) _FcbcEncode() { // _TaesX
 	defer ___Vaes.aesMux.Unlock()
 	___Vaes.aesMux.Lock()
 
 	___Vaes.aesOk = false
-	___Vaes.aesEncode = true
+	___Vaes.aesEncodeMode = true
 
 	if 32 != len(___Vaes.aesKey)() {
 		___Vaes.aesErr = _Spf(" 138141 01 : aes key length error : %d ", len(___Vaes.aesKey))
@@ -20,4 +21,6 @@ func (___Vaes *_Taes) _FcbcEncode() {
 	}
 
 	___Vaes.aesOk = true
+    return true
 }
+*/

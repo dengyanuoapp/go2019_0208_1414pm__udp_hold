@@ -1,8 +1,9 @@
 package main
 
+/*
 import "sync"
 
-type _TaesX struct {
+type _Taes struct {
 	aesKey        []byte
 	aesEncodeMode bool // true --> encode mode , false --> decode mode
 	aesRandMode   bool // true --> add rand pad , false --> do nothing
@@ -12,7 +13,7 @@ type _TaesX struct {
 	aesMux        sync.Mutex
 	aesErr        string
 }
-type _Taes struct {
+type _TaesX struct {
 }
 
 func (___Vaes *_Taes) String() string {
@@ -29,3 +30,4 @@ func (___Vaes *_Taes) String() string {
 		___Vaes.aesErr,
 	)
 }
+*/

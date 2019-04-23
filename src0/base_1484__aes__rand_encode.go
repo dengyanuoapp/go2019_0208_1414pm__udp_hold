@@ -1,5 +1,6 @@
 package main
 
+/*
 func (___Vaes *_Taes) _FrandPatAddToOutput() bool {
 	__Vlen := len(___Vaes.aesBufOut)
 	__VpatLen = _FtimeInt() % 16
@@ -21,3 +22,4 @@ func (___Vaes *_Taes) _FrandPatAddToOutput() bool {
 
 	return true
 }
+*/
