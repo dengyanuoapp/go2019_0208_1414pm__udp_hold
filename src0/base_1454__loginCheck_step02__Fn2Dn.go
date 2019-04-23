@@ -31,7 +31,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.RemotePortKey, // []byte
 		},
-		enType: LoadT__loginS02genReplyTokenB,
+		enLoadType: LoadT__loginS02genReplyTokenB,
 		enLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),

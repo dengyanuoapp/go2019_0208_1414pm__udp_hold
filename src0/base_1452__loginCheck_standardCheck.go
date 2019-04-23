@@ -39,7 +39,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			_FpfNonce(" 138184 04 : why CMD-en not Chan ? {%s}", __Venc.String())
 		} else {
 			//_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
-			switch __Venc.enType {
+			switch __Venc.enLoadType {
 			case 0:
 				_FpfN(" 138184 06 zero Type , nothing need to send. %s ", __Venc.String()) // _TencodeX
 			case LoadT__loginEnd:
@@ -71,7 +71,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC1__standardCheck(___Vdecode *_
 		// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 		___Vlc.
 			_FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(___Vdecode)
-		___Venc.enType = LoadT__loginEnd // no use , but told the following debug disable only
+		___Venc.enLoadType = LoadT__loginEnd // no use , but told the following debug disable only
 	default:
 		_CFpfN(" 138183 08 : unknow how to deal with : type %d,", ___Vdecode.Type)
 		//continue // next Select
@@ -85,7 +85,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC2__standardCheck(___Venc *_Ten
 
 	*___Venc = _Tencode{
 		enToConnPort: *___VuConnPort, // _TudpConnPort
-		enType:       LoadT__loginS01genReplyTokenA,
+		enLoadType:   LoadT__loginS01genReplyTokenA,
 		enLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),

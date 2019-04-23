@@ -24,7 +24,7 @@ func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 			//_CFpfN(" 849192 05 : try Encode idle Data{%s}", __Vue.String())
 		}
 		__Vue.
-			_FdataPack__100__loginReq(__Vue.enType, &__Vus.usOutBuf)
+			_FdataPack__100__loginReq(__Vue.enLoadType, &__Vus.usOutBuf)
 
 		if 0 == __Vue.Ti {
 			__Vue.Ti = _FgenRand_int()

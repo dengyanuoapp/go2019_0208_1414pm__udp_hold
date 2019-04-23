@@ -110,7 +110,7 @@ type _Tencode struct {
 	Ti           int
 	enToId128    []byte        // one of to addr : use enToConnPort if zero , or use this as to addess
 	enToConnPort _TudpConnPort // another of to addr
-	enType       byte
+	enLoadType   byte
 	enLogin      _TloginReq
 	enData       _TdataTran
 	enDelay      int // a delay resend if not zero
@@ -123,9 +123,9 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("Ti:%d to:<%s> toId:%s T:%d", ___Ven.Ti, ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enType)
+	__Vso = _Spf("Ti:%d to:<%s> toId:%s T:%d", ___Ven.Ti, ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enLoadType)
 
-	switch ___Ven.enType {
+	switch ___Ven.enLoadType {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
 		__Vso += _Spf(" cmd:{%s}", ___Ven.enLogin.String()) // _TloginReq
