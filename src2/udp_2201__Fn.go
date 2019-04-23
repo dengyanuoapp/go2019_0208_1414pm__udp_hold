@@ -67,8 +67,7 @@ func _Finit_2201() {
 	}
 
 	_VrecePackThenEncodeAsLoad = _TrecePackThenEncodeAsLoad{
-		//pelCHudpNodeDataReceBI
-		// pelCHencodeBLO
+		pelCHencodeBLO: &_VdataMachine_Fn.dmCHencodeDataSpecBI, // *chan []byte // byte of _TencodeX
 	}
 
 	_VudpDecode_Fn = _TuDecode{

@@ -21,7 +21,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
-			//_CFpfN(" 839192 04 : _TdataMachine receive _Tdecode {%s}", __Vdec.String())
+			//_CFpfN(" 839192 03 : _TdataMachine receive _Tdecode {%s}", __Vdec.String())
 
 			___Vdm.
 				_FdataMachin__1000201x21__rece_encodeData(&__Vdec)
@@ -29,7 +29,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 		case <-___Vdm.dmChSendIdleNoteInternalUSE:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
-			//_CFpfN(" 839192 06 : _TdataMachine receive idle timeOut note . trying to send idle.")
+			//_CFpfN(" 839192 04 : _TdataMachine receive idle timeOut note . trying to send idle.")
 
 			___Vdm.
 				_FdataMachin__1000502y__dataSendIdle__packAndSendAll()
@@ -37,22 +37,29 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 		case <-___Vdm.dmChSwapLoginCkInfoForLock: // chan byte // a 5s timer , send swap note to main receive loop. internal use only.
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
-			//_CFpfN(" 839192 08 : reset-MachineID : _TdataMachine receive swap loginCKinfo note . ")
+			//_CFpfN(" 839192 05 : reset-MachineID : _TdataMachine receive swap loginCKinfo note . ")
 
 			___Vdm.
 				_FdataMachin__1000501y__swapLoginCkInfoForLock__swap()
 		case <-___Vdm.dmChCheckTimeOutDieClient:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
-			//_CFpfN(" 839192 09 : reset-MachineID : _TdataMachine receive swap loginCKinfo note . ")
+			//_CFpfN(" 839192 06 : reset-MachineID : _TdataMachine receive swap loginCKinfo note . ")
 
 			___Vdm.
 				_FdataMachin__1000501y__clean_timeoutObj()
-		case <-___Vdm.dmCHdebugInfoI:
+
+		case <-___Vdm.dmCHencodeDataSpecBI:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
-			___Vdm.
-				_FdataMachin__1000508__printDebugInfo()
+			_CFpfN(" 839192 07 : _TdataMachine dmCHencodeDataSpecBI :under constructing conn{%s} ========######======= data{%s} \n",
+				___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+
+		case <-___Vdm.dmCHencodeData9999BI:
+			___V_FdataMachin__1000201x__receive__default__mux.Lock()
+
+			_CFpfN(" 839192 08 : _TdataMachine dmCHencodeData9999BI :under constructing conn{%s} ========######======= data{%s} \n",
+				___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 		}
 
 		___V_FdataMachin__1000201x__receive__default__mux.Unlock()
