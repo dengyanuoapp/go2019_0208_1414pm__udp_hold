@@ -28,25 +28,25 @@ func (___Vdi *_TdataMachinEid) String() string {
 }
 
 type _TdataMachine struct {
-	dmChSendIdleNoteInternalUSE chan byte            // a random timer , send idle note to main receive loop. internal use only.
-	dmChSwapLoginCkInfoForLock  chan byte            // a 5s timer , send swap note to main receive loop. internal use only.
-	dmChCheckTimeOutDieClient   chan byte            // a 5s timer , send swap note to main receive loop. internal use only.
-	dmCBinit                    func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
-	dmCBrece                    func(*_TdataMachine) //
-	dmCBprReceKey               func(*_TdataMachine) //
-	dmCBprSendKey               func(*_TdataMachine) //
-	dmCBdebugInfo               func(*_TdataMachine) //
-	dmMconn                     _TdataMachinEconnectSt
-	dmMdata                     _TdataMachinEdataSt
-	dmCHdataMachineIdI          chan _TdataMachinEid  // loginChecker will fill this chan when check-token ok.
-	dmCHloginGenMachineIdLO     *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI, fill this chan to told the loginGen to stop
-	dmCHdecodeDataI             chan _Tdecode         // from uDeCHdecodeDataLO  *chan _Tdecode of decoder
-	dmCHencodeIdleLO            *chan _Tencode        // _TencodeX , send IDLE
-	dmCHencodeDataSpecBLO       *chan _TdataTran      // _TencodeX , used for Fn-Dn, and other special use
-	dmCHencodeData9999BLO       *chan _TdataTran      // _TencodeX , used for normal data tunnel
-	dmCHencodeDataSpecBI        chan []byte           // byte of _TencodeX , used for Fn-Dn, and other special use
-	dmCHencodeData9999BI        chan []byte           // byte of _TencodeX , used for normal data tunnel
-	dmCHdebugInfoI              chan byte             // when received , output the debug info
+	dmChSendIdleNoteInternalUSE  chan byte            // a random timer , send idle note to main receive loop. internal use only.
+	dmChSwapLoginCkInfoForLock   chan byte            // a 5s timer , send swap note to main receive loop. internal use only.
+	dmChCheckTimeOutDieClient    chan byte            // a 5s timer , send swap note to main receive loop. internal use only.
+	dmCBinit                     func(*_TdataMachine) // _FdataMachin__1000101__main_init__default
+	dmCBrece                     func(*_TdataMachine) //
+	dmCBprReceKey                func(*_TdataMachine) //
+	dmCBprSendKey                func(*_TdataMachine) //
+	dmCBdebugInfo                func(*_TdataMachine) //
+	dmMconn                      _TdataMachinEconnectSt
+	dmMdata                      _TdataMachinEdataSt
+	dmCHdataMachineIdI           chan _TdataMachinEid  // loginChecker will fill this chan when check-token ok.
+	dmCHloginGenMachineIdLO      *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI, fill this chan to told the loginGen to stop
+	dmCHdecodeDataI              chan _Tdecode         // from uDeCHdecodeDataLO  *chan _Tdecode of decoder
+	dmCHencodeIdleLO             *chan _Tencode        // _TencodeX , send IDLE
+	dmCHencodeDataSpecBLO        *chan _TdataTran      // _TencodeX , used for Fn-Dn, and other special use
+	dmCHencodeData9999BLO        *chan _TdataTran      // _TencodeX , used for normal data tunnel
+	dmCHencodeDataSpecFnWaitCnBI chan []byte           // byte of _TencodeX , used for Fn-Dn, and other special use
+	dmCHencodeData9999BI         chan []byte           // byte of _TencodeX , used for normal data tunnel
+	dmCHdebugInfoI               chan byte             // when received , output the debug info
 	//dmCH  unCHreceByteLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	//dmCH  unCHsendI     chan _TudpNodeDataSend  // try get data from chan, then send it out.
 }

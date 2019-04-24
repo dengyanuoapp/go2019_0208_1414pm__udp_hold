@@ -5,22 +5,22 @@ import (
 )
 
 var (
-	_VtcpDebugLog__Fn          _TtcpNodE
-	_VbyteNoteBuf__Fn          _TbyteNoteBuf
-	_VudpGroup_Fn              _TudpGroupSt
-	_VudpDecode_Fn             _TuDecode
-	_VudpEncode_Fn             _TuEncode
-	_VdataMachine_Fn           _TdataMachine
-	_VloginCheck_FnWaitDun     _TloginCheck
-	_CHexit                    chan string             = make(chan string, 10)
-	_CHpr                      *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
-	_Vself                     _Tself
-	_Vconfig                   _Tconfig
-	_VudpNode__FnWdn           _TudpNodeSt
-	_VgapFilter__FnWdn         _TgapFilter //_TgapFilterX
-	_VudpNode__FnWcn           _TudpNodeSt
-	_VgapFilter__FnWcn         _TgapFilter //_TgapFilterX
-	_VrecePackThenEncodeAsLoad _TrecePackThenEncodeAsLoad
+	_VtcpDebugLog__Fn                    _TtcpNodE
+	_VbyteNoteBuf__Fn                    _TbyteNoteBuf
+	_VudpGroup_Fn                        _TudpGroupSt
+	_VudpDecode_Fn                       _TuDecode
+	_VudpEncode_Fn                       _TuEncode
+	_VdataMachine_Fn                     _TdataMachine
+	_VloginCheck_FnWaitDun               _TloginCheck
+	_CHexit                              chan string             = make(chan string, 10)
+	_CHpr                                *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
+	_Vself                               _Tself
+	_Vconfig                             _Tconfig
+	_VudpNode__FnWdn                     _TudpNodeSt
+	_VgapFilter__FnWdn                   _TgapFilter //_TgapFilterX
+	_VudpNode__FnWcn                     _TudpNodeSt
+	_VgapFilter__FnWcn                   _TgapFilter //_TgapFilterX
+	_VrecePackThenEncodeAsLoad__FnWaitCn _TrecePackThenEncodeAsLoad
 )
 
 func _Finit_2201() {
@@ -63,11 +63,11 @@ func _Finit_2201() {
 	}
 
 	_VgapFilter__FnWcn = _TgapFilter{ //_TgapFilterX
-		gfCHbyteLO: &_VrecePackThenEncodeAsLoad.pelCHudpNodeDataReceBI,
+		gfCHbyteLO: &_VrecePackThenEncodeAsLoad__FnWaitCn.pelCHudpNodeDataReceBI,
 	}
 
-	_VrecePackThenEncodeAsLoad = _TrecePackThenEncodeAsLoad{
-		pelCHencodeBLO: &_VdataMachine_Fn.dmCHencodeDataSpecBI, // *chan []byte // byte of _TencodeX
+	_VrecePackThenEncodeAsLoad__FnWaitCn = _TrecePackThenEncodeAsLoad{
+		pelCHencodeBLO: &_VdataMachine_Fn.dmCHencodeDataSpecFnWaitCnBI, // *chan []byte // byte of _TencodeX
 	}
 
 	_VudpDecode_Fn = _TuDecode{
@@ -159,7 +159,7 @@ func main() {
 	go _Frun(&_VgapFilter__FnWcn, 1200101) // _FgapFilter__1200101x__init_default
 
 	// _FrecePackThenEncodeAsLoad__1400201x__chan_rece__default
-	go _Frun(&_VrecePackThenEncodeAsLoad, 1400101) // _FrecePackThenEncodeAsLoad__1400101x__init
+	go _Frun(&_VrecePackThenEncodeAsLoad__FnWaitCn, 1400101) // _FrecePackThenEncodeAsLoad__1400101x__init
 
 	<-_CHexit
 } // main

@@ -49,10 +49,10 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			___Vdm.
 				_FdataMachin__1000501y__clean_timeoutObj()
 
-		case <-___Vdm.dmCHencodeDataSpecBI:
+		case <-___Vdm.dmCHencodeDataSpecFnWaitCnBI:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
-			_CFpfN(" 839192 07 : _TdataMachine dmCHencodeDataSpecBI :under constructing conn{%s} ========######======= data{%s} \n",
+			_CFpfN(" 839192 07 : _TdataMachine dmCHencodeDataSpecFnWaitCnBI :under constructing conn{%s} ========######======= data{%s} \n",
 				___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 
 		case <-___Vdm.dmCHencodeData9999BI:
