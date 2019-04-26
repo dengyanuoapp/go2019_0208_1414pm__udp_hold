@@ -7,10 +7,10 @@ import "net"
 // _TdataTran
 type _TrecePackThenEncodeAsLoad struct {
 	pelGap                 time.Duration // _T1s
+	pelCBinit              func(*_TrecePackThenEncodeAsLoad)
 	pelCHudpNodeDataReceBI chan []byte
 	pelCHencodeBLO         *chan []byte // byte of _TencodeX
-	pelCBinit              func(*_TrecePackThenEncodeAsLoad)
-	pelChOutputGenGap      chan byte // every 1s gen output
+	pelChOutputGenGap      chan byte    // every 1s gen output
 }
 
 // DDbuf    : , // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX

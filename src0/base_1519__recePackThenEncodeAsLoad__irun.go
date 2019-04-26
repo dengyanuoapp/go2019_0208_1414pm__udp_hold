@@ -22,7 +22,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) IRun(___Vidx int) {
 
 func _FrecePackThenEncodeAsLoad__1400101x__init(___Vpel *_TrecePackThenEncodeAsLoad) {
 	___Vpel.pelCHudpNodeDataReceBI = make(chan []byte, 50) // _TdataTran, 50)
-
+	___Vpel.pelChOutputGenGap = make(chan byte, 50)        // every 1s gen output
 	_Fsleep(_T1s)
 
 	go _Frun(___Vpel, 1400201) // _FrecePackThenEncodeAsLoad__1400201x__chan_rece__default
@@ -31,12 +31,17 @@ func _FrecePackThenEncodeAsLoad__1400101x__init(___Vpel *_TrecePackThenEncodeAsL
 }
 
 func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400301x__oututTimeGapGen() {
+
+	if 0 == ___Vpel.pelGap {
+		return
+	}
+
+	if 0 > ___Vpel.pelGap {
+		___Vpel.pelGap = _T1s
+	}
+
 	for {
-		if 0 == ___Vpel.pelGap {
-			_Fsleep(_T1s)
-		} else {
-			_Fsleep(___Vpel.pelGap)
-		}
+		_Fsleep(___Vpel.pelGap)
 		___Vpel.pelChOutputGenGap <- 1
 	}
 }
