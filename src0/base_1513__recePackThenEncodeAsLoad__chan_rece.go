@@ -35,7 +35,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
-	if nil == ___Vpel.pelCHencodeBLO {
+	if nil == ___Vpel.pelCHc2sEncodeBLO {
 		_CFpfN(" 638196 01 : _TrecePackThenEncodeAsLoad : why out-Chan null <%s> ?", String9(___VbyteIn))
 		return
 	}
@@ -128,5 +128,5 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
-	(*(___Vpel.pelCHencodeBLO)) <- __VoutC2sB
+	(*(___Vpel.pelCHc2sEncodeBLO)) <- __VoutC2sB
 }

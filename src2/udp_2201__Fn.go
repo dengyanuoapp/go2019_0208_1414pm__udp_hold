@@ -67,7 +67,7 @@ func _Finit_2201() {
 	}
 
 	_VrecePackThenEncodeAsLoad__FnWaitCn = _TrecePackThenEncodeAsLoad{
-		pelCHencodeBLO: &_VdataMachine_Fn.dmCHencodeDataSpecFnWaitCnBI, // *chan []byte // byte of _TencodeX
+		pelCHc2sEncodeBLO: &_VdataMachine_Fn.dmCHencodeDataSpecFnWaitCnBI, // *chan []byte // byte of _TencodeX
 	}
 
 	_VudpDecode_Fn = _TuDecode{

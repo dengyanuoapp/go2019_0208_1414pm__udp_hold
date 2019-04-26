@@ -9,7 +9,7 @@ type _TrecePackThenEncodeAsLoad struct {
 	pelGap                 time.Duration // _T1s
 	pelCBinit              func(*_TrecePackThenEncodeAsLoad)
 	pelCHudpNodeDataReceBI chan []byte
-	pelCHencodeBLO         *chan []byte // byte of _TencodeX
+	pelCHc2sEncodeBLO      *chan []byte // byte of _TencodeX of load with _Trepack__c2s
 	pelChOutputGenGap      chan byte    // every 1s gen output
 }
 
