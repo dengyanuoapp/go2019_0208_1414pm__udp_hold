@@ -6,18 +6,19 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 	_CFpfN(" 839199 01 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> ", String9(___Vc2sEncodeB))
 
 	__Venc := _Tencode{} // _TencodeX
-	//_FdataPack__dePack__decode(&__Venc, *___Vc2sEncodeB)
-	_FdataPack__dePack__encode(&__Venc, *___Vc2sEncodeB)
-	if __Venc.Type != LoadT__data_01_special {
-		_CFpfN(" 839199 02 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> {%s}",
+	//_FdataPack__dePackUdpNodeRece__decode(&__Venc, *___Vc2sEncodeB)
+	_FdataPack__deGob__encode(&__Venc, *___Vc2sEncodeB)
+	if __Venc.enLoadType != LoadT__data_01_special {
+		_CFpfN(" 839199 02 : _TdataMachine : enLoadType error :<%s> {%s}",
 			String9(___Vc2sEncodeB), __Venc.String())
 		return
 	}
 
-	__Venc := _Tencode{ // _TencodeX
-		Ti:         __VunRece.Ti,              // _TdecodeX
-		enToId128:  __Vdecode.Dlogin.MeIdx128, // _TloginReq
-		enLoadType: LoadT__data_01_special,    //byte
+	if __Venc.enData.DDcmd != DDType__c2s { // byte
+		_CFpfN(" 839199 03 : _TdataMachine : DDcmd error :<%s> {%s}",
+			String9(___Vc2sEncodeB), __Venc.String())
+		return
 	}
 
+	_CFpfN(" 839199 09 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> ", String9(___Vc2sEncodeB))
 }
