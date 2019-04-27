@@ -68,8 +68,8 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 
 	___CpfN(" 388197 04 Ti:%d : after decoder  : Type:%d __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
 		___VtraceIntDE, __Vdecode.Type,
-		__Vdecode.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf), // _TdecodeX
-		___VunRece.String(), len(___VunRece.UrrBuf), _FgenMd5__5(&___VunRece.UrrBuf))
+		__Vdecode.String(), len(___VunRece.UrrBuf), _Fmd5__5(&___VunRece.UrrBuf), // _TdecodeX
+		___VunRece.String(), len(___VunRece.UrrBuf), _Fmd5__5(&___VunRece.UrrBuf))
 
 	switch __Vdecode.Type {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,

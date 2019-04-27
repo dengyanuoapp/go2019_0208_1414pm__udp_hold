@@ -37,8 +37,8 @@ func String9(___Vb *[]byte) string {
 		return ""
 	}
 	if len(*___Vb) < 9 {
-		return _Spf("(%d){%x}[%x]", len(*___Vb), _FgenMd5__5(___Vb), *___Vb)
+		return _Spf("(%d){%x}[%x]", len(*___Vb), _Fmd5__5(___Vb), *___Vb)
 	}
 	__Vt := *___Vb
-	return _Spf("(%d){%x}[%x]", len(*___Vb), _FgenMd5__5(___Vb), __Vt[:9])
+	return _Spf("(%d){%x}[%x]", len(*___Vb), _Fmd5__5(___Vb), __Vt[:9])
 }

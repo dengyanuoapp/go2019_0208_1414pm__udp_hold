@@ -127,6 +127,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		_CFpfN(" 638196 09 why encGob error ? <%v> , {%s} ", __Verr4, __Venc.String())
 		return
 	}
+	_CFpfN(" 638196 08 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s}", String9(&__VoutC2sB), _Fmd5__5(&__VoutC2sB))
 
 	(*(___Vpel.pelCHc2sEncodeBLO)) <- __VoutC2sB
 }
