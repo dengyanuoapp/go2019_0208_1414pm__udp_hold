@@ -13,12 +13,17 @@ func _FdataPack__deGob__encode(___Vencode *_Tencode, ___Vbuf []byte) {
 	if nil == ___Vencode {
 		return
 	}
+
+	_CFpfN(" 387194 001 _FdataPack__deGob__encode <%v> <%v>", ___Vencode, ___Vbuf)
+
 	(*___Vencode) = _Tencode{}
+
+	_CFpfN(" 387194 002 _FdataPack__deGob__encode <%v>", ___Vencode)
 
 	__Verr2 :=
 		_FdecGob___(" 387194 01 ", ___Vbuf, ___Vencode)
 	if nil != __Verr2 {
 		_CFpfN(" 387194 02 decodeGob error <%v>", __Verr2)
 	}
-	_FdecGob___(" 387194 03 enc{%s}", ___Vbuf, ___Vencode.String())
+	_CFpfN(" 387194 03 enc{%s}", ___Vbuf, ___Vencode.String())
 }
