@@ -75,8 +75,8 @@ func _FencAesCbc__only___(___Vkey []byte, ___Viv []byte, ___VbyteIn []byte, ___V
 	__VinSideKey := __VtBufEN[7:39]
 	___CpfN(" 132819 09 Ti:%d , aesENC(noRandPat) inM5{%x} outM5{%x} INfirst20<%x> in<%x> out:<%x> insideKey is <%x> ",
 		___VtraceInt,
-		_Fmd5__5(&___VbyteIn),
-		_Fmd5__5(&__Vout5),
+		_Fmd5__5x(&___VbyteIn),
+		_Fmd5__5x(&__Vout5),
 		__VtBufEN[:20],
 		__VtBufEN,
 		__Vout5,

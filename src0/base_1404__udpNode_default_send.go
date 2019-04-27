@@ -96,9 +96,9 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		__VmyUs.usToAddr.DstAddr.String(), // 4
 		String5(&__VmyUs.usToAddr.K256),   // 5
 		len(__VmyUs.usOutBuf),             // 6
-		_Fmd5__5(&__VmyUs.usOutBuf),    // 7
+		_Fmd5__5x(&__VmyUs.usOutBuf),      // 7
 		len(__Vbuf),                       // 8
-		_Fmd5__5(&__Vbuf),              // 9
+		_Fmd5__5x(&__Vbuf),                // 9
 		__VmyUs.String(),                  // 10 _TudpNodeDataSendX
 	)
 }

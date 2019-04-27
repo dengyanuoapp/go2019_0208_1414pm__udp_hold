@@ -20,7 +20,7 @@ func (___Vr *_TudpNodeDataRece) String() string {
 		___Vr.UrrLocalPort,
 		___Vr.UrrRemoteAddr.String(),
 		len(___Vr.UrrBuf),
-		_Fmd5__5(&___Vr.UrrBuf),
+		_Fmd5__5x(&___Vr.UrrBuf),
 		String9(&___Vr.UrrBuf),
 		___Vr.UrrReceiveKey.String(), // UrrReceiveKey _Tkey256X
 	)
@@ -39,6 +39,6 @@ func (___Vs *_TudpNodeDataSend) String() string {
 		___Vs.Ti,
 		___Vs.usToAddr.String(),
 		len(___Vs.usOutBuf),
-		_Fmd5__5(&___Vs.usOutBuf))
+		_Fmd5__5x(&___Vs.usOutBuf))
 
 }

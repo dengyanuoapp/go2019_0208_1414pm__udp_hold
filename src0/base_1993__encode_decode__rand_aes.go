@@ -53,7 +53,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 		___VtraceInt,
 
 		len(__Vtmp),
-		_Fmd5__5(&__Vtmp),
+		_Fmd5__5x(&__Vtmp),
 		__Vtmp,
 
 		__Vmd5WithLen,
@@ -68,7 +68,7 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 	___CpfN(" 192395 03  Ti:%d after cbc output: (%d){%x}[%x] , cbc input is k<%x> iv<%x>[%x]",
 		___VtraceInt,
 		len(__Vtmp2),
-		_Fmd5__5(&__Vtmp2),
+		_Fmd5__5x(&__Vtmp2),
 		__Vtmp2,
 		___Vkey,
 		__Viv,
@@ -81,10 +81,10 @@ func _FencAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceInt int) ([]
 	___CpfN(" 192395 07  Ti:%d aesENC addPat : from (%d){%x}[%x] to (%d){%x}[%x] ",
 		___VtraceInt,
 		len(__Vtmp2),
-		_Fmd5__5(&__Vtmp2),
+		_Fmd5__5x(&__Vtmp2),
 		__Vtmp2,
 		len(__Vout),
-		_Fmd5__5(&__Vout),
+		_Fmd5__5x(&__Vout),
 		__Vout,
 	)
 
@@ -114,7 +114,7 @@ func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) (
 	}
 
 	___CpfN(" 392391 05 tI:%d AESdec input key:%x , (%d){%x}", ___VtraceIntDE,
-		___Vkey, len(___VbyteIn), _Fmd5__5(&___VbyteIn))
+		___Vkey, len(___VbyteIn), _Fmd5__5x(&___VbyteIn))
 
 	//_FpfNhex(___VbyteIn, 20, " 392391 06 : %x : ", ___Vkey)
 	__VdeO, __Verr := _FdecAesCbc__only___(___Vkey, ___VbyteIn, ___VtraceIntDE)
@@ -157,10 +157,10 @@ func _FdecAesRand__only(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int) (
 	__VrecoveryKey := __VdeO[7:39]
 	___CpfN(" 392392 09 : tI:%d AESdec out key:%s , in(%d){%x} outBufall(%d){%x}[%s] dec-without-2byteLen(origin)(%d){%x} "+
 		"dec-with-2byteLen(%d){%x} in(%d){%x} deOut(%d){%x} recoverTheSendKeyIs<%x>", ___VtraceIntDE, String5(&___Vkey), // keykey
-		len(___VbyteIn), _Fmd5__5(&___VbyteIn),
-		len(__VdeO), _Fmd5__5(&__VdeO), String9(&__VdeO),
-		len(__Vout2), _Fmd5__5(&__Vout2),
-		len(__Vtmp3), _Fmd5__5(&__Vtmp3),
+		len(___VbyteIn), _Fmd5__5x(&___VbyteIn),
+		len(__VdeO), _Fmd5__5x(&__VdeO), String9(&__VdeO),
+		len(__Vout2), _Fmd5__5x(&__Vout2),
+		len(__Vtmp3), _Fmd5__5x(&__Vtmp3),
 		len(___VbyteIn), ___VbyteIn,
 		len(__VdeO), __VdeO,
 		__VrecoveryKey,
