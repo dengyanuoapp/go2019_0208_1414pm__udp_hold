@@ -56,6 +56,9 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 				String9(&__Vc2sEncodeB), ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 			// _FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack pelCHc2sEncodeBLO
 
+			___Vdm.
+				_FdataMachin__1000503x__cnNeedDnRetranOrDirectConnect(&__Vc2sEncodeB)
+
 		case <-___Vdm.dmCHencodeData9999BI:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
