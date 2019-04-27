@@ -63,9 +63,9 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	__Vdecode := _Tdecode{} // _TdecodeX
 	//__VunRece.
-	//	_FdataPack__decode_from_udpNodeDataRece(&__Vdecode) // _TdecodeX
+	//	_FdataPack__dePack_decode__from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 
-	_FdataPack__dataDecode_common(&__Vdecode, __Vtmp3out)
+	_FdataPack__dePack__decode(&__Vdecode, __Vtmp3out)
 	if __Vdecode.Type != LoadT__loginS01genReplyTokenA {
 		_CFpfN(" 638196 05 Ti:%d decode error {%v} error , get type %d  , want type %d ",
 			__VtraceIntDE, __Verr2, __Vdecode.Type, LoadT__loginS01genReplyTokenA)

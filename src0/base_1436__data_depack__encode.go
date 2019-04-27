@@ -5,11 +5,11 @@ import (
 	//"net"
 )
 
-func (__Vundr *_TudpNodeDataRece) _FdataPack__decode_from_udpNodeDataRece__decode(___Vdecode *_Tdecode) {
-	_FdataPack__dataDecode__encode(___Vdecode, __Vundr.UrrBuf)
-}
+//func (__Vundr *_TudpNodeDataRece) _FdataPack__dePack_decode__from_udpNodeDataRece(___Vdecode *_Tdecode) {
+//	_FdataPack__dePack__encode(___Vdecode, __Vundr.UrrBuf)
+//}
 
-func _FdataPack__dataDecode__encode(___Vdecode *_Tdecode, ___Vbuf []byte) {
+func _FdataPack__dePack__encode(___Vdecode *_Tdecode, ___Vbuf []byte) {
 	if nil == ___Vdecode {
 		return
 	}

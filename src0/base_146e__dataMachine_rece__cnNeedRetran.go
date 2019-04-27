@@ -6,7 +6,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 	_CFpfN(" 839199 01 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> ", String9(___Vc2sEncodeB))
 
 	__Venc := _Tencode{} // _TencodeX
-	_FdataPack__dataDecode_common(&__Venc, *___Vc2sEncodeB)
+	//_FdataPack__dePack__decode(&__Venc, *___Vc2sEncodeB)
+	_FdataPack__dePack__encode(&__Venc, *___Vc2sEncodeB)
 	if __Venc.Type != LoadT__data_01_special {
 		_CFpfN(" 839199 02 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> {%s}",
 			String9(___Vc2sEncodeB), __Venc.String())

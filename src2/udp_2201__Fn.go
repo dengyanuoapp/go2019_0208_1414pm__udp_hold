@@ -127,7 +127,7 @@ func main() {
 	go _Frun(&_VbyteNoteBuf__Fn, 1300101) // _FbyteNoteBuf__1300101x__init
 
 	// _FudpNode__540211z__receiveCallBack_withTimeGap
-	// _FdataPack__decode_from_udpNodeDataRece
+	// _FdataPack__dePack_decode__from_udpNodeDataRece
 	// _FudpNode__500201y__receive__default
 	go _Frun(&_VudpNode__FnWdn, 500101) // IRun _FudpNode__500101__main_init__default
 	go _Frun(&_VudpNode__FnWcn, 500101) // IRun _FudpNode__500101__main_init__default
