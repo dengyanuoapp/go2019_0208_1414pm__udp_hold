@@ -25,5 +25,5 @@ func _FdataPack__deGob__encode(___Vencode *_Tencode, ___Vbuf []byte) {
 	if nil != __Verr2 {
 		_CFpfN(" 387194 02 decodeGob error <%v>", __Verr2)
 	}
-	_CFpfN(" 387194 03 buf{%s} , enc{%s}", String9(&___Vbuf), ___Vencode.String())
+	_CFpfN(" 387194 03 buf{%s} , enc{%s}", String9(&___Vbuf), ___Vencode.String()) // _TencodeX
 }

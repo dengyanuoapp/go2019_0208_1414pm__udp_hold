@@ -132,7 +132,7 @@ func (___Ven *_Tencode) String() string {
 	case LoadT__data_01_special, LoadT__data_99_normal:
 		__Vso += _Spf(" data:{%s}", ___Ven.enData.String()) // _TdataTran
 	default:
-		__Vso += "===839818918unknown==="
+		__Vso += _Spf("===839818918unknown(%d)===", ___Ven.enLoadType)
 	}
 	__Vso += _Spf(" delay:%d multi:%d", ___Ven.enDelay, ___Ven.enMultiSend)
 
