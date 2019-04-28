@@ -27,12 +27,12 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 	___Vlc.ulCmd.M[__Vk] = *___Vdecode
 
 	*___Venc = _Tencode{
-		enToConnPort: _TudpConnPort{
+		EnToConnPort: _TudpConnPort{
 			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.RemotePortKey, // []byte
 		},
-		enLoadType: LoadT__loginS02genReplyTokenB,
-		enLogin: _TloginReq{
+		EnLoadType: LoadT__loginS02genReplyTokenB,
+		EnLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),
 			ReqStr:   " step102y__sReply_tokenB ",
@@ -44,6 +44,6 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 			TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
 			TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
 		},
-		enMultiSend: 4 + (_FgenRand_int() % 7), // gen 0 -- 6 , + 4 : so total 5 - 10
+		EnMultiSend: 4 + (_FgenRand_int() % 7), // gen 0 -- 6 , + 4 : so total 5 - 10
 	}
 }

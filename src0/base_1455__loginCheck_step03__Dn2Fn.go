@@ -37,12 +37,12 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 
 	//_FpfNex(" 838381 08 %s ", ___Vdecode.String())
 	*___Venc = _Tencode{
-		enToConnPort: _TudpConnPort{
+		EnToConnPort: _TudpConnPort{
 			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
 			K256:    ___Vdecode.RemotePortKey, // []byte
 		},
-		enLoadType: LoadT__loginS03acceptWithToken,
-		enLogin: _TloginReq{
+		EnLoadType: LoadT__loginS03acceptWithToken,
+		EnLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),
 			ReqStr:   " step03__accept_tokenA ",

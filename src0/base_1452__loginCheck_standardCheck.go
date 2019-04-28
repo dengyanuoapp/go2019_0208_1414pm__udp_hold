@@ -39,17 +39,17 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			_FpfNonce(" 138184 04 : why CMD-en not Chan ? {%s}", __Venc.String())
 		} else {
 			//_FpfN(" 138184 05 CMD-en-chan push {%s}", __Venc.String())
-			switch __Venc.enLoadType {
+			switch __Venc.EnLoadType {
 			case 0:
 				_FpfN(" 138184 06 zero Type , nothing need to send. %s ", __Venc.String()) // _TencodeX
 			case LoadT__loginEnd:
 				// no use , but told the debug disable only
 			default:
 				(*___Vlc.ulCHencodeCkLO) <- __Venc // _Tencode
-				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.enLogin.TokenL %s",
+				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.EnLogin.TokenL %s",
 					String5(&_VC.MyId128),
 					String5(&_VS.MySeq128),
-					String5(&__Venc.enLogin.TokenL))
+					String5(&__Venc.EnLogin.TokenL))
 			}
 		}
 		___VloginCheck__900201x__mux.Unlock()
@@ -71,7 +71,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC1__standardCheck(___Vdecode *_
 		// ============================ step 04 : Fn check tokenB,id128,seq128 ,ACCEPT only,no reply
 		___Vlc.
 			_FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(___Vdecode)
-		___Venc.enLoadType = LoadT__loginEnd // no use , but told the following debug disable only
+		___Venc.EnLoadType = LoadT__loginEnd // no use , but told the following debug disable only
 	default:
 		_CFpfN(" 138183 08 : unknow how to deal with : type %d,", ___Vdecode.Type)
 		//continue // next Select
@@ -84,9 +84,9 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC2__standardCheck(___Venc *_Ten
 	___Vlc.ulGenTime = _FtimeInt()
 
 	*___Venc = _Tencode{
-		enToConnPort: *___VuConnPort, // _TudpConnPort
-		enLoadType:   LoadT__loginS01genReplyTokenA,
-		enLogin: _TloginReq{
+		EnToConnPort: *___VuConnPort, // _TudpConnPort
+		EnLoadType:   LoadT__loginS01genReplyTokenA,
+		EnLogin: _TloginReq{
 			MeRand5:  _FgenRand_nByte__(5),
 			MeTime:   _FtimeInt(),
 			ReqStr:   " loginS01genReplyTokenA ",
@@ -95,6 +95,6 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC2__standardCheck(___Venc *_Ten
 			MeSeq128: _VS.MySeq128,
 			TokenL:   ___Vlc.ulTokenA,
 		},
-		enDelay: (12 + (_FtimeInt() % 3)), // 12 + (0--2) == 12--14
+		EnDelay: (12 + (_FtimeInt() % 3)), // 12 + (0--2) == 12--14
 	}
 }

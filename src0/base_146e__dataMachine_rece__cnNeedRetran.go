@@ -8,13 +8,13 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 	__Venc := _Tencode{} // _TencodeX
 	//_FdataPack__dePackUdpNodeRece__decode(&__Venc, *___Vc2sEncodeB)
 	_FdataPack__deGob__encode(&__Venc, *___Vc2sEncodeB)
-	if __Venc.enLoadType != LoadT__data_01_special {
-		_CFpfN(" 839199 02 : _TdataMachine : enLoadType error :<%s> {%s}",
+	if __Venc.EnLoadType != LoadT__data_01_special {
+		_CFpfN(" 839199 02 : _TdataMachine : EnLoadType error :<%s> {%s}",
 			String9(___Vc2sEncodeB), __Venc.String())
 		return
 	}
 
-	if __Venc.enData.DDcmd != DDType__c2s { // byte
+	if __Venc.EnData.DDcmd != DDType__c2s { // byte
 		_CFpfN(" 839199 03 : _TdataMachine : DDcmd error :<%s> {%s}",
 			String9(___Vc2sEncodeB), __Venc.String())
 		return

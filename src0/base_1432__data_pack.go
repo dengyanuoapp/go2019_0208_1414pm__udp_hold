@@ -20,7 +20,7 @@ func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[
 	//_FpfN(" 138185 03 : gen loginReq , trying to package to bytes {%s}", __Vreq.String())
 
 	__Vencode := _Tencode{
-		enLogin: __Vreq,
+		EnLogin: __Vreq,
 	}
 	__Vencode.
 		_FdataPack__100__loginReq(LoadT__loginS01genReplyTokenA, ___VoutBuf)
@@ -47,13 +47,13 @@ func (___Vencode *_Tencode) _FdataPack__100__loginReq(___Vtype byte, ___VoutBuf 
 		LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken:
 		__Vb2, __Verr2 =
-			_FencGob__only(&___Vencode.enLogin) // _TloginReq
+			_FencGob__only(&___Vencode.EnLogin) // _TloginReq
 	case LoadT__data_01_special, // 5
 		LoadT__data_99_normal: // 6
 		__Vb2, __Verr2 =
-			_FencGob__only(&___Vencode.enData) // _TdataTran
-		//_CpfN(" 138186 02 : _Tencode encode (%s) .", ___Vencode.enData.String())
-		//_FpfN(" 138186 03 : _Tencode encode (%s) .", ___Vencode.enData.String())
+			_FencGob__only(&___Vencode.EnData) // _TdataTran
+		//_CpfN(" 138186 02 : _Tencode encode (%s) .", ___Vencode.EnData.String())
+		//_FpfN(" 138186 03 : _Tencode encode (%s) .", ___Vencode.EnData.String())
 	default:
 		_FpfN(" 138186 04 : encode error ?")
 		*___VoutBuf = []byte{}

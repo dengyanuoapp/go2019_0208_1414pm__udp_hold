@@ -87,8 +87,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 		__VreceB, __Verr3 := _FencGob__only(&__Vrece)
 
 		if nil != __Verr3 {
-			_FpfN(" 831819 05 gob En error <%v>", __Verr3)
-			_CpfN(" 831819 06 gob En error <%v>", __Verr3)
+			_CFpfN(" 831819 06 gob En error <%v>", __Verr3)
 			return
 		}
 

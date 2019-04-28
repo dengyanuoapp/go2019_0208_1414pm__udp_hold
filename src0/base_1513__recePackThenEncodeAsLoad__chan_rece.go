@@ -102,9 +102,9 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	__Venc4 := _Tencode{ // _TencodeX
 		Ti:         __VunRece.Ti,              // _TdecodeX
-		enToId128:  __Vdecode.Dlogin.MeIdx128, // _TloginReq
-		enLoadType: LoadT__data_01_special,    //byte
-		enData: _TdataTran{
+		EnToId128:  __Vdecode.Dlogin.MeIdx128, // _TloginReq
+		EnLoadType: LoadT__data_01_special,    //byte
+		EnData: _TdataTran{
 			DDcmd: DDType__c2s, // byte
 			DDbuf: __VoutC2s,   // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
 			// MEidx128 []byte
@@ -114,10 +114,10 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 			// TTokenD  []byte
 			// DDoffset uint64
 		},
-		//enToConnPort _TudpConnPort // another of to addr
-		//enLogin      _TloginReq
-		//enDelay      int // a delay resend if not zero
-		//enMultiSend  int // send multi timeS if not zero
+		//EnToConnPort _TudpConnPort // another of to addr
+		//EnLogin      _TloginReq
+		//EnDelay      int // a delay resend if not zero
+		//EnMultiSend  int // send multi timeS if not zero
 	}
 
 	_CFpfN("\n\n\n 638196 08 _TrecePackThenEncodeAsLoad: encOut{%s}", __Venc4.String())

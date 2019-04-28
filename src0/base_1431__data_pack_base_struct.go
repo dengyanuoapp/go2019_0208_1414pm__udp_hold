@@ -108,13 +108,13 @@ type _TencodeX struct {
 }
 type _Tencode struct {
 	Ti           int
-	enToId128    []byte        // one of to addr : use enToConnPort if zero , or use this as to addess
-	enToConnPort _TudpConnPort // another of to addr
-	enLoadType   byte
-	enLogin      _TloginReq
-	enData       _TdataTran
-	enDelay      int // a delay resend if not zero
-	enMultiSend  int // send multi timeS if not zero
+	EnToId128    []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess
+	EnToConnPort _TudpConnPort // another of to addr
+	EnLoadType   byte
+	EnLogin      _TloginReq
+	EnData       _TdataTran
+	EnDelay      int // a delay resend if not zero
+	EnMultiSend  int // send multi timeS if not zero
 }
 
 func (___Ven *_Tencode) String() string {
@@ -123,18 +123,18 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("Ti:%d to:<%s> toId:%s T:%d", ___Ven.Ti, ___Ven.enToConnPort.String(), String5(&___Ven.enToId128), ___Ven.enLoadType)
+	__Vso = _Spf("Ti:%d to:<%s> toId:%s T:%d", ___Ven.Ti, ___Ven.EnToConnPort.String(), String5(&___Ven.EnToId128), ___Ven.EnLoadType)
 
-	switch ___Ven.enLoadType {
+	switch ___Ven.EnLoadType {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-		__Vso += _Spf(" cmd:{%s}", ___Ven.enLogin.String()) // _TloginReq
+		__Vso += _Spf(" cmd:{%s}", ___Ven.EnLogin.String()) // _TloginReq
 	case LoadT__data_01_special, LoadT__data_99_normal:
-		__Vso += _Spf(" data:{%s}", ___Ven.enData.String()) // _TdataTran
+		__Vso += _Spf(" data:{%s}", ___Ven.EnData.String()) // _TdataTran
 	default:
-		__Vso += _Spf("===839818918unknown(%d)===", ___Ven.enLoadType)
+		__Vso += _Spf("===839818918unknown(%d)===", ___Ven.EnLoadType)
 	}
-	__Vso += _Spf(" delay:%d multi:%d", ___Ven.enDelay, ___Ven.enMultiSend)
+	__Vso += _Spf(" delay:%d multi:%d", ___Ven.EnDelay, ___Ven.EnMultiSend)
 
 	return __Vso
 }
