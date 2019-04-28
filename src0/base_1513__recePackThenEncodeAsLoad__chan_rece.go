@@ -76,7 +76,8 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	__Vdecode.DEsendPortKey = __VunRece.UrrReceiveKey.Bkey // _Tkey256X
 
 	// _TudpNodeDataReceX
-	_CFpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
+	__FpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
+
 	/*
 
 		    Fn:1556005752  638191 x1 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{(656){fb5a3b0ccc}[68ff81030101115f54]}
@@ -128,14 +129,15 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		//EnMultiSend  int // send multi timeS if not zero
 	}
 
-	_CFpfN("\n\n\n 638196 08 _TrecePackThenEncodeAsLoad: encOut{%s}", __Venc4.String())
+	//_CFpfN("\n\n\n 638196 08 _TrecePackThenEncodeAsLoad: encOut{%s}", __Venc4.String())
 
 	__Vc2sEncodeB, __Verr4 := _FencGob__only(&__Venc4)
 	if nil != __Verr4 {
 		_CFpfN(" 638196 09 why encGob error ? <%v> , {%s} ", __Verr4, __Venc4.String())
 		return
 	}
-	_CFpfN(" 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s}", String9(&__Vc2sEncodeB), _Fmd5__5s(&__Vc2sEncodeB))
+	_CFpfN("\n\n\n 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s} , dec{%s} ====####==== unRece{%s}",
+		__Vdecode.String(), __VunRece.String(), String9(&__Vc2sEncodeB), __Venc4.String())
 
 	(*(___Vpel.pelCHc2sEncodeBLO)) <- __Vc2sEncodeB
 
