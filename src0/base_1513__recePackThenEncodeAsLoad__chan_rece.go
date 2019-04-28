@@ -72,6 +72,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
+	// _TudpNodeDataReceX
 	_CFpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
 	/*
 
@@ -101,9 +102,9 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	}
 
 	__Venc4 := _Tencode{ // _TencodeX
-		Ti:         __VunRece.Ti,              // _TdecodeX
-		EnToId128:  __Vdecode.Dlogin.MeIdx128, // _TloginReq
-		EnLoadType: LoadT__data_01_special,    //byte
+		Ti:          __VunRece.Ti,              // _TdecodeX
+		EnFromId128: __Vdecode.Dlogin.MeIdx128, // _TloginReq
+		EnLoadType:  LoadT__data_01_special,    //byte
 		EnData: _TdataTran{
 			DDcmd: DDType__c2s, // byte
 			DDbuf: __VoutC2s,   // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX

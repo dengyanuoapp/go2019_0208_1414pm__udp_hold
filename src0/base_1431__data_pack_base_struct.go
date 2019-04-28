@@ -109,6 +109,7 @@ type _TencodeX struct {
 type _Tencode struct {
 	Ti           int
 	EnToId128    []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess
+	EnFromId128  []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess
 	EnToConnPort _TudpConnPort // another of to addr
 	EnLoadType   byte
 	EnLogin      _TloginReq
@@ -123,7 +124,8 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("Ti:%d to:<%s> toId:%s T:%d", ___Ven.Ti, ___Ven.EnToConnPort.String(), String5(&___Ven.EnToId128), ___Ven.EnLoadType)
+	__Vso = _Spf("Ti:%d to:<%s> fromId:%s toId:%s T:%d", ___Ven.Ti, ___Ven.EnToConnPort.String(),
+		String5(&___Ven.EnFromId128), String5(&___Ven.EnToId128), ___Ven.EnLoadType)
 
 	switch ___Ven.EnLoadType {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
