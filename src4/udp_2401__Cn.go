@@ -21,7 +21,7 @@ var (
 	// _TgapFilterX
 )
 
-func _Finit__2301() {
+func _Finit__2401() {
 
 	_Vself.ProjName = "Cn"
 
@@ -98,7 +98,7 @@ func main() {
 
 	_Fsleep(_T1s)
 
-	_Finit__2301()
+	_Finit__2401()
 
 	// _TtcpNodeDataSend
 	// _TtcpNodE
