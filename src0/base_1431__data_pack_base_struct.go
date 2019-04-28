@@ -67,6 +67,8 @@ type _Tdecode struct {
 	ReceiveTime   int
 	RemoteAddr    net.UDPAddr
 	RemotePortKey []byte
+	SendAddr      net.UDPAddr
+	SendPortKey   []byte
 	Type          byte
 	Dlogin        _TloginReq
 	Ddata         _TdataTran
