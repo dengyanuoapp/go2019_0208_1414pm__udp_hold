@@ -16,20 +16,20 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 		return
 	}
 
-	__Vk := _FgenB16(&___Vdecode.Dlogin.MeIdx128)
+	__Vk := _FgenB16(&___Vdecode.DElogin.MeIdx128)
 
 	if len(___Vlc.ulCmd.M) > 300 {
 		_FdeleteOld_cmdStack(&___Vlc.ulCmd.M)
 	}
 
-	___Vdecode.Dlogin.TokenR = _FgenRand_nByte__(16)
+	___Vdecode.DElogin.TokenR = _FgenRand_nByte__(16)
 
 	___Vlc.ulCmd.M[__Vk] = *___Vdecode
 
 	*___Venc = _Tencode{
 		EnToConnPort: _TudpConnPort{
-			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
-			K256:    ___Vdecode.RemotePortKey, // []byte
+			DstAddr: ___Vdecode.DEremoteAddr,    // net.UDPAddr
+			K256:    ___Vdecode.DEremotePortKey, // []byte
 		},
 		EnLoadType: LoadT__loginS02genReplyTokenB,
 		EnLogin: _TloginReq{
@@ -39,10 +39,10 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s2Reply_tokenB_fill02send_
 			MeName:   _VC.Name,
 			MeIdx128: _VC.MyId128,
 			MeSeq128: _VS.MySeq128,
-			ToIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
-			ToSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
-			TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
-			TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
+			ToIdx128: ___Vdecode.DElogin.MeIdx128, // []byte
+			ToSeq128: ___Vdecode.DElogin.MeSeq128, // []byte
+			TokenL:   ___Vdecode.DElogin.TokenR,   // []byte
+			TokenR:   ___Vdecode.DElogin.TokenL,   // []byte
 		},
 		EnMultiSend: 4 + (_FgenRand_int() % 7), // gen 0 -- 6 , + 4 : so total 5 - 10
 	}

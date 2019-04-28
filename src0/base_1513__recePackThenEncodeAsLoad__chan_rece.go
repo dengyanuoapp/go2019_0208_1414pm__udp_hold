@@ -66,14 +66,14 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	//	_FdataPack__dePack_decode__from_udpNodeDataRece(&__Vdecode) // _TdecodeX
 
 	_FdataPack__dePackUdpNodeRece__decode(&__Vdecode, __Vtmp3out)
-	if __Vdecode.Type != LoadT__loginS01genReplyTokenA {
+	if __Vdecode.DEtype != LoadT__loginS01genReplyTokenA {
 		_CFpfN(" 638196 05 Ti:%d decode error {%v} error , get type %d  , want type %d ",
-			__VtraceIntDE, __Verr2, __Vdecode.Type, LoadT__loginS01genReplyTokenA)
+			__VtraceIntDE, __Verr2, __Vdecode.DEtype, LoadT__loginS01genReplyTokenA)
 		return
 	}
 
-	__Vdecode.SendAddr = __VunRece.UrrRemoteAddr
-	__Vdecode.SendPortKey = __VunRece.UrrReceiveKey.Bkey // _Tkey256X
+	__Vdecode.DEsendAddr = __VunRece.UrrRemoteAddr
+	__Vdecode.DEsendPortKey = __VunRece.UrrReceiveKey.Bkey // _Tkey256X
 
 	// _TudpNodeDataReceX
 	_CFpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())
@@ -109,9 +109,9 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	}
 
 	__Venc4 := _Tencode{ // _TencodeX
-		Ti:          __VunRece.Ti,              // _TdecodeX
-		EnFromId128: __Vdecode.Dlogin.MeIdx128, // _TloginReq
-		EnLoadType:  LoadT__data_01_special,    //byte
+		EnTi:        __VunRece.Ti,               // _TdecodeX
+		EnFromId128: __Vdecode.DElogin.MeIdx128, // _TloginReq
+		EnLoadType:  LoadT__data_01_special,     //byte
 		EnData: _TdataTran{
 			DDcmd: DDType__c2s, // byte
 			DDbuf: __VddBufB,   // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX

@@ -32,13 +32,13 @@ func _FdataPack__dePackUdpNodeRece__decode(___Vdecode *_Tdecode, ___Vbuf []byte)
 	switch ___Vbuf[0] {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
-		//___Vdecode.Dlogin = _TloginReq{}
+		//___Vdecode.DElogin = _TloginReq{}
 		__Verr2 =
-			_FdecGob___(" 387193 01 ", __Vbuf2, &___Vdecode.Dlogin)
+			_FdecGob___(" 387193 01 ", __Vbuf2, &___Vdecode.DElogin)
 	case LoadT__data_01_special, // 5
 		LoadT__data_99_normal: // 6
 		__Verr2 =
-			_FdecGob___(" 387193 02 ", __Vbuf2, &___Vdecode.Ddata) // _Tdecode _TdataTran
+			_FdecGob___(" 387193 02 ", __Vbuf2, &___Vdecode.DEdata) // _Tdecode _TdataTran
 
 	default:
 		_FpfNhex(&___Vbuf, 500, " 387193 05 : under constructing : type %d ,", ___Vbuf[0])
@@ -50,10 +50,10 @@ func _FdataPack__dePackUdpNodeRece__decode(___Vdecode *_Tdecode, ___Vbuf []byte)
 		return
 	}
 
-	___Vdecode.RemotePortKey = ___Vbuf[5:37]
-	___Vdecode.Ok = true
-	___Vdecode.Type = ___Vbuf[0]
-	___Vdecode.ReceiveTime = _FtimeInt()
+	___Vdecode.DEremotePortKey = ___Vbuf[5:37]
+	___Vdecode.DEok = true
+	___Vdecode.DEtype = ___Vbuf[0]
+	___Vdecode.DEreceiveTime = _FtimeInt()
 
 	_NpfN(" 387193 07 : uDecode decode reult (%s)", ___Vdecode.String()) // _Tdecode _TdataTran
 	//_FpfNdb(" 387193 08 : %#v, key %x", ___Vdecode, ___Vbuf[5:37])

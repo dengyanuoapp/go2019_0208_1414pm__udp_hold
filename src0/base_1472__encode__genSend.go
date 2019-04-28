@@ -26,8 +26,8 @@ func _FuEncode__1100201x__chanRece__default(___Vuen *_TuEncode) {
 		__Vue.
 			_FdataPack__100__loginReq(__Vue.EnLoadType, &__Vus.usOutBuf)
 
-		if 0 == __Vue.Ti {
-			__Vue.Ti = _FgenRand_int()
+		if 0 == __Vue.EnTi {
+			__Vue.EnTi = _FgenRand_int()
 		}
 		___Vuen.
 			_FuEncode__1100201x2__fillAddr_sending(__Vus, __Vue)
@@ -57,7 +57,7 @@ func (___Vuen *_TuEncode) _FuEncode__1100201x2__fillAddr_sending(___Vus _TudpNod
 		return
 	}
 
-	___Vus.Ti = ___Vue.Ti
+	___Vus.Ti = ___Vue.EnTi
 
 	_FpfNonce(" 849193 04 : filling addr ok:%s", ___Vus.String())
 	(*___Vuen.enCHuDataSendLO) <- ___Vus

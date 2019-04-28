@@ -50,7 +50,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendTo
 	__Vconn := ___Vdmdc.ddcConnPortArr[__Vidx]
 
 	__Venc := _Tencode{ // _TencodeX // LoadT__loginS01genReplyTokenA
-		Ti:           _FtimeInt(),
+		EnTi:         _FtimeInt(),
 		EnLoadType:   LoadT__data_01_special,
 		EnToId128:    ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
 		EnToConnPort: __Vconn,                 // _TudpConnPort

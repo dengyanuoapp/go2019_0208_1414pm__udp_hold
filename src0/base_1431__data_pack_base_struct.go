@@ -62,56 +62,56 @@ type _TdataPack_991 struct {
 type _TdecodeX struct {
 }
 type _Tdecode struct {
-	Ti            int // traceInfo
-	Ok            bool
-	ReceiveTime   int
-	RemoteAddr    net.UDPAddr
-	RemotePortKey []byte
-	SendAddr      net.UDPAddr
-	SendPortKey   []byte
-	Type          byte
-	Dlogin        _TloginReq
-	Ddata         _TdataTran
+	DEti            int // traceInfo
+	DEok            bool
+	DEreceiveTime   int
+	DEremoteAddr    net.UDPAddr
+	DEremotePortKey []byte
+	DEsendAddr      net.UDPAddr
+	DEsendPortKey   []byte
+	DEtype          byte
+	DElogin         _TloginReq
+	DEdata          _TdataTran
 }
 
 func (___Vd *_Tdecode) String() string {
 	var __Vcontent string
-	switch ___Vd.Type {
+	switch ___Vd.DEtype {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB, LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken:
-		__Vcontent = "Dlogin:" + ___Vd.Dlogin.String()
+		__Vcontent = "Dlogin:" + ___Vd.DElogin.String()
 	case LoadT__data_01_special, LoadT__data_99_normal: //
-		__Vcontent = "Ddata:" + ___Vd.Ddata.String()
+		__Vcontent = "Ddata:" + ___Vd.DEdata.String()
 	default:
-		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.Type)
+		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.DEtype)
 	}
 	__Vrs := _Spf(
 		"Ti:%d ok:%T rm:%s rmk:%s sa:%s sk:%s type:%s {%s} t:%d ",
-		___Vd.Ti,
-		___Vd.Ok,
-		___Vd.RemoteAddr.String(),
-		String5(&___Vd.RemotePortKey),
-		___Vd.SendAddr.String(),
-		String5(&___Vd.SendPortKey),
-		_FcmdType(___Vd.Type),
+		___Vd.DEti,
+		___Vd.DEok,
+		___Vd.DEremoteAddr.String(),
+		String5(&___Vd.DEremotePortKey),
+		___Vd.DEsendAddr.String(),
+		String5(&___Vd.DEsendPortKey),
+		_FcmdType(___Vd.DEtype),
 		__Vcontent,
-		___Vd.ReceiveTime)
+		___Vd.DEreceiveTime)
 	return __Vrs
 }
 
 func (___Vd *_Tdecode) Count128() []int {
 	return []int{
-		len(___Vd.Dlogin.ToIdx128),
-		len(___Vd.Dlogin.ToSeq128),
-		len(___Vd.Dlogin.MeIdx128),
-		len(___Vd.Dlogin.MeSeq128),
-		len(___Vd.Dlogin.TokenL),
-		len(___Vd.Dlogin.TokenR)}
+		len(___Vd.DElogin.ToIdx128),
+		len(___Vd.DElogin.ToSeq128),
+		len(___Vd.DElogin.MeIdx128),
+		len(___Vd.DElogin.MeSeq128),
+		len(___Vd.DElogin.TokenL),
+		len(___Vd.DElogin.TokenR)}
 }
 
 type _TencodeX struct {
 }
 type _Tencode struct {
-	Ti           int
+	EnTi         int
 	EnToId128    []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess
 	EnFromId128  []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess
 	EnToConnPort _TudpConnPort // another of to addr
@@ -128,7 +128,7 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("Ti:%d to:<%s> fromId:%s toId:%s T:%d", ___Ven.Ti, ___Ven.EnToConnPort.String(),
+	__Vso = _Spf("Ti:%d to:<%s> fromId:%s toId:%s T:%d", ___Ven.EnTi, ___Ven.EnToConnPort.String(),
 		String5(&___Ven.EnFromId128), String5(&___Ven.EnToId128), ___Ven.EnLoadType)
 
 	switch ___Ven.EnLoadType {

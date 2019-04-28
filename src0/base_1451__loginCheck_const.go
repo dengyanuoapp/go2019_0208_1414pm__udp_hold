@@ -44,7 +44,7 @@ func _FcheckDecodeType(___Vdecode *_Tdecode, ___VwantType byte) bool { // match 
 		return true
 	}
 
-	if ___VwantType != ___Vdecode.Type {
+	if ___VwantType != ___Vdecode.DEtype {
 		return true
 	}
 	return false

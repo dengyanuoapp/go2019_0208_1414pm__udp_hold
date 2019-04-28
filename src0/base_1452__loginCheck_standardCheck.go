@@ -23,7 +23,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 
 			___Vlc.
 				_FloginCheck__900201xC1__standardCheck(&__Vdecode, &__Venc)
-			if false == __Vdecode.Ok {
+			if false == __Vdecode.DEok {
 				___VloginCheck__900201x__mux.Unlock()
 				continue
 			}
@@ -57,7 +57,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 } // end func
 func (___Vlc *_TloginCheck) _FloginCheck__900201xC1__standardCheck(___Vdecode *_Tdecode, ___Venc *_Tencode) {
 	//_FpfNdb(" 138183 03 : %s", ___Vdecode.String()) // 15540463611554046361
-	switch ___Vdecode.Type {
+	switch ___Vdecode.DEtype {
 	case LoadT__loginS01genReplyTokenA:
 		// ============================ step 02 : Fn gen tokenB, to Dn, cmd fill 02 ====================
 		//_FpfN(" 138183 04 : %s", ___Vdecode.String())
@@ -73,7 +73,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC1__standardCheck(___Vdecode *_
 			_FloginCheck_step900201y__s4accept_tokenB_resetData_Fn(___Vdecode)
 		___Venc.EnLoadType = LoadT__loginEnd // no use , but told the following debug disable only
 	default:
-		_CFpfN(" 138183 08 : unknow how to deal with : type %d,", ___Vdecode.Type)
+		_CFpfN(" 138183 08 : unknow how to deal with : type %d,", ___Vdecode.DEtype)
 		//continue // next Select
 	}
 }

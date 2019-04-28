@@ -64,35 +64,35 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 
 	___VunRece.
 		_FdataPack__dePack_decode__from_udpNodeDataRece(&__Vdecode) // _TdecodeX
-	__Vdecode.RemoteAddr = ___VunRece.UrrRemoteAddr
-	__Vdecode.SendAddr = ___VunRece.UrrRemoteAddr
-	__Vdecode.SendPortKey = ___VunRece.UrrReceiveKey.Bkey
+	__Vdecode.DEremoteAddr = ___VunRece.UrrRemoteAddr
+	__Vdecode.DEsendAddr = ___VunRece.UrrRemoteAddr
+	__Vdecode.DEsendPortKey = ___VunRece.UrrReceiveKey.Bkey
 
 	___CpfN(" 388197 04 Ti:%d : after decoder  : Type:%d __Vdecode {%s} (from %d:%x) ::: ___VunRece {%s} (from %d:%x)", // _TudpNodeDataReceX
-		___VtraceIntDE, __Vdecode.Type,
+		___VtraceIntDE, __Vdecode.DEtype,
 		__Vdecode.String(), len(___VunRece.UrrBuf), _Fmd5__5x(&___VunRece.UrrBuf), // _TdecodeX
 		___VunRece.String(), len(___VunRece.UrrBuf), _Fmd5__5x(&___VunRece.UrrBuf))
 
-	switch __Vdecode.Type {
+	switch __Vdecode.DEtype {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-		___CpfN(" 388197 06 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+		___CpfN(" 388197 06 : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.TokenL)
 		if nil == ___Vude.uDeCHdecodeCkLO {
 			_CpfN(" 388197 07 : uDecode outChan null , ignore:%s", __Vdecode.String())
 		} else {
-			___CpfN(" 388197 08 uDecode real outChain : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+			___CpfN(" 388197 08 uDecode real outChain : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.TokenL)
 			___CpfN(" 388197 09 uDecode real outChain : %s", __Vdecode.String())
 			(*___Vude.uDeCHdecodeCkLO) <- __Vdecode // 15540463611554046361
 		}
 	case LoadT__data_01_special:
-		_NpfN(" 388199 01 : type %d, tokenA %x", __Vdecode.Type, __Vdecode.Dlogin.TokenL)
+		_NpfN(" 388199 01 : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.TokenL)
 		if nil == ___Vude.uDeCHdecodeDataLO {
 			_CpfN(" 388199 03 : outChan null , ignore ")
 		} else {
-			_NpfN(" 388199 05 outChain exist , push into chan: _TuDecode receive : type %d :<%s>", __Vdecode.Type, __Vdecode.String())
+			_NpfN(" 388199 05 outChain exist , push into chan: _TuDecode receive : type %d :<%s>", __Vdecode.DEtype, __Vdecode.String())
 			(*___Vude.uDeCHdecodeDataLO) <- __Vdecode // to &_VdataMachine_Fn.dmCHdecodeDataI,     // dmCHdecodeDataI _TdecodeX
 		}
 	default:
-		_CpfN(" 388199 09 : type %d : unknow how to deal with.", __Vdecode.Type)
+		_CpfN(" 388199 09 : type %d : unknow how to deal with.", __Vdecode.DEtype)
 	}
 }

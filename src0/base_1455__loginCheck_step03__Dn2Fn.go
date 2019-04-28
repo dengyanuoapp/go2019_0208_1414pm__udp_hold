@@ -17,15 +17,15 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 		return
 	}
 
-	if false == bytes.Equal(___Vdecode.Dlogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
-		false == bytes.Equal(___Vdecode.Dlogin.ToIdx128, _VC.MyId128) ||
-		false == bytes.Equal(___Vdecode.Dlogin.ToSeq128, _VS.MySeq128) {
+	if false == bytes.Equal(___Vdecode.DElogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
+		false == bytes.Equal(___Vdecode.DElogin.ToIdx128, _VC.MyId128) ||
+		false == bytes.Equal(___Vdecode.DElogin.ToSeq128, _VS.MySeq128) {
 		_FpfN(" 838381 05 : error : no equal, ignore. %s : ulTokenA:%s MyId128:%s MySeq128:%s ",
 			___Vdecode.String(), String5(&___Vlc.ulTokenA), String5(&_VC.MyId128), String5(&_VS.MySeq128))
 		return
 	}
 
-	if (_FtimeInt() - ___Vdecode.ReceiveTime) > __VmaxCmdPerid {
+	if (_FtimeInt() - ___Vdecode.DEreceiveTime) > __VmaxCmdPerid {
 		_FpfN(" 838381 06 : error : timeOut. %s ", ___Vdecode.String())
 		return
 	}
@@ -38,8 +38,8 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 	//_FpfNex(" 838381 08 %s ", ___Vdecode.String())
 	*___Venc = _Tencode{
 		EnToConnPort: _TudpConnPort{
-			DstAddr: ___Vdecode.RemoteAddr,    // net.UDPAddr
-			K256:    ___Vdecode.RemotePortKey, // []byte
+			DstAddr: ___Vdecode.DEremoteAddr,    // net.UDPAddr
+			K256:    ___Vdecode.DEremotePortKey, // []byte
 		},
 		EnLoadType: LoadT__loginS03acceptWithToken,
 		EnLogin: _TloginReq{
@@ -49,10 +49,10 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 			MeName:   _VC.Name,
 			MeIdx128: _VC.MyId128,
 			MeSeq128: _VS.MySeq128,
-			ToIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
-			ToSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
-			TokenL:   ___Vdecode.Dlogin.TokenR,   // []byte
-			TokenR:   ___Vdecode.Dlogin.TokenL,   // []byte
+			ToIdx128: ___Vdecode.DElogin.MeIdx128, // []byte
+			ToSeq128: ___Vdecode.DElogin.MeSeq128, // []byte
+			TokenL:   ___Vdecode.DElogin.TokenR,   // []byte
+			TokenR:   ___Vdecode.DElogin.TokenL,   // []byte
 		},
 	}
 
@@ -66,11 +66,11 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 	} else {
 		__Vid := _TdataMachinEid{
 			diConnPort: _TudpConnPort{
-				___Vdecode.RemoteAddr,     // net.UDPAddr
-				___Vdecode.RemotePortKey}, // []byte
-			diIdx128: ___Vdecode.Dlogin.MeIdx128, // []byte
-			diSeq128: ___Vdecode.Dlogin.MeSeq128, // []byte
-			diToken:  ___Vdecode.Dlogin.TokenL,   // []byte
+				___Vdecode.DEremoteAddr,     // net.UDPAddr
+				___Vdecode.DEremotePortKey}, // []byte
+			diIdx128: ___Vdecode.DElogin.MeIdx128, // []byte
+			diSeq128: ___Vdecode.DElogin.MeSeq128, // []byte
+			diToken:  ___Vdecode.DElogin.TokenL,   // []byte
 		}
 		//_FpfNdb(" 838382 07 [reset-dataMachineID:<%s>]", __Vid.String())
 		(*___Vlc.ulCHdataMachineIdLO) <- __Vid
