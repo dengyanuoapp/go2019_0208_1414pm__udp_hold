@@ -15,14 +15,13 @@ type _TudpNodeDataRece struct {
 }
 
 func (___Vr *_TudpNodeDataRece) String() string {
-	return _Spf("Ti:%d mp:%d ra:%s buf(%d){%x}[%s] k[%s]",
+	return _Spf("Ti:%d mp:%d ra:%s rk[%s] buf{%s} ",
 		___Vr.Ti,
 		___Vr.UrrLocalPort,
 		___Vr.UrrRemoteAddr.String(),
-		len(___Vr.UrrBuf),
-		_Fmd5__5x(&___Vr.UrrBuf),
+		//___Vr.UrrReceiveKey.String(), // UrrReceiveKey _Tkey256X
+		String5(&___Vr.UrrReceiveKey.Bkey), // UrrReceiveKey _Tkey256X
 		String9(&___Vr.UrrBuf),
-		___Vr.UrrReceiveKey.String(), // UrrReceiveKey _Tkey256X
 	)
 }
 
@@ -35,10 +34,10 @@ type _TudpNodeDataSend struct {
 }
 
 func (___Vs *_TudpNodeDataSend) String() string {
-	return _Spf("Ti:%d send<%s>(%d){%x}",
+	return _Spf("Ti:%d sa:%s {%s}",
 		___Vs.Ti,
 		___Vs.usToAddr.String(),
-		len(___Vs.usOutBuf),
-		_Fmd5__5x(&___Vs.usOutBuf))
+		String9(&___Vs.usOutBuf),
+	)
 
 }

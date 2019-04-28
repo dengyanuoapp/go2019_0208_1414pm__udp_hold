@@ -93,14 +93,18 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	*/
 
-	__Vc2s := _Trepack__c2s{
-		C2sDe:   __Vdecode,               // _Tdecode
-		C2sAddr: __VunRece.UrrRemoteAddr, // net.UDPAddr _TudpNodeDataReceX
-	}
+	/*
+		__Vc2s := _Trepack__c2s{
+			C2sDe:   __Vdecode,               // _Tdecode
+			C2sAddr: __VunRece.UrrRemoteAddr, // net.UDPAddr _TudpNodeDataReceX
+		}
+	*/
 
-	__VoutC2s, __Verr3 := _FencGob__only(&__Vc2s)
+	//__VddBufB, __Verr3 := _FencGob__only(&__Vc2s)
+	__VddBufB, __Verr3 := _FencGob__only(&__Vdecode)
 	if nil != __Verr3 {
-		_CFpfN(" 638196 07 why encGob error ? <%v> , {%s} ", __Verr3, __Vc2s.String())
+		//_CFpfN(" 638196 07 why encGob error ? <%v> , {%s} ", __Verr3, __Vc2s.String())
+		_CFpfN(" 638196 07 why encGob error ? <%v> , {%s} ", __Verr3, __Vdecode.String())
 		return
 	}
 
@@ -110,7 +114,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		EnLoadType:  LoadT__data_01_special,    //byte
 		EnData: _TdataTran{
 			DDcmd: DDType__c2s, // byte
-			DDbuf: __VoutC2s,   // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
+			DDbuf: __VddBufB,   // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
 			// MEidx128 []byte
 			// MYseq128 []byte
 			// TOidx128 []byte
@@ -126,17 +130,17 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 
 	_CFpfN("\n\n\n 638196 08 _TrecePackThenEncodeAsLoad: encOut{%s}", __Venc4.String())
 
-	__VoutC2sB, __Verr4 := _FencGob__only(&__Venc4)
+	__Vc2sEncodeB, __Verr4 := _FencGob__only(&__Venc4)
 	if nil != __Verr4 {
 		_CFpfN(" 638196 09 why encGob error ? <%v> , {%s} ", __Verr4, __Venc4.String())
 		return
 	}
-	_CFpfN(" 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s}", String9(&__VoutC2sB), _Fmd5__5s(&__VoutC2sB))
+	_CFpfN(" 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s}", String9(&__Vc2sEncodeB), _Fmd5__5s(&__Vc2sEncodeB))
 
-	// (*(___Vpel.pelCHc2sEncodeBLO)) <- __VoutC2sB
+	// (*(___Vpel.pelCHc2sEncodeBLO)) <- __Vc2sEncodeB
 
 	__Venc5 := _Tencode{} // _TencodeX
-	__Verr5 := _FdecGob___(" 638196 11 ", __VoutC2sB, &__Venc5)
+	__Verr5 := _FdecGob___(" 638196 11 ", __Vc2sEncodeB, &__Venc5)
 	if nil != __Verr5 {
 		_CFpfN(" 638196 12 _TrecePackThenEncodeAsLoad: decError{%v} ", __Verr5)
 	}
