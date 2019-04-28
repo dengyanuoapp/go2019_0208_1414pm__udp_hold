@@ -100,7 +100,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
-	__Venc := _Tencode{ // _TencodeX
+	__Venc4 := _Tencode{ // _TencodeX
 		Ti:         __VunRece.Ti,              // _TdecodeX
 		enToId128:  __Vdecode.Dlogin.MeIdx128, // _TloginReq
 		enLoadType: LoadT__data_01_special,    //byte
@@ -120,20 +120,22 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		//enMultiSend  int // send multi timeS if not zero
 	}
 
-	_CFpfN("\n\n\n 638196 08 _TrecePackThenEncodeAsLoad: encOut{%s}", __Venc.String())
+	_CFpfN("\n\n\n 638196 08 _TrecePackThenEncodeAsLoad: encOut{%s}", __Venc4.String())
 
-	__VoutC2sB, __Verr4 := _FencGob__only(&__Venc)
+	__VoutC2sB, __Verr4 := _FencGob__only(&__Venc4)
 	if nil != __Verr4 {
-		_CFpfN(" 638196 09 why encGob error ? <%v> , {%s} ", __Verr4, __Venc.String())
+		_CFpfN(" 638196 09 why encGob error ? <%v> , {%s} ", __Verr4, __Venc4.String())
 		return
 	}
 	_CFpfN(" 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s}", String9(&__VoutC2sB), _Fmd5__5s(&__VoutC2sB))
 
-	(*(___Vpel.pelCHc2sEncodeBLO)) <- __VoutC2sB
+	// (*(___Vpel.pelCHc2sEncodeBLO)) <- __VoutC2sB
 
 	__Venc5 := _Tencode{} // _TencodeX
 	__Verr5 := _FdecGob___(" 638196 11 ", __VoutC2sB, &__Venc5)
 	if nil != __Verr5 {
 		_CFpfN(" 638196 12 _TrecePackThenEncodeAsLoad: decError{%v} ", __Verr5)
 	}
+	_CFpfN(" 638196 13 _TrecePackThenEncodeAsLoad: recoverEc{%s} ", __Venc5.String())
+	_FpfNex(" 638196 14")
 }
