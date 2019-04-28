@@ -42,5 +42,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 		return
 	}
 
+	_CFpfN(" 839199 06 : _TdataMachine : dmClient {%s} ", __VdmClient.String())
+
 	_CFpfN(" 839199 09 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> <%s>", String9(___Vc2sEncodeB), __Venc.String())
 }
