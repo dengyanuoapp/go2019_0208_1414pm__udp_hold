@@ -14,16 +14,16 @@ func _FdataPack__deGob__encode(___Vencode *_Tencode, ___Vbuf []byte) {
 		return
 	}
 
-	_CFpfN(" 387194 001 _FdataPack__deGob__encode <%v> <%s>", ___Vencode, String9(&___Vbuf))
+	_CFpfN(" 387194 01 _FdataPack__deGob__encode <%v> <%s>", ___Vencode, String9(&___Vbuf))
 
 	(*___Vencode) = _Tencode{}
 
-	_CFpfN(" 387194 002 _FdataPack__deGob__encode <%v>", ___Vencode)
+	_CFpfN(" 387194 02 _FdataPack__deGob__encode <%v>", ___Vencode)
 
 	__Verr2 :=
-		_FdecGob___(" 387194 01 ", ___Vbuf, ___Vencode)
+		_FdecGob___(" 387194 03 ", ___Vbuf, ___Vencode)
 	if nil != __Verr2 {
-		_CFpfN(" 387194 02 decodeGob error <%v>", __Verr2)
+		_CFpfN(" 387194 04 decodeGob error <%v>", __Verr2)
 	}
-	_CFpfN(" 387194 03 buf{%s} , enc{%s}", String9(&___Vbuf), ___Vencode.String()) // _TencodeX
+	_CFpfN(" 387194 05 buf{%s} , enc{%s}", String9(&___Vbuf), ___Vencode.String()) // _TencodeX
 }
