@@ -40,7 +40,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
-	__VunRece := _TudpNodeDataRece{}
+	__VunRece := _TudpNodeDataRece{} // _TudpNodeDataReceX
 	__Verr4 := _FdecGob___(" 638196 02 ", *___VbyteIn, &__VunRece)
 	if nil != __Verr4 {
 		_CFpfN(" 638196 02 : why error <%v> ?", __Verr4)
@@ -71,6 +71,9 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 			__VtraceIntDE, __Verr2, __Vdecode.Type, LoadT__loginS01genReplyTokenA)
 		return
 	}
+
+	__Vdecode.SendAddr = __VunRece.UrrRemoteAddr
+	__Vdecode.SendPortKey = __VunRece.UrrReceiveKey.Bkey // _Tkey256X
 
 	// _TudpNodeDataReceX
 	_CFpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())

@@ -11,7 +11,7 @@ type _TudpNodeDataRece struct {
 	UrrLocalPort  int
 	UrrRemoteAddr net.UDPAddr
 	UrrBuf        []byte
-	UrrReceiveKey _Tkey256
+	UrrReceiveKey _Tkey256 // _Tkey256X
 }
 
 func (___Vr *_TudpNodeDataRece) String() string {
