@@ -15,18 +15,18 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x2__uData_rece(___Vur *_TudpNodeD
 	__Vv, __Vok := ___Vgf.gfR.now_[__Vk]
 	if false == __Vok {
 		___Vgf.gfR.now_[__Vk] = _TgapFilter_ReceCnt{ // _TgapFilter_ReceStX
-			cnt: 1,
-			unr: (*___Vur), // _TudpNodeDataReceX
+			gfrCnt: 1,
+			gfrUnr: (*___Vur), // _TudpNodeDataReceX
 		}
 		//_FpfN(" 381927 15 : first")
 		return
 	}
 
 	___Vgf.gfR.now_[__Vk] = _TgapFilter_ReceCnt{ // _TgapFilter_ReceStX
-		cnt: __Vv.cnt + 1,
-		unr: (*___Vur), // _TudpNodeDataReceX
+		gfrCnt: __Vv.gfrCnt + 1,
+		gfrUnr: (*___Vur), // _TudpNodeDataReceX
 	}
-	//_FpfN(" 381927 17 : cnt %d", ___Vgf.gfR.now_[__Vk].cnt)
+	//_FpfN(" 381927 17 : gfrCnt %d", ___Vgf.gfR.now_[__Vk].gfrCnt)
 }
 
 func (___Vgf *_TgapFilter) _FgapFilter__1200301x3__Byte_rece(__VbyteIn *[]byte) {
@@ -49,17 +49,17 @@ func (___Vgf *_TgapFilter) _FgapFilter__1200301x3__Byte_rece(__VbyteIn *[]byte) 
 	__Vv, __Vok := ___Vgf.gfR.now_[__Vk]
 	if false == __Vok {
 		___Vgf.gfR.now_[__Vk] = _TgapFilter_ReceCnt{ // _TgapFilter_ReceStX
-			cnt: 1,
-			//unr: __Vur, // _TudpNodeDataReceX
-			unb: (*__VbyteIn),
+			gfrCnt: 1,
+			//gfrUnr: __Vur, // _TudpNodeDataReceX
+			gfrUnb: (*__VbyteIn),
 		}
 		//_FpfN(" 381928 15 : first")
 		return
 	}
 
 	___Vgf.gfR.now_[__Vk] = _TgapFilter_ReceCnt{ // _TgapFilter_ReceStX
-		cnt: __Vv.cnt + 1,
-		//unr: __Vur, // _TudpNodeDataReceX
-		unb: (*__VbyteIn),
+		gfrCnt: __Vv.gfrCnt + 1,
+		//gfrUnr: __Vur, // _TudpNodeDataReceX
+		gfrUnb: (*__VbyteIn),
 	}
 }

@@ -5,24 +5,21 @@ import (
 	"time"
 )
 
-type _TgapFilter_ReceCntX struct {
-}
+type _TgapFilter_ReceCntX struct{}
 type _TgapFilter_ReceCnt struct {
-	cnt int
-	unr _TudpNodeDataRece
-	unb []byte
+	gfrCnt int
+	gfrUnr _TudpNodeDataRece
+	gfrUnb []byte
 }
 
-type _TgapFilter_ReceStX struct {
-}
+type _TgapFilter_ReceStX struct{}
 type _TgapFilter_ReceSt struct { // _TudpNodeDataReceX
 	now_ map[string]_TgapFilter_ReceCnt
 	last map[string]_TgapFilter_ReceCnt
 	las2 map[string]_TgapFilter_ReceCnt
 }
 
-type _TgapFilterX struct {
-}
+type _TgapFilterX struct{}
 type _TgapFilter struct {
 	gfMux                 sync.Mutex
 	gfGap                 time.Duration           // default _T10s
