@@ -30,7 +30,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y__receive__default() {
 			___Vun.unLocalPort, ___Vun.unRemoteAddr.String(),
 			___Vun.unRlen, len(___Vun.unRbufTmp), ___Vun.unRbufTmp)
 
-		___Vun._FudpNode__500201y01__receive__default()
+		___Vun.
+			_FudpNode__500201y01__receive__default()
 
 		___VudpNode__500201y__mux.Unlock()
 	}
