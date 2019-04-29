@@ -29,8 +29,30 @@ func (___Vlr *_TdataTran) String() string {
 		String5(&___Vlr.TOidx128),
 		String5(&___Vlr.TOseq128),
 		String5(&___Vlr.TTokenD),
-		___Vlr.DDcmd,
+		_FddCmdtype(___Vlr.DDcmd),
 		___Vlr.DDoffset,
 		String9(&___Vlr.DDbuf))
 	return __Vo
+}
+
+func _FddCmdtype(___Vtype byte) string {
+	__Vso := _Spf("%d:", ___Vtype)
+	switch ___Vtype {
+	case DDType__NULL:
+		__Vso += "DTnull"
+	case DDType__idle:
+		__Vso += "DTidle"
+	case DDType__fndn:
+		__Vso += "DTfsdn"
+	case DDType__s2c:
+		__Vso += "DTs2c"
+	case DDType__c2s:
+		__Vso += "DTc2s"
+	case DDType__End:
+		__Vso += "DTend"
+	default:
+		__Vso += "DTunknown"
+	}
+
+	return __Vso
 }

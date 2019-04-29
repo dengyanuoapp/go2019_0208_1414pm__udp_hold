@@ -37,6 +37,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_decodeData(___Vdec *
 		return
 	}
 
+	// the following : insert / renew the remote key & port pairs.
+
 	__Vk := _FgenB16(&___Vdec.DEdata.MEidx128)
 	//___Vdm.dmMdata.ddsMux.Lock()
 	__Vidx4, __Vok4 := ___Vdm.dmMdata.ddsMidx[__Vk] // map[[16]byte]_TdataMachinEdataClient
