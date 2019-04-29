@@ -103,8 +103,7 @@ func (___Vd *_Tdecode) Count128() []int {
 		len(___Vd.DElogin.TokenR)}
 }
 
-type _TencodeX struct {
-}
+type _TencodeX struct{}
 type _Tencode struct {
 	EnTi         int
 	EnToId128    []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess

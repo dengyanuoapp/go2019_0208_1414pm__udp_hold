@@ -41,6 +41,7 @@ type _TdataMachine struct {
 	dmCHdataMachineIdI           chan _TdataMachinEid  // loginChecker will fill this chan when check-token ok.
 	dmCHloginGenMachineIdLO      *chan _TdataMachinEid // _VloginGenerator_Dn.lgCHdataMachineIdI, fill this chan to told the loginGen to stop
 	dmCHdecodeDataI              chan _Tdecode         // from uDeCHdecodeDataLO  *chan _Tdecode of decoder
+	dmCHrepackDecodeC2sI         *chan _Tdecode        // _TencodeX , send IDLE
 	dmCHencodeIdleLO             *chan _Tencode        // _TencodeX , send IDLE
 	dmCHencodeDataSpecBLO        *chan _TdataTran      // _TencodeX , used for Fn-Dn, and other special use
 	dmCHencodeData9999BLO        *chan _TdataTran      // _TencodeX , used for normal data tunnel
