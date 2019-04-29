@@ -31,7 +31,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_decodeData(___Vdec *
 	switch ___Vdec.DEtype { // _TdecodeX
 	case LoadT__data_01_special:
 		// do continue
-		_CFpfN(" 839195 03 : _TdataMachine : LoadT__data_01_special :{%s}", ___Vdec.String())
+		__FpfN(" 839195 03 : _TdataMachine : LoadT__data_01_special :{%s}", ___Vdec.String())
+		___Vdm.
+			_FdataMachin__rece__dataSpec(___Vdec)
 	default:
 		_CFpfN(" 839195 05 : _TdataMachine : unknown type :{%s}", ___Vdec.String())
 		return
