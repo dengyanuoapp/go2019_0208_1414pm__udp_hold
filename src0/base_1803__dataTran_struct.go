@@ -22,7 +22,7 @@ type _TdataTran struct {
 
 func (___Vlr *_TdataTran) String() string {
 	__Vo := _Spf(
-		"mid:%s,%s tid:%s,%s tkD:%s Dcmd:%d off:%d B:%s",
+		"mid:%s,%s tid:%s,%s tkD:%s Dcmd:%s off:%d B:%s",
 
 		String5(&___Vlr.MEidx128),
 		String5(&___Vlr.MYseq128),
