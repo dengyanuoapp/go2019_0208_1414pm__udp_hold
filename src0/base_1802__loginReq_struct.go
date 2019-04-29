@@ -29,11 +29,11 @@ func (___Vlr *_TloginReq) String() string {
 		___Vlr.ReqStr,
 		___Vlr.MeName,
 
-		String5(&___Vlr.MeIdx128),
-		String5(&___Vlr.MeSeq128),
-		String5(&___Vlr.ToIdx128),
-		String5(&___Vlr.ToSeq128),
-		String5(&___Vlr.TokenL),
-		String5(&___Vlr.TokenR))
+		String5s(&___Vlr.MeIdx128),
+		String5s(&___Vlr.MeSeq128),
+		String5s(&___Vlr.ToIdx128),
+		String5s(&___Vlr.ToSeq128),
+		String5s(&___Vlr.TokenL),
+		String5s(&___Vlr.TokenR))
 	return __Vo
 }

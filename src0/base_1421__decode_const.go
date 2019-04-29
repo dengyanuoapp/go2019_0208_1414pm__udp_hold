@@ -39,7 +39,7 @@ func (___Vsi *_TsrvDownInfo) String() string {
 		___Vsi.tryCnt,
 		___Vsi.skipCnt,
 		___Vsi.updateUri,
-		String5(&___Vsi.updatePasswd),
+		String5s(&___Vsi.updatePasswd),
 		___Vsi.srvInfo.String(),
 		___Vsi.lastDownTime,
 	)

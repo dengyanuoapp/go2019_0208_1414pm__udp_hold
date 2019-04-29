@@ -47,9 +47,9 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 			default:
 				(*___Vlc.ulCHencodeCkLO) <- __Venc // _Tencode
 				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.EnLogin.TokenL %s",
-					String5(&_VC.MyId128),
-					String5(&_VS.MySeq128),
-					String5(&__Venc.EnLogin.TokenL))
+					String5s(&_VC.MyId128),
+					String5s(&_VS.MySeq128),
+					String5s(&__Venc.EnLogin.TokenL))
 			}
 		}
 		___VloginCheck__900201x__mux.Unlock()

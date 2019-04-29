@@ -101,7 +101,7 @@ func _FdecAesCbc__only___(___Vkey []byte, ___VbyteIn []byte, ___VtraceIntDE int)
 
 	__VoutNull := []byte{}
 	if 32 != len(___Vkey) {
-		_FpfNonce(" 838181 key len error (not equals to 32): %d:%s", len(___Vkey), String5(&___Vkey))
+		_FpfNonce(" 838181 key len error (not equals to 32): %d:%s", len(___Vkey), String5s(&___Vkey))
 		return __VoutNull, nil
 	}
 

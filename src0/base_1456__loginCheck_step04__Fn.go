@@ -39,7 +39,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s4accept_tokenB_resetData_
 	___Vlc.ulCmd.mux.Unlock()                         //               _TcmdMap
 
 	if false == __Vok4 {
-		_FpfN(" 838385 07 : error : not found(key:%x), %s ", String5(&___Vdecode.DElogin.MeIdx128), ___Vdecode.String())
+		_FpfN(" 838385 07 : error : not found(key:%x), %s ", String5s(&___Vdecode.DElogin.MeIdx128), ___Vdecode.String())
 		//_FpfN(" 838385 08 : %#v", ___Vlc.ulCmd.M)
 		//_Fex1(" 838385 09 ")
 		return

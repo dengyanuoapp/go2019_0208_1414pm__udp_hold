@@ -3,20 +3,20 @@ package main
 func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConnect(___Vc2sEncodeB *[]byte) {
 	// _FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack pelCHc2sEncodeBLO
 
-	__FpfN(" 839199 01 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> ", String9(___Vc2sEncodeB))
+	__FpfN(" 839199 01 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> ", String9s(___Vc2sEncodeB))
 
 	__Venc := _Tencode{} // _TencodeX
 	//_FdataPack__dePackUdpNodeRece__decode(&__Venc, *___Vc2sEncodeB)
 	_FdataPack__deGob__encode(&__Venc, *___Vc2sEncodeB)
 	if __Venc.EnLoadType != LoadT__data_01_special {
 		_CFpfN(" 839199 02 : _TdataMachine : EnLoadType error :<%s> {%s}",
-			String9(___Vc2sEncodeB), __Venc.String())
+			String9s(___Vc2sEncodeB), __Venc.String())
 		return
 	}
 
 	if __Venc.EnData.DDcmd != DDType__c2s { // byte
 		_CFpfN(" 839199 03 : _TdataMachine : DDcmd error :<%s> {%s}",
-			String9(___Vc2sEncodeB), __Venc.String())
+			String9s(___Vc2sEncodeB), __Venc.String())
 		return
 	}
 
@@ -43,7 +43,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 	} // _TencodeX
 
 	_CFpfN(" 839199 06 : _TdataMachine : dmClient {%s} === Vc2sEncodeB<%s> === Venc<%s>",
-		__VdmClient.String(), String9(___Vc2sEncodeB), __Venc.String())
+		__VdmClient.String(), String9s(___Vc2sEncodeB), __Venc.String())
 
 	___Vdm.
 		_FdataMachin__1000503y__cnNeedDnRetranOrDirectConnect(__VdmClient, &__Venc)

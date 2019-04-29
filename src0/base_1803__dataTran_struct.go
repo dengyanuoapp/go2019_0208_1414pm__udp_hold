@@ -24,14 +24,14 @@ func (___Vlr *_TdataTran) String() string {
 	__Vo := _Spf(
 		"mid:%s,%s tid:%s,%s tkD:%s Dcmd:%s off:%d B:%s",
 
-		String5(&___Vlr.MEidx128),
-		String5(&___Vlr.MYseq128),
-		String5(&___Vlr.TOidx128),
-		String5(&___Vlr.TOseq128),
-		String5(&___Vlr.TTokenD),
+		String5s(&___Vlr.MEidx128),
+		String5s(&___Vlr.MYseq128),
+		String5s(&___Vlr.TOidx128),
+		String5s(&___Vlr.TOseq128),
+		String5s(&___Vlr.TTokenD),
 		_FddCmdtype(___Vlr.DDcmd),
 		___Vlr.DDoffset,
-		String9(&___Vlr.DDbuf))
+		String9s(&___Vlr.DDbuf))
 	return __Vo
 }
 

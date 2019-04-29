@@ -12,7 +12,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201x_
 		case __VpB := <-___Vpel.pelCHudpNodeDataReceBI:
 			_VrecePackThenEncodeAsLoad__1400201x__mux.Lock()
 
-			__FpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%s}", String9(&__VpB))
+			__FpfN(" 638191 01 _TrecePackThenEncodeAsLoad rece Bytes From Chan :{%s}", String9s(&__VpB))
 			___Vpel.
 				_FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack(&__VpB)
 
@@ -36,7 +36,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	}
 
 	if nil == ___Vpel.pelCHc2sEncodeBLO {
-		_CFpfN(" 638196 01 : _TrecePackThenEncodeAsLoad : why out-Chan null <%s> ?", String9(___VbyteIn))
+		_CFpfN(" 638196 01 : _TrecePackThenEncodeAsLoad : why out-Chan null <%s> ?", String9s(___VbyteIn))
 		return
 	}
 
@@ -72,7 +72,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
-	__Vdecode.DEsendAddr = __VunRece.UrrRemoteAddr
+	__Vdecode.DEsendAddr = __VunRece.UrrRemoteAddr         // _TudpNodeDataReceX
 	__Vdecode.DEsendPortKey = __VunRece.UrrReceiveKey.Bkey // _Tkey256X
 
 	// _TudpNodeDataReceX
@@ -135,9 +135,10 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	if nil != __Verr4 {
 		_CFpfN(" 638196 09 why encGob error ? <%v> , {%s} ", __Verr4, __Venc4.String())
 		return
-	}
-	_CFpfN("\n\n\n 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s} , dec{%s} ====####==== unRece{%s}",
-		__Vdecode.String(), __VunRece.String(), String9(&__Vc2sEncodeB), __Venc4.String())
+	} // _TudpNodeDataReceX
+
+	_CFpfN("\n\n\n 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s} ===##1##=== dec{%s} ====##2##==== unRece{%s}",
+		__Vdecode.String(), __VunRece.String(), String9s(&__Vc2sEncodeB), __Venc4.String())
 
 	(*(___Vpel.pelCHc2sEncodeBLO)) <- __Vc2sEncodeB
 

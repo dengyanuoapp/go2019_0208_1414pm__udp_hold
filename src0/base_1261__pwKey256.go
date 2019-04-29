@@ -16,7 +16,7 @@ func (___Vk *_Tkey256) String() string {
 	}
 
 	return _Spf(__Vfmt,
-		String5(&___Vk.Bkey),
+		String5s(&___Vk.Bkey),
 		___Vk.B32[:5],
 	)
 }

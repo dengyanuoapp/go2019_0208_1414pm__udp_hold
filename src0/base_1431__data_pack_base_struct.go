@@ -88,9 +88,9 @@ func (___Vd *_Tdecode) String() string {
 		___Vd.DEti,
 		___Vd.DEok,
 		___Vd.DEremoteAddr.String(),
-		String5(&___Vd.DEremotePortKey),
+		String5s(&___Vd.DEremotePortKey),
 		___Vd.DEsendAddr.String(),
-		String5(&___Vd.DEsendPortKey),
+		String5s(&___Vd.DEsendPortKey),
 		_FcmdType(___Vd.DEtype),
 		__Vcontent,
 		___Vd.DEreceiveTime)
@@ -128,7 +128,7 @@ func (___Ven *_Tencode) String() string {
 
 	var __Vso string
 	__Vso = _Spf("Ti:%d to:<%s> fromId:%s toId:%s T:%d", ___Ven.EnTi, ___Ven.EnToConnPort.String(),
-		String5(&___Ven.EnFromId128), String5(&___Ven.EnToId128), ___Ven.EnLoadType)
+		String5s(&___Ven.EnFromId128), String5s(&___Ven.EnToId128), ___Ven.EnLoadType)
 
 	switch ___Ven.EnLoadType {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,

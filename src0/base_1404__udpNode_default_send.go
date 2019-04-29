@@ -65,7 +65,7 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 	//_FpfN(" 839119 01 key %x %x", ___Vun.unRkeyX.B32, ___Vun.unRkeyX.Bkey)
 	//copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], __VmyUs.usToAddr.K256)
 	___CpfN(" 839119 03 : tN:%d before copy-key Mp:%d Mrk:%s to<%v> buf[%x]", __VtraceInt, ___Vun.unLocalPort, // keykey
-		String5(&___Vun.unRkeyX.Bkey), __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
+		String5s(&___Vun.unRkeyX.Bkey), __VmyUs.usToAddr.String(), __VmyUs.usOutBuf)
 
 	copy(__VmyUs.usOutBuf[_VdataPackageKeyStart:], ___Vun.unRkeyX.Bkey)
 
@@ -92,9 +92,9 @@ func (___Vun *_TudpNodeSt) _FudpNode__500101zzz__send_buf_real(___Vus _TudpNodeD
 		//                          1      2            3     4       5          6   7        8   9   10
 		_FtimeI64(),                       // 1
 		___Vun.unLocalPort,                // 2
-		String5(&___Vun.unRkeyX.Bkey),     // 3
+		String5s(&___Vun.unRkeyX.Bkey),    // 3
 		__VmyUs.usToAddr.DstAddr.String(), // 4
-		String5(&__VmyUs.usToAddr.K256),   // 5
+		String5s(&__VmyUs.usToAddr.K256),  // 5
 		len(__VmyUs.usOutBuf),             // 6
 		_Fmd5__5x(&__VmyUs.usOutBuf),      // 7
 		len(__Vbuf),                       // 8

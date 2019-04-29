@@ -35,7 +35,7 @@ func (___Vlc *_TloginCheck) String() string {
 	return _Spf(
 		"logCk-cmdMap:{%s} key:%x ti:%d",
 		___Vlc.ulCmd.String(),
-		String5(&___Vlc.ulTokenA),
+		String5s(&___Vlc.ulTokenA),
 		___Vlc.ulGenTime)
 }
 

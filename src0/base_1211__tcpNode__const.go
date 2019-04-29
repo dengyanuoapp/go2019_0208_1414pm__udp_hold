@@ -28,7 +28,7 @@ type _TacceptTCP struct {
 func (___Vacc *_TacceptTCP) String() string {
 	return _Spf(
 		"id:%s ena:%T idx:%d R{%s} W{%s} r:%s l:%s",
-		String5(&___Vacc.taId128),
+		String5s(&___Vacc.taId128),
 		___Vacc.taEnabled,
 		___Vacc.taIdx,
 		___Vacc.taRcnt.String(),

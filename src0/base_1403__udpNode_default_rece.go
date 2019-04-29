@@ -91,8 +91,8 @@ func (___Vun *_TudpNodeSt) _FudpNode__500201y01__receive__default() {
 			return
 		}
 
-		_FpfNonce(" 831819 07 udpNode : push to Byte-chan : <%s>", String9(&__VreceB))
-		___CpfN(" 831819 08 udpNode : push to Byte-chan : <%s>", String9(&__VreceB))
+		_FpfNonce(" 831819 07 udpNode : push to Byte-chan : <%s>", String9s(&__VreceB))
+		___CpfN(" 831819 08 udpNode : push to Byte-chan : <%s>", String9s(&__VreceB))
 
 		(*___Vun.unCHreceByteLO) <- __VreceB
 	}

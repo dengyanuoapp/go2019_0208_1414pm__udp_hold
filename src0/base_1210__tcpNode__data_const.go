@@ -14,11 +14,11 @@ func (__Vtndr *_TtcpNodeDataRece) String() string {
 	return _Spf(
 		"addr:%s id:%s k:%s (%d/%d)%s",
 		__Vtndr.tnrAddr.String(),
-		String5(&__Vtndr.tnrId128),
-		String5(&__Vtndr.tnrK256),
+		String5s(&__Vtndr.tnrId128),
+		String5s(&__Vtndr.tnrK256),
 		__Vtndr.tnrLen,
 		len(__Vtndr.tnrBuf),
-		String5(&__Vtndr.tnrBuf),
+		String5s(&__Vtndr.tnrBuf),
 	)
 
 }
@@ -35,21 +35,21 @@ func (__Vtndr *_TtcpNodeDataSend) String() string {
 	if nil == __Vtndr.tnsToAddr {
 		return _Spf(
 			"addr:<null> id:%s k:%s (%d/%d)%s",
-			String5(&__Vtndr.tnsId128),
-			String5(&__Vtndr.tnsK256),
+			String5s(&__Vtndr.tnsId128),
+			String5s(&__Vtndr.tnsK256),
 			__Vtndr.tnsLen,
 			len(__Vtndr.tnsBuf),
-			String5(&__Vtndr.tnsBuf),
+			String5s(&__Vtndr.tnsBuf),
 		)
 	} else {
 		return _Spf(
 			"addr:%s id:%s k:%s (%d/%d)%s",
 			__Vtndr.tnsToAddr.String(),
-			String5(&__Vtndr.tnsId128),
-			String5(&__Vtndr.tnsK256),
+			String5s(&__Vtndr.tnsId128),
+			String5s(&__Vtndr.tnsK256),
 			__Vtndr.tnsLen,
 			len(__Vtndr.tnsBuf),
-			String5(&__Vtndr.tnsBuf),
+			String5s(&__Vtndr.tnsBuf),
 		)
 	}
 }

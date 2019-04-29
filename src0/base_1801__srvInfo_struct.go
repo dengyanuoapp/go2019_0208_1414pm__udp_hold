@@ -13,7 +13,7 @@ type _TudpConnPort struct {
 func (___Vucp *_TudpConnPort) String() string {
 	return _Spf("%s k:%s",
 		___Vucp.DstAddr.String(),
-		String5(&___Vucp.K256))
+		String5s(&___Vucp.K256))
 }
 
 type _TsrvInfo struct {
@@ -38,13 +38,13 @@ func (___Vsi *_TsrvInfo) String() string {
 	__Vos += "] k["
 	for __Vidx3, __Vuri3 := range ___Vsi.K256 {
 		if 0 == __Vidx3 {
-			__Vos += String5(&__Vuri3)
+			__Vos += String5s(&__Vuri3)
 		} else {
-			__Vos += " " + String5(&__Vuri3)
+			__Vos += " " + String5s(&__Vuri3)
 		}
 	}
 
-	__Vos += "] n:" + ___Vsi.name + " rUri[" + ___Vsi.refreshUri + "] rPwd[" + String5(&___Vsi.refreshPwd) + "]"
+	__Vos += "] n:" + ___Vsi.name + " rUri[" + ___Vsi.refreshUri + "] rPwd[" + String5s(&___Vsi.refreshPwd) + "]"
 
 	return __Vos
 }

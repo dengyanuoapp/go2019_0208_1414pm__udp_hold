@@ -22,7 +22,7 @@ func (___Vcm *_TcmdMap) String() string {
 	return __VstrO
 }
 
-func String5(___Vb *[]byte) string {
+func String5s(___Vb *[]byte) string {
 	if (nil == ___Vb) || (0 == len(*___Vb)) {
 		return ""
 	}
@@ -32,7 +32,7 @@ func String5(___Vb *[]byte) string {
 	__Vt := *___Vb
 	return _Spf("%x", __Vt[:5])
 }
-func String9(___Vb *[]byte) string {
+func String9s(___Vb *[]byte) string {
 	if (nil == ___Vb) || (0 == len(*___Vb)) {
 		return ""
 	}

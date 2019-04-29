@@ -53,7 +53,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
 			_CFpfN(" 839192 07 : _TdataMachine dmCHencodeDataSpecFnWaitCnBI :under constructing BufByte:<%s> : conn{%s} ========######======= data{%s} \n",
-				String9(&__Vc2sEncodeB), ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
+				String9s(&__Vc2sEncodeB), ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 			// _FrecePackThenEncodeAsLoad__1400201y__decode_and_check_and_repack pelCHc2sEncodeBLO
 
 			___Vdm.

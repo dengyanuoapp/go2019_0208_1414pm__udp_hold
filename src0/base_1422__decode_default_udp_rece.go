@@ -22,8 +22,8 @@ func _FudpDecode__700201x10__receive__default(___Vude *_TuDecode) {
 
 		} // end Select
 
-		_FpfNonce(" 388195 02 udpDecode rece : <%s>", String9(&__VunReceB))
-		___CpfN(" 388195 03 udpDecode rece : <%s>", String9(&__VunReceB))
+		_FpfNonce(" 388195 02 udpDecode rece : <%s>", String9s(&__VunReceB))
+		___CpfN(" 388195 03 udpDecode rece : <%s>", String9s(&__VunReceB))
 
 		//func _FdecGob___(___VeMsg string, ___VbyteIn []byte, ___VoutObjLp interface{}) error {
 		__VunRece := _TudpNodeDataRece{}
