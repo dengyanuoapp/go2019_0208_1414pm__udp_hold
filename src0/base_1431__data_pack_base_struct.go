@@ -59,8 +59,7 @@ type _TdataPack_991 struct {
 }
 */
 
-type _TdecodeX struct {
-}
+type _TdecodeX struct{}
 type _Tdecode struct {
 	DEti            int // traceInfo
 	DEok            bool

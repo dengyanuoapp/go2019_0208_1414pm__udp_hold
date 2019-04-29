@@ -20,12 +20,15 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_decodeData(___Vdec *
 		_Fex(" 839195 01 : why NULL ?")
 	}
 
+	defer ___Vdm.dmMdata.ddsMux.Unlock() // _TdataMachinEdataSt
+	___Vdm.dmMdata.ddsMux.Lock()         // _TdataMachinEdataSt
+
 	if false == ___Vdec.DEok { // _TdecodeX
 		_FpfN(" 839195 02 : _TdataMachine : received not OK:{%s}", ___Vdec.String())
 		return
 	}
 
-	switch ___Vdec.DEtype {
+	switch ___Vdec.DEtype { // _TdecodeX
 	case LoadT__data_01_special:
 		// do continue
 		_CFpfN(" 839195 03 : _TdataMachine : LoadT__data_01_special :{%s}", ___Vdec.String())
@@ -33,9 +36,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_decodeData(___Vdec *
 		_CFpfN(" 839195 05 : _TdataMachine : unknown type :{%s}", ___Vdec.String())
 		return
 	}
-
-	defer ___Vdm.dmMdata.ddsMux.Unlock() // _TdataMachinEdataSt
-	___Vdm.dmMdata.ddsMux.Lock()         // _TdataMachinEdataSt
 
 	__Vk := _FgenB16(&___Vdec.DEdata.MEidx128)
 	//___Vdm.dmMdata.ddsMux.Lock()
