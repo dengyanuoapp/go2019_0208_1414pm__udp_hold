@@ -40,9 +40,32 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 	if nil == __VdmClient {
 		_CFpfN(" 839199 05 : _TdataMachine : NULL ! what happens ? ")
 		return
-	}
+	} // _TencodeX
 
-	_CFpfN(" 839199 06 : _TdataMachine : dmClient {%s} ", __VdmClient.String())
+	_CFpfN(" 839199 06 : _TdataMachine : dmClient {%s} === Vc2sEncodeB<%s> === Venc<%s>",
+		__VdmClient.String(), String9(___Vc2sEncodeB), __Venc.String())
 
-	_CFpfN(" 839199 09 : _TdataMachine : cnNeedDnRetranOrDirectConnect :<%s> <%s>", String9(___Vc2sEncodeB), __Venc.String())
+	___Vdm.
+		_FdataMachin__1000503y__cnNeedDnRetranOrDirectConnect(__VdmClient, &__Venc)
+
+}
+
+func (___Vdm *_TdataMachine) _FdataMachin__1000503y__cnNeedDnRetranOrDirectConnect(___Vdmdc *_TdataMachinEdataClient, ___Venc *_Tencode) {
+	/*
+		__Venc := _Tencode{ // _TencodeX // LoadT__loginS01genReplyTokenA
+			EnLoadType: LoadT__data_01_special,
+			EnToId128:  ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
+			//EnToConnPort: __Vconn,                 // _TudpConnPort
+			EnData: _TdataTran{
+				MEidx128: _VC.MyId128,
+				MYseq128: _VS.MySeq128,
+				TOidx128: ___Vdmdc.ddcID.diIdx128,
+				TOseq128: ___Vdmdc.ddcID.diSeq128,
+				DDcmd:    DDType__idle,
+			},
+		}
+	*/
+
+	___Vdm.
+		_FdataMachin__1000601y__encodeData_sendEnc_only(___Vdmdc, ___Venc)
 }

@@ -33,27 +33,10 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAl
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendToOneID(___Vdmdc *_TdataMachinEdataClient) {
-	__VtoAddrAmount := len(___Vdmdc.ddcConnPortArr) // _TdataMachinEdataClient
-
-	if __VtoAddrAmount < 1 {
-		_FpfN(" 381922 01 len error :%d ", __VtoAddrAmount)
-		return
-	}
-
-	__Vidx := _FgenRand_int() % __VtoAddrAmount
-	if ___Vdmdc.ddcLastSendIdx == __Vidx {
-		__Vidx = _FgenRand_int() % __VtoAddrAmount
-	}
-	___Vdmdc.ddcLastSendIdx = __Vidx
-
-	// _TdataMachinEdataClient
-	__Vconn := ___Vdmdc.ddcConnPortArr[__Vidx]
-
 	__Venc := _Tencode{ // _TencodeX // LoadT__loginS01genReplyTokenA
-		EnTi:         _FtimeInt(),
-		EnLoadType:   LoadT__data_01_special,
-		EnToId128:    ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
-		EnToConnPort: __Vconn,                 // _TudpConnPort
+		EnLoadType: LoadT__data_01_special,
+		EnToId128:  ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
+		//EnToConnPort: __Vconn,                 // _TudpConnPort
 		EnData: _TdataTran{
 			MEidx128: _VC.MyId128,
 			MYseq128: _VS.MySeq128,
@@ -63,17 +46,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendTo
 		},
 	}
 
-	//_FpfN(" 381922 02 {%#v} ", ___Vdmdc) // _TdataMachinEconnectClient
-	//_FpfN(" 381922 03 {%s} ", ___Vdmdc.String())
-	//_FpfN(" 381922 04 : myID:%x mySeq:%x id:%x", _VC.MyId128, _VS.MySeq128, ___Vid)
-
-	//_FpfN(" 381922 05 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
-	//_CpfN(" 381922 06 _TdataMachine -> _Tencode {%s}", __Venc.String()) // _TencodeX
-
-	//_Fex("381922 07")
-
-	___Vdmdc.ddcLastSendTime = _FtimeInt() // _TdataMachinEconnectClient
-
 	___Vdm.
-		_FdataMachin__1000601x__encodeData_sendMux(&__Venc)
+		_FdataMachin__1000601y__encodeData_sendEnc_only(___Vdmdc, &__Venc)
 }
