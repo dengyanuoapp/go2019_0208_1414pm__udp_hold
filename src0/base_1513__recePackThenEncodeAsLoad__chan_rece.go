@@ -72,8 +72,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	}
 
-	__Vdecode.DEsendAddr = __VunRece.UrrRemoteAddr   // _TudpNodeDataReceX
-	__Vdecode.DEremoteAddr = __VunRece.UrrRemoteAddr // _TdecodeX
+	__Vdecode.DEremoteAddr = __VunRece.UrrRemoteAddr // _TdecodeX _TudpNodeDataReceX
 
 	// _TudpNodeDataReceX
 	__FpfN(" 638196 06 _TrecePackThenEncodeAsLoad: dec{%s} ====####==== unRece{%s}", __Vdecode.String(), __VunRece.String())

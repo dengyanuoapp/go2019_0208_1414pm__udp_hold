@@ -51,7 +51,6 @@ func _FdataPack__dePackUdpNodeRece__decode(___Vdecode *_Tdecode, ___Vbuf []byte)
 	}
 
 	___Vdecode.DEremotePortKey = ___Vbuf[5:37] // _TdecodeX
-	___Vdecode.DEsendPortKey = ___Vbuf[5:37]   // _TdecodeX
 	___Vdecode.DEok = true
 	___Vdecode.DEtype = ___Vbuf[0]
 	___Vdecode.DEreceiveTime = _FtimeInt()

@@ -66,8 +66,6 @@ type _Tdecode struct {
 	DEreceiveTime   int
 	DEremoteAddr    net.UDPAddr
 	DEremotePortKey []byte
-	DEsendAddr      net.UDPAddr
-	DEsendPortKey   []byte
 	DEtype          byte
 	DElogin         _TloginReq
 	DEdata          _TdataTran
@@ -84,13 +82,11 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.DEtype)
 	}
 	__Vrs := _Spf(
-		"Ti:%d ok:%T rm:%s rmk:%s sa:%s sk:%s type:%s {%s} t:%d ",
+		"Ti:%d ok:%T rm:%s rmk:%s type:%s {%s} t:%d ",
 		___Vd.DEti,
 		___Vd.DEok,
 		___Vd.DEremoteAddr.String(),
 		String5s(&___Vd.DEremotePortKey),
-		___Vd.DEsendAddr.String(),
-		String5s(&___Vd.DEsendPortKey),
 		_FcmdType(___Vd.DEtype),
 		__Vcontent,
 		___Vd.DEreceiveTime)
