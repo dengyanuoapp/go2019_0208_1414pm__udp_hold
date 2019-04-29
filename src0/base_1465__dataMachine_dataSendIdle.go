@@ -26,7 +26,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502y__dataSendIdle__packAndSendAl
 				_FdataMachin__1000502z__dataSendIdle__packAndSendToOneID(&(___Vdm.dmMdata.ddsMm[__Vidx6]))
 
 		} else {
-			_FpfN(" 381921 07 : %11d : try send idle %x , but in 10s sent already. Skip. {%s}",
+			_CpfN(" 381921 07 : %11d : try send idle %x , but in 10s sent already. Skip. {%s}",
 				_FtimeInt(), __Vkey6, ___Vdm.dmMdata.ddsMm[__Vidx6].String())
 		}
 	}

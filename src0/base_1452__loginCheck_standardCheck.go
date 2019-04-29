@@ -17,7 +17,18 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 		//_Fsleep_100s()
 		__Venc := _Tencode{}
 		select {
+		//case __Vdecode := <-___Vlc.ulCHdecodeCkI: // _Tdecode
 		case __Vdecode := <-___Vlc.ulCHdecodeCkI: // _Tdecode
+			___VloginCheck__900201x__mux.Lock()
+
+			___Vlc.
+				_FloginCheck__900201xC1__standardCheck(&__Vdecode, &__Venc)
+			if false == __Vdecode.DEok {
+				___VloginCheck__900201x__mux.Unlock()
+				continue
+			}
+
+		case __Vdecode := <-___Vlc.ulCHrepackDecodeC2sI: // _TloginCheck _TdecodeX
 
 			___VloginCheck__900201x__mux.Lock()
 
@@ -27,6 +38,7 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				___VloginCheck__900201x__mux.Unlock()
 				continue
 			}
+
 		case __VuConnPort := <-___Vlc.ulCHconnPortI: // _TudpConnPort
 
 			___VloginCheck__900201x__mux.Lock()

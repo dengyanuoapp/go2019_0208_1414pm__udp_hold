@@ -61,7 +61,8 @@ func _Finit__2301() {
 		dmCBprReceKey:           _FdmCBprReceKey__Dn,
 		dmCBprSendKey:           _FdmCBprSendKey__Dn,
 		dmCHloginGenMachineIdLO: &_VloginGenerator_Dn.lgCHdataMachineIdI,
-		dmCHencodeIdleLO:        &_VudpEncode_Dn.enCHencodeDataCommI, // *chan _Tencode
+		dmCHencodeIdleLO:        &_VudpEncode_Dn.enCHencodeDataCommI,   // *chan _Tencode
+		dmCHrepackDecodeC2sLO:   &_VloginCheck_Dn.ulCHrepackDecodeC2sI, // _TloginCheck _TdecodeX
 	}
 
 	_VudpGroup_Dn = _TudpGroupSt{
