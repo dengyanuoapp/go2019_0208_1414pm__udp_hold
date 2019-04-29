@@ -136,7 +136,7 @@ func main() {
 	// _FdataMachin__1000502y__dataSendIdle__packAndSendAll       // 5
 	// _FdataMachin__1000503x__time_gap_dataResend                // 6
 	// _FdataMachin__1000601x__encodeData_sendMux                 // 7
-	// _FdataMachin__1000201x21__rece_encodeData                  // 8
+	// _FdataMachin__1000201x21__rece_decodeData                  // 8
 	// _FdataMachin__1000501x__swapLoginCkInfoForLock__timeoutGen // 9
 	// _FdataMachin__1000504x__checkTimeOutDieClient              // 9
 	// _FdataMachin__1000201x__receive__default                   // a

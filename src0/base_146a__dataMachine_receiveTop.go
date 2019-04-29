@@ -24,7 +24,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			//_CFpfN(" 839192 03 : _TdataMachine receive _Tdecode {%s}", __Vdec.String())
 
 			___Vdm.
-				_FdataMachin__1000201x21__rece_encodeData(&__Vdec)
+				_FdataMachin__1000201x21__rece_decodeData(&__Vdec)
 
 		case <-___Vdm.dmChSendIdleNoteInternalUSE:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
