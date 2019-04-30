@@ -62,6 +62,7 @@ type _TdataPack_991 struct {
 type _TdecodeX struct{}
 type _Tdecode struct {
 	DEti            int // traceInfo
+	DErole          string
 	DEok            bool
 	DEreceiveTime   int
 	DEremoteAddr    net.UDPAddr
@@ -82,7 +83,8 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.DEtype)
 	}
 	__Vrs := _Spf(
-		"Ti:%d ok:%T rm:%s rmk:%s type:%s {%s} t:%d ",
+		"%s Ti:%d ok:%T rm:%s rmk:%s type:%s {%s} t:%d ",
+		___Vd.DErole,
 		___Vd.DEti,
 		___Vd.DEok,
 		___Vd.DEremoteAddr.String(),
