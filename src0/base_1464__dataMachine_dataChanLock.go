@@ -44,12 +44,12 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 			switch _VS.RoleName {
 			case "Fn":
 				// do nothing
-				_CFpfN(" 839196 03 connected succeed, Fn do NOT have loginGen , so NULL.<%s>", _VS.RoleName)
+				_CFpfN(" 839196 03 connected succeed, Fn do NOT have loginAutoGenerator , so NULL.<%s>", _VS.RoleName)
 			default:
-				_CFpfN(" 839196 05 connected succeed, but why loginGen NULL ? <%s>", _VS.RoleName)
+				_CFpfN(" 839196 05 connected succeed, but why loginAutoGenerator NULL ? <%s>", _VS.RoleName)
 			}
 		} else {
-			_CFpfN(" 839196 08 connected succeed, then told loginGen to stop auto_connector ( push into chan)")
+			_CFpfN(" 839196 08 connected succeed, then told loginAutoGenerator to stop auto_connector ( push into chan)")
 			___Vout__dmCHloginGenMachineIdLO__mux.Lock()
 			(*___Vdm.dmCHloginGenMachineIdLO) <- ___Vdm.dmMconn.dcsMm[__Vidx2].dccID
 			___Vout__dmCHloginGenMachineIdLO__mux.Unlock()
