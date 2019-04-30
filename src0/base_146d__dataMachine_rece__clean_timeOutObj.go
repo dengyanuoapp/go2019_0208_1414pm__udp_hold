@@ -28,7 +28,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y1__clean_timeoutConn() {
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 	__Vnow2 := _FtimeInt()
-	__VkDelArr := [][16]byte{}
+	__VkDelArr := [][16]byte{}                             // _TdataMachinEdataClient
 	for __Vkey3, __Vidx3 := range ___Vdm.dmMdata.ddsMidx { // _TdataMachinEdataSt
 		if __Vnow2-___Vdm.dmMdata.ddsMm[__Vidx3].ddcLastReceTime > _Vgap_connectLostTimeOut {
 			__VkDelArr = append(__VkDelArr, __Vkey3)
@@ -38,7 +38,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 		}
 	}
 	for _, __Vkey6 := range __VkDelArr {
-		delete(___Vdm.dmMdata.ddsMidx, __Vkey6)
+		delete(___Vdm.dmMdata.ddsMidx, __Vkey6) // _TdataMachine
 		___Vdm.dmMdata.ddsMusedAmount--
 		___Vdm.dmMdata.ddsMfreeAmount++
 	}

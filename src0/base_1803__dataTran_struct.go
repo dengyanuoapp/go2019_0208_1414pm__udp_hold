@@ -10,6 +10,7 @@ const (
 )
 
 type _TdataTran struct {
+	DtRole   string
 	MEidx128 []byte
 	MYseq128 []byte
 	TOidx128 []byte
@@ -22,8 +23,9 @@ type _TdataTran struct {
 
 func (___Vlr *_TdataTran) String() string {
 	__Vo := _Spf(
-		"mid:%s,%s tid:%s,%s tkD:%s Dcmd:%s off:%d B:%s",
+		"%s mid:%s,%s tid:%s,%s tkD:%s Dcmd:%s off:%d B:%s",
 
+		___Vlr.DtRole,
 		String5s(&___Vlr.MEidx128),
 		String5s(&___Vlr.MYseq128),
 		String5s(&___Vlr.TOidx128),
