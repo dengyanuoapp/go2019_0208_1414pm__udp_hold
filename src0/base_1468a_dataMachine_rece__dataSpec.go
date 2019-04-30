@@ -30,7 +30,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__rece__dataRepacked_c2s(___Vdec *_Tdec
 		return
 	}
 
-	if nil == ___Vdm.dmCHrepackDecodeC2sLO {
+	if nil == ___Vdm.dmCHrepackDecodeC2sLO { // _TencodeX , get repacked-c2s decode as spec-data , then send to loginChecker
 		_CFpfN(" 839292 05 rece__dataRepacked_c2s error: Why ___Vdm . dmCHrepackDecodeC2sLO NULL ?")
 		return
 	}

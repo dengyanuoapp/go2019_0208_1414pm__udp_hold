@@ -136,7 +136,7 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 		return
 	} // _TudpNodeDataReceX
 
-	_CFpfN("\n\n\n 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s} ===##1##=== dec{%s} ====##2##==== unRece{%s}",
+	__FpfN("\n\n\n 638196 10 _TrecePackThenEncodeAsLoad: encOutB{%s} {%s} ===##1##=== dec{%s} ====##2##==== unRece{%s}",
 		__Vdecode.String(), __VunRece.String(), String9s(&__Vc2sEncodeB), __Venc4.String())
 
 	(*(___Vpel.pelCHc2sEncodeBLO)) <- __Vc2sEncodeB

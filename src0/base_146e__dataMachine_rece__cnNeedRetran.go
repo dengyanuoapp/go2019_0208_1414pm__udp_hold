@@ -42,7 +42,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 		return
 	} // _TencodeX
 
-	_CFpfN(" 839199 06 : _TdataMachine : dmClient {%s} === Vc2sEncodeB<%s> === Venc<%s>",
+	__FpfN(" 839199 06 : _TdataMachine : dmClient {%s} === Vc2sEncodeB<%s> === Venc<%s>",
 		__VdmClient.String(), String9s(___Vc2sEncodeB), __Venc.String())
 
 	___Vdm.
