@@ -42,7 +42,7 @@ func _FdataMachin__1000101__main_init__default(___Vdm *_TdataMachine) {
 	___Vdm.dmCHencodeDataSpecFnWaitCnBI = make(chan []byte, 50) // _TencodeX , used for Fn-Dn
 	___Vdm.dmCHencodeData9999BI = make(chan []byte, 50)         // _TencodeX , used for normal data tunnel
 
-	___Vdm.dmChSendIdleNoteInternalUSE = make(chan byte, 1) // a random timer , send idle note to main receive loop. internal use only.
+	___Vdm.dmChSendIdleNoteInternalUSE_sendIdleKeep = make(chan byte, 1) // a random timer , send idle note to main receive loop. internal use only.
 	___Vdm.dmChSwapLoginCkInfoForLock = make(chan byte, 1)  // a 5s timer , send swap note to main receive loop. internal use only.
 	___Vdm.dmChCheckTimeOutDieClient = make(chan byte, 1)   // a 80s timer , send swap note to main receive loop. internal use only.
 
@@ -77,7 +77,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502x__dataSendIdle__gen_time_gap(
 
 	for {
 		_FsleepRand_8_to_12s() // _Vgap_connectLostTimeOut
-		___Vdm.dmChSendIdleNoteInternalUSE <- 1
+		___Vdm.dmChSendIdleNoteInternalUSE_sendIdleKeep <- 1
 	}
 }
 func (___Vdm *_TdataMachine) _FdataMachin__1000504x__checkTimeOutDieClient() {

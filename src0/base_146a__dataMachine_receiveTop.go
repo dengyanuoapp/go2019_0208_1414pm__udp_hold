@@ -26,7 +26,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			___Vdm.
 				_FdataMachin__1000201x21__rece_decodeData(&__Vdec)
 
-		case <-___Vdm.dmChSendIdleNoteInternalUSE:
+		case <-___Vdm.dmChSendIdleNoteInternalUSE_sendIdleKeep:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
 			//_CFpfN(" 839192 04 : _TdataMachine receive idle timeOut note . trying to send idle.")
