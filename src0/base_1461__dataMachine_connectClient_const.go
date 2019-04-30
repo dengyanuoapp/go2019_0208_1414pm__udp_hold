@@ -8,7 +8,7 @@ func (___Vdmcc *_TdataMachinEconnectClient) Clear() {
 }
 func (___Vdmcc *_TdataMachinEconnectClient) String() string {
 	__Vlen := len(___Vdmcc.dccConnPortArr)
-	__Vs := _Spf("%s eid:{%s} (%d)[", ___Vdmcc.dccRole, ___Vdmcc.dccID.String(), __Vlen)
+	__Vs := _Spf("W:%s eid:{%s} (%d)[", ___Vdmcc.dccRole, ___Vdmcc.dccID.String(), __Vlen)
 	for __Vi := 0; __Vi < __Vlen; __Vi++ {
 		if 0 == __Vi {
 			__Vs += _Spf("%s", ___Vdmcc.dccConnPortArr[__Vi].String())

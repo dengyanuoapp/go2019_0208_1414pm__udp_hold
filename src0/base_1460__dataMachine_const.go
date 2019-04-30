@@ -22,7 +22,7 @@ type _TdataMachinEid struct {
 
 func (___Vdi *_TdataMachinEid) String() string {
 	return _Spf(
-		"%s to:{%s} id:%s,%s tk:%s",
+		"W:%s to:{%s} id:%s,%s tk:%s",
 		___Vdi.diRole,
 		___Vdi.diConnPort.String(),
 		String5s(&___Vdi.diIdx128),

@@ -4,7 +4,7 @@ import "sync"
 
 func (___Vdmdc *_TdataMachinEdataClient) String() string {
 	__Vlen := len(___Vdmdc.ddcConnPortArr)
-	__Vs := _Spf("%s eid:{%s} (%d)[", ___Vdmdc.ddcRole, ___Vdmdc.ddcID.String(), __Vlen)
+	__Vs := _Spf("W:%s eid:{%s} (%d)[", ___Vdmdc.ddcRole, ___Vdmdc.ddcID.String(), __Vlen)
 	for __Vi := 0; __Vi < __Vlen; __Vi++ {
 		if 0 == __Vi {
 			__Vs += _Spf("%s", ___Vdmdc.ddcConnPortArr[__Vi].String())

@@ -83,7 +83,7 @@ func (___Vd *_Tdecode) String() string {
 		__Vcontent = _Spf("Content:===under constructing %d===", ___Vd.DEtype)
 	}
 	__Vrs := _Spf(
-		"%s Ti:%d ok:%T rm:%s rmk:%s type:%s {%s} t:%d ",
+		"W:%s Ti:%d ok:%T rm:%s rmk:%s type:%s {%s} t:%d ",
 		___Vd.DErole,
 		___Vd.DEti,
 		___Vd.DEok,
@@ -108,6 +108,7 @@ func (___Vd *_Tdecode) Count128() []int {
 type _TencodeX struct{}
 type _Tencode struct {
 	EnTi         int
+	EnRole       string
 	EnToId128    []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess
 	EnFromId128  []byte        // one of to addr : use EnToConnPort if zero , or use this as to addess
 	EnToConnPort _TudpConnPort // another of to addr
@@ -124,7 +125,7 @@ func (___Ven *_Tencode) String() string {
 	}
 
 	var __Vso string
-	__Vso = _Spf("Ti:%d to:<%s> fromId:%s toId:%s T:%d", ___Ven.EnTi, ___Ven.EnToConnPort.String(),
+	__Vso = _Spf("W:%s Ti:%d to:<%s> fromId:%s toId:%s T:%d", ___Ven.EnRole, ___Ven.EnTi, ___Ven.EnToConnPort.String(),
 		String5s(&___Ven.EnFromId128), String5s(&___Ven.EnToId128), ___Ven.EnLoadType)
 
 	switch ___Ven.EnLoadType {
