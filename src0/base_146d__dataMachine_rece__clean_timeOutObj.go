@@ -33,25 +33,40 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 		if __Vnow2-___Vdm.dmMdata.ddsMm[__Vidx3].ddcLastReceTime > _Vgap_connectLostTimeOut {
 			__VkDelArr = append(__VkDelArr, __Vkey3)
 
-			_CFpfN(" 381932 02 : %11d : try to stop lost connect %x in loginAutoGenerator, {%s}",
+			_CFpfN(" 381932 01 : %11d : try to stop lost connect %x in loginAutoGenerator, {%s}",
 				_FtimeInt(), __Vkey3, ___Vdm.dmMdata.ddsMm[__Vidx3].String()) // _TdataMachinEdataClient
 
-			___Vdm.dmMdata.ddsMm[__Vidx3].Clear()
+			//___Vdm.dmMdata.ddsMm[__Vidx3].Clear()
 
 		}
 	}
 
 	for _, __Vkey9 := range __VkDelArr {
 		if nil == ___Vdm.dmCHloginGenMachineIdLO {
-			_CFpfN(" 381932 04 : %11d : try to stop lost connect %x in loginAutoGenerator , but NULL out-chain(%s)",
+			_CFpfN(" 381932 02 : %11d : try to stop lost connect %x in loginAutoGenerator , but NULL out-chain(%s)",
 				_FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
 		} else {
-			_CFpfN(" 381932 06 : %11d : try to stop lost connect %x in loginAutoGenerator, {%s}",
-				_FtimeInt(), __Vkey9, ___Vdm.dmMdata.String()) // _TdataMachinEdataSt
+			__Vidx9 := ___Vdm.dmMdata.ddsMidx[__Vkey9] // _TdataMachinEdataSt
 
-			(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
-				diIdx128: __Vkey9[:],
+			switch ___Vdm.dmMdata.ddsMm[__Vidx9].ddcRole { // _TdataMachinEdataClient
+			case "Fn":
+				_CFpfN(" 381932 03 : Fn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
+					__Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
+
+				(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
+					diIdx128: __Vkey9[:],
+				}
+
+			case "Cn", "Dn":
+				_CFpfN(" 381932 05 : Cn / Dn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
+					__Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
+
+			default:
+				_CFpfN(" 381932 07 : connect lost , key %x , don't know what happens : {%s}",
+					__Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
 			}
+
+			___Vdm.dmMdata.ddsMm[__Vidx9].Clear() // _TdataMachinEdataClient
 		}
 	}
 
