@@ -40,14 +40,6 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 
 		}
 	}
-	for _, __Vkey6 := range __VkDelArr {
-		delete(___Vdm.dmMdata.ddsMidx, __Vkey6) // _TdataMachine
-		___Vdm.dmMdata.ddsMusedAmount--
-		___Vdm.dmMdata.ddsMfreeAmount++
-	}
-	if 0 > ___Vdm.dmMdata.ddsMusedAmount {
-		_CFpfN(" 381932 03 : %11d : used Amount calc error , check what hapens {%s}", ___Vdm.dmMdata.String())
-	}
 
 	for _, __Vkey9 := range __VkDelArr {
 		if nil == ___Vdm.dmCHloginGenMachineIdLO {
@@ -63,7 +55,16 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 		}
 	}
 
+	for _, __Vkey6 := range __VkDelArr {
+		delete(___Vdm.dmMdata.ddsMidx, __Vkey6) // _TdataMachine
+		___Vdm.dmMdata.ddsMusedAmount--
+		___Vdm.dmMdata.ddsMfreeAmount++
+	}
+	if 0 > ___Vdm.dmMdata.ddsMusedAmount {
+		_CFpfN(" 381932 08 : %11d : used Amount calc error , check what hapens {%s}", ___Vdm.dmMdata.String())
+	}
+
 	if 0 != len(__VkDelArr) {
-		_CFpfN(" 381932 08 : %11d : after delete objS, data{%s}", _FtimeInt(), ___Vdm.dmMdata.String())
+		_CFpfN(" 381932 09 : %11d : after delete objS, data{%s}", _FtimeInt(), ___Vdm.dmMdata.String())
 	}
 }
