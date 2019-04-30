@@ -35,5 +35,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__rece__dataRepacked_c2s(___Vdec *_Tdec
 		return
 	}
 
+	(*(___Vdm.dmCHrepackDecodeC2sLO)) <- __Vdecode
+
 	_CFpfN(" 839292 09 rece__dataRepacked_c2s repacked_C2s finished. {%s} ", __Vdecode.String())
 }

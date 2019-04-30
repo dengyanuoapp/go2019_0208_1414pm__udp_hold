@@ -9,7 +9,7 @@ var ___VloginCheck__900201x__mux sync.Mutex
 func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 	_Fsleep(_T1s)
 
-	_FpfN(" 138182 02 start")
+	_FpfN(" 138182 01 start")
 
 	//var __Vdecode _Tdecode
 	//var __VuConnPort _TudpConnPort
@@ -34,6 +34,8 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 
 			___Vlc.
 				_FloginCheck__900201xC1__standardCheck(&__Vdecode, &__Venc)
+			_CFpfN(" 138182 02 : {%s}", __Venc.String())
+
 			if false == __Vdecode.DEok {
 				___VloginCheck__900201x__mux.Unlock()
 				continue
