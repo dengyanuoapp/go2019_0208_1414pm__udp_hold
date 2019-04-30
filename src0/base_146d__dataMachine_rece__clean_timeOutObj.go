@@ -50,20 +50,20 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 
 			switch ___Vdm.dmMdata.ddsMm[__Vidx9].ddcRole { // _TdataMachinEdataClient
 			case "Fn":
-				_CFpfN(" 381932 03 : Fn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
-					__Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
+				_CFpfN(" 381932 03 (Me:%s): Fn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
+					_VS.RoleName, __Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
 
 				(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
 					diIdx128: __Vkey9[:],
 				}
 
 			case "Cn", "Dn":
-				_CFpfN(" 381932 05 : Cn / Dn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
-					__Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
+				_CFpfN(" 381932 05 (Me:%s): Cn / Dn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
+					_VS.RoleName, __Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
 
 			default:
-				_CFpfN(" 381932 07 : connect lost , key %x , don't know what happens : {%s}",
-					__Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
+				_CFpfN(" 381932 07 (Me:%s): connect lost , key %x , don't know what happens : {%s}",
+					_VS.RoleName, __Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
 			}
 
 			___Vdm.dmMdata.ddsMm[__Vidx9].Clear() // _TdataMachinEdataClient
