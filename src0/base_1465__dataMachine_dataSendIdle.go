@@ -38,11 +38,11 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000502z__dataSendIdle__packAndSendTo
 		EnToId128:  ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
 		//EnToConnPort: __Vconn,                 // _TudpConnPort
 		EnData: _TdataTran{
-			MEidx128: _VC.MyId128,
-			MYseq128: _VS.MySeq128,
-			TOidx128: ___Vdmdc.ddcID.diIdx128,
-			TOseq128: ___Vdmdc.ddcID.diSeq128,
-			DDcmd:    DDType__idle,
+			DtMEidx128: _VC.MyId128,
+			DtMYseq128: _VS.MySeq128,
+			DtTOidx128: ___Vdmdc.ddcID.diIdx128,
+			DtTOseq128: ___Vdmdc.ddcID.diSeq128,
+			DtDDcmd:    DDType__idle,
 		},
 	}
 

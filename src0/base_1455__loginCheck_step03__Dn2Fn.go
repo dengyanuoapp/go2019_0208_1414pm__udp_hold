@@ -17,9 +17,9 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 		return
 	}
 
-	if false == bytes.Equal(___Vdecode.DElogin.TokenR, ___Vlc.ulTokenA) || // the Dn's id
-		false == bytes.Equal(___Vdecode.DElogin.ToIdx128, _VC.MyId128) ||
-		false == bytes.Equal(___Vdecode.DElogin.ToSeq128, _VS.MySeq128) {
+	if false == bytes.Equal(___Vdecode.DElogin.LgTokenR, ___Vlc.ulTokenA) || // the Dn's id
+		false == bytes.Equal(___Vdecode.DElogin.LgToIdx128, _VC.MyId128) ||
+		false == bytes.Equal(___Vdecode.DElogin.LgToSeq128, _VS.MySeq128) {
 		_FpfN(" 838381 05 : error : no equal, ignore. %s : ulTokenA:%s MyId128:%s MySeq128:%s ",
 			___Vdecode.String(), String5s(&___Vlc.ulTokenA), String5s(&_VC.MyId128), String5s(&_VS.MySeq128))
 		return
@@ -43,16 +43,16 @@ func (___Vlc *_TloginCheck) _FloginCheck_step900201y__s3accept_tokenA_fill03send
 		},
 		EnLoadType: LoadT__loginS03acceptWithToken,
 		EnLogin: _TloginReq{
-			MeRand5:  _FgenRand_nByte__(5),
-			MeTime:   _FtimeInt(),
-			ReqStr:   " step03__accept_tokenA ",
-			MeName:   _VC.Name,
-			MeIdx128: _VC.MyId128,
-			MeSeq128: _VS.MySeq128,
-			ToIdx128: ___Vdecode.DElogin.MeIdx128, // []byte
-			ToSeq128: ___Vdecode.DElogin.MeSeq128, // []byte
-			TokenL:   ___Vdecode.DElogin.TokenR,   // []byte
-			TokenR:   ___Vdecode.DElogin.TokenL,   // []byte
+			LgMeRand5:  _FgenRand_nByte__(5),
+			LgMeTime:   _FtimeInt(),
+			LgReqStr:   " step03__accept_tokenA ",
+			LgMeName:   _VC.Name,
+			LgMeIdx128: _VC.MyId128,
+			LgMeSeq128: _VS.MySeq128,
+			LgToIdx128: ___Vdecode.DElogin.LgMeIdx128, // []byte
+			LgToSeq128: ___Vdecode.DElogin.LgMeSeq128, // []byte
+			LgTokenL:   ___Vdecode.DElogin.LgTokenR,   // []byte
+			LgTokenR:   ___Vdecode.DElogin.LgTokenL,   // []byte
 		},
 	}
 
@@ -68,9 +68,9 @@ func (___Vlc *_TloginCheck) _FloginCheck_step03__accept_tokenA_Dn(___Vdecode *_T
 			diConnPort: _TudpConnPort{
 				___Vdecode.DEremoteAddr,     // net.UDPAddr
 				___Vdecode.DEremotePortKey}, // []byte
-			diIdx128: ___Vdecode.DElogin.MeIdx128, // []byte
-			diSeq128: ___Vdecode.DElogin.MeSeq128, // []byte
-			diToken:  ___Vdecode.DElogin.TokenL,   // []byte
+			diIdx128: ___Vdecode.DElogin.LgMeIdx128, // []byte
+			diSeq128: ___Vdecode.DElogin.LgMeSeq128, // []byte
+			diToken:  ___Vdecode.DElogin.LgTokenL,   // []byte
 		}
 		//_FpfNdb(" 838382 07 [reset-dataMachineID:<%s>]", __Vid.String())
 		(*___Vlc.ulCHdataMachineIdLO) <- __Vid

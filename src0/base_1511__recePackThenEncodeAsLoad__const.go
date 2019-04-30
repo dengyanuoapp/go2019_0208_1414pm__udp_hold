@@ -13,7 +13,7 @@ type _TrecePackThenEncodeAsLoad struct {
 	pelChOutputGenGap      chan byte    // every 1s gen output
 }
 
-// DDbuf    : , // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
+// DtDDbuf    : , // __Vtmp3out , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
 type _Trepack__c2s struct {
 	C2sDe   _Tdecode
 	C2sAddr net.UDPAddr

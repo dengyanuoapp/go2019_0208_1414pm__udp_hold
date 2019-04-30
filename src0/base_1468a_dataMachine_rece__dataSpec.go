@@ -6,12 +6,12 @@ func (___Vdm *_TdataMachine) _FdataMachin__rece__dataSpec(___Vdec *_Tdecode) { /
 		return
 	}
 
-	if ___Vdec.DEdata.DDcmd == DDType__idle { // ignore , no more process is needed.
+	if ___Vdec.DEdata.DtDDcmd == DDType__idle { // ignore , no more process is needed.
 		__FpfN(" 839291 01 : _TdataMachine : LoadT__data_01_special , idle , ignore :{%s}", ___Vdec.String())
 		return
 	}
 
-	switch ___Vdec.DEdata.DDcmd { // _TdataTran
+	switch ___Vdec.DEdata.DtDDcmd { // _TdataTran
 	case DDType__c2s:
 		__FpfN(" 839291 02 : _TdataMachine : LoadT__data_01_special decode from DDType__c2s' buf to origin-Tdecode :{%s}", ___Vdec.String())
 		___Vdm._FdataMachin__rece__dataRepacked_c2s(___Vdec) // _TdecodeX
@@ -23,8 +23,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__rece__dataSpec(___Vdec *_Tdecode) { /
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__rece__dataRepacked_c2s(___Vdec *_Tdecode) { // _TdecodeX
-	__Vdecode := _Tdecode{}                                                 // _TdecodeX
-	__Verr5 := _FdecGob___(" 839292 01 ", ___Vdec.DEdata.DDbuf, &__Vdecode) // _TdataTran
+	__Vdecode := _Tdecode{}                                                   // _TdecodeX
+	__Verr5 := _FdecGob___(" 839292 01 ", ___Vdec.DEdata.DtDDbuf, &__Vdecode) // _TdataTran
 	if nil != __Verr5 {
 		_CFpfN(" 839292 02 rece__dataRepacked_c2s error: {%v} ", __Verr5)
 		return

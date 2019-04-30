@@ -60,10 +60,10 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201x__standardCheck() {
 				// no use , but told the debug disable only
 			default:
 				(*___Vlc.ulCHencodeCkLO) <- __Venc // _Tencode
-				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.EnLogin.TokenL %s",
+				_CpfN(" 138184 08 My info : _VC.MyId128 %s , _VS.MySeq128 %s, __Venc.EnLogin.LgTokenL %s",
 					String5s(&_VC.MyId128),
 					String5s(&_VS.MySeq128),
-					String5s(&__Venc.EnLogin.TokenL))
+					String5s(&__Venc.EnLogin.LgTokenL))
 			}
 		}
 		___VloginCheck__900201x__mux.Unlock()
@@ -101,13 +101,13 @@ func (___Vlc *_TloginCheck) _FloginCheck__900201xC2__standardCheck(___Venc *_Ten
 		EnToConnPort: *___VuConnPort, // _TudpConnPort
 		EnLoadType:   LoadT__loginS01genReplyTokenA,
 		EnLogin: _TloginReq{
-			MeRand5:  _FgenRand_nByte__(5),
-			MeTime:   _FtimeInt(),
-			ReqStr:   " loginS01genReplyTokenA ",
-			MeName:   _VC.Name,
-			MeIdx128: _VC.MyId128,
-			MeSeq128: _VS.MySeq128,
-			TokenL:   ___Vlc.ulTokenA,
+			LgMeRand5:  _FgenRand_nByte__(5),
+			LgMeTime:   _FtimeInt(),
+			LgReqStr:   " loginS01genReplyTokenA ",
+			LgMeName:   _VC.Name,
+			LgMeIdx128: _VC.MyId128,
+			LgMeSeq128: _VS.MySeq128,
+			LgTokenL:   ___Vlc.ulTokenA,
 		},
 		EnDelay: (12 + (_FtimeInt() % 3)), // 12 + (0--2) == 12--14
 	}

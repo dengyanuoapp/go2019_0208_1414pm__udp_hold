@@ -14,8 +14,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 		return
 	}
 
-	if __Venc.EnData.DDcmd != DDType__c2s { // byte
-		_CFpfN(" 839199 03 : _TdataMachine : DDcmd error :<%s> {%s}",
+	if __Venc.EnData.DtDDcmd != DDType__c2s { // byte
+		_CFpfN(" 839199 03 : _TdataMachine : DtDDcmd error :<%s> {%s}",
 			String9s(___Vc2sEncodeB), __Venc.String())
 		return
 	}
@@ -57,11 +57,11 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503y__cnNeedDnRetranOrDirectConne
 			EnToId128:  ___Vdmdc.ddcID.diIdx128, // _TdataMachinEid
 			//EnToConnPort: __Vconn,                 // _TudpConnPort
 			EnData: _TdataTran{
-				MEidx128: _VC.MyId128,
-				MYseq128: _VS.MySeq128,
-				TOidx128: ___Vdmdc.ddcID.diIdx128,
-				TOseq128: ___Vdmdc.ddcID.diSeq128,
-				DDcmd:    DDType__idle,
+				DtMEidx128: _VC.MyId128,
+				DtMYseq128: _VS.MySeq128,
+				DtTOidx128: ___Vdmdc.ddcID.diIdx128,
+				DtTOseq128: ___Vdmdc.ddcID.diSeq128,
+				DtDDcmd:    DDType__idle,
 			},
 		}
 	*/

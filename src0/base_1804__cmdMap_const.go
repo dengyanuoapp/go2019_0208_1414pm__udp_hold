@@ -5,7 +5,7 @@ import (
 )
 
 type _TcmdMap struct {
-	M   map[[16]byte]_Tdecode // key by 16byte : MeIdx128
+	M   map[[16]byte]_Tdecode // key by 16byte : LgMeIdx128
 	mux sync.Mutex
 }
 

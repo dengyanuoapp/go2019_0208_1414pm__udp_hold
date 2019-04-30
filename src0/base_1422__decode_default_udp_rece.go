@@ -74,16 +74,16 @@ func (___Vude *_TuDecode) _FudpDecode__700201x11__receive__default(___VunRece *_
 	switch __Vdecode.DEtype {
 	case LoadT__loginS01genReplyTokenA, LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken: // , Cmd__loginS04acceptWithToken: // 15540362231554036223
-		___CpfN(" 388197 06 : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.TokenL)
+		___CpfN(" 388197 06 : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.LgTokenL)
 		if nil == ___Vude.uDeCHdecodeCkLO {
 			_CpfN(" 388197 07 : uDecode outChan null , ignore:%s", __Vdecode.String())
 		} else {
-			___CpfN(" 388197 08 uDecode real outChain : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.TokenL)
+			___CpfN(" 388197 08 uDecode real outChain : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.LgTokenL)
 			___CpfN(" 388197 09 uDecode real outChain : %s", __Vdecode.String())
 			(*___Vude.uDeCHdecodeCkLO) <- __Vdecode // 15540463611554046361
 		}
 	case LoadT__data_01_special:
-		_NpfN(" 388199 01 : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.TokenL)
+		_NpfN(" 388199 01 : type %d, tokenA %x", __Vdecode.DEtype, __Vdecode.DElogin.LgTokenL)
 		if nil == ___Vude.uDeCHdecodeDataLO {
 			_CpfN(" 388199 03 : outChan null , ignore ")
 		} else {

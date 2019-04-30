@@ -3,17 +3,17 @@ package main
 // _TloginReq
 func (___VuConnPort *_TudpConnPort) _FdataPack__101__udpConnPort(___VuTokenMe *[]byte, ___VoutBuf *[]byte) {
 	__Vreq := _TloginReq{
-		MeRand5:  _FgenRand_nByte__(5),
-		MeTime:   _FtimeInt(),
-		ReqStr:   " loginS01genReplyTokenA ",
-		MeName:   _VC.Name,
-		MeIdx128: _VC.MyId128,
-		MeSeq128: _VS.MySeq128,
-		TokenL:   *___VuTokenMe,
-		//ToIdx128 []byte,
-		//ToSeq128 []byte,
+		LgMeRand5:  _FgenRand_nByte__(5),
+		LgMeTime:   _FtimeInt(),
+		LgReqStr:   " loginS01genReplyTokenA ",
+		LgMeName:   _VC.Name,
+		LgMeIdx128: _VC.MyId128,
+		LgMeSeq128: _VS.MySeq128,
+		LgTokenL:   *___VuTokenMe,
+		//LgToIdx128 []byte,
+		//LgToSeq128 []byte,
 	}
-	if 0 != len(__Vreq.TokenR) {
+	if 0 != len(__Vreq.LgTokenR) {
 		_FpfNex(" 138185 01 : why len is not ZERO ?")
 	}
 

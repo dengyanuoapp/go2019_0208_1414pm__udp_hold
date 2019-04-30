@@ -10,9 +10,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_decodeData(___Vdec *
 			diConnPort: _TudpConnPort{
 				___Vdec.remoteAddr,     // net.UDPAddr
 				___Vdec.remotePortKey}, // []byte
-			diIdx128: ___Vdec.DEdata.MeIdx128, // []byte
-			diSeq128: ___Vdec.DEdata.MeSeq128, // []byte
-			diToken:  ___Vdec.DEdata.TokenL,   // []byte
+			diIdx128: ___Vdec.DEdata.LgMeIdx128, // []byte
+			diSeq128: ___Vdec.DEdata.LgMeSeq128, // []byte
+			diToken:  ___Vdec.DEdata.LgTokenL,   // []byte
 		}
 	*/
 
@@ -41,7 +41,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_decodeData(___Vdec *
 
 	// the following : insert / renew the remote key & port pairs.
 
-	__Vk := _FgenB16(&___Vdec.DEdata.MEidx128)
+	__Vk := _FgenB16(&___Vdec.DEdata.DtMEidx128)
 	//___Vdm.dmMdata.ddsMux.Lock()
 	__Vidx4, __Vok4 := ___Vdm.dmMdata.ddsMidx[__Vk] // map[[16]byte]_TdataMachinEdataClient
 
@@ -51,9 +51,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x21__rece_decodeData(___Vdec *
 	}
 
 	// if exist , but  token / sequence not match , replace the old one
-	if                                                                                             // _TdataMachinEdataSt
-	false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diIdx128, ___Vdec.DEdata.MEidx128) || // _Tdecode _TdataTran
-		false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diSeq128, ___Vdec.DEdata.MYseq128) { // _TdataMachinEdataClient
+	if                                                                                               // _TdataMachinEdataSt
+	false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diIdx128, ___Vdec.DEdata.DtMEidx128) || // _Tdecode _TdataTran
+		false == bytes.Equal(___Vdm.dmMdata.ddsMm[__Vidx4].ddcID.diSeq128, ___Vdec.DEdata.DtMYseq128) { // _TdataMachinEdataClient
 		_CpfN(" 839195 07 : _TdataMachine : error id/seq . {%s}", ___Vdec.String())
 		return
 	}

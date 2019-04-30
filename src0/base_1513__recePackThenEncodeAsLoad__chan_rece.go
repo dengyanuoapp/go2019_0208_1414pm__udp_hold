@@ -109,18 +109,18 @@ func (___Vpel *_TrecePackThenEncodeAsLoad) _FrecePackThenEncodeAsLoad__1400201y_
 	}
 
 	__Venc4 := _Tencode{ // _TencodeX
-		EnTi:        __VunRece.Ti,               // _TdecodeX
-		EnFromId128: __Vdecode.DElogin.MeIdx128, // _TloginReq
-		EnLoadType:  LoadT__data_01_special,     //byte
+		EnTi:        __VunRece.Ti,                 // _TdecodeX
+		EnFromId128: __Vdecode.DElogin.LgMeIdx128, // _TloginReq
+		EnLoadType:  LoadT__data_01_special,       //byte
 		EnData: _TdataTran{
-			DDcmd: DDType__c2s, // byte
-			DDbuf: __VddBufB,   // __Vtmp3outB , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
-			// MEidx128 []byte
-			// MYseq128 []byte
-			// TOidx128 []byte
-			// TOseq128 []byte
-			// TTokenD  []byte
-			// DDoffset uint64
+			DtDDcmd: DDType__c2s, // byte
+			DtDDbuf: __VddBufB,   // __Vtmp3outB , byte of _Tdecode ; __VunRece _TudpNodeDataReceX
+			// DtMEidx128 []byte
+			// DtMYseq128 []byte
+			// DtTOidx128 []byte
+			// DtTOseq128 []byte
+			// DtTTokenD  []byte
+			// DtDDoffset uint64
 		},
 		//EnToConnPort _TudpConnPort // another of to addr
 		//EnLogin      _TloginReq

@@ -95,12 +95,12 @@ func (___Vd *_Tdecode) String() string {
 
 func (___Vd *_Tdecode) Count128() []int {
 	return []int{
-		len(___Vd.DElogin.ToIdx128),
-		len(___Vd.DElogin.ToSeq128),
-		len(___Vd.DElogin.MeIdx128),
-		len(___Vd.DElogin.MeSeq128),
-		len(___Vd.DElogin.TokenL),
-		len(___Vd.DElogin.TokenR)}
+		len(___Vd.DElogin.LgToIdx128),
+		len(___Vd.DElogin.LgToSeq128),
+		len(___Vd.DElogin.LgMeIdx128),
+		len(___Vd.DElogin.LgMeSeq128),
+		len(___Vd.DElogin.LgTokenL),
+		len(___Vd.DElogin.LgTokenR)}
 }
 
 type _TencodeX struct{}

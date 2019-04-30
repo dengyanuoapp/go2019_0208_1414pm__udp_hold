@@ -10,15 +10,15 @@ const (
 )
 
 type _TdataTran struct {
-	DtRole   string
-	MEidx128 []byte
-	MYseq128 []byte
-	TOidx128 []byte
-	TOseq128 []byte
-	TTokenD  []byte
-	DDcmd    byte // DDType__idle
-	DDoffset uint64
-	DDbuf    []byte
+	DtRole     string
+	DtMEidx128 []byte
+	DtMYseq128 []byte
+	DtTOidx128 []byte
+	DtTOseq128 []byte
+	DtTTokenD  []byte
+	DtDDcmd    byte // DDType__idle
+	DtDDoffset uint64
+	DtDDbuf    []byte
 }
 
 func (___Vlr *_TdataTran) String() string {
@@ -26,14 +26,14 @@ func (___Vlr *_TdataTran) String() string {
 		"%s mid:%s,%s tid:%s,%s tkD:%s Dcmd:%s off:%d B:%s",
 
 		___Vlr.DtRole,
-		String5s(&___Vlr.MEidx128),
-		String5s(&___Vlr.MYseq128),
-		String5s(&___Vlr.TOidx128),
-		String5s(&___Vlr.TOseq128),
-		String5s(&___Vlr.TTokenD),
-		_FddCmdtype(___Vlr.DDcmd),
-		___Vlr.DDoffset,
-		String9s(&___Vlr.DDbuf))
+		String5s(&___Vlr.DtMEidx128),
+		String5s(&___Vlr.DtMYseq128),
+		String5s(&___Vlr.DtTOidx128),
+		String5s(&___Vlr.DtTOseq128),
+		String5s(&___Vlr.DtTTokenD),
+		_FddCmdtype(___Vlr.DtDDcmd),
+		___Vlr.DtDDoffset,
+		String9s(&___Vlr.DtDDbuf))
 	return __Vo
 }
 
