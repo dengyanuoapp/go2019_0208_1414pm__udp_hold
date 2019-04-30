@@ -15,7 +15,7 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			//_CFpfN(" 839192 02 : _TdataMachine receive dataMachinEid {%s}", __VdmID.String())
 
 			___Vdm.
-				_FdataMachin__1000201x11__rece_machineId_check_and_insert(&__VdmID)
+				_FdataMachin__1000201x11__rece_machineId_check_and_insertConnClient(&__VdmID)
 
 		case __Vdec := <-___Vdm.dmCHdecodeDataI: // from uDeCHdecodeDataLO  // _TdecodeX
 

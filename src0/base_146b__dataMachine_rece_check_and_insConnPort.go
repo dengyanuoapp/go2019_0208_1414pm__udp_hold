@@ -4,7 +4,7 @@ import (
 	"bytes"
 )
 
-func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_insert(___VinsID *_TdataMachinEid) {
+func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_insertConnClient(___VinsID *_TdataMachinEid) {
 
 	defer ___Vdm.dmMconn.dcsMux.Unlock() // _TdataMachinEconnectSt
 	___Vdm.dmMconn.dcsMux.Lock()

@@ -5,7 +5,7 @@ import "bytes"
 
 var ___Vout__dmCHloginGenMachineIdLO__mux sync.Mutex
 
-// _FdataMachin__1000201x11__rece_machineId_check_and_insert
+// _FdataMachin__1000201x11__rece_machineId_check_and_insertConnClient
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swap() {
 
 	defer ___Vdm.dmMconn.dcsMux.Unlock() // _TdataMachinEconnectSt
@@ -65,7 +65,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 	_CpfN(" 839196 09 after swap {%s} ======######====== {%s} ", ___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 }
 
-// _FdataMachin__1000201x11__rece_machineId_check_and_insert
+// _FdataMachin__1000201x11__rece_machineId_check_and_insertConnClient
 func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__createNewDataClient(___Vkey *[16]byte, ___Vc *_TdataMachinEconnectClient) {
 	// ___Vdm.dmMconn.dcsMm[__Vidx2].
 	//__Vc := &(___Vdm.dmMconn.dcsMm[___VcIdx])
