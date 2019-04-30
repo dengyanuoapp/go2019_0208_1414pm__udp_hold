@@ -41,8 +41,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsMidx[__Vk] = __Vidx // _TdataMachinEconnectSt
 		___Vdm.dmMconn.dcsMlastInsIdx = __Vidx
 
-		_CFpfN(" 839193 05 : new conn insered (%d)<%s> , <%s>", // _TdataMachinEconnectSt
-			__Vidx, ___Vdm.dmMconn.String(), ___VinsID.String())
+		_CFpfN(" 839193 05 : new conn insered (total:%d) : (%d)<%s> , <%s>", // _TdataMachinEconnectSt
+			len(___Vdm.dmMconn.dcsMidx), __Vidx, ___Vdm.dmMconn.String(), ___VinsID.String())
+
 		return
 	}
 
