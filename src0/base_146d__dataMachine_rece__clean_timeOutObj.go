@@ -33,6 +33,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 		if __Vnow2-___Vdm.dmMdata.ddsMm[__Vidx3].ddcLastReceTime > _Vgap_connectLostTimeOut {
 			__VkDelArr = append(__VkDelArr, __Vkey3)
 
+			_CFpfN(" 381932 02 : %11d : try to stop lost connect %x in loginGen, {%s}",
+				_FtimeInt(), __Vkey3, ___Vdm.dmMdata.ddsMm[__Vidx3].String()) // _TdataMachinEdataClient
+
 			___Vdm.dmMdata.ddsMm[__Vidx3].Clear()
 
 		}
@@ -43,7 +46,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 		___Vdm.dmMdata.ddsMfreeAmount++
 	}
 	if 0 > ___Vdm.dmMdata.ddsMusedAmount {
-		_CFpfN(" 381932 02 : %11d : used Amount calc error , check what hapens {%s}", ___Vdm.dmMdata.String())
+		_CFpfN(" 381932 03 : %11d : used Amount calc error , check what hapens {%s}", ___Vdm.dmMdata.String())
 	}
 
 	for _, __Vkey9 := range __VkDelArr {
@@ -51,7 +54,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 			_CFpfN(" 381932 04 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain(%s)",
 				_FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
 		} else {
-			_CFpfN(" 381932 06 : %11d : try to stop lost connect %x in loginGen, ok {%s}",
+			__FpfN(" 381932 06 : %11d : try to stop lost connect %x in loginGen, {%s}",
 				_FtimeInt(), __Vkey9, ___Vdm.dmMdata.String()) // _TdataMachinEdataSt
 
 			(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
