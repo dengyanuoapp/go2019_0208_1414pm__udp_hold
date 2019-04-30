@@ -13,6 +13,7 @@ const _Vgap_connectLostTimeOut = 65 // 4*(12+1) == 52
 const _Vgap_skip_idle_send = 7
 
 type _TdataMachinEid struct {
+	diRole     string
 	diConnPort _TudpConnPort
 	diIdx128   []byte
 	diSeq128   []byte
@@ -21,7 +22,8 @@ type _TdataMachinEid struct {
 
 func (___Vdi *_TdataMachinEid) String() string {
 	return _Spf(
-		"to:{%s} id:%s,%s tk:%s",
+		"%s to:{%s} id:%s,%s tk:%s",
+		___Vdi.diRole,
 		___Vdi.diConnPort.String(),
 		String5s(&___Vdi.diIdx128),
 		String5s(&___Vdi.diSeq128),

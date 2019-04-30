@@ -78,6 +78,7 @@ func (___Vlc *_TloginCheck) _FloginCheck_step04__accept_tokenB_Fn(___Vdecode *_T
 		_FpfN(" 838387 06 , why output-Chan nil ? ulCHdataMachineIdLO")
 	} else {
 		__Vid := _TdataMachinEid{
+			diRole: ___Vdecode.DErole, // _TdecodeX
 			diConnPort: _TudpConnPort{
 				___Vdecode.DEremoteAddr,     // net.UDPAddr
 				___Vdecode.DEremotePortKey}, // []byte
