@@ -93,7 +93,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 		__Vd.ddcConnPortStrMap[__Vv5.DstAddr.String()] = 1
 	}
 	__Vd.ddcConnPortAmount = ___Vc.dccConnPortAmount //  int
-	//__Vd .  ddcLastReceTime   int
+	__Vd.ddcLastReceTime = ___Vc.dccLastReceTime
 	//__Vd .  ddcLastSendTime   int
 	//__Vd .  ddcLastSendIdx    int
 	___Vdm.dmMdata.ddsMusedAmount++
