@@ -31,8 +31,8 @@ func _FPargs() {
 } // _FPargs
 
 func _Fph() {
-	if "" != _Vself.ProjName {
-		_Ppf("%s:", _Vself.ProjName)
+	if "" != _Vself.RoleName {
+		_Ppf("%s:", _Vself.RoleName)
 	}
 } // _Fph
 

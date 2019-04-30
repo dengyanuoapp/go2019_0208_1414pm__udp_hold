@@ -9,8 +9,8 @@ var (
 )
 
 func _Sph() string {
-	if "" != _Vself.ProjName {
-		return _Spf("%s:", _Vself.ProjName)
+	if "" != _Vself.RoleName {
+		return _Spf("%s:", _Vself.RoleName)
 	}
 	return ""
 } // _Sph

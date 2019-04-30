@@ -25,7 +25,7 @@ var (
 
 func _Finit_2201() {
 
-	_Vself.ProjName = "Fn"
+	_Vself.RoleName = "Fn"
 
 	_Fbase_1203__init_self_All()
 

@@ -23,7 +23,7 @@ var (
 
 func _Finit__2401() {
 
-	_Vself.ProjName = "Cn"
+	_Vself.RoleName = "Cn"
 
 	_Fbase_1203__init_self_All()
 

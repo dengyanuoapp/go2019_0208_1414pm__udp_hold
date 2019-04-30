@@ -61,8 +61,8 @@ func _Fbase_104c__try_to_get_env_id128() {
 } // _Fbase_104c__try_to_get_env_id128
 
 func _Fbase_104b__try_to_check_json_config() {
-	if _VC.Name != _Vself.ProjName {
-		_VC.Name = _Vself.ProjName
+	if _VC.Name != _Vself.RoleName {
+		_VC.Name = _Vself.RoleName
 		_VjsonConfig_need_save = true
 	}
 } // _Fbase_104b__try_to_check_json_config
@@ -111,7 +111,7 @@ func _Fbase_104z__try_to_read_json_config_top() {
 	}
 
 	//_Vself.progMd5.b128 = _VC.MyId128
-	//_Vself.ProjName = _VC.Name
+	//_Vself.RoleName = _VC.Name
 
 	//_Fex( " 381919 :Debug Stop here. " )
 } // _Fbase_104z__try_to_read_json_config_top

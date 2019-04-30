@@ -41,14 +41,14 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y__swapLoginCkInfoForLock__swa
 			_FdataMachin__1000501z__swapLoginCkInfoForLock__createNewDataClient(&__Vkey2, __Vc)
 
 		if nil == ___Vdm.dmCHloginGenMachineIdLO {
-			switch _VS.ProjName {
+			switch _VS.RoleName {
 			case "Fn":
 				// do nothing
-				_FpfN(" 839196 03 connected succeed, Fn do NOT have loginGen , so NULL.<%s>", _VS.ProjName)
-				_CpfN(" 839196 04 connected succeed, Fn do NOT have loginGen , so NULL.<%s>", _VS.ProjName)
+				_FpfN(" 839196 03 connected succeed, Fn do NOT have loginGen , so NULL.<%s>", _VS.RoleName)
+				_CpfN(" 839196 04 connected succeed, Fn do NOT have loginGen , so NULL.<%s>", _VS.RoleName)
 			default:
-				_FpfN(" 839196 05 connected succeed, but why loginGen NULL ? <%s>", _VS.ProjName)
-				_CpfN(" 839196 06 connected succeed, but why loginGen NULL ? <%s>", _VS.ProjName)
+				_FpfN(" 839196 05 connected succeed, but why loginGen NULL ? <%s>", _VS.RoleName)
+				_CpfN(" 839196 06 connected succeed, but why loginGen NULL ? <%s>", _VS.RoleName)
 			}
 		} else {
 			_FpfN(" 839196 07 connected succeed, then told loginGen to stop ( push chan)")

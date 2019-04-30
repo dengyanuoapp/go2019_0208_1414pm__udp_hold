@@ -13,7 +13,7 @@ import (
 )
 
 type _Tself struct {
-	ProjName string
+	RoleName string
 	//MyId256  _Tb256
 
 	progPath string

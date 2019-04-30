@@ -46,12 +46,18 @@ func (___Vencode *_Tencode) _FdataPack__100__loginReq(___Vtype byte, ___VoutBuf 
 	case LoadT__loginS01genReplyTokenA,
 		LoadT__loginS02genReplyTokenB,
 		LoadT__loginS03acceptWithToken:
+
+		___Vencode.EnLogin.LgRole = _VS.RoleName // _TloginReq
+
 		__Vb2, __Verr2 =
 			_FencGob__only(&___Vencode.EnLogin) // _TloginReq
 	case LoadT__data_01_special, // 5
 		LoadT__data_99_normal: // 6
 		__Vb2, __Verr2 =
 			_FencGob__only(&___Vencode.EnData) // _TdataTran
+
+		___Vencode.EnData.DtRole = _VS.RoleName // _TloginReq _TencodeX
+
 		//_CpfN(" 138186 02 : _Tencode encode (%s) .", ___Vencode.EnData.String())
 		//_FpfN(" 138186 03 : _Tencode encode (%s) .", ___Vencode.EnData.String())
 	default:
