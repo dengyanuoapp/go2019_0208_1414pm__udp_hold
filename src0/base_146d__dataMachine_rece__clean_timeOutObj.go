@@ -21,9 +21,9 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y1__clean_timeoutConn() {
 		___Vdm.dmMconn.dcsMfreeAmount++
 	}
 	if 0 > ___Vdm.dmMconn.dcsMusedAmount {
-		_CFpfN(" 381932 02 : %11d : used Amount calc error , check what hapens {%s}", ___Vdm.dmMdata.String())
+		_CFpfN(" 381933 02 : %11d : used Amount calc error , check what hapens {%s}", ___Vdm.dmMdata.String())
 	}
-	//_CFpfN(" 381932 01 : %11d : Checking timeOutObj, conn{%s}", _FtimeInt(), ___Vdm.dmMconn.String())
+	//_CFpfN(" 381933 01 : %11d : Checking timeOutObj, conn{%s}", _FtimeInt(), ___Vdm.dmMconn.String())
 }
 
 func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
@@ -62,5 +62,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 			}
 		}
 	}
-	//_CFpfN(" 381932 08 : %11d : Checking timeOutObj, data{%s}", _FtimeInt(), ___Vdm.dmMdata.String())
+
+	if 0 != len(__VkDelArr) {
+		_CFpfN(" 381932 08 : %11d : after delete objS, data{%s}", _FtimeInt(), ___Vdm.dmMdata.String())
+	}
 }
