@@ -48,9 +48,11 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 
 	for _, __Vkey9 := range __VkDelArr {
 		if nil == ___Vdm.dmCHloginGenMachineIdLO {
-			_CFpfN(" 381932 04 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain(%s)", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
+			_CFpfN(" 381932 04 : %11d : try to stop lost connect %x in loginGen , but NULL out-chain(%s)",
+				_FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
 		} else {
-			_CFpfN(" 381932 06 : %11d : try to stop lost connect %x in loginGen, ok {%s}", _FtimeInt(), __Vkey9, ___Vdm.dmMdata.String())
+			_CFpfN(" 381932 06 : %11d : try to stop lost connect %x in loginGen, ok {%s}",
+				_FtimeInt(), __Vkey9, ___Vdm.dmMdata.String()) // _TdataMachinEdataSt
 
 			(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
 				diIdx128: __Vkey9[:],

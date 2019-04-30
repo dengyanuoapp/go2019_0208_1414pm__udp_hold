@@ -28,6 +28,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		}
 
 		// _TdataMachinEconnectClient _TdataMachinEconnectSt
+		___Vdm.dmMconn.dcsMm[__Vidx].dccRole = ___VinsID.diRole // _TdataMachinEid
 		___Vdm.dmMconn.dcsMm[__Vidx].dccID = *___VinsID
 		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr = []_TudpConnPort{___VinsID.diConnPort}
 		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortStrMap[___VinsID.diConnPort.DstAddr.String()] = 1
@@ -52,6 +53,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000201x11__rece_machineId_check_and_
 		___Vdm.dmMconn.dcsMm[__Vidx].
 			Clear()
 
+		___Vdm.dmMconn.dcsMm[__Vidx].dccRole = ___VinsID.diRole // _TdataMachinEid
 		___Vdm.dmMconn.dcsMm[__Vidx].dccID = *___VinsID
 		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortArr = []_TudpConnPort{___VinsID.diConnPort}
 		___Vdm.dmMconn.dcsMm[__Vidx].dccConnPortStrMap[___VinsID.diConnPort.DstAddr.String()] = 1

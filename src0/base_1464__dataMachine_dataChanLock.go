@@ -87,6 +87,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__cre
 	__Vd := &(___Vdm.dmMdata.ddsMm[__Vidx4])    // _TdataMachinEdataClient
 	__Vd.Clear()                                // _TdataMachinEdataSt
 	__Vd.ddcID = ___Vc.dccID                    // _TdataMachinEid
+	__Vd.ddcRole = ___Vc.dccRole                // _TdataMachinEid
 	__Vd.ddcConnPortArr = ___Vc.dccConnPortArr  // []_TudpConnPort
 	for _, __Vv5 := range __Vd.ddcConnPortArr { // _TudpConnPort
 		__Vd.ddcConnPortStrMap[__Vv5.DstAddr.String()] = 1
@@ -128,6 +129,7 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501z__swapLoginCkInfoForLock__try
 
 	__Vd.Clear()                                // _TdataMachinEdataSt
 	__Vd.ddcID = ___Vc.dccID                    // _TdataMachinEid
+	__Vd.ddcRole = ___Vc.dccRole                // _TdataMachinEid
 	__Vd.ddcConnPortArr = ___Vc.dccConnPortArr  // []_TudpConnPort
 	for _, __Vv5 := range __Vd.ddcConnPortArr { // _TudpConnPort
 		__Vd.ddcConnPortStrMap[__Vv5.DstAddr.String()] = 1
