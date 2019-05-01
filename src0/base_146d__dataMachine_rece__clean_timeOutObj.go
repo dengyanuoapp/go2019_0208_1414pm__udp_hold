@@ -49,26 +49,48 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 			__Vidx9 := ___Vdm.dmMdata.ddsMidx[__Vkey9] // _TdataMachinEdataSt
 
 			__VddClient := &(___Vdm.dmMdata.ddsMm[__Vidx9]) // _TdataMachinEdataClient
-			//switch __VddClient.ddcRole { // _TdataMachinEdataClient
-			switch _VS.RoleName { // _TdataMachinEdataClient
+			switch _VS.RoleName {                           // _TdataMachinEdataClient
 			case "Fn":
-				_CFpfN(" 381932 03 : Fn lost , no loginAutoGenerator, so do nothing. (Me:%s)[lost:%x]{%s}",
-					_VS.RoleName, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
-
-				_CFpfN(" 381932 04 (Me:%s): Fn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
-					_VS.RoleName, __Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
-
-				(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
-					diIdx128: __Vkey9[:],
+				switch __VddClient.ddcRole { // _TdataMachinEdataClient
+				case "Dn", "Cn":
+					_CFpfN(" 381932 03 : me:%s lost %s , no loginAutoGenerator, so do nothing. [lostID:%x]{%s}",
+						_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
+				default:
+					_CFpfN(" 381932 04 : me:%s lost %s , unknown what happens. [lostID:%x]{%s}",
+						_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
 				}
 
-			case "Cn", "Dn":
-				_CFpfN(" 381932 05 (Me:%s): Cn / Dn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
-					_VS.RoleName, __Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
+			case "Dn":
+				switch __VddClient.ddcRole { // _TdataMachinEdataClient
+				case "Cn":
+					_CFpfN(" 381932 05 : me:%s lost %s , do nothing. [lostID:%x]{%s}",
+						_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
+				case "Fn":
+					_CFpfN(" 381932 05 : me:%s lost %s , re-connet loginAutoGenerator should be re-active . [lostID:%x]{%s}",
+						_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
+					(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
+						diIdx128: __Vkey9[:],
+					}
+				default:
+					_CFpfN(" 381932 06 : me:%s lost %s , unknown what happens. [lostID:%x]{%s}",
+						_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
+				}
 
+			case "Cn":
+				switch __VddClient.ddcRole { // _TdataMachinEdataClient
+				case "Dn":
+					_CFpfN(" 381932 07 : me:%s lost %s , re-connet loginAutoGenerator should be re-active . [lostID:%x]{%s}",
+						_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
+					(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{
+						diIdx128: __Vkey9[:],
+					}
+				default:
+					_CFpfN(" 381932 08 : me:%s lost %s , unknown what happens. [lostID:%x]{%s}",
+						_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
+				}
 			default:
-				_CFpfN(" 381932 07 (Me:%s): connect lost , key %x , don't know what happens : {%s}",
-					_VS.RoleName, __Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
+				_CFpfN(" 381932 09 : me:%s lost %s , unknown what happens. [lostID:%x]{%s}",
+					_VS.RoleName, __VddClient.ddcRole, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
 			}
 
 			___Vdm.dmMdata.ddsMm[__Vidx9].Clear() // _TdataMachinEdataClient
