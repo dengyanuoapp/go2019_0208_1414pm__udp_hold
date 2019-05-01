@@ -48,9 +48,14 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000501y2__clean_timeoutData() {
 		} else {
 			__Vidx9 := ___Vdm.dmMdata.ddsMidx[__Vkey9] // _TdataMachinEdataSt
 
-			switch ___Vdm.dmMdata.ddsMm[__Vidx9].ddcRole { // _TdataMachinEdataClient
+			__VddClient := &(___Vdm.dmMdata.ddsMm[__Vidx9]) // _TdataMachinEdataClient
+			//switch __VddClient.ddcRole { // _TdataMachinEdataClient
+			switch _VS.RoleName { // _TdataMachinEdataClient
 			case "Fn":
-				_CFpfN(" 381932 03 (Me:%s): Fn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
+				_CFpfN(" 381932 03 : Fn lost , no loginAutoGenerator, so do nothing. (Me:%s)[lost:%x]{%s}",
+					_VS.RoleName, __Vkey9, __VddClient.String()) // _TdataMachinEdataClient
+
+				_CFpfN(" 381932 04 (Me:%s): Fn lost , so need to re_connect , send msg %x to loginAutoGenerator, {%s}",
 					_VS.RoleName, __Vkey9, ___Vdm.dmMdata.ddsMm[__Vidx9].String()) // _TdataMachinEdataClient
 
 				(*___Vdm.dmCHloginGenMachineIdLO) <- _TdataMachinEid{

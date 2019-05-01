@@ -66,8 +66,8 @@ func __FpfN(___Vfmt string, ___Vpara ...interface{}) {
 func ___FpfN(___Vfmt string, ___Vpara ...interface{}) {
 }
 func _CFpfN(___Vfmt string, ___Vpara ...interface{}) {
-	_FpfNt(___Vfmt, ___Vpara...)
-	_CpfNt(___Vfmt, ___Vpara...)
+	_FpfNt("\n"+___Vfmt+"\n", ___Vpara...)
+	_CpfNt("\n"+___Vfmt+"\n", ___Vpara...)
 }
 func _FpfNt(___Vfmt string, ___Vpara ...interface{}) {
 	_Fph()
