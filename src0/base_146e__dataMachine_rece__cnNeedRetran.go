@@ -30,21 +30,24 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 
 	var __VdmClient *_TdataMachinEdataClient = nil
 
-	for _, __Vv3 := range ___Vdm.dmMdata.ddsMidx { // _TdataMachinEdataSt // ddsMidx map[[16]byte]int
-		if __Vv3 == __VidxRand {
+	__Vi := 0
+	for __Vidx, __Vv3 := range ___Vdm.dmMdata.ddsMidx { // _TdataMachinEdataSt // ddsMidx map[[16]byte]int
+		if __Vi == __VidxRand {
+			_CFpfN(" 839199 05 : _TdataMachine : __Vidx %d , __Vv3 %d , __Vi %d", __Vidx, __Vv3, __Vi)
 			__VdmClient = &(___Vdm.dmMdata.ddsMm[__Vv3]) // _TdataMachinEdataClient
 			break
 		}
+		__Vi++
 	}
 
 	if nil == __VdmClient {
-		_CFpfN(" 839199 05 : _TdataMachine : NULL ! what happens ? __Vlen2:%d , __VidxRand:%d", __Vlen2, __VidxRand)
-		_CFpfN(" 839199 06 : ___Vdm.dmMdata.ddsMidx {%v} ", ___Vdm.dmMdata.ddsMidx)
-		_CFpfN(" 839199 07 : ___Vdm.dmMdata {%s} ", ___Vdm.dmMdata.String())
+		_CFpfN(" 839199 06 : _TdataMachine : NULL ! what happens ? __Vlen2:%d , __VidxRand:%d", __Vlen2, __VidxRand)
+		_CFpfN(" 839199 07 : ___Vdm.dmMdata.ddsMidx {%v} ", ___Vdm.dmMdata.ddsMidx)
+		_CFpfN(" 839199 08 : ___Vdm.dmMdata {%s} ", ___Vdm.dmMdata.String())
 		return
 	} // _TencodeX
 
-	__FpfN(" 839199 07 : _TdataMachine : dmClient {%s} === Vc2sEncodeB<%s> === Venc<%s>",
+	__FpfN(" 839199 09 : _TdataMachine : dmClient {%s} === Vc2sEncodeB<%s> === Venc<%s>",
 		__VdmClient.String(), String9s(___Vc2sEncodeB), __Venc.String())
 
 	___Vdm.
