@@ -33,7 +33,8 @@ func (___Vdm *_TdataMachine) _FdataMachin__1000503x__cnNeedDnRetranOrDirectConne
 	__Vi := 0
 	for __Vidx, __Vv3 := range ___Vdm.dmMdata.ddsMidx { // _TdataMachinEdataSt // ddsMidx map[[16]byte]int
 		if __Vi == __VidxRand {
-			_CFpfN(" 839199 05 : _TdataMachine : __Vidx %d , __Vv3 %d , __Vi %d", __Vidx, __Vv3, __Vi)
+			_CFpfN(" 839199 05 : _TdataMachine : %s rePackAndTran data and send to %s : __Vidx %x , __Vv3 %d , __Vi %d",
+				_VS.RoleName, ___Vdm.dmMdata.ddsMm[__Vv3].ddcRole, __Vidx[:5], __Vv3, __Vi)
 			__VdmClient = &(___Vdm.dmMdata.ddsMm[__Vv3]) // _TdataMachinEdataClient
 			break
 		}
