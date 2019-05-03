@@ -5,6 +5,7 @@ package main
 
 import (
 	"io"
+	"sync"
 )
 
 func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
@@ -25,15 +26,20 @@ func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
 	}
 } //
 
+var ___VtcpNodeAccept__mux sync.Mutex
+
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP) bool {
 
-	___VtAcc3.taRcnt.try++
-
 	___VtAcc3.taLen,
 		___VtAcc3.taErr =
 		___VtAcc3.taConnTCP.Read(___VtAcc3.taBuf)
+
+	defer ___VtcpNodeAccept__mux.Unlock()
+	___VtcpNodeAccept__mux.Lock()
+
+	___VtAcc3.taRcnt.try++
 
 	if ___VtAcc3.taErr == io.EOF { // lost the connect.
 		___VtAcc3.taRcnt.eofErr++
