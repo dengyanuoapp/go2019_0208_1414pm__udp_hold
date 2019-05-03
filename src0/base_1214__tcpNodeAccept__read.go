@@ -32,15 +32,15 @@ var ___VtcpNodeAccept__mux sync.Mutex
 // _TacceptTCP
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP) bool {
 
-	__VtrBuf := []byte{}
-	__VtrLen, __VtrErr := ___VtAcc3.taConnTCP.Read(&__VtrBuf)
+	__VtrBuf := make([]byte, 2048)
+	__VtrLen, __VtrErr := ___VtAcc3.taConnTCP.Read(__VtrBuf)
 
 	defer ___VtcpNodeAccept__mux.Unlock()
 	___VtcpNodeAccept__mux.Lock()
 
-	___VtAcc3.taRcnt.try++
+	___VtAcc3.taRcnt.try++ // _TacceptTCP
 
-	if ___VtAcc3.taErr == io.EOF { // lost the connect.
+	if __VtrErr == io.EOF { // lost the connect.
 		___VtAcc3.taRcnt.eofErr++
 		// acceptTcpINC / acceptTcpDEC : begin
 		___VtAcc3.taServerTCP.tnClientMux.Lock()
@@ -57,19 +57,18 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		return false
 	}
 
-	_FerrExit(" reading from tcp 831911 ", __VtrErr)
+	_FerrExit(" reading from tcp 183813 03 ", __VtrErr)
 
-	_FnullExit(" 183813 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.taRemoteAddr)
+	_FnullExit(" 183813 05 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.taRemoteAddr)
 
 	___VtAcc3.taRcnt.ok++
 
 	__VtrData := _TtcpNodeDataRece{
 		tnrAddr:  ___VtAcc3.taRemoteAddr,
-		tnrLen:   ___VtAcc3.taLen,
+		tnrLen:   __VtrLen,
 		tnrId128: ___VtAcc3.taId128,
-		tnrBuf:   ___VtAcc3.taBuf[:___VtAcc3.taLen],
+		tnrBuf:   __VtrBuf[:__VtrLen],
 	}
-	___VtAcc3.taRdata = __VtrData
 
 	if nil == ___VtAcc3.taCHreceLO { // _TacceptTCP
 		_FpfNonce(" 183813 07 : tcp rece , but tcp out chan NULL. ignore:{%s} ============= acc{%s}",

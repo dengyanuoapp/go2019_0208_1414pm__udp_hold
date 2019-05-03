@@ -8,17 +8,12 @@ import (
 type _TacceptTCP struct {
 	taId128      []byte
 	taEnabled    bool
-	taIdx        int
+	taIdx        int // idx ot accArr:w
 	taServerTCP  *_TtcpNodE
 	taConnTCP    *net.TCPConn
-	taErr        error
 	taCHreceLO   *chan _TtcpNodeDataRece
 	taRcnt       _Tcount
 	taWcnt       _Tcount
-	taBuf        []byte
-	taRdata      _TtcpNodeDataRece
-	taLen        int
-	taErr2       error
 	taRemoteAddr net.Addr
 	taLocalAddr  net.Addr
 	//taCreceiveMsg chan []byte

@@ -8,7 +8,6 @@ import (
 func (___Vtn2 *_TtcpNodE) _FtcpNode__200401x_accept_default() {
 
 	for __Vi := 0; __Vi < ___Vtn2.tnAmount; __Vi++ {
-		___Vtn2.tnAcceptTCPs[__Vi].taBuf = make([]byte, 2048) // silice : with var len
 		___Vtn2.tnAcceptTCPs[__Vi].taIdx = __Vi
 		___Vtn2.tnAcceptTCPs[__Vi].taEnabled = false
 		___Vtn2.tnAcceptTCPs[__Vi].taServerTCP = ___Vtn2
