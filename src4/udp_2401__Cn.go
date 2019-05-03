@@ -5,18 +5,19 @@ import (
 )
 
 var (
-	_VtcpDebugLog__Cn   _TtcpNodE
-	_VbyteNoteBuf__Cn   _TbyteNoteBuf
-	_VudpGroup_Cn       _TudpGroupSt
-	_VudpDecode_Cn      _TuDecode
-	_VudpEncode_Cn      _TuEncode
-	_VdataMachine_Cn    _TdataMachine
-	_VloginCheck_Cn     _TloginCheck
-	_CHexit             chan string             = make(chan string, 10)
-	_CHpr               *chan _TtcpNodeDataSend = &_VtcpDebugLog__Cn.tnCHsendToAllClientI
-	_Vself              _Tself
-	_Vconfig            _Tconfig
-	_VloginGenerator_Cn _TloginGenerator
+	_VtcpDebugLog__Cn      _TtcpNodE
+	_VbyteNoteBuf__Cn      _TbyteNoteBuf
+	_VudpGroup_Cn          _TudpGroupSt
+	_VudpDecode_Cn         _TuDecode
+	_VudpEncode_Cn         _TuEncode
+	_VdataMachine_Cn       _TdataMachine
+	_VloginCheck_Cn        _TloginCheck
+	_CHexit                chan string             = make(chan string, 10)
+	_CHpr                  *chan _TtcpNodeDataSend = &_VtcpDebugLog__Cn.tnCHsendToAllClientI
+	_Vself                 _Tself
+	_Vconfig               _Tconfig
+	_VloginGenerator_Cn    _TloginGenerator
+	_VtcpAccetpClients__Cn _TtcpNodE
 	// _TudpNodeSt
 	// _TgapFilterX
 )
@@ -32,6 +33,12 @@ func _Finit__2401() {
 	_Fbase_107__rand_init()
 
 	_FPargs()
+
+	_VtcpAccetpClients__Cn = _TtcpNodE{
+		tnName:        " tcp_acceptClient_Cn ",
+		tnHostPortStr: "127.0.0.1:50080",
+		tnAmount:      10,
+	}
 
 	_VtcpDebugLog__Cn = _TtcpNodE{
 		tnName:          " tcp_debug_Cn ",
@@ -104,7 +111,8 @@ func main() {
 	// _TtcpNodE
 	// _FtcpNodeAccept__200401x5__dataReceiveMsg01_default
 	// _FtcpNode__200301x_send__default
-	go _Frun(&_VtcpDebugLog__Cn, 200101) // _FtcpNode__200101x__init_default
+	go _Frun(&_VtcpDebugLog__Cn, 200101)      // _FtcpNode__200101x__init_default
+	go _Frun(&_VtcpAccetpClients__Cn, 200101) // _FtcpNode__200101x__init_default
 	//go _Frun(&_VtcpDebugLog__Cn, 200801) // _FtcpNode__200801x_send__tester01
 	//go _Frun(&_VtcpDebugLog__Cn, 200802) // _FtcpNode__200802x_send__tester02
 
