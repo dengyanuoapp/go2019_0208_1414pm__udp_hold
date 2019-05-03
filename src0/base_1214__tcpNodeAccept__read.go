@@ -48,12 +48,14 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		___VtAcc3.taServerTCP.tnClientCnt--
 		___VtAcc3.taEnabled = false
 		___VtAcc3.taConnTCP.Close()
+
+		_CFpfN(" 183813 02 : eof, delete old-id:{%s}", String9s(&___VtAcc3.taId128))
 		___VtAcc3.taId128 = _FgenRand_nByte__(16) // regen new id
 
 		___VtAcc3.taServerTCP.tnClientMux.Unlock()
 		// acceptTcpINC / acceptTcpDEC : end
 
-		_CFpfN(" 183813 02 : eof, TCP end l:%v , r:%v , id:{%s}",
+		_CFpfN(" 183813 03 : eof, TCP end l:%v , r:%v , id:{%s}",
 			___VtAcc3.taLocalAddr, ___VtAcc3.taRemoteAddr, String9s(&___VtAcc3.taId128))
 		//___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
 		return false
