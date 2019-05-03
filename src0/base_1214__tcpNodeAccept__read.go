@@ -53,6 +53,8 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		___VtAcc3.taServerTCP.tnClientMux.Unlock()
 		// acceptTcpINC / acceptTcpDEC : end
 
+		_CFpfN(" 183813 02 : eof, TCP end l:%v , r:%v , id:{%s}",
+			___VtAcc3.taLocalAddr, ___VtAcc3.taRemoteAddr, String9s(&___VtAcc3.taId128))
 		//___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
 		return false
 	}
