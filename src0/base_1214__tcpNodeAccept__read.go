@@ -32,9 +32,8 @@ var ___VtcpNodeAccept__mux sync.Mutex
 // _TacceptTCP
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP) bool {
 
-	___VtAcc3.taLen,
-		___VtAcc3.taErr =
-		___VtAcc3.taConnTCP.Read(___VtAcc3.taBuf)
+	__VtrBuf := []byte{}
+	__VtrLen, __VtrErr := ___VtAcc3.taConnTCP.Read(&__VtrBuf)
 
 	defer ___VtcpNodeAccept__mux.Unlock()
 	___VtcpNodeAccept__mux.Lock()
@@ -49,6 +48,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		___VtAcc3.taServerTCP.tnClientCnt--
 		___VtAcc3.taEnabled = false
 		___VtAcc3.taConnTCP.Close()
+		___VtAcc3.taId128 = _FgenRand_nByte__(16) // regen new id
 
 		___VtAcc3.taServerTCP.tnClientMux.Unlock()
 		// acceptTcpINC / acceptTcpDEC : end
@@ -57,27 +57,25 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		return false
 	}
 
-	_FerrExit(" reading from tcp 831911 ", ___VtAcc3.taErr)
+	_FerrExit(" reading from tcp 831911 ", __VtrErr)
 
 	_FnullExit(" 183813 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.taRemoteAddr)
 
 	___VtAcc3.taRcnt.ok++
 
-	/*
-	   _Fpf( " 183814 | l:%s | r:%s | " , ___VtAcc3.VlocalAddr , ___VtAcc3.taRemoteAddr )
-	   _PpdN( ___VtAcc3.taLen , &(___VtAcc3.taBuf) )
-	*/
+	__VtrData := _TtcpNodeDataRece{
+		tnrAddr:  ___VtAcc3.taRemoteAddr,
+		tnrLen:   ___VtAcc3.taLen,
+		tnrId128: ___VtAcc3.taId128,
+		tnrBuf:   ___VtAcc3.taBuf[:___VtAcc3.taLen],
+	}
+	___VtAcc3.taRdata = __VtrData
 
-	___VtAcc3.taRdata.tnrAddr = ___VtAcc3.taRemoteAddr
-	___VtAcc3.taRdata.tnrLen = ___VtAcc3.taLen
-	___VtAcc3.taRdata.tnrId128 = ___VtAcc3.taId128
-	_FcopyByte(&(___VtAcc3.taRdata.tnrBuf), &(___VtAcc3.taBuf), ___VtAcc3.taLen)
-	//___VtAcc3.taBuf2 = make([]byte , ___VtAcc3.taLen ); copy( ___VtAcc3.taBuf2 , ___VtAcc3.taBuf )
-
-	if nil == ___VtAcc3.taCHreceLO {
-		_FpfNonce(" 183813 07 : tcp rece , but tcp out chan NULL. ignore:%s", ___VtAcc3.taRdata.String()) // _TtcpNodeDataRece
+	if nil == ___VtAcc3.taCHreceLO { // _TacceptTCP
+		_FpfNonce(" 183813 07 : tcp rece , but tcp out chan NULL. ignore:{%s} ============= acc{%s}",
+			__VtrData.String(), ___VtAcc3.String()) // _TtcpNodeDataRece
 	} else {
-		(*___VtAcc3.taCHreceLO) <- ___VtAcc3.taRdata
+		(*___VtAcc3.taCHreceLO) <- __VtrData
 	}
 
 	if nil != ___VtAcc3.taServerTCP.tnCHdebugInfoLO {
