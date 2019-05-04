@@ -69,17 +69,20 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	___VtAcc3.taRcnt.ok++
 
 	__VtrData := _TtcpNodeDataRece{
-		tnrAddr:  ___VtAcc3.taRemoteAddr,
-		tnrLen:   __VtrLen,
-		tnrId128: ___VtAcc3.taId128,
-		tnrBuf:   __VtrBuf[:__VtrLen],
+		TnrRaddr: ___VtAcc3.taRemoteAddr.String(),
+		TnrLen:   __VtrLen,
+		TnrId128: ___VtAcc3.taId128,
+		TnrBuf:   __VtrBuf[:__VtrLen],
 	}
 
-	if nil == ___VtAcc3.taCHreceLO { // _TacceptTCP
+	//func _FencGobExit(___VeMsg string, ___V interface{}) []byte {
+	__VtrDataB := _FencGobExit(" 183813 06 ", &__VtrData)
+
+	if nil == ___VtAcc3.taCHreceBLO { // _TacceptTCP
 		_FpfNonce(" 183813 07 : tcp rece , but tcp out chan NULL. ignore:{%s} ============= acc{%s}",
 			__VtrData.String(), ___VtAcc3.String()) // _TtcpNodeDataRece
 	} else {
-		(*___VtAcc3.taCHreceLO) <- __VtrData
+		(*___VtAcc3.taCHreceBLO) <- __VtrDataB
 	}
 
 	if nil != ___VtAcc3.taServerTCP.tnCHdebugInfoLO {

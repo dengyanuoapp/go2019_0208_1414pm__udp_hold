@@ -3,22 +3,22 @@ package main
 import "net"
 
 type _TtcpNodeDataRece struct {
-	tnrAddr  net.Addr
-	tnrLen   int
-	tnrId128 []byte // channel id
-	tnrK256  []byte // AES key 256 using when receive if not nil
-	tnrBuf   []byte
+	TnrRaddr string // string of net.Addr
+	TnrLen   int
+	TnrId128 []byte // channel id
+	TnrK256  []byte // AES key 256 using when receive if not nil
+	TnrBuf   []byte
 }
 
 func (__Vtndr *_TtcpNodeDataRece) String() string {
 	return _Spf(
 		"addr:%s id:%s k:%s (%d/%d)%s",
-		__Vtndr.tnrAddr.String(),
-		String5s(&__Vtndr.tnrId128),
-		String5s(&__Vtndr.tnrK256),
-		__Vtndr.tnrLen,
-		len(__Vtndr.tnrBuf),
-		String5s(&__Vtndr.tnrBuf),
+		__Vtndr.TnrRaddr,
+		String5s(&__Vtndr.TnrId128),
+		String5s(&__Vtndr.TnrK256),
+		__Vtndr.TnrLen,
+		len(__Vtndr.TnrBuf),
+		String5s(&__Vtndr.TnrBuf),
 	)
 
 }

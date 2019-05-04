@@ -25,7 +25,7 @@ func _FencGob__only(___VobjIn interface{}) ([]byte, error) {
 	__Verr := __Venc.Encode(___VobjIn)
 	if __Verr != nil {
 		return nil,
-			fmt.Errorf("1831915 02: gob.NewEncoder failed:%v", __Verr)
+			fmt.Errorf("{1831915 02: gob.NewEncoder failed:%v}\n", __Verr)
 	}
 	return __VbBuf.Bytes(), nil
 } // _FencGob__only

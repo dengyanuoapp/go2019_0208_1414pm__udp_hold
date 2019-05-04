@@ -64,7 +64,7 @@ func _FtcpNode__200401x1_accept_loop__default(___Vtn3 *_TtcpNodE) {
 				// acceptTcpINC / acceptTcpDEC : end
 
 				_CFpfN("381818 04 new tcp accept(%d) l:%s r:%s id:{%s}",
-					__Vi, __VaccTcp.taLocalAddr, __VaccTcp.taRemoteAddr,
+					__Vi, __VaccTcp.taLocalAddr.String(), __VaccTcp.taRemoteAddr.String(),
 					String9s(&__VaccTcp.taId128))
 
 				break
