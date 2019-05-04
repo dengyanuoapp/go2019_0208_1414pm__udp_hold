@@ -18,6 +18,7 @@ var (
 	_Vconfig               _Tconfig
 	_VloginGenerator_Cn    _TloginGenerator // m 8
 	_VtcpAccetpClients__Cn _TtcpNodE        // m 9
+	_VtcpBufMachine__Cn    _TtcpBufMachine  // m 10
 	// _TudpNodeSt
 	// _TgapFilterX
 )
@@ -33,6 +34,8 @@ func _Finit__2401() {
 	_Fbase_107__rand_init()
 
 	_FPargs()
+
+	_VtcpBufMachine__Cn = _TtcpBufMachine{}
 
 	_VtcpAccetpClients__Cn = _TtcpNodE{
 		tnName:        " tcp_acceptClient_Cn ",
