@@ -50,7 +50,8 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		___VtAcc3.taConnTCP.Close()
 
 		_CFpfN(" 183813 02 : eof, delete old-id:{%s}", String9s(&___VtAcc3.taId128))
-		___VtAcc3.taId128 = _FgenRand_nByte__(16) // regen new id
+		//___VtAcc3.taId128 = _FgenRand_nByte__(16) // regen new id // no need to do here, the new accetp will re-gen
+		___VtAcc3.taId128 = []byte{}
 
 		___VtAcc3.taServerTCP.tnClientMux.Unlock()
 		// acceptTcpINC / acceptTcpDEC : end

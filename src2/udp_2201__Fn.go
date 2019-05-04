@@ -5,22 +5,22 @@ import (
 )
 
 var (
-	_VtcpDebugLog__Fn                    _TtcpNodE
-	_VbyteNoteBuf__Fn                    _TbyteNoteBuf
-	_VudpGroup_Fn                        _TudpGroupSt
-	_VudpDecode_Fn                       _TuDecode
-	_VudpEncode_Fn                       _TuEncode
-	_VdataMachine_Fn                     _TdataMachine
-	_VloginCheck_FnWaitDun               _TloginCheck
+	_VtcpDebugLog__Fn                    _TtcpNodE               // m 1
+	_VbyteNoteBuf__Fn                    _TbyteNoteBuf           // m 2
+	_VudpGroup_Fn                        _TudpGroupSt            // m 3
+	_VudpDecode_Fn                       _TuDecode               // m 4
+	_VudpEncode_Fn                       _TuEncode               // m 5
+	_VdataMachine_Fn                     _TdataMachine           // m 6
+	_VloginCheck_FnWaitDun               _TloginCheck            // m 7
 	_CHexit                              chan string             = make(chan string, 10)
 	_CHpr                                *chan _TtcpNodeDataSend = &_VtcpDebugLog__Fn.tnCHsendToAllClientI
 	_Vself                               _Tself
 	_Vconfig                             _Tconfig
-	_VudpNode__FnWdn                     _TudpNodeSt
-	_VgapFilter__FnWdn                   _TgapFilter //_TgapFilterX
-	_VudpNode__FnWcn                     _TudpNodeSt
-	_VgapFilter__FnWcn                   _TgapFilter //_TgapFilterX
-	_VrecePackThenEncodeAsLoad__FnWaitCn _TrecePackThenEncodeAsLoad
+	_VudpNode__FnWdn                     _TudpNodeSt                // m 8
+	_VgapFilter__FnWdn                   _TgapFilter                // m 9  //_TgapFilterX
+	_VudpNode__FnWcn                     _TudpNodeSt                // m 10
+	_VgapFilter__FnWcn                   _TgapFilter                // m 11  //_TgapFilterX
+	_VrecePackThenEncodeAsLoad__FnWaitCn _TrecePackThenEncodeAsLoad // m 12
 )
 
 func _Finit_2201() {

@@ -5,18 +5,18 @@ import (
 )
 
 var (
-	_VtcpDebugLog__Dn   _TtcpNodE
-	_VbyteNoteBuf__Dn   _TbyteNoteBuf
-	_VudpGroup_Dn       _TudpGroupSt
-	_VudpDecode_Dn      _TuDecode
-	_VudpEncode_Dn      _TuEncode
-	_VdataMachine_Dn    _TdataMachine
-	_VloginCheck_Dn     _TloginCheck
+	_VtcpDebugLog__Dn   _TtcpNodE               // m 1
+	_VbyteNoteBuf__Dn   _TbyteNoteBuf           // m 2
+	_VudpGroup_Dn       _TudpGroupSt            // m 3
+	_VudpDecode_Dn      _TuDecode               // m 4
+	_VudpEncode_Dn      _TuEncode               // m 5
+	_VdataMachine_Dn    _TdataMachine           // m 6
+	_VloginCheck_Dn     _TloginCheck            // m 7
 	_CHexit             chan string             = make(chan string, 10)
 	_CHpr               *chan _TtcpNodeDataSend = &_VtcpDebugLog__Dn.tnCHsendToAllClientI
 	_Vself              _Tself
 	_Vconfig            _Tconfig
-	_VloginGenerator_Dn _TloginGenerator
+	_VloginGenerator_Dn _TloginGenerator // m 8
 	// _TudpNodeSt
 	// _TgapFilterX
 )
