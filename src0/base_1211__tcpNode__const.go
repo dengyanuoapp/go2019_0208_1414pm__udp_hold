@@ -43,7 +43,8 @@ type _TtcpNodE struct {
 	tnErr                error
 	tnCBinit             func(*_TtcpNodE) // _FtcpNode__200101x__init_default
 	tnCHsendToAllClientI chan _TtcpNodeDataSend
-	tnCHdebugInfoLO      *chan byte // if not-null , when receiving , send one byte into this byte to info the other monitorInfoByteChan
+	tnCHdebugInfoLO      *chan byte   // if not-null , when receiving , send one byte into this byte to info the other monitorInfoByteChan
+	tnCHtcpReceBLO       *chan []byte // byte of _TtcpNodeDataRece
 	tnAcceptTCPs         []_TacceptTCP
 	tnClientMux          sync.Mutex
 	tnClientCnt          int

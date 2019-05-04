@@ -38,9 +38,10 @@ func _Finit__2401() {
 	_VtcpBufMachine__Cn = _TtcpBufMachine{}
 
 	_VtcpAccetpClients__Cn = _TtcpNodE{
-		tnName:        " tcp_acceptClient_Cn ",
-		tnHostPortStr: "127.0.0.1:50080",
-		tnAmount:      10,
+		tnName:         " tcp_acceptClient_Cn ",
+		tnHostPortStr:  "127.0.0.1:50080",
+		tnAmount:       10,
+		tnCHtcpReceBLO: &_VtcpBufMachine__Cn.tbmCHtcpReceBI,
 	}
 
 	_VtcpDebugLog__Cn = _TtcpNodE{
