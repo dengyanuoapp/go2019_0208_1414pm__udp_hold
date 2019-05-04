@@ -11,7 +11,6 @@ type _TacceptTCP struct {
 	taIdx        int // idx ot accArr:w
 	taServerTCP  *_TtcpNodE
 	taConnTCP    *net.TCPConn
-	taCHreceBLO  *chan []byte // byte of _TtcpNodeDataRece
 	taRcnt       _Tcount
 	taWcnt       _Tcount
 	taRemoteAddr net.Addr
