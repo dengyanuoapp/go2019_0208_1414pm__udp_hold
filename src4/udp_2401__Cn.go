@@ -158,5 +158,7 @@ func main() {
 	// _FuEncode__1100201x__chanRece__default
 	go _Frun(&_VudpEncode_Cn, 1100101) // _FuEncode__1100101__main_init__default
 
+	go _Frun(&_VtcpBufMachine__Cn, 1500201) // _TtcpBufMachine
+
 	<-_CHexit
 } // main
