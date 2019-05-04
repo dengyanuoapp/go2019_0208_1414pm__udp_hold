@@ -62,9 +62,9 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		return false
 	}
 
-	_FerrExit(" reading from tcp 183813 03 ", __VtrErr)
+	_FerrExit(" 183813 03 reading from tcp ", __VtrErr)
 
-	_FnullExit(" 183813 05 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.taRemoteAddr)
+	_FnullExit(" 183813 04 : why ___Vconn.ReadFromTCP addr error ?", ___VtAcc3.taRemoteAddr)
 
 	___VtAcc3.taRcnt.ok++
 
@@ -76,9 +76,12 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	}
 
 	//func _FencGobExit(___VeMsg string, ___V interface{}) []byte {
-	__VtrDataB := _FencGobExit(" 183813 06 ", &__VtrData)
+	__VtrDataB := _FencGobExit(" 183813 05 ", &__VtrData)
 
-	if _FchanNullCheckOk2(" 183813 07 ", ___VtAcc3.taServerTCP.tnCHtcpReceBLO, ___VtAcc3.taServerTCP) {
+	_FnullExit(" 183813 06 : why tcpNode pointer NULL ? ", ___VtAcc3.taServerTCP)
+
+	if _FchanNullCheckOk(" 183813 07 ", ___VtAcc3.taServerTCP.tnCHtcpReceBLO) {
+
 		_CFpfN(" 183813 09 : tcp rece :{%s} ============= acc{%s} ",
 			__VtrData.String(), ___VtAcc3.String()) // _TtcpNodeDataRece
 
