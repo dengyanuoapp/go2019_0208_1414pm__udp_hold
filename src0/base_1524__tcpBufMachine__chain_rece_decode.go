@@ -1,7 +1,8 @@
 package main
 
+// _TtcpBufCellX
 // tbmCHtcpReceBI chan []byte // _TtcpNodE tnCHtcpReceBLO *chan []byte // byte of _TtcpNodeDataRece
-func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201y1__chan_rece__decode(___VbIN *[]byte) {
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201y1__chan_rece__Local2Remote(___VbIN *[]byte) {
 
 	__VtnRece := _TtcpNodeDataRece{}
 	// _FdecGob___(___VeMsg string, ___VbyteIn []byte, ___VoutObjLp interface{}) error {

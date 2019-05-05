@@ -16,7 +16,7 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201x__chan_rece__default() 
 
 			__FpfN(" 398381 01 : _TtcpBufMachine received {%s}", String9s(&__Vb))
 			___Vtbm.
-				_FtcpBufMachine__1500201y1__chan_rece__decode(&__Vb)
+				_FtcpBufMachine__1500201y1__chan_rece__Local2Remote(&__Vb)
 
 		}
 
