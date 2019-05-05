@@ -66,13 +66,15 @@ func __FpfN(___Vfmt string, ___Vpara ...interface{}) {
 func ___FpfN(___Vfmt string, ___Vpara ...interface{}) {
 }
 func _CFpfN(___Vfmt string, ___Vpara ...interface{}) {
-	_FpfNt("\n"+___Vfmt+"\n", ___Vpara...)
-	_CpfNt("\n"+___Vfmt+"\n", ___Vpara...)
+	_FpfNt(___Vfmt+"\n", ___Vpara...)
+	_CpfNt(___Vfmt+"\n", ___Vpara...)
 }
 func _FpfNt(___Vfmt string, ___Vpara ...interface{}) {
-	_Fph()
-	_Ppf("%d ", _FtimeInt())
-	_Ppf(___Vfmt+"\n", ___Vpara...)
+	__Vs := "\n" + _Sph()
+	__Vs += _Spf("%d:", _FtimeInt())
+	__Vs += _Spf(___Vfmt, ___Vpara...)
+	__Vs += "\n"
+	_Ppf(__Vs)
 }
 func _FpfN(___Vfmt string, ___Vpara ...interface{}) {
 	//_Fph()
