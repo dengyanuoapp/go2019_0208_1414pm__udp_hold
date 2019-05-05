@@ -80,9 +80,9 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 
 	_FnullExit(" 183813 06 : why tcpNode pointer NULL ? ", ___VtAcc3.taServerTCP)
 
-	if _FchanNullCheckOk(___VtAcc3.taServerTCP.tnName+" 183813 07 ", ___VtAcc3.taServerTCP.tnCHtcpReceBLO) {
+	if _FchanNullCheckOk(" 183813 07 "+___VtAcc3.taServerTCP.tnName, ___VtAcc3.taServerTCP.tnCHtcpReceBLO) {
 
-		_CFpfN(" 183813 09 : tcp rece :{%s} ============= acc{%s} ",
+		__FpfN(" 183813 09 : tcp rece :{%s} ============= acc{%s} ",
 			__VtrData.String(), ___VtAcc3.String()) // _TtcpNodeDataRece
 
 		(*___VtAcc3.taServerTCP.tnCHtcpReceBLO) <- __VtrDataB

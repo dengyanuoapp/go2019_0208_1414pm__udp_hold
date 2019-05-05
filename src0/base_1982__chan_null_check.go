@@ -7,7 +7,7 @@ func _FchanNullCheckOk(___Vmsg string, ___VchanB *chan []byte) bool {
 	__Vlen := len(*___VchanB)
 	__Vcap := cap(*___VchanB)
 
-	_CFpfN(___Vmsg+" 281812 01 : len %d , cap %d ", __Vlen, __Vcap)
+	__FpfN(___Vmsg+" 281812 01 : len %d , cap %d ", __Vlen, __Vcap)
 
 	if 0 == __Vcap {
 		_FpfNex(___Vmsg+" 281812 03 : why the cap of the output chan ZERO ? %d : %d ", __Vlen, __Vcap)
