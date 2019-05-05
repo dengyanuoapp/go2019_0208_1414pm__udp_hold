@@ -1,7 +1,5 @@
 package main
 
-var _VtcpBufferArr _TtcpBufferArr // _TtcpBufferArrX
-
 func (___Vtbm *_TtcpBufMachine) IRun(___Vidx int) {
 	switch ___Vidx {
 	case 1500101:
@@ -24,15 +22,15 @@ func _FtcpBufMachine__1500101x__init(___Vtbm *_TtcpBufMachine) {
 
 	switch _VS.RoleName {
 	case "Cn":
-		_VtcpBufferArr.tbaCntMax = 100 // Cn : 100 tunnel
-		_VtcpBufferArr.tbaCntFree = 100
-		_VtcpBufferArr.tbaMbuf = make([]_TtcpBuftunnel, 100)
-		_VtcpBufferArr.tbaMtid = make(map[[16]byte]int)
+		___Vtbm.tbmBufArr.tbaCntMax = 100 // Cn : 100 tunnel
+		___Vtbm.tbmBufArr.tbaCntFree = 100
+		___Vtbm.tbmBufArr.tbaMbuftunnel = make([]_TtcpBuftunnel, 100)
+		___Vtbm.tbmBufArr.tbaMtid = make(map[[16]byte]int)
 	case "Dn": // _TtcpBufferArrX
-		_VtcpBufferArr.tbaCntMax = 1000 // Cn : 1000 tunnel
-		_VtcpBufferArr.tbaCntFree = 1000
-		_VtcpBufferArr.tbaMbuf = make([]_TtcpBuftunnel, 1000)
-		_VtcpBufferArr.tbaMtid = make(map[[16]byte]int)
+		___Vtbm.tbmBufArr.tbaCntMax = 1000 // Cn : 1000 tunnel
+		___Vtbm.tbmBufArr.tbaCntFree = 1000
+		___Vtbm.tbmBufArr.tbaMbuftunnel = make([]_TtcpBuftunnel, 1000)
+		___Vtbm.tbmBufArr.tbaMtid = make(map[[16]byte]int)
 	case "Fn":
 		// do nothing.
 	default:

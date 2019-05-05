@@ -15,6 +15,19 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201y1__chan_rece__Local2Rem
 	}
 }
 
+// _TtcpBufferArrX _TtcpNodeDataRece
 func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeDataRece) bool {
+	if nil == ___VtnRece || 16 != len(___VtnRece.TnrId128) || 0 == len(___VtnRece.TnrBuf) {
+		_CFpfN(" 381812 01 : rece _TtcpNodeDataRece error {%s} ", ___VtnRece.String())
+		return false
+	}
+
+	if ___Vtbm.tbmBufArr.tbaCntFree <= 0 {
+		_CFpfN(" 381812 02 : no free Buf socket avaiable {%s} ", ___Vtbm.tbmBufArr.String())
+		return false
+	}
+
+	//var __Vk16 [16]byte = ___VtnRece . TnrId128[:]
+
 	return true
 }

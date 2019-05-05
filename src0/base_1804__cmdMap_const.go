@@ -22,6 +22,16 @@ func (___Vcm *_TcmdMap) String() string {
 	return __VstrO
 }
 
+func String3s(___Vb *[]byte) string {
+	if (nil == ___Vb) || (0 == len(*___Vb)) {
+		return ""
+	}
+	if len(*___Vb) < 3 {
+		return _Spf("%x", *___Vb)
+	}
+	__Vt := *___Vb
+	return _Spf("%x", __Vt[:3])
+}
 func String5s(___Vb *[]byte) string {
 	if (nil == ___Vb) || (0 == len(*___Vb)) {
 		return ""
