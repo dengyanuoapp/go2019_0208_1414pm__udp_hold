@@ -8,5 +8,5 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201y1__chan_rece__decode(__
 	__Verr2 := _FdecGob___(" 381811 01 ", *___VbIN, &__VtnRece)
 	_FerrExit(" 381811 02 : ", __Verr2)
 
-	_CFpfN(" 381811 03 : tcpBuf rece from local {%s} ", __VtnRece.String())
+	_CFpfN(" 381811 03 : tcpBuf rece from local {%s} ", __VtnRece.String()) // _TtcpNodeDataRece
 }
