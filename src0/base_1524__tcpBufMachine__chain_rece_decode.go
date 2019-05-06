@@ -38,9 +38,9 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 	__Vi3, __Vok3 := ___Vtbm.tbmBufArr.tbaMtid[__Vk16]
 	if false == __Vok3 {
 		for __Vi3 = 0; __Vi3 < ___Vtbm.tbmBufArr.tbaCntMax; __Vi3++ {
-			_FpfNex(" 381812 05 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
+			_CFpfN(" 381812 05 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
 			if false == ___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3].tbtEna {
-				_FpfNex(" 381812 06 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
+				_CFpfN(" 381812 06 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
 				break
 			}
 		}
@@ -48,7 +48,7 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 			_FpfNex(" 381812 07 : why not found free buffer socket ? ")
 			return false
 		}
-		_FpfNex(" 381812 08 : new create ")
+		_CFpfN(" 381812 08 : new create ")
 		___Vtbm.tbmBufArr.tbaMtid[__Vk16] = __Vi3
 		___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3] = _TtcpBuftunnel{ // _TtcpBuftunnelX
 			tbtEna:  true,
