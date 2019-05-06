@@ -58,36 +58,36 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 		_CFpfN(" 381813 09 : alread exist.")
 	}
 
-	_CFpfN(" 381814 01 ")
+	__FpfN(" 381814 01 ")
 	if 0 > __Vi3 || ___Vtbm.tbmBufArr.tbaCntMax <= __Vi3 {
 		_CFpfN(" 381814 02 : idx error {%d/%d} ",
 			__Vi3, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 		return false
 	}
 
-	_CFpfN(" 381814 03 ")
+	__FpfN(" 381814 03 ")
 	__Vtunnel := &(___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3])
 
 	__VtcNow := &(__Vtunnel.tbtL2R.tbCellNow) // _TtcpBufCell _TtcpBuFx from local to remote
 
-	_CFpfN(" 381814 04 ")
+	_FpfN(" 381814 04 ")
 	__VremainLen := len(___VtnRece.TnrBuf)
 	if __VremainLen > 1024 {
 		_CFpfN(" 381814 05 : Len ERROR (%d){%s} ", __VremainLen, ___VtnRece.String())
 		return false
 	}
 
-	_CFpfN(" 381814 07 ")
+	__FpfN(" 381814 07 ")
 	__VremainBuf := ___VtnRece.TnrBuf
 
 	if 0 == __VtcNow.tbcLen { // _TtcpBufCell
-		_CFpfN(" 381814 08 ")
+		__FpfN(" 381814 08 ")
 		__VtcNow.tbcLen = __VremainLen
-		_CFpfN(" 381814 09 %d/%d", len(__VtcNow.tbcBuf), len(__VremainBuf))
+		__FpfN(" 381814 09 %d/%d", len(__VtcNow.tbcBuf), len(__VremainBuf))
 		copy(__VtcNow.tbcBuf[:], __VremainBuf)
-		_CFpfN(" 381814 10 ")
+		__FpfN(" 381814 10 ")
 	} else {
-		_CFpfN(" 381814 11 ")
+		__FpfN(" 381814 11 ")
 	}
 
 	// _TtcpBufferArrX

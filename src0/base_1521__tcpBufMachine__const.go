@@ -75,26 +75,26 @@ func (___Vtbfa *_TtcpBufferArr) String() string {
 		___Vtbfa.tbaCntMax,
 		len(___Vtbfa.tbaMtid))
 
-	_FpfN(" 381817 01 ")
+	__FpfN(" 381817 01 ")
 
 	__Vi2 := 0
 	for __Vk2, __Vv2 := range ___Vtbfa.tbaMtid {
-		_FpfN(" 381817 02 ")
+		__FpfN(" 381817 02 ")
 		if 0 == __Vi2 {
-			_FpfN(" 381817 03 ")
+			__FpfN(" 381817 03 ")
 			__Vs += _Spf("%x %d", __Vk2[:2], __Vv2)
 		} else {
-			_FpfN(" 381817 04 ")
+			__FpfN(" 381817 04 ")
 			__Vs += _Spf(",%x %d", __Vk2[:2], __Vv2)
 		}
 	}
-	_FpfN(" 381817 05 ")
+	__FpfN(" 381817 05 ")
 
 	__Vs += "]"
 	for _, __Vv3 := range ___Vtbfa.tbaMtid {
-		_FpfN(" 381817 06 ")
-		__Vs += _Spf("(%d:%s)", __Vv3, ___Vtbfa.tbaMbuftunnel[__Vv3])
+		__FpfN(" 381817 06 ")
+		__Vs += _Spf("(%d:%s)", __Vv3, ___Vtbfa.tbaMbuftunnel[__Vv3].String())
 	}
-	_FpfN(" 381817 07 ")
+	__FpfN(" 381817 07 ")
 	return __Vs
 }
