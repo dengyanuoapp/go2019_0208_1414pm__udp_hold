@@ -72,7 +72,7 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 	} else {
 	}
 
-	_CFpfN(" 381812 09 : after insert Buf {%d/%d} ",
+	_CFpfN(" 381812 09 : after insert Buf (%d/%d) {%s}",
 		__Vi3, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 	return true
 }
