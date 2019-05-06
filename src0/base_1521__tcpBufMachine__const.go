@@ -25,6 +25,7 @@ type _TtcpBuF struct {
 	tbStart   int
 	tbEnd     int
 	tbCellNow _TtcpBufCell
+	tbFreeCnt int
 }
 
 func (___Vtbf *_TtcpBuF) String() string {

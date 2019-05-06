@@ -88,6 +88,25 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 		_CFpfN(" 381814 10 : len:%d ", __VremainLen)
 	} else {
 		_CFpfN(" 381814 11 : len:%d ", __VremainLen)
+		if __VtcNow.tbcLen+__VremainLen > 1024 { // _TtcpBufCell
+			_CFpfN(" 381814 13 , extra-len , need one-more bufcell: len:%d / %d", __VremainLen, __VtcNow.tbcLen)
+			__Vt := 1024 - __VtcNow.tbcLen
+			copy(__VtcNow.tbcBuf[__VtcNow.tbcLen:], __VremainBuf[:__Vt]) // ok , a full bufCell is ready. put into queue
+
+			__Vtunnel.tbtL2R.tbCellArr[__Vtunnel.tbtL2R.tbEnd] = *__VtcNow // _TtcpBufCell _TtcpBuFx from local to remote
+			__Vtunnel.tbtL2R.tbEnd++
+			if __Vtunnel.tbtL2R.tbEnd >= ___Vtbm.tbmBufArr.tbaCntMax {
+				__Vtunnel.tbtL2R.tbEnd = 0
+			}
+			__Vtunnel.tbtL2R.tbFreeCnt--
+
+			__VtcNow.tbcLen = __VremainLen - __Vt
+			copy(__VtcNow.tbcBuf[:], __VremainBuf[__Vt:]) // put the remain into the nowBufCell
+		} else {
+			_CFpfN(" 381814 15 , ok-len , no need bufcell: len:%d / %d", __VremainLen, __VtcNow.tbcLen)
+			copy(__VtcNow.tbcBuf[__VtcNow.tbcLen:], __VremainBuf)
+
+		}
 	}
 
 	// _TtcpBufferArrX
