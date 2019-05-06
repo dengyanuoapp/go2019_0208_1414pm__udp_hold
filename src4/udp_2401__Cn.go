@@ -158,6 +158,8 @@ func main() {
 	// _FuEncode__1100201x__chanRece__default
 	go _Frun(&_VudpEncode_Cn, 1100101) // _FuEncode__1100101__main_init__default
 
+	// _Finsert_local2remote_buf
+	// _FtcpBufMachine__1500201y1__chan_rece__Local2Remote
 	// _FtcpBufMachine__1500201x__chan_rece__default
 	// _FtcpBufMachine__1500101x__init
 	go _Frun(&_VtcpBufMachine__Cn, 1500101) // _TtcpBufMachine

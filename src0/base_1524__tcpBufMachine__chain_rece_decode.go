@@ -105,6 +105,7 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 		} else {
 			_CFpfN(" 381814 15 , ok-len , no need bufcell: len:%d / %d", __VremainLen, __VtcNow.tbcLen)
 			copy(__VtcNow.tbcBuf[__VtcNow.tbcLen:], __VremainBuf)
+			__VtcNow.tbcLen = __VremainLen
 
 		}
 	}
