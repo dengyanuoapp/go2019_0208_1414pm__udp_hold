@@ -46,6 +46,7 @@ func (___Vtbf *_TtcpBuF) String() string {
 
 type _TtcpBuftunnelX struct{}
 type _TtcpBuftunnel struct {
+	tbtEna      bool
 	tbtTunnelNo byte     //  Tunnel Number : 0 -> normal , 1 ... 255 -> special channel
 	tbtTidx     [16]byte // tunnel ID
 	tbtL2R      _TtcpBuF // from local to remote
