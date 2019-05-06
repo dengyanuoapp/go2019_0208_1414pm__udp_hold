@@ -38,42 +38,46 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 	__Vi3, __Vok3 := ___Vtbm.tbmBufArr.tbaMtid[__Vk16]
 	if false == __Vok3 {
 		for __Vi3 = 0; __Vi3 < ___Vtbm.tbmBufArr.tbaCntMax; __Vi3++ {
-			_CFpfN(" 381812 05 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
+			_CFpfN(" 381813 05 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
 			if false == ___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3].tbtEna {
-				_CFpfN(" 381812 06 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
+				_CFpfN(" 381813 06 vi:%d max:%d ", __Vi3, ___Vtbm.tbmBufArr.tbaCntMax)
 				break
 			}
 		}
 		if __Vi3 >= ___Vtbm.tbmBufArr.tbaCntMax {
-			_FpfNex(" 381812 07 : why not found free buffer socket ? ")
+			_FpfNex(" 381813 07 : why not found free buffer socket ? ")
 			return false
 		}
-		_CFpfN(" 381812 08 : new create ")
+		_CFpfN(" 381813 08 : new create ")
 		___Vtbm.tbmBufArr.tbaMtid[__Vk16] = __Vi3
 		___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3] = _TtcpBuftunnel{ // _TtcpBuftunnelX
 			tbtEna:  true,
 			tbtTidx: __Vk16, // tunnel ID
 		}
 	} else {
-		_CFpfN(" 381812 09 : alread exist.")
+		_CFpfN(" 381813 09 : alread exist.")
 	}
 
+	_CFpfN(" 381814 01 ")
 	if 0 > __Vi3 || ___Vtbm.tbmBufArr.tbaCntMax <= __Vi3 {
-		_CFpfN(" 381812 14 : idx error {%d/%d} ",
+		_CFpfN(" 381814 02 : idx error {%d/%d} ",
 			__Vi3, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 		return false
 	}
 
+	_CFpfN(" 381814 03 ")
 	__Vtunnel := &(___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3])
 
 	__VtcNow := &(__Vtunnel.tbtL2R.tbCellNow) // _TtcpBufCell _TtcpBuFx from local to remote
 
+	_CFpfN(" 381814 04 ")
 	__VremainLen := len(___VtnRece.TnrBuf)
 	if __VremainLen > 1024 {
-		_CFpfN(" 381812 15 : Len ERROR (%d){%s} ", __VremainLen, ___VtnRece.String())
+		_CFpfN(" 381814 05 : Len ERROR (%d){%s} ", __VremainLen, ___VtnRece.String())
 		return false
 	}
 
+	_CFpfN(" 381814 07 ")
 	__VremainBuf := ___VtnRece.TnrBuf
 
 	if 0 == __VtcNow.tbcLen { // _TtcpBufCell
@@ -83,7 +87,7 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 	}
 
 	// _TtcpBufferArrX
-	_CFpfN(" 381812 19 : after insert Buf (%d/%d) {%s}",
+	_CFpfN(" 381814 09 : after insert Buf (%d/%d) {%s}",
 		__Vi3, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 	return true
 }
