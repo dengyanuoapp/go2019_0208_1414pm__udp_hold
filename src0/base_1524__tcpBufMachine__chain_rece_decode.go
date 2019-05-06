@@ -28,7 +28,7 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 		return false
 	}
 
-	_CFpfN(" 381812 03 : free:%d max:%d , {%s} ",
+	__FpfN(" 381812 03 : free:%d max:%d , {%s} ",
 		___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 
 	var __Vk16 [16]byte
@@ -70,7 +70,7 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 
 	__VtcNow := &(__Vtunnel.tbtL2R.tbCellNow) // _TtcpBufCell _TtcpBuFx from local to remote
 
-	_FpfN(" 381814 04 ")
+	__FpfN(" 381814 04 ")
 	__VremainLen := len(___VtnRece.TnrBuf)
 	if __VremainLen > 1024 {
 		_CFpfN(" 381814 05 : Len ERROR (%d){%s} ", __VremainLen, ___VtnRece.String())
