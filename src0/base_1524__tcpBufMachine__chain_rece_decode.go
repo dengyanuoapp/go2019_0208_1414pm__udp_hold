@@ -81,13 +81,13 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 	__VremainBuf := ___VtnRece.TnrBuf
 
 	if 0 == __VtcNow.tbcLen { // _TtcpBufCell
-		__FpfN(" 381814 08 ")
+		_CFpfN(" 381814 08 : len:%d ", __VremainLen)
 		__VtcNow.tbcLen = __VremainLen
-		__FpfN(" 381814 09 %d/%d", len(__VtcNow.tbcBuf), len(__VremainBuf))
+		_CFpfN(" 381814 09 %d/%d", len(__VtcNow.tbcBuf), len(__VremainBuf))
 		copy(__VtcNow.tbcBuf[:], __VremainBuf)
-		__FpfN(" 381814 10 ")
+		_CFpfN(" 381814 10 : len:%d ", __VremainLen)
 	} else {
-		__FpfN(" 381814 11 ")
+		_CFpfN(" 381814 11 : len:%d ", __VremainLen)
 	}
 
 	// _TtcpBufferArrX
