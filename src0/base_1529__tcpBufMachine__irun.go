@@ -34,10 +34,6 @@ func _FtcpBufMachine__1500101x__init(___Vtbm *_TtcpBufMachine) {
 	___Vtbm.tbmBufArr.tbaCntFree = ___Vtbm.tbmBufArr.tbaCntMax
 	___Vtbm.tbmBufArr.tbaMbuftunnel = make([]_TtcpBuftunnel, ___Vtbm.tbmBufArr.tbaCntMax)
 	___Vtbm.tbmBufArr.tbaMtid = make(map[[16]byte]int)
-	for __Vi := 0; __Vi < ___Vtbm.tbmBufArr.tbaCntMax; __Vi++ { // _TtcpBuFx
-		___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi].tbtL2R.tbFreeCnt = 4096 - 3
-		___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi].tbtR2L.tbFreeCnt = 4096 - 3
-	}
 
 	_Fsleep(_T1s)
 

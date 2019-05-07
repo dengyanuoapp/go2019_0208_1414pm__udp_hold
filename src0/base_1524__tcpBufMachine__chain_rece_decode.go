@@ -53,6 +53,12 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 		___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3] = _TtcpBuftunnel{ // _TtcpBuftunnelX
 			tbtEna:  true,
 			tbtTidx: __Vk16, // tunnel ID
+			tbtL2R: _TtcpBuF{ // from local to remote // _TtcpBuFx
+				tbFreeCnt: 4096 - 3,
+			},
+			tbtR2L: _TtcpBuF{
+				tbFreeCnt: 4096 - 3,
+			},
 		}
 	} else {
 		_CFpfN(" 381813 09 : alread exist.")
