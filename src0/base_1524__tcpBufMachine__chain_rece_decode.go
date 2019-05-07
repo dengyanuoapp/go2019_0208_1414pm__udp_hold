@@ -22,13 +22,19 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 		return false
 	}
 
-	if ___Vtbm.tbmBufArr.tbaCntFree <= 0 || ___Vtbm.tbmBufArr.tbaCntMax <= 0 {
-		_CFpfN(" 381812 02 : no free Buf socket avaiable free:%d max:%d , {%s} ",
+	if ___Vtbm.tbmBufArr.tbaCntMax <= 0 {
+		_CFpfN(" 381812 02 : no socket avaiable free:%d max:%d , {%s} ",
+			___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
+		return false
+	}
+
+	if ___Vtbm.tbmBufArr.tbaCntFree <= 3 {
+		_CFpfN(" 381812 03 : no free Buf socket avaiable free:%d max:%d , {%s} ",
 			___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 		return false
 	}
 
-	__FpfN(" 381812 03 : free:%d max:%d , {%s} ",
+	__FpfN(" 381812 04 : free:%d max:%d , {%s} ",
 		___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 
 	var __Vk16 [16]byte
