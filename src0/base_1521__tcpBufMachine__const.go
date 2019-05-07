@@ -15,7 +15,7 @@ type _TtcpBufCell struct {
 }
 
 func (___Vtbc *_TtcpBufCell) String() string {
-	__Vs := _Spf("(%d)[%s]", ___Vtbc.tbcLen, ___Vtbc.tbcBuf[:3])
+	__Vs := _Spf("(%d)[%s]", ___Vtbc.tbcLen, ___Vtbc.tbcBuf[:7])
 	return __Vs
 }
 
