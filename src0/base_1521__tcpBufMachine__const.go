@@ -10,12 +10,13 @@ type _TtcpBufMachine struct {
 
 type _TtcpBufCellX struct{}
 type _TtcpBufCell struct {
-	tbcBuf [1024]byte
-	tbcLen int
+	tbcOffset int64
+	tbcBuf    [1024]byte
+	tbcLen    int
 }
 
 func (___Vtbc *_TtcpBufCell) String() string {
-	__Vs := _Spf("(%d)[%s]", ___Vtbc.tbcLen, ___Vtbc.tbcBuf[:7])
+	__Vs := _Spf("(%d:%d:%d)[%s]", ___Vtbc.tbcOffset, ___Vtbc.tbcLen, ___Vtbc.tbcOffset+int64(___Vtbc.tbcLen), ___Vtbc.tbcBuf[:7])
 	return __Vs
 }
 
@@ -56,7 +57,7 @@ type _TtcpBufferArr struct {
 	tbaCntUsed    int
 	tbaCntFree    int
 	tbaMtid       map[[16]byte]int // tunnel ID
-	tbaMbuftunnel []_TtcpBuftunnel
+	tbaMbuftunnel []_TtcpBuftunnel // _TtcpBuftunnelX
 }
 
 func (___Vtbfa *_TtcpBufferArr) String() string {

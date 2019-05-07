@@ -13,13 +13,13 @@ type _TtcpNodeDataRece struct {
 
 func (__Vtndr *_TtcpNodeDataRece) String() string {
 	return _Spf(
-		"addr:%s id:%s k:%s os:%d (%d/%d)%s",
+		"addr:%s id:%s k:%s (%d/%d/%d){%s}",
 		__Vtndr.TnrRaddr,
 		String5s(&__Vtndr.TnrId128),
 		String5s(&__Vtndr.TnrK256),
 		__Vtndr.TnrOffset,
 		__Vtndr.TnrLen,
-		len(__Vtndr.TnrBuf),
+		__Vtndr.TnrOffset+int64(__Vtndr.TnrLen),
 		String5s(&__Vtndr.TnrBuf),
 	)
 
