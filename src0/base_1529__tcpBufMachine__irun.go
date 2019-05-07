@@ -23,18 +23,20 @@ func _FtcpBufMachine__1500101x__init(___Vtbm *_TtcpBufMachine) {
 	switch _VS.RoleName {
 	case "Cn":
 		___Vtbm.tbmBufArr.tbaCntMax = 100 // Cn : 100 tunnel
-		___Vtbm.tbmBufArr.tbaCntFree = 100
-		___Vtbm.tbmBufArr.tbaMbuftunnel = make([]_TtcpBuftunnel, 100)
-		___Vtbm.tbmBufArr.tbaMtid = make(map[[16]byte]int)
 	case "Dn": // _TtcpBufferArrX
 		___Vtbm.tbmBufArr.tbaCntMax = 1000 // Cn : 1000 tunnel
-		___Vtbm.tbmBufArr.tbaCntFree = 1000
-		___Vtbm.tbmBufArr.tbaMbuftunnel = make([]_TtcpBuftunnel, 1000)
-		___Vtbm.tbmBufArr.tbaMtid = make(map[[16]byte]int)
 	case "Fn":
 		// do nothing.
 	default:
 		_FpfNex(" 834821 03 : unknown Role ")
+	}
+
+	___Vtbm.tbmBufArr.tbaCntFree = ___Vtbm.tbmBufArr.tbaCntMax
+	___Vtbm.tbmBufArr.tbaMbuftunnel = make([]_TtcpBuftunnel, ___Vtbm.tbmBufArr.tbaCntMax)
+	___Vtbm.tbmBufArr.tbaMtid = make(map[[16]byte]int)
+	for __Vi := 0; __Vi < ___Vtbm.tbmBufArr.tbaCntMax; __Vi++ { // _TtcpBuFx
+		___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi].tbtL2R.tbFreeCnt = 4096 - 3
+		___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi].tbtR2L.tbFreeCnt = 4096 - 3
 	}
 
 	_Fsleep(_T1s)

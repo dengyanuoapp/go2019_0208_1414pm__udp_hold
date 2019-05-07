@@ -29,19 +29,8 @@ type _TtcpBuF struct {
 }
 
 func (___Vtbf *_TtcpBuF) String() string {
-	__Vlen := 0
-	if ___Vtbf.tbStart != ___Vtbf.tbEnd {
-		__Vst := ___Vtbf.tbStart
-		for __Vst != ___Vtbf.tbEnd {
-			__Vlen += ___Vtbf.tbCellArr[__Vst].tbcLen
-			__Vst++
-			if __Vst >= 4096 {
-				__Vst = 0
-			}
-		}
-	}
-	__Vs := _Spf("now{%s} st/end:%d/%d len:%d",
-		___Vtbf.tbCellNow.String(), ___Vtbf.tbStart, ___Vtbf.tbEnd, __Vlen)
+	__Vs := _Spf("<now{%s} st/end:%d/%d free:%d>",
+		___Vtbf.tbCellNow.String(), ___Vtbf.tbStart, ___Vtbf.tbEnd, ___Vtbf.tbFreeCnt)
 	return __Vs
 }
 
