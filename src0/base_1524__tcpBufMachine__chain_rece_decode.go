@@ -15,31 +15,39 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201y1__chan_rece__Local2Rem
 	}
 }
 
-// _TtcpBufferArrX _TtcpNodeDataRece
-func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeDataRece) bool {
-	if nil == ___VtnRece || 16 != len(___VtnRece.TnrId128) || 0 == len(___VtnRece.TnrBuf) {
-		_CFpfN(" 381812 01 : rece _TtcpNodeDataRece error {%s} ", ___VtnRece.String())
-		return false
-	}
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__check() bool {
 
 	if ___Vtbm.tbmBufArr.tbaCntMax <= 0 {
-		_CFpfN(" 381812 02 : no socket avaiable free:%d max:%d , {%s} ",
+		_CFpfN(" 381812 05 : no socket avaiable free:%d max:%d , {%s} ",
 			___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 		return false
 	}
 
 	if ___Vtbm.tbmBufArr.tbaCntFree <= 3 {
-		_CFpfN(" 381812 03 : no free Buf socket avaiable free:%d max:%d , {%s} ",
+		_CFpfN(" 381812 06 : no free Buf socket avaiable free:%d max:%d , {%s} ",
 			___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 		return false
 	}
 
-	__FpfN(" 381812 04 : free:%d max:%d , {%s} ",
+	__FpfN(" 381812 07 : free:%d max:%d , {%s} ",
 		___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 
+	return true
+}
+
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunnel(___VtnRece *_TtcpNodeDataRece) _TtcpBuftunnel {
+	if false == ___Vtbm._FtcpBufMachine__check {
+		return nil
+	}
+
+	if nil == ___VtnRece || 16 != len(___VtnRece.TnrId128) || 0 == len(___VtnRece.TnrBuf) {
+		_CFpfN(" 381813 11 : rece _TtcpNodeDataRece error {%s} ", ___VtnRece.String())
+		return nil
+	}
+
 	var __Vk16 [16]byte
-	//_FcopyByte(&__Vk16, &___VtnRece.TnrId128, 16)
 	copy(__Vk16[:], ___VtnRece.TnrId128[:16])
+	//_FcopyByte(&__Vk16, &___VtnRece.TnrId128, 16)
 
 	__Vi3, __Vok3 := ___Vtbm.tbmBufArr.tbaMtid[__Vk16]
 	if false == __Vok3 {
@@ -70,15 +78,25 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 		_CFpfN(" 381813 19 : alread exist.")
 	}
 
-	__FpfN(" 381814 21 ")
+	__FpfN(" 381813 21 ")
 	if 0 > __Vi3 || ___Vtbm.tbmBufArr.tbaCntMax <= __Vi3 {
-		_CFpfN(" 381814 22 : idx error {%d/%d} ",
+		_CFpfN(" 381813 22 : idx error {%d/%d} ",
 			__Vi3, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 		return false
 	}
 
-	__FpfN(" 381814 23 ")
-	__Vtunnel := &(___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3])
+	__FpfN(" 381813 23 ")
+	___Vtunnel := &(___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3])
+	return ___Vtunnel
+}
+
+// _TtcpBufferArrX _TtcpNodeDataRece
+func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeDataRece) bool {
+	__Vtunnel := _FtcpBufMachine__findOrCreate_local2remote_tunnel()
+	if nil == __Vtunnel {
+		_CFpfN(" 381814 11 : rece _TtcpNodeDataRece error {%s} ", ___VtnRece.String())
+		return false
+	}
 
 	__VtcNow := &(__Vtunnel.tbtL2R.tbCellNow) // _TtcpBufCell _TtcpBuFx from local to remote
 
