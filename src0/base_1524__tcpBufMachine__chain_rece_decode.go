@@ -88,8 +88,8 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunne
 
 // _TtcpBufferArrX _TtcpNodeDataRece
 func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeDataRece) bool {
-	__Vtunnel := _FtcpBufMachine__findOrCreate_local2remote_tunnel(___VtnRece)
-	if nil == __Vtunnel {
+	__Vtunnel := ___Vtbm._FtcpBufMachine__findOrCreate_local2remote_tunnel(___VtnRece)
+	if nil == __Vtunnel { // _TtcpBuftunnelX
 		_CFpfN(" 381815 41 : rece _TtcpNodeDataRece error {%s} ", ___VtnRece.String())
 		return false
 	}
@@ -138,6 +138,6 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 
 	// _TtcpBufferArrX
 	_CFpfN(" 381816 59 : after insert Buf (%d/%d) {%s}",
-		__Vi3, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
+		__Vtunnel.tbtTunnelNo, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 	return true
 }
