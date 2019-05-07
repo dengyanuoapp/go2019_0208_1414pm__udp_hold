@@ -15,6 +15,7 @@ type _TacceptTCP struct {
 	taWcnt       _Tcount
 	taRemoteAddr net.Addr
 	taLocalAddr  net.Addr
+	taOffset     int64
 	//taCreceiveMsg chan []byte
 	//taCchanMsg    chan []byte
 	//taCreceiveErr chan string

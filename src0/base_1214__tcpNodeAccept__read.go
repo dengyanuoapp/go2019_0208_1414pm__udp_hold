@@ -32,7 +32,7 @@ var ___VtcpNodeAccept__mux sync.Mutex
 // _TacceptTCP
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP) bool {
 
-	__VtrBuf := make([]byte, 2048)
+	__VtrBuf := make([]byte, 1024)
 	__VtrLen, __VtrErr := ___VtAcc3.taConnTCP.Read(__VtrBuf)
 
 	defer ___VtcpNodeAccept__mux.Unlock()
@@ -69,11 +69,13 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	___VtAcc3.taRcnt.ok++
 
 	__VtrData := _TtcpNodeDataRece{
-		TnrRaddr: ___VtAcc3.taRemoteAddr.String(),
-		TnrLen:   __VtrLen,
-		TnrId128: ___VtAcc3.taId128,
-		TnrBuf:   __VtrBuf[:__VtrLen],
+		TnrRaddr:  ___VtAcc3.taRemoteAddr.String(),
+		TnrLen:    __VtrLen,
+		TnrId128:  ___VtAcc3.taId128,
+		TnrBuf:    __VtrBuf[:__VtrLen],
+		TnrOffset: ___VtAcc3.taOffset,
 	}
+	___VtAcc3.taOffset += int64(__VtrLen)
 
 	//func _FencGobExit(___VeMsg string, ___V interface{}) []byte {
 	__VtrDataB := _FencGobExit(" 183813 05 ", &__VtrData)
