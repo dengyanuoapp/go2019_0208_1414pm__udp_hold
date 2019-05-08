@@ -22,16 +22,20 @@ func (___Vtbc *_TtcpBufCell) String() string {
 
 type _TtcpBuFx struct{}
 type _TtcpBuF struct {
-	tbCellArr [4096]_TtcpBufCell
-	tbStart   int
-	tbEnd     int
-	tbCellNow _TtcpBufCell
-	tbFreeCnt int
+	tbCellArr     [4096]_TtcpBufCell
+	tbStart       int
+	tbEnd         int
+	tbCellNow     _TtcpBufCell
+	tbOffsetStart int64
+	tbOffsetEnd   int64
+	tbOffsetNow   int64
+	tbFreeCnt     int
 }
 
 func (___Vtbf *_TtcpBuF) String() string {
-	__Vs := _Spf("<now{%s} st/end:%d/%d free:%d>",
-		___Vtbf.tbCellNow.String(), ___Vtbf.tbStart, ___Vtbf.tbEnd, ___Vtbf.tbFreeCnt)
+	__Vs := _Spf("<now{%s} st/end:%d/%d free:%d (%d/%d/%d)>",
+		___Vtbf.tbCellNow.String(), ___Vtbf.tbStart, ___Vtbf.tbEnd, ___Vtbf.tbFreeCnt,
+		___Vtbf.tbOffsetStart, ___Vtbf.tbOffsetEnd, ___Vtbf.tbOffsetNow)
 	return __Vs
 }
 
