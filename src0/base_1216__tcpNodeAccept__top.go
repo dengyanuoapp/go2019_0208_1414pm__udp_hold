@@ -44,7 +44,7 @@ func _FtcpNode__200401x1_accept_loop__default(___Vtn3 *_TtcpNodE) {
 	if ___Vtn3.tnAmount > ___Vtn3.tnClientCnt {
 		__VcntOld := ___Vtn3.tnClientCnt
 		for __Vi := 0; __Vi < ___Vtn3.tnAmount; __Vi++ {
-			__VaccTcp := &(___Vtn3.tnAcceptTCPs[__Vi])
+			__VaccTcp := &(___Vtn3.tnAcceptTCPs[__Vi]) // _TacceptTCP
 			if __VaccTcp.taEnabled == false {
 				__VaccTcp.taId128 = _FgenRand_nByte__(16)
 
@@ -59,6 +59,7 @@ func _FtcpNode__200401x1_accept_loop__default(___Vtn3 *_TtcpNodE) {
 				___Vtn3.tnClientCnt++
 				__VaccTcp.taEnabled = true
 				__VaccTcp.taConnTCP = __Vconn
+				__VaccTcp.taOffset = 0
 
 				___Vtn3.tnClientMux.Unlock()
 				// acceptTcpINC / acceptTcpDEC : end
