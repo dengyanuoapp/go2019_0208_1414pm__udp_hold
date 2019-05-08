@@ -52,11 +52,13 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		_CFpfN(" 183813 02 : eof, delete old-id:{%s}", String9s(&___VtAcc3.taId128))
 
 		if nil != ___VtAcc3.taServerTCP.tnCHtcpReceCmdLO {
-			_CFpfN(" 183813 03 : send note to the Users:{%s}", String9s(&___VtAcc3.taId128))
+			_CFpfN(" ######################3 183813 03 : send note to the Users:{%s}", String9s(&___VtAcc3.taId128))
 			__VcmdB := [17]byte{}
 			copy(__VcmdB[:], ___VtAcc3.taId128)
 			__VcmdB[16] = TcpNodeCmd__Eof
 			(*(___VtAcc3.taServerTCP.tnCHtcpReceCmdLO)) <- __VcmdB // _TtcpNodE
+		} else {
+			_CFpfN(" ######################3 183813 04 : why no CmdLO ? {%s}", String9s(&___VtAcc3.taId128))
 		}
 
 		//___VtAcc3.taId128 = _FgenRand_nByte__(16) // regen new id // no need to do here, the new accetp will re-gen
