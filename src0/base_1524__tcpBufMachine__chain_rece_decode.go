@@ -121,6 +121,8 @@ func (___Vtbm *_TtcpBufMachine) _Finsert_local2remote_buf(___VtnRece *_TtcpNodeD
 
 			__Vtunnel.tbtL2R.tbCellArr[__Vtunnel.tbtL2R.tbEnd] = *__VtcNow // _TtcpBufCell _TtcpBuFx from local to remote
 			__Vtunnel.tbtL2R.tbEnd++
+			__Vtunnel.tbtL2R.tbOffsetEnd = __Vtunnel.tbtL2R.tbOffsetNow
+			__Vtunnel.tbtL2R.tbOffsetNow += 1024
 			if __Vtunnel.tbtL2R.tbEnd >= ___Vtbm.tbmBufArr.tbaCntMax {
 				__Vtunnel.tbtL2R.tbEnd = 0
 			}
