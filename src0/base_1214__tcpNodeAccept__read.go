@@ -87,7 +87,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		__FpfN(" 183813 09 : tcp rece :{%s} ============= acc{%s} ",
 			__VtrData.String(), ___VtAcc3.String()) // _TtcpNodeDataRece
 
-		(*___VtAcc3.taServerTCP.tnCHtcpReceBLO) <- __VtrDataB
+		(*___VtAcc3.taServerTCP.tnCHtcpReceBLO) <- __VtrDataB // _TtcpNodE
 	}
 
 	if nil != ___VtAcc3.taServerTCP.tnCHdebugInfoLO {

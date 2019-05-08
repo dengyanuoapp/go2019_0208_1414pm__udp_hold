@@ -33,6 +33,12 @@ func (___Vacc *_TacceptTCP) String() string {
 	)
 }
 
+// LoadT__NULL
+const (
+	TcpNodeCmd__NULL = 301
+	TcpNodeCmd__Eof  = 302
+)
+
 type _TtcpNodE struct {
 	tnName               string
 	tnHostPortStr        string
@@ -42,9 +48,11 @@ type _TtcpNodE struct {
 	tnLisnAddr           net.Addr
 	tnErr                error
 	tnCBinit             func(*_TtcpNodE) // _FtcpNode__200101x__init_default
+	tnCHtcpSendCmdI      [17]byte         // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL
 	tnCHsendToAllClientI chan _TtcpNodeDataSend
-	tnCHdebugInfoLO      *chan byte   // if not-null , when receiving , send one byte into this byte to info the other monitorInfoByteChan
-	tnCHtcpReceBLO       *chan []byte // byte of _TtcpNodeDataRece
+	tnCHdebugInfoLO      *chan byte     // if not-null , when receiving , send one byte into this byte to info the other monitorInfoByteChan
+	tnCHtcpReceBLO       *chan []byte   // byte of _TtcpNodeDataRece
+	tnCHtcpReceCmdLO     *chan [17]byte // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL
 	tnAcceptTCPs         []_TacceptTCP
 	tnClientMux          sync.Mutex
 	tnClientCnt          int
