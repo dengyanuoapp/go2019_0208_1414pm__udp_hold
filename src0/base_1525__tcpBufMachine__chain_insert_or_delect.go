@@ -1,5 +1,30 @@
 package main
 
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__checkAndDeleteTimeoutTunnel(__Vb byte) {
+	_CFpfN(" ###### 398388 01 : _TtcpBufMachine _FtcpBufMachine__checkAndDeleteTimeoutTunnel %d ", __Vb)
+
+	__Vt := _FtimeInt()
+	__VkArr := [][16]byte{}
+	for __Vk16, __Vid := range ___Vtbm.tbmBufArr.tbaMtid {
+		__Vtunel := &(___Vtbm.tbmBufArr.tbaMbuftunnel[__Vid]) // _TtcpBuftunnelX
+		if __Vt-__Vtunel.tbtLastALL > 20 {
+			__VkArr = append(__VkArr, __Vk16)
+			___Vtbm.tbmBufArr.tbaMbuftunnel[__Vid] = _TtcpBuftunnel{}
+		}
+	}
+
+	for __Vk16 := range __VkArr {
+		delete(___Vtbm.tbmBufArr.tbaMtid, __Vk16)
+		___Vtbm.tbmBufArr.tbaCntUsed--
+		___Vtbm.tbmBufArr.tbaCntFree++
+	}
+
+	if 0 < len(__VkArr) {
+		_CFpfN(" ###### 398388 09 : _TtcpBufMachine _FtcpBufMachine__checkAndDeleteTimeoutTunnel delete %d {%s}",
+			len(__VkArr), ___Vtbm.tbmBufArr.String())
+	}
+}
+
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__local2remote_remove_an_tunnel(__Vb *[17]byte) {
 
 	switch __Vb[16] {

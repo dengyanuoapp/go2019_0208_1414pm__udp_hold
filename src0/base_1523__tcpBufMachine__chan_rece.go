@@ -32,6 +32,9 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201x__chan_rece__default() 
 
 			_CFpfN(" ###### 398381 05 : _TtcpBufMachine received timeoutCheckReq %d ", __Vb)
 
+			___Vtbm.
+				_FtcpBufMachine__checkAndDeleteTimeoutTunnel(__Vb)
+
 		}
 
 		___VtcpBufMachine__1500201__mutex.Unlock()
