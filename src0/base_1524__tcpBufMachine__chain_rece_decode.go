@@ -1,7 +1,7 @@
 package main
 
 // _TtcpBufCellX
-// tbmCHtcpReceBI chan []byte // _TtcpNodE tnCHtcpReceBLO *chan []byte // byte of _TtcpNodeDataRece
+// tbmCHtcpLocal2RemoteBI chan []byte // _TtcpNodE tnCHtcpReceBLO *chan []byte // byte of _TtcpNodeDataRece
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201y1__chan_rece__Local2Remote(___VbIN *[]byte) {
 
 	__VtnRece := _TtcpNodeDataRece{}

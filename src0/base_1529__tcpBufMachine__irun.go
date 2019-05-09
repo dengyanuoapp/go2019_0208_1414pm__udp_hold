@@ -21,8 +21,8 @@ func (___Vtbm *_TtcpBufMachine) IRun(___Vidx int) {
 }
 
 func _FtcpBufMachine__1500101x__init(___Vtbm *_TtcpBufMachine) {
-	___Vtbm.tbmCHtcpReceBI = make(chan []byte, 50)
-	___Vtbm.tbmCHtcpReceCmdI = make(chan [17]byte, 50)
+	___Vtbm.tbmCHtcpLocal2RemoteBI = make(chan []byte, 50)
+	___Vtbm.tbmCHtcpLocal2RemoteCmdI = make(chan [17]byte, 50)
 	___Vtbm.tbmChCheckTunnelTimeOut = make(chan byte, 50)
 
 	switch _VS.RoleName {
