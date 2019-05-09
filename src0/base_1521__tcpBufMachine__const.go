@@ -1,12 +1,12 @@
 package main
 
 type _TtcpBufMachine struct {
-	tbmCHtcpReceBI   chan []byte   // _TtcpNodE tnCHtcpReceBLO *chan []byte // byte of _TtcpNodeDataRece
-	tbmCHtcpReceCmdI chan [17]byte // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL tnCHtcpReceCmdLO
-	tbmCHoutLO       *chan []byte
-	tbmCBinit        func(*_TtcpBufMachine)
-	tbmBufArr        _TtcpBufferArr // _TtcpBufferArrX
-
+	tbmCHtcpReceBI          chan []byte   // _TtcpNodE tnCHtcpReceBLO *chan []byte // byte of _TtcpNodeDataRece
+	tbmCHtcpReceCmdI        chan [17]byte // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL tnCHtcpReceCmdLO
+	tbmCHoutLO              *chan []byte
+	tbmCBinit               func(*_TtcpBufMachine)
+	tbmBufArr               _TtcpBufferArr // _TtcpBufferArrX
+	tbmChCheckTunnelTimeOut chan byte
 }
 
 type _TtcpBufCellX struct{}

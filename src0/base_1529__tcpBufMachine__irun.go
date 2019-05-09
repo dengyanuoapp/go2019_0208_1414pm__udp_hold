@@ -12,6 +12,9 @@ func (___Vtbm *_TtcpBufMachine) IRun(___Vidx int) {
 	case 1500201:
 		go ___Vtbm.
 			_FtcpBufMachine__1500201x__chan_rece__default()
+	case 1500301:
+		go ___Vtbm.
+			_FtcpBufMachine__1500301x__timegap_timeout_delete()
 	default:
 		_FpfNex(" 834821 09 : unknown IRun : %d ", ___Vidx)
 	} // switch ___Vidx
@@ -20,6 +23,7 @@ func (___Vtbm *_TtcpBufMachine) IRun(___Vidx int) {
 func _FtcpBufMachine__1500101x__init(___Vtbm *_TtcpBufMachine) {
 	___Vtbm.tbmCHtcpReceBI = make(chan []byte, 50)
 	___Vtbm.tbmCHtcpReceCmdI = make(chan [17]byte, 50)
+	___Vtbm.tbmChCheckTunnelTimeOut = make(chan byte, 50)
 
 	switch _VS.RoleName {
 	case "Cn":
@@ -39,4 +43,5 @@ func _FtcpBufMachine__1500101x__init(___Vtbm *_TtcpBufMachine) {
 	_Fsleep(_T1s)
 
 	go _Frun(___Vtbm, 1500201) // _FtcpBufMachine__1500201x__chan_rece__default
+	go _Frun(___Vtbm, 1500301) // _FtcpBufMachine__1500301x__timegap_timeout_delete
 }

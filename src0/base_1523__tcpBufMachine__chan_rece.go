@@ -27,6 +27,11 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201x__chan_rece__default() 
 			___Vtbm.
 				_FtcpBufMachine__local2remote_remove_an_tunnel(&__VcmdB17)
 
+		case __Vb := <-___Vtbm.tbmChCheckTunnelTimeOut:
+			___VtcpBufMachine__1500201__mutex.Lock()
+
+			_CFpfN(" ###### 398381 05 : _TtcpBufMachine received timeoutCheckReq %d ", __Vb)
+
 		}
 
 		___VtcpBufMachine__1500201__mutex.Unlock()
