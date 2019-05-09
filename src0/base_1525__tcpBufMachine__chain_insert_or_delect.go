@@ -1,5 +1,20 @@
 package main
 
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__local2remote_remove_an_tunnel(__Vb *[17]byte) {
+
+	switch __Vb[16] {
+	case TcpNodeCmd__Eof:
+		// ok
+	default: // TcpNodeCmd__NULL
+		_CFpfN(" 381819 01 : no such a TcpNodeCmd ")
+		return
+	}
+
+	var __Vk16 [16]byte
+	copy(__Vk16[:], (*__Vb)[:16])
+
+}
+
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunnel(___VtnRece *_TtcpNodeDataRece) *_TtcpBuftunnel {
 	if nil == ___Vtbm || ___Vtbm.tbmBufArr.tbaCntMax <= 0 {
 		_CFpfN(" 381812 11 : no socket avaiable free:%d max:%d , {%s} ", ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
