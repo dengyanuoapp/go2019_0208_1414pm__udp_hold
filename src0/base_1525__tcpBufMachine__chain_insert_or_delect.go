@@ -1,7 +1,7 @@
 package main
 
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__checkAndDeleteTimeoutTunnel(__Vb byte) {
-	_CFpfN(" ###### 398388 01 : _TtcpBufMachine _FtcpBufMachine__checkAndDeleteTimeoutTunnel %d ", __Vb)
+	__FpfN(" ###### 398388 01 : _TtcpBufMachine _FtcpBufMachine__checkAndDeleteTimeoutTunnel %d ", __Vb)
 
 	__Vt := _FtimeInt()
 	__VkArr := [][16]byte{}
@@ -13,7 +13,7 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__checkAndDeleteTimeoutTunnel(__V
 		}
 	}
 
-	for __Vk16 := range __VkArr {
+	for _, __Vk16 := range __VkArr {
 		delete(___Vtbm.tbmBufArr.tbaMtid, __Vk16)
 		___Vtbm.tbmBufArr.tbaCntUsed--
 		___Vtbm.tbmBufArr.tbaCntFree++
