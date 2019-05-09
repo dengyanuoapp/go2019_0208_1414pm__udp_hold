@@ -98,5 +98,9 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunne
 
 	__FpfN(" 381814 37 ")
 	___Vtunnel := &(___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3])
+
+	___Vtunnel.tbtLastL2R = _FtimeInt()
+	___Vtunnel.tbtLastALL = ___Vtunnel.tbtLastL2R
+
 	return ___Vtunnel
 }

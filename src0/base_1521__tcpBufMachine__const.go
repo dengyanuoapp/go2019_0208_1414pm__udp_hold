@@ -45,13 +45,17 @@ type _TtcpBuftunnel struct {
 	tbtEna      bool
 	tbtType     int      //  Tunnel Type : 0 -> normal , 1 ... 255 -> special channel
 	tbtTunnelNo int      //
+	tbtLastL2R  int      //
+	tbtLastR2L  int      //
+	tbtLastALL  int      //
 	tbtTidx     [16]byte // tunnel ID
 	tbtL2R      _TtcpBuF // from local to remote // _TtcpBuFx
 	tbtR2L      _TtcpBuF // from remote to local // _TtcpBuFx
 }
 
 func (___Vtbt *_TtcpBuftunnel) String() string {
-	__Vs := _Spf("%d:%x\n:l2r[%s]\n:r2l[%s]\n", ___Vtbt.tbtTunnelNo, ___Vtbt.tbtTidx[:2],
+	__Vs := _Spf("T:%d %d:%x\n:l2r[%s]\n:r2l[%s]\n",
+		___Vtbt.tbtLastALL, ___Vtbt.tbtTunnelNo, ___Vtbt.tbtTidx[:2],
 		___Vtbt.tbtL2R.String(), ___Vtbt.tbtR2L.String())
 	return __Vs
 }
