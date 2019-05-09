@@ -13,6 +13,19 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__local2remote_remove_an_tunnel(_
 	var __Vk16 [16]byte
 	copy(__Vk16[:], (*__Vb)[:16])
 
+	_CFpfN(" 381819 03 : TcpNodeCmd : EOF , try delete : %x", __Vk16[:3])
+
+	__Vi3, __Vok3 := ___Vtbm.tbmBufArr.tbaMtid[__Vk16]
+
+	if false == __Vok3 {
+		_CFpfN(" 381819 05 : TcpNodeCmd : why not found in the tunnel arr ? : %x", __Vk16[:3])
+		return
+	}
+
+	___Vtbm.tbmBufArr.tbaMbuftunnel[__Vi3] = _TtcpBuftunnel{} // _TtcpBuftunnelX
+	___Vtbm.tbmBufArr.tbaCntUsed--
+	___Vtbm.tbmBufArr.tbaCntFree++
+	delete(___Vtbm.tbmBufArr.tbaMtid, __Vk16)
 }
 
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunnel(___VtnRece *_TtcpNodeDataRece) *_TtcpBuftunnel {
@@ -70,6 +83,8 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunne
 				tbFreeCnt: 4096 - 3,
 			},
 		}
+		___Vtbm.tbmBufArr.tbaCntUsed++
+		___Vtbm.tbmBufArr.tbaCntFree--
 	} else {
 		_CFpfN(" 381814 31 : alread exist.")
 	}
