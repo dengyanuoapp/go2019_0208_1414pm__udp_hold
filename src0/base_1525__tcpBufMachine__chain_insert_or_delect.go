@@ -5,7 +5,7 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__sendCmdRemote2Local(___Vk16 [16
 	if nil == ___Vtbm.tbmCHtcpRemote2LocalCmdLO {
 		return
 	}
-	if 0 == len(*___Vtbm.tbmCHtcpRemote2LocalCmdLO) {
+	if 0 == cap(*___Vtbm.tbmCHtcpRemote2LocalCmdLO) {
 		_FpfNex(" ###### 398387 01 : _TtcpBufMachine _FtcpBufMachine__sendCmdRemote2Local why chan ZERO len ?")
 		return
 	}
