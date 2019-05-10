@@ -1,5 +1,9 @@
 package main
 
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__sendCmdRemote2Local(__Vk16 [16]byte, __Vcmd byte) {
+	// tbmCHtcpRemote2LocalCmdLO
+}
+
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__checkAndDeleteTimeoutTunnel(__Vb byte) {
 	__FpfN(" ###### 398388 01 : _TtcpBufMachine _FtcpBufMachine__checkAndDeleteTimeoutTunnel %d ", __Vb)
 
@@ -17,6 +21,8 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__checkAndDeleteTimeoutTunnel(__V
 		delete(___Vtbm.tbmBufArr.tbaMtid, __Vk16)
 		___Vtbm.tbmBufArr.tbaCntUsed--
 		___Vtbm.tbmBufArr.tbaCntFree++
+		___Vtbm.
+			_FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrTimeout)
 	}
 
 	if 0 < len(__VkArr) {
@@ -56,32 +62,47 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__local2remote_remove_an_tunnel(_
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunnel(___VtnRece *_TtcpNodeDataRece) *_TtcpBuftunnel {
 	if nil == ___Vtbm || ___Vtbm.tbmBufArr.tbaCntMax <= 0 {
 		_CFpfN(" 381812 11 : no socket avaiable free:%d max:%d , {%s} ", ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
+		//___Vtbm.  _FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrNoTunnel)
 		return nil
 	}
 
 	if nil == ___VtnRece || 16 != len(___VtnRece.TnrId128) || 0 == len(___VtnRece.TnrBuf) {
 		_CFpfN(" 381812 12 : rece _TtcpNodeDataRece error {%s} ", ___VtnRece.String())
+		//___Vtbm.  _FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrR2Ldata)
 		return nil
 	}
+
+	var __Vk16 [16]byte
+	copy(__Vk16[:], ___VtnRece.TnrId128[:16])
+	//_FcopyByte(&__Vk16, &___VtnRece.TnrId128, 16)
 
 	if ___Vtbm.tbmBufArr.tbaCntFree <= 3 {
 		_CFpfN(" 381812 13 : no free Buf socket avaiable free:%d max:%d , {%s} ",
 			___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
+		___Vtbm.
+			_FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrNoTunnel)
 		return nil
 	}
 
 	__FpfN(" 381812 14 : free:%d max:%d , {%s} ",
 		___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
 
-	var __Vk16 [16]byte
-	copy(__Vk16[:], ___VtnRece.TnrId128[:16])
-	//_FcopyByte(&__Vk16, &___VtnRece.TnrId128, 16)
-
 	__Vi3, __Vok3 := ___Vtbm.tbmBufArr.tbaMtid[__Vk16]
 	if false == __Vok3 {
+
+		if 0 != ___VtnRece.TnrOffset { // _TtcpNodeDataRece
+			_CFpfN(" 381813 21 : why not ZERO offset (%d) ? close this tunnel. ",
+				___VtnRece.TnrOffset)
+			___Vtbm.
+				_FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrOffset)
+			return nil
+		}
+
 		if ___Vtbm.tbmBufArr.tbaCntFree <= 4 { // not 3 , if insert , must 4 avaiable
-			_CFpfN(" 381813 21 : no free Buf socket avaiable free:%d max:%d , {%s} ",
+			_CFpfN(" 381813 22 : no free Buf socket avaiable free:%d max:%d , {%s} ",
 				___Vtbm.tbmBufArr.tbaCntFree, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
+			___Vtbm.
+				_FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrNoTunnel)
 			return nil
 		}
 
@@ -94,6 +115,8 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunne
 		}
 		if __Vi3 >= ___Vtbm.tbmBufArr.tbaCntMax {
 			_FpfNex(" 381813 27 : why not found free buffer socket ? ")
+			___Vtbm.
+				_FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrNoTunnel)
 			return nil
 		}
 		_CFpfN(" 381813 29 : new create ")
@@ -118,6 +141,8 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__findOrCreate_local2remote_tunne
 	if 0 > __Vi3 || ___Vtbm.tbmBufArr.tbaCntMax <= __Vi3 {
 		_CFpfN(" 381814 35 : idx error {%d/%d} ",
 			__Vi3, ___Vtbm.tbmBufArr.tbaCntMax, ___Vtbm.tbmBufArr.String())
+		___Vtbm.
+			_FtcpBufMachine__sendCmdRemote2Local(__Vk16, TcpNodeCmd__ErrNoTunnel)
 		return nil
 	}
 
