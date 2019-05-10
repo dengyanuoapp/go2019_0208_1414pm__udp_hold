@@ -1,6 +1,5 @@
 package main
 
-import "bytes"
 import "sync"
 
 var ___TtcpNodE__mux sync.Mutex
@@ -14,7 +13,7 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 			//_FpfN("283821 02 get from send-chain :{%s}", __Vds.String())
 			___TtcpNodE__mux.Lock()
 			___VtcpNode4.
-				_FtcpNode__200301x2_send__default(&__Vds)
+				_FtcpNode__200301x2_sendAll__default(&__Vds)
 
 		case __Vb := <-___VtcpNode4.tnCHtcpSendBI: //        chan []byte        // byte of _TtcpNodeDataSend
 			___TtcpNodE__mux.Lock()
@@ -29,31 +28,9 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 	} // end for
 } //
 
-func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x2_send__default(___Vds *_TtcpNodeDataSend) {
-	if 0 == len(___Vds.tnsId128) {
-		for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
-			if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled {
-				//_FpfN("283822 03 get from send-chain :{%s}", ___Vds.String())
-				___VtcpNode4.
-					tnAcceptTCPs[__Vi].
-					_FtcpNodeAccept_send(___Vds)
-			}
-		}
-	} else {
-		for __Vi := 0; __Vi < ___VtcpNode4.tnAmount; __Vi++ {
-			if ___VtcpNode4.tnAcceptTCPs[__Vi].taEnabled && (bytes.Equal(___Vds.tnsId128, ___VtcpNode4.tnAcceptTCPs[__Vi].taId128)) {
-				_FpfN("283822 05 get from send-chain :{%s}", ___Vds.String())
-				___VtcpNode4.
-					tnAcceptTCPs[__Vi].
-					_FtcpNodeAccept_send(___Vds)
-			}
-		}
-	}
-}
-
 // _TacceptTCP
 // _TtcpNodE
-func (___Vacc *_TacceptTCP) _FtcpNodeAccept_send(___Vs *_TtcpNodeDataSend) {
+func (___Vacc *_TacceptTCP) _FtcpNodeAccept_sendOneTunnel(___Vs *_TtcpNodeDataSend) {
 	defer ___Vacc.taServerTCP.tnClientMux.Unlock()
 	___Vacc.taServerTCP.tnClientMux.Lock()
 
