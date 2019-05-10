@@ -3,7 +3,7 @@ package main
 import "bytes"
 import "sync"
 
-var ___VtcpNode__200301x_Mux sync.Mutex
+var ___TtcpNodE__mux sync.Mutex
 
 // note : all debug log begin pushed into tnClog will try to redirect to TCP debug monitorS.
 func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
@@ -12,20 +12,20 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 		select {
 		case __Vds := <-___VtcpNode4.tnCHsendToAllClientI: // _TtcpNodeDataSend
 			//_FpfN("283821 02 get from send-chain :{%s}", __Vds.String())
-			___VtcpNode__200301x_Mux.Lock()
+			___TtcpNodE__mux.Lock()
 			___VtcpNode4.
 				_FtcpNode__200301x2_send__default(&__Vds)
 
 		case __Vb := <-___VtcpNode4.tnCHtcpSendBI: //        chan []byte        // byte of _TtcpNodeDataSend
-			___VtcpNode__200301x_Mux.Lock()
+			___TtcpNodE__mux.Lock()
 			_CFpfN("283821 04 _TtcpNodE tnCHtcpSendBI :{%s}", String9s(&__Vb))
 
 		case __VbCmd := <-___VtcpNode4.tnCHtcpSendCmdI: // chan [17]byte      // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL
-			___VtcpNode__200301x_Mux.Lock()
+			___TtcpNodE__mux.Lock()
 			_CFpfN("283821 06 _TtcpNodE tnCHtcpSendCmdI :{%x %x}", __VbCmd[:16], __VbCmd[16])
 
 		} // end Select
-		___VtcpNode__200301x_Mux.Unlock()
+		___TtcpNodE__mux.Unlock()
 	} // end for
 } //
 

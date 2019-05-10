@@ -5,7 +5,7 @@ package main
 
 import (
 	"io"
-	"sync"
+	//"sync"
 )
 
 func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
@@ -26,7 +26,7 @@ func (___VtAcc2 *_TacceptTCP) _FtcpNodeAccept__200401x4__dataReceiveMsg01() {
 	}
 } //
 
-var ___VtcpNodeAccept__mux sync.Mutex
+//var ___VtcpNodeAccept__mux sync.Mutex
 
 // func (c *TCPConn) Read(b []byte) (int, error)
 // _TacceptTCP
@@ -35,8 +35,10 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	__VtrBuf := make([]byte, 1024)
 	__VtrLen, __VtrErr := ___VtAcc3.taConnTCP.Read(__VtrBuf)
 
-	defer ___VtcpNodeAccept__mux.Unlock()
-	___VtcpNodeAccept__mux.Lock()
+	___TtcpNodE__mux.Lock()
+
+	//defer ___VtcpNodeAccept__mux.Unlock()
+	//___VtcpNodeAccept__mux.Lock()
 
 	___VtAcc3.taRcnt.try++ // _TacceptTCP
 
@@ -70,6 +72,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 		_CFpfN(" 183813 07 : eof, TCP end l:%v , r:%v , id:{%s}",
 			___VtAcc3.taLocalAddr, ___VtAcc3.taRemoteAddr, String9s(&___VtAcc3.taId128))
 		//___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
+		___TtcpNodE__mux.Unlock()
 		return false
 	}
 
@@ -104,6 +107,7 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	if nil != ___VtAcc3.taServerTCP.tnCHdebugInfoLO {
 		(*(___VtAcc3.taServerTCP.tnCHdebugInfoLO)) <- 1
 	}
+	___TtcpNodE__mux.Unlock()
 	return true
 } //
 
