@@ -1,7 +1,16 @@
 package main
 
-func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__sendCmdRemote2Local(__Vk16 [16]byte, __Vcmd byte) {
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__sendCmdRemote2Local(___Vk16 [16]byte, ___Vcmd byte) {
 	// tbmCHtcpRemote2LocalCmdLO
+	if nil == ___Vtbm.tbmCHtcpRemote2LocalCmdLO {
+		return
+	}
+
+	__V17 := [17]byte{}
+	copy(__V17[:], ___Vk16[:])
+	__V17[16] = ___Vcmd
+
+	(*(___Vtbm.tbmCHtcpRemote2LocalCmdLO)) <- __V17
 }
 
 func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__checkAndDeleteTimeoutTunnel(__Vb byte) {
