@@ -35,12 +35,12 @@ func (___Vacc *_TacceptTCP) String() string {
 
 // LoadT__NULL
 const (
-	TcpNodeCmd__NULL        = 31
-	TcpNodeCmd__Eof         = 32
-	TcpNodeCmd__ErrTimeout  = 33
-	TcpNodeCmd__ErrNoTunnel = 34
-	TcpNodeCmd__ErrR2Ldata  = 35
-	TcpNodeCmd__ErrOffset   = 36
+	TcpNodeCmd__NULL        = 0x31
+	TcpNodeCmd__Eof         = 0x32
+	TcpNodeCmd__ErrTimeout  = 0x33
+	TcpNodeCmd__ErrNoTunnel = 0x34
+	TcpNodeCmd__ErrR2Ldata  = 0x35
+	TcpNodeCmd__ErrOffset   = 0x36
 )
 
 type _TtcpNodE struct {

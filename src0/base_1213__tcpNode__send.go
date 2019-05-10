@@ -20,8 +20,8 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 			___TtcpNodE__mux.Lock()
 			_CFpfN("283821 04 _TtcpNodE tnCHtcpSendBI :{%s}", String9s(&__Vb))
 
-		case __VbCmd := <-___VtcpNode4.tnCHtcpSendCmdI: // chan [17]byte      // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL
-			___TtcpNodE__mux.Lock()
+		case __VbCmd := <-___VtcpNode4.tnCHtcpSendCmdI: // chan [17]byte
+			___TtcpNodE__mux.Lock() // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL
 			_CFpfN("283821 06 _TtcpNodE tnCHtcpSendCmdI :{%x %x}", __VbCmd[:16], __VbCmd[16])
 
 		} // end Select
