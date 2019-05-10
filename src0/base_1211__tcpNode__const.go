@@ -43,6 +43,25 @@ const (
 	TcpNodeCmd__ErrOffset   = 0x36
 )
 
+func StrTcpNodeCmd(___Vb byte) string {
+	switch ___Vb {
+	case TcpNodeCmd__NULL:
+		return "NULL"
+	case TcpNodeCmd__Eof:
+		return "Eof"
+	case TcpNodeCmd__ErrTimeout:
+		return "ErrTimeout"
+	case TcpNodeCmd__ErrNoTunnel:
+		return "ErrNoTunnel"
+	case TcpNodeCmd__ErrR2Ldata:
+		return "ErrR2Ldata"
+	case TcpNodeCmd__ErrOffset:
+		return "ErrOffset"
+	default:
+		return "unknownTcpNodeCmd"
+	}
+}
+
 type _TtcpNodE struct {
 	tnName               string
 	tnHostPortStr        string
