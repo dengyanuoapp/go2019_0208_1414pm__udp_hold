@@ -6,7 +6,7 @@ import (
 
 func _FerrExit(___VerrMsg string, ___Verr error) {
 	if ___Verr != nil {
-		_Fex1("Error: "+___VerrMsg, ___Verr)
+		_FpfNex("Error: <%s>[%v]", ___VerrMsg, ___Verr)
 	}
 } // _FerrExit
 

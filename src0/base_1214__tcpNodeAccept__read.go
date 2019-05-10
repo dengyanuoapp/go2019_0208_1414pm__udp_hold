@@ -42,37 +42,8 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 
 	___VtAcc3.taRcnt.try++ // _TacceptTCP
 
-	if __VtrErr == io.EOF { // lost the connect.
-		___VtAcc3.taRcnt.eofErr++
-		// acceptTcpINC / acceptTcpDEC : begin
-		___VtAcc3.taServerTCP.tnClientMux.Lock()
-
-		___VtAcc3.taServerTCP.tnClientCnt--
-		___VtAcc3.taEnabled = false
-		___VtAcc3.taConnTCP.Close()
-
-		_CFpfN(" 183813 02 : eof, delete old-id:{%s}", String9s(&___VtAcc3.taId128))
-
-		if nil != ___VtAcc3.taServerTCP.tnCHtcpReceCmdLO {
-			_CFpfN(" ######################3 183813 03 : send note to the Users:{%s}", String9s(&___VtAcc3.taId128))
-			__VcmdB := [17]byte{}
-			copy(__VcmdB[:], ___VtAcc3.taId128)
-			__VcmdB[16] = TcpNodeCmd__Eof
-			(*(___VtAcc3.taServerTCP.tnCHtcpReceCmdLO)) <- __VcmdB // _TtcpNodE
-		} else {
-			_CFpfN(" ######################3 183813 04 : why no CmdLO ? {%s}", String9s(&___VtAcc3.taId128))
-		}
-
-		//___VtAcc3.taId128 = _FgenRand_nByte__(16) // regen new id // no need to do here, the new accetp will re-gen
-		___VtAcc3.taId128 = []byte{}
-
-		___VtAcc3.taServerTCP.tnClientMux.Unlock()
-		// acceptTcpINC / acceptTcpDEC : end
-
-		_CFpfN(" 183813 07 : eof, TCP end l:%v , r:%v , id:{%s}",
-			___VtAcc3.taLocalAddr, ___VtAcc3.taRemoteAddr, String9s(&___VtAcc3.taId128))
-		//___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
-		___TtcpNodE__mux.Unlock()
+	if false == ___VtAcc3.taEnabled || __VtrErr == io.EOF { // lost the connect. or another thread close it.
+		___VtAcc3._FtcpNodeAccept__200401x6__dataReceiveMsg01_removeLostconnect()
 		return false
 	}
 
@@ -92,13 +63,13 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	___VtAcc3.taOffset += int64(__VtrLen)
 
 	//func _FencGobExit(___VeMsg string, ___V interface{}) []byte {
-	__VtrDataB := _FencGobExit(" 183814 05 ", &__VtrData)
+	__VtrDataB := _FencGobExit(" 183813 05 ", &__VtrData)
 
-	_FnullExit(" 183814 06 : why tcpNode pointer NULL ? ", ___VtAcc3.taServerTCP)
+	_FnullExit(" 183813 06 : why tcpNode pointer NULL ? ", ___VtAcc3.taServerTCP)
 
-	if _FchanNullCheckOk(" 183814 07 "+___VtAcc3.taServerTCP.tnName, ___VtAcc3.taServerTCP.tnCHtcpReceBLO) {
+	if _FchanNullCheckOk(" 183813 07 "+___VtAcc3.taServerTCP.tnName, ___VtAcc3.taServerTCP.tnCHtcpReceBLO) {
 
-		__FpfN(" 183814 09 : tcp rece :{%s} ============= acc{%s} ",
+		__FpfN(" 183813 09 : tcp rece :{%s} ============= acc{%s} ",
 			__VtrData.String(), ___VtAcc3.String()) // _TtcpNodeDataRece
 
 		(*___VtAcc3.taServerTCP.tnCHtcpReceBLO) <- __VtrDataB // _TtcpNodE
@@ -110,6 +81,41 @@ func _FtcpNodeAccept__200401x5__dataReceiveMsg01_default(___VtAcc3 *_TacceptTCP)
 	___TtcpNodE__mux.Unlock()
 	return true
 } //
+
+func (___VtAcc3 *_TacceptTCP) _FtcpNodeAccept__200401x6__dataReceiveMsg01_removeLostconnect() {
+	___VtAcc3.taRcnt.eofErr++
+	// acceptTcpINC / acceptTcpDEC : begin
+	___VtAcc3.taServerTCP.tnClientMux.Lock()
+
+	___VtAcc3.taServerTCP.tnClientCnt--
+	if true == ___VtAcc3.taEnabled {
+		___VtAcc3.taConnTCP.Close()
+	} // else already closed.
+	___VtAcc3.taEnabled = false
+
+	_CFpfN(" 183815 02 : eof, delete old-id:{%s}", String9s(&___VtAcc3.taId128))
+
+	if nil != ___VtAcc3.taServerTCP.tnCHtcpReceCmdLO {
+		_CFpfN(" ######################3 183815 03 : send note to the Users:{%s}", String9s(&___VtAcc3.taId128))
+		__VcmdB := [17]byte{}
+		copy(__VcmdB[:], ___VtAcc3.taId128)
+		__VcmdB[16] = TcpNodeCmd__Eof
+		(*(___VtAcc3.taServerTCP.tnCHtcpReceCmdLO)) <- __VcmdB // _TtcpNodE
+	} else {
+		_CFpfN(" ######################3 183815 04 : why no CmdLO ? {%s}", String9s(&___VtAcc3.taId128))
+	}
+
+	//___VtAcc3.taId128 = _FgenRand_nByte__(16) // regen new id // no need to do here, the new accetp will re-gen
+	___VtAcc3.taId128 = []byte{}
+
+	___VtAcc3.taServerTCP.tnClientMux.Unlock()
+	// acceptTcpINC / acceptTcpDEC : end
+
+	_CFpfN(" 183815 07 : eof, TCP end l:%v , r:%v , id:{%s}",
+		___VtAcc3.taLocalAddr, ___VtAcc3.taRemoteAddr, String9s(&___VtAcc3.taId128))
+	//___VtAcc3.taCreceiveErr <- _Pspf("EOF:%d", ___VtAcc3.taIdx)
+	___TtcpNodE__mux.Unlock()
+}
 
 func _FtcpNodeAccept__200401x5__dataReceiveMsg01_debug(___VtAcc4 *_TacceptTCP) {
 
