@@ -35,7 +35,10 @@ func _Finit__2401() {
 
 	_FPargs()
 
-	_VtcpBufMachine__Cn = _TtcpBufMachine{}
+	_VtcpBufMachine__Cn = _TtcpBufMachine{
+		tbmCHtcpRemote2LocalBLO:   &_VtcpAccetpClients__Cn.tnCHtcpSendBI,   // *chan []byte   // _TtcpNodE
+		tbmCHtcpRemote2LocalCmdLO: &_VtcpAccetpClients__Cn.tnCHtcpSendCmdI, // *chan [17]byte // command of tunnel :
+	}
 
 	_VtcpAccetpClients__Cn = _TtcpNodE{
 		tnName:           " tcp_acceptClient_Cn ",

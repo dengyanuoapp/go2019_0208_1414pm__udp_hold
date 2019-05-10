@@ -27,6 +27,8 @@ func (___Vtn0 *_TtcpNodE) IRun(___Vidx int) {
 }
 
 func (___Vtn3 *_TtcpNodE) _FtcpNode__200101x__init_default() {
+	___Vtn3.tnCHtcpSendBI = make(chan []byte, 50)     // byte of _TtcpNodeDataSend
+	___Vtn3.tnCHtcpSendCmdI = make(chan [17]byte, 50) // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL
 
 	___Vtn3._FtcpNode__tryListen01()
 
