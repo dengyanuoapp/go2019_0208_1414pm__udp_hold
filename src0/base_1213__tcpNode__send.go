@@ -23,47 +23,10 @@ func (___VtcpNode4 *_TtcpNodE) _FtcpNode__200301x_send__default() {
 			___TtcpNodE__mux.Lock() // command of tunnel : byte 0:15 -> channelID, byte [16] -> cmd : // TcpNodeCmd__NULL
 			_CFpfN("283821 06 _TtcpNodE tnCHtcpSendCmdI :{%x %s}", __VbCmd[:16], StrTcpNodeCmd(__VbCmd[16]))
 
+			___VtcpNode4.
+				_FtcpNode__tryAcction_Cmd(__VbCmd)
+
 		} // end Select
 		___TtcpNodE__mux.Unlock()
 	} // end for
 } //
-
-// _TacceptTCP
-// _TtcpNodE
-func (___Vacc *_TacceptTCP) _FtcpNodeAccept_sendOneTunnel(___Vs *_TtcpNodeDataSend) {
-	defer ___Vacc.taServerTCP.tnClientMux.Unlock()
-	___Vacc.taServerTCP.tnClientMux.Lock()
-
-	if false == ___Vacc.taEnabled {
-		_FpfN(" 838187 01 : already lost connect:%s", ___Vacc.String())
-		return
-	}
-
-	if nil == ___Vs {
-		_FpfN(" 838187 02 : why Null ? ")
-		return
-	}
-
-	if 0 == ___Vs.tnsLen {
-		_FpfN(" 838187 03 : why ZERO len ? ")
-		return
-	}
-
-	if ___Vs.tnsLen != len(___Vs.tnsBuf) {
-		_FpfN(" 838187 04 : why diff len ? ")
-		return
-	}
-
-	if nil == ___Vacc.taConnTCP {
-		_FpfN(" 838187 05 : why conn NULL ? ")
-		return
-	}
-
-	//_FpfN(" 838187 06 : <%v>sending %s", ___Vacc.taConnTCP, ___Vacc.String())
-
-	//func (c *TCPConn) Write(b []byte) (int, error)
-	___Vacc.
-		taConnTCP.
-		Write(___Vs.tnsBuf)
-
-}
