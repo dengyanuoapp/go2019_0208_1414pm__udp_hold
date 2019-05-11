@@ -10,7 +10,7 @@ func (___Vtbm *_TtcpBufMachine) tcpBufMachine__tunnel_local2remote_send_to_dataM
 	}
 
 	if 0 == ___Vtbm.tbmBufArr.tbaCntUsed {
-		_CFpfN(" 398384 02 : _TtcpBufMachine tcpBufMachine__tunnel_local2remote_send_to_dataMachine_top no tunnel now .")
+		__FpfN(" 398384 02 : _TtcpBufMachine tcpBufMachine__tunnel_local2remote_send_to_dataMachine_top no tunnel now .")
 		return
 	}
 

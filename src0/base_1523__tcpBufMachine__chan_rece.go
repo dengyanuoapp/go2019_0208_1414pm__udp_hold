@@ -38,7 +38,7 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500201x__chan_rece__default() 
 		case __Vb := <-___Vtbm.tbmChCheckLocal2RemoteGap: // try to check whether the bufTunnel is time out
 			___VtcpBufMachine__1500201__mutex.Lock()
 
-			_CFpfN(" ###### 398381 07 : _TtcpBufMachine received timeoutCheckReq %d ", __Vb)
+			__FpfN(" ###### 398381 07 : _TtcpBufMachine received timeoutCheckReq %d ", __Vb)
 			___Vtbm.
 				tcpBufMachine__tunnel_local2remote_send_to_dataMachine_top()
 		}
