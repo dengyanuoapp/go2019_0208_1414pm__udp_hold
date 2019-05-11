@@ -6,3 +6,6 @@ func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500301x__timegap_timeout_delet
 		___Vtbm.tbmChCheckTunnelTimeOut <- 1
 	}
 }
+func (___Vtbm *_TtcpBufMachine) _FtcpBufMachine__1500302x__timegap_bufSendTunnelCheck() {
+	___Vtbm.tbmChCheckLocal2RemoteGap = make(chan byte, 50)
+}
