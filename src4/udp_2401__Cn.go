@@ -110,14 +110,7 @@ func _FdmCBprReceKey__Cn(___Vdm *_TdataMachine) {
 func _FdmCBprSendKey__Cn(___Vdm *_TdataMachine) {
 }
 
-func _Ftest01() {
-	_CFpfNdb(" ###### 838381 02 : %d ", _FtimeInt())
-	_FpfNex("xxx")
-}
-
 func main() {
-
-	_Ftest01()
 
 	_Fsleep(_T1s)
 
