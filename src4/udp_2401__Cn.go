@@ -38,6 +38,7 @@ func _Finit__2401() {
 	_VtcpBufMachine__Cn = _TtcpBufMachine{
 		tbmCHtcpRemote2LocalBLO:   &_VtcpAccetpClients__Cn.tnCHtcpSendBI,   // *chan []byte   // _TtcpNodE
 		tbmCHtcpRemote2LocalCmdLO: &_VtcpAccetpClients__Cn.tnCHtcpSendCmdI, // *chan [17]byte // command of tunnel :
+		tbmCHtoDataMachineBLO:     &_VdataMachine_Cn.dmCHencodeData9999fromBufBI,
 	}
 
 	_VtcpAccetpClients__Cn = _TtcpNodE{

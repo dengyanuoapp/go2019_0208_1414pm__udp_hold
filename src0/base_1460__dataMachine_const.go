@@ -48,9 +48,9 @@ type _TdataMachine struct {
 	dmCHrepackDecodeC2sLO                    *chan _Tdecode        // _TencodeX , get repacked-c2s decode as spec-data , then send to loginChecker
 	dmCHencodeIdleLO                         *chan _Tencode        // _TencodeX , get encode  repack to idle package ,then send
 	dmCHencodeDataSpecBLO                    *chan _TdataTran      // _TencodeX , used for Fn-Dn, and other special use
-	dmCHencodeData9999BLO                    *chan _TdataTran      // _TencodeX , used for normal data tunnel
 	dmCHencodeDataSpecFnWaitCnBI             chan []byte           // byte of _TencodeX , used for Fn-Dn, and other special use
-	dmCHencodeData9999BI                     chan []byte           // byte of _TencodeX , used for normal data tunnel
+	dmCHencodeData9999toBufBLO               *chan _TdataTran      // _TencodeX , used for normal data tunnel
+	dmCHencodeData9999fromBufBI              chan []byte           // byte of _TencodeX , used for normal data tunnel
 	dmCHdebugInfoI                           chan byte             // when received , output the debug info
 	//dmCH  unCHreceByteLO    *chan _TudpNodeDataRece // if nil , drop it ; not-nil , put the received data into this chan
 	//dmCH  unCHsendI     chan _TudpNodeDataSend  // try get data from chan, then send it out.

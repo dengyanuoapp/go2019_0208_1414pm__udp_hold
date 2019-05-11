@@ -59,10 +59,10 @@ func _FdataMachin__1000201x__receive__default(___Vdm *_TdataMachine) {
 			___Vdm.
 				_FdataMachin__1000503x__cnNeedDnRetranOrDirectConnect(&__Vc2sEncodeB)
 
-		case <-___Vdm.dmCHencodeData9999BI:
+		case <-___Vdm.dmCHencodeData9999fromBufBI:
 			___V_FdataMachin__1000201x__receive__default__mux.Lock()
 
-			_CFpfN(" 839192 08 : _TdataMachine dmCHencodeData9999BI :under constructing conn{%s} ========######======= data{%s} \n",
+			_CFpfN(" 839192 08 : _TdataMachine dmCHencodeData9999fromBufBI :under constructing conn{%s} ========######======= data{%s} \n",
 				___Vdm.dmMconn.String(), ___Vdm.dmMdata.String())
 		}
 
