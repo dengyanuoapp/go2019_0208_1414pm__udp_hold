@@ -21,6 +21,7 @@ func (___Vtbm *_TtcpBufMachine) tcpBufMachine__tunnel_local2remote_send_to_dataM
 }
 
 func (___Vtbm *_TtcpBufMachine) tcpBufMachine__tunnel_local2remote_send_to_dataMachine_eachTunnel(___Vtunnel *_TtcpBuftunnel) {
-	_CFpfN(" ###### 398385 01 : _TtcpBufMachine _FtcpBufMachine__checkAndDeleteTimeoutTunnel %x ", ___Vtunnel.tbtTidx)
+	//_CFpfN(" ###### 398385 01 : _TtcpBufMachine _FtcpBufMachine__checkAndDeleteTimeoutTunnel %x ", ___Vtunnel.tbtTidx)
+	_CFpfNdb(" ###### 398385 02 : %x ", ___Vtunnel.tbtTidx)
 
 }

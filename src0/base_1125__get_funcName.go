@@ -85,6 +85,44 @@ func _FpfNonce(___Vfmt string, ___Vpara ...interface{}) {
 	}
 }
 
+func _CFpfNdb(___Vfmt string, ___Vpara ...interface{}) {
+	__Vstr1 := _SpfNdb(___Vfmt, ___Vpara...)
+	_Ppf(__Vstr1)
+}
+
+func _SpfNdb(___Vfmt string, ___Vpara ...interface{}) string {
+	__Vstr1 := _FgetFrame(1).Function
+	__Vstr2 := string([]byte(__Vstr1)[strings.LastIndexByte(__Vstr1, '.')+1:])
+	__VfpndbI642 = __VfpndbI641
+	__VfpndbI641 = _FtimeI64()
+	if 0 == __VfpndbI642 {
+		__VfpndbI642 = __VfpndbI641
+	}
+	_, _, __Vline, _ := runtime.Caller(1)
+	__Vstr3 := _Spf("%s_%d", __Vstr2, __Vline)
+
+	__VpfNdbMaPmux.Lock()
+	__Vi3, __Vok3 := __VpfNdbMap[__Vstr3]
+	if true == __Vok3 {
+		__Vi3 += 1
+	} else {
+		__Vi3 = 1
+	}
+	__VpfNdbMap[__Vstr3] = __Vi3
+	__VpfNdbMaPmux.Unlock()
+
+	__Vso := _Spf(___Vfmt, ___Vpara...)
+	__Vso += _Spf("%11d:%2d: %s(%d)\n\n", __VfpndbI641, __VfpndbI641-__VfpndbI642, __Vstr2, __Vi3)
+	return __Vso
+}
+
+/*
+func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
+	__Vstr1 := _SpfNdb(___Vfmt, ___Vpara...)
+	_Ppf(__Vstr1)
+}
+*/
+
 func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	__Vstr1 := _FgetFrame(1).Function
 	__Vstr2 := string([]byte(__Vstr1)[strings.LastIndexByte(__Vstr1, '.')+1:])
