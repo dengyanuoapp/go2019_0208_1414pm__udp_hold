@@ -124,6 +124,8 @@ func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
 	__Vstr1 := _SpfNdb(___Vfmt, ___Vpara...) + "\n\n"
 	_Ppf(__Vstr1)
 }
+func __FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
+}
 
 /*
 func _FpfNdb(___Vfmt string, ___Vpara ...interface{}) {
