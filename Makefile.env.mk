@@ -1,6 +1,6 @@
 
 
-CFGmakeRun:=Makefile.run.go01
+CFGmakeRun:=Makefile.run.go01.mk
 
 
 GoTOP:=go2019_0208_1414pm__udp_hold
